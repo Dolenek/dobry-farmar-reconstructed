@@ -1,0 +1,36 @@
+{
+  "textures_compared": 425,
+  "pixels_compared": 81014421,
+  "native_textures_compared": 10,
+  "native_source_pixels_compared": 86346,
+  "texture_caps": 126021,
+  "maximum_allocated_width": 2048,
+  "maximum_allocated_height": 2048,
+  "resource_reload_checks": 435,
+  "manager_texture_cache_checks": 435,
+  "manager_xml_settings_checks": 6,
+  "adapter": "AMD Radeon (TM) Graphics",
+  "recorded_at_utc": "2026-10-08T14:51:13.571502+00:00",
+  "executable_sha256": "ff2c28e071f79955cb8bce648ad67d766e7f12eaf6d0f19065f08d86821bf790",
+  "reference_sha256": {
+    "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+    "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814",
+    "JNGLoad.dll": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687"
+  },
+  "original_dll_pixels_compared": true,
+  "original_graphics_runtime_compared": false,
+  "disguised_jng_dds_files_compared": 9,
+  "native_source_storage_original_compared_in": "native-image-validation.json",
+  "original_d3dx_gpu_loader_compared": false,
+  "native_d3d8_device": true,
+  "padding_texels_compared": false,
+  "status": "passed",
+  "pending": [
+    "Original cGraphics device setup and runtime comparison",
+    "Padding texel state",
+    "Full game screens/fonts",
+    "Reset/lost device and engine resource ABI",
+    "Original D3DX GPU texture loader",
+    "Non-JNG format fallback and other native devices"
+  ]
+}

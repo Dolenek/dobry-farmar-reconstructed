@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-08T12:11:36.943492+00:00",
+  "status": "partial_reconstruction_with_original_search_comparison",
+  "source": "src/game/core/String.cpp",
+  "header": "src/game/core/GameString.h",
+  "object_layout": {
+    "size_bytes": 28,
+    "storage_offset": 4,
+    "storage_bytes": 16,
+    "length_offset": 20,
+    "capacity_offset": 24,
+    "inline_capacity": 15,
+    "pointer_abi": "x86",
+    "prefix_offset": 0,
+    "prefix_role": "unverified; recovered routines do not read it"
+  },
+  "functions": {
+    "erase": "00401250",
+    "grow": "00401350",
+    "assign_substring": "004016d0",
+    "assign_bytes": "004019c0",
+    "compare": "00403960",
+    "find": "00548260",
+    "rfind": "00548330",
+    "substr": "005484f0"
+  },
+  "instruction_check": "Original PE disassembled with GNU objdump; grow, field offsets, search and unsigned comparison checked",
+  "original_comparison": {
+    "recorded_at_utc": "2026-10-08T12:12:24.168419+00:00",
+    "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "275f994b14a79e72f6d114eb441f97eda25205a32c4e7aa699520ef1b7091ea6",
+    "routines": {
+      "find": "00548260",
+      "rfind": "00548330",
+      "compare": "00403960"
+    },
+    "seed": "4641524d",
+    "trials": 20000,
+    "comparisons": 60000,
+    "status": "matches_original",
+    "exit_code": 0,
+    "error": ""
+  },
+  "remaining": [
+    "WString",
+    "Remaining String operations and conversions",
+    "Complete original exception ABI",
+    "Non-ASCII lowercase under original CRT locales"
+  ]
+}

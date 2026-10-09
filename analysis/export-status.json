@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "analysis_complete_reconstruction_incomplete",
+  "programs": {
+    "game": {
+      "program": "Dobrý farmář.exe",
+      "language": "x86:LE:32:default",
+      "compiler_spec": "windows",
+      "image_base": "00400000",
+      "input_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "status": "export_complete",
+      "function_count": 28867,
+      "decompiled_count": 28819,
+      "failed_count": 0,
+      "string_count": 2608,
+      "symbol_count": 68771,
+      "type_count": 514,
+      "thunk_count": 48,
+      "compiler_helper_counts": {
+        "Catch": 3431,
+        "Unwind": 21448
+      },
+      "decompilation_errors": [],
+      "reconstruction_complete": false,
+      "original_runtime_compared": false,
+      "original_routines_compared": {
+        "routines": [
+          "00548260",
+          "00548330",
+          "00403960"
+        ],
+        "comparisons": 60000,
+        "full_game_runtime_compared": false
+      }
+    },
+    "jngload": {
+      "program": "JNGLoad.dll",
+      "language": "x86:LE:32:default",
+      "compiler_spec": "windows",
+      "image_base": "10000000",
+      "input_sha256": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687",
+      "status": "export_complete",
+      "function_count": 781,
+      "decompiled_count": 776,
+      "failed_count": 1,
+      "string_count": 385,
+      "symbol_count": 10371,
+      "type_count": 265,
+      "thunk_count": 4,
+      "compiler_helper_counts": {},
+      "decompilation_errors": [
+        {
+          "address": "1003a9dd",
+          "name": "FUN_1003a9dd",
+          "signature": "undefined1[10] __cdecl FUN_1003a9dd(int param_1, uint param_2, int param_3, uint param_4)",
+          "error": "\nLow-level Error: Overlapping input varnodes"
+        }
+      ],
+      "reconstruction_complete": false,
+      "original_runtime_compared": true,
+      "original_comparison_scope": "Exact dimensions and BGRA bytes of all 416 game JNG assets on Windows x86; broader API behavior unverified"
+    },
+    "squall": {
+      "program": "Squall.dll",
+      "language": "x86:LE:32:default",
+      "compiler_spec": "windows",
+      "image_base": "10000000",
+      "input_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+      "status": "export_complete",
+      "function_count": 916,
+      "decompiled_count": 911,
+      "failed_count": 1,
+      "string_count": 302,
+      "symbol_count": 10438,
+      "type_count": 240,
+      "thunk_count": 4,
+      "compiler_helper_counts": {
+        "Unwind": 29
+      },
+      "decompilation_errors": [
+        {
+          "address": "1003cf82",
+          "name": "FUN_1003cf82",
+          "signature": "undefined1[10] __cdecl FUN_1003cf82(int param_1, uint param_2, int param_3, uint param_4)",
+          "error": "\nLow-level Error: Overlapping input varnodes"
+        }
+      ],
+      "reconstruction_complete": false,
+      "original_runtime_compared": false
+    },
+    "uninstall": {
+      "program": "Uninstall.exe",
+      "language": "x86:LE:32:default",
+      "compiler_spec": "windows",
+      "image_base": "00400000",
+      "input_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9",
+      "status": "export_complete",
+      "function_count": 79,
+      "decompiled_count": 73,
+      "failed_count": 0,
+      "string_count": 206,
+      "symbol_count": 1444,
+      "type_count": 274,
+      "thunk_count": 6,
+      "compiler_helper_counts": {},
+      "decompilation_errors": [],
+      "reconstruction_complete": false,
+      "original_runtime_compared": false
+    }
+  }
+}

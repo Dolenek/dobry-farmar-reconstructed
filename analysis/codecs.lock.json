@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "source": "Official historical source archives; SHA-256 pins downloaded bytes",
+  "dependencies": [
+    {
+      "name": "jpeg-6b",
+      "url": "https://www.ijg.org/files/jpegsrc.v6b.tar.gz",
+      "archive": "jpegsrc.v6b.tar.gz",
+      "archive_root": "jpeg-6b",
+      "sha256": "75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d",
+      "files": [
+        {
+          "path": "README",
+          "sha256": "4cf9c190f184019b61c36bcc49d4a24ffeb2a838c6f1690d6c4db14cfb2d0478"
+        },
+        {
+          "path": "example.c",
+          "sha256": "6cf46f1ab60fadfcb13284ab0ec5f1cb89fa50182842588f36d8f72c87965ea7"
+        },
+        {
+          "path": "jconfig.cfg",
+          "sha256": "814aa03b9769665afccb04cbf7b7389b9a7195601a2925e0d6f78444974397da"
+        },
+        {
+          "path": "jconfig.vc",
+          "sha256": "1d0894775067d15163181f26d3039e24b34501ca7e5380dd2ddb8526dd05b250"
+        },
+        {
+          "path": "jcapimin.c",
+          "sha256": "5d7e394ac763f51bb13d6f049c65888d3b106bf54c01253807647745acdf6eac"
+        },
+        {
+          "path": "jcapistd.c",
+          "sha256": "371517d8285ca47d286be53a6c1bf8f1a0372e12e6e7f7c84b324d7f441b6581"
+        },
+        {
+          "path": "jccoefct.c",
+          "sha256": "3ae6713a9b2a3fe717703dcdcb37f5dfdf123c19736207b71c132c4e1caa7099"
+        },
+        {
+          "path": "jccolor.c",
+          "sha256": "2c2b7417c2da845e5dcd959b4fb6264b8848c0de689d95dcc2a5b407ecaba5b5"
+        },
+        {
+          "path": "jcdctmgr.c",
+          "sha256": "58adbdb02c125057964569e56fad59df8dc7d61e751a476006c34e24c030d1dd"
+        },
+        {
+          "path": "jchuff.c",
+          "sha256": "1255c27a8fae13ad2b53d5fa17697b3b7cdb4983f6bdbf96876326189d2efba0"
+        },
+        {
+          "path": "jcinit.c",
+          "sha256": "31aa9f72d8e6250790328512ae9c646b3c2b32887f79fa3df01af7d5345e061c"
+        },
+        {
+          "path": "jcmainct.c",
+          "sha256": "a51f469b02429189ad0c5a52fb2d789d7025c1802b87168a9fe9180fc135c07e"
+        },
+        {
+          "path": "jcmarker.c",
+          "sha256": "c4eadb83aeaa63df9a17364fbddb1df1b96fb1281f2d395dff6ec8371373cfcc"
+        },
+        {
+          "path": "jcmaster.c",
+          "sha256": "44a467046fc8eee886359e1c738fb8289a5bb3533b06de62d332d5b409ddfb2b"
+        },
+        {
+          "path": "jcomapi.c",
+          "sha256": "d8a79c2a19310e0bc918324d7174a1e1bc1b9e316f63fd90449abf46c041711d"
+        },
+        {
+          "path": "jcparam.c",
+          "sha256": "c24c98d067ba1424a578e91a0ab584533983eafbcc399d681895974225478629"
+        },
+        {
+          "path": "jcphuff.c",
+          "sha256": "7a428d6d13f786ba53d200ba96ab1fa3ff9f7dad61737ad96f3ce199b748c367"
+        },
+        {
+          "path": "jcprepct.c",
+          "sha256": "4713a51fd7ecb9cc7c7162b30bc26243342361a4e083f43f2afbd10e977a92fc"
+        },
+        {
+          "path": "jcsample.c",
+          "sha256": "8e0b73f54bafcd87f7117795de04987eb1a5a3ac74fb8d256833ceb59f8b31d4"
+        },
+        {
+          "path": "jctrans.c",
+          "sha256": "d548e4aea1e85dfd37ac1bf359df768480c82927a52ecd2356ef1ca0987f51a9"
+        },
+        {
+          "path": "jdapimin.c",
+          "sha256": "4f6e8865e4ef356b90131327f6fa847fb12e8ef03e823bde946d3e2f9d9356c3"
+        },
+        {
+          "path": "jdapistd.c",
+          "sha256": "1b062e70e891819f4603f83baf49462ea737255a0c39df3ef941ef543f94fbab"
+        },
+        {
+          "path": "jdatadst.c",
+          "sha256": "733388bac2d58328f8918d23ddfc9f1fc3d60b8a97ad90eb057920005c23cfc7"
+        },
+        {
+          "path": "jdatasrc.c",
+          "sha256": "4de71c25304b1c3a2f19f62ba176122db78c4ac7147c2fc3fdf92532dce8f80d"
+        },
+        {
+          "path": "jdcoefct.c",
+          "sha256": "d84af1a89ea5f91d68607d5620a492f986b7515c141bc3666c5a70dc44df57db"
+        },
+        {
+          "path": "jdcolor.c",
+          "sha256": "de64bfa0416fa45c8a55cec82c7da468b329c3c3fc9cc55eb5f56509a80332cf"
+        },
+        {
+          "path": "jddctmgr.c",
+          "sha256": "f50d9b1414b44782d4ef46761a53f930b06764468b4cbbf0bf0761ac0751defd"
+        },
+        {
+          "path": "jdhuff.c",
+          "sha256": "980d1bdeb8bc631a3528560a4f01bfae28efd8f3ecce4a76d32c97a71e6d1f52"
+        },
+        {
+          "path": "jdinput.c",
+          "sha256": "f1f6b042aa907fe622aa7c94b21d71e61f7f306e10988148c42cc7d50f667e76"
+        },
+        {
+          "path": "jdmainct.c",
+          "sha256": "f9a8331d0a58f6ae74bbfc27e9640d66afb067793586358e0bb47bdb7cb754df"
+        },
+        {
+          "path": "jdmarker.c",
+          "sha256": "1200c42679f318768025f8e45457d02c5ce5dfecbd72b37dc0bd1da9adb4dba0"
+        },
+        {
+          "path": "jdmaster.c",
+          "sha256": "c9f18a007511047a50db0b14c54e4d88c279571ec36824b70c3c20232ef7a8fe"
+        },
+        {
+          "path": "jdmerge.c",
+          "sha256": "a47ca108ebf955104abbe3f9a64383532be2c70c6f956b5844b412f151f50453"
+        },
+        {
+          "path": "jdphuff.c",
+          "sha256": "75db83bd4bf1f3f6f6fe7b1d2e195efcf5e3ab65597089807aaeeffbdb013627"
+        },
+        {
+          "path": "jdpostct.c",
+          "sha256": "f873dd3a08eedee9a32c1e343cfbdc3380d2e245e1eab2c416d4e1a62cc9586e"
+        },
+        {
+          "path": "jdsample.c",
+          "sha256": "acca64d28c61b87e77993dd0bd51d089ecd68f8989f93e7d17156314ca58670d"
+        },
+        {
+          "path": "jdtrans.c",
+          "sha256": "c97867f861168d81844a9c9fd8c0b643ce835534a605a93aaab758ec36c56d8a"
+        },
+        {
+          "path": "jerror.c",
+          "sha256": "f215cc7948e628f4b3bf1f153ce1f460a65b0c4f9b5d4967e9cdc7ad95a3e265"
+        },
+        {
+          "path": "jfdctflt.c",
+          "sha256": "07c7ec15785f5709515424da1b45deacfa822197b761e319f45fbaa45e17caf9"
+        },
+        {
+          "path": "jfdctfst.c",
+          "sha256": "1c28ec690d4a69bdc285eac01bef668e31866ad0018fe9b4f68bcdce8a9ec044"
+        },
+        {
+          "path": "jfdctint.c",
+          "sha256": "807dd95d59692db94d2fa23557d8a16e2a20cb4d851ba5a82f26fa1a674b52c8"
+        },
+        {
+          "path": "jidctflt.c",
+          "sha256": "0988f6ba29f57b691dabdd3f0541839fb651dc74abd36c395130b12a30937155"
+        },
+        {
+          "path": "jidctfst.c",
+          "sha256": "c864b3dcfe494f9c8bda25a6fa5fc0a330e636b32eb4bcb6febe8cb01ed1d433"
+        },
+        {
+          "path": "jidctint.c",
+          "sha256": "3b7123ba9a66c10eb1f96d7432637b051278f3538d1b06884f9d21a39fd78f9a"
+        },
+        {
+          "path": "jidctred.c",
+          "sha256": "df25adc646b0fdd69aed54361928aeb36972a8293c917f8ec1b0d62e8f764252"
+        },
+        {
+          "path": "jquant1.c",
+          "sha256": "556df5715cf5d915e5190066ff4e542a9911b651e45b34d322a6f6c2b0098fbc"
+        },
+        {
+          "path": "jquant2.c",
+          "sha256": "9b6844e18480d7003618e8f473a0900743d15fc8516aee7229a77adce470eb0b"
+        },
+        {
+          "path": "jutils.c",
+          "sha256": "2cab735c6ea1bca55f4c94a72c73035a0a161378403a6bd849b350df71db92d6"
+        },
+        {
+          "path": "jmemmgr.c",
+          "sha256": "2b57e48bb6dd369c2d46e5827cd1e2553d50e02b062d94c2c17725ca26b642e3"
+        },
+        {
+          "path": "jmemansi.c",
+          "sha256": "fbcb3e54fa6e4b014321f29bf671ccae87072d5bb5ae8e5d31ab9f85e2383c4e"
+        },
+        {
+          "path": "jmemname.c",
+          "sha256": "c6318c7b484c26354ac3e6164c15403b6445d5eb0d81699b7e5c4106bf4e3e9e"
+        },
+        {
+          "path": "jmemnobs.c",
+          "sha256": "0605c64556d298071473fc245fa9d83cf10b60022d5c5d2821a846b94aa1a9fb"
+        },
+        {
+          "path": "jmemdos.c",
+          "sha256": "d98757c16fb714ebd61c0e5b0dbff9733294975dd61967e4f62b4bacdce1a1fb"
+        },
+        {
+          "path": "jmemmac.c",
+          "sha256": "0fcbd4378662b3eeb9952fa7c498ed087dd5a058daa8921f5abe1390676f4241"
+        },
+        {
+          "path": "cjpeg.c",
+          "sha256": "87657ebceb24e5cb694f8c5c55fc2ecf38e9e2628e1185d5f149dda474b4446c"
+        },
+        {
+          "path": "djpeg.c",
+          "sha256": "d462a6c7bb75357c183f0317f9dceb8fb543c73eb3358f692471df3038af59f4"
+        },
+        {
+          "path": "jpegtran.c",
+          "sha256": "a442485777182ae80b745bdb19bf9e45bece7143d9e7828ec97c06ba81e57f21"
+        },
+        {
+          "path": "rdjpgcom.c",
+          "sha256": "ba367aabfdea730030f8e397f6e883da331c6ac50e4e611f0f9291e5ad86f2f6"
+        },
+        {
+          "path": "wrjpgcom.c",
+          "sha256": "95f78068a270902b8cf7f48215fca8255f67a39f10c75fc9b1289fcc64cc8c0d"
+        },
+        {
+          "path": "cdjpeg.c",
+          "sha256": "7e9f5afdd367683ddac9ddc47f06d321b926df1b211d6dd71cd7e8e5241b257a"
+        },
+        {
+          "path": "rdcolmap.c",
+          "sha256": "85e72e62132c92e6e5c72277e4c05bee9a08d2128bc2855f2d3a49c3001de1a0"
+        },
+        {
+          "path": "rdswitch.c",
+          "sha256": "e20d1272e6146d89cd30e89646d1a8c2f08dfacb3a1705661b9896b99bca3e4f"
+        },
+        {
+          "path": "transupp.c",
+          "sha256": "0a3c3b0ca389beaaee00bcbc97e5377c13ca755d47de550a4b7db6910c98eea6"
+        },
+        {
+          "path": "rdppm.c",
+          "sha256": "4c800ecf405e821f7d350eb6fe9ea1a336940a615c1b45d15017100bdf11e7d6"
+        },
+        {
+          "path": "wrppm.c",
+          "sha256": "5ddd59bbd783775bd3e153e5013e26cb784ee2232b725b12d00acf08af272ea0"
+        },
+        {
+          "path": "rdgif.c",
+          "sha256": "f632af674bc404242816be0f945203fdc87a04266ae7e8a21e870c4333e2197a"
+        },
+        {
+          "path": "wrgif.c",
+          "sha256": "7fa7715f8b62a248e8641d34c948d0e2088ca2cd0f927d9c619df90cadda484d"
+        },
+        {
+          "path": "rdtarga.c",
+          "sha256": "6cc6528ca9cff3dfe6b1a3897d09a9f9f86733dd3b7c65810e0d4966b5ad3e14"
+        },
+        {
+          "path": "wrtarga.c",
+          "sha256": "8988e10a7d5f2dc7770f70e883a149cdac551111de16724b248b2be22d45045d"
+        },
+        {
+          "path": "rdbmp.c",
+          "sha256": "a059c7271be741d6a494d1196bfe78584524b9f56267ca238e24ba040a3886b7"
+        },
+        {
+          "path": "wrbmp.c",
+          "sha256": "ee77a227a0d1ce3d856b5da651308f7c438b3c803ab7f89dca8fb61df420e5f1"
+        },
+        {
+          "path": "rdrle.c",
+          "sha256": "b6393aa4bc0eee2c52a31c67882ac1042db28616b81050ee762991e28560b3d4"
+        },
+        {
+          "path": "wrrle.c",
+          "sha256": "c8847511c86d816a7728f019c0a4da2e62d84acec1fe2fbb467dfe4f22249220"
+        },
+        {
+          "path": "jchuff.h",
+          "sha256": "0aa206ea4abf0e68df14745c114fbe1db7705ce5c881b0964babf5acfbc38764"
+        },
+        {
+          "path": "jdhuff.h",
+          "sha256": "9474219e38bd98af7fd427e25462857854f3391fe4eaf329a0d0cb5e438e56f3"
+        },
+        {
+          "path": "jdct.h",
+          "sha256": "4cde9d7c12ffc920e1dd525c6b7f41f88a3ea573af8c66a4b6d0d6ed3d7fd770"
+        },
+        {
+          "path": "jerror.h",
+          "sha256": "324f058e0dc17408ea83a8d47d0a7a1f6ba7553d653f709a9be275971f539fec"
+        },
+        {
+          "path": "jinclude.h",
+          "sha256": "a6433e5ea0030f4bffd41bcc2f064008afd79de4270cf28494bd43d2fbc5da06"
+        },
+        {
+          "path": "jmemsys.h",
+          "sha256": "dbe87b534bc93f9ea54492589e69307b492aff8a377fa3c9c8b54a54de488397"
+        },
+        {
+          "path": "jmorecfg.h",
+          "sha256": "262138c3433e81e84e9f6811b38b5dc63e6f161e9b952afb0ff61b4a39b697a9"
+        },
+        {
+          "path": "jpegint.h",
+          "sha256": "f2fbbf47da9fe7cc9e4813235d71e1252ec4662e3ecb8823bd4d499492125153"
+        },
+        {
+          "path": "jpeglib.h",
+          "sha256": "b34b3d9897820302cc23ba60217157f75e03db8c537a7d4703ff0bc8c9fc048b"
+        },
+        {
+          "path": "jversion.h",
+          "sha256": "7a8c12a9d52f62342b46b64a8d91d148ae7b0398e9663ad03da3e0b882cd2f14"
+        },
+        {
+          "path": "cdjpeg.h",
+          "sha256": "51414d6b716c3fd47a77b4988988b2755dd3e32aea4ec7860b62b03dafd19c8a"
+        },
+        {
+          "path": "cderror.h",
+          "sha256": "fff8952ba362b0decf1994221dcdce56380540cbc68817fd5cf3e1bfa52c6a7e"
+        },
+        {
+          "path": "transupp.h",
+          "sha256": "ce899a5d2a45663d7f98b2d7cf89db21a7e1aa85bb83106a287fba120c5cdd45"
+        },
+        {
+          "path": "ckconfig.c",
+          "sha256": "db5e167c0c22b2dd01be7593a6d4933a1bc3e80f9e59bcace41975859aef9041"
+        },
+        {
+          "path": "ansi2knr.c",
+          "sha256": "cec2a7df258a10884a9a3e6190ad9394058b05d14686d852f942ed36f88219c4"
+        }
+      ],
+      "library_sources": [
+        "jcomapi.c",
+        "jutils.c",
+        "jerror.c",
+        "jmemmgr.c",
+        "jmemnobs.c",
+        "jcapimin.c",
+        "jcapistd.c",
+        "jctrans.c",
+        "jcparam.c",
+        "jdatadst.c",
+        "jcinit.c",
+        "jcmaster.c",
+        "jcmarker.c",
+        "jcmainct.c",
+        "jcprepct.c",
+        "jccoefct.c",
+        "jccolor.c",
+        "jcsample.c",
+        "jchuff.c",
+        "jcphuff.c",
+        "jcdctmgr.c",
+        "jfdctfst.c",
+        "jfdctflt.c",
+        "jfdctint.c",
+        "jdapimin.c",
+        "jdapistd.c",
+        "jdtrans.c",
+        "jdatasrc.c",
+        "jdmaster.c",
+        "jdinput.c",
+        "jdmarker.c",
+        "jdhuff.c",
+        "jdphuff.c",
+        "jdmainct.c",
+        "jdcoefct.c",
+        "jdpostct.c",
+        "jddctmgr.c",
+        "jidctfst.c",
+        "jidctflt.c",
+        "jidctint.c",
+        "jidctred.c",
+        "jdsample.c",
+        "jdcolor.c",
+        "jquant1.c",
+        "jquant2.c",
+        "jdmerge.c"
+      ]
+    },
+    {
+      "name": "zlib-1.2.3",
+      "url": "https://zlib.net/fossils/zlib-1.2.3.tar.gz",
+      "archive": "zlib-1.2.3.tar.gz",
+      "archive_root": "zlib-1.2.3",
+      "sha256": "1795c7d067a43174113fdf03447532f373e1c6c57c08d61d9e4e9be5e244b05e",
+      "files": [
+        {
+          "path": "adler32.c",
+          "sha256": "00c99977ac0c230d4a4e7a8e6ceea805a177d2c152f96d65b9120606ba568e59"
+        },
+        {
+          "path": "ChangeLog",
+          "sha256": "2c550ffd23b91023df540c93cbfbdccd03099211d55e1cd2396d5028d39392d8"
+        },
+        {
+          "path": "compress.c",
+          "sha256": "d1b6b94695a515f7dbc242ec3899110f443e6d61ad331a7731022acb2922269b"
+        },
+        {
+          "path": "crc32.c",
+          "sha256": "72fed7e11dbcbc2523a643f40dfb076360128f819455378d65492cc2f31855c9"
+        },
+        {
+          "path": "crc32.h",
+          "sha256": "b8252ca25db989e06910c09b031a328a18ab9c32fb3ab6e6f5c98c0e2b0089cb"
+        },
+        {
+          "path": "deflate.c",
+          "sha256": "9a7b00ada17c00871dddfd5607e17de22ca22bf57fe16b4e3baae042669a44d6"
+        },
+        {
+          "path": "deflate.h",
+          "sha256": "21b874a8ed5c2e0157e65d2290f5dd99398583c556466d693f38b2a18dd85194"
+        },
+        {
+          "path": "example.c",
+          "sha256": "7412f5ee69f080cfdf63482721b913d965e0f57459d68cd9177d6be16dcc82c8"
+        },
+        {
+          "path": "gzio.c",
+          "sha256": "67cbd32574628657a7a57c848cf070179630ccdaad938c5bd8119ead782ca11d"
+        },
+        {
+          "path": "infback.c",
+          "sha256": "fb5cf761491c70b0ce31c335e39d20d442c8586c527d9f75bb3f54b2adddef33"
+        },
+        {
+          "path": "inffast.c",
+          "sha256": "42466c76b7c4c330167c7e7e5758b1444140c7adcb4f41d6c6b9f082a8f0f617"
+        },
+        {
+          "path": "inffast.h",
+          "sha256": "b338cc7381a11473014404298bc89c5c3d6d4f3f5bd4e5c7ca3a8c1c1216ad6a"
+        },
+        {
+          "path": "inffixed.h",
+          "sha256": "88a340c8e628d56682a99c3a9a38e44fafeb8b4c609e0df85ea17c66011e0f42"
+        },
+        {
+          "path": "inflate.c",
+          "sha256": "ea0f06889e0e479379b4e7b14df5771825f3d95355c31487076d1d9955c37b33"
+        },
+        {
+          "path": "inflate.h",
+          "sha256": "664cd98c729e0201f801aa4534f7797bde53190867a33b5336e23025e4271c5d"
+        },
+        {
+          "path": "inftrees.c",
+          "sha256": "f256499c66a70ca0f63fa575112efaf313d44f69447bea544e4d85a54f289dde"
+        },
+        {
+          "path": "inftrees.h",
+          "sha256": "f29ebb99a776d4500446d6926155df48dcac9fa7d396ac7fabe31e5bd60cebbe"
+        },
+        {
+          "path": "minigzip.c",
+          "sha256": "ff3806980cf672eb6fb5c2ffd0bc73525bf0b1ec2e913a70a6b049fb738511ea"
+        },
+        {
+          "path": "README",
+          "sha256": "365db9b693fda6c66ddd97d81ae3eb17be32c890909553973a77439d85900494"
+        },
+        {
+          "path": "trees.c",
+          "sha256": "1d42f8cb2cf319854d3acbb8e45c821107682fe065ab22c61432a849ecde8133"
+        },
+        {
+          "path": "trees.h",
+          "sha256": "81579041310716219bbbf7c98849d91f5aeabdd7eadb1f8e9d7e2aa57724b58b"
+        },
+        {
+          "path": "uncompr.c",
+          "sha256": "2eb29295ca49201b0b0a6448dfca8706d81a78b9dbdf8fa006f3f636e29a65fc"
+        },
+        {
+          "path": "zconf.h",
+          "sha256": "dd6fc06ec36207bd5af7aa31557553665cc5d294e881a80052a108cff5dd303e"
+        },
+        {
+          "path": "zconf.in.h",
+          "sha256": "dd6fc06ec36207bd5af7aa31557553665cc5d294e881a80052a108cff5dd303e"
+        },
+        {
+          "path": "zlib.h",
+          "sha256": "ebceab9efa0d906fcc28dabb864ae63d99da8e5efe56e030cb9cb96578622245"
+        },
+        {
+          "path": "zutil.c",
+          "sha256": "e779dcf163308a4565e53d6d462ae19e4896b6f1c759312105bce758404ae075"
+        },
+        {
+          "path": "zutil.h",
+          "sha256": "5b3ffa91e57686861114a1da30a5ef8327acf2926535241f18de050249af9ac3"
+        }
+      ],
+      "library_sources": [
+        "adler32.c",
+        "compress.c",
+        "crc32.c",
+        "gzio.c",
+        "uncompr.c",
+        "deflate.c",
+        "trees.c",
+        "zutil.c",
+        "inflate.c",
+        "infback.c",
+        "inftrees.c",
+        "inffast.c"
+      ]
+    }
+  ]
+}

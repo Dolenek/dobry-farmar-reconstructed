@@ -1,0 +1,24 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 1094633,
+      "original_address": 6674076,
+      "function": "0050b3d0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1094761,
+      "original_address": 6674076,
+      "function": "0050b450",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    }
+  ]
+}

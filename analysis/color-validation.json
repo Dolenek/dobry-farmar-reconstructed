@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:16.053599+00:00",
+  "comparisons": 121538,
+  "precision_contexts": [
+    {
+      "precision": "process-default",
+      "comparisons": 60769
+    },
+    {
+      "precision": "x87-pc24",
+      "comparisons": 60769
+    }
+  ],
+  "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "4febcdd0c53465f75bcb9cec5719f34f25914c6596c39428da36a7818d348c84",
+  "original_pure_routines_compared": [
+    "00417f80",
+    "004455e0"
+  ],
+  "original_entry_point_executed": false,
+  "reference_file_modified": false,
+  "test_only_relocated_x87_constant_operands": 20,
+  "pending": [
+    "Non-finite channels",
+    "Settings color CRT parsing runtime comparison",
+    "Game rendering"
+  ]
+}

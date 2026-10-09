@@ -1,0 +1,31 @@
+{
+  "translations": 461,
+  "original_lookup_comparisons": 10464,
+  "dump_fixture_checks": 4,
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:17.876823+00:00",
+  "reference_sha256": {
+    "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+    "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+  },
+  "oracle_sha256": "804373dded17226bb44a2fd043ef7ef16df6bea89ece16c87807f6d5bb1e1b88",
+  "original_functions": [
+    "0052ed20",
+    "0052d2a0",
+    "0052d1a0",
+    "00401050"
+  ],
+  "test_only_adapter_addresses": [
+    "004017c0"
+  ],
+  "original_dump_mode_executed": false,
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "pending": [
+    "Original constructor/lifetime and DumpStrings runtime comparison",
+    "Original object/container and exception ABI",
+    "XML section text getter runtime comparison",
+    "Full menu/input/game integration"
+  ]
+}

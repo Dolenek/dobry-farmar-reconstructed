@@ -1,0 +1,186 @@
+{
+  "repository": "https://github.com/LuaDist/libmng",
+  "commit": "a629b36ff49fbf35626c040410b6d43aa32b1b0a",
+  "files": [
+    {
+      "path": "CHANGES",
+      "git_blob_sha1": "eeacf33246e5efd6543abd396ed3cef603ec09ef"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha1": "2b624c00a7a853ad933ffe35cdad9f4da1fffad4"
+    },
+    {
+      "path": "README",
+      "git_blob_sha1": "a8e67cad538148e997c1d28fe240941fe6fb03de"
+    },
+    {
+      "path": "README.config",
+      "git_blob_sha1": "d5cd4541d07c68786c0107123e1cbd03750914ee"
+    },
+    {
+      "path": "libmng.h",
+      "git_blob_sha1": "b3b1ab1418ba3435a83efd4fca497a8562fbbaea"
+    },
+    {
+      "path": "libmng_callback_xs.c",
+      "git_blob_sha1": "ff1a22a70b78121bef8fb9c8e53d64c746ef271a"
+    },
+    {
+      "path": "libmng_chunk_descr.c",
+      "git_blob_sha1": "e1004a540466edaa82fb61986ac2e43d9b5a3529"
+    },
+    {
+      "path": "libmng_chunk_descr.h",
+      "git_blob_sha1": "3781ab05254915c4808853010c9b1ec17a63c9b9"
+    },
+    {
+      "path": "libmng_chunk_io.c",
+      "git_blob_sha1": "eb18099fd6529537dbad25900635f7a2bbcda9fe"
+    },
+    {
+      "path": "libmng_chunk_io.h",
+      "git_blob_sha1": "f8505baecea067bedc6436838ffef185139d0487"
+    },
+    {
+      "path": "libmng_chunk_prc.c",
+      "git_blob_sha1": "e633e7e260cfe47d5380b3d9973feb8ccf6704b4"
+    },
+    {
+      "path": "libmng_chunk_prc.h",
+      "git_blob_sha1": "0cf0f3c1d587d03c7b26491dc9a32b46564c826a"
+    },
+    {
+      "path": "libmng_chunk_xs.c",
+      "git_blob_sha1": "13114090d6ba95a05df793a2850a8b0ea6d8befe"
+    },
+    {
+      "path": "libmng_chunks.h",
+      "git_blob_sha1": "d10bf2dc7988ae130ac37f8a40cc54ee11298f27"
+    },
+    {
+      "path": "libmng_cms.c",
+      "git_blob_sha1": "999575f66ef99e79dfcf4c0f3ac0d75c0aa8eb22"
+    },
+    {
+      "path": "libmng_cms.h",
+      "git_blob_sha1": "4459f805f85532ff1117cbe15f34b962745929c9"
+    },
+    {
+      "path": "libmng_conf.h",
+      "git_blob_sha1": "8441ee08743b5aa0e0f600067fe30262ca38532d"
+    },
+    {
+      "path": "libmng_data.h",
+      "git_blob_sha1": "430dca96b5930a2ef95fa536ce4374a45de9ea70"
+    },
+    {
+      "path": "libmng_display.c",
+      "git_blob_sha1": "adfb91d0e64272e21e65ac85b739ac66eff088e4"
+    },
+    {
+      "path": "libmng_display.h",
+      "git_blob_sha1": "f394dd2f6df359b754fd2ab6bea991b4e4d01b63"
+    },
+    {
+      "path": "libmng_dither.c",
+      "git_blob_sha1": "e23850cef46b0d4db9f16fd5e7e4015568b86a33"
+    },
+    {
+      "path": "libmng_dither.h",
+      "git_blob_sha1": "d9217c0cac096dcff92e4b7d97e0576e1c8a14c8"
+    },
+    {
+      "path": "libmng_error.c",
+      "git_blob_sha1": "3a4da206386dda8f8060efeb5fdc05e6312db487"
+    },
+    {
+      "path": "libmng_error.h",
+      "git_blob_sha1": "b49ff733082d3e6455fa83cfe387b1f28f8cdb64"
+    },
+    {
+      "path": "libmng_filter.c",
+      "git_blob_sha1": "ed69a75340380aa0cfdb91ecbcb43b64337fe53f"
+    },
+    {
+      "path": "libmng_filter.h",
+      "git_blob_sha1": "9ac9c7f99d5e74b1176e3314232c185cd2cc0177"
+    },
+    {
+      "path": "libmng_hlapi.c",
+      "git_blob_sha1": "6199d593c2536485f6faee2a4e96b6981a926397"
+    },
+    {
+      "path": "libmng_jpeg.c",
+      "git_blob_sha1": "5042e1d55082f911a229ecc76dd77644c3268285"
+    },
+    {
+      "path": "libmng_jpeg.h",
+      "git_blob_sha1": "a072af9c962f165a3e3f778363fb0230b0b0cd7d"
+    },
+    {
+      "path": "libmng_memory.h",
+      "git_blob_sha1": "b92d0c13d9580d1babd6a37ed8bf5d983fb25e9b"
+    },
+    {
+      "path": "libmng_object_prc.c",
+      "git_blob_sha1": "f6691ff422fad118bc3b7c421f7db8e120195dab"
+    },
+    {
+      "path": "libmng_object_prc.h",
+      "git_blob_sha1": "ffd20c8718658a4078da9030df543697725eee42"
+    },
+    {
+      "path": "libmng_objects.h",
+      "git_blob_sha1": "053e6b4b2e2c0167c530c28de90a5250ef7004b4"
+    },
+    {
+      "path": "libmng_pixels.c",
+      "git_blob_sha1": "ce5637be95fceae71a8c692272242224adceb361"
+    },
+    {
+      "path": "libmng_pixels.h",
+      "git_blob_sha1": "5a0281e89d3ea588b8dc4e94f6f4ab5fbf3055b0"
+    },
+    {
+      "path": "libmng_prop_xs.c",
+      "git_blob_sha1": "88e416d5cdc456731b3de827b4e98601b97f557f"
+    },
+    {
+      "path": "libmng_read.c",
+      "git_blob_sha1": "c922e19a5e92e5be6fbb163ea32622b4be454e99"
+    },
+    {
+      "path": "libmng_read.h",
+      "git_blob_sha1": "119cc3e60e4db7a678a3a27008adb474d1e00277"
+    },
+    {
+      "path": "libmng_trace.c",
+      "git_blob_sha1": "a6a2cab2b6d3cbb119165cde84c361a0bde4e283"
+    },
+    {
+      "path": "libmng_trace.h",
+      "git_blob_sha1": "0c749d978f9ed43a5d2f0a1056f2dbc4d2c0f0df"
+    },
+    {
+      "path": "libmng_types.h",
+      "git_blob_sha1": "81fb29f528039400ad4f10887ab189afbefb850b"
+    },
+    {
+      "path": "libmng_write.c",
+      "git_blob_sha1": "79ff5443847e56d28ca4e7077fecc083c7005a1a"
+    },
+    {
+      "path": "libmng_write.h",
+      "git_blob_sha1": "df058fb7748e2eb51aae632b5237365c11f133f2"
+    },
+    {
+      "path": "libmng_zlib.c",
+      "git_blob_sha1": "7d102e160d14d2311717e2212f466039a457bb77"
+    },
+    {
+      "path": "libmng_zlib.h",
+      "git_blob_sha1": "cfc39182348c80e423a3dfe78dcd01ddeca7e1fd"
+    }
+  ]
+}

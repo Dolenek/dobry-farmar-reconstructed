@@ -1,0 +1,435 @@
+{
+  "repository": "https://github.com/xtreme3d/squall",
+  "commit": "20988426d2dde0a4b7aa6e18578f59c55d3af3a8",
+  "archive_sha256": "5f7105d28bf8b0aea0e2a147b29942145e8c45c1bca44dfbe104b98683ab066e",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "372b3533da17efa6128fef96002818c13229c685f853afd33b1b3f4bbc1762e2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5cfd6955610fa2007ce46fdb273fd11f68d16109939029d98e076c27b03ed58f"
+    },
+    {
+      "path": "examples/simple/Squall.h",
+      "sha256": "73c02b197258537358b76a59053279f7b74035c4bc5aeed6176f3d2a2d20a9f0"
+    },
+    {
+      "path": "examples/simple/example.dev",
+      "sha256": "54c264f4d132775b6d9df01a17fd3c87aa1dd80cfd455c2741ee86d1d9a178f0"
+    },
+    {
+      "path": "examples/simple/main.cpp",
+      "sha256": "03c2811a774add32a37b8970391ec40a86546d8d6cb1a07cb54a8a9ae5427276"
+    },
+    {
+      "path": "external/dshow/amstream.h",
+      "sha256": "53d72da32601722e2a5ba5bd495f829798116b0bb1af44e83e43e4e2b1dec6e9"
+    },
+    {
+      "path": "external/dshow/amstrmid.lib",
+      "sha256": "7026a267078cf2a4b98f6b0abaff33cb9a0f2a65a65f98dcbc829dcd2dc74e55"
+    },
+    {
+      "path": "external/dshow/austream.h",
+      "sha256": "d8e38c45fae1887d7cb92e5d95593e35c98705f031bc91949aca8bc0717a48e6"
+    },
+    {
+      "path": "external/dshow/ddstream.h",
+      "sha256": "4a48b0b35814d1641a6483df45fe2163f177f0541ce5a4b8644623fe0fa4374b"
+    },
+    {
+      "path": "external/dshow/mmstream.h",
+      "sha256": "0b0c09adaa14c4d991463e656756f8c41650e4cc4f877ecb511ff4152c1ba99d"
+    },
+    {
+      "path": "source/SoundEngine/CAbstractChannel.cpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source/SoundEngine/CAbstractChannel.h",
+      "sha256": "e712b6d032abc8ee980bb837105449096c3ab9f3711326e764cc6411535f6ec2"
+    },
+    {
+      "path": "source/SoundEngine/CAbstractOutput.cpp",
+      "sha256": "6f79fc148705224e768cb09e5e2668889165c32c63731348b84f4da3cad0193c"
+    },
+    {
+      "path": "source/SoundEngine/CAbstractOutput.h",
+      "sha256": "5cdc7a491ad2fe6d6473bc828aefac95204886c16fb465eb991a63bad50e86ab"
+    },
+    {
+      "path": "source/SoundEngine/CDXChannel.cpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source/SoundEngine/CDXChannel.h",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source/SoundEngine/CDXOutput.cpp",
+      "sha256": "47ae8f762fcb7fafe52ade5ff8d7294bbd5d3bbfeabda8c327e5f9620dc99cfb"
+    },
+    {
+      "path": "source/SoundEngine/CDXOutput.h",
+      "sha256": "57117c50ded3a66b785972739fb25511ee7e7d67ef130f07fe0a4a04a2349163"
+    },
+    {
+      "path": "source/SoundEngine/Channels.cpp",
+      "sha256": "2da12200af014cf5abc05713e93e609bc2e4187cab7f888bdaa3d36958e397e4"
+    },
+    {
+      "path": "source/SoundEngine/Channels.h",
+      "sha256": "0baf8a339df401bc5e23515bfccc6d81a05bb91aa12569efddb1cb924a7f2955"
+    },
+    {
+      "path": "source/SoundEngine/Context.cpp",
+      "sha256": "dc6df0955e2f30790ddbe29d5b358c6e5fe32bd4b0a9e89c208d339b835f8b40"
+    },
+    {
+      "path": "source/SoundEngine/Context.h",
+      "sha256": "b4298bb22119edae0cbcfc7087e16aa7d7ba87f9a22ec0f85b3a1f351d93a0ff"
+    },
+    {
+      "path": "source/SoundEngine/DirectSound.cpp",
+      "sha256": "534db9e8e9a95071d128791a89dac5cba06aed0004c52b6cfe6e95677bba85bc"
+    },
+    {
+      "path": "source/SoundEngine/DirectSound.h",
+      "sha256": "b84e1584b2ea68442caaa31f4276b746a11beb50cd08073fc2bbf1e3332095cc"
+    },
+    {
+      "path": "source/SoundEngine/HiddenWindow.cpp",
+      "sha256": "7db9bcfd3465b03bfb043f54848056f56ba0a793889198b609347b8e5fb1fad5"
+    },
+    {
+      "path": "source/SoundEngine/HiddenWindow.h",
+      "sha256": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced"
+    },
+    {
+      "path": "source/SoundEngine/Squall.cpp",
+      "sha256": "58f5a4956af0397a8bca79434e0afbff304232e717f2b5583405ccfae18a5d3b"
+    },
+    {
+      "path": "source/SoundEngine/SquallApi.cpp",
+      "sha256": "7540a7f6548da0ea109f22719c92856024b9c995f7bc2723ed86f3b82b7a00d1"
+    },
+    {
+      "path": "source/SoundEngine/SquallApi.h",
+      "sha256": "f87d7940c0ef274334c3ac51ee0f86bb38a865bcdd8b2d2f4f2081d2932750af"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax.cpp",
+      "sha256": "2bc84833a571f170c1cc39dd36fa8a9951971d1b43200da86e45d2c52afa21b6"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax.h",
+      "sha256": "a6854f22310e991211059b5c726ccfc0b8beecb6aeb4e5a75c21cb1a3ed45515"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax1_api.h",
+      "sha256": "abda90cfd96ff37aff04d9dd89a4e833fae22304b8033045d126d4c76e7ec6f8"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax2_api.h",
+      "sha256": "1c1004b7832e51e143df643ee241bbce86c33b4fbb43a24d577724ee0f2d8f47"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax3_api.h",
+      "sha256": "92eab44ab9d46481aa7ce5a1660734cdf4c4f6387ef1d3223d0c69b07648186b"
+    },
+    {
+      "path": "source/SoundEngine/ext/Eax4_api.h",
+      "sha256": "19bb25d8c82c156cf4acb11b5fa9ed6a3ba8b5e78f9b3d52efd25f366542c1ff"
+    },
+    {
+      "path": "source/SoundEngine/ext/ZoomFX.cpp",
+      "sha256": "2cb3a8d6dc0fe87cb5b5dc53b261715ea3b3891c84c696d2ec19f2b286c7448a"
+    },
+    {
+      "path": "source/SoundEngine/ext/ZoomFX.h",
+      "sha256": "30736dae62ad275b194d22fe42cc13e20e610314668aa24b9cb6bb6e5d8b745f"
+    },
+    {
+      "path": "source/SoundEngine/ext/ZoomFX_api.h",
+      "sha256": "1c038708df49cc14af7feea5d203ee8eb299fee9269a9a05b746ae6e27bbf327"
+    },
+    {
+      "path": "source/SoundEngine/ext/dsound.h",
+      "sha256": "4cc7967da0f26e62b5dae9d6510e2dd66b57aed755ef2feb5474f385fe3e64da"
+    },
+    {
+      "path": "source/SoundFile/AbstractDecoder.h",
+      "sha256": "5e85897bc7b284f248c1633fca3ab6f3b5fec9f3130c35707b9ca50a15e025f4"
+    },
+    {
+      "path": "source/SoundFile/AbstractSoundFile.h",
+      "sha256": "bd88f88e7c73fbbf3d0101b5b1313ea1233aa0672d4e33d37da6e76ab316e29b"
+    },
+    {
+      "path": "source/SoundFile/ExternFunction.h",
+      "sha256": "7220cc7f58fea02699c55da0efb2f64d0d65dd06836478f2281b3428ff51c82f"
+    },
+    {
+      "path": "source/SoundFile/MP3/MpegDecoder.cpp",
+      "sha256": "514dc3919f66677e53885b98d06f92df1b11e2e04e5ffa80008a0d544459197b"
+    },
+    {
+      "path": "source/SoundFile/MP3/MpegDecoder.h",
+      "sha256": "667d50877472e6d1d00b073e752f23048a827510d38746a5cd9ebf22ce7e368f"
+    },
+    {
+      "path": "source/SoundFile/MP3/MpegFile.cpp",
+      "sha256": "ef78b350092e31c467dfcf0177d5d10c380150df81e2ec826df4cd227b13c106"
+    },
+    {
+      "path": "source/SoundFile/MP3/MpegFile.h",
+      "sha256": "2b3a0363d89d95f56e14d58571f6249f66fd7f076e0782b16ecd8d0242cca1f8"
+    },
+    {
+      "path": "source/SoundFile/MP3/MpegHuff.h",
+      "sha256": "be1051f2800727c65d4bac882e7c225daefce4b8aa1ecd2d946b15bc6d09953c"
+    },
+    {
+      "path": "source/SoundFile/MP3/l1dec.cpp",
+      "sha256": "61105b62ba17ebf28ed34a7b43eb054ad2848a2ba6fd27ed60f51211771e2886"
+    },
+    {
+      "path": "source/SoundFile/MP3/l2dec.cpp",
+      "sha256": "c35d567b162bac94ba6ca12a0285d0ac2172e1d0a1a9651a008db75093d877a7"
+    },
+    {
+      "path": "source/SoundFile/MP3/l3dec.cpp",
+      "sha256": "2f9d0a7c876dbcf19223c5034562e0b1cb33bbe59dd401945f8483dc7b3d264c"
+    },
+    {
+      "path": "source/SoundFile/Ogg/OggDecoder.cpp",
+      "sha256": "8b88887fb1b3623690f48565c983db62d7ec779904ccd09ef8942ffc71ca9b20"
+    },
+    {
+      "path": "source/SoundFile/Ogg/OggDecoder.h",
+      "sha256": "f21480b829cfc0f4484d9f15a8b326eb6f45ae91ec9e10b82a837df34d621fa3"
+    },
+    {
+      "path": "source/SoundFile/Ogg/OggFile.cpp",
+      "sha256": "48fb824b316ced65a56d074ba0664a93ce712576315917728757b25f4a09614e"
+    },
+    {
+      "path": "source/SoundFile/Ogg/OggFile.h",
+      "sha256": "1a95c68d41fb420ea8b96dfa1a48c4aa05f61d7b5bd4664cc534cbdc12c88a2c"
+    },
+    {
+      "path": "source/SoundFile/Reader.cpp",
+      "sha256": "c066f223184fb9dba797bad26fdb1992c34fe6f30ef96ca77fb6471f3301f3c5"
+    },
+    {
+      "path": "source/SoundFile/Reader.h",
+      "sha256": "ab169609ffde3974a382d427271c5969cd1ab483f1a51d97adab6b135cd9de29"
+    },
+    {
+      "path": "source/SoundFile/SoundFile.cpp",
+      "sha256": "32bdf8f2dfb311fc8958ecccc61d505e636b55b68102c33f96408cee6572d8a4"
+    },
+    {
+      "path": "source/SoundFile/SoundFile.h",
+      "sha256": "a855389481cac6acccdb2fff6044f08eff6c8437383fdb998995fe940449d0dc"
+    },
+    {
+      "path": "source/SoundFile/WAV/ImaAdpcmDecoder.cpp",
+      "sha256": "e3324e525d3249d71b17a57beffebe40c678bd03969236eef6bcd222f8acf88f"
+    },
+    {
+      "path": "source/SoundFile/WAV/ImaAdpcmDecoder.h",
+      "sha256": "0c4e4f256f789dc0688bb086958a7044051e6ce7d394e90b6e5d3dff5b464e8b"
+    },
+    {
+      "path": "source/SoundFile/WAV/MsAdpcmDecoder.cpp",
+      "sha256": "51753d3a081f1e51670181c51cd0a07ba38a60f8ac0f2ddbe95bf35d7b0f1211"
+    },
+    {
+      "path": "source/SoundFile/WAV/MsAdpcmDecoder.h",
+      "sha256": "a7c4076be7418cf7259d3bb3ecf1d3e87aa5bad24052ef45aa16d674f2a26aea"
+    },
+    {
+      "path": "source/SoundFile/WAV/PcmDecoder.cpp",
+      "sha256": "8aace974ce61a0754593dc99e182c5b07d2403704b8f4f7a175bc63ea9e84481"
+    },
+    {
+      "path": "source/SoundFile/WAV/PcmDecoder.h",
+      "sha256": "c7842996cb9da4e0a6ad449cfb2bbf27335dfa761aa1b03414c418b838399ef5"
+    },
+    {
+      "path": "source/SoundFile/WAV/WavFile.cpp",
+      "sha256": "8e6cc16dc92a046c733043a27267a478f33e279a2d60be5b8b8ffd1dc0622cf3"
+    },
+    {
+      "path": "source/SoundFile/WAV/WavFile.h",
+      "sha256": "5fb03ac452ec28dda5c5a321748455638e606d918be23fe48bf867d41a493ef4"
+    },
+    {
+      "path": "source/SoundFile/Wma/WmaDecoder.cpp",
+      "sha256": "9825b12c4d1f7e8cdb3b36caaae0d732c1c2409118e22d2f2ba88b7e58482d45"
+    },
+    {
+      "path": "source/SoundFile/Wma/WmaDecoder.h",
+      "sha256": "3789bb089dabcf1d8c260741ea22df69522b2437cbc7f9093486dd8bc4c337f0"
+    },
+    {
+      "path": "source/SoundFile/Wma/WmaFile.cpp",
+      "sha256": "b89d37a873a260776b53b3d3b8c37ec77632fdca69cbba0edf721efc604c28de"
+    },
+    {
+      "path": "source/SoundFile/Wma/WmaFile.h",
+      "sha256": "bc0dbcc1c2c05d6f3b618be5ea93434a0881d7d7e3ee27e074e34b2c1a69bcbd"
+    },
+    {
+      "path": "source/SoundFile/track/TrackDecoder.cpp",
+      "sha256": "d44a3f4b59ec7f96f22bde814b272ae510c09cfa51416eff9e8a359bae36812b"
+    },
+    {
+      "path": "source/SoundFile/track/TrackDecoder.h",
+      "sha256": "1734711cb86c3c9d3579348f2d830a088427ae6529eb4a6a862bd7781cda45b7"
+    },
+    {
+      "path": "source/SoundFile/track/TrackFile.cpp",
+      "sha256": "6f7d698a07f6b45e5727323e48372b03753515fe052ab5ae5c43e3fae940d9c3"
+    },
+    {
+      "path": "source/SoundFile/track/TrackFile.h",
+      "sha256": "bb2c1f964572f80b35edaca0f6e609029da89d27a3b6c4804b5d748cdccdbc9d"
+    },
+    {
+      "path": "source/SoundFile/track/fastmix.cpp",
+      "sha256": "51447f8e5ac3f2b512db45fc53e96cb603e1ae29f7b3d10e15c7e8bf2bd3af2c"
+    },
+    {
+      "path": "source/SoundFile/track/it_defs.h",
+      "sha256": "e5c00255943ff854c77448a5b39f4acc1505c24ce6f6fcab1d15b148a8738928"
+    },
+    {
+      "path": "source/SoundFile/track/load_669.cpp",
+      "sha256": "a49b925f072522f4c5bcf300310ef4c9650db4d5ebee2d70c2e96be99e123bc5"
+    },
+    {
+      "path": "source/SoundFile/track/load_amf.cpp",
+      "sha256": "f35fc17cac6fccf097b9b3486bb54b89fb013f45dd7e1cfe2c671bccccd3c861"
+    },
+    {
+      "path": "source/SoundFile/track/load_ams.cpp",
+      "sha256": "7ba5137ca302bae734b5c1bcf6b007dbda2f6b66708e91d5fb98d95e05819a6f"
+    },
+    {
+      "path": "source/SoundFile/track/load_dbm.cpp",
+      "sha256": "8cff70cb36c3904bca2e13a50ca242b6c2004b2a2f192e6ce9e0ccb43c35d1c8"
+    },
+    {
+      "path": "source/SoundFile/track/load_dmf.cpp",
+      "sha256": "169b6624f6d6dd7dc7d7b02b0903b2c49f07084d2b9f09ba6c7c35ea7b8ad46b"
+    },
+    {
+      "path": "source/SoundFile/track/load_dsm.cpp",
+      "sha256": "157572eaed8927549cdabc78fe7ece3ddb8f10e0649a6886b50829dff19593dd"
+    },
+    {
+      "path": "source/SoundFile/track/load_far.cpp",
+      "sha256": "55b00c5a54549790e0ad3144329e8d533a7c112b5639695570e39035d8073579"
+    },
+    {
+      "path": "source/SoundFile/track/load_it.cpp",
+      "sha256": "57014d53b91facc93b94333276f78dfe89990fffae0236e7acb1b7f480e17027"
+    },
+    {
+      "path": "source/SoundFile/track/load_mdl.cpp",
+      "sha256": "910a98dba6a6190f0bb7eab2ae2bf9124c93875df6d455a31fe6027ee9d8d9ec"
+    },
+    {
+      "path": "source/SoundFile/track/load_med.cpp",
+      "sha256": "eefd26d12676027fd5678bc4bf3d30ca7182589643e4ebe0757f0ddc66f1ae9d"
+    },
+    {
+      "path": "source/SoundFile/track/load_mod.cpp",
+      "sha256": "bb175d20b8c00dc7aef458eaf60b04f7b72b5ae26bb9186c079bbae2792392e6"
+    },
+    {
+      "path": "source/SoundFile/track/load_mt2.cpp",
+      "sha256": "efe05442eea5e14f986945888520acfc0cf55007443f5827f68453ec60dd3086"
+    },
+    {
+      "path": "source/SoundFile/track/load_mtm.cpp",
+      "sha256": "490e0c19899775800e67c0cec69d6c4541772f8a0a7a03a2bf960b9d523725d0"
+    },
+    {
+      "path": "source/SoundFile/track/load_okt.cpp",
+      "sha256": "b6a7bfb44ba68880b7dd447f2e37fa59c752c214c4e9b4ff29fc69326b4f44eb"
+    },
+    {
+      "path": "source/SoundFile/track/load_psm.cpp",
+      "sha256": "49970589a0421904771ed53f91fb1a29b139203d048c21c1abeeae070a534091"
+    },
+    {
+      "path": "source/SoundFile/track/load_ptm.cpp",
+      "sha256": "bf8ede3229c59b2cf263eb6b97ebcf6ea460ce6aa7480e33abd62703e3a4ae6c"
+    },
+    {
+      "path": "source/SoundFile/track/load_s3m.cpp",
+      "sha256": "591a9aeaf49613e0f1550292f4ed6ea342108749f089e6570ce70cec601854e4"
+    },
+    {
+      "path": "source/SoundFile/track/load_stm.cpp",
+      "sha256": "e87416874e711825ec26e20f8b3526704ad8233810f5b58f29268ffd857a84bd"
+    },
+    {
+      "path": "source/SoundFile/track/load_ult.cpp",
+      "sha256": "76908540e51c2122df36a519613f45e80a12d1d7745f087d68a42e30a325542f"
+    },
+    {
+      "path": "source/SoundFile/track/load_umx.cpp",
+      "sha256": "4cb0a5255e30ba548fd97bd3c8ae6cf628cb53d81d65e465a9e23b5246148534"
+    },
+    {
+      "path": "source/SoundFile/track/load_xm.cpp",
+      "sha256": "6d7b215d9b2874c64b2f49015a8984c4d1880cf4f4eda038c68679814628116b"
+    },
+    {
+      "path": "source/SoundFile/track/snd_fx.cpp",
+      "sha256": "1bbe21aa0cee08523a052f2ce3ca9de9ac8843eb973c76504883e6fb2d75fa36"
+    },
+    {
+      "path": "source/SoundFile/track/sndmix.cpp",
+      "sha256": "2912016f9a8fe85223e02c7485cae9f1a83e32f72cb0a243cdee15b08c391ffa"
+    },
+    {
+      "path": "source/SoundFile/track/stdafx.h",
+      "sha256": "126063497718c2d9bd8324d81a742e2bd5a6122cddff931d24c891933e361be6"
+    },
+    {
+      "path": "source/SoundFile/track/tables.cpp",
+      "sha256": "6b9bfcd6f9589513716a9b979d77ffcb035e20a50785358b2e3e6966d20cf768"
+    },
+    {
+      "path": "source/Squall.h",
+      "sha256": "73c02b197258537358b76a59053279f7b74035c4bc5aeed6176f3d2a2d20a9f0"
+    },
+    {
+      "path": "source/Squall.sln",
+      "sha256": "e20f3bfb4042b17ab946602e6d75ee2ae056ac5ee5ed7df8a3219fe90abd2a19"
+    },
+    {
+      "path": "source/Squall.vcproj",
+      "sha256": "6df6c0b5caa7b54f4de1f40aebfd37f3a144b8460af0c04cb69746b413e350b9"
+    },
+    {
+      "path": "source/dll.h",
+      "sha256": "cd4e8e5fe8c0f68448bafd4c6c80b98bd3492d649160d078e312d82057696294"
+    },
+    {
+      "path": "source/dllmain.cpp",
+      "sha256": "ee0c09d79ca27d5ac1ae76a80b015b9517f565c95bc436fa0009f924bb7ff0d8"
+    },
+    {
+      "path": "source/squall.dev",
+      "sha256": "30de1e80069e5babc07305e1643e0a81745d9797f0e34909cd0ca2161fe5dcce"
+    }
+  ]
+}

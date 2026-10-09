@@ -1,0 +1,85 @@
+{
+  "operations": 32000,
+  "state_comparisons": 384024,
+  "callback_events": 35826,
+  "registry_comparisons": 32000,
+  "precision_comparisons": 20000,
+  "frame_comparisons": 1024,
+  "owned_views_deleted": 24,
+  "precision_contexts": [
+    {
+      "operations": 16000,
+      "state_comparisons": 192012,
+      "callback_events": 17913,
+      "registry_comparisons": 16000,
+      "precision_comparisons": 10000,
+      "frame_comparisons": 512,
+      "owned_views_deleted": 12,
+      "precision": "process-default"
+    },
+    {
+      "operations": 16000,
+      "state_comparisons": 192012,
+      "callback_events": 17913,
+      "registry_comparisons": 16000,
+      "precision_comparisons": 10000,
+      "frame_comparisons": 512,
+      "owned_views_deleted": 12,
+      "precision": "x87-pc24"
+    }
+  ],
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:18.774576+00:00",
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "479edd36c77aadd4baf491580e8805e3f65a09b25266b129da7d9d83963418d7",
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "original_functions": [
+    "004d55b0",
+    "004d58a0",
+    "004d2e50",
+    "004d37d0",
+    "004d3720",
+    "004d3bb0",
+    "004d3fb0",
+    "004d4590",
+    "004d4980",
+    "004d4d80",
+    "004d59c0",
+    "004d2ec0",
+    "004d2f50",
+    "004d2fc0",
+    "00506f90",
+    "00506fe0",
+    "00507030",
+    "00507080",
+    "005069d0",
+    "00506b90",
+    "00506d90",
+    "00531b20",
+    "004fb180"
+  ],
+  "test_adapters": [
+    "Allocation/free use diagnostic CRT",
+    "Timer +8 returns controlled elapsed value",
+    "Virtual callbacks record order then call original base handlers; child deleting destructor records then calls original base destructor",
+    "Main-frame cursor update, timer advance, input processing, and graphics begin/finish use empty diagnostic boundary callbacks",
+    "Sound, mesh, and drawable-control registries are empty in frame fixtures; no complete rendering or physical input comparison",
+    "Completed discard mode is converted to hide in frame fixtures; native discard-map traversal is empty"
+  ],
+  "pending": [
+    "Modern container/object layout is not the original 44-byte ABI",
+    "loadXML typed extraction comparison",
+    "Completed transparent discard diagnostic String and queued deletion comparison",
+    "Copy constructor 004d56b0",
+    "Whole frame traversal, input, control rendering and menu integration",
+    "Nonfinite transparency/elapsed behavior",
+    "Main-frame sound/mesh/graphics/input integration and native nonempty queued deletion"
+  ],
+  "coverage": [
+    "Absolute then normal UI traversal with normal pending-removal tests in both passes",
+    "Callbacks mutate normal/absolute registration while traversing; additions/removals flush between passes",
+    "Transition-set size 00660528 suppresses BOTH step passes while transitions exist; finished transitions are removed after traversal",
+    "1024 original main frames across both x87 contexts, comparing callback order and all 12 view states/registries"
+  ]
+}

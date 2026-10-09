@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:16.746610+00:00",
+  "comparisons": 40000,
+  "trials": 20000,
+  "precision_contexts": [
+    {
+      "precision": "process-default",
+      "comparisons": 20000
+    },
+    {
+      "precision": "x87-pc24",
+      "comparisons": 20000
+    }
+  ],
+  "subdivision_range": [
+    1,
+    8
+  ],
+  "fullscreen_and_windowed": true,
+  "vertex_bytes_compared": true,
+  "index_words_compared": true,
+  "nonzero_base_vertex_tested": true,
+  "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "58a4dba8d0b081de088e861256d0bfce92941f7295237ef43b6b231b95b62abb",
+  "original_function": "00517f40",
+  "original_entry_point_executed": false,
+  "reference_file_modified": false,
+  "test_only_operand_fixups": 39,
+  "pending": [
+    "Batch transition/list runtime comparison",
+    "Full game screens",
+    "Sprite shader ownership",
+    "Zero/overflow subdivisions and buffer capacities",
+    "Non-finite inputs and other FPU modes"
+  ]
+}

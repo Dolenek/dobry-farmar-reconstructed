@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:16.288427+00:00",
+  "comparisons": 140004,
+  "precision_contexts": [
+    {
+      "precision": "process-default",
+      "comparisons": 70002
+    },
+    {
+      "precision": "x87-pc24",
+      "comparisons": 70002
+    }
+  ],
+  "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "2b2b048781702b98738fb383d59c693c40bfd65726a85ea16e004de5dc4ba72f",
+  "original_pure_routines_compared": [
+    "00591fe8",
+    "005920cb",
+    "0059221a"
+  ],
+  "bitwise_float_comparison": true,
+  "original_entry_point_executed": false,
+  "reference_file_modified": false,
+  "test_only_relocated_projection_constant_operands": 2,
+  "pending": [
+    "Non-finite/singular inputs",
+    "Other x87 precision/rounding modes",
+    "Game rendering"
+  ]
+}

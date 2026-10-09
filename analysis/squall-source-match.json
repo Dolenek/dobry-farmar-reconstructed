@@ -1,0 +1,793 @@
+{
+  "status": "reference_source_differs_from_original",
+  "source_commit": "20988426d2dde0a4b7aa6e18578f59c55d3af3a8",
+  "original_export_count": 97,
+  "reference_declaration_count": 99,
+  "missing_declarations": [],
+  "extra_declarations": [
+    "SQUALL_Channel_SetEndWorker",
+    "SQUALL_Sample_LoadFromMemory"
+  ],
+  "verified_implementation_differences": [
+    "Original volume table uses trunc(10000 * log10(0.009F * i + 0.1F)); reference uses floor(5000 * log10(i / 99.0F))."
+  ],
+  "original_runtime_compared": false,
+  "exports": [
+    {
+      "name": "SQUALL_ChannelGroup_Pause",
+      "address": "10007100",
+      "ordinal": 1,
+      "reference_signature": "DLL_API int SQUALL_ChannelGroup_Pause(int ChannelGroupID, int Pause);",
+      "header_line": 1676,
+      "implementation_line": 7026
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetFrequency",
+      "address": "100072c0",
+      "ordinal": 2,
+      "reference_signature": "DLL_API int SQUALL_ChannelGroup_SetFrequency(int ChannelGroupID, int Frequency);",
+      "header_line": 1717,
+      "implementation_line": 7202
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetVolume",
+      "address": "10007220",
+      "ordinal": 3,
+      "reference_signature": "DLL_API int SQUALL_ChannelGroup_SetVolume(int ChannelGroupID, int Volume);",
+      "header_line": 1702,
+      "implementation_line": 7142
+    },
+    {
+      "name": "SQUALL_ChannelGroup_Stop",
+      "address": "10007190",
+      "ordinal": 4,
+      "reference_signature": "DLL_API int SQUALL_ChannelGroup_Stop(int ChannelGroupID);",
+      "header_line": 1688,
+      "implementation_line": 7083
+    },
+    {
+      "name": "SQUALL_Channel_EAX_GetProperties",
+      "address": "10006dd0",
+      "ordinal": 5,
+      "reference_signature": "DLL_API int SQUALL_Channel_EAX_GetProperties(int ChannelID, int Version, squall_eax_channel_t* Property);",
+      "header_line": 1625,
+      "implementation_line": 6637
+    },
+    {
+      "name": "SQUALL_Channel_EAX_SetProperties",
+      "address": "10006cc0",
+      "ordinal": 6,
+      "reference_signature": "DLL_API int SQUALL_Channel_EAX_SetProperties(int ChannelID, int Version, squall_eax_channel_t* Property);",
+      "header_line": 1606,
+      "implementation_line": 6459
+    },
+    {
+      "name": "SQUALL_Channel_Get3DPosition",
+      "address": "10006660",
+      "ordinal": 7,
+      "reference_signature": "DLL_API int SQUALL_Channel_Get3DPosition(int ChannelID, float* Position);",
+      "header_line": 1447,
+      "implementation_line": 5750
+    },
+    {
+      "name": "SQUALL_Channel_GetConeParameters",
+      "address": "10006ba0",
+      "ordinal": 8,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetConeParameters(int ChannelID, float* Orientation, int* InsideConeAngle, int* OutsideConeAngle, int* OutsideVolume);",
+      "header_line": 1588,
+      "implementation_line": 6351
+    },
+    {
+      "name": "SQUALL_Channel_GetFragment",
+      "address": "10005cf0",
+      "ordinal": 9,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetFragment(int ChannelID, int* Start, int* End);",
+      "header_line": 1246,
+      "implementation_line": 4791
+    },
+    {
+      "name": "SQUALL_Channel_GetFragmentMs",
+      "address": "10005ef0",
+      "ordinal": 10,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetFragmentMs(int ChannelID, int* Start, int* End);",
+      "header_line": 1280,
+      "implementation_line": 4971
+    },
+    {
+      "name": "SQUALL_Channel_GetFrequency",
+      "address": "100057a0",
+      "ordinal": 11,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetFrequency(int ChannelID);",
+      "header_line": 1124,
+      "implementation_line": 4199
+    },
+    {
+      "name": "SQUALL_Channel_GetLength",
+      "address": "10006020",
+      "ordinal": 12,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetLength(int ChannelID);",
+      "header_line": 1294,
+      "implementation_line": 5067
+    },
+    {
+      "name": "SQUALL_Channel_GetLengthMs",
+      "address": "100060a0",
+      "ordinal": 13,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetLengthMs(int ChannelID);",
+      "header_line": 1308,
+      "implementation_line": 5139
+    },
+    {
+      "name": "SQUALL_Channel_GetLoop",
+      "address": "10006350",
+      "ordinal": 14,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetLoop(int ChannelID);",
+      "header_line": 1355,
+      "implementation_line": 5421
+    },
+    {
+      "name": "SQUALL_Channel_GetMinMaxDistance",
+      "address": "100069b0",
+      "ordinal": 15,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetMinMaxDistance(int ChannelID, float* MinDist, float* MaxDist);",
+      "header_line": 1517,
+      "implementation_line": 6117
+    },
+    {
+      "name": "SQUALL_Channel_GetPan",
+      "address": "100064a0",
+      "ordinal": 16,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetPan(int ChannelID);",
+      "header_line": 1411,
+      "implementation_line": 5569
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPosition",
+      "address": "100058d0",
+      "ordinal": 17,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetPlayPosition(int ChannelID);",
+      "header_line": 1151,
+      "implementation_line": 4331
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPositionMs",
+      "address": "10005a30",
+      "ordinal": 18,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetPlayPositionMs(int ChannelID);",
+      "header_line": 1179,
+      "implementation_line": 4477
+    },
+    {
+      "name": "SQUALL_Channel_GetPriority",
+      "address": "10006210",
+      "ordinal": 19,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetPriority(int ChannelID);",
+      "header_line": 1337,
+      "implementation_line": 5280
+    },
+    {
+      "name": "SQUALL_Channel_GetVelocity",
+      "address": "10006830",
+      "ordinal": 20,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetVelocity(int ChannelID, float* Velocity);",
+      "header_line": 1478,
+      "implementation_line": 5942
+    },
+    {
+      "name": "SQUALL_Channel_GetVolume",
+      "address": "10005620",
+      "ordinal": 21,
+      "reference_signature": "DLL_API int SQUALL_Channel_GetVolume(int ChannelID);",
+      "header_line": 1095,
+      "implementation_line": 4059
+    },
+    {
+      "name": "SQUALL_Channel_Pause",
+      "address": "100053a0",
+      "ordinal": 22,
+      "reference_signature": "DLL_API int SQUALL_Channel_Pause(int ChannelID, int Pause);",
+      "header_line": 1032,
+      "implementation_line": 3782
+    },
+    {
+      "name": "SQUALL_Channel_Set3DPosition",
+      "address": "10006570",
+      "ordinal": 23,
+      "reference_signature": "DLL_API int SQUALL_Channel_Set3DPosition(int ChannelID, float* Position);",
+      "header_line": 1431,
+      "implementation_line": 5647
+    },
+    {
+      "name": "SQUALL_Channel_SetConeParameters",
+      "address": "10006aa0",
+      "ordinal": 24,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetConeParameters(int ChannelID, float* Orientation, int InsideConeAngle, int OutsideConeAngle, int OutsideVolume);",
+      "header_line": 1552,
+      "implementation_line": 6228
+    },
+    {
+      "name": "SQUALL_Channel_SetFragment",
+      "address": "10005c30",
+      "ordinal": 25,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetFragment(int ChannelID, int Start, int End);",
+      "header_line": 1228,
+      "implementation_line": 4714
+    },
+    {
+      "name": "SQUALL_Channel_SetFragmentMs",
+      "address": "10005dd0",
+      "ordinal": 26,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetFragmentMs(int ChannelID, int Start, int End);",
+      "header_line": 1262,
+      "implementation_line": 4881
+    },
+    {
+      "name": "SQUALL_Channel_SetFrequency",
+      "address": "100056f0",
+      "ordinal": 27,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetFrequency(int ChannelID, int Frequency);",
+      "header_line": 1110,
+      "implementation_line": 4129
+    },
+    {
+      "name": "SQUALL_Channel_SetLoop",
+      "address": "10006280",
+      "ordinal": 28,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetLoop(int ChannelID, int Loop);",
+      "header_line": 1374,
+      "implementation_line": 5348
+    },
+    {
+      "name": "SQUALL_Channel_SetMinMaxDistance",
+      "address": "10006910",
+      "ordinal": 29,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetMinMaxDistance(int ChannelID, float MinDist, float MaxDist);",
+      "header_line": 1498,
+      "implementation_line": 6037
+    },
+    {
+      "name": "SQUALL_Channel_SetPan",
+      "address": "100063d0",
+      "ordinal": 30,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetPan(int ChannelID, int Pan);",
+      "header_line": 1396,
+      "implementation_line": 5493
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPosition",
+      "address": "10005840",
+      "ordinal": 31,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetPlayPosition(int ChannelID, int Position);",
+      "header_line": 1137,
+      "implementation_line": 4265
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPositionMs",
+      "address": "10005970",
+      "ordinal": 32,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetPlayPositionMs(int ChannelID, int Position);",
+      "header_line": 1165,
+      "implementation_line": 4397
+    },
+    {
+      "name": "SQUALL_Channel_SetPriority",
+      "address": "10006170",
+      "ordinal": 33,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetPriority(int ChannelID, int Priority);",
+      "header_line": 1323,
+      "implementation_line": 5216
+    },
+    {
+      "name": "SQUALL_Channel_SetVelocity",
+      "address": "10006740",
+      "ordinal": 34,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetVelocity(int ChannelID, float* Velocity);",
+      "header_line": 1462,
+      "implementation_line": 5842
+    },
+    {
+      "name": "SQUALL_Channel_SetVolume",
+      "address": "10005570",
+      "ordinal": 35,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetVolume(int ChannelID, int Volume);",
+      "header_line": 1081,
+      "implementation_line": 3989
+    },
+    {
+      "name": "SQUALL_Channel_SetWorker",
+      "address": "10005b10",
+      "ordinal": 36,
+      "reference_signature": "DLL_API int SQUALL_Channel_SetWorker(int ChannelID, squall_callback_channel_t Worker, void* Param, unsigned int UpdateTime);",
+      "header_line": 1198,
+      "implementation_line": 4555
+    },
+    {
+      "name": "SQUALL_Channel_Start",
+      "address": "10005310",
+      "ordinal": 37,
+      "reference_signature": "DLL_API int SQUALL_Channel_Start(int ChannelID);",
+      "header_line": 1016,
+      "implementation_line": 3714
+    },
+    {
+      "name": "SQUALL_Channel_Status",
+      "address": "100054b0",
+      "ordinal": 38,
+      "reference_signature": "DLL_API int SQUALL_Channel_Status(int ChannelID);",
+      "header_line": 1066,
+      "implementation_line": 3918
+    },
+    {
+      "name": "SQUALL_Channel_Stop",
+      "address": "10005430",
+      "ordinal": 39,
+      "reference_signature": "DLL_API int SQUALL_Channel_Stop(int ChannelID);",
+      "header_line": 1044,
+      "implementation_line": 3845
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_GetProperties",
+      "address": "10006ff0",
+      "ordinal": 40,
+      "reference_signature": "DLL_API int SQUALL_Channel_ZOOMFX_GetProperties(int ChannelID, squall_zoomfx_channel_t* Property);",
+      "header_line": 1655,
+      "implementation_line": 6917
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_SetProperties",
+      "address": "10006ef0",
+      "ordinal": 41,
+      "reference_signature": "DLL_API int SQUALL_Channel_ZOOMFX_SetProperties(int ChannelID, squall_zoomfx_channel_t* Property);",
+      "header_line": 1640,
+      "implementation_line": 6805
+    },
+    {
+      "name": "SQUALL_Free",
+      "address": "10003520",
+      "ordinal": 42,
+      "reference_signature": "DLL_API void SQUALL_Free(void);",
+      "header_line": 371,
+      "implementation_line": 402
+    },
+    {
+      "name": "SQUALL_Get3DAlgorithm",
+      "address": "10003af0",
+      "ordinal": 43,
+      "reference_signature": "DLL_API int SQUALL_Get3DAlgorithm(void);",
+      "header_line": 550,
+      "implementation_line": 1134
+    },
+    {
+      "name": "SQUALL_GetBufferSize",
+      "address": "10003b90",
+      "ordinal": 44,
+      "reference_signature": "DLL_API int SQUALL_GetBufferSize(void);",
+      "header_line": 578,
+      "implementation_line": 1249
+    },
+    {
+      "name": "SQUALL_GetChannelsInfo",
+      "address": "10003e40",
+      "ordinal": 45,
+      "reference_signature": "DLL_API int SQUALL_GetChannelsInfo(squall_channels_t* Info);",
+      "header_line": 697,
+      "implementation_line": 1654
+    },
+    {
+      "name": "SQUALL_GetDevice",
+      "address": "10003770",
+      "ordinal": 46,
+      "reference_signature": "DLL_API int SQUALL_GetDevice(void);",
+      "header_line": 440,
+      "implementation_line": 678
+    },
+    {
+      "name": "SQUALL_GetDeviceCaps",
+      "address": "10003d30",
+      "ordinal": 47,
+      "reference_signature": "DLL_API int SQUALL_GetDeviceCaps(int Num, squall_device_caps_t* Caps);",
+      "header_line": 670,
+      "implementation_line": 1512
+    },
+    {
+      "name": "SQUALL_GetDeviceName",
+      "address": "10003c80",
+      "ordinal": 48,
+      "reference_signature": "DLL_API int SQUALL_GetDeviceName(int Num, char* Buffer, int Size);",
+      "header_line": 650,
+      "implementation_line": 1445
+    },
+    {
+      "name": "SQUALL_GetEAXVersion",
+      "address": "10003e00",
+      "ordinal": 49,
+      "reference_signature": "DLL_API int SQUALL_GetEAXVersion(void);",
+      "header_line": 684,
+      "implementation_line": 1599
+    },
+    {
+      "name": "SQUALL_GetHardwareAcceleration",
+      "address": "10003810",
+      "ordinal": 50,
+      "reference_signature": "DLL_API int SQUALL_GetHardwareAcceleration(int* UseHW2D, int* UseHW3D);",
+      "header_line": 478,
+      "implementation_line": 802
+    },
+    {
+      "name": "SQUALL_GetNumDevice",
+      "address": "10003c70",
+      "ordinal": 51,
+      "reference_signature": "DLL_API int SQUALL_GetNumDevice(void);",
+      "header_line": 629,
+      "implementation_line": 1402
+    },
+    {
+      "name": "SQUALL_GetSpeakerMode",
+      "address": "10003970",
+      "ordinal": 52,
+      "reference_signature": "DLL_API int SQUALL_GetSpeakerMode(void);",
+      "header_line": 514,
+      "implementation_line": 976
+    },
+    {
+      "name": "SQUALL_Init",
+      "address": "10003280",
+      "ordinal": 53,
+      "reference_signature": "DLL_API int SQUALL_Init(squall_parameters_t* SystemParam);",
+      "header_line": 360,
+      "implementation_line": 218
+    },
+    {
+      "name": "SQUALL_Listener_EAX_GetProperties",
+      "address": "10004b30",
+      "ordinal": 54,
+      "reference_signature": "DLL_API int SQUALL_Listener_EAX_GetProperties(int Version, squall_eax_listener_t* Properties);",
+      "header_line": 979,
+      "implementation_line": 3091
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetPreset",
+      "address": "10004c30",
+      "ordinal": 55,
+      "reference_signature": "DLL_API int SQUALL_Listener_EAX_SetPreset(int Preset);",
+      "header_line": 951,
+      "implementation_line": 3284
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetProperties",
+      "address": "10004a40",
+      "ordinal": 56,
+      "reference_signature": "DLL_API int SQUALL_Listener_EAX_SetProperties(int Version, squall_eax_listener_t* Properties);",
+      "header_line": 965,
+      "implementation_line": 2893
+    },
+    {
+      "name": "SQUALL_Listener_GetDistanceFactor",
+      "address": "100046c0",
+      "ordinal": 57,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetDistanceFactor(float* DistanceFactor);",
+      "header_line": 839,
+      "implementation_line": 2465
+    },
+    {
+      "name": "SQUALL_Listener_GetDopplerFactor",
+      "address": "10004960",
+      "ordinal": 58,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetDopplerFactor(float* DopplerFactor);",
+      "header_line": 895,
+      "implementation_line": 2739
+    },
+    {
+      "name": "SQUALL_Listener_GetParameters",
+      "address": "100041a0",
+      "ordinal": 59,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetParameters(float* Position, float* Front, float* Top, float* Velocity);",
+      "header_line": 759,
+      "implementation_line": 1945
+    },
+    {
+      "name": "SQUALL_Listener_GetPosition",
+      "address": "10004560",
+      "ordinal": 60,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetPosition(float* Position);",
+      "header_line": 813,
+      "implementation_line": 2322
+    },
+    {
+      "name": "SQUALL_Listener_GetRolloffFactor",
+      "address": "10004810",
+      "ordinal": 61,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetRolloffFactor(float* RolloffFactor);",
+      "header_line": 867,
+      "implementation_line": 2601
+    },
+    {
+      "name": "SQUALL_Listener_GetVelocity",
+      "address": "100043d0",
+      "ordinal": 62,
+      "reference_signature": "DLL_API int SQUALL_Listener_GetVelocity(float* Velocity);",
+      "header_line": 786,
+      "implementation_line": 2159
+    },
+    {
+      "name": "SQUALL_Listener_SetDistanceFactor",
+      "address": "10004600",
+      "ordinal": 63,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetDistanceFactor(float DistanceFactor);",
+      "header_line": 825,
+      "implementation_line": 2394
+    },
+    {
+      "name": "SQUALL_Listener_SetDopplerFactor",
+      "address": "100048a0",
+      "ordinal": 64,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetDopplerFactor(float DopplerFactor);",
+      "header_line": 881,
+      "implementation_line": 2668
+    },
+    {
+      "name": "SQUALL_Listener_SetParameters",
+      "address": "10003f80",
+      "ordinal": 65,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetParameters(float* Position, float* Front, float* Top, float* Velocity);",
+      "header_line": 729,
+      "implementation_line": 1769
+    },
+    {
+      "name": "SQUALL_Listener_SetPosition",
+      "address": "10004470",
+      "ordinal": 66,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetPosition(float* Position);",
+      "header_line": 799,
+      "implementation_line": 2232
+    },
+    {
+      "name": "SQUALL_Listener_SetRolloffFactor",
+      "address": "10004750",
+      "ordinal": 67,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetRolloffFactor(float RolloffFactor);",
+      "header_line": 853,
+      "implementation_line": 2531
+    },
+    {
+      "name": "SQUALL_Listener_SetVelocity",
+      "address": "100042d0",
+      "ordinal": 68,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetVelocity(float* Velocity);",
+      "header_line": 772,
+      "implementation_line": 2068
+    },
+    {
+      "name": "SQUALL_Listener_SetWorker",
+      "address": "10004cf0",
+      "ordinal": 69,
+      "reference_signature": "DLL_API int SQUALL_Listener_SetWorker(squall_callback_listener_t Worker, void* Param, unsigned int UpdateTime);",
+      "header_line": 999,
+      "implementation_line": 3368
+    },
+    {
+      "name": "SQUALL_Listener_Update",
+      "address": "100049f0",
+      "ordinal": 70,
+      "reference_signature": "DLL_API int SQUALL_Listener_Update(void);",
+      "header_line": 911,
+      "implementation_line": 2808
+    },
+    {
+      "name": "SQUALL_Pause",
+      "address": "10003610",
+      "ordinal": 71,
+      "reference_signature": "DLL_API int SQUALL_Pause(int Pause);",
+      "header_line": 391,
+      "implementation_line": 498
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play",
+      "address": "10007870",
+      "ordinal": 72,
+      "reference_signature": "DLL_API int SQUALL_SampleGroup_Play(int SoundGroupID, int Loop, int Group, int Start);",
+      "header_line": 2131,
+      "implementation_line": 8311
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3D",
+      "address": "10007990",
+      "ordinal": 73,
+      "reference_signature": "DLL_API int SQUALL_SampleGroup_Play3D(int SoundGroupID, int Loop, int Group, int Start, float* Position, float* Velocity);",
+      "header_line": 2222,
+      "implementation_line": 8518
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3DEx",
+      "address": "10007a60",
+      "ordinal": 74,
+      "reference_signature": "DLL_API int SQUALL_SampleGroup_Play3DEx(int SoundGroupID, int Loop, int Group, int Start, float* Position, float* Velocity, int Priority, int Volume, int Frequency, float MinDist, float MaxDist);",
+      "header_line": 2281,
+      "implementation_line": 8680
+    },
+    {
+      "name": "SQUALL_SampleGroup_PlayEx",
+      "address": "10007910",
+      "ordinal": 75,
+      "reference_signature": "DLL_API int SQUALL_SampleGroup_PlayEx(int SoundGroupID, int Loop, int Group, int Start, int Priority, int Volume, int Frequency, int Pan);",
+      "header_line": 2179,
+      "implementation_line": 8416
+    },
+    {
+      "name": "SQUALL_Sample_GetDefault",
+      "address": "100074e0",
+      "ordinal": 76,
+      "reference_signature": "DLL_API int SQUALL_Sample_GetDefault(int SampleID, squall_sample_default_t* Default);",
+      "header_line": 1874,
+      "implementation_line": 7684
+    },
+    {
+      "name": "SQUALL_Sample_GetFileFrequency",
+      "address": "10007470",
+      "ordinal": 77,
+      "reference_signature": "DLL_API int SQUALL_Sample_GetFileFrequency(int SampleID);",
+      "header_line": 1846,
+      "implementation_line": 7580
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLength",
+      "address": "100073e0",
+      "ordinal": 78,
+      "reference_signature": "DLL_API int SQUALL_Sample_GetFileLength(int SampleID);",
+      "header_line": 1818,
+      "implementation_line": 7482
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLengthMs",
+      "address": "10007410",
+      "ordinal": 79,
+      "reference_signature": "DLL_API int SQUALL_Sample_GetFileLengthMs(int SampleID);",
+      "header_line": 1832,
+      "implementation_line": 7529
+    },
+    {
+      "name": "SQUALL_Sample_LoadFile",
+      "address": "10007370",
+      "ordinal": 80,
+      "reference_signature": "DLL_API int SQUALL_Sample_LoadFile(char *FileName, int MemFlag, squall_sample_default_t* Default);",
+      "header_line": 1750,
+      "implementation_line": 7289
+    },
+    {
+      "name": "SQUALL_Sample_Pause",
+      "address": "10007750",
+      "ordinal": 81,
+      "reference_signature": "DLL_API int SQUALL_Sample_Pause(int SampleID, int Pause);",
+      "header_line": 2077,
+      "implementation_line": 8178
+    },
+    {
+      "name": "SQUALL_Sample_Play",
+      "address": "10007520",
+      "ordinal": 82,
+      "reference_signature": "DLL_API int SQUALL_Sample_Play(int SampleID, int Loop, int Group, int Start);",
+      "header_line": 1911,
+      "implementation_line": 7746
+    },
+    {
+      "name": "SQUALL_Sample_Play3D",
+      "address": "10007600",
+      "ordinal": 83,
+      "reference_signature": "DLL_API int SQUALL_Sample_Play3D(int SampleID, int Loop, int Group, int Start, float* Position, float* Velocity);",
+      "header_line": 2003,
+      "implementation_line": 7935
+    },
+    {
+      "name": "SQUALL_Sample_Play3DEx",
+      "address": "100076c0",
+      "ordinal": 84,
+      "reference_signature": "DLL_API int SQUALL_Sample_Play3DEx(int SampleID, int Loop, int Group, int Start, float* Position, float* Velocity, int Priority, int Volume, int Frequency, float MinDist, float MaxDist);",
+      "header_line": 2061,
+      "implementation_line": 8068
+    },
+    {
+      "name": "SQUALL_Sample_PlayEx",
+      "address": "100075a0",
+      "ordinal": 85,
+      "reference_signature": "DLL_API int SQUALL_Sample_PlayEx(int SampleID, int Loop, int Group, int Start, int Priority, int Volume, int Frequency, int Pan);",
+      "header_line": 1960,
+      "implementation_line": 7842
+    },
+    {
+      "name": "SQUALL_Sample_SetDefault",
+      "address": "100074a0",
+      "ordinal": 86,
+      "reference_signature": "DLL_API int SQUALL_Sample_SetDefault(int SampleID, squall_sample_default_t* Default);",
+      "header_line": 1860,
+      "implementation_line": 7626
+    },
+    {
+      "name": "SQUALL_Sample_Stop",
+      "address": "100077e0",
+      "ordinal": 87,
+      "reference_signature": "DLL_API int SQUALL_Sample_Stop(int SampleID);",
+      "header_line": 2089,
+      "implementation_line": 8234
+    },
+    {
+      "name": "SQUALL_Sample_Unload",
+      "address": "100073d0",
+      "ordinal": 88,
+      "reference_signature": "DLL_API void SQUALL_Sample_Unload(int SampleID);",
+      "header_line": 1804,
+      "implementation_line": 7459
+    },
+    {
+      "name": "SQUALL_Sample_UnloadAll",
+      "address": "100073c0",
+      "ordinal": 89,
+      "reference_signature": "DLL_API void SQUALL_Sample_UnloadAll(void);",
+      "header_line": 1793,
+      "implementation_line": 7439
+    },
+    {
+      "name": "SQUALL_Set3DAlgorithm",
+      "address": "10003a70",
+      "ordinal": 90,
+      "reference_signature": "DLL_API int SQUALL_Set3DAlgorithm(int Algorithm);",
+      "header_line": 531,
+      "implementation_line": 1066
+    },
+    {
+      "name": "SQUALL_SetBufferSize",
+      "address": "10003b30",
+      "ordinal": 91,
+      "reference_signature": "DLL_API int SQUALL_SetBufferSize(int BufferSize);",
+      "header_line": 564,
+      "implementation_line": 1190
+    },
+    {
+      "name": "SQUALL_SetDevice",
+      "address": "10003700",
+      "ordinal": 92,
+      "reference_signature": "DLL_API int SQUALL_SetDevice(int Num);",
+      "header_line": 426,
+      "implementation_line": 617
+    },
+    {
+      "name": "SQUALL_SetFileCallbacks",
+      "address": "10003c10",
+      "ordinal": 93,
+      "reference_signature": "DLL_API int SQUALL_SetFileCallbacks(squall_callback_open_t UserOpen, squall_callback_seek_t UserSeek, squall_callback_read_t UserRead, squall_callback_close_t UserClose);",
+      "header_line": 609,
+      "implementation_line": 1349
+    },
+    {
+      "name": "SQUALL_SetHardwareAcceleration",
+      "address": "100037b0",
+      "ordinal": 94,
+      "reference_signature": "DLL_API int SQUALL_SetHardwareAcceleration(int UseHW2D, int UseHW3D);",
+      "header_line": 461,
+      "implementation_line": 741
+    },
+    {
+      "name": "SQUALL_SetMemoryCallbacks",
+      "address": "10003bd0",
+      "ordinal": 95,
+      "reference_signature": "DLL_API int SQUALL_SetMemoryCallbacks(squall_callback_alloc_t UserAlloc, squall_callback_free_t UserFree);",
+      "header_line": 591,
+      "implementation_line": 1305
+    },
+    {
+      "name": "SQUALL_SetSpeakerMode",
+      "address": "100038b0",
+      "ordinal": 96,
+      "reference_signature": "DLL_API int SQUALL_SetSpeakerMode(int Mode);",
+      "header_line": 500,
+      "implementation_line": 885
+    },
+    {
+      "name": "SQUALL_Stop",
+      "address": "10003690",
+      "ordinal": 97,
+      "reference_signature": "DLL_API int SQUALL_Stop(void);",
+      "header_line": 403,
+      "implementation_line": 552
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "masks": 850,
+  "columns": 300058,
+  "alpha_bits": 162028842,
+  "precision_contexts": [
+    {
+      "masks": 425,
+      "columns": 150029,
+      "alpha_bits": 81014421,
+      "device_flags": 34,
+      "x87_control_before": 589855,
+      "x87_control_after": 589855,
+      "precision": "preserved"
+    },
+    {
+      "masks": 425,
+      "columns": 150029,
+      "alpha_bits": 81014421,
+      "device_flags": 32,
+      "x87_control_before": 589855,
+      "x87_control_after": 655391,
+      "precision": "original-device-0x20"
+    }
+  ],
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:41.060606+00:00",
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "d2c4b1ec768f04fefba6c262d2495e16adad7663718b1f05a712a5ed184e0c4e",
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "original_functions": [
+    "0051c040",
+    "0051a330",
+    "00519450",
+    "00519360",
+    "00516e10",
+    "0051a010",
+    "004f5200"
+  ],
+  "test_adapters": [
+    "Allocation/free use diagnostic CRT",
+    "File factory returns recovered iFile with original slot order",
+    "JNG GPU loader binds to recovered getJngTexture (already independently pixel compared with original DLL)",
+    "Original mask vector/bit arrays, loops, alpha threshold, resize and cleanup execute unmodified logic"
+  ],
+  "pending": [
+    "Non-JNG D3DX format conversion in getMask",
+    "Full old vector/exception ABI",
+    "Main menu input integration",
+    "Failure/malformed source cases"
+  ]
+}

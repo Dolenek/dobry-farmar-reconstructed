@@ -1,0 +1,54 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 1136724,
+      "original_address": 6674076,
+      "function": "00515830",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1137602,
+      "original_address": 6686128,
+      "function": "00515830",
+      "instruction": "fld    DWORD PTR ds:0x6605b0"
+    },
+    {
+      "rva": 1137611,
+      "original_address": 6264992,
+      "function": "00515830",
+      "instruction": "fadd   DWORD PTR ds:0x5f98a0"
+    },
+    {
+      "rva": 1137626,
+      "original_address": 6686128,
+      "function": "00515830",
+      "instruction": "fstp   DWORD PTR ds:0x6605b0"
+    },
+    {
+      "rva": 1139095,
+      "original_address": 6686124,
+      "function": "00515830",
+      "instruction": "fld    DWORD PTR ds:0x6605ac"
+    },
+    {
+      "rva": 1139104,
+      "original_address": 6264992,
+      "function": "00515830",
+      "instruction": "fadd   DWORD PTR ds:0x5f98a0"
+    },
+    {
+      "rva": 1139119,
+      "original_address": 6686124,
+      "function": "00515830",
+      "instruction": "fstp   DWORD PTR ds:0x6605ac"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    }
+  ]
+}

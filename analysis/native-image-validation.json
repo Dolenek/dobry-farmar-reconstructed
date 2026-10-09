@@ -1,0 +1,29 @@
+{
+  "images_compared": 10,
+  "source_bytes_compared": 345368,
+  "status": "passed",
+  "recorded_at_utc": "2026-10-09T16:26:17.043360+00:00",
+  "reference_sha256": {
+    "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+    "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+  },
+  "oracle_sha256": "d861aadde951462a02e0a5fa052e22c7a9b8b8da6be80495160844e027299d72",
+  "original_functions": [
+    "0059847a",
+    "0059781c",
+    "00596f2d"
+  ],
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "test_only_allocator_hook": "0057edb1",
+  "pending": [
+    "D3DX texture requirements/format fallback/surface filtering",
+    "Actual non-JNG texture GPU upload",
+    "Indexed TGA and BMP",
+    "Compressed BMP",
+    "Other image formats",
+    "Invalid/malformed and overflow inputs",
+    "DDS mip/cube runtime comparisons beyond shipped files"
+  ]
+}

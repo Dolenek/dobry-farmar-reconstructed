@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-10-08T12:11:37.311266+00:00",
+  "status": "matches_export_contract",
+  "original_name": "JNGLoad.dll",
+  "original_sha256": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687",
+  "rebuilt_sha256": "cbcb5e12777255caf82e752db06144aea46e2db81422f4aee63d4e9ff315b5ec",
+  "bits": 32,
+  "machine": "014c",
+  "exports": [
+    {
+      "ordinal": 1,
+      "names": [
+        "?freeData@@YAXAAPAK@Z"
+      ],
+      "rva": 4384,
+      "address": "10001120"
+    },
+    {
+      "ordinal": 2,
+      "names": [
+        "?readMNG@@YAXPBXAAK1AAPAK@Z"
+      ],
+      "rva": 4480,
+      "address": "10001180"
+    }
+  ],
+  "failures": [],
+  "note": "Checks the PE export contract, not runtime behavior or exception ABI"
+}

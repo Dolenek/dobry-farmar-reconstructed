@@ -1,0 +1,1209 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-09T16:27:41.622502+00:00",
+  "platform": "Windows AMD64",
+  "target_architecture": "x86",
+  "overall_status": "partial_reconstruction",
+  "full_game_build_available": false,
+  "windows_build_verified": true,
+  "original_game_runtime": {
+    "menu_and_new_game": "confirmed_by_user",
+    "tested_by_agent": false
+  },
+  "build": {
+    "cmake_version": "4.4.1",
+    "compiler": "MSVC C/C++ 19.43.34810",
+    "windows_sdk": "10.0.26100.0",
+    "generator": "Visual Studio 17 2022",
+    "architecture": "Win32",
+    "configuration": "Release",
+    "python_version": "3.12.10",
+    "java_for_analysis": "Temurin 21.0.7+6 (explicit --java-home required)",
+    "targets": [
+      "JNGLoad.dll",
+      "jng-decode.exe",
+      "jng-reference-decode.exe",
+      "recovered_game_utilities",
+      "recovered_squall_utilities",
+      "string-reference-test.exe",
+      "pack-decode.exe",
+      "resource-inspect.exe",
+      "wstring-reference-test.exe",
+      "file-index-test.exe",
+      "settings-test.exe",
+      "window-test.exe",
+      "texture-test.exe",
+      "recovered_graphics_utilities",
+      "recovered_resource_utilities",
+      "resource-manager-test.exe",
+      "color-reference-test.exe",
+      "graphics-presentation-test.exe",
+      "matrix-reference-test.exe",
+      "sprite-geometry-reference-test.exe",
+      "sprite-draw-reference-test.exe",
+      "native-image-reference-test.exe",
+      "font-reference-test.exe",
+      "text-layout-reference-test.exe",
+      "string-manager-reference-test.exe",
+      "control-sprite-reference-test.exe",
+      "view-reference-test.exe",
+      "control-reference-test.exe",
+      "text-control-reference-test.exe",
+      "button-reference-test.exe",
+      "button-text-reference-test.exe",
+      "click-mask-reference-test.exe",
+      "input-bindings-reference-test.exe",
+      "text-buttons-reference-test.exe",
+      "ui-frame-reference-test.exe"
+    ],
+    "dependencies": [
+      "LIBMNG 1.0.10",
+      "JPEG 6b",
+      "zlib 1.2.3",
+      "Minizip 1.01",
+      "Expat 1.95.8 (candidate, original version unproved)",
+      "Wine-origin Direct3D8 headers (MinGW-w64 v12.0.0; LGPL-2.1-or-later)"
+    ]
+  },
+  "tests": {
+    "ctest_passed": 30,
+    "python_tests_passed": 7,
+    "python_tests_skipped": 0,
+    "volume_table_entries": 100,
+    "original_string_comparisons": 60000,
+    "real_file_io": "passed; original runtime not compared",
+    "reference_files_unchanged": 17,
+    "original_wstring_comparisons": 20000,
+    "resource_index_fixtures": 8,
+    "resource_write_checks": 12
+  },
+  "images": {
+    "decoded": 416,
+    "failed": 0,
+    "original_dll_pixels_compared": true,
+    "compared_images": 416,
+    "exact_bgra_bytes": true,
+    "pe_export_contract_verified": true
+  },
+  "source_tree_sha256": "802acd0c157b3fbd27ff3df9dc1d48880b6d42652b8a240cbe2b558286942aaf",
+  "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
+  "reports": [
+    "analysis/jngload-windows-validation.json",
+    "analysis/jngload-windows-abi.json",
+    "analysis/string-reconstruction.json",
+    "analysis/resource-loading-validation.json",
+    "analysis/settings-validation.json",
+    "analysis/wstring-validation.json",
+    "analysis/window-validation.json",
+    "analysis/texture-validation.json",
+    "analysis/resource-manager-validation.json",
+    "analysis/color-validation.json",
+    "analysis/graphics-presentation-validation.json",
+    "analysis/matrix-validation.json",
+    "analysis/sprite-geometry-validation.json",
+    "analysis/sprite-draw-validation.json",
+    "analysis/native-image-validation.json",
+    "analysis/font-validation.json",
+    "analysis/text-layout-validation.json",
+    "analysis/string-manager-validation.json",
+    "analysis/control-sprite-validation.json",
+    "analysis/view-validation.json",
+    "analysis/control-validation.json",
+    "analysis/text-control-validation.json",
+    "analysis/button-validation.json",
+    "analysis/button-text-validation.json",
+    "analysis/click-mask-validation.json",
+    "analysis/input-bindings-validation.json",
+    "analysis/text-buttons-validation.json",
+    "analysis/ui-frame-validation.json"
+  ],
+  "full_reconstruction_pending": [
+    "Main game EXE and all game systems",
+    "Complete Squall.dll",
+    "Complete Uninstall.exe"
+  ],
+  "previous_linux_validation": {
+    "ctest_passed": 3,
+    "python_tests_passed": 7,
+    "jng_decoded": 416,
+    "original_dll_compared": false
+  },
+  "resource_pipeline": {
+    "recorded_at_utc": "2026-10-08T12:58:43.598287+00:00",
+    "loader_sha256": "75a137de5270ef031ebe8ba5927b653a4625f34fe9291b5b833cf2486902a56a",
+    "indexing_fixtures": 8,
+    "write_checks": 12,
+    "raw_resources_compared": 552,
+    "xml_trees_compared": 66,
+    "xml_oracle": "Python Expat event tree; original cXML runtime still pending",
+    "original_jng_pixels_compared": 416,
+    "failures": [],
+    "status": "passed"
+  },
+  "settings": {
+    "recorded_at_utc": "2026-10-09T16:26:42.323380+00:00",
+    "test_sha256": "d1bf4b1d4de4cb895aaece3dd19c7c8eb2baa21ca6df24d86aa04646cb5f09e1",
+    "loader_sha256": "47366f2d6578ba8ece43ec99457ca8dbd9852ec45ff3af33857a8e4fb91651a4",
+    "original_settings_runtime_compared": false,
+    "pending": [
+      "Original settings runtime oracle",
+      "CRT numeric malformed/overflow inputs",
+      "Non-ASCII narrow conversions",
+      "Other property types and engine ABI"
+    ],
+    "native_checks": 14,
+    "exact_utf16_fixture_bytes": 384,
+    "saved_properties_compared": 7,
+    "original_data_properties_compared": 24,
+    "status": "passed"
+  },
+  "window": {
+    "recorded_at_utc": "2026-10-09T16:26:43.091313+00:00",
+    "test_sha256": "e142f8cd198460ec7e3680a7a656758be2bc6047d14ffa9065d06dd233ae2c34",
+    "native_checks": 18,
+    "original_window_runtime_compared": false,
+    "hidden_window_only": true,
+    "status": "passed",
+    "pending": [
+      "Original window runtime comparison",
+      "Actual input/main/sound bindings",
+      "Graphics initialization and visible game screens",
+      "Engine exception ABI"
+    ]
+  },
+  "texture": {
+    "textures_compared": 425,
+    "pixels_compared": 81014421,
+    "native_textures_compared": 10,
+    "native_source_pixels_compared": 86346,
+    "texture_caps": 126021,
+    "maximum_allocated_width": 2048,
+    "maximum_allocated_height": 2048,
+    "resource_reload_checks": 435,
+    "manager_texture_cache_checks": 435,
+    "manager_xml_settings_checks": 6,
+    "adapter": "AMD Radeon (TM) Graphics",
+    "recorded_at_utc": "2026-10-08T14:51:13.571502+00:00",
+    "executable_sha256": "ff2c28e071f79955cb8bce648ad67d766e7f12eaf6d0f19065f08d86821bf790",
+    "reference_sha256": {
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814",
+      "JNGLoad.dll": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687"
+    },
+    "original_dll_pixels_compared": true,
+    "original_graphics_runtime_compared": false,
+    "disguised_jng_dds_files_compared": 9,
+    "native_source_storage_original_compared_in": "native-image-validation.json",
+    "original_d3dx_gpu_loader_compared": false,
+    "native_d3d8_device": true,
+    "padding_texels_compared": false,
+    "status": "passed",
+    "pending": [
+      "Original cGraphics device setup and runtime comparison",
+      "Padding texel state",
+      "Full game screens/fonts",
+      "Reset/lost device and engine resource ABI",
+      "Original D3DX GPU texture loader",
+      "Non-JNG format fallback and other native devices"
+    ]
+  },
+  "resource-manager": {
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:42.832200+00:00",
+    "native_checks": 15,
+    "executable_sha256": "f0440f009b776f63796452a1dd2d3afea079fcb07b623b5911ff961e8979c0ce",
+    "original_manager_runtime_compared": false,
+    "pending": [
+      "Original manager runtime oracle",
+      "40-byte manager and 96-byte cXML ABI",
+      "Shader/font/mesh/animation/sound factories",
+      "Resource logging",
+      "Sound deletion with real sound resources"
+    ]
+  },
+  "color": {
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:16.053599+00:00",
+    "comparisons": 121538,
+    "precision_contexts": [
+      {
+        "precision": "process-default",
+        "comparisons": 60769
+      },
+      {
+        "precision": "x87-pc24",
+        "comparisons": 60769
+      }
+    ],
+    "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "4febcdd0c53465f75bcb9cec5719f34f25914c6596c39428da36a7818d348c84",
+    "original_pure_routines_compared": [
+      "00417f80",
+      "004455e0"
+    ],
+    "original_entry_point_executed": false,
+    "reference_file_modified": false,
+    "test_only_relocated_x87_constant_operands": 20,
+    "pending": [
+      "Non-finite channels",
+      "Settings color CRT parsing runtime comparison",
+      "Game rendering"
+    ]
+  },
+  "graphics-presentation": {
+    "checks": 58,
+    "fullscreen_observed_style": 67108864,
+    "desktop_width": 1920,
+    "desktop_height": 1080,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-08T14:36:51.495932+00:00",
+    "executable_sha256": "807b3c8f1eeba3741748218c7ca0acff5de7b0d29d370dbbb09ee5fa1e8a51f0",
+    "reference_sha256": {
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "original_graphics_runtime_compared": false,
+    "native_hal_windowed_device": true,
+    "fullscreen_device_created": false,
+    "sprite_buffer_capacities": [
+      3000,
+      17,
+      3000
+    ],
+    "pending": [
+      "Full cGraphics constructor/setup",
+      "Full settings lighting configuration",
+      "Fullscreen device and monitor mode transition",
+      "Device loss/reset",
+      "Actual rendered game screens",
+      "Original graphics runtime oracle",
+      "Primary cGraphics ABI and exception wrappers"
+    ]
+  },
+  "matrix": {
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:16.288427+00:00",
+    "comparisons": 140004,
+    "precision_contexts": [
+      {
+        "precision": "process-default",
+        "comparisons": 70002
+      },
+      {
+        "precision": "x87-pc24",
+        "comparisons": 70002
+      }
+    ],
+    "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "2b2b048781702b98738fb383d59c693c40bfd65726a85ea16e004de5dc4ba72f",
+    "original_pure_routines_compared": [
+      "00591fe8",
+      "005920cb",
+      "0059221a"
+    ],
+    "bitwise_float_comparison": true,
+    "original_entry_point_executed": false,
+    "reference_file_modified": false,
+    "test_only_relocated_projection_constant_operands": 2,
+    "pending": [
+      "Non-finite/singular inputs",
+      "Other x87 precision/rounding modes",
+      "Game rendering"
+    ]
+  },
+  "sprite-geometry": {
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:16.746610+00:00",
+    "comparisons": 40000,
+    "trials": 20000,
+    "precision_contexts": [
+      {
+        "precision": "process-default",
+        "comparisons": 20000
+      },
+      {
+        "precision": "x87-pc24",
+        "comparisons": 20000
+      }
+    ],
+    "subdivision_range": [
+      1,
+      8
+    ],
+    "fullscreen_and_windowed": true,
+    "vertex_bytes_compared": true,
+    "index_words_compared": true,
+    "nonzero_base_vertex_tested": true,
+    "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "58a4dba8d0b081de088e861256d0bfce92941f7295237ef43b6b231b95b62abb",
+    "original_function": "00517f40",
+    "original_entry_point_executed": false,
+    "reference_file_modified": false,
+    "test_only_operand_fixups": 39,
+    "pending": [
+      "Batch transition/list runtime comparison",
+      "Full game screens",
+      "Sprite shader ownership",
+      "Zero/overflow subdivisions and buffer capacities",
+      "Non-finite inputs and other FPU modes"
+    ]
+  },
+  "sprite-draw": {
+    "scenarios": 108,
+    "font_scenarios": 12,
+    "pixels_compared": 51840000,
+    "nonbackground_pixels": 16148213,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-08T15:25:52.661807+00:00",
+    "reference_sha256": {
+      "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "oracle_sha256": "097939745680c54bde861d1249f08069f8bc8825d5b6a3f7ff41df5b20ac31d6",
+    "original_function": "00515830",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "native_hal_device": true,
+    "fullscreen_device_created": false,
+    "fullscreen_draw_branch": true,
+    "texture_suppression_branch": true,
+    "triangle_metric_compared": true,
+    "api_call_sequence_compared": true,
+    "vertex_shader_scenarios": 32,
+    "shader_constant_indices": [
+      4,
+      5
+    ],
+    "shader_cache_and_reset_tested": true,
+    "bitmap_font_atlases": 3,
+    "labels_loaded_from_original_menu_xml": true,
+    "localized_labels_from_original_strings_xml": true,
+    "font_layout_original_compared_in": "text-layout-validation.json",
+    "x8r8g8b8_unused_high_byte_masked": true,
+    "pending": [
+      "Original shader resource runtime comparison",
+      "Sprite shader ownership/constant container ABI",
+      "Original batch allocation/transition runtime comparison",
+      "Meshes and debug/system font overlay",
+      "Full game screens",
+      "Device loss/reset",
+      "Fullscreen device/mode change",
+      "Other native drivers"
+    ]
+  },
+  "native-image": {
+    "images_compared": 10,
+    "source_bytes_compared": 345368,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:17.043360+00:00",
+    "reference_sha256": {
+      "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "oracle_sha256": "d861aadde951462a02e0a5fa052e22c7a9b8b8da6be80495160844e027299d72",
+    "original_functions": [
+      "0059847a",
+      "0059781c",
+      "00596f2d"
+    ],
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "test_only_allocator_hook": "0057edb1",
+    "pending": [
+      "D3DX texture requirements/format fallback/surface filtering",
+      "Actual non-JNG texture GPU upload",
+      "Indexed TGA and BMP",
+      "Compressed BMP",
+      "Other image formats",
+      "Invalid/malformed and overflow inputs",
+      "DDS mip/cube runtime comparisons beyond shipped files"
+    ]
+  },
+  "font": {
+    "fonts": 3,
+    "lookup_comparisons": 393216,
+    "available_glyphs": 2217,
+    "cache_checks": 7,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:17.296620+00:00",
+    "reference_sha256": {
+      "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "oracle_sha256": "39f990b68f2b1b989dccef5c2d3383b22f246854abfd0bb5a85114869532adb5",
+    "original_functions": [
+      "0050b3d0",
+      "0050b450"
+    ],
+    "data_constructor_address": "0050bd70",
+    "original_constructor_executed": false,
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "pending": [
+      "Original constructor/lifetime runtime comparison",
+      "Original 68-byte object/container ABI",
+      "Malformed or truncated font data exception behavior",
+      "TextLine layout and UI integration"
+    ]
+  },
+  "text-layout": {
+    "layout_scenarios": 12000,
+    "letter_comparisons": 88583,
+    "letter_sprite_comparisons": 88583,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:17.597328+00:00",
+    "reference_sha256": {
+      "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "oracle_sha256": "2d25b432ece21058c8a2d1def9377abf324958ab7bfc70461ff1c260b6bfce13",
+    "original_functions": [
+      "004dc800",
+      "0050b450",
+      "0050c500",
+      "004ed4f0",
+      "00417f80",
+      "004455e0"
+    ],
+    "test_only_adapter_addresses": [
+      "004017c0",
+      "005803af",
+      "004d2260",
+      "004d37d0",
+      "004d3bb0"
+    ],
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "pending": [
+      "Localization and rotateText transformation",
+      "Control allocation/ownership/activation",
+      "Complete TextLine object ABI, XML loading and render/input integration",
+      "NaN/infinite or overflowing inputs"
+    ]
+  },
+  "string-manager": {
+    "translations": 461,
+    "original_lookup_comparisons": 10464,
+    "dump_fixture_checks": 4,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:17.876823+00:00",
+    "reference_sha256": {
+      "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+      "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+      "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+    },
+    "oracle_sha256": "804373dded17226bb44a2fd043ef7ef16df6bea89ece16c87807f6d5bb1e1b88",
+    "original_functions": [
+      "0052ed20",
+      "0052d2a0",
+      "0052d1a0",
+      "00401050"
+    ],
+    "test_only_adapter_addresses": [
+      "004017c0"
+    ],
+    "original_dump_mode_executed": false,
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "pending": [
+      "Original constructor/lifetime and DumpStrings runtime comparison",
+      "Original object/container and exception ABI",
+      "XML section text getter runtime comparison",
+      "Full menu/input/game integration"
+    ]
+  },
+  "control-sprite": {
+    "sprite_comparisons": 200000,
+    "animation_scenarios": 40000,
+    "precision_contexts": [
+      {
+        "sprite_comparisons": 100000,
+        "animation_scenarios": 20000,
+        "precision": "process-default"
+      },
+      {
+        "sprite_comparisons": 100000,
+        "animation_scenarios": 20000,
+        "precision": "x87-pc24"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:18.240312+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "af91e98f37847bd551cb43f61ac82fdfb713d5eae6085cdd151f7d6d4618bcca",
+    "original_functions": [
+      "004ef3b0",
+      "004ed4f0",
+      "004455e0",
+      "004f0b70",
+      "004ed510",
+      "00413a10",
+      "00580f98"
+    ],
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "pending": [
+      "Original full control object/virtual ABI",
+      "Application-specific ended callback behavior",
+      "Control XML loading, input and full UI integration",
+      "Nonfinite/degenerate input behavior",
+      "Other x87 precision/rounding modes"
+    ]
+  },
+  "view": {
+    "operations": 32000,
+    "state_comparisons": 384024,
+    "callback_events": 35826,
+    "registry_comparisons": 32000,
+    "precision_comparisons": 20000,
+    "owned_views_deleted": 24,
+    "precision_contexts": [
+      {
+        "operations": 16000,
+        "state_comparisons": 192012,
+        "callback_events": 17913,
+        "registry_comparisons": 16000,
+        "precision_comparisons": 10000,
+        "owned_views_deleted": 12,
+        "precision": "process-default"
+      },
+      {
+        "operations": 16000,
+        "state_comparisons": 192012,
+        "callback_events": 17913,
+        "registry_comparisons": 16000,
+        "precision_comparisons": 10000,
+        "owned_views_deleted": 12,
+        "precision": "x87-pc24"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:18.524443+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "b11d99a48fb1bc0c4888ec63fe99bbe044e5d6bb17013f27365c50862dc7cee5",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004d55b0",
+      "004d58a0",
+      "004d2e50",
+      "004d37d0",
+      "004d3720",
+      "004d3bb0",
+      "004d3fb0",
+      "004d4590",
+      "004d4980",
+      "004d4d80",
+      "004d59c0",
+      "004d2ec0",
+      "004d2f50",
+      "004d2fc0",
+      "00506f90",
+      "00506fe0",
+      "00507030",
+      "00507080",
+      "005069d0",
+      "00506b90",
+      "00506d90"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "Timer +8 returns controlled elapsed value",
+      "Virtual callbacks record order then call original base handlers; child deleting destructor records then calls original base destructor"
+    ],
+    "pending": [
+      "Modern container/object layout is not the original 44-byte ABI",
+      "loadXML typed extraction comparison",
+      "Completed transparent discard diagnostic String and queued deletion comparison",
+      "Copy constructor 004d56b0",
+      "Whole frame traversal, input, control rendering and menu integration",
+      "Nonfinite transparency/elapsed behavior"
+    ]
+  },
+  "control": {
+    "operations": 40000,
+    "state_comparisons": 400020,
+    "callback_events": 24546,
+    "animation_ended_events": 156,
+    "sprite_pairs": 1822,
+    "hit_tests": 10764,
+    "draw_traversals": 1788,
+    "controls_destroyed": 20,
+    "precision_contexts": [
+      {
+        "operations": 20000,
+        "state_comparisons": 200010,
+        "callback_events": 12273,
+        "animation_ended_events": 78,
+        "sprite_pairs": 911,
+        "hit_tests": 5382,
+        "draw_traversals": 894,
+        "controls_destroyed": 10,
+        "precision": "process-default"
+      },
+      {
+        "operations": 20000,
+        "state_comparisons": 200010,
+        "callback_events": 12273,
+        "animation_ended_events": 78,
+        "sprite_pairs": 911,
+        "hit_tests": 5382,
+        "draw_traversals": 894,
+        "controls_destroyed": 10,
+        "precision": "x87-pc24"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:19.107246+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "9d0024686a99e79732ebf59e0e29ab7c5e9fb620833f61c41c3c2cbb1356ed6a",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004edc80",
+      "004f16f0",
+      "004f1780",
+      "004f1560",
+      "004ed670",
+      "004f1810",
+      "004f17a0",
+      "004f17c0",
+      "004f1680",
+      "004f14e0",
+      "004f1510",
+      "004f0110",
+      "004f1080",
+      "004f0b70",
+      "00413a50",
+      "004eebb0",
+      "00506a10"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "Timer +8 returns controlled elapsed value",
+      "Animation-ended virtual slot records an event",
+      "Picture callbacks record events with deterministic keep/remove results"
+    ],
+    "pending": [
+      "Modern object ABI differs from original 556/568-byte classes",
+      "Control/Picture XML resource loading comparison",
+      "Mesh/Animation resources and 3D branch",
+      "Actual menu/input/main frame integration",
+      "Nonfinite geometry/animation cases"
+    ]
+  },
+  "text-control": {
+    "scenarios": 18000,
+    "letter_comparisons": 169056,
+    "direction_comparisons": 4800,
+    "lines_destroyed": 600,
+    "precision_contexts": [
+      {
+        "scenarios": 9000,
+        "letter_comparisons": 84528,
+        "direction_comparisons": 2400,
+        "lines_destroyed": 300,
+        "device_flags": 34,
+        "x87_control_before": 589855,
+        "x87_control_after": 589855,
+        "precision": "preserved"
+      },
+      {
+        "scenarios": 9000,
+        "letter_comparisons": 84528,
+        "direction_comparisons": 2400,
+        "lines_destroyed": 300,
+        "device_flags": 32,
+        "x87_control_before": 589855,
+        "x87_control_after": 655391,
+        "precision": "original-device-0x20"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:20.254287+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "41dc7f15ca8b71f6f4154fe14256f5b23c228c47a474d1547adf87da10b9fae8",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004daca0",
+      "004da840",
+      "004dd030",
+      "004dc800",
+      "004dc1c0",
+      "004da400",
+      "004dbdc0",
+      "004dae40",
+      "0050c490",
+      "0050c500",
+      "004f0110",
+      "004f1080"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "String assign/append/replace use recovered ABI strings",
+      "Settings bool and localization bind to recovered services",
+      "Texture factory returns recovered native GPU texture",
+      "Font lookup executes original 0050b450 over fixture original-layout nodes from shipped font data",
+      "Original XML loading is bypassed: matching fields are initialized from shipped UserText attributes"
+    ],
+    "pending": [
+      "Original XML typed extraction comparison",
+      "Full TextLine 696-byte ABI",
+      "Further setters/disabled transitions",
+      "Input/menu/main frame integration",
+      "Nonfinite geometry and malformed resource behavior"
+    ]
+  },
+  "button": {
+    "operations": 40000,
+    "state_comparisons": 480024,
+    "callback_events": 16738,
+    "sprites": 2534,
+    "control_events": 5228,
+    "mask_hit_tests": 480000,
+    "buttons_destroyed": 24,
+    "precision_contexts": [
+      {
+        "operations": 20000,
+        "state_comparisons": 240012,
+        "callback_events": 8369,
+        "sprites": 1267,
+        "control_events": 2614,
+        "mask_hit_tests": 240000,
+        "buttons_destroyed": 12,
+        "precision": "process-default"
+      },
+      {
+        "operations": 20000,
+        "state_comparisons": 240012,
+        "callback_events": 8369,
+        "sprites": 1267,
+        "control_events": 2614,
+        "mask_hit_tests": 240000,
+        "buttons_destroyed": 12,
+        "precision": "x87-pc24"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:20.588088+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "a3ea9f9dd696441f37fbc69554e8776055b79e30e3dd04da34f5247854f9447b",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004f53b0",
+      "004f5480",
+      "004f2770",
+      "004f2cc0",
+      "004f28c0",
+      "004f30e0",
+      "004f34c0",
+      "004f2620",
+      "004f2690",
+      "004f26b0",
+      "004f3a00",
+      "004f3e00",
+      "004f41f0",
+      "004f4620",
+      "004f1c30",
+      "004f1ce0",
+      "00507ec0",
+      "00507fd0",
+      "00508120"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "Cursor returns controlled position",
+      "Input registration routes to recovered binding sets",
+      "Sound manager records calls; controlled sound resources have real recovered cResource references",
+      "Click-mask columns are constructed fixture data; file-mask loading is not verified by this test"
+    ],
+    "pending": [
+      "Original XML extraction and resource loading comparison",
+      "State textures with nonnull resources",
+      "Full old object/exception ABI",
+      "Native DirectInput device acquisition and dispatch",
+      "Actual menu/frame integration",
+      "Nonfinite masks/geometry"
+    ]
+  },
+  "button-text": {
+    "scenarios": 18000,
+    "letter_comparisons": 170262,
+    "direction_comparisons": 4800,
+    "lines_destroyed": 600,
+    "precision_contexts": [
+      {
+        "scenarios": 9000,
+        "letter_comparisons": 85131,
+        "direction_comparisons": 2400,
+        "lines_destroyed": 300,
+        "device_flags": 34,
+        "x87_control_before": 589855,
+        "x87_control_after": 589855,
+        "precision": "preserved"
+      },
+      {
+        "scenarios": 9000,
+        "letter_comparisons": 85131,
+        "direction_comparisons": 2400,
+        "lines_destroyed": 300,
+        "device_flags": 32,
+        "x87_control_before": 589855,
+        "x87_control_after": 655391,
+        "precision": "original-device-0x20"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:21.757619+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "910f5556ced60ea742e531241e36873a7c5c7d40351f1f39df548192b0d03830",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004daca0",
+      "004da840",
+      "004dd030",
+      "004dc800",
+      "004dc1c0",
+      "004da400",
+      "004dbdc0",
+      "004dae40",
+      "0051e040",
+      "0041fa40",
+      "0050c490",
+      "0050c500",
+      "004f0110",
+      "004f1080"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "String assign/append/replace use recovered ABI strings",
+      "Settings bool and localization bind to recovered services",
+      "Texture factory returns recovered native GPU texture",
+      "Font lookup executes original 0050b450 over fixture original-layout nodes from shipped font data",
+      "Original XML loading is bypassed: matching fields are initialized from shipped UserText attributes"
+    ],
+    "pending": [
+      "Original XML typed extraction comparison",
+      "Full TextLine 696-byte ABI",
+      "Parent TextButton lifecycle and native XML extraction",
+      "Input/menu/main frame integration",
+      "Nonfinite geometry and malformed resource behavior"
+    ]
+  },
+  "click-mask": {
+    "masks": 850,
+    "columns": 300058,
+    "alpha_bits": 162028842,
+    "precision_contexts": [
+      {
+        "masks": 425,
+        "columns": 150029,
+        "alpha_bits": 81014421,
+        "device_flags": 34,
+        "x87_control_before": 589855,
+        "x87_control_after": 589855,
+        "precision": "preserved"
+      },
+      {
+        "masks": 425,
+        "columns": 150029,
+        "alpha_bits": 81014421,
+        "device_flags": 32,
+        "x87_control_before": 589855,
+        "x87_control_after": 655391,
+        "precision": "original-device-0x20"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:41.060606+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "d2c4b1ec768f04fefba6c262d2495e16adad7663718b1f05a712a5ed184e0c4e",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "0051c040",
+      "0051a330",
+      "00519450",
+      "00519360",
+      "00516e10",
+      "0051a010",
+      "004f5200"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "File factory returns recovered iFile with original slot order",
+      "JNG GPU loader binds to recovered getJngTexture (already independently pixel compared with original DLL)",
+      "Original mask vector/bit arrays, loops, alpha threshold, resize and cleanup execute unmodified logic"
+    ],
+    "pending": [
+      "Non-JNG D3DX format conversion in getMask",
+      "Full old vector/exception ABI",
+      "Main menu input integration",
+      "Failure/malformed source cases"
+    ]
+  },
+  "input-bindings": {
+    "operations": 10000,
+    "set_comparisons": 5340000,
+    "controls": 532,
+    "frames": 500,
+    "dispatch_events": 630566,
+    "cached_key_queries": 5000,
+    "format_objects": 267,
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:41.377866+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "85f84bb0fb1f77eaa974a39a7533786350a944aa3c066a676fe8252f14ebae9f",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "00526190",
+      "005280f0",
+      "00526580",
+      "005284e0",
+      "00526970",
+      "005288e0",
+      "00524640",
+      "00524a30",
+      "00524e60",
+      "00527310",
+      "005245e0",
+      "00525620",
+      "00525240",
+      "00525a00",
+      "00523e20",
+      "00524200"
+    ],
+    "test_adapters": [
+      "Allocation/free/memmove use diagnostic CRT",
+      "Own original-layout handler sets are initialized without original constructor",
+      "DirectInput COM fixtures return controlled device data/state and HRESULTs; no physical user input is read",
+      "Callbacks record order, mutate control registrations, and append characters during live dispatch"
+    ],
+    "sdk_formats": {
+      "keyboard_objects": 256,
+      "mouse_objects": 11,
+      "all_object_flags_offsets_guids": "exact original PE match"
+    },
+    "pending": [
+      "Real-device initialization/foreground window integration",
+      "Original Input constructor/key-name map and destructor",
+      "Old exception ABI for DIERR_INPUTLOST/other failures",
+      "Character handler erasing itself during traversal",
+      "Main menu/cursor integration",
+      "Full old Input object ABI"
+    ]
+  },
+  "text-buttons": {
+    "scenarios": 2160,
+    "letter_comparisons": 9786,
+    "lines_destroyed": 18,
+    "decoration_comparisons": 30,
+    "menu_views_destroyed": 6,
+    "menu_content_comparisons": 54,
+    "menu_frames": 72,
+    "menu_pixels": 34560000,
+    "precision_contexts": [
+      {
+        "scenarios": 1080,
+        "letter_comparisons": 4893,
+        "direction_comparisons": 0,
+        "lines_destroyed": 9,
+        "decoration_comparisons": 15,
+        "menu_views_destroyed": 3,
+        "menu_content_comparisons": 27,
+        "menu_frames": 36,
+        "menu_pixels": 17280000,
+        "device_flags": 34,
+        "x87_control_before": 589855,
+        "x87_control_after": 589855,
+        "precision": "preserved"
+      },
+      {
+        "scenarios": 1080,
+        "letter_comparisons": 4893,
+        "direction_comparisons": 0,
+        "lines_destroyed": 9,
+        "decoration_comparisons": 15,
+        "menu_views_destroyed": 3,
+        "menu_content_comparisons": 27,
+        "menu_frames": 36,
+        "menu_pixels": 17280000,
+        "device_flags": 32,
+        "x87_control_before": 589855,
+        "x87_control_after": 655391,
+        "precision": "original-device-0x20"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:27:41.407069+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "1a08c3927db9ed72cdcf8617e9d8e6867eb4ddf6f23f59b24a88dda2c9ecfaa5",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "0051fe90",
+      "0041e8d0",
+      "0051f5a0",
+      "0041ed10",
+      "0051f570",
+      "0051f9b0",
+      "0041f120",
+      "0051dbf0",
+      "0041f5f0",
+      "004dd980",
+      "004d43a0",
+      "004eded0",
+      "004d22a0",
+      "004f1860",
+      "004f4b80",
+      "004f20f0",
+      "00508560",
+      "005202d0",
+      "004fe470",
+      "0051f540",
+      "0046bea0",
+      "00508120",
+      "004f5480",
+      "004da840",
+      "004d58a0",
+      "004fb040",
+      "004fa8c0",
+      "004fafc0",
+      "00481e10",
+      "00481770",
+      "00531b20",
+      "00506a10",
+      "0052fe50",
+      "00515830"
+    ],
+    "test_adapters": [
+      "Allocation/free and String/WString operations use diagnostic CRT/recovered ABI strings",
+      "XML virtual attribute/section calls wrap recovered trees parsed from original packages",
+      "Typed XML scalar/vector/color conversion uses controlled modern stream adapters; old CRT extraction is unverified",
+      "Native font lookups execute original function over original-layout fixtures populated from shipped font records",
+      "Resource factories return recovered GPU textures and diagnostic sound references; audible playback is unverified",
+      "Native click-mask factory boundary uses recovered mask loading, separately compared over all shipped JNGs",
+      "Cursor and timer are controlled; native input registration uses recovered binding sets",
+      "Three texture-switching parents use a separate base XML pass from the shipped Options/SoundVolume/Slider definition",
+      "Main-menu object construction follows 00484da0 control allocations without executing its singleton/action wiring",
+      "Existing fixed-background singleton exercises the guard of 00481990; generic MenuView hooks replace MainMenu hooks in this fixture",
+      "Profile names use an original-layout WString fixture; real profile persistence is unverified",
+      "Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged",
+      "Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test",
+      "Native cursor update, timer advance, input process and graphics begin/finish are controlled empty test services; sound/mesh/extra-drawable/discard registries are empty",
+      "Native draw fixture uses sprite-only linked batches and previously checked recovered render-state setup; device creation, reset, mesh and complete graphics singleton ABI remain separate work",
+      "GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly",
+      "Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact"
+    ],
+    "coverage": [
+      "Six shipped MainMenu animated buttons: constructor, native XML, localized owned letters, parent state/alpha/position/text changes, sprites and owned destruction",
+      "Three texture-switching owned text buttons: native parent/text construction and XML, nonnull texture switches, per-texture reference deltas and child destruction",
+      "MenuView MainMenu/FixedBack/Options decorations: repeated XML loads, native sprites, owned destruction and per-texture reference deltas",
+      "Whole main-menu content: seven owned text buttons, two text lines, three backgrounds, native 00481e10 XML bindings and 20 profile-name refresh sequences per context",
+      "36 whole-scene menu RGB comparisons per context: independent source/native hierarchies and GPU buffers; native 00531b20 step/transition frame, 00506a10 traversal, 0052fe50 submission and 00515830 draw; transparent hide/show through completion",
+      "Both original GPU x87 precision contexts"
+    ],
+    "pending": [
+      "Original XML parser and old CRT typed conversion ABI",
+      "Full object/exception ABI",
+      "MenuView BackText/BackMultitext branches; original MainMenu loader 00481e10 ignores legacy submenu sections",
+      "MainMenu singleton, navigation callbacks and unusual enable/disable hooks",
+      "Whole menu physical input/frame service integration and actual navigation",
+      "Actual sound loading/playback",
+      "Complete main game EXE"
+    ]
+  },
+  "ui-frame": {
+    "operations": 32000,
+    "state_comparisons": 384024,
+    "callback_events": 35826,
+    "registry_comparisons": 32000,
+    "precision_comparisons": 20000,
+    "frame_comparisons": 1024,
+    "owned_views_deleted": 24,
+    "precision_contexts": [
+      {
+        "operations": 16000,
+        "state_comparisons": 192012,
+        "callback_events": 17913,
+        "registry_comparisons": 16000,
+        "precision_comparisons": 10000,
+        "frame_comparisons": 512,
+        "owned_views_deleted": 12,
+        "precision": "process-default"
+      },
+      {
+        "operations": 16000,
+        "state_comparisons": 192012,
+        "callback_events": 17913,
+        "registry_comparisons": 16000,
+        "precision_comparisons": 10000,
+        "frame_comparisons": 512,
+        "owned_views_deleted": 12,
+        "precision": "x87-pc24"
+      }
+    ],
+    "status": "passed",
+    "recorded_at_utc": "2026-10-09T16:26:18.774576+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "479edd36c77aadd4baf491580e8805e3f65a09b25266b129da7d9d83963418d7",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004d55b0",
+      "004d58a0",
+      "004d2e50",
+      "004d37d0",
+      "004d3720",
+      "004d3bb0",
+      "004d3fb0",
+      "004d4590",
+      "004d4980",
+      "004d4d80",
+      "004d59c0",
+      "004d2ec0",
+      "004d2f50",
+      "004d2fc0",
+      "00506f90",
+      "00506fe0",
+      "00507030",
+      "00507080",
+      "005069d0",
+      "00506b90",
+      "00506d90",
+      "00531b20",
+      "004fb180"
+    ],
+    "test_adapters": [
+      "Allocation/free use diagnostic CRT",
+      "Timer +8 returns controlled elapsed value",
+      "Virtual callbacks record order then call original base handlers; child deleting destructor records then calls original base destructor",
+      "Main-frame cursor update, timer advance, input processing, and graphics begin/finish use empty diagnostic boundary callbacks",
+      "Sound, mesh, and drawable-control registries are empty in frame fixtures; no complete rendering or physical input comparison",
+      "Completed discard mode is converted to hide in frame fixtures; native discard-map traversal is empty"
+    ],
+    "pending": [
+      "Modern container/object layout is not the original 44-byte ABI",
+      "loadXML typed extraction comparison",
+      "Completed transparent discard diagnostic String and queued deletion comparison",
+      "Copy constructor 004d56b0",
+      "Whole frame traversal, input, control rendering and menu integration",
+      "Nonfinite transparency/elapsed behavior",
+      "Main-frame sound/mesh/graphics/input integration and native nonempty queued deletion"
+    ],
+    "coverage": [
+      "Absolute then normal UI traversal with normal pending-removal tests in both passes",
+      "Callbacks mutate normal/absolute registration while traversing; additions/removals flush between passes",
+      "Transition-set size 00660528 suppresses BOTH step passes while transitions exist; finished transitions are removed after traversal",
+      "1024 original main frames across both x87 contexts, comparing callback order and all 12 view states/registries"
+    ]
+  }
+}

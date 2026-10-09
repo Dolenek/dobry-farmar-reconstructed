@@ -1,0 +1,2626 @@
+{
+  "input_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9",
+  "dialect": "NSIS 2.28 ANSI, default opcode order",
+  "firstheader_offset": 55296,
+  "flags": 5,
+  "header_size": 7848,
+  "solid_decoded_size": 37747,
+  "language_id": 1029,
+  "blocks": {
+    "pages": {
+      "offset": 300,
+      "count": 3
+    },
+    "sections": {
+      "offset": 492,
+      "count": 1
+    },
+    "entries": {
+      "offset": 1540,
+      "count": 137
+    },
+    "strings": {
+      "offset": 5376,
+      "count": 0
+    },
+    "languages": {
+      "offset": 7530,
+      "count": 1
+    },
+    "colors": {
+      "offset": 7800,
+      "count": 0
+    },
+    "background": {
+      "offset": 0,
+      "count": 0
+    },
+    "data": {
+      "offset": 0,
+      "count": 0
+    }
+  },
+  "sections": [
+    {
+      "name": "Uninstall",
+      "flags": 1,
+      "first_instruction": 47,
+      "instruction_count": 27,
+      "size_kb": 0
+    }
+  ],
+  "strings": [
+    {
+      "offset": 0,
+      "text": ""
+    },
+    {
+      "offset": 1,
+      "text": "ProgramFilesDir"
+    },
+    {
+      "offset": 17,
+      "text": "C:\\Program Files"
+    },
+    {
+      "offset": 34,
+      "text": "CommonFilesDir"
+    },
+    {
+      "offset": 49,
+      "text": "$PROGRAMFILES\\Common Files"
+    },
+    {
+      "offset": 66,
+      "text": " "
+    },
+    {
+      "offset": 68,
+      "text": "$HWNDPARENT"
+    },
+    {
+      "offset": 72,
+      "text": "1037"
+    },
+    {
+      "offset": 77,
+      "text": "0"
+    },
+    {
+      "offset": 79,
+      "text": "$var32"
+    },
+    {
+      "offset": 83,
+      "text": "0x000C"
+    },
+    {
+      "offset": 90,
+      "text": "1038"
+    },
+    {
+      "offset": 95,
+      "text": "$PLUGINSDIR\\modern-header.bmp"
+    },
+    {
+      "offset": 117,
+      "text": "700"
+    },
+    {
+      "offset": 121,
+      "text": "$var33"
+    },
+    {
+      "offset": 125,
+      "text": "0x0030"
+    },
+    {
+      "offset": 132,
+      "text": "1034"
+    },
+    {
+      "offset": 137,
+      "text": "1039"
+    },
+    {
+      "offset": 142,
+      "text": "1028"
+    },
+    {
+      "offset": 147,
+      "text": "1256"
+    },
+    {
+      "offset": 152,
+      "text": "  "
+    },
+    {
+      "offset": 157,
+      "text": "Uninstall"
+    },
+    {
+      "offset": 167,
+      "text": "$INSTDIR"
+    },
+    {
+      "offset": 171,
+      "text": "Software\\Alawar\\VirtualFarm"
+    },
+    {
+      "offset": 199,
+      "text": "Start Menu Folder"
+    },
+    {
+      "offset": 217,
+      "text": "Dobrý farmář"
+    },
+    {
+      "offset": 231,
+      "text": "$SMPROGRAMS\\$var34\\*.lnk"
+    },
+    {
+      "offset": 245,
+      "text": "$DESKTOP\\Dobrý farmář.lnk"
+    },
+    {
+      "offset": 267,
+      "text": "$DESKTOP\\Špidla Data Processing, s.r.o..lnk"
+    },
+    {
+      "offset": 279,
+      "text": "$DESKTOP\\Hry zdarma ke stažení.lnk"
+    },
+    {
+      "offset": 291,
+      "text": "$DESKTOP\\Pohádky zdarma ke stažení.lnk"
+    },
+    {
+      "offset": 303,
+      "text": "$SMPROGRAMS\\$var34"
+    },
+    {
+      "offset": 311,
+      "text": "$var34\\.."
+    },
+    {
+      "offset": 318,
+      "text": "$SMPROGRAMS"
+    },
+    {
+      "offset": 322,
+      "text": "PlayerName"
+    },
+    {
+      "offset": 333,
+      "text": "Software\\Alawar\\$var37"
+    },
+    {
+      "offset": 353,
+      "text": "$SMPROGRAMS\\$var38\\Games\\Dobrý farmář.lnk"
+    },
+    {
+      "offset": 385,
+      "text": "$SMPROGRAMS\\$var38\\Games"
+    },
+    {
+      "offset": 399,
+      "text": "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Dobrý farmář"
+    },
+    {
+      "offset": 465,
+      "text": "$PLUGINSDIR\\special_offer_page.ini"
+    },
+    {
+      "offset": 492,
+      "text": "Settings"
+    },
+    {
+      "offset": 501,
+      "text": "RTL"
+    },
+    {
+      "offset": 505,
+      "text": "Installer Language"
+    },
+    {
+      "offset": 524,
+      "text": "$PLUGINSDIR\\LangDLL.dll"
+    },
+    {
+      "offset": 540,
+      "text": "1250"
+    },
+    {
+      "offset": 545,
+      "text": "1029"
+    },
+    {
+      "offset": 550,
+      "text": "Cesky"
+    },
+    {
+      "offset": 556,
+      "text": "AC"
+    },
+    {
+      "offset": 559,
+      "text": "Please select a language."
+    },
+    {
+      "offset": 585,
+      "text": "LangDialog"
+    },
+    {
+      "offset": 596,
+      "text": "$LANGUAGE"
+    },
+    {
+      "offset": 600,
+      "text": "cancel"
+    },
+    {
+      "offset": 607,
+      "text": "$R0"
+    },
+    {
+      "offset": 611,
+      "text": "3"
+    },
+    {
+      "offset": 613,
+      "text": "Field 2"
+    },
+    {
+      "offset": 621,
+      "text": "State"
+    },
+    {
+      "offset": 627,
+      "text": "http://www.trialpay.com/productpage/?c="
+    },
+    {
+      "offset": 667,
+      "text": "Get Alawar games for free"
+    },
+    {
+      "offset": 693,
+      "text": "Do you want to own this game for FREE?"
+    },
+    {
+      "offset": 732,
+      "text": "$PLUGINSDIR\\InstallOptions.dll"
+    },
+    {
+      "offset": 755,
+      "text": "dialog"
+    },
+    {
+      "offset": 762,
+      "text": "$0"
+    },
+    {
+      "offset": 766,
+      "text": "$PLUGINSDIR"
+    },
+    {
+      "offset": 770,
+      "text": "$TEMP"
+    },
+    {
+      "offset": 774,
+      "text": "Error! Can't initialize plug-ins directory. Please try again later."
+    },
+    {
+      "offset": 842,
+      "text": "$TEMP\\$1u_.exe"
+    },
+    {
+      "offset": 856,
+      "text": "\"$TEMP\\$1u_.exe\" $0 _?=$INSTDIR\\"
+    },
+    {
+      "offset": 884,
+      "text": "$WINDIR\\wininit.ini"
+    },
+    {
+      "offset": 900,
+      "text": "Odinstalovat Dobrý farmář"
+    },
+    {
+      "offset": 917,
+      "text": "Volné místo: "
+    },
+    {
+      "offset": 931,
+      "text": "Potřebné místo: "
+    },
+    {
+      "offset": 948,
+      "text": "Nelze zapsat: "
+    },
+    {
+      "offset": 963,
+      "text": "Nelze najít znak: "
+    },
+    {
+      "offset": 982,
+      "text": "Nelze načíst: "
+    },
+    {
+      "offset": 997,
+      "text": "Vytvořen adresář: "
+    },
+    {
+      "offset": 1016,
+      "text": "Vytvořen zástupce: "
+    },
+    {
+      "offset": 1036,
+      "text": "Vytvořen odinstalátor: "
+    },
+    {
+      "offset": 1060,
+      "text": "Smazat soubor: "
+    },
+    {
+      "offset": 1076,
+      "text": "Smazat po restartu: "
+    },
+    {
+      "offset": 1097,
+      "text": "Chyba při vytváření zástupce: "
+    },
+    {
+      "offset": 1128,
+      "text": "Chyba při vytváření: "
+    },
+    {
+      "offset": 1150,
+      "text": "Chyba při rozbalování dat! Poškozený instalátor?"
+    },
+    {
+      "offset": 1200,
+      "text": "Spustit: "
+    },
+    {
+      "offset": 1210,
+      "text": "Rozbalit: "
+    },
+    {
+      "offset": 1221,
+      "text": "Rozbalit: chyba při zápisu do souboru "
+    },
+    {
+      "offset": 1260,
+      "text": "Instalátor je poškozen: nesprávný kontrolní kód"
+    },
+    {
+      "offset": 1309,
+      "text": "Nedostupné OLE pro: "
+    },
+    {
+      "offset": 1330,
+      "text": "Výstupní složka: "
+    },
+    {
+      "offset": 1349,
+      "text": "Odstranit složku: "
+    },
+    {
+      "offset": 1368,
+      "text": "Přeskočeno: "
+    },
+    {
+      "offset": 1381,
+      "text": "Zkopírovat podrobnosti do schránky"
+    },
+    {
+      "offset": 1416,
+      "text": "B"
+    },
+    {
+      "offset": 1418,
+      "text": "K"
+    },
+    {
+      "offset": 1420,
+      "text": "M"
+    },
+    {
+      "offset": 1422,
+      "text": "G"
+    },
+    {
+      "offset": 1424,
+      "text": "Odinstalovat program Dobrý farmář"
+    },
+    {
+      "offset": 1449,
+      "text": "Odebrat program Dobrý farmář z Vašeho počítače."
+    },
+    {
+      "offset": 1488,
+      "text": "Odinstalace"
+    },
+    {
+      "offset": 1500,
+      "text": "Vyčkejte, prosím, na dokončení odinstalace programu Dobrý farmář."
+    },
+    {
+      "offset": 1557,
+      "text": "Odinstalace dokončena"
+    },
+    {
+      "offset": 1579,
+      "text": "Odinstalace proběhla v pořádku."
+    },
+    {
+      "offset": 1611,
+      "text": "Odinstalace přerušena"
+    },
+    {
+      "offset": 1633,
+      "text": "Odinstalace nebyla dokončena."
+    },
+    {
+      "offset": 1663,
+      "text": "Nelze otevřít soubor pro zápis: \r\n\t\"$0\"\r\nStiskněte 'Přerušit' pro ukončení instalace\r\nnebo 'Znovu' pro další pokus nebo\r\n'Ignorovat' pro přeskočení souboru"
+    },
+    {
+      "offset": 1820,
+      "text": "MS Shell Dlg"
+    },
+    {
+      "offset": 1833,
+      "text": "Špidla Data Processing, s.r.o."
+    },
+    {
+      "offset": 1864,
+      "text": "Hry zdarma ke stažení"
+    },
+    {
+      "offset": 1886,
+      "text": "Pohádky zdarma ke stažení"
+    },
+    {
+      "offset": 1912,
+      "text": "Vlastní"
+    },
+    {
+      "offset": 1920,
+      "text": "Storno"
+    },
+    {
+      "offset": 1927,
+      "text": "Tento průvodce z Vašeho počítače odinstaluje Dobrý farmář. $var30"
+    },
+    {
+      "offset": 1981,
+      "text": "Odinstalovat z:"
+    },
+    {
+      "offset": 1997,
+      "text": "< &Zpět"
+    },
+    {
+      "offset": 2005,
+      "text": "&Odinstalovat"
+    },
+    {
+      "offset": 2019,
+      "text": "Klikněte na 'Odinstalovat' pro zahájení odinstalace."
+    },
+    {
+      "offset": 2072,
+      "text": "Zobrazit &detaily"
+    },
+    {
+      "offset": 2090,
+      "text": "Dokončeno"
+    },
+    {
+      "offset": 2100,
+      "text": "&Další >"
+    },
+    {
+      "offset": 2109,
+      "text": "Pro pokračování klikněte na 'Další'."
+    },
+    {
+      "offset": 2146,
+      "text": "&Zavřít"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction": 1,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        72,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1037"
+      }
+    },
+    {
+      "instruction": 2,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -37,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 3,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        90,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1038"
+      }
+    },
+    {
+      "instruction": 4,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -38,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 5,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 6,
+      "opcode": 5,
+      "operation": "CALL",
+      "arguments": [
+        104,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 7,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 8,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 9,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        72,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1037"
+      }
+    },
+    {
+      "instruction": 10,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -39,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 11,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        90,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1038"
+      }
+    },
+    {
+      "instruction": 12,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -40,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 13,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 14,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 15,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        21,
+        0,
+        3,
+        -1,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 16,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        72,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1037"
+      }
+    },
+    {
+      "instruction": 17,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -41,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 18,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        90,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1038"
+      }
+    },
+    {
+      "instruction": 19,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -42,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 20,
+      "opcode": 2,
+      "operation": "NOP",
+      "arguments": [
+        25,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 21,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        72,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1037"
+      }
+    },
+    {
+      "instruction": 22,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -43,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 23,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        90,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1038"
+      }
+    },
+    {
+      "instruction": 24,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        -44,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 25,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 26,
+      "opcode": 5,
+      "operation": "CALL",
+      "arguments": [
+        124,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 27,
+      "opcode": 6,
+      "operation": "UPDATETEXT",
+      "arguments": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": ""
+      }
+    },
+    {
+      "instruction": 28,
+      "opcode": 20,
+      "operation": "EXTRACTFILE",
+      "arguments": [
+        83886224,
+        95,
+        0,
+        2059570176,
+        29877219,
+        -45
+      ],
+      "strings": {
+        "1": "$PLUGINSDIR\\modern-header.bmp"
+      }
+    },
+    {
+      "instruction": 29,
+      "opcode": 37,
+      "operation": "SETBRANDINGIMAGE",
+      "arguments": [
+        95,
+        1046,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$PLUGINSDIR\\modern-header.bmp"
+      }
+    },
+    {
+      "instruction": 30,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        72,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1037"
+      }
+    },
+    {
+      "instruction": 31,
+      "opcode": 38,
+      "operation": "CREATEFONT",
+      "arguments": [
+        33,
+        -46,
+        -47,
+        117,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "MS Shell Dlg",
+        "2": "8",
+        "3": "700"
+      }
+    },
+    {
+      "instruction": 32,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        125,
+        121,
+        77,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 33,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 34,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        90,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1038"
+      }
+    },
+    {
+      "instruction": 35,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 36,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        132,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1034"
+      }
+    },
+    {
+      "instruction": 37,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 38,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        137,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1039"
+      }
+    },
+    {
+      "instruction": 39,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 40,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        142,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1028"
+      }
+    },
+    {
+      "instruction": 41,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        24,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 42,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        32,
+        68,
+        147,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "1256"
+      }
+    },
+    {
+      "instruction": 43,
+      "opcode": 36,
+      "operation": "SETCTLCOLORS",
+      "arguments": [
+        79,
+        24,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 44,
+      "opcode": 33,
+      "operation": "SENDMESSAGE",
+      "arguments": [
+        -1,
+        79,
+        83,
+        77,
+        152,
+        2
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 45,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 46,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 47,
+      "opcode": 23,
+      "operation": "RMDIR",
+      "arguments": [
+        167,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$INSTDIR"
+      }
+    },
+    {
+      "instruction": 48,
+      "opcode": 52,
+      "operation": "READREGSTR",
+      "arguments": [
+        32,
+        -2147483647,
+        171,
+        199,
+        0,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\VirtualFarm",
+        "3": "Start Menu Folder"
+      }
+    },
+    {
+      "instruction": 49,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        79,
+        0,
+        52,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$var32",
+        "1": ""
+      }
+    },
+    {
+      "instruction": 50,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        34,
+        79,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$var32"
+      }
+    },
+    {
+      "instruction": 51,
+      "opcode": 2,
+      "operation": "NOP",
+      "arguments": [
+        53,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 52,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        34,
+        217,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "Dobrý farmář"
+      }
+    },
+    {
+      "instruction": 53,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        231,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$SMPROGRAMS\\$var34\\*.lnk"
+      }
+    },
+    {
+      "instruction": 54,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        245,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$DESKTOP\\Dobrý farmář.lnk"
+      }
+    },
+    {
+      "instruction": 55,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        267,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$DESKTOP\\Špidla Data Processing, s.r.o..lnk"
+      }
+    },
+    {
+      "instruction": 56,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        279,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$DESKTOP\\Hry zdarma ke stažení.lnk"
+      }
+    },
+    {
+      "instruction": 57,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        291,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$DESKTOP\\Pohádky zdarma ke stažení.lnk"
+      }
+    },
+    {
+      "instruction": 58,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        34,
+        303,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$SMPROGRAMS\\$var34"
+      }
+    },
+    {
+      "instruction": 59,
+      "opcode": 13,
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        77,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 60,
+      "opcode": 23,
+      "operation": "RMDIR",
+      "arguments": [
+        307,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$var34"
+      }
+    },
+    {
+      "instruction": 61,
+      "opcode": 17,
+      "operation": "GETFULLPATHNAME",
+      "arguments": [
+        311,
+        34,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "CommonFilesDir"
+      }
+    },
+    {
+      "instruction": 62,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        64,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 63,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        307,
+        318,
+        64,
+        59,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$var34",
+        "1": "$SMPROGRAMS"
+      }
+    },
+    {
+      "instruction": 64,
+      "opcode": 13,
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        77,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 65,
+      "opcode": 52,
+      "operation": "READREGSTR",
+      "arguments": [
+        37,
+        -2147483647,
+        171,
+        322,
+        0,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\VirtualFarm",
+        "3": "PlayerName"
+      }
+    },
+    {
+      "instruction": 66,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        72,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 67,
+      "opcode": 52,
+      "operation": "READREGSTR",
+      "arguments": [
+        38,
+        -2147483647,
+        333,
+        199,
+        0,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\$var37",
+        "3": "Start Menu Folder"
+      }
+    },
+    {
+      "instruction": 68,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        72,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 69,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        353,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$SMPROGRAMS\\$var38\\Games\\Dobrý farmář.lnk"
+      }
+    },
+    {
+      "instruction": 70,
+      "opcode": 23,
+      "operation": "RMDIR",
+      "arguments": [
+        385,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$SMPROGRAMS\\$var38\\Games"
+      }
+    },
+    {
+      "instruction": 71,
+      "opcode": 13,
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        77,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 72,
+      "opcode": 50,
+      "operation": "DELREG",
+      "arguments": [
+        0,
+        -2147483647,
+        171,
+        0,
+        3,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\VirtualFarm"
+      }
+    },
+    {
+      "instruction": 73,
+      "opcode": 50,
+      "operation": "DELREG",
+      "arguments": [
+        0,
+        -2147483646,
+        399,
+        0,
+        1,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Dobrý farmář"
+      }
+    },
+    {
+      "instruction": 74,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 75,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        103,
+        0,
+        8,
+        -1,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 76,
+      "opcode": 5,
+      "operation": "CALL",
+      "arguments": [
+        124,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 77,
+      "opcode": 6,
+      "operation": "UPDATETEXT",
+      "arguments": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": ""
+      }
+    },
+    {
+      "instruction": 78,
+      "opcode": 20,
+      "operation": "EXTRACTFILE",
+      "arguments": [
+        83886224,
+        465,
+        9748,
+        2059570176,
+        29877219,
+        -45
+      ],
+      "strings": {
+        "1": "$PLUGINSDIR\\special_offer_page.ini"
+      }
+    },
+    {
+      "instruction": 79,
+      "opcode": 48,
+      "operation": "WRITEINI",
+      "arguments": [
+        492,
+        501,
+        -51,
+        465,
+        1,
+        0
+      ],
+      "strings": {
+        "0": "Settings",
+        "1": "RTL",
+        "2": "0",
+        "3": "$PLUGINSDIR\\special_offer_page.ini"
+      }
+    },
+    {
+      "instruction": 80,
+      "opcode": 52,
+      "operation": "READREGSTR",
+      "arguments": [
+        32,
+        -2147483647,
+        171,
+        505,
+        0,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\VirtualFarm",
+        "3": "Installer Language"
+      }
+    },
+    {
+      "instruction": 81,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        79,
+        0,
+        0,
+        102,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$var32",
+        "1": ""
+      }
+    },
+    {
+      "instruction": 82,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        101,
+        0,
+        8,
+        -1,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 83,
+      "opcode": 52,
+      "operation": "READREGSTR",
+      "arguments": [
+        32,
+        -2147483647,
+        171,
+        505,
+        0,
+        0
+      ],
+      "strings": {
+        "2": "Software\\Alawar\\VirtualFarm",
+        "3": "Installer Language"
+      }
+    },
+    {
+      "instruction": 84,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        79,
+        0,
+        87,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$var32",
+        "1": ""
+      }
+    },
+    {
+      "instruction": 85,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        24,
+        79,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$var32"
+      }
+    },
+    {
+      "instruction": 86,
+      "opcode": 2,
+      "operation": "NOP",
+      "arguments": [
+        101,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 87,
+      "opcode": 5,
+      "operation": "CALL",
+      "arguments": [
+        124,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 88,
+      "opcode": 20,
+      "operation": "EXTRACTFILE",
+      "arguments": [
+        83886225,
+        524,
+        10431,
+        -1,
+        -1,
+        -45
+      ],
+      "strings": {
+        "1": "$PLUGINSDIR\\LangDLL.dll"
+      }
+    },
+    {
+      "instruction": 89,
+      "opcode": 6,
+      "operation": "UPDATETEXT",
+      "arguments": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": ""
+      }
+    },
+    {
+      "instruction": 90,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": ""
+      }
+    },
+    {
+      "instruction": 91,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        540,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "1250"
+      }
+    },
+    {
+      "instruction": 92,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        545,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "1029"
+      }
+    },
+    {
+      "instruction": 93,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        550,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "Cesky"
+      }
+    },
+    {
+      "instruction": 94,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        556,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "AC"
+      }
+    },
+    {
+      "instruction": 95,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        559,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "Please select a language."
+      }
+    },
+    {
+      "instruction": 96,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        505,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "Installer Language"
+      }
+    },
+    {
+      "instruction": 97,
+      "opcode": 44,
+      "operation": "REGISTERDLL",
+      "arguments": [
+        524,
+        585,
+        0,
+        0,
+        1,
+        0
+      ],
+      "strings": {
+        "0": "$PLUGINSDIR\\LangDLL.dll",
+        "1": "LangDialog"
+      }
+    },
+    {
+      "instruction": 98,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        24,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 99,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        596,
+        600,
+        0,
+        101,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$LANGUAGE",
+        "1": "cancel"
+      }
+    },
+    {
+      "instruction": 100,
+      "opcode": 3,
+      "operation": "ABORT",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 101,
+      "opcode": 2,
+      "operation": "NOP",
+      "arguments": [
+        103,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 102,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        24,
+        79,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$var32"
+      }
+    },
+    {
+      "instruction": 103,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 104,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        0,
+        77,
+        109,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "",
+        "1": "0"
+      }
+    },
+    {
+      "instruction": 105,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        607,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$R0"
+      }
+    },
+    {
+      "instruction": 106,
+      "opcode": 35,
+      "operation": "GETDLGITEM",
+      "arguments": [
+        10,
+        68,
+        611,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$HWNDPARENT",
+        "2": "3"
+      }
+    },
+    {
+      "instruction": 107,
+      "opcode": 39,
+      "operation": "SHOWWINDOW",
+      "arguments": [
+        607,
+        77,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 108,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        10,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 109,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 110,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 111,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 112,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 113,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 114,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 115,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 116,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 117,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 118,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 119,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 120,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 121,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 122,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 123,
+      "opcode": 0,
+      "operation": "INVALID_OPCODE",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 124,
+      "opcode": 6,
+      "operation": "UPDATETEXT",
+      "arguments": [
+        0,
+        16,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": ""
+      }
+    },
+    {
+      "instruction": 125,
+      "opcode": 26,
+      "operation": "STRCMP",
+      "arguments": [
+        766,
+        0,
+        0,
+        134,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$PLUGINSDIR",
+        "1": ""
+      }
+    },
+    {
+      "instruction": 126,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        762,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$0"
+      }
+    },
+    {
+      "instruction": 127,
+      "opcode": 13,
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 128,
+      "opcode": 19,
+      "operation": "GETTEMPFILENAME",
+      "arguments": [
+        0,
+        770,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$TEMP"
+      }
+    },
+    {
+      "instruction": 129,
+      "opcode": 21,
+      "operation": "DELETEFILE",
+      "arguments": [
+        762,
+        8,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$0"
+      }
+    },
+    {
+      "instruction": 130,
+      "opcode": 11,
+      "operation": "CREATEDIR",
+      "arguments": [
+        762,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "0": "$0"
+      }
+    },
+    {
+      "instruction": 131,
+      "opcode": 14,
+      "operation": "IFFLAG",
+      "arguments": [
+        135,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 132,
+      "opcode": 25,
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        26,
+        762,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "$0"
+      }
+    },
+    {
+      "instruction": 133,
+      "opcode": 31,
+      "operation": "PUSHPOP",
+      "arguments": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 134,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 135,
+      "opcode": 22,
+      "operation": "MESSAGEBOX",
+      "arguments": [
+        2097168,
+        774,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {
+        "1": "Error! Can't initialize plug-ins directory. Please try again later."
+      }
+    },
+    {
+      "instruction": 136,
+      "opcode": 4,
+      "operation": "QUIT",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    },
+    {
+      "instruction": 137,
+      "opcode": 1,
+      "operation": "RET",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "strings": {}
+    }
+  ],
+  "status": "decoded_not_runtime_verified"
+}
