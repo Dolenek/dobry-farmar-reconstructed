@@ -7,8 +7,21 @@ namespace farmar::recovered {
 namespace {
 Profile* currentProfile=nullptr;
 String join(const String& prefix,const String& suffix) { return String(std::string(prefix.view())+std::string(suffix.view())); }
+String profileDirectory(Settings& settings) {
+    String path;settings.get(String("game"),String("profiles"),path);
+    std::string text(path.view());if(!text.empty() && text.back()!='/') text+='/';return String(text);
+}
 }
 Profile* Profile::instance() noexcept { return currentProfile; }
+bool Profile::headersExist(FileIndex& files,Settings& settings) {
+    return files.isExist(join(profileDirectory(settings),String("profiles.xml")));
+}
+WString Profile::storedName(FileIndex& files,Settings& settings,XmlLoader loader) {
+    if(!headersExist(files,settings)) return WString();
+    const String filename=join(profileDirectory(settings),String("profiles.xml"));
+    const auto xml=loader ? loader(filename):std::make_shared<XmlDocument>(files,filename);
+    return xml->attribute(WString(L"CurrentUser"));
+}
 Profile::Profile(FileIndex& files,Settings& settings,const WString& selectedName,Initializer initialize,XmlLoader loader,Invalidator invalidate)
     :files_(files),settings_(settings),headers_(selectedName),initialize_(std::move(initialize)),xmlLoader_(std::move(loader)),invalidate_(std::move(invalidate)) {
     if(currentProfile) throw "Object already exist.";
@@ -23,8 +36,7 @@ Profile::~Profile() noexcept(false) {
     properties().clear();currentProfile=nullptr;
 }
 String Profile::directory() {
-    String path;settings_.get(String("game"),String("profiles"),path);
-    std::string text(path.view());if(!text.empty() && text.back()!='/') text+='/';return String(text);
+    return profileDirectory(settings_);
 }
 std::shared_ptr<const XmlNode> Profile::loadXML(const String& filename) {
     return xmlLoader_ ? xmlLoader_(filename):std::make_shared<XmlDocument>(files_,filename);
@@ -69,5 +81,17 @@ void Profile::saveHeaders() {
 void Profile::saveProperties() {
     if(headers_.currentName_.empty()) return;
     write(join(join(directory(),headers_.currentID()),String(".xml")),properties().dumpXML());
+}
+void Profile::remove(const WString& name) {
+    const auto found=headers_.names_.find(name);
+    if(found==headers_.names_.end()) return;
+    const String id(formatProfileID(found->second));headers_.names_.erase(found);
+    headers_.storedCurrentName_=headers_.names_.empty() ? WString():headers_.names_.begin()->first;
+    headers_.currentName_=headers_.storedCurrentName_;headers_.dirty_=true;saveHeaders();suppressSave_=true;
+    std::vector<String> filenames;files_.getFilesNames(join(directory(),id),filenames);
+    for(const auto& filename:filenames) {
+        const String fullName=join(directory(),filename);
+        if(invalidate_) invalidate_(fullName);files_.removeCommon(fullName);
+    }
 }
 }
