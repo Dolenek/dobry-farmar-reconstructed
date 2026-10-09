@@ -81,7 +81,7 @@ if(WIN32)
     endif()
     add_library(recovered_graphics_utilities STATIC src/game/graphics/JngTexture.cpp src/game/graphics/GraphicsPresentation.cpp
         src/game/graphics/SpriteBuffers.cpp src/game/graphics/Matrix.cpp src/game/graphics/GraphicsRenderState.cpp
-        src/game/graphics/SpriteGeometry.cpp src/game/graphics/NativeImage.cpp src/game/graphics/ImageTexture.cpp)
+        src/game/graphics/SpriteGeometry.cpp src/game/graphics/NativeImage.cpp src/game/graphics/ImageTexture.cpp src/game/engine/GameCursor.cpp)
     target_include_directories(recovered_graphics_utilities PUBLIC src/game/graphics "${CMAKE_CURRENT_SOURCE_DIR}/.local/direct3d8-headers")
     target_link_libraries(recovered_graphics_utilities PUBLIC JNGLoad recovered_game_utilities)
     add_library(recovered_resource_utilities STATIC src/game/resources/Resource.cpp src/game/resources/Texture.cpp
@@ -139,6 +139,8 @@ if(WIN32)
     target_link_libraries(ui-frame-reference-test PRIVATE recovered_resource_utilities)
     add_executable(timer-reference-test tools/timer_reference_test.cpp)
     target_link_libraries(timer-reference-test PRIVATE recovered_game_utilities)
+    add_executable(cursor-reference-test tools/cursor_reference_test.cpp)
+    target_link_libraries(cursor-reference-test PRIVATE recovered_graphics_utilities)
     add_executable(control-reference-test tools/control_reference_test.cpp)
     target_link_libraries(control-reference-test PRIVATE recovered_resource_utilities)
     add_executable(text-control-reference-test tools/text_control_reference_test.cpp)
@@ -189,6 +191,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --frame --oracle "$<TARGET_FILE:ui-frame-reference-test>")
             add_test(NAME original-timer COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_timer.py" --oracle "$<TARGET_FILE:timer-reference-test>")
+            add_test(NAME original-cursor COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_cursor.py" --oracle "$<TARGET_FILE:cursor-reference-test>")
             add_test(NAME original-control-state COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_controls.py" --oracle "$<TARGET_FILE:control-reference-test>")
             add_test(NAME original-text-control-lifecycle COMMAND "${Python3_EXECUTABLE}"

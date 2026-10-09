@@ -7,6 +7,7 @@
 #include "MenuView.h"
 #include "MainMenuContent.h"
 #include "GameTimer.h"
+#include "GameCursor.h"
 #include "FileIndex.h"
 #include "ResourceManager.h"
 #include "Texture.h"
@@ -43,6 +44,12 @@ DWORD menuMilliseconds=0;
 DWORD WINAPI menuClock() { return menuMilliseconds; }
 void WINAPI menuSleep(DWORD value) { menuMilliseconds+=value; }
 MMRESULT WINAPI menuPeriod(UINT) { return 0; }
+GameCursor* menuCursor=nullptr;void* nativeCursorFrame=nullptr;
+POINT menuScreen{};Point2 menuPoint{};
+BOOL WINAPI menuCursorPosition(LPPOINT output) { *output=menuScreen;return TRUE; }
+std::vector<unsigned> menuInputEvents;std::array<int,3> menuMouseDelta{};
+std::vector<std::pair<std::string,unsigned>> actualSounds,expectedSounds;
+unsigned menuSoundRequests=0;
 std::set<void*> allocations;
 ResourceManager* resources=nullptr; StringManager* localization=nullptr; bool rtl=false;
 template<class T> T& field(void* object,unsigned offset) { return *reinterpret_cast<T*>(static_cast<unsigned char*>(object)+offset); }
@@ -157,6 +164,10 @@ public: explicit Sound(const String& name):cResource(name) {} unsigned resourceT
 std::vector<std::unique_ptr<Sound>> sounds;
 cResource* loadSound(const String& name) { sounds.push_back(std::make_unique<Sound>(name));return sounds.back().get(); }
 cResource* __fastcall getSound(void*,void*,const String* name) { return loadSound(*name); }
+void __fastcall nativeHoverSound(void*,void*,cResource* sound,bool loop,unsigned count) {
+    require(!loop && count==1,"Native menu hover sound arguments differ");expectedSounds.emplace_back(std::string(sound->resourceName().view()),0);
+}
+void __fastcall nativeClickSound(void*,void*,cResource* sound) { expectedSounds.emplace_back(std::string(sound->resourceName().view()),1); }
 struct NativeMaskColumn { unsigned count,allocator;unsigned* words;unsigned size,capacity; };
 void __fastcall getMask(void*,void*,const String* name,void* output) {
     const auto columns=loadClickMask(*name); auto* rows=static_cast<NativeMaskColumn*>(allocate(unsigned(columns.size())*20));
@@ -173,8 +184,11 @@ void __fastcall submitNative(void*,void*,const SpriteDefinition* sprite,cTexture
     nativeSubmissions.push_back({*sprite,texture,flags});
     nativeBatches->submit(*sprite,texture,flags,false,DesktopImagePlacement{});
 }
-const Point2* __fastcall cursor(void*,void*) { return &cursorPosition; }
+const Point2* __fastcall cursor(void* self,void*) { return nativeCursorFrame ? reinterpret_cast<Point2*>(static_cast<unsigned char*>(self)+0x10):&cursorPosition; }
 struct InputAdapter { void** table;InputBindings* input; };
+void __fastcall menuNativeInput(InputAdapter* self,void*) {
+    self->input->dispatchControls(menuInputEvents);self->input->dispatchMouse(menuMouseDelta);
+}
 void __fastcall bind(InputAdapter* self,void*,unsigned c,InputBindings::Handler h,void* v) { self->input->bind(c,h,v); }
 void __fastcall unbind(InputAdapter* self,void*,unsigned c,InputBindings::Handler h,void* v) { self->input->unbind(c,h,v); }
 void __fastcall bindMouse(InputAdapter* self,void*,InputBindings::MouseHandler h,void* v) { self->input->bindMouse(h,v); }
@@ -225,11 +239,16 @@ std::vector<unsigned char> readPixels(IDirect3DDevice8* device) {
     for(unsigned i=3;i<result.size();i+=4) result[i]=0;
     copy->UnlockRect();copy->Release();return result;
 }
-unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWND window,ViewRegistry& views,ControlRegistry& controls) {
+unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWND window,ViewRegistry& views,ControlRegistry& controls,InputBindings& input) {
     require(GameTimer::instance()!=nullptr,"Menu frame has no reconstructed timer");
-    GameTimer::instance()->process();
-    views.dispatchSteps();views.updateTransitions([] { return currentElapsed(); });
     PrimaryGraphicsSettings settings;GraphicsPresentation presentation(d3d,window);presentation.prepare(settings);
+    WINDOWINFO bounds{};bounds.cbSize=sizeof(bounds);require(GetWindowInfo(window,&bounds)!=FALSE,"Menu input client bounds failed");
+    menuScreen={static_cast<LONG>(menuPoint[0])+bounds.rcClient.left,static_cast<LONG>(menuPoint[1])+bounds.rcClient.top};
+    require(menuCursor && nativeCursorFrame,"Menu cursor frame is not bound");menuCursor->update(false,DesktopImagePlacement{});
+    actualSounds.clear();expectedSounds.clear();
+    GameTimer::instance()->process();
+    input.dispatchControls(menuInputEvents);input.dispatchMouse(menuMouseDelta);
+    views.dispatchSteps();views.updateTransitions([] { return currentElapsed(); });
     GraphicsRenderState render(device);SpriteBuffers actualBuffers(device),expectedBuffers(device);actualBuffers.resize(3000);expectedBuffers.resize(3000);
     SpriteBatches actualBatches(actualBuffers),expectedBatches(expectedBuffers);
     std::vector<Submission> actualSubmissions;
@@ -239,7 +258,10 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
         control.submitSprites(actualBatches,false,DesktopImagePlacement{});
     });actualBatches.finish();
     expectedBatches.begin();nativeBatches=&expectedBatches;nativeSubmissions.clear();
-    std::array<unsigned char,24> frame{};call(0x131b20,frame.data());nativeBatches=nullptr;expectedBatches.finish();
+    call(0x131b20,nativeCursorFrame);nativeBatches=nullptr;expectedBatches.finish();
+    require(!std::memcmp(menuCursor->position().data(),static_cast<unsigned char*>(nativeCursorFrame)+0x10,8),"Menu native/source cursor differs");
+    require(actualSounds==expectedSounds,"Menu input sound request order differs");
+    menuSoundRequests+=unsigned(actualSounds.size());
     require(actualSubmissions.size()==nativeSubmissions.size(),"Menu submission count differs");
     for(unsigned i=0;i<actualSubmissions.size();++i) {
         const auto& actual=actualSubmissions[i];const auto& expected=nativeSubmissions[i];
@@ -305,6 +327,7 @@ int wmain(int argc,wchar_t** argv) {
 #include "text_buttons_oracle_fixups.inc"
 #include "sprite_draw_oracle_fixups.inc"
 #include "ui_frame_oracle_fixups.inc"
+#include "cursor_oracle_fixups.inc"
         };
         std::set<unsigned> applied;
         for(const auto& f:fixups) { if(!applied.insert(f.rva).second) continue; unsigned address; std::memcpy(&address,image+f.rva,4); require(address==f.address,"Text control oracle operand differs"); address=reinterpret_cast<unsigned>(image)+address-0x400000; write(f.rva,&address,4); }
@@ -327,14 +350,22 @@ int wmain(int argc,wchar_t** argv) {
         uiElapsedTime()=[] { return currentElapsed(); };
         xmlTable[4]=reinterpret_cast<void*>(&section);xmlTable[5]=reinterpret_cast<void*>(&indexedSection);xmlTable[31]=reinterpret_cast<void*>(&attribute);xmlTable[38]=reinterpret_cast<void*>(&sectionCount);
         std::array<void*,5> cursorTable{};cursorTable[4]=reinterpret_cast<void*>(&cursor);auto* cursorPointer=cursorTable.data();putPointer(0x25ff60,&cursorPointer);
-        std::array<void*,19> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);auto* graphicsPointer=graphicsTable.data();putPointer(0x25ff8c,&graphicsPointer);
-        redirect(0x130290,reinterpret_cast<void*>(&frameService));
+        std::array<void*,20> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);
+        graphicsTable[14]=image+0x112330;graphicsTable[19]=image+0x10d260;
+        std::array<unsigned char,680> graphicsObject{};field<void*>(graphicsObject.data(),0)=graphicsTable.data();putPointer(0x25ff8c,graphicsObject.data());
+        void* windowInfoFunction=reinterpret_cast<void*>(&GetWindowInfo);write(0x1ee23c,&windowInfoFunction,4);
+        void* cursorPositionFunction=reinterpret_cast<void*>(&menuCursorPosition);write(0x1ee258,&cursorPositionFunction,4);
         InputBindings input,nativeInput;std::array<void*,12> inputTable{};inputTable[1]=reinterpret_cast<void*>(&bind);inputTable[2]=reinterpret_cast<void*>(&unbind);inputTable[11]=reinterpret_cast<void*>(&frameService);
         inputTable[8]=reinterpret_cast<void*>(&bindMouse);inputTable[9]=reinterpret_cast<void*>(&unbindMouse);InputAdapter inputAdapter{inputTable.data(),&nativeInput};putPointer(0x25f6e0,&inputAdapter);
         ButtonInteraction interaction;interaction.cursor=[] { return cursorPosition; };interaction.loadSound=&loadSound;
+        interaction.cursor=[] { return menuCursor ? menuCursor->position():cursorPosition; };
+        interaction.playHover=[](cResource* sound,bool loop,unsigned count) { require(!loop && count==1,"Menu source hover sound arguments differ");actualSounds.emplace_back(std::string(sound->resourceName().view()),0); };
+        interaction.playClick=[](cResource* sound) { actualSounds.emplace_back(std::string(sound->resourceName().view()),1); };
+        std::array<void*,3> soundTable{};soundTable[1]=reinterpret_cast<void*>(&nativeHoverSound);soundTable[2]=reinterpret_cast<void*>(&nativeClickSound);auto* soundPointer=soundTable.data();putPointer(0x25f734,&soundPointer);
         FlushInstructionCache(GetCurrentProcess(),image,0x200000);
         WNDCLASSW cls{}; cls.lpfnWndProc=DefWindowProcW; cls.hInstance=GetModuleHandleW(nullptr); cls.lpszClassName=L"Text control oracle"; RegisterClassW(&cls);
         window=CreateWindowW(cls.lpszClassName,cls.lpszClassName,WS_OVERLAPPEDWINDOW,0,0,800,600,nullptr,nullptr,cls.hInstance,nullptr); require(window!=nullptr,"Diagnostic window failed");
+        field<HWND>(graphicsObject.data(),8)=window;
         wchar_t system[MAX_PATH]; GetSystemDirectoryW(system,MAX_PATH); runtime=LoadLibraryW((std::wstring(system)+L"\\d3d8.dll").c_str()); require(runtime!=nullptr,"D3D8 unavailable");
         auto factory=reinterpret_cast<IDirect3D8*(WINAPI*)(UINT)>(GetProcAddress(runtime,"Direct3DCreate8")); d3d=factory(120); require(d3d!=nullptr,"D3D8 SDK120 failed");
         D3DPRESENT_PARAMETERS parameters{}; parameters.BackBufferWidth=800; parameters.BackBufferHeight=600; parameters.BackBufferFormat=D3DFMT_X8R8G8B8; parameters.BackBufferCount=1;
@@ -366,6 +397,9 @@ int wmain(int argc,wchar_t** argv) {
             }
             {
                 stage=20;menuMilliseconds=0;GameTimer frameTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});
+                GameCursor frameCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&frameCursor;
+                std::array<unsigned char,24> logicFrame{};field<void*>(logicFrame.data(),0)=cursorTable.data();nativeCursorFrame=logicFrame.data();putPointer(0x25ff60,nativeCursorFrame);
+                inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
                 ViewRegistry views;ControlRegistry controls;auto owner=std::make_unique<MenuView>(nullptr,manager,settings,strings,views,controls);
                 MainMenuContent content(*owner,manager,settings,strings,input,interaction,views,controls);
                 std::array<unsigned char,96> nativeMenu{};auto* base=nativeMenu.data()+4;function<void*(__thiscall*)(void*,void*)>(0xfb040)(base,nullptr);
@@ -395,29 +429,34 @@ int wmain(int argc,wchar_t** argv) {
                     stage=22;content.updateProfileName(name);call(0x81770,base);content.userName->enabledStep();call(0xdae40,field<void*>(nativeMenu.data(),0x58));
                     comparisons+=compare(*content.userName,field<void*>(nativeMenu.data(),0x58));++menuContentComparisons;
                 }
-                for(unsigned frame=0;frame<36;++frame) {
-                    stage=24;action=frame;elapsed=frame<12 ? float(1+frame%3)/60:0.05f;
-                    menuMilliseconds+=frame<12 ? 17*(1+frame%3):50;
-                    if(frame==12) { owner->hideTransparently();call(0xd4980,base); }
-                    if(frame==24) { owner->showTransparently();call(0xd4590,base); }
-                    for(unsigned i=0;i<6;++i) {
-                        const auto state=i==frame%6 ? ButtonState(1+(frame/6)%3):ButtonState::Normal;
-                        auto* native=field<void*>(nativeMenu.data(),buttons[i].second);buttons[i].first->setState(state);
-                        function<void(__thiscall*)(void*,unsigned)>(0x1ed10)(native,unsigned(state));
+                for(unsigned frame=0;frame<48;++frame) {
+                    stage=24;action=frame;menuMilliseconds+=frame<24 ? 17*(1+frame%3):50;
+                    menuInputEvents.clear();menuMouseDelta={};menuPoint={0,0};
+                    if(frame<24) {
+                        const auto& geometry=buttons[frame/4].first->geometry();
+                        if(frame%4!=3) menuPoint={geometry.x,geometry.y};
+                        if(frame%4==0 || frame%4==3) menuMouseDelta={1,0,0};
+                        if(frame%4==1) menuInputEvents={0x208};
+                        if(frame%4==2) menuInputEvents={0x200};
                     }
-                    try { menuPixels+=compareMenuFrame(d3d,device,window,views,controls);++menuFrames; }
+                    if(frame==24) { owner->hideTransparently();call(0xd4980,base); }
+                    if(frame==36) { owner->showTransparently();call(0xd4590,base); }
+                    try { menuPixels+=compareMenuFrame(d3d,device,window,views,controls,input);++menuFrames; }
                     catch(...) {
                         std::cerr<<"Native transition count "<<field<unsigned>(image,0x260528)<<" dispatch "<<unsigned(image[0x2604f8])<<" normal count "<<field<unsigned>(image,0x260510)<<" source "<<views.enabled().size()<<'\n';
                         for(unsigned i=0;i<6;++i) { auto& text=buttons[i].first->text();auto* native=field<void*>(field<void*>(nativeMenu.data(),buttons[i].second),0x27c);
                             std::cerr<<"Button "<<i<<" text y "<<text.geometry().y<<'/'<<field<float>(native,0x60)<<" hover "<<text.hovered()<<'/'<<unsigned(field<unsigned char>(native,0x2b8))<<" moving "<<text.moving()<<'/'<<unsigned(field<unsigned char>(native,0x2c4))<<" dirty "<<text.textDirty()<<'/'<<unsigned(field<unsigned char>(native,0x254))<<" enable "<<text.state().enabled<<text.state().parentEnabled<<'/'<<unsigned(field<unsigned char>(native,0x26))<<unsigned(field<unsigned char>(native,0x27))<<'\n'; }
                         throw;
                     }
-                    if(frame==23) require(!owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu hide transition did not finish");
-                    if(frame==35) require(owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu show transition did not finish");
+                    for(unsigned i=0;i<6;++i) require(unsigned(buttons[i].first->buttonState())==field<unsigned>(field<void*>(nativeMenu.data(),buttons[i].second),0x238),"Menu input button state differs");
+                    if(frame<24) require(buttons[frame/4].first->buttonState()==(frame%4==1 ? ButtonState::Pressed:frame%4==3 ? ButtonState::Normal:ButtonState::Hovered),"Menu input did not produce hover/press/release/leave state");
+                    if(frame==35) require(!owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu hide transition did not finish");
+                    if(frame==47) require(owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu show transition did not finish");
                 }
                 stage=23;const auto before=textureCounts();fixed.reset();owner.reset();const auto middle=textureCounts();
                 call(0xfafc0,nativeFixed.data());call(0xfafc0,base);compareReferenceDeltas(before,middle);
                 putPointer(0x25ffec,nullptr);putPointer(0x25f738,nullptr);field<WString>(profile.data(),0x24).~WString();
+                menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
             }
             const char* names[]={"StartButton","CreditsButton","Options","ExitButton","AwardsButton","ChangeUserButton","ContinueButton","SubmenuStart","SubmenuCancel"};
             std::mt19937 random(0x584d4c42);
@@ -471,7 +510,7 @@ int wmain(int argc,wchar_t** argv) {
         }
         for(auto* p:allocations) if(!ui_test_heap::owns(p)) std::free(p); allocations.clear(); uiElapsedTime()={};device->Release(); d3d->Release(); DestroyWindow(window); FreeLibrary(runtime); FreeLibrary(reference);
         std::cout<<"{\"scenarios\":"<<scenarios<<",\"letter_comparisons\":"<<comparisons<<",\"direction_comparisons\":"<<directionComparisons
-            <<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
+            <<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
 }

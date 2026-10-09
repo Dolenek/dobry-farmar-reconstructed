@@ -1,0 +1,55 @@
+{
+  "frames": 40000,
+  "bounds": 40000,
+  "transforms": 80000,
+  "aliased": 40000,
+  "failure_frames": 8834,
+  "physical_windows": 2,
+  "status": "passed",
+  "precision_contexts": [
+    {
+      "frames": 20000,
+      "bounds": 20000,
+      "transforms": 40000,
+      "aliased": 20000,
+      "failure_frames": 4417,
+      "physical_windows": 1,
+      "precision": "process-default"
+    },
+    {
+      "frames": 20000,
+      "bounds": 20000,
+      "transforms": 40000,
+      "aliased": 20000,
+      "failure_frames": 4417,
+      "physical_windows": 1,
+      "precision": "x87-pc24"
+    }
+  ],
+  "recorded_at_utc": "2026-10-09T16:56:14.268600+00:00",
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "778710242ffea0ee170705782c0440443a9b7995994655c86a35a9e43b60d43c",
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "original_functions": [
+    "00530290",
+    "00512330",
+    "0050d260",
+    "00531a40"
+  ],
+  "coverage": [
+    "Bit-exact screen-to-window/client/game cursor coordinates under both x87 contexts; full signed LONG range",
+    "API failure retains position/output; shared POINT/WINDOWINFO, API input bytes and call order agree",
+    "Fullscreen offset/scale operation order, zero/negative/fractional scales and aliased input/output",
+    "Default Win32 backend in two owned hidden windows; no cursor repositioning or display mode changes"
+  ],
+  "test_adapters": [
+    "Native cursor frame, graphics window-bounds and inverse transforms execute original routines; WinAPI responses are controlled",
+    "Graphics and logic objects are original-layout fixtures; reference copied to a distinct private mapping every run"
+  ],
+  "pending": [
+    "Full cLogic singleton/frame/shortcuts and object ABI",
+    "Native whole-game physical input and fullscreen timing",
+    "Physical menu navigation"
+  ]
+}

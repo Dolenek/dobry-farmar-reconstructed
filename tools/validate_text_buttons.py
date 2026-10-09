@@ -28,9 +28,10 @@ def main():
         assert context['scenarios']==1080 and context['lines_destroyed']==9 and context['letter_comparisons']>4000
         assert context['menu_views_destroyed']==3 and context['decoration_comparisons']==15
         assert context['menu_content_comparisons']==27
-        assert context['menu_frames']==36 and context['menu_pixels']==17280000
+        assert context['menu_frames']==48 and context['menu_pixels']==23040000
+        assert context['menu_input_frames']==24 and context['menu_sound_requests']==12
         context['precision']=precision;contexts.append(context)
-    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels')}
+    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests')}
     report['precision_contexts']=contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
@@ -45,7 +46,7 @@ def main():
             'Native font lookups execute original function over original-layout fixtures populated from shipped font records',
             'Resource factories return recovered GPU textures and diagnostic sound references; audible playback is unverified',
             'Native click-mask factory boundary uses recovered mask loading, separately compared over all shipped JNGs',
-            'Cursor and timer are controlled; native input registration uses recovered binding sets',
+            'Screen cursor samples are controlled; original cursor frame/window transform execute; native input registration uses recovered binding sets',
             'Three texture-switching parents use a separate base XML pass from the shipped Options/SoundVolume/Slider definition',
             'Main-menu object construction follows 00484da0 control allocations without executing its singleton/action wiring',
             'Existing fixed-background singleton exercises the guard of 00481990; generic MenuView hooks replace MainMenu hooks in this fixture',
@@ -54,7 +55,8 @@ def main():
             'Three texture-switching owned text buttons: native parent/text construction and XML, nonnull texture switches, per-texture reference deltas and child destruction',
             'MenuView MainMenu/FixedBack/Options decorations: repeated XML loads, native sprites, owned destruction and per-texture reference deltas',
             'Whole main-menu content: seven owned text buttons, two text lines, three backgrounds, native 00481e10 XML bindings and 20 profile-name refresh sequences per context',
-            '36 whole-scene menu RGB comparisons per context: independent source/native hierarchies and GPU buffers; native 00531b20 step/transition frame, 00506a10 traversal, 0052fe50 submission and 00515830 draw; transparent hide/show through completion',
+            '48 whole-scene menu RGB comparisons per context: independent source/native hierarchies and GPU buffers; native 00531b20 step/transition frame, 00506a10 traversal, 0052fe50 submission and 00515830 draw; transparent hide/show through completion',
+            'Six buttons driven through cursor hover, press, release and leave via recovered input dispatch; states and sound request order match native methods',
             'Both original GPU x87 precision contexts'],
         pending=['Original XML parser and old CRT typed conversion ABI','Full object/exception ABI',
             'MenuView BackText/BackMultitext branches; original MainMenu loader 00481e10 ignores legacy submenu sections',
@@ -62,7 +64,10 @@ def main():
     report['test_adapters'] += ['Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged',
         'Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test',
         'Source scene processes reconstructed GameTimer over controlled milliseconds and uses its smoothed elapsed value in UI motion/transitions; timer is separately compared over 120000 native frames',
-        'Native cursor update, timer advance, input process and graphics begin/finish are controlled empty test services; native elapsed getter freezes the same recovered timer value after the source advance; sound/mesh/extra-drawable/discard registries are empty',
+        'Native 00530290 cursor update calls original 00512330 bounds and 0050d260 transform over physical Win32 window bounds with controlled screen samples; source uses recovered GameCursor',
+        'Native input process boundary dispatches controlled events using recovered InputBindings; physical DirectInput polling is separate work',
+        'Native timer advance and graphics begin/finish are controlled empty test services; native elapsed getter freezes the same recovered timer value after the source advance; mesh/extra-drawable/discard registries are empty',
+        'Sound virtual methods record and compare resource names, hover arguments and request order; actual playback remains unverified',
         'Native draw fixture uses sprite-only linked batches and previously checked recovered render-state setup; device creation, reset, mesh and complete graphics singleton ABI remain separate work',
         'GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly',
         'Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact']

@@ -1,0 +1,90 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 1245846,
+      "original_address": 6175651,
+      "function": "00530290",
+      "instruction": "push   0x5e3ba3"
+    },
+    {
+      "rva": 1245876,
+      "original_address": 6674076,
+      "function": "00530290",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1245884,
+      "original_address": 6684556,
+      "function": "00530290",
+      "instruction": "mov    esi,DWORD PTR ds:0x65ff8c"
+    },
+    {
+      "rva": 1245959,
+      "original_address": 6686196,
+      "function": "00530290",
+      "instruction": "push   0x6605f4"
+    },
+    {
+      "rva": 1245965,
+      "original_address": 6218328,
+      "function": "00530290",
+      "instruction": "call   DWORD PTR ds:0x5ee258"
+    },
+    {
+      "rva": 1245975,
+      "original_address": 6686196,
+      "function": "00530290",
+      "instruction": "fild   DWORD PTR ds:0x6605f4"
+    },
+    {
+      "rva": 1245996,
+      "original_address": 6686200,
+      "function": "00530290",
+      "instruction": "fild   DWORD PTR ds:0x6605f8"
+    },
+    {
+      "rva": 1123123,
+      "original_address": 6156208,
+      "function": "00512330",
+      "instruction": "push   0x5defb0"
+    },
+    {
+      "rva": 1123145,
+      "original_address": 6674076,
+      "function": "00512330",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1123160,
+      "original_address": 6686064,
+      "function": "00512330",
+      "instruction": "push   0x660570"
+    },
+    {
+      "rva": 1123167,
+      "original_address": 6218300,
+      "function": "00512330",
+      "instruction": "call   DWORD PTR ds:0x5ee23c"
+    },
+    {
+      "rva": 1123184,
+      "original_address": 6686068,
+      "function": "00512330",
+      "instruction": "mov    eax,0x660574"
+    },
+    {
+      "rva": 1123191,
+      "original_address": 6686084,
+      "function": "00512330",
+      "instruction": "mov    eax,0x660584"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    }
+  ]
+}

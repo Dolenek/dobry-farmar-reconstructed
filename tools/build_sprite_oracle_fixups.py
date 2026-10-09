@@ -28,6 +28,7 @@ def main():
     parser.add_argument('--input-bindings',action='store_true',help='Record original Input binding mutation operands')
     parser.add_argument('--ui-frame',action='store_true',help='Record original main-frame UI traversal with explicit service fixtures')
     parser.add_argument('--timer',action='store_true',help='Record native timer construction, processing and scalar methods')
+    parser.add_argument('--cursor',action='store_true',help='Record native cursor/window coordinate operands')
     args=parser.parse_args()
     if args.text_buttons: args.button_text=True; args.button_state=True
     if args.button_text: args.text_state=True
@@ -130,6 +131,8 @@ def main():
     if args.timer:
         prefix='timer'
         addresses=[0x536ae0,0x536430,0x536550,0x536690,0x5366e0,0x536720,0x536480,0x5364a0,0x536500,0x5809b3]
+    if args.cursor:
+        prefix='cursor';addresses=[0x530290,0x512330,0x50d260,0x531a40,0x5809b3]
     scratch=ROOT/'.local/function-inspection'; scratch.mkdir(parents=True,exist_ok=True)
     fixups=[]
     with tempfile.TemporaryDirectory(dir=scratch) as directory:
@@ -138,7 +141,7 @@ def main():
             end=int(rows[address]['body_max'],16)+1 if address in rows else {
                 0x413a10:0x413a47,0x413b20:0x413b41,0x413b50:0x413b74,0x413b80:0x413bb6,
                 0x413bc0:0x413be7,0x51f570:0x51f5a0,0x481770:0x48179e,
-                0x536480:0x536498,0x5364a0:0x5364a7,0x536500:0x536519}[address]
+                0x536480:0x536498,0x5364a0:0x5364a7,0x536500:0x536519,0x50d260:0x50d2ad,0x531a40:0x531a44}[address]
             result=subprocess.run(['objdump','-d','-Mintel',f'--start-address={address}',f'--stop-address={end}',reference.name],cwd=directory,capture_output=True,text=True,check=True)
             for line in result.stdout.splitlines():
                 match=re.match(r'\s*([0-9a-f]+):\s*((?:[0-9a-f]{2} )+)\s*(.*)',line)
@@ -148,7 +151,7 @@ def main():
                 if args.button_state and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer) and not memory and text.split() and text.split()[0] in ('mov','push'):
+                if (args.view or args.timer or args.cursor) and not memory and text.split() and text.split()[0] in ('mov','push'):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -167,7 +170,7 @@ def main():
                 if operand<0:
                     binary=pe.data[pe.offset(instruction-pe.image_base):pe.offset(instruction-pe.image_base)+15]
                     operand=binary.find(target.to_bytes(4,'little'))
-                    assert 0<=operand<=(7 if args.view or args.timer else 3),line
+                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor else 3),line
                 fixups.append(dict(rva=instruction-pe.image_base+operand,original_address=target,function=f'{address:08x}',instruction=text))
     if args.view:
         # cView's base destructor reinstates its original virtual table before

@@ -128,4 +128,5 @@ int wmain(int argc,wchar_t** argv) {
         VirtualFree(image,0,MEM_RELEASE);FreeLibrary(original);
     } catch(const std::exception& error) { std::cerr<<error.what()<<" scenario "<<scenario<<" frame "<<frame<<'\n';FreeLibrary(original);return 1; }
       catch(const char* error) { std::cerr<<error<<'\n';FreeLibrary(original);return 1; }
+    return 0;
 }
