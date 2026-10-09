@@ -22,7 +22,7 @@ Stabilní obrazovky porovnávat na stejném systému a nastavení. U animací, z
 
 ### Ověřeno nativně na Windows
 
-Win32 Release sestavení v `build/windows` prošlo 32 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
+Win32 Release sestavení v `build/windows` prošlo 33 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
 
 - JNGLoad: všechny rozměry a BGRA bajty 416 JNG souhlasí s původní DLL; PE architektura, názvy a ordinály jsou ověřené.
 - String: 20 000 deterministických scénářů × find/rfind/compare = 60 000 shod s původními rutinami. Objektové rozložení, kapacity a aliasování navíc ověřuje lokální C++ test.
@@ -43,6 +43,8 @@ Win32 Release sestavení v `build/windows` prošlo 32 CTest kontrolami. Python r
 - Časovač: 120 000 původních snímků, 120 200 bitových stavových porovnání, 200 konstruktorů/destruktorů a 30 358 volání Sleep ve dvou přesnostech x87. Menu již používá obnovené vyhlazování; clock/WinMM jsou v oracle řízené. Podrobnosti v [GAME_TIMER.md](GAME_TIMER.md).
 
 - Kurzor: 40 000 původních frame aktualizací, 40 000 bounds a 80 000 transformací, dva vlastní Win32 testovací windows. Menu: 48 vstupních snímků a 24 shodných sound požadavků přes najetí/stisk/uvolnění/odjetí šesti tlačítek. Přenositelné reporty analysis/cursor-validation.json a analysis/text-buttons-validation.json; hranice v [GAME_CURSOR.md](GAME_CURSOR.md).
+
+- Hlavičky profilů: 200 původních konstruktorů s prázdným vybraným jménem, 16 000 header loads, 160 000 lookupů a 800 append-list kontrol. Typované XML konverze a ID formatter mají testové adaptéry; úplné profily/uložené hry čekají. Podrobnosti v [PROFILES.md](PROFILES.md).
 
 Souhrn a konkrétní omezení jsou v `analysis/verification.json`, `docs/GAME.md` a `docs/JNGLOAD.md`. Celá hra, Squall a odinstalátor tímto nejsou označené za dokončené.
 
