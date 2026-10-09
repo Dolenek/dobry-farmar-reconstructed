@@ -22,7 +22,7 @@ Stabilní obrazovky porovnávat na stejném systému a nastavení. U animací, z
 
 ### Ověřeno nativně na Windows
 
-Win32 Release sestavení v `build/windows` prošlo 30 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
+Win32 Release sestavení v `build/windows` prošlo 31 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
 
 - JNGLoad: všechny rozměry a BGRA bajty 416 JNG souhlasí s původní DLL; PE architektura, názvy a ordinály jsou ověřené.
 - String: 20 000 deterministických scénářů × find/rfind/compare = 60 000 shod s původními rutinami. Objektové rozložení, kapacity a aliasování navíc ověřuje lokální C++ test.
@@ -39,6 +39,8 @@ Win32 Release sestavení v `build/windows` prošlo 30 CTest kontrolami. Python r
 - Control sprity: 200 000 bitově shodných geometrií/UV/barev, 40 000 úplných animovaných stavů ve dvou x87 precision kontextech a dvojic spritů. cView: 384 024 stavů, 35 826 callback událostí, 32 000 registračních snímků a 24 vlastněných deletion pořadí. Omezení v [UI_CONTROLS.md](UI_CONTROLS.md).
 
 - Tlačítka: 480 024 stavů a 480 000 mask hits; animovaný text: 18 000 scénářů; vlastněné parent/text XML: 2 160 scénářů a 9 786 letters/sprites. Klikací JNG masky: 162 028 842 alpha bitů. DirectInput: 5 340 000 handler setů a 500 snímků přes řízené COM fixtures. Propojená diagnostická scéna menu: 72 snímků, 34 560 000 RGB pixelů a shodná draw API volání včetně hide/show přechodů. Skutečná navigace menu, zvuk a fyzický vstup tím ověřené nejsou; hranice a původní adresy v [UI_CONTROLS.md](UI_CONTROLS.md).
+
+- Časovač: 120 000 původních snímků, 120 200 bitových stavových porovnání, 200 konstruktorů/destruktorů a 30 358 volání Sleep ve dvou přesnostech x87. Menu již používá obnovené vyhlazování; clock/WinMM jsou v oracle řízené. Podrobnosti v [GAME_TIMER.md](GAME_TIMER.md).
 
 Souhrn a konkrétní omezení jsou v `analysis/verification.json`, `docs/GAME.md` a `docs/JNGLOAD.md`. Celá hra, Squall a odinstalátor tímto nejsou označené za dokončené.
 

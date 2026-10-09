@@ -58,6 +58,11 @@ bool Settings::get(const String& section, const String& property, unsigned& valu
     if (!lookup(section,property,text)) return false;
     extract(*text,value); return true;
 }
+bool Settings::get(const String& section, const String& property, float& value) {
+    const WString* text;
+    if(!lookup(section,property,text)) return false;
+    extract(*text,value);return true;
+}
 bool Settings::get(const String& section, const String& property, Color& value) {
     const WString* text;
     if(!lookup(section,property,text)) return false;
@@ -84,6 +89,9 @@ void Settings::set(const String& section, const String& property, int value) {
     set(section, property, format(value));
 }
 void Settings::set(const String& section, const String& property, unsigned value) {
+    set(section,property,format(value));
+}
+void Settings::set(const String& section, const String& property, float value) {
     set(section,property,format(value));
 }
 void Settings::set(const String& section, const String& property, bool value) {

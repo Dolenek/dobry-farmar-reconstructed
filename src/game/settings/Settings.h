@@ -25,12 +25,14 @@ public:
     bool get(const String& section, const String& property, String& value); // 00538bb0
     bool get(const String& section, const String& property, int& value); // 0053bcd0
     bool get(const String& section, const String& property, unsigned& value); // 0053c690
+    bool get(const String& section, const String& property, float& value); // 0053e3d0
     bool get(const String& section, const String& property, Color& value); // 00539c30 / 004d93b0
     bool get(const String& section, const String& property, bool& value); // 0053b300
     void set(const String& section, const String& property, const WString& value); // 00539850
     void set(const String& section, const String& property, const String& value); // 00539010
     void set(const String& section, const String& property, int value); // 0053c1d0
     void set(const String& section, const String& property, unsigned value); // 0053cb90
+    void set(const String& section, const String& property, float value); // 0053e8d0
     void set(const String& section, const String& property, bool value); // 0053b800
     const Sections& sections() const noexcept { return sections_; }
 private:

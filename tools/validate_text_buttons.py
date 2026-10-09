@@ -61,7 +61,8 @@ def main():
             'MainMenu singleton, navigation callbacks and unusual enable/disable hooks','Whole menu physical input/frame service integration and actual navigation','Actual sound loading/playback','Complete main game EXE'])
     report['test_adapters'] += ['Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged',
         'Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test',
-        'Native cursor update, timer advance, input process and graphics begin/finish are controlled empty test services; sound/mesh/extra-drawable/discard registries are empty',
+        'Source scene processes reconstructed GameTimer over controlled milliseconds and uses its smoothed elapsed value in UI motion/transitions; timer is separately compared over 120000 native frames',
+        'Native cursor update, timer advance, input process and graphics begin/finish are controlled empty test services; native elapsed getter freezes the same recovered timer value after the source advance; sound/mesh/extra-drawable/discard registries are empty',
         'Native draw fixture uses sprite-only linked batches and previously checked recovered render-state setup; device creation, reset, mesh and complete graphics singleton ABI remain separate work',
         'GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly',
         'Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact']

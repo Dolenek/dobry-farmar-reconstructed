@@ -46,7 +46,7 @@ target_include_directories(recovered_game_utilities PUBLIC src/game/core src/gam
 if(WIN32)
     target_sources(recovered_game_utilities PRIVATE src/game/core/WString.cpp src/game/file_manager/RealFile.cpp
         src/game/file_manager/FileIndex.cpp src/game/xml/XmlDocument.cpp
-        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp)
+        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameTimer.cpp)
     target_include_directories(recovered_game_utilities PUBLIC src/game/xml src/game/settings src/game/engine)
     execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/fetch_expat.py"
         --verify-only RESULT_VARIABLE EXPAT_VERIFY_RESULT)
@@ -73,7 +73,7 @@ if(WIN32)
     target_link_libraries(original_minizip PUBLIC original_zlib)
     target_sources(recovered_game_utilities PRIVATE src/game/file_manager/ZipFile.cpp)
     target_link_libraries(recovered_game_utilities PRIVATE original_minizip)
-    target_link_libraries(recovered_game_utilities PRIVATE advapi32 user32 gdi32)
+    target_link_libraries(recovered_game_utilities PRIVATE advapi32 user32 gdi32 winmm)
     execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/fetch_direct3d_headers.py"
         --verify-only RESULT_VARIABLE D3D8_VERIFY_RESULT)
     if(NOT D3D8_VERIFY_RESULT EQUAL 0)
@@ -137,6 +137,8 @@ if(WIN32)
     target_link_libraries(view-reference-test PRIVATE recovered_resource_utilities)
     add_executable(ui-frame-reference-test tools/ui_frame_reference_test.cpp)
     target_link_libraries(ui-frame-reference-test PRIVATE recovered_resource_utilities)
+    add_executable(timer-reference-test tools/timer_reference_test.cpp)
+    target_link_libraries(timer-reference-test PRIVATE recovered_game_utilities)
     add_executable(control-reference-test tools/control_reference_test.cpp)
     target_link_libraries(control-reference-test PRIVATE recovered_resource_utilities)
     add_executable(text-control-reference-test tools/text_control_reference_test.cpp)
@@ -185,6 +187,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --frame --oracle "$<TARGET_FILE:ui-frame-reference-test>")
+            add_test(NAME original-timer COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_timer.py" --oracle "$<TARGET_FILE:timer-reference-test>")
             add_test(NAME original-control-state COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_controls.py" --oracle "$<TARGET_FILE:control-reference-test>")
             add_test(NAME original-text-control-lifecycle COMMAND "${Python3_EXECUTABLE}"

@@ -30,7 +30,7 @@ def main():
         'graphics-presentation-test.exe','matrix-reference-test.exe','sprite-geometry-reference-test.exe',
         'sprite-draw-reference-test.exe','native-image-reference-test.exe','font-reference-test.exe',
         'text-layout-reference-test.exe','string-manager-reference-test.exe','control-sprite-reference-test.exe',
-        'view-reference-test.exe','ui-frame-reference-test.exe','control-reference-test.exe','text-control-reference-test.exe','button-reference-test.exe','button-text-reference-test.exe','text-buttons-reference-test.exe','click-mask-reference-test.exe','input-bindings-reference-test.exe'] if name not in report['build']['targets']]
+        'view-reference-test.exe','ui-frame-reference-test.exe','control-reference-test.exe','text-control-reference-test.exe','button-reference-test.exe','button-text-reference-test.exe','text-buttons-reference-test.exe','click-mask-reference-test.exe','input-bindings-reference-test.exe','timer-reference-test.exe'] if name not in report['build']['targets']]
     report['build']['dependencies']+= [name for name in ['Minizip 1.01','Expat 1.95.8 (candidate, original version unproved)']
         if name not in report['build']['dependencies']]
     report['build']['dependencies']+= [name for name in ['Wine-origin Direct3D8 headers (MinGW-w64 v12.0.0; LGPL-2.1-or-later)']
@@ -43,7 +43,7 @@ def main():
     assert settings['status']=='passed'
     write('analysis/settings-validation.json',settings)
     report['settings']=settings
-    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings'):
+    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer'):
         validation=read(f'.local/{module}-validation.json')
         assert validation['status']=='passed'
         write(f'analysis/{module}-validation.json',validation)
@@ -61,7 +61,7 @@ def main():
         'analysis/graphics-presentation-validation.json','analysis/matrix-validation.json',
         'analysis/sprite-geometry-validation.json','analysis/sprite-draw-validation.json',
         'analysis/native-image-validation.json','analysis/font-validation.json','analysis/text-layout-validation.json',
-        'analysis/string-manager-validation.json','analysis/control-sprite-validation.json','analysis/view-validation.json','analysis/ui-frame-validation.json','analysis/control-validation.json','analysis/text-control-validation.json','analysis/button-validation.json','analysis/button-text-validation.json','analysis/text-buttons-validation.json','analysis/click-mask-validation.json','analysis/input-bindings-validation.json'] if name not in report['reports']]
+        'analysis/string-manager-validation.json','analysis/control-sprite-validation.json','analysis/view-validation.json','analysis/ui-frame-validation.json','analysis/control-validation.json','analysis/text-control-validation.json','analysis/button-validation.json','analysis/button-text-validation.json','analysis/text-buttons-validation.json','analysis/click-mask-validation.json','analysis/input-bindings-validation.json','analysis/timer-validation.json'] if name not in report['reports']]
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

@@ -8,6 +8,7 @@
 | `00538bb0`, `00539010` | Čtení a zápis String přes původní engine konverze. |
 | `0053bcd0`, `0053c1d0` | Čtení a zápis signed int přes široký stringstream. |
 | `0053c690`, `0053cb90` | Čtení a zápis unsigned int přes široký stringstream. |
+| `0053e3d0`, `0053e8d0` | Čtení a zápis float přes široký stringstream; původní CRT ještě neporovnané. |
 | `00539c30`, `004d93b0` | Čtení hex ARGB barvy do čtyř floatů; prázdná hodnota nemění výstup. |
 | `0053b300`, `0053b800` | Čtení a zápis bool přes široký stringstream bez boolalpha. |
 | `00537240` | Seřazené kompaktní XML, bez escapování hodnot. |
@@ -23,7 +24,7 @@ python tools/validate_settings.py
 
 Poslední kontrola: 14 nativních scénářů propojeného FileIndex → XML → Settings, bajtově přesný UTF-16 fixture save, jeho nezávislé rozparsování a znovunačtení; všech 24 položek z původního nastavení souhlasí s nezávislým XML modelem. Test píše pouze do dočasné složky v `.local/settings-validation-work`, původní profily nepoužívá. Report `.local/settings-validation.json` výslovně rozlišuje data originálu od přímého porovnání původních rutin.
 
-Neověřené: běh původního cSettings; přetečení, neplatné číselné vstupy a změny locale mezi starým a novým CRT; ne-ASCII narrow konverze; další typy vlastností (vektory, barvy, plovoucí hodnoty); singleton/vtable a engine výjimky. Původní sprintf může přepsat 256bajtový buffer. Rekonstrukce tuto hranici kontroluje a chybu neprohlašuje za shodný původní exception ABI. Jde o zdokumentovanou odchylku mimo zatím ověřené vstupy, která ještě vyžaduje rozhodnutí podle reference.
+Neověřené: běh původního cSettings; přetečení, neplatné číselné vstupy a změny locale mezi starým a novým CRT; ne-ASCII narrow konverze; další typy vlastností (vektory a zápis barvy); singleton/vtable a engine výjimky. Původní sprintf může přepsat 256bajtový buffer. Rekonstrukce tuto hranici kontroluje a chybu neprohlašuje za shodný původní exception ABI. Jde o zdokumentovanou odchylku mimo zatím ověřené vstupy, která ještě vyžaduje rozhodnutí podle reference.
 
 Načítání 24 nastavení a jejich zápis samy neznamenají funkční herní okno, profily nebo kompatibilní herní save.
 

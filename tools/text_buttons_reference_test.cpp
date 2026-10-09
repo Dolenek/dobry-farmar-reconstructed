@@ -6,6 +6,7 @@
 #include "ButtonText.h"
 #include "MenuView.h"
 #include "MainMenuContent.h"
+#include "GameTimer.h"
 #include "FileIndex.h"
 #include "ResourceManager.h"
 #include "Texture.h"
@@ -35,8 +36,13 @@ namespace {
 unsigned char* image=nullptr;
 unsigned stage=0,trial=0,action=0;
 float elapsed=0;
-float __fastcall timer(void*,void*) { return elapsed; }
+float currentElapsed() { return GameTimer::instance() ? GameTimer::instance()->elapsed():elapsed; }
+float __fastcall timer(void*,void*) { return currentElapsed(); }
 void __fastcall frameService(void*,void*) {}
+DWORD menuMilliseconds=0;
+DWORD WINAPI menuClock() { return menuMilliseconds; }
+void WINAPI menuSleep(DWORD value) { menuMilliseconds+=value; }
+MMRESULT WINAPI menuPeriod(UINT) { return 0; }
 std::set<void*> allocations;
 ResourceManager* resources=nullptr; StringManager* localization=nullptr; bool rtl=false;
 template<class T> T& field(void* object,unsigned offset) { return *reinterpret_cast<T*>(static_cast<unsigned char*>(object)+offset); }
@@ -220,7 +226,9 @@ std::vector<unsigned char> readPixels(IDirect3DDevice8* device) {
     copy->UnlockRect();copy->Release();return result;
 }
 unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWND window,ViewRegistry& views,ControlRegistry& controls) {
-    views.dispatchSteps();views.updateTransitions([] { return elapsed; });
+    require(GameTimer::instance()!=nullptr,"Menu frame has no reconstructed timer");
+    GameTimer::instance()->process();
+    views.dispatchSteps();views.updateTransitions([] { return currentElapsed(); });
     PrimaryGraphicsSettings settings;GraphicsPresentation presentation(d3d,window);presentation.prepare(settings);
     GraphicsRenderState render(device);SpriteBuffers actualBuffers(device),expectedBuffers(device);actualBuffers.resize(3000);expectedBuffers.resize(3000);
     SpriteBatches actualBatches(actualBuffers),expectedBatches(expectedBuffers);
@@ -316,7 +324,7 @@ int wmain(int argc,wchar_t** argv) {
         // algorithm and original reverse routine execute on ABI String objects.
         new(image+0x260270) WString(); *reinterpret_cast<unsigned*>(image+0x26028c)=1;
         std::array<void*,3> timerTable{};timerTable[1]=reinterpret_cast<void*>(&frameService);timerTable[2]=reinterpret_cast<void*>(&timer);auto* timerPointer=timerTable.data();putPointer(0x25ff50,&timerPointer);
-        uiElapsedTime()=[] { return elapsed; };
+        uiElapsedTime()=[] { return currentElapsed(); };
         xmlTable[4]=reinterpret_cast<void*>(&section);xmlTable[5]=reinterpret_cast<void*>(&indexedSection);xmlTable[31]=reinterpret_cast<void*>(&attribute);xmlTable[38]=reinterpret_cast<void*>(&sectionCount);
         std::array<void*,5> cursorTable{};cursorTable[4]=reinterpret_cast<void*>(&cursor);auto* cursorPointer=cursorTable.data();putPointer(0x25ff60,&cursorPointer);
         std::array<void*,19> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);auto* graphicsPointer=graphicsTable.data();putPointer(0x25ff8c,&graphicsPointer);
@@ -357,7 +365,8 @@ int wmain(int argc,wchar_t** argv) {
                 stage=13;const auto before=textureCounts();view.reset();const auto middle=textureCounts();stage=14;call(0xfafc0,original.data());stage=15;compareReferenceDeltas(before,middle);
             }
             {
-                stage=20;ViewRegistry views;ControlRegistry controls;auto owner=std::make_unique<MenuView>(nullptr,manager,settings,strings,views,controls);
+                stage=20;menuMilliseconds=0;GameTimer frameTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});
+                ViewRegistry views;ControlRegistry controls;auto owner=std::make_unique<MenuView>(nullptr,manager,settings,strings,views,controls);
                 MainMenuContent content(*owner,manager,settings,strings,input,interaction,views,controls);
                 std::array<unsigned char,96> nativeMenu{};auto* base=nativeMenu.data()+4;function<void*(__thiscall*)(void*,void*)>(0xfb040)(base,nullptr);
                 for(unsigned offset:{0x3cU,0x40U,0x44U,0x4cU,0x58U,0x5cU,0x54U,0x50U,0x48U}) {
@@ -388,6 +397,7 @@ int wmain(int argc,wchar_t** argv) {
                 }
                 for(unsigned frame=0;frame<36;++frame) {
                     stage=24;action=frame;elapsed=frame<12 ? float(1+frame%3)/60:0.05f;
+                    menuMilliseconds+=frame<12 ? 17*(1+frame%3):50;
                     if(frame==12) { owner->hideTransparently();call(0xd4980,base); }
                     if(frame==24) { owner->showTransparently();call(0xd4590,base); }
                     for(unsigned i=0;i<6;++i) {
@@ -402,6 +412,8 @@ int wmain(int argc,wchar_t** argv) {
                             std::cerr<<"Button "<<i<<" text y "<<text.geometry().y<<'/'<<field<float>(native,0x60)<<" hover "<<text.hovered()<<'/'<<unsigned(field<unsigned char>(native,0x2b8))<<" moving "<<text.moving()<<'/'<<unsigned(field<unsigned char>(native,0x2c4))<<" dirty "<<text.textDirty()<<'/'<<unsigned(field<unsigned char>(native,0x254))<<" enable "<<text.state().enabled<<text.state().parentEnabled<<'/'<<unsigned(field<unsigned char>(native,0x26))<<unsigned(field<unsigned char>(native,0x27))<<'\n'; }
                         throw;
                     }
+                    if(frame==23) require(!owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu hide transition did not finish");
+                    if(frame==35) require(owner->state().shown && owner->state().transition==0 && field<unsigned>(base,0x10)==0,"Menu show transition did not finish");
                 }
                 stage=23;const auto before=textureCounts();fixed.reset();owner.reset();const auto middle=textureCounts();
                 call(0xfafc0,nativeFixed.data());call(0xfafc0,base);compareReferenceDeltas(before,middle);
