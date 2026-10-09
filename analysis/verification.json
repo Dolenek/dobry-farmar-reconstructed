@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-10-09T17:12:03.459717+00:00",
+  "recorded_at_utc": "2026-10-09T17:27:13.632917+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "partial_reconstruction",
@@ -57,7 +57,8 @@
       "ui-frame-reference-test.exe",
       "timer-reference-test.exe",
       "cursor-reference-test.exe",
-      "profile-headers-reference-test.exe"
+      "profile-headers-reference-test.exe",
+      "profile-properties-reference-test.exe"
     ],
     "dependencies": [
       "LIBMNG 1.0.10",
@@ -69,7 +70,7 @@
     ]
   },
   "tests": {
-    "ctest_passed": 33,
+    "ctest_passed": 34,
     "python_tests_passed": 7,
     "python_tests_skipped": 0,
     "volume_table_entries": 100,
@@ -88,7 +89,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "84697869a36c579dc35847f9940e257356efbfd38074b4e79bacccad5988dba5",
+  "source_tree_sha256": "759f4f82eb2436354c4b268a3c6619a4e8927c911497085309c92842d96a79e0",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -121,7 +122,8 @@
     "analysis/ui-frame-validation.json",
     "analysis/timer-validation.json",
     "analysis/cursor-validation.json",
-    "analysis/profile-headers-validation.json"
+    "analysis/profile-headers-validation.json",
+    "analysis/profile-properties-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -147,9 +149,9 @@
     "status": "passed"
   },
   "settings": {
-    "recorded_at_utc": "2026-10-09T17:12:00.809161+00:00",
-    "test_sha256": "fa8c9a4abe997a985692b6de52762ca73ba36e69577cc9529e638c71110d2784",
-    "loader_sha256": "a8f5121359e6343adbd650813b045d2e380c94a02f6fb020f67b4f9aa7ac8d39",
+    "recorded_at_utc": "2026-10-09T17:27:11.494613+00:00",
+    "test_sha256": "86fad3362cb66b6d95af8a58c782a337439978d717c7d0085882f9654dbc479e",
+    "loader_sha256": "4e4082e203c89406333852232a39051043bd0bc7a3a29696bfee07e38330efca",
     "original_settings_runtime_compared": false,
     "pending": [
       "Original settings runtime oracle",
@@ -164,8 +166,8 @@
     "status": "passed"
   },
   "window": {
-    "recorded_at_utc": "2026-10-09T17:12:01.584297+00:00",
-    "test_sha256": "21b6c789ee4087f352e5b7ff6f45375c0b95cde91c22c4aa593f8ce94fbc300d",
+    "recorded_at_utc": "2026-10-09T17:27:12.207482+00:00",
+    "test_sha256": "f4b97709760866beba4f774af69500a1bd00121b510cd251a93a29c8f0203232",
     "native_checks": 18,
     "original_window_runtime_compared": false,
     "hidden_window_only": true,
@@ -215,9 +217,9 @@
   },
   "resource-manager": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:12:01.306470+00:00",
+    "recorded_at_utc": "2026-10-09T17:27:11.949249+00:00",
     "native_checks": 15,
-    "executable_sha256": "cc3316bd5baea8ae9b6bc9053aea78ffbbf53f278779a891c42954cf6f62d8cf",
+    "executable_sha256": "7841ecedce779b4660ae7f6bb9c2626a7b5458d1e010aa73a4e8bee16647159e",
     "original_manager_runtime_compared": false,
     "pending": [
       "Original manager runtime oracle",
@@ -229,7 +231,7 @@
   },
   "color": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:19.772439+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:37.662155+00:00",
     "comparisons": 121538,
     "precision_contexts": [
       {
@@ -242,7 +244,7 @@
       }
     ],
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "60a59204fbd243f0c8035e369d000abf0cc5547b420ecd7511368a7f6723234a",
+    "oracle_sha256": "5668423858521c639bd6e7df2e5d26a38d03731c15209c28751a93e61d76d790",
     "original_pure_routines_compared": [
       "00417f80",
       "004455e0"
@@ -288,7 +290,7 @@
   },
   "matrix": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:20.019706+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:38.016980+00:00",
     "comparisons": 140004,
     "precision_contexts": [
       {
@@ -301,7 +303,7 @@
       }
     ],
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "5f67c946e45829102c3f67e2a1c4be04a57605878834b6a746b4a373d090ecc5",
+    "oracle_sha256": "f0a157b29387e43e9f667aa57357aa7dedff2b65a44979a3e55784e67c32b5ef",
     "original_pure_routines_compared": [
       "00591fe8",
       "005920cb",
@@ -319,7 +321,7 @@
   },
   "sprite-geometry": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:20.507742+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:38.482434+00:00",
     "comparisons": 40000,
     "trials": 20000,
     "precision_contexts": [
@@ -341,7 +343,7 @@
     "index_words_compared": true,
     "nonzero_base_vertex_tested": true,
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "4f680ee8a40dbbe91dbb8fa0ff933d9dbc36fde3f1c24df32a555bf923d46697",
+    "oracle_sha256": "2d43ba2e6687ab821ca9695602592047549456ac55f15119920dd1bab94931cd",
     "original_function": "00517f40",
     "original_entry_point_executed": false,
     "reference_file_modified": false,
@@ -402,13 +404,13 @@
     "images_compared": 10,
     "source_bytes_compared": 345368,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:20.840744+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:38.772251+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "5080e3feba707090bb26f8ec423db1f35857e7b8f369049fa7b623fb5462d305",
+    "oracle_sha256": "104bd11e298e1d8c9fb16be7dd917f9a5a6b0b1dbb2ed2810f823f626f7b35f6",
     "original_functions": [
       "0059847a",
       "0059781c",
@@ -433,13 +435,13 @@
     "available_glyphs": 2217,
     "cache_checks": 7,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:21.117470+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:39.029690+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "96af8581247336f82ae67a68f5529d82a09653bdb4e389e2ec8184f8a3bb8907",
+    "oracle_sha256": "c1c8116890e197481c02d7f88c2488506eb7677a26ba474a8dae86936074e670",
     "original_functions": [
       "0050b3d0",
       "0050b450"
@@ -460,13 +462,13 @@
     "letter_comparisons": 88583,
     "letter_sprite_comparisons": 88583,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:21.436217+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:39.323621+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "d2920ffdce893c2de30546203204ab1d97b9f0b46a9536a3e36fc827a208354e",
+    "oracle_sha256": "b7591f7be15a97e0d5e1d10c2d42940289276cadc53c124d54e9ca64a0482059",
     "original_functions": [
       "004dc800",
       "0050b450",
@@ -496,13 +498,13 @@
     "original_lookup_comparisons": 10464,
     "dump_fixture_checks": 4,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:21.742015+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:39.609692+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "b26af96b87104faac7a20114e4a99bd942b4f88abee739a8fb3e05b246a5c23a",
+    "oracle_sha256": "aea59577dcd396e9959f132fad2b35607b2b17e52f7645b42cf29d656a1c5644",
     "original_functions": [
       "0052ed20",
       "0052d2a0",
@@ -538,9 +540,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:22.073349+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:39.955513+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "2f04e9e30f4a9bd223f1ffc047adb4f0aedf83bcc4b9588c95871e9cb18fc387",
+    "oracle_sha256": "719ad9e8f692943050fec9eceb71aadf233bc55baaab018fd5e978543dcd5cc7",
     "original_functions": [
       "004ef3b0",
       "004ed4f0",
@@ -588,9 +590,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:22.391776+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:40.274811+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "3b6e0ab3ee1db6f92c35ca98b42fc1c6770022aba12c40910ac887f581711d7e",
+    "oracle_sha256": "e2118d35115fcee4b92e3ae3fdf8c98b8368d4066741eac9e232223f747128c6",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -664,9 +666,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:37.319355+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:49.773909+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "358d52a062653e5ac5bfe51a4ff4bce9974f7ee6a6a566407194753cb64a60dd",
+    "oracle_sha256": "8167b771ccd4c9cb76b0d360750b8577b14dfd40826b62448a8b258d7a80dc0a",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -730,9 +732,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:38.606256+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:51.034803+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "3c57656fc445d26bab94f55edc9c5ecd4446167e57ff4e0ee6997736895596e1",
+    "oracle_sha256": "c98434293b5b46be7c240689eca4b872cea9d46cdb32de65beb9e6042b284bb9",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -796,9 +798,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:38.983704+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:51.395674+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "c6499169907666af1bafdecb06440edc28baf9f050e0de30a67770bda8349823",
+    "oracle_sha256": "51d64603aa8c972b4b9df695664c4af5ee2caeb62324fe7009f882ac6398ce54",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -866,9 +868,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:40.266372+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:52.623631+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "688080bb4d773387b40eaace11be6f5e1db742a92bb1e9db1d47e4609206ebf4",
+    "oracle_sha256": "be27e24c1885c4f42f711541644d4e09070ac39ba684ac255bcdb1f42b074216",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -928,9 +930,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:59.371396+00:00",
+    "recorded_at_utc": "2026-10-09T17:27:10.370705+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "ee842e5bf73bf3a22d4c1c339e1ec5e12f55516ec2d0867d8f8006b889f44f46",
+    "oracle_sha256": "89713995177b83f50f6c82203b89929884d314adb8fdb59b52fd669a7e638b20",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -964,9 +966,9 @@
     "cached_key_queries": 5000,
     "format_objects": 267,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:59.701336+00:00",
+    "recorded_at_utc": "2026-10-09T17:27:10.652898+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "f48054c53f55acc06ebe7d9c444a3781bd536e8638fffffdaafad5570f898a5e",
+    "oracle_sha256": "953d8fdefa40463caaf3e8f030bb0d1eb975d0cde35239968fdaec42b7328e57",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1055,9 +1057,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:42.480734+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:54.830214+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "dfceb75307c1363ebff08f0c404bb90c081b6979735e6b443d80ec4346514e5f",
+    "oracle_sha256": "c2fe2f3eec070b27c98d3f0832a54e3f5ee83e66938d1d99ca22f1190a497bc8",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1169,9 +1171,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:11:22.693621+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:40.613561+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "e44cf402a43fdb0cc48f3bd99b6f7343fb9c1eec759a5dfdb231c30d98482fab",
+    "oracle_sha256": "30d7b2310048ff7fe54b5e41423be9b5526802170fc8b90589155f2cea3ddb1c",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1248,9 +1250,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:11:22.990555+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:40.917822+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "61178f546ec2066fce919376a0cab0e38bba8d96b1b9e35c19a03e2b468ec904",
+    "oracle_sha256": "5a409647f38781615ed7c26e1db9675a8364c40694897f4dcedc194a5dcb2155",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1310,9 +1312,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:11:23.252347+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:41.162843+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "285c078bc8481d29dc92b62b869c39d691da3380cba8b81fffd2c1fd15bd4878",
+    "oracle_sha256": "ed865847f6c39151722ffb86b7caa45f8034267b23c9cea53236e306c7c2eccb",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1365,9 +1367,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:11:36.919316+00:00",
+    "recorded_at_utc": "2026-10-09T17:26:48.882043+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "b15e426ef359c1493ea0751c6e864b397f008af44234a61853e45b560b3c9bac",
+    "oracle_sha256": "009b243f9ab62814b6a4d181cd6067e730fe4e25125dc66fde192a8041b0da91",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1398,6 +1400,72 @@
       "Native old CRT ID formatting and XML numeric conversion",
       "Nonempty cProfile constructor, profile initialization callback, singleton exception and full ABI",
       "Profiles menu and main-game/save compatibility"
+    ]
+  },
+  "profile-properties": {
+    "scenarios": 4800,
+    "property_accesses": 62400,
+    "typed_dispatches": 67200,
+    "map_comparisons": 128492,
+    "clears": 284,
+    "stores": 13,
+    "status": "passed",
+    "precision_contexts": [
+      {
+        "scenarios": 2400,
+        "property_accesses": 31200,
+        "typed_dispatches": 33600,
+        "map_comparisons": 64246,
+        "clears": 142,
+        "stores": 13,
+        "precision": "process-default"
+      },
+      {
+        "scenarios": 2400,
+        "property_accesses": 31200,
+        "typed_dispatches": 33600,
+        "map_comparisons": 64246,
+        "clears": 142,
+        "stores": 13,
+        "precision": "x87-pc24"
+      }
+    ],
+    "recorded_at_utc": "2026-10-09T17:26:49.384438+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "9edc6df6770b715d712272f58dafb4ed16a564d445825f16a0974d761cf77d05",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004ebd10",
+      "004e9d80",
+      "004106a0",
+      "00410770",
+      "004105e0",
+      "004e98c0",
+      "004e9990",
+      "004e9a70",
+      "004e9b40",
+      "004e9c00",
+      "004e9cc0",
+      "004eac20",
+      "004eb1d0"
+    ],
+    "coverage": [
+      "Thirteen distinct process-global typed maps; default insertion, repeated lookup and overwrite",
+      "Original unsigned-byte key ordering, long/empty/embedded-NUL/high-byte keys; independent same-name keys across every type",
+      "Original type dispatcher and all thirteen setters; valid scalar extremes, color/vector/string values and unknown case-sensitive tags",
+      "Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup"
+    ],
+    "test_adapters": [
+      "Recovered String/WString assignment/compare and diagnostic allocator",
+      "Modern numeric wide streams and ACP conversion replace original old CRT parsers/conversion; conversion equivalence is not proved",
+      "Empty sentinel nodes initialized from instruction-confirmed layout, including four-byte pair padding for Bool and UInt16",
+      "Mapped original image is copied to a distinct diagnostic address and explicit operands relocated; original entry point never runs"
+    ],
+    "pending": [
+      "Native old CRT conversion, invalid/empty numeric setter values and formatting",
+      "Property XML persistence, profile lifecycle and menu integration",
+      "Whole-game save compatibility"
     ]
   }
 }

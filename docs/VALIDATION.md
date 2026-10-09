@@ -22,7 +22,7 @@ Stabilní obrazovky porovnávat na stejném systému a nastavení. U animací, z
 
 ### Ověřeno nativně na Windows
 
-Win32 Release sestavení v `build/windows` prošlo 33 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
+Win32 Release sestavení v `build/windows` prošlo 34 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
 
 - JNGLoad: všechny rozměry a BGRA bajty 416 JNG souhlasí s původní DLL; PE architektura, názvy a ordinály jsou ověřené.
 - String: 20 000 deterministických scénářů × find/rfind/compare = 60 000 shod s původními rutinami. Objektové rozložení, kapacity a aliasování navíc ověřuje lokální C++ test.
@@ -59,3 +59,5 @@ Původní ani rekonstruovaný odinstalátor nespouštět proti původní instala
 ## Vydání
 
 Čistý klon musí umožnit sestavení ze zdrojů. Balíček obsahuje pouze rekonstruované binární soubory a dokumentaci; původní data se dodávají lokálně. Kontrola nesmí původní EXE nebo DLL zaměnit za sestavený výsledek. Dokud tyto scénáře neprojdou, není celý projekt označen za funkční rekonstrukci 1:1.
+
+Vlastnosti profilů: všech třináct nativních map, 62 400 přístupů, 67 200 typových volání, 128 492 mapových porovnání a 284 clear operací ve dvou x87 kontextech. Starý CRT a persistence zatím mají evidované hranice v [PROFILES.md](PROFILES.md).

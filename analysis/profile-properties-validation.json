@@ -1,0 +1,66 @@
+{
+  "scenarios": 4800,
+  "property_accesses": 62400,
+  "typed_dispatches": 67200,
+  "map_comparisons": 128492,
+  "clears": 284,
+  "stores": 13,
+  "status": "passed",
+  "precision_contexts": [
+    {
+      "scenarios": 2400,
+      "property_accesses": 31200,
+      "typed_dispatches": 33600,
+      "map_comparisons": 64246,
+      "clears": 142,
+      "stores": 13,
+      "precision": "process-default"
+    },
+    {
+      "scenarios": 2400,
+      "property_accesses": 31200,
+      "typed_dispatches": 33600,
+      "map_comparisons": 64246,
+      "clears": 142,
+      "stores": 13,
+      "precision": "x87-pc24"
+    }
+  ],
+  "recorded_at_utc": "2026-10-09T17:26:49.384438+00:00",
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "oracle_sha256": "9edc6df6770b715d712272f58dafb4ed16a564d445825f16a0974d761cf77d05",
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "original_functions": [
+    "004ebd10",
+    "004e9d80",
+    "004106a0",
+    "00410770",
+    "004105e0",
+    "004e98c0",
+    "004e9990",
+    "004e9a70",
+    "004e9b40",
+    "004e9c00",
+    "004e9cc0",
+    "004eac20",
+    "004eb1d0"
+  ],
+  "coverage": [
+    "Thirteen distinct process-global typed maps; default insertion, repeated lookup and overwrite",
+    "Original unsigned-byte key ordering, long/empty/embedded-NUL/high-byte keys; independent same-name keys across every type",
+    "Original type dispatcher and all thirteen setters; valid scalar extremes, color/vector/string values and unknown case-sensitive tags",
+    "Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup"
+  ],
+  "test_adapters": [
+    "Recovered String/WString assignment/compare and diagnostic allocator",
+    "Modern numeric wide streams and ACP conversion replace original old CRT parsers/conversion; conversion equivalence is not proved",
+    "Empty sentinel nodes initialized from instruction-confirmed layout, including four-byte pair padding for Bool and UInt16",
+    "Mapped original image is copied to a distinct diagnostic address and explicit operands relocated; original entry point never runs"
+  ],
+  "pending": [
+    "Native old CRT conversion, invalid/empty numeric setter values and formatting",
+    "Property XML persistence, profile lifecycle and menu integration",
+    "Whole-game save compatibility"
+  ]
+}

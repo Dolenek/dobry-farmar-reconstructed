@@ -43,7 +43,7 @@ def main():
     assert settings['status']=='passed'
     write('analysis/settings-validation.json',settings)
     report['settings']=settings
-    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer','cursor','profile-headers'):
+    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer','cursor','profile-headers','profile-properties'):
         validation=read(f'.local/{module}-validation.json')
         assert validation['status']=='passed'
         write(f'analysis/{module}-validation.json',validation)
@@ -62,6 +62,8 @@ def main():
         'analysis/sprite-geometry-validation.json','analysis/sprite-draw-validation.json',
         'analysis/native-image-validation.json','analysis/font-validation.json','analysis/text-layout-validation.json',
         'analysis/string-manager-validation.json','analysis/control-sprite-validation.json','analysis/view-validation.json','analysis/ui-frame-validation.json','analysis/control-validation.json','analysis/text-control-validation.json','analysis/button-validation.json','analysis/button-text-validation.json','analysis/text-buttons-validation.json','analysis/click-mask-validation.json','analysis/input-bindings-validation.json','analysis/timer-validation.json','analysis/cursor-validation.json','analysis/profile-headers-validation.json'] if name not in report['reports']]
+    if 'profile-properties-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('profile-properties-reference-test.exe')
+    if 'analysis/profile-properties-validation.json' not in report['reports']: report['reports'].append('analysis/profile-properties-validation.json')
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
