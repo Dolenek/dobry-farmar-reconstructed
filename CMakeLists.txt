@@ -46,7 +46,7 @@ target_include_directories(recovered_game_utilities PUBLIC src/game/core src/gam
 if(WIN32)
     target_sources(recovered_game_utilities PRIVATE src/game/core/WString.cpp src/game/file_manager/RealFile.cpp
         src/game/file_manager/FileIndex.cpp src/game/xml/XmlDocument.cpp
-        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp)
+        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
     target_include_directories(recovered_game_utilities PUBLIC src/game/xml src/game/settings src/game/engine src/game/profiles)
     execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/fetch_expat.py"
         --verify-only RESULT_VARIABLE EXPAT_VERIFY_RESULT)
@@ -147,6 +147,9 @@ if(WIN32)
     add_executable(profile-properties-reference-test tools/profile_properties_reference_test.cpp)
     target_link_libraries(profile-properties-reference-test PRIVATE recovered_game_utilities)
     target_compile_options(profile-properties-reference-test PRIVATE /utf-8)
+    add_executable(profile-lifecycle-reference-test tools/profile_lifecycle_reference_test.cpp)
+    target_link_libraries(profile-lifecycle-reference-test PRIVATE recovered_game_utilities)
+    target_compile_options(profile-lifecycle-reference-test PRIVATE /utf-8)
     add_executable(control-reference-test tools/control_reference_test.cpp)
     target_link_libraries(control-reference-test PRIVATE recovered_resource_utilities)
     add_executable(text-control-reference-test tools/text_control_reference_test.cpp)
@@ -203,6 +206,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_profile_headers.py" --oracle "$<TARGET_FILE:profile-headers-reference-test>")
             add_test(NAME original-profile-properties COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_profile_properties.py" --oracle "$<TARGET_FILE:profile-properties-reference-test>")
+            add_test(NAME original-profile-lifecycle COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_profile_lifecycle.py" --oracle "$<TARGET_FILE:profile-lifecycle-reference-test>")
             add_test(NAME original-control-state COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_controls.py" --oracle "$<TARGET_FILE:control-reference-test>")
             add_test(NAME original-text-control-lifecycle COMMAND "${Python3_EXECUTABLE}"

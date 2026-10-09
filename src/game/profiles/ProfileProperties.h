@@ -30,6 +30,7 @@ public:
     void clear(); // 004e9d80
     void setProperty(const String& type,const String& name,const WString& value); // 004ebd10
     void loadXML(const XmlNode& node); // property loop of 004ec310
+    WString dumpXML() const; // 004e6cf0 and its thirteen typed serializers
 };
 ProfileProperties& profileProperties();
 }

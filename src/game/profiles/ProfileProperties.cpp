@@ -41,4 +41,28 @@ void ProfileProperties::loadXML(const XmlNode& node) {
             toNarrow(child->attribute(WString(L"Name"))),child->attribute(WString(L"Val")));
     }
 }
+WString ProfileProperties::dumpXML() const {
+    std::wostringstream stream;
+    stream<<L"<?xml version=\"1.0\" encoding=\"UTF-16\"?><Props>";
+    const auto write=[&stream](const auto& values,const wchar_t* type,const auto& valueWriter,const wchar_t* ending=L"\" />") {
+        for(const auto& property:values) {
+            const auto name=toWide(String(property.first));
+            stream<<L"<prop Name=\""<<name.c_str()<<L"\" Val=\"";
+            valueWriter(stream,property.second);
+            stream<<L"\" Type=\""<<type<<ending;
+        }
+    };
+    const auto numeric=[](std::wostream& out,const auto& value) { out<<value; };
+    write(floats,L"Float",numeric);write(doubles,L"Double",numeric);write(ints,L"Int",numeric);
+    write(uints,L"UInt",numeric);write(longs,L"Long",numeric);write(ulongs,L"ULong",numeric);
+    write(longLongs,L"LongLong",numeric);
+    // Original writer emits decimal ARGB although the loader reads hexadecimal.
+    write(colors,L"DXColor",[](std::wostream& out,const Color& value) { out<<value.toARGB(); });
+    write(booleans,L"Bool",numeric);write(uint16s,L"UInt16",numeric);
+    // 004e30f0 writes a single space and ends with " >, not the other types' />.
+    write(vectors,L"Vector2",[](std::wostream& out,const std::array<float,2>& value) { out<<value[0]<<L' '<<value[1]; },L"\" >");
+    write(strings,L"String",[](std::wostream& out,const String& value) { const auto text=toWide(value);out.write(text.data(),text.size()); });
+    write(wideStrings,L"WString",[](std::wostream& out,const WString& value) { out.write(value.data(),value.size()); });
+    stream<<L"</Props>";return WString(stream.str());
+}
 }

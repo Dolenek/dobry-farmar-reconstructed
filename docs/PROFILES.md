@@ -1,6 +1,6 @@
 # Profily
 
-`ProfileHeaders` obnovuje hlavičkovou část cProfile. Původní 88bajtový objekt má singleton/vptr +0, NowPlaying +4, uložené CurrentUser WString +8, právě vybrané jméno WString +24, další ID +44, names map +48/head +4c/size +50 a flags +54/+55. Konstruktor `004ecb20` přiřadí vstupní jméno do **+24**, zatímco `loadHeaders` `004ea000` přiřadí XML CurrentUser do **+8**. Výběr aktuálního jména podle uložené hlavičky teprve provádí vyšší `004ec310`; není zaměněný za samotné načtení hlaviček.
+`ProfileHeaders` obnovuje hlavičkovou část cProfile. Původní 88bajtový objekt má singleton/vptr +0, NowPlaying +4, uložené CurrentUser WString +8, právě vybrané jméno WString +24, další ID +44, names map +48/head +4c/size +50 a flags +54/+55. Konstruktor `004ecb20` přiřadí vstupní jméno do **+24**, zatímco `loadHeaders` `004ea000` přiřadí XML CurrentUser do **+8**. Vyšší `004ec310` zachová volbu volajícího: instrukce `004ec44a` přiřadí +24 do +8, pokud se jména liší. Dřívější interpretace opačné přednosti byla opravena podle instrukcí a ověřena celým loaderem.
 
 Hlavičkový loader přečte NextID, CurrentUser a NowPlaying, poté všechny indexované XML potomky bez filtru jejich tagu. Chybějící Name vytvoří prázdné jméno; chybějící ID ponechá lokální nulu. Names map se nemaže. Unique insert `004e93d0` zachová první ID duplicitního jména i při dalších loadHeaders. Na konci vynuluje dirty +54. NextID/NowPlaying při prázdném atributu ponechají dřívější hodnotu. Moderní stream konverze jsou prozatím evidovaná hranice.
 
@@ -15,7 +15,7 @@ Native oracle spouští původní konstruktor s prázdným vstupním jménem (lo
 
 Testové hranice: XmlDocument a typed XML parsování používají obnovené/moderní adaptéry; WString compare/assignment a heap používají již obnovené ABI a diagnostický CRT. getProfileID formatter je explicitně nahrazen obnoveným formatterem, takže shoda jeho lookup není prohlášená za nezávislé ověření formátování. Cleanup provede původní names-tree erase a přímý fixture úklid. Plný cProfile destructor se nespouští: také zapisuje soubory a čistí třináct globálních typed-property stores.
 
-Další dohledané metody: `004e1010` bere game/profiles z Settings a přidá trailing slash; `004ec310` načítá profiles.xml a vybraný .xml soubor vlastností; `004e3a70` zapisuje UTF-16 headers nebo maže prázdné; `004e6cf0` zapisuje typed Props; `004ea5d0` přidá nový profil a zvýší ID; `004ead60` zapisuje/čistí při zničení. Tyto části, přepínání a mazání profilů, menu SelectProfile, původní parser/CRT a obousměrné herní save soubory zbývají. Header testy samy neznamenají hotové profily ve skutečné hře.
+Metody `004e1010`, `004ec310`, `004e3a70`, `004e6cf0`, `004ea5d0` a `004ead60` nyní obnovuje `Profile`; jejich samostatné ověření popisuje další část. Header oracle nadále pokrývá pouze hlavičkové operace. Přepínání a mazání profilů, menu SelectProfile, původní parser/CRT a obousměrné herní save soubory zbývají.
 
 ## Třináct typovaných vlastností
 
@@ -23,4 +23,18 @@ Další dohledané metody: `004e1010` bere game/profiles z Settings a přidá tr
 
 Oracle `python tools/validate_profile_properties.py` porovnal 62 400 přístupů, 67 200 typových volání, 128 492 kompletních map a 284 clear operací ve dvou přesnostech x87. Pokrývá oddělené stejnojmenné klíče ve všech typech, prázdné/dlouhé/high-byte/embedded-NUL klíče, unsigned-byte pořadí, defaulty, přepis a opakované vložení po clear. Původní instrukce map, setterů, přepínače a mazání skutečně běží. Při diagnostice byly podle instrukcí opraveny testové offsety: Double/LongLong mají key +10, value +30 a nil +39 (osmibajtové zarovnání), ostatní key +c/value +28; Bool/UInt16 mají padding do color +2c/nil +2d. Report analysis/profile-properties-validation.json obsahuje adresy a hranice.
 
-Numeric wide-stream a ACP převody jsou explicitní testové adaptéry. Platné testované hodnoty ověřují routing a uložení, nikoli nezávislou shodu starého CRT. Prázdné/neplatné numerické vstupy některých původních setterů mohou ponechat neinicializované lokální bity; ty nejsou prohlášené za kompatibilní. Formátování, skutečné soubory Props, lifecycle profilů, UI a herní save kompatibilita zbývají. Tento dílčí výsledek není dokončeným projektem.
+Numeric wide-stream a ACP převody jsou explicitní testové adaptéry. Platné testované hodnoty ověřují routing a uložení, nikoli nezávislou shodu starého CRT. Prázdné/neplatné numerické vstupy některých původních setterů mohou ponechat neinicializované lokální bity; ty nejsou prohlášené za kompatibilní.
+
+## Zápis a životní cyklus
+
+`dumpXML` obnovuje třináct původních writerů `004e4c70`, `004e4e90`, `004e50c0`, `004e52e0`, `004e5500`, `004e5720`, `004e5940`, `004e3840`, `004e5b60`, `004e5d90`, `004e30f0`, `004e3320` a `004e35a0`. Typy zapisuje v tomto pořadí, klíče v unsigned-byte pořadí a text bez XML escapování. 240 přímých porovnání celých serializací prošlo ve dvou x87 kontextech; původní iterace a skládání tagů běží, starý CRT stream a konverze používají evidované adaptéry. Zachovány jsou i původní zvláštnosti: DXColor se zapisuje desetinně, ale čte šestnáctkově; Vector2 končí `>` místo `/>`. Obecný bezchybný XML roundtrip proto není prohlášený za ověřený.
+
+`Profile` načítá hlavičku a vlastnosti z FileIndex/XmlDocument, vytváří nové ID a ukládá UTF-16 soubory s BOM. Opakované create spotřebuje další ID i při již existujícím jménu. SaveHeaders resetuje dirty před zápisem; prázdná names map invaliduje a maže profiles.xml. Destructor nastaví NowPlaying=false, zapíše hlavičku a vlastnosti, vyčistí všech třináct map a singleton. Soubory jsou ve složce game/profiles z Settings.
+
+Oracle `python tools/validate_profile_lifecycle.py` spouští celý původní konstruktor, loader, create, oba writers a destructor. Porovnává 80 konstruktorů/destruktorů, 300 skutečných UTF-16 zápisů, stav, mapy, pořadí invalidací a vlastnictví XML. Testuje chybějící/existující profil, rozdílné CurrentUser a požadované jméno, opakovaný load/create a prázdný výběr. Dvě nezávislé izolované FileIndex složky dostávají source a oracle soubory; původní instalace je pouze čtená. Report analysis/profile-lifecycle-validation.json uvádí hranice CRT/XML/file služeb. Oracle nepouští entry point hry a implementace nepoužívá původní kód.
+
+## Výchozí herní hodnoty a menu
+
+`initializeGameProfile` obnovuje `cGame::onInitProfile` `00411390`: 790 položek (291 Float, 62 Int, 306 UInt, 131 Bool). Pokrývá pole, výrobu, sklady, trh, úkoly, dopisy, ocenění a tutorial flags. Typ každého klíče je určen podle adresy mapy v instrukcích; sdílený getter Int/UInt neznamená společnou mapu. Oracle provede 110 skutečných volání původního inicializátoru a porovná všechny mapy. Původní getter `0040ab50` vrací 21 award klíčů; číslování záměrně nemá Award18. Indexované prefix/tip klíče mají explicitní moderní formatter boundary. Relokace oracle zahrnuje i absolutní ADD operand `0040aee1`, nejen MOV/PUSH/LEA.
+
+Source diagnostika menu nyní vytváří a znovu otevírá skutečné profily přes `Profile`, původní herní defaulty a ResourceManager XML cache v izolované složce. UserName dostává skutečně zvolené jméno a 96 snímků nadále souhlasí pixelově. Native menu používá řízenou WString službu; plný native lifecycle je ověřen samostatně. Navigační akce SelectProfile, herní saveLevelState/loadLevelState a spuštění rekonstruované celé hry zůstávají neobnovené.

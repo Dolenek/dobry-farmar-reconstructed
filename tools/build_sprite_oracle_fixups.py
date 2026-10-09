@@ -31,7 +31,9 @@ def main():
     parser.add_argument('--cursor',action='store_true',help='Record native cursor/window coordinate operands')
     parser.add_argument('--profile-headers',action='store_true',help='Record profile header construction/XML/tree operations')
     parser.add_argument('--profile-properties',action='store_true',help='Record thirteen profile property trees and typed dispatch')
+    parser.add_argument('--profile-lifecycle',action='store_true',help='Record profile constructors, full load/save/create/destructor')
     args=parser.parse_args()
+    if args.profile_lifecycle: args.profile_properties=True
     if args.text_buttons: args.button_text=True; args.button_state=True
     if args.button_text: args.text_state=True
     if args.click_mask: args.view=True
@@ -147,9 +149,16 @@ def main():
         addresses=sorted(seen)
     if args.profile_properties:
         prefix='profile-properties';seen=set();todo=[0x4ebd10,0x4e9d80,0x4106a0,0x410770,0x4105e0,
-            0x4e98c0,0x4e9990,0x4e9a70,0x4e9b40,0x4e9c00,0x4e9cc0,0x4eac20,0x4eb1d0,0x5809b3]
+            0x4e98c0,0x4e9990,0x4e9a70,0x4e9b40,0x4e9c00,0x4e9cc0,0x4eac20,0x4eb1d0,0x5809b3,
+            0x4e4c70,0x4e4e90,0x4e50c0,0x4e52e0,0x4e5500,0x4e5720,0x4e5940,0x4e3840,
+            0x4e5b60,0x4e5d90,0x4e30f0,0x4e3320,0x4e35a0]
         boundaries={0x4016d0,0x4017c0,0x403960,0x401c70,0x40da20,0x4d95c0,0x4d9a90,
-            0x4d9720,0x4d97d0,0x4d9880,0x4d94a0,0x4d9930,0x4d93b0,0x4d9670,0x4d99e0,0x4d9240}
+            0x4d9720,0x4d97d0,0x4d9880,0x4d94a0,0x4d9930,0x4d93b0,0x4d9670,0x4d99e0,0x4d9240,
+            0x4ae240,0x4df0a0,0x40daf0,0x4e0280,0x4deaa0,0x4df4f0,0x4a8be0,0x406400,0x4df6b0,
+            0x4de930,0x4df380,0x4de7c0,0x4ded80,0x4455e0,0x4019c0}
+        if args.profile_lifecycle:
+            prefix='profile-lifecycle';todo += [0x4ecb20,0x4ec310,0x4ea000,0x4ea5d0,0x4e3a70,0x4e6cf0,0x4ead60,0x411390]
+            boundaries |= {0x401050,0x4e1010,0x4e17e0,0x4087d0,0x405710,0x40a430,0x50ce30,0x40a470,0x401cc0,0x41d680,0x40a670,0x4cfbe0}
         while todo:
             address=todo.pop()
             if address in seen: continue
@@ -175,7 +184,7 @@ def main():
                 if args.button_state and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties) and not memory and text.split() and text.split()[0] in ('mov','push'):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)

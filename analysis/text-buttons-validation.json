@@ -46,9 +46,9 @@
     }
   ],
   "status": "passed",
-  "recorded_at_utc": "2026-10-09T17:26:54.830214+00:00",
+  "recorded_at_utc": "2026-10-09T17:54:43.815971+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-  "oracle_sha256": "c2fe2f3eec070b27c98d3f0832a54e3f5ee83e66938d1d99ca22f1190a497bc8",
+  "oracle_sha256": "82a4e4089fbf97874239ba59a56359f7702fe2013281d47971087c297a6b13b0",
   "original_entry_point_executed": false,
   "reference_files_modified": false,
   "original_functions": [
@@ -98,7 +98,7 @@
     "Three texture-switching parents use a separate base XML pass from the shipped Options/SoundVolume/Slider definition",
     "Main-menu object construction follows 00484da0 control allocations without executing its singleton/action wiring",
     "Existing fixed-background singleton exercises the guard of 00481990; generic MenuView hooks replace MainMenu hooks in this fixture",
-    "Profile names use an original-layout WString fixture; real profile persistence is unverified",
+    "Source menu names come from recovered Profile file persistence and actual game defaults through the resource/XML pipeline; native menu name service retains an original-layout WString fixture, with lifecycle compared independently",
     "Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged",
     "Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test",
     "Source scene processes reconstructed GameTimer over controlled milliseconds and uses its smoothed elapsed value in UI motion/transitions; timer is separately compared over 120000 native frames",

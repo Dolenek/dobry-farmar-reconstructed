@@ -23,6 +23,7 @@ public:
     bool nowPlaying() const noexcept { return nowPlaying_; }
     bool dirty() const noexcept { return dirty_; }
 private:
+    friend class Profile;
     Names names_;WString storedCurrentName_,currentName_; // +8 / +24 in original
     unsigned nextID_=1;bool nowPlaying_=false,dirty_=false;
 };

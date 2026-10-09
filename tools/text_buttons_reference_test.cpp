@@ -8,6 +8,8 @@
 #include "MainMenuContent.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
+#include "Profile.h"
+#include "GameProfileDefaults.h"
 #include "FileIndex.h"
 #include "ResourceManager.h"
 #include "Texture.h"
@@ -32,6 +34,7 @@
 #include <map>
 #include <memory>
 #include <sstream>
+#include <filesystem>
 using namespace farmar::recovered;
 namespace {
 unsigned char* image=nullptr;
@@ -414,8 +417,23 @@ int wmain(int argc,wchar_t** argv) {
                 std::array<unsigned char,56> nativeFixed{};function<void*(__thiscall*)(void*,void*)>(0xfb040)(nativeFixed.data(),nullptr);
                 function<void(__thiscall*)(void*,void*)>(0xfa8c0)(nativeFixed.data(),wrap(fixedDocument.get()));call(0xd37d0,nativeFixed.data());putPointer(0x25ffec,nativeFixed.data());
                 std::array<unsigned char,80> profile{};new(profile.data()+0x24) WString(L"Reference Farmer");putPointer(0x25f738,profile.data());
-                const auto* name=&field<WString>(profile.data(),0x24);unsigned ensureCalls=0;
-                stage=21;content.loadXML(*menu,[&] { ++ensureCalls; },name);function<void(__thiscall*)(void*,void*)>(0x81e10)(base,wrap(menu.get()));
+                // Source name now comes from persisted profiles with the actual
+                // game defaults, read through the resource/XML pipeline. Native
+                // menu still uses its original-layout name service fixture; full
+                // cProfile lifecycle is independently compared by its own oracle.
+                wchar_t moduleName[32768]{};require(GetModuleFileNameW(nullptr,moduleName,32768)!=0,"Menu profile diagnostic path missing");
+                auto diagnosticPath=(std::filesystem::path(moduleName).parent_path()/L"../../.."/L".local/menu-profile-validation-work").lexically_normal();
+                const String diagnosticRoot=toNarrow(WString(diagnosticPath.native()));
+                FileIndex::createDirectories(String(std::string(diagnosticRoot.view())+"/"));files.mountCommon(diagnosticRoot);
+                String previousProfiles;settings.get(String("game"),String("profiles"),previousProfiles);settings.set(String("game"),String("profiles"),String("MenuProfiles"));
+                const auto openProfile=[&](const WString& selected) {
+                    return std::make_unique<Profile>(files,settings,selected,[] { initializeGameProfile(profileProperties()); },
+                        [&](const String& filename) { return manager.loadSettingsXML(filename); },
+                        [&](const String& filename) { manager.releaseResource(filename); });
+                };
+                auto persistedProfile=openProfile(field<WString>(profile.data(),0x24));unsigned ensureCalls=0;
+                const auto* name=&field<WString>(profile.data(),0x24);
+                stage=21;content.loadXML(*menu,[&] { ++ensureCalls; },&persistedProfile->headers().currentName());function<void(__thiscall*)(void*,void*)>(0x81e10)(base,wrap(menu.get()));
                 require(ensureCalls==1 && owner->children().size()==12,"Main menu content construction differs");
                 const std::pair<TextAnimationButton*,unsigned> buttons[]={{content.start,0x3c},{content.exit,0x40},{content.changeUser,0x44},{content.options,0x4c},
                     {content.awards,0x54},{content.credits,0x50},{content.unused,0x48}};
@@ -425,8 +443,10 @@ int wmain(int argc,wchar_t** argv) {
                 comparisons+=compare(*content.userName,field<void*>(nativeMenu.data(),0x58));comparisons+=compare(*content.userText,field<void*>(nativeMenu.data(),0x5c));
                 for(unsigned repeat=0;repeat<20;++repeat) {
                     const WString value(repeat%2 ? L"Changed Farmer":L"New Profile");field<WString>(profile.data(),0x24)=value;
+                    persistedProfile.reset();persistedProfile=openProfile(value);
+                    require(persistedProfile->headers().currentName().view()==name->view(),"Persisted menu profile selection differs");
                     if(repeat%3==0) { content.userName->setString(WString());const WString empty;function<void(__thiscall*)(void*,const WString*)>(0xdd030)(field<void*>(nativeMenu.data(),0x58),&empty); }
-                    stage=22;content.updateProfileName(name);call(0x81770,base);content.userName->enabledStep();call(0xdae40,field<void*>(nativeMenu.data(),0x58));
+                    stage=22;content.updateProfileName(&persistedProfile->headers().currentName());call(0x81770,base);content.userName->enabledStep();call(0xdae40,field<void*>(nativeMenu.data(),0x58));
                     comparisons+=compare(*content.userName,field<void*>(nativeMenu.data(),0x58));++menuContentComparisons;
                 }
                 for(unsigned frame=0;frame<48;++frame) {
@@ -456,6 +476,7 @@ int wmain(int argc,wchar_t** argv) {
                 stage=23;const auto before=textureCounts();fixed.reset();owner.reset();const auto middle=textureCounts();
                 call(0xfafc0,nativeFixed.data());call(0xfafc0,base);compareReferenceDeltas(before,middle);
                 putPointer(0x25ffec,nullptr);putPointer(0x25f738,nullptr);field<WString>(profile.data(),0x24).~WString();
+                persistedProfile.reset();settings.set(String("game"),String("profiles"),previousProfiles);
                 menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
             }
             const char* names[]={"StartButton","CreditsButton","Options","ExitButton","AwardsButton","ChangeUserButton","ContinueButton","SubmenuStart","SubmenuCancel"};

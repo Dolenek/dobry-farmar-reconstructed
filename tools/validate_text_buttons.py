@@ -50,7 +50,7 @@ def main():
             'Three texture-switching parents use a separate base XML pass from the shipped Options/SoundVolume/Slider definition',
             'Main-menu object construction follows 00484da0 control allocations without executing its singleton/action wiring',
             'Existing fixed-background singleton exercises the guard of 00481990; generic MenuView hooks replace MainMenu hooks in this fixture',
-            'Profile names use an original-layout WString fixture; real profile persistence is unverified'],
+            'Source menu names come from recovered Profile file persistence and actual game defaults through the resource/XML pipeline; native menu name service retains an original-layout WString fixture, with lifecycle compared independently'],
         coverage=['Six shipped MainMenu animated buttons: constructor, native XML, localized owned letters, parent state/alpha/position/text changes, sprites and owned destruction',
             'Three texture-switching owned text buttons: native parent/text construction and XML, nonnull texture switches, per-texture reference deltas and child destruction',
             'MenuView MainMenu/FixedBack/Options decorations: repeated XML loads, native sprites, owned destruction and per-texture reference deltas',

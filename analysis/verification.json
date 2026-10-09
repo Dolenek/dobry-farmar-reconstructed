@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-10-09T17:27:13.632917+00:00",
+  "recorded_at_utc": "2026-10-09T17:55:02.870073+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "partial_reconstruction",
@@ -58,7 +58,8 @@
       "timer-reference-test.exe",
       "cursor-reference-test.exe",
       "profile-headers-reference-test.exe",
-      "profile-properties-reference-test.exe"
+      "profile-properties-reference-test.exe",
+      "profile-lifecycle-reference-test.exe"
     ],
     "dependencies": [
       "LIBMNG 1.0.10",
@@ -70,7 +71,7 @@
     ]
   },
   "tests": {
-    "ctest_passed": 34,
+    "ctest_passed": 35,
     "python_tests_passed": 7,
     "python_tests_skipped": 0,
     "volume_table_entries": 100,
@@ -89,7 +90,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "759f4f82eb2436354c4b268a3c6619a4e8927c911497085309c92842d96a79e0",
+  "source_tree_sha256": "dcc2cf13e09d6cf69cb0ed2af589733d5f56b1b8053053d1f6a016a8b3db2619",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -123,7 +124,8 @@
     "analysis/timer-validation.json",
     "analysis/cursor-validation.json",
     "analysis/profile-headers-validation.json",
-    "analysis/profile-properties-validation.json"
+    "analysis/profile-properties-validation.json",
+    "analysis/profile-lifecycle-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -149,9 +151,9 @@
     "status": "passed"
   },
   "settings": {
-    "recorded_at_utc": "2026-10-09T17:27:11.494613+00:00",
-    "test_sha256": "86fad3362cb66b6d95af8a58c782a337439978d717c7d0085882f9654dbc479e",
-    "loader_sha256": "4e4082e203c89406333852232a39051043bd0bc7a3a29696bfee07e38330efca",
+    "recorded_at_utc": "2026-10-09T17:55:00.779439+00:00",
+    "test_sha256": "abc97ec8224cfb4d99d487b4f6a32cfeca596f427483b6b881526beaaf1f80b9",
+    "loader_sha256": "3b6b0d58987d25d151cf2618b33c9b4fb6a8e2ba29eaf4dfd56753e49cbe516b",
     "original_settings_runtime_compared": false,
     "pending": [
       "Original settings runtime oracle",
@@ -166,8 +168,8 @@
     "status": "passed"
   },
   "window": {
-    "recorded_at_utc": "2026-10-09T17:27:12.207482+00:00",
-    "test_sha256": "f4b97709760866beba4f774af69500a1bd00121b510cd251a93a29c8f0203232",
+    "recorded_at_utc": "2026-10-09T17:55:01.450740+00:00",
+    "test_sha256": "6e854b613a56c5d500dd889fe8e8dd7f287d5ea7ad5f94a69527b3f6aec12db1",
     "native_checks": 18,
     "original_window_runtime_compared": false,
     "hidden_window_only": true,
@@ -217,9 +219,9 @@
   },
   "resource-manager": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:27:11.949249+00:00",
+    "recorded_at_utc": "2026-10-09T17:55:01.224323+00:00",
     "native_checks": 15,
-    "executable_sha256": "7841ecedce779b4660ae7f6bb9c2626a7b5458d1e010aa73a4e8bee16647159e",
+    "executable_sha256": "6efeeecf2882b761d4a8f6bd85cfa294400e9010120d3d8839291d3523aefd64",
     "original_manager_runtime_compared": false,
     "pending": [
       "Original manager runtime oracle",
@@ -231,7 +233,7 @@
   },
   "color": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:37.662155+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:19.814658+00:00",
     "comparisons": 121538,
     "precision_contexts": [
       {
@@ -244,7 +246,7 @@
       }
     ],
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "5668423858521c639bd6e7df2e5d26a38d03731c15209c28751a93e61d76d790",
+    "oracle_sha256": "8b76e68f15db33ec998d93768938de72ad84025701c0f5e741a1607613af05c0",
     "original_pure_routines_compared": [
       "00417f80",
       "004455e0"
@@ -290,7 +292,7 @@
   },
   "matrix": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:38.016980+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:20.028947+00:00",
     "comparisons": 140004,
     "precision_contexts": [
       {
@@ -303,7 +305,7 @@
       }
     ],
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "f0a157b29387e43e9f667aa57357aa7dedff2b65a44979a3e55784e67c32b5ef",
+    "oracle_sha256": "62b8a9a8ae11e30cfba9fc47e9b0694edc3ed6a01555cdab98e2aee3529d7141",
     "original_pure_routines_compared": [
       "00591fe8",
       "005920cb",
@@ -321,7 +323,7 @@
   },
   "sprite-geometry": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:38.482434+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:20.479687+00:00",
     "comparisons": 40000,
     "trials": 20000,
     "precision_contexts": [
@@ -343,7 +345,7 @@
     "index_words_compared": true,
     "nonzero_base_vertex_tested": true,
     "original_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "2d43ba2e6687ab821ca9695602592047549456ac55f15119920dd1bab94931cd",
+    "oracle_sha256": "22895c3ae8c85622b9adb3f1186630da6584dc50fb50e11fe6dda0e027801c80",
     "original_function": "00517f40",
     "original_entry_point_executed": false,
     "reference_file_modified": false,
@@ -404,13 +406,13 @@
     "images_compared": 10,
     "source_bytes_compared": 345368,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:38.772251+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:20.767435+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "104bd11e298e1d8c9fb16be7dd917f9a5a6b0b1dbb2ed2810f823f626f7b35f6",
+    "oracle_sha256": "a2dfa226494cb5e5c0bf4758de746834eb53c44eb41bcae66b929489208b4040",
     "original_functions": [
       "0059847a",
       "0059781c",
@@ -435,13 +437,13 @@
     "available_glyphs": 2217,
     "cache_checks": 7,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:39.029690+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:21.006518+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "c1c8116890e197481c02d7f88c2488506eb7677a26ba474a8dae86936074e670",
+    "oracle_sha256": "3cd0a1b27ee7d467ed86b9955c9c05b96989601c3cde5cb19028e3fd7ed2f4fe",
     "original_functions": [
       "0050b3d0",
       "0050b450"
@@ -462,13 +464,13 @@
     "letter_comparisons": 88583,
     "letter_sprite_comparisons": 88583,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:39.323621+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:21.296915+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "b7591f7be15a97e0d5e1d10c2d42940289276cadc53c124d54e9ca64a0482059",
+    "oracle_sha256": "990b34a13f41de91a8b257f335fd2bca9caa4c89fc736184fc83ae27cd547826",
     "original_functions": [
       "004dc800",
       "0050b450",
@@ -498,13 +500,13 @@
     "original_lookup_comparisons": 10464,
     "dump_fixture_checks": 4,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:39.609692+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:21.552496+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "aea59577dcd396e9959f132fad2b35607b2b17e52f7645b42cf29d656a1c5644",
+    "oracle_sha256": "eba24a106b7f0a3dffc52270e1b346c6d66243e3707a235c3f5ca959e1acff7d",
     "original_functions": [
       "0052ed20",
       "0052d2a0",
@@ -540,9 +542,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:39.955513+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:21.911704+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "719ad9e8f692943050fec9eceb71aadf233bc55baaab018fd5e978543dcd5cc7",
+    "oracle_sha256": "65cf2d1c5f6213ad068231029034a2a160d9838f9b3b1d06c16c2b09e1c872b1",
     "original_functions": [
       "004ef3b0",
       "004ed4f0",
@@ -590,9 +592,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:40.274811+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:22.198703+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "e2118d35115fcee4b92e3ae3fdf8c98b8368d4066741eac9e232223f747128c6",
+    "oracle_sha256": "1c14f7ab9d67d93423f45671d4b5c8ce48136b047f7140a6065cc34ab0bc4cfa",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -666,9 +668,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:49.773909+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:38.310523+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "8167b771ccd4c9cb76b0d360750b8577b14dfd40826b62448a8b258d7a80dc0a",
+    "oracle_sha256": "cb3bb019338fe6e2b6a7885aa7ab789169a679175c1b32e64ad5108a67063d48",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -732,9 +734,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:51.034803+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:39.441076+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "c98434293b5b46be7c240689eca4b872cea9d46cdb32de65beb9e6042b284bb9",
+    "oracle_sha256": "69a42af6d81ff2e67d2671e2852f0432417cb2a6e6d4eede0f4ee4f0b6d92590",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -798,9 +800,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:51.395674+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:39.760373+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "51d64603aa8c972b4b9df695664c4af5ee2caeb62324fe7009f882ac6398ce54",
+    "oracle_sha256": "139104b1c2b854c2a750a0d6c08dbe2994b4b858a4374a1846112619b162253e",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -868,9 +870,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:52.623631+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:40.943253+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "be27e24c1885c4f42f711541644d4e09070ac39ba684ac255bcdb1f42b074216",
+    "oracle_sha256": "c3bd67d456eca2fe9298e9849a89162c0faa63f8fb8af0804798f35e66330fa3",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -930,9 +932,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:27:10.370705+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:59.657468+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "89713995177b83f50f6c82203b89929884d314adb8fdb59b52fd669a7e638b20",
+    "oracle_sha256": "006e3ddcc2b1d73dcf4800004008f4a142fe2c0d350c62278cb05437004f97dc",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -966,9 +968,9 @@
     "cached_key_queries": 5000,
     "format_objects": 267,
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:27:10.652898+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:59.936273+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "953d8fdefa40463caaf3e8f030bb0d1eb975d0cde35239968fdaec42b7328e57",
+    "oracle_sha256": "64037f0d0336e6212ba8859d4d373f6febf56076721ccc156bed3a77d47c6d7d",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1057,9 +1059,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:54.830214+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:43.815971+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "c2fe2f3eec070b27c98d3f0832a54e3f5ee83e66938d1d99ca22f1190a497bc8",
+    "oracle_sha256": "82a4e4089fbf97874239ba59a56359f7702fe2013281d47971087c297a6b13b0",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1109,7 +1111,7 @@
       "Three texture-switching parents use a separate base XML pass from the shipped Options/SoundVolume/Slider definition",
       "Main-menu object construction follows 00484da0 control allocations without executing its singleton/action wiring",
       "Existing fixed-background singleton exercises the guard of 00481990; generic MenuView hooks replace MainMenu hooks in this fixture",
-      "Profile names use an original-layout WString fixture; real profile persistence is unverified",
+      "Source menu names come from recovered Profile file persistence and actual game defaults through the resource/XML pipeline; native menu name service retains an original-layout WString fixture, with lifecycle compared independently",
       "Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged",
       "Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test",
       "Source scene processes reconstructed GameTimer over controlled milliseconds and uses its smoothed elapsed value in UI motion/transitions; timer is separately compared over 120000 native frames",
@@ -1171,9 +1173,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-09T17:26:40.613561+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:22.479237+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "30d7b2310048ff7fe54b5e41423be9b5526802170fc8b90589155f2cea3ddb1c",
+    "oracle_sha256": "74dfba3b73864db0007196e7af68a3937e9ea78d13c25e24c645d988326ce48d",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1250,9 +1252,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:26:40.917822+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:22.753605+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "5a409647f38781615ed7c26e1db9675a8364c40694897f4dcedc194a5dcb2155",
+    "oracle_sha256": "1e5bb37fdbd333845769ecf05779dfb483d08d0b10f27af3e58bb0f8bcceb97f",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1312,9 +1314,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:26:41.162843+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:22.972142+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "ed865847f6c39151722ffb86b7caa45f8034267b23c9cea53236e306c7c2eccb",
+    "oracle_sha256": "7598bdcb9dcc4f5c2cbf179c9a46e563564fa7d1b571950b82ef759779a4c473",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1367,9 +1369,9 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:26:48.882043+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:32.644930+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "009b243f9ab62814b6a4d181cd6067e730fe4e25125dc66fde192a8041b0da91",
+    "oracle_sha256": "75b5305c498361638ba6c309f7bbc0784bcd94e8deaca92fa8bb07b6aa3e6eec",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1408,6 +1410,8 @@
     "typed_dispatches": 67200,
     "map_comparisons": 128492,
     "clears": 284,
+    "serializations": 240,
+    "serialized_units": 1179838,
     "stores": 13,
     "status": "passed",
     "precision_contexts": [
@@ -1418,6 +1422,8 @@
         "map_comparisons": 64246,
         "clears": 142,
         "stores": 13,
+        "serializations": 120,
+        "serialized_units": 589919,
         "precision": "process-default"
       },
       {
@@ -1427,12 +1433,14 @@
         "map_comparisons": 64246,
         "clears": 142,
         "stores": 13,
+        "serializations": 120,
+        "serialized_units": 589919,
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-09T17:26:49.384438+00:00",
+    "recorded_at_utc": "2026-10-09T17:54:33.176385+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "9edc6df6770b715d712272f58dafb4ed16a564d445825f16a0974d761cf77d05",
+    "oracle_sha256": "3c9b0befe1c7980d16793b807b601c73a8f448246bbb3fbb9664b0a2703611b9",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1454,18 +1462,85 @@
       "Thirteen distinct process-global typed maps; default insertion, repeated lookup and overwrite",
       "Original unsigned-byte key ordering, long/empty/embedded-NUL/high-byte keys; independent same-name keys across every type",
       "Original type dispatcher and all thirteen setters; valid scalar extremes, color/vector/string values and unknown case-sensitive tags",
-      "Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup"
+      "Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup",
+      "All thirteen original serializers, exact concatenated UTF-16 tags/order/spacing against recovered output; decimal color and non-self-closing Vector2 preserved"
     ],
     "test_adapters": [
       "Recovered String/WString assignment/compare and diagnostic allocator",
       "Modern numeric wide streams and ACP conversion replace original old CRT parsers/conversion; conversion equivalence is not proved",
-      "Empty sentinel nodes initialized from instruction-confirmed layout, including four-byte pair padding for Bool and UInt16",
+      "Modern stream output and recovered String/WString concatenation/ACP conversion; old CRT formatting remains unverified",
+      "Original type-name static getters execute; atexit registration is recorded without running process-wide teardown",
+      "Empty sentinels use instruction-confirmed padding and eight-byte Double/LongLong alignment",
       "Mapped original image is copied to a distinct diagnostic address and explicit operands relocated; original entry point never runs"
     ],
     "pending": [
       "Native old CRT conversion, invalid/empty numeric setter values and formatting",
-      "Property XML persistence, profile lifecycle and menu integration",
+      "Profile file persistence, lifecycle and menu integration",
       "Whole-game save compatibility"
+    ]
+  },
+  "profile-lifecycle": {
+    "constructors": 80,
+    "destructors": 80,
+    "utf16_writes": 300,
+    "map_comparisons": 2340,
+    "game_initializations": 110,
+    "game_default_entries": 790,
+    "status": "passed",
+    "precision_contexts": [
+      {
+        "constructors": 40,
+        "destructors": 40,
+        "utf16_writes": 150,
+        "map_comparisons": 1170,
+        "game_initializations": 55,
+        "game_default_entries": 790,
+        "precision": "process-default"
+      },
+      {
+        "constructors": 40,
+        "destructors": 40,
+        "utf16_writes": 150,
+        "map_comparisons": 1170,
+        "game_initializations": 55,
+        "game_default_entries": 790,
+        "precision": "x87-pc24"
+      }
+    ],
+    "recorded_at_utc": "2026-10-09T17:54:37.979660+00:00",
+    "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+    "oracle_sha256": "5b8b801e85d7ecb8e79326cf8647a168c96533d47212ae1b408a6c36a2befbbd",
+    "original_entry_point_executed": false,
+    "reference_files_modified": false,
+    "original_functions": [
+      "004ecb20",
+      "004ec310",
+      "004ea000",
+      "004ea5d0",
+      "004e3a70",
+      "004e6cf0",
+      "004ead60",
+      "00411390",
+      "0040ab50"
+    ],
+    "coverage": [
+      "Nonempty and empty selected-name constructors, actual files and exact UTF-16/BOM header/property writes in isolated mounts",
+      "Missing/existing profiles, caller-selected name takes precedence over header CurrentUser, missing/empty stored name, repeated create and ID consumption",
+      "Repeated full load, XML ownership, profile initialization callback count/order, all typed maps and header state",
+      "Destructor clears NowPlaying, saves headers/properties, clears all maps/names and releases singleton/heap",
+      "Actual cGame::onInitProfile instructions initialize 790 entries: 291 Float, 62 Int, 306 UInt and 131 Bool; original 21 award-name static getters execute"
+    ],
+    "test_adapters": [
+      "Native XML/file virtual calls use recovered XmlDocument/FileIndex; original parser/file manager and engine error ABI not covered",
+      "Original stream construction/extraction/destruction, formatting and scalar parsing use modern diagnostic CRT",
+      "Directory Settings lookup and ID formatter use recovered routines; their old CRT behavior remains pending",
+      "Indexed property-key formatting and tutorial tip-key formatting use recovered decimal adapters; original old CRT formatting remains unverified",
+      "Only mounted .local diagnostic directories receive writes; source implementation never calls original code"
+    ],
+    "pending": [
+      "SelectProfile UI and delete/switch actions, higher game saveLevelState/loadLevelState",
+      "Original XML/old CRT conversion, full ABI/exception paths",
+      "Native game launch and bidirectional whole-game save compatibility"
     ]
   }
 }

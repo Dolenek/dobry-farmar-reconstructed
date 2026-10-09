@@ -22,7 +22,7 @@ Stabilní obrazovky porovnávat na stejném systému a nastavení. U animací, z
 
 ### Ověřeno nativně na Windows
 
-Win32 Release sestavení v `build/windows` prošlo 34 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
+Win32 Release sestavení v `build/windows` prošlo 35 CTest kontrolami. Python reference testy kontrolují všech 17 původních hashů, CRC archivů a nezávisle porovnávají PE importy/exporty s objdump. Binutils dostává ASCII kopii souboru v dočasném adresáři, protože jeho Windows sestavení neumí zdejší české cesty; původní soubory se nemění. Výchozí test dekodéru na Windows vybírá nové EXE, nikoli starý linuxový soubor.
 
 - JNGLoad: všechny rozměry a BGRA bajty 416 JNG souhlasí s původní DLL; PE architektura, názvy a ordinály jsou ověřené.
 - String: 20 000 deterministických scénářů × find/rfind/compare = 60 000 shod s původními rutinami. Objektové rozložení, kapacity a aliasování navíc ověřuje lokální C++ test.
@@ -44,7 +44,7 @@ Win32 Release sestavení v `build/windows` prošlo 34 CTest kontrolami. Python r
 
 - Kurzor: 40 000 původních frame aktualizací, 40 000 bounds a 80 000 transformací, dva vlastní Win32 testovací windows. Menu: 48 vstupních snímků a 24 shodných sound požadavků přes najetí/stisk/uvolnění/odjetí šesti tlačítek. Přenositelné reporty analysis/cursor-validation.json a analysis/text-buttons-validation.json; hranice v [GAME_CURSOR.md](GAME_CURSOR.md).
 
-- Hlavičky profilů: 200 původních konstruktorů s prázdným vybraným jménem, 16 000 header loads, 160 000 lookupů a 800 append-list kontrol. Typované XML konverze a ID formatter mají testové adaptéry; úplné profily/uložené hry čekají. Podrobnosti v [PROFILES.md](PROFILES.md).
+- Hlavičky profilů: 200 původních konstruktorů s prázdným vybraným jménem, 16 000 header loads, 160 000 lookupů a 800 append-list kontrol. Typované XML konverze a ID formatter mají testové adaptéry; lifecycle je ověřen samostatně; přepínání/mazání a celé uložené hry čekají. Podrobnosti v [PROFILES.md](PROFILES.md).
 
 Souhrn a konkrétní omezení jsou v `analysis/verification.json`, `docs/GAME.md` a `docs/JNGLOAD.md`. Celá hra, Squall a odinstalátor tímto nejsou označené za dokončené.
 
@@ -60,4 +60,4 @@ Původní ani rekonstruovaný odinstalátor nespouštět proti původní instala
 
 Čistý klon musí umožnit sestavení ze zdrojů. Balíček obsahuje pouze rekonstruované binární soubory a dokumentaci; původní data se dodávají lokálně. Kontrola nesmí původní EXE nebo DLL zaměnit za sestavený výsledek. Dokud tyto scénáře neprojdou, není celý projekt označen za funkční rekonstrukci 1:1.
 
-Vlastnosti profilů: všech třináct nativních map, 62 400 přístupů, 67 200 typových volání, 128 492 mapových porovnání a 284 clear operací ve dvou x87 kontextech. Starý CRT a persistence zatím mají evidované hranice v [PROFILES.md](PROFILES.md).
+Vlastnosti profilů: všech třináct nativních map, 62 400 přístupů, 67 200 typových volání, 128 492 mapových porovnání a 284 clear operací ve dvou x87 kontextech. Dále 240 celých serializací, 80 native lifecycle scénářů a 300 UTF-16 zápisů; 110 původních inicializací porovnalo všech 790 herních defaultů. Source menu otevírá skutečné profily přes ResourceManager. Starý CRT/XML a celý herní save/load mají evidované hranice v [PROFILES.md](PROFILES.md).

@@ -21,6 +21,7 @@ def main():
         context=json.loads(output)
         assert context['scenarios']==2400 and context['property_accesses']==31200 and context['typed_dispatches']==33600
         assert context['stores']==13 and context['clears']==142
+        assert context['serializations']==120 and context['serialized_units']>100000
         context['precision']=precision;contexts.append(context)
     report={key:sum(context[key] for context in contexts) for key in contexts[0] if key not in ('precision','stores')}
     report.update(stores=13,status='passed',precision_contexts=contexts,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -29,13 +30,16 @@ def main():
         coverage=['Thirteen distinct process-global typed maps; default insertion, repeated lookup and overwrite',
             'Original unsigned-byte key ordering, long/empty/embedded-NUL/high-byte keys; independent same-name keys across every type',
             'Original type dispatcher and all thirteen setters; valid scalar extremes, color/vector/string values and unknown case-sensitive tags',
-            'Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup'],
+            'Original clear routine erases every tree, resets sentinels/counts and permits further insertion; diagnostic allocation cleanup',
+            'All thirteen original serializers, exact concatenated UTF-16 tags/order/spacing against recovered output; decimal color and non-self-closing Vector2 preserved'],
         test_adapters=['Recovered String/WString assignment/compare and diagnostic allocator',
             'Modern numeric wide streams and ACP conversion replace original old CRT parsers/conversion; conversion equivalence is not proved',
-            'Empty sentinel nodes initialized from instruction-confirmed layout, including four-byte pair padding for Bool and UInt16',
+            'Modern stream output and recovered String/WString concatenation/ACP conversion; old CRT formatting remains unverified',
+            'Original type-name static getters execute; atexit registration is recorded without running process-wide teardown',
+            'Empty sentinels use instruction-confirmed padding and eight-byte Double/LongLong alignment',
             'Mapped original image is copied to a distinct diagnostic address and explicit operands relocated; original entry point never runs'],
         pending=['Native old CRT conversion, invalid/empty numeric setter values and formatting',
-            'Property XML persistence, profile lifecycle and menu integration','Whole-game save compatibility'])
+            'Profile file persistence, lifecycle and menu integration','Whole-game save compatibility'])
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Profile properties: {report['property_accesses']} native accesses, {report['typed_dispatches']} dispatches, {report['map_comparisons']} map comparisons")
