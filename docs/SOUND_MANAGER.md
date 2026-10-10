@@ -1,6 +1,6 @@
 # SoundManager, zvukové prostředky a kanály
 
-`analysis/sound-manager-reconstruction.json` uvádí původní adresy, mapu polí, inicializační hodnoty a navazující funkce. `SoundFiles.cpp` a `SoundVolume.cpp` jsou zapojené do CMake a přímo porovnané s původními instrukcemi v obou přesnostech x87. SoundManager, cSound/cChannel a cache/UI vazby jsou nyní obnovené; skutečný backend a celá Squall.dll ještě vyžadují implementaci a propojení. Tento report je za hotové přehrávání nepovažuje.
+`analysis/sound-manager-reconstruction.json` uvádí původní adresy, mapu polí, inicializační hodnoty a navazující funkce. SoundFiles/Volume, SoundManager, cSound/cChannel a cache/UI vazby jsou obnovené a mají přímé native porovnání v obou přesnostech. Produkční `SquallSoundApi` nyní propojuje patnáct skutečných herních importů se zdrojovou Squall.dll. Skutečný playback cursor, pauza a zvukové cesty načtených menu/Options controls jsou porovnané; audible a celý herní lifecycle ještě nejsou hotové.
 
 Singleton je `0065f734`, virtual table `0060028c`. Constructor `00535d50` volá Squall Init s 13 položkami: window=0, device=0, rate=44100, bits=16, channels=16, HW2D/HW3D=0, algorithm=3, buffer=200, listenerMode=0, distance=1, rolloff=0.001f, doppler=1. Při záporném výsledku volá Free a nastaví disabled. Při úspěchu nainstaluje čtyři callbacks, EAX preset 3 a čte `Sound/Music`, `Sound/Sound`, poté nastaví music a sound hlasitost. Destructor `00535280` při enabled zapisuje obě Settings, volá Stop/Free a maže zbývající otevřené soubory. Pause getter/setter je samostatný byte +4, disabled byte +24; constructor do počátečního pause byte nezapisuje; source vyžaduje jeho předání od volajícího. Konečný engine allocation path stále potřebuje ověření.
 
@@ -20,10 +20,27 @@ SoundManager nyní obnovuje všechny původní virtual metody a load/unload. Př
 
 ResourceManager.getSound (`00546fb0`/`005450a0`) je obnovený s lowercase názvem, typem 4, cache/refcounts a bez opakovaného pointer-set vložení při cache hit. Source integrační porovnání v obou přesnostech používá skutečný cache manager, cSound, Button click a Options volume routing, wrong-type odmítnutí a deleteAllSound/unload. Původní celé ResourceManager stromy této továrny zatím nemají přímý runtime oracle; neodvozovat jeho dokončení z manager/channel testu.
 
-`UiSound.cpp` váže ButtonInteraction a OptionsServices na skutečné obnovené metody. Native Button.hovered na `004f3a7e` zahodí návratový cChannel; okamžité smazání by zastavilo hover zvuk. Source zachovává doložený retained wrapper/reference. Tento leak je evidovaný, nikoli nahrazený odhadnutou správou kanálů; jeho integrační lifecycle ještě není porovnaný. `SoundApi` je povinné abstraktní rozhraní, bez default/no-op backendu. Jediné současné implementace API fixture jsou v testovacích nástrojích a neposkytují dekódování/mixing ani zvukový device.
+`UiSound.cpp` váže ButtonInteraction a OptionsServices na skutečné obnovené metody. Native Button.hovered na `004f3a7e` zahodí návratový cChannel; okamžité smazání by zastavilo hover zvuk. Source zachovává doložený retained wrapper/reference. Tento leak je evidovaný; jeho integrační lifecycle ještě není porovnaný. `SoundApi` je povinné abstraktní rozhraní. Produkční `SquallSoundApi.cpp` volá vlastní zdrojově sestavenou DLL přes její import library. Žádný produkční kód načítající nebo přesměrovávající na originální DLL nepřibyl. Unload má opravený původní návratový typ `void`; předchozí fixture měla nevyužitý `int`. Po opravě zůstalo celé native manager/channel porovnání shodné.
 
-Zbývá všech 97 přesných Squall exportů, reprodukovatelné dekodéry/DirectSound, skutečný D3D reset, MainMenu/engine lifecycle a audible/full-game porovnání. Negative sample/channel a callback setup exception/logging, allocation failure, konstrukční unwinding, původní počáteční pause allocation byte a wrapper po zániku manageru jsou neověřené. Původní programový kód slouží pouze jako testovací oracle.
+Zbývá úplné chování všech 97 Squall exportů, ostatní dekodéry a režimy, skutečný D3D reset, MainMenu/engine lifecycle a audible/full-game porovnání. Negative sample/channel a callback setup exception/logging, allocation failure, konstrukční unwinding, původní počáteční pause allocation byte a wrapper po zániku manageru jsou neověřené. Původní programový kód slouží pouze jako testovací oracle.
 
 Před rozšířením manager/channel části celkové Win32 Release sestavení a 36 CTest kontrol prošlo (75,59 s); SHA-256 všech 17 referenčních souborů zůstalo beze změny. Přenositelný výsledek je v `analysis/sound-manager-validation.json`.
 
 Po manager/channel rozšíření prošlo celé Win32 Release sestavení a 36 CTest kontrol (79,88 s). Následná oprava typu SampleLoadFile default argumentu z int na pointer prošla novým úplným sestavením a cíleným sound CTest (7,42 s); 17 referenčních SHA-256 zůstalo shodných.
+
+## Propojení se skutečnou zdrojovou DLL
+
+`recovered_game_audio` je explicitní source cíl závislý na SquallCandidate. `game-audio-reference-test` má v PE právě patnáct Squall importů. Za běhu kontroluje všechny jejich IAT ukazatele proti konkrétní načtené vlastní DLL; nestačí předpoklad o loader search path. Post-build kopíruje jen tuto vlastní sestavenou DLL do adresáře diagnostiky. Originální DLL načítá samostatná oracle strana v testovacím nástroji.
+
+Obě přesnosti prošly pro **190 stavových porovnání**, 16 samostatných kontrol pohybu skutečného playback cursoru a osm kontrol jeho zastavení při pauze. Každý backend používá skutečný původní SoundSetup s window=0 a vytvoří vlastní audio okno, DirectSound, workery a buffery. Cesta zahrnuje Settings, SoundManager, FileIndex/SoundFiles, ResourceManager/cache/cSound a cChannel: připravená hudba, start, pause/resume wrapperu, celková pause/resume manageru, Options hlasitosti, Stop/retirement, unload a destructor Free.
+
+Diagnostika navíc skutečně načítá `UI/MainMenu.xml`, `UI/FixedBack.xml` a `UI/Options.xml`, vytváří obnovené ovládací prvky, lokalizované fonty a textury přes skutečné D3D8 zařízení. Původní StartButton při pressed kroku zvýší počet přehrávajících ambientních kanálů o jeden přes skutečnou Button→SoundManager→DLL cestu. Oba skutečné Options slidery předávají callbacky i zlomkové hodnoty a původní truncation. Fullscreen reset service vyhodí chybu, kdyby tento scénář odbočil do resetu; fullscreen se zde nepřepíná a není označen za ověřený.
+
+Pohyb přehrávání se kontroluje samostatně na každém backendu, v omezeném čase. Číselné přírůstky jsou evidované, ale dva po sobě jdoucí běhy nemají shodnou časovou osu. Při kontrolách pohybu musí být fyzická hlasitost nula; volume změny probíhají při pauze. Nejde o audible ani loopback porovnání. Obě strany používají předtím native ověřené obnovené herní controllery; tento nový scénář není dalším původním EXE controller oracle. MainMenu navigace, plný engine/frame/input a herní systémy stále čekají.
+
+```powershell
+cmake --build build/windows --config Release --target game-audio-reference-test --parallel
+python tools/validate_game_audio.py
+```
+
+Konfigurace a získání kodeků jsou v `SQUALL.md`. Reporty `analysis/game-audio-validation.json` a `analysis/game-audio-fresh-validation.json` uvádějí obě přesnosti, zdrojové/executable/DLL hashe, konkrétní rozsah a zbývající práci. Samostatné sestavení v `build/squall-source-repro-vs20261010` prošlo stejným propojeným scénářem. Celkové Win32 sestavení a všech 37 CTest kontrol prošly (90,91 s); 17 původních souborů zůstalo shodných.

@@ -70,6 +70,8 @@ cmake -S . -B build/windows -G 'Visual Studio 17 2022' -A Win32 '-DBUILD_SQUALL_
 cmake --build build/windows --config Release --target SquallCandidate squall-runtime-reference-test squall-vorbis-reference-test squall-dll-reference-test --parallel
 python tools/validate_squall_runtime.py
 python tools/validate_squall_dll.py
+cmake --build build/windows --config Release --target game-audio-reference-test --parallel
+python tools/validate_game_audio.py
 ```
 
 Výstup: `build/windows/squall-candidate/Release/Squall.dll`. Candidate cíle jsou explicitně mimo běžné sestavení, dokud celý nativní audit není dokončen. Přenositelné důkazy: `analysis/squall-runtime-validation.json`, `analysis/squall-candidate-abi.json` a stav jednotlivých exportů `analysis/squall-export-audit.json`. Výchozí DirectSound zařízení zde mají shodný počet 3; jiné hosty mohou mít jiný počet. Všechny potvrzené i neověřené oblasti jsou v reportu.
@@ -87,3 +89,5 @@ Stop má asynchronní mezistav: `100054b0` vrací při STAGE=STOP −24, po odst
 Při tomto ověření byla opravena chyba sestavovacího cíle: Visual Studio s jediným vstupem `.def` a bez object file mohlo přeskočit link DLL po změně statické runtime knihovny. Cíl nyní kompiluje existující `Abi.cpp` s kontrolami rozložení a skutečně přelinkovává DLL. Předchozí statické PCM porovnání tím nebylo zneplatněno; samotná předchozí DLL tím nebyla dokladem těchto runtime oprav. Nynější porovnání prošlo také nad samostatným čistým sestavením `build/squall-source-repro-vs20261010`, bez předchozí DLL v jeho výstupu. Nová cache musí explicitně volit Visual Studio; výchozí Ninja nepřijímá `-A Win32`.
 
 Reporty `analysis/squall-dll-validation.json` a `analysis/squall-dll-fresh-validation.json` obsahují hash zdrojů, kandidáta, testovacího EXE a mapy, jednotlivé přesnosti, rozsah a neověřené oblasti. Audit exportů rozlišuje vybrané porovnané vstupy od úplně ověřeného podpisu/chování všech 97 API. Žádný export zde není automaticky označen za úplně ověřený.
+
+Navazující `SquallSoundApi` skutečně propojuje obnovené herní audio objekty s vlastní DLL. V PC53/PC24 prošel null-HWND herní Init a 190 stavů včetně skutečných MainMenu/Options controls, pohybu playback cursoru, pause/resume a úklidu; podrobnosti v `SOUND_MANAGER.md`. Samostatný prepared-buffer report výše nadále neobsahuje playback. Playback důkaz je v oddělených `analysis/game-audio-validation.json` a `analysis/game-audio-fresh-validation.json`; neprokazuje audible výstup ani celý herní runtime.

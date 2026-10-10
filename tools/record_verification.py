@@ -108,6 +108,35 @@ def main():
                     row['loaded_DLL_verified_scope']=scope
             write('analysis/squall-export-audit.json',audit)
             report['build']['explicit_audit_targets'].append('squall-dll-reference-test')
+    for suffix in ('','-fresh'):
+        audio_path=ROOT/f'.local/game-audio{suffix}-validation.json'
+        if not audio_path.exists(): continue
+        audio=read(audio_path.relative_to(ROOT))
+        assert audio['status']=='passed_for_integrated_game_audio_and_menu_control_scope'
+        for row in audio['source_files']:
+            assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']
+        for path_key,hash_key in (('candidate_path','rebuilt_sha256'),('oracle_path','oracle_sha256')):
+            assert hashlib.sha256((ROOT/audio[path_key]).read_bytes()).hexdigest()==audio[hash_key],audio[path_key]
+        portable=f'analysis/game-audio{suffix}-validation.json';write(portable,audio);report['game-audio'+suffix]=audio
+        if portable not in report['reports']: report['reports'].append(portable)
+        if not suffix:
+            assert audio['rebuilt_sha256']==runtime['export_contract']['rebuilt_sha256']
+            report['build']['explicit_audit_targets']+=['recovered_game_audio','game-audio-reference-test']
+            audit=read('analysis/squall-export-audit.json')
+            scopes={
+                'SQUALL_Init':'Actual game SoundSetup with null HWND and backend-owned window in both precisions',
+                'SQUALL_Free':'Actual recovered SoundManager destruction after resource/channel cleanup',
+                'SQUALL_Pause':'Actual playing/paused/resumed music cursor and status through SoundManager',
+                'SQUALL_Stop':'Actual group 1 UI clicks and group 2 music; bounded full worker retirement',
+                'SQUALL_Channel_Start':'Actual prepared and resumed music through cChannel with cursor progress',
+                'SQUALL_Channel_Pause':'Actual cChannel pause/resume status and frozen cursor',
+                'SQUALL_Channel_Status':'Real prepared/play/pause/resume/retirement observations',
+                'SQUALL_ChannelGroup_SetVolume':'Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter',
+                'SQUALL_Sample_PlayEx':'Real ResourceManager/cSound music and actual MainMenu button click through production imports'}
+            for row in audit['exports']:
+                if row['name'] in scopes:
+                    row['status']='partially_compared';row['integrated_game_audio_verified_scope']=scopes[row['name']]
+            write('analysis/squall-export-audit.json',audit)
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

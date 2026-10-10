@@ -66,7 +66,7 @@ struct ApiFixture final:SoundApi {
     int stop() override;
     int setGroupVolume(int,int) override;
     int loadSample(const char*,int,const void*) override;
-    int unloadSample(int) override;
+    void unloadSample(int) override;
     int sampleFrequency(int) override;
     int playSample(int,int,int,int,int,int,int,int) override;
     int stopChannel(int) override;
@@ -89,7 +89,7 @@ int __cdecl eaxPreset(int value) { activeApi->record(3,{value});return -17; }
 int __cdecl pauseAll(int value) { activeApi->record(4,{value});return -3; }
 int __cdecl stopAll() { activeApi->record(5);return -3; }
 int __cdecl loadSample(const char* name,int memory,int spatial) { activeApi->record(7,{memory,spatial},name);return activeApi->nextSample++; }
-int __cdecl unloadSample(int value) { activeApi->record(8,{value});return -3; }
+void __cdecl unloadSample(int value) { activeApi->record(8,{value}); }
 int __cdecl sampleFrequency(int value) { activeApi->record(9,{value});return 22050+value; }
 int __cdecl playSample(int sample,int loop,int nextGroup,int start,int priority,int nextVolume,int frequency,int pan) { activeApi->record(10,{sample,loop,nextGroup,start,priority,nextVolume,frequency,pan});return activeApi->nextChannel++; }
 int __cdecl stopChannel(int value) { activeApi->record(11,{value});return -3; }
@@ -104,7 +104,7 @@ int ApiFixture::pause(int a) { return pauseAll(a); }
 int ApiFixture::stop() { return stopAll(); }
 int ApiFixture::setGroupVolume(int a,int b) { return groupVolume(a,b); }
 int ApiFixture::loadSample(const char* a,int b,const void* defaults) { return ::loadSample(a,b,static_cast<int>(reinterpret_cast<unsigned>(defaults))); }
-int ApiFixture::unloadSample(int a) { return ::unloadSample(a); }
+void ApiFixture::unloadSample(int a) { ::unloadSample(a); }
 int ApiFixture::sampleFrequency(int a) { return ::sampleFrequency(a); }
 int ApiFixture::playSample(int a,int b,int c,int d,int e,int f,int g,int h) { return ::playSample(a,b,c,d,e,f,g,h); }
 int ApiFixture::stopChannel(int a) { return ::stopChannel(a); }

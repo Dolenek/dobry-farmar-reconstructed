@@ -23,7 +23,7 @@ public:
     virtual int stop()=0;
     virtual int setGroupVolume(int,int)=0;
     virtual int loadSample(const char*,int,const void* defaults)=0;
-    virtual int unloadSample(int)=0;
+    virtual void unloadSample(int)=0;
     virtual int sampleFrequency(int)=0;
     virtual int playSample(int,int,int,int,int,int,int,int)=0;
     virtual int stopChannel(int)=0;
