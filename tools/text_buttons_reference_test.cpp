@@ -15,6 +15,7 @@
 #include "ExitDialog.h"
 #include "CheckBox.h"
 #include "Slider.h"
+#include "Options.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -96,7 +97,9 @@ static_assert(sizeof(FontNode)==24);
 FontNode* tree(std::vector<FontNode>& nodes,unsigned first,unsigned end,FontNode* parent,FontNode* head) {
     if(first==end) return head; auto* node=&nodes[(first+end)/2]; node->parent=parent; node->left=tree(nodes,first,(first+end)/2,node,head); node->right=tree(nodes,(first+end)/2+1,end,node,head); return node;
 }
-bool __fastcall getBool(void*,void*,const String*,const String*,bool* output) { *output=rtl; return true; }
+bool nativeOptionsFull=false;
+bool __fastcall getBool(void*,void*,const String* section,const String* key,bool* output) { *output=section->view()=="graphics" && key->view()=="fullscreen" ? nativeOptionsFull:rtl; return true; }
+void __fastcall setBool(void*,void*,const String* section,const String* key,const bool* value) { require(section->view()=="graphics" && key->view()=="fullscreen","Options settings write differs");nativeOptionsFull=*value; }
 const WString* __fastcall getString(void*,void*,const WString* source) { return &localization->getString(*source); }
 std::set<cTexture*> textureResources;
 cTexture* __fastcall getTexture(void*,void*,const String* name) { try { auto* texture=resources->getTexture(*name);textureResources.insert(texture);return texture; } catch(const std::exception& e) { std::cerr<<"Texture adapter "<<name->c_str()<<": "<<e.what()<<'\n';throw; } }
@@ -244,7 +247,9 @@ const XmlNode* dialogDefinition=nullptr;
 const XmlNode* selectorDefinition=nullptr;
 const XmlNode* creditsDefinition=nullptr;
 const XmlNode* exitDefinition=nullptr;
+const XmlNode* optionsDefinition=nullptr;
 XmlAdapter* __fastcall dialogXML(void*,void*,const String* name) {
+    if(name->view()=="UI/Options.xml" && optionsDefinition) return wrap(optionsDefinition);
     if(name->view()=="UI/YesNoExit.xml" && exitDefinition) return wrap(exitDefinition);
     if(name->view()=="UI/Credits.xml" && creditsDefinition) return wrap(creditsDefinition);
     if(name->view()=="UI/SelectUser.xml" && selectorDefinition) return wrap(selectorDefinition);
@@ -281,6 +286,15 @@ void sliderValue(Slider* self,float value) { require(self==actualSlider && float
 void nativeSliderValue(void* self,float value) { require(self==nativeSlider && floatBits(value)==floatBits(field<float>(self,0x290)),"Native slider value callback differs");nativeSliderEvents.emplace_back(1,floatBits(value));if(mutateSlider) field<float>(self,0x290)=value+7.25f; }
 void sliderDrag(Slider* self,bool drag) { require(self==actualSlider && drag==self->dragging(),"Slider drag callback differs");actualSliderEvents.emplace_back(2,drag); }
 void nativeSliderDrag(void* self,bool drag) { require(self==nativeSlider && drag==bool(field<unsigned char>(self,0x284)),"Native slider drag callback differs");nativeSliderEvents.emplace_back(2,drag); }
+struct OptionsAudioFixture { bool disabled=false;unsigned sound=100,music=100;std::vector<std::pair<unsigned,unsigned>> events; };
+OptionsAudioFixture actualOptionsAudio,nativeOptionsAudio;
+bool __fastcall optionsDisabled(void*,void*) { nativeOptionsAudio.events.emplace_back(0,nativeOptionsAudio.disabled);return nativeOptionsAudio.disabled; }
+unsigned __fastcall optionsSoundVolume(void*,void*) { nativeOptionsAudio.events.emplace_back(1,nativeOptionsAudio.sound);return nativeOptionsAudio.sound; }
+unsigned __fastcall optionsMusicVolume(void*,void*) { nativeOptionsAudio.events.emplace_back(2,nativeOptionsAudio.music);return nativeOptionsAudio.music; }
+void __fastcall optionsSetSound(void*,void*,unsigned value) { nativeOptionsAudio.events.emplace_back(3,value);nativeOptionsAudio.sound=value; }
+void __fastcall optionsSetMusic(void*,void*,unsigned value) { nativeOptionsAudio.events.emplace_back(4,value);nativeOptionsAudio.music=value; }
+std::vector<std::pair<bool,bool>> actualOptionsResets,nativeOptionsResets;
+void __fastcall optionsReset(void*,void*,bool full) { nativeOptionsResets.emplace_back(full,nativeOptionsFull); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -447,7 +461,7 @@ int wmain(int argc,wchar_t** argv) {
         redirect(0xa430,reinterpret_cast<void*>(&listStreamContents));redirect(0x5710,reinterpret_cast<void*>(&listStreamNoop));redirect(0x17f6f0,reinterpret_cast<void*>(&listStreamNoop));
         for(unsigned rva:{0x26025c,0x2604fc,0x2605fc,0x260508,0x260514,0x260520,0x26052c,0x260538,0x260544,0x260550}) initializeSet(rva);
         auto* discarded=static_cast<unsigned char*>(allocate(48)); std::memset(discarded,0,48); for(unsigned offset:{0U,4U,8U}) std::memcpy(discarded+offset,&discarded,4); discarded[44]=discarded[45]=1; putPointer(0x2604e8,discarded);
-        std::array<void*,11> settingsTable{}; settingsTable[10]=reinterpret_cast<void*>(&getBool); auto* settingsPointer=settingsTable.data(); putPointer(0x25f728,&settingsPointer);
+        std::array<void*,21> settingsTable{}; settingsTable[10]=reinterpret_cast<void*>(&getBool);settingsTable[20]=reinterpret_cast<void*>(&setBool); auto* settingsPointer=settingsTable.data(); putPointer(0x25f728,&settingsPointer);
         std::array<void*,7> managerTable{}; managerTable[1]=reinterpret_cast<void*>(&getTexture);managerTable[2]=reinterpret_cast<void*>(&getFont);managerTable[3]=reinterpret_cast<void*>(&getSound);managerTable[6]=reinterpret_cast<void*>(&dialogXML); auto* managerPointer=managerTable.data(); putPointer(0x25f730,&managerPointer);
         std::array<void*,2> stringTable{}; stringTable[1]=reinterpret_cast<void*>(&getString); auto* stringPointer=stringTable.data(); putPointer(0x26026c,&stringPointer);
         // Bypass only static string initialization/atexit; original direction
@@ -473,7 +487,7 @@ int wmain(int argc,wchar_t** argv) {
         interaction.cursor=[] { return menuCursor ? menuCursor->position():cursorPosition; };
         interaction.playHover=[](cResource* sound,bool loop,unsigned count) { require(!loop && count==1,"Menu source hover sound arguments differ");actualSounds.emplace_back(std::string(sound->resourceName().view()),0); };
         interaction.playClick=[](cResource* sound) { actualSounds.emplace_back(std::string(sound->resourceName().view()),1); };
-        std::array<void*,3> soundTable{};soundTable[1]=reinterpret_cast<void*>(&nativeHoverSound);soundTable[2]=reinterpret_cast<void*>(&nativeClickSound);auto* soundPointer=soundTable.data();putPointer(0x25f734,&soundPointer);
+        std::array<void*,9> soundTable{};soundTable[1]=reinterpret_cast<void*>(&nativeHoverSound);soundTable[2]=reinterpret_cast<void*>(&nativeClickSound);soundTable[4]=reinterpret_cast<void*>(&optionsDisabled);soundTable[5]=reinterpret_cast<void*>(&optionsSoundVolume);soundTable[6]=reinterpret_cast<void*>(&optionsSetSound);soundTable[7]=reinterpret_cast<void*>(&optionsMusicVolume);soundTable[8]=reinterpret_cast<void*>(&optionsSetMusic);auto* soundPointer=soundTable.data();putPointer(0x25f734,&soundPointer);
         FlushInstructionCache(GetCurrentProcess(),image,0x200000);
         WNDCLASSW cls{}; cls.lpfnWndProc=DefWindowProcW; cls.hInstance=GetModuleHandleW(nullptr); cls.lpszClassName=L"Text control oracle"; RegisterClassW(&cls);
         window=CreateWindowW(cls.lpszClassName,cls.lpszClassName,WS_OVERLAPPEDWINDOW,0,0,800,600,nullptr,nullptr,cls.hInstance,nullptr); require(window!=nullptr,"Diagnostic window failed");
@@ -489,7 +503,8 @@ int wmain(int argc,wchar_t** argv) {
         const bool creditsControllers=argc==4 && (std::wcscmp(argv[3],L"credits")==0 || std::wcscmp(argv[3],L"credits-device")==0);
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
-        const bool preserve=argc==3 || nativeBug || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool preserve=argc==3 || nativeBug || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -497,12 +512,13 @@ int wmain(int argc,wchar_t** argv) {
         unsigned exitStates=0,exitLetters=0,exitObjects=0,exitCallbacks=0,exitFrames=0;unsigned long long exitPixels=0;
         unsigned checkStates=0,checkObjects=0,checkCallbacks=0,checkFrames=0;unsigned long long checkPixels=0;
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
+        unsigned optionsStates=0,optionsObjects=0,optionsLetters=0,optionsEvents=0,optionsFrames=0,optionsResets=0;unsigned long long optionsPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -869,6 +885,9 @@ Third</Text></Text></BackMultitext>
 #include "widgets_oracle_cases.inc"
 #include "slider_oracle_cases.inc"
             }
+            if(optionsControllers) {
+#include "options_oracle_cases.inc"
+            }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
             field<WString>(image,0x260270).~WString(); textureEnvironment()={}; fontFiles()=nullptr; resources=nullptr; localization=nullptr;
@@ -886,6 +905,7 @@ Third</Text></Text></BackMultitext>
             <<",\"exit_states\":"<<exitStates<<",\"exit_letters\":"<<exitLetters<<",\"exit_objects\":"<<exitObjects<<",\"exit_callbacks\":"<<exitCallbacks<<",\"exit_frames\":"<<exitFrames<<",\"exit_pixels\":"<<exitPixels
             <<",\"checkbox_states\":"<<checkStates<<",\"checkbox_objects\":"<<checkObjects<<",\"checkbox_callbacks\":"<<checkCallbacks<<",\"checkbox_frames\":"<<checkFrames<<",\"checkbox_pixels\":"<<checkPixels
             <<",\"slider_states\":"<<sliderStates<<",\"slider_objects\":"<<sliderObjects<<",\"slider_callbacks\":"<<sliderCallbacks<<",\"slider_frames\":"<<sliderFrames<<",\"slider_pixels\":"<<sliderPixels
+            <<",\"options_states\":"<<optionsStates<<",\"options_objects\":"<<optionsObjects<<",\"options_letters\":"<<optionsLetters<<",\"options_events\":"<<optionsEvents<<",\"options_frames\":"<<optionsFrames<<",\"options_pixels\":"<<optionsPixels<<",\"options_resets\":"<<optionsResets
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

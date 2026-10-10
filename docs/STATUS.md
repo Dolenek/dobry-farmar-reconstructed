@@ -18,6 +18,10 @@
 
 ## Prostředí
 
+`Options` je obnovený controller propojující oba slidery, FullScreen a OK se skutečným XML/Settings. Obě přesnosti prošly: 1 560 stavů, 96 GPU snímků/46 080 000 shodných RGB pixelů, 564 zvukových service událostí a 244 reset requests. Celkové Win32 sestavení a 35 CTest kontrol prošlo; všechny původní soubory zůstaly shodné. `OPTIONS.md` a portable verification evidují skutečné pokrytí i chybějící produkční audio/reset služby.
+
+Navazující audio analýza je v `SOUND_MANAGER.md` a `analysis/sound-manager-reconstruction.json`: původní inicializace, dvě vrstvy převodu hlasitosti, sample/channel volání a file callback ABI. `src/game/audio/SoundFiles.cpp` obsahuje nově obnovené skutečné souborové operace; není ještě v sestavení ani ověřený. Původní první handle je 2 a seek callback pouze hlásí velikost pro (0,SEEK_END), jinak neprovádí seek.
+
 `Slider` a owned thumb obnovují volume prvky Options: 24 stromů, 14 488 stavů, 4 940 callbacků a 64 GPU snímků/30 720 000 shodných RGB pixelů v obou přesnostech. `SLIDER.md` popisuje přesné původní výpočty a hranice; napojení na skutečný sound manager ještě čeká.
 
 `CheckBox` pro FullScreen v Options je obnovený včetně odložené Tick viditelnosti a původního pořadí release/click/changed: 24 stromů, 2 968 stavů, 1 184 callbacků a 64 GPU snímků/30 720 000 shodných RGB pixelů. `CHECK_BOX.md` eviduje adresy a hranice; skutečný fullscreen/device reset zbývá.

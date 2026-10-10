@@ -105,6 +105,18 @@ def main():
     report['widget_precision_contexts']=widget_contexts
     for key in ('slider_states','slider_objects','slider_callbacks','slider_frames','slider_pixels'):
         report[key]=sum(context[key] for context in widget_contexts)
+    options_contexts=[]
+    for precision,mode in (('preserved','options'),('original-device-0x20','options-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'Options controller oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['options_states']==780 and context['options_objects']==12 and context['options_letters']==26520
+        assert context['options_events']==282 and context['options_resets']==122
+        assert context['options_frames']==48 and context['options_pixels']==23040000
+        context['precision']=precision;options_contexts.append(context)
+    for key in ('options_states','options_objects','options_letters','options_events','options_resets','options_frames','options_pixels'):
+        report[key]=sum(context[key] for context in options_contexts)
+    report['options_precision_contexts']=options_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -202,6 +214,13 @@ def main():
         'Slider GPU: 64 frames/30720000 exactly matching RGB pixels and draw calls with real Options background, horizontal/vertical dragging through controlled input; both native device x87 precisions']
     report['test_adapters'] += ['Slider native value/drag/hidden callbacks, calculation/owned XML/lifetime execute original instructions; source preserves differing step/position float spill points using OriginalArithmetic. Shipped Options volume callbacks and audible playback remain separate work']
     report['pending'] += ['Slider invalid/zero axis dimensions, Layout outside 0/1, equal endpoints, NaN/infinity and original object ABI']
+    report['original_functions'] += ['00489770','00487ae0','00487a30','00487ac0','00488f10','004892f0','00488770','00488b40','00487aa0','00580f98']
+    report['coverage'] += ['Options: 24 source/native owned screens from shipped Options XML, 1560 states, 53040 owned text letters/sprites, disabled sound flag, fullscreen false/true, RTL, sound/music getters in original order, float-to-unsigned volume requests, settings write before graphics reset request, return transition and singleton/reference/input destruction',
+        'Options GPU: 96 source/native frames/46080000 exactly matching RGB pixels and draw calls, both sliders, FullScreen click, OK target/Options fade, both x87 precision contexts']
+    report['test_adapters'] += ['Options source requires all six sound/graphics services explicitly and rejects missing bindings; diagnostic implementations record state and request order. Native sound getter/setter, Settings bool get/set and graphics reset virtual boundaries use independent controlled fixtures; this does not verify actual audio or D3D Reset',
+        'Options source executes recovered Settings bool writes/reads and actual ResourceManager XML, while native controller/owned controls/callbacks/lifetime execute original instructions. Return target is a MenuView MainMenu content fixture; full MainMenu hooks/navigation remain separate']
+    report['pending'] += ['Production OptionsServices binding to complete SoundManager and graphics reset; physical input, audible volume/music, fullscreen/windowed reset and complete game runtime',
+        'Options volume conversion outside finite signed 64-bit range, missing fullscreen property, repeated XML sound/texture overwrite leaks and original object/exception ABI']
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")
 if __name__=='__main__':main()
