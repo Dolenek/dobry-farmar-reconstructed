@@ -14,6 +14,7 @@
 #include "Credits.h"
 #include "ExitDialog.h"
 #include "CheckBox.h"
+#include "Slider.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -273,6 +274,13 @@ void checkClicked(ButtonPrototype* self) { require(self==actualCheckBox,"Checkbo
 void nativeCheckClicked(void* self) { require(self==nativeCheckBox,"Native checkbox click object differs");nativeCheckEvents.push_back(10+field<unsigned char>(self,0x284)); }
 void checkChanged(CheckBox* self,bool checked) { require(self==actualCheckBox && checked==self->checked(),"Checkbox changed object/value differs");actualCheckEvents.push_back(20+checked); }
 void nativeCheckChanged(void* self,bool checked) { require(self==nativeCheckBox && checked==bool(field<unsigned char>(self,0x284)),"Native checkbox changed object/value differs");nativeCheckEvents.push_back(20+checked); }
+Slider* actualSlider=nullptr;void* nativeSlider=nullptr;bool mutateSlider=false;
+std::vector<std::pair<unsigned,unsigned>> actualSliderEvents,nativeSliderEvents;
+unsigned floatBits(float value) { unsigned bits;std::memcpy(&bits,&value,4);return bits; }
+void sliderValue(Slider* self,float value) { require(self==actualSlider && floatBits(value)==floatBits(self->value()),"Slider value callback differs");actualSliderEvents.emplace_back(1,floatBits(value));if(mutateSlider) self->setValue(value+7.25f); }
+void nativeSliderValue(void* self,float value) { require(self==nativeSlider && floatBits(value)==floatBits(field<float>(self,0x290)),"Native slider value callback differs");nativeSliderEvents.emplace_back(1,floatBits(value));if(mutateSlider) field<float>(self,0x290)=value+7.25f; }
+void sliderDrag(Slider* self,bool drag) { require(self==actualSlider && drag==self->dragging(),"Slider drag callback differs");actualSliderEvents.emplace_back(2,drag); }
+void nativeSliderDrag(void* self,bool drag) { require(self==nativeSlider && drag==bool(field<unsigned char>(self,0x284)),"Native slider drag callback differs");nativeSliderEvents.emplace_back(2,drag); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -488,6 +496,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned creditsStates=0,creditsDecorations=0,creditsObjects=0,creditsFrames=0,creditsSoundResidues=0;unsigned long long creditsPixels=0;
         unsigned exitStates=0,exitLetters=0,exitObjects=0,exitCallbacks=0,exitFrames=0;unsigned long long exitPixels=0;
         unsigned checkStates=0,checkObjects=0,checkCallbacks=0,checkFrames=0;unsigned long long checkPixels=0;
+        unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
@@ -858,6 +867,7 @@ Third</Text></Text></BackMultitext>
             }
             if(widgets) {
 #include "widgets_oracle_cases.inc"
+#include "slider_oracle_cases.inc"
             }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
@@ -875,6 +885,7 @@ Third</Text></Text></BackMultitext>
             <<",\"credits_sound_residues\":"<<creditsSoundResidues
             <<",\"exit_states\":"<<exitStates<<",\"exit_letters\":"<<exitLetters<<",\"exit_objects\":"<<exitObjects<<",\"exit_callbacks\":"<<exitCallbacks<<",\"exit_frames\":"<<exitFrames<<",\"exit_pixels\":"<<exitPixels
             <<",\"checkbox_states\":"<<checkStates<<",\"checkbox_objects\":"<<checkObjects<<",\"checkbox_callbacks\":"<<checkCallbacks<<",\"checkbox_frames\":"<<checkFrames<<",\"checkbox_pixels\":"<<checkPixels
+            <<",\"slider_states\":"<<sliderStates<<",\"slider_objects\":"<<sliderObjects<<",\"slider_callbacks\":"<<sliderCallbacks<<",\"slider_frames\":"<<sliderFrames<<",\"slider_pixels\":"<<sliderPixels
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

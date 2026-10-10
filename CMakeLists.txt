@@ -89,7 +89,7 @@ if(WIN32)
         src/game/ui/TextLineLayout.cpp src/game/ui/LetterSprite.cpp src/game/ui/StringManager.cpp src/game/ui/ControlSprite.cpp
         src/game/ui/ControlAnimation.cpp src/game/ui/View.cpp src/game/ui/Control.cpp src/game/ui/TextLine.cpp src/game/ui/EditBox.cpp src/game/ui/ListBox.cpp src/game/ui/MultilineText.cpp
         src/game/ui/InputBindings.cpp src/game/ui/InputDevices.cpp src/game/ui/Button.cpp src/game/ui/ButtonText.cpp src/game/ui/MenuView.cpp src/game/ui/MainMenuContent.cpp src/game/ui/YesNoDialog.cpp
-        src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/graphics/ClickMask.cpp)
+        src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/ui/Slider.cpp src/game/graphics/ClickMask.cpp)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
     target_link_libraries(recovered_resource_utilities PUBLIC recovered_graphics_utilities recovered_game_utilities dinput8 dxguid)
     add_executable(texture-test tools/texture_test.cpp)

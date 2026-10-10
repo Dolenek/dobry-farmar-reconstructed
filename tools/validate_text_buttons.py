@@ -97,10 +97,14 @@ def main():
         context=json.loads(result.stdout)
         assert context['checkbox_states']==1484 and context['checkbox_objects']==12 and context['checkbox_callbacks']==592
         assert context['checkbox_frames']==32 and context['checkbox_pixels']==15360000
+        assert context['slider_states']==7244 and context['slider_objects']==12 and context['slider_callbacks']==2470
+        assert context['slider_frames']==32 and context['slider_pixels']==15360000
         context['precision']=precision;widget_contexts.append(context)
     for key in ('checkbox_states','checkbox_objects','checkbox_callbacks','checkbox_frames','checkbox_pixels'):
         report[key]=sum(context[key] for context in widget_contexts)
     report['widget_precision_contexts']=widget_contexts
+    for key in ('slider_states','slider_objects','slider_callbacks','slider_frames','slider_pixels'):
+        report[key]=sum(context[key] for context in widget_contexts)
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -193,6 +197,11 @@ def main():
     report['coverage'] += ['CheckBox: 24 native/source trees using shipped Options/FullScreen XML, 2968 full states, 1184 click/changed callbacks and 64 GPU frames/30720000 exactly matching RGB pixels; initial/deferred checked value, tick activation, nullable/hidden parent, outside releases, press/disable/enable and destruction reference/input cleanup']
     report['test_adapters'] += ['CheckBox executes native owned construction, XML, step and release instructions. Indexed XML range is incomplete; normal instruction path is inspected and relocated through 0050441a. Scene includes real MenuView Options background; graphics/input/audio retain documented diagnostic boundaries']
     report['pending'] += ['Actual Options fullscreen callback/device reset and physical checkbox input/audio; explicit Checked XML attribute typed-conversion edge cases']
+    report['original_functions'] += ['00502970','00503bf0','005036d0','005031a0','00502dc0','00502170','005021a0','00502590','005020f0','005020c0','00502130','00502150']
+    report['coverage'] += ['Slider: 24 native/source owned trees from Options SoundVolume/MusicVolume XML, 14488 full states, 4940 exact drag/value callbacks, 14400 randomized cursor/geometry/range/action steps, horizontal/vertical axes, negative cursor coordinates, out-of-range values, thumb and track drag, hidden parent/thumb cancellation, callback-mutated values, sprites and reference/input destruction',
+        'Slider GPU: 64 frames/30720000 exactly matching RGB pixels and draw calls with real Options background, horizontal/vertical dragging through controlled input; both native device x87 precisions']
+    report['test_adapters'] += ['Slider native value/drag/hidden callbacks, calculation/owned XML/lifetime execute original instructions; source preserves differing step/position float spill points using OriginalArithmetic. Shipped Options volume callbacks and audible playback remain separate work']
+    report['pending'] += ['Slider invalid/zero axis dimensions, Layout outside 0/1, equal endpoints, NaN/infinity and original object ABI']
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")
 if __name__=='__main__':main()

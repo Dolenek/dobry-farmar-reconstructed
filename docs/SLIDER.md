@@ -1,0 +1,9 @@
+# Posuvníky hlasitosti
+
+Slider obnovuje cSlider (668 native bajtů) s vlastněným texture-switching Button jezdcem (636 bajtů). Constructor `00502970`, XML `00503bf0`, step `005036d0`, poloha jezdce `005031a0`, track press/release `00502dc0`/`00502170`, thumb press/release `005021a0`/`00502590`, thumb hidden `005020f0`, destructors `005020c0`/`00502150` a `00502130`. Layout 0 je vodorovný, 1 svislý, bez ohledu na nepřesný komentář ve shipped XML.
+
+Press/release nejdříve vykoná původní ButtonPrototype hook a pak změní dragging, callback jen při změně. Skrytí thumb ukončí dragging před Picture hidden hook. Slider step záměrně nevykonává základní ButtonPrototype step; při dragging projektuje kurzor na osu pomocí sqrt(x²+y²), tedy používá absolutní souřadnici i u záporného kurzoru, omezí výsledek na konečné body a přepočte hodnotu. Value callback může hodnotu změnit před updateThumb. SetValue samotný ponechává polohu odloženou. Jezdec cestuje celou šířkou/výškou lišty, ne šířkou zmenšenou o vlastní rozměr. Výpočty zachovávají odlišné float spill points funkce polohy a step i current x87 precision.
+
+V obou přesnostech prošlo 24 source/native stromů ze skutečného SoundVolume/MusicVolume XML, 14 488 stavů, 4 940 callbacků, 14 400 kroků s náhodnými rozměry, polohou, rozsahem, záporným kurzorem a hodnotami mimo rozsah. Test zahrnuje obě osy, oba začátky tažení, skrytí parent/thumb, mutable callback a sprity i destruction reference/input delty. Dalších 64 GPU snímků s Options pozadím a řízeným mouse vstupem má 30 720 000 přesně shodných RGB pixelů a draw API volání. Produkční kód nespouští originál; native instrukce se používají pouze jako testovací reference.
+
+Skutečné Options sound/music callbacks, zvuk a fyzický input/frame runtime zbývají. Test používá již dokumentované graphics/input/audio/typed XML hranice. Neplatné Layout, nulové/nekonečné/NaN rozměry, shodné konce rozsahu a původní object/exception ABI nejsou ověřené.
