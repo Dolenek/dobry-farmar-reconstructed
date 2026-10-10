@@ -120,7 +120,8 @@ def main():
             0x4ffb70,0x4ff410,0x4ffa00,0x4db9f0,0x50b3d0,
             0x479b30,0x4795b0,0x479110,0x478e90,0x478f00,0x478ef0,
             0x47b1c0,0x47a4e0,0x47ac90,0x479c70,0x479c90,0x479c80,
-            0x479cb0,0x479ce0,0x479d10,0x479d40,0x47a110,0x421520];seen=set(addresses)
+            0x479cb0,0x479ce0,0x479d10,0x479d40,0x47a110,0x421520,
+            0x504180,0x5042a0,0x504780,0x504b80,0x504210,0x504280];seen=set(addresses)
         boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20}
         while todo:
             address=todo.pop()
@@ -194,6 +195,7 @@ def main():
             # The exported constructor range stops before its allocation tail.
             # Preserve the original contiguous normal path through RET 8.
             if args.text_buttons and address==0x4fffb0: end=max(end,0x5002e4)
+            if args.text_buttons and address==0x5042a0: end=max(end,0x50441b)
             result=subprocess.run(['objdump','-d','-Mintel',f'--start-address={address}',f'--stop-address={end}',reference.name],cwd=directory,capture_output=True,text=True,check=True)
             for line in result.stdout.splitlines():
                 match=re.match(r'\s*([0-9a-f]+):\s*((?:[0-9a-f]{2} )+)\s*(.*)',line)
@@ -236,7 +238,7 @@ def main():
             tables=[(0x1fbfd8,59),(0x1fc388,65)]
             if args.text_state: tables += [(0x1fb818,72),(0x1fe198,69)]
             if args.button_text: tables += [(0x1fee10,72)]
-            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3),(0x1f5870,14),(0x1f58a8,1),(0x1f5900,14)]
+            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3),(0x1f5870,14),(0x1f58a8,1),(0x1f5900,14),(0x1fd8b0,92)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:

@@ -90,6 +90,17 @@ def main():
     for key in ('exit_states','exit_letters','exit_objects','exit_callbacks','exit_frames','exit_pixels'):
         report[key]=sum(context[key] for context in exit_contexts)
     report['exit_precision_contexts']=exit_contexts
+    widget_contexts=[]
+    for precision,mode in (('preserved','widgets'),('original-device-0x20','widgets-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'Checkbox oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['checkbox_states']==1484 and context['checkbox_objects']==12 and context['checkbox_callbacks']==592
+        assert context['checkbox_frames']==32 and context['checkbox_pixels']==15360000
+        context['precision']=precision;widget_contexts.append(context)
+    for key in ('checkbox_states','checkbox_objects','checkbox_callbacks','checkbox_frames','checkbox_pixels'):
+        report[key]=sum(context[key] for context in widget_contexts)
+    report['widget_precision_contexts']=widget_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -178,6 +189,10 @@ def main():
     report['test_adapters'] += ['ExitDialog XML factory uses an independent shipped tree. Native motion/normalization, hover, click and owned lifecycle instructions execute; source implements 00421520 x87 normalization including retained extended X ratio and float-spilled Y ratio. OriginalArithmetic sqrt uses current x87 precision on Win32',
         'ExitDialog deliberate hidden frames allow zero scene submissions, while comparing all RGB bytes/API traces; other scene content assertions remain unchanged. Actual MainMenu exit/Win32 close binding and physical audio/input remain pending']
     args.output.parent.mkdir(parents=True,exist_ok=True)
+    report['original_functions'] += ['00504180','005042a0','00504780','00504b80','00504210','00504280']
+    report['coverage'] += ['CheckBox: 24 native/source trees using shipped Options/FullScreen XML, 2968 full states, 1184 click/changed callbacks and 64 GPU frames/30720000 exactly matching RGB pixels; initial/deferred checked value, tick activation, nullable/hidden parent, outside releases, press/disable/enable and destruction reference/input cleanup']
+    report['test_adapters'] += ['CheckBox executes native owned construction, XML, step and release instructions. Indexed XML range is incomplete; normal instruction path is inspected and relocated through 0050441a. Scene includes real MenuView Options background; graphics/input/audio retain documented diagnostic boundaries']
+    report['pending'] += ['Actual Options fullscreen callback/device reset and physical checkbox input/audio; explicit Checked XML attribute typed-conversion edge cases']
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")
 if __name__=='__main__':main()

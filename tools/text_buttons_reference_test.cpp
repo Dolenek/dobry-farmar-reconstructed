@@ -13,6 +13,7 @@
 #include "SelectProfile.h"
 #include "Credits.h"
 #include "ExitDialog.h"
+#include "CheckBox.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -266,6 +267,12 @@ void exitYes(ExitDialog* self) { require(self==actualExitDialog,"Exit yes callba
 void exitNo(ExitDialog* self) { require(self==actualExitDialog,"Exit no callback object differs");actualExitEvents.push_back(2); }
 void nativeExitYes(void* self) { require(self==nativeExitDialog,"Native exit yes callback object differs");nativeExitEvents.push_back(1); }
 void nativeExitNo(void* self) { require(self==nativeExitDialog,"Native exit no callback object differs");nativeExitEvents.push_back(2); }
+CheckBox* actualCheckBox=nullptr;void* nativeCheckBox=nullptr;
+std::vector<unsigned> actualCheckEvents,nativeCheckEvents;
+void checkClicked(ButtonPrototype* self) { require(self==actualCheckBox,"Checkbox click object differs");actualCheckEvents.push_back(10+actualCheckBox->checked()); }
+void nativeCheckClicked(void* self) { require(self==nativeCheckBox,"Native checkbox click object differs");nativeCheckEvents.push_back(10+field<unsigned char>(self,0x284)); }
+void checkChanged(CheckBox* self,bool checked) { require(self==actualCheckBox && checked==self->checked(),"Checkbox changed object/value differs");actualCheckEvents.push_back(20+checked); }
+void nativeCheckChanged(void* self,bool checked) { require(self==nativeCheckBox && checked==bool(field<unsigned char>(self,0x284)),"Native checkbox changed object/value differs");nativeCheckEvents.push_back(20+checked); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -473,18 +480,20 @@ int wmain(int argc,wchar_t** argv) {
         const bool profileControllers=argc==4 && (std::wcscmp(argv[3],L"profiles")==0 || std::wcscmp(argv[3],L"profiles-device")==0);
         const bool creditsControllers=argc==4 && (std::wcscmp(argv[3],L"credits")==0 || std::wcscmp(argv[3],L"credits-device")==0);
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
-        const bool preserve=argc==3 || nativeBug || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
+        const bool preserve=argc==3 || nativeBug || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
         unsigned creditsStates=0,creditsDecorations=0,creditsObjects=0,creditsFrames=0,creditsSoundResidues=0;unsigned long long creditsPixels=0;
         unsigned exitStates=0,exitLetters=0,exitObjects=0,exitCallbacks=0,exitFrames=0;unsigned long long exitPixels=0;
+        unsigned checkStates=0,checkObjects=0,checkCallbacks=0,checkFrames=0;unsigned long long checkPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -847,6 +856,9 @@ Third</Text></Text></BackMultitext>
             if(exitControllers) {
 #include "exit_oracle_cases.inc"
             }
+            if(widgets) {
+#include "widgets_oracle_cases.inc"
+            }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
             field<WString>(image,0x260270).~WString(); textureEnvironment()={}; fontFiles()=nullptr; resources=nullptr; localization=nullptr;
@@ -862,6 +874,7 @@ Third</Text></Text></BackMultitext>
             <<",\"credits_states\":"<<creditsStates<<",\"credits_decorations\":"<<creditsDecorations<<",\"credits_objects\":"<<creditsObjects<<",\"credits_frames\":"<<creditsFrames<<",\"credits_pixels\":"<<creditsPixels
             <<",\"credits_sound_residues\":"<<creditsSoundResidues
             <<",\"exit_states\":"<<exitStates<<",\"exit_letters\":"<<exitLetters<<",\"exit_objects\":"<<exitObjects<<",\"exit_callbacks\":"<<exitCallbacks<<",\"exit_frames\":"<<exitFrames<<",\"exit_pixels\":"<<exitPixels
+            <<",\"checkbox_states\":"<<checkStates<<",\"checkbox_objects\":"<<checkObjects<<",\"checkbox_callbacks\":"<<checkCallbacks<<",\"checkbox_frames\":"<<checkFrames<<",\"checkbox_pixels\":"<<checkPixels
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

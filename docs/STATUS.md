@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+`CheckBox` pro FullScreen v Options je obnovený včetně odložené Tick viditelnosti a původního pořadí release/click/changed: 24 stromů, 2 968 stavů, 1 184 callbacků a 64 GPU snímků/30 720 000 shodných RGB pixelů. `CHECK_BOX.md` eviduje adresy a hranice; skutečný fullscreen/device reset zbývá.
+
 Obrazovka `Credits` je obnovená ze skutečného UI/Credits.xml s ReturnButton a návratovým přechodem: 16 stromů, 412 stavů, 25 628 dekorací a 40 GPU snímků/19 200 000 přesně shodných RGB pixelů. Detaily a hranice MainMenu cíle jsou v `CREDITS.md`; opakované sound XML zachovává potvrzené původní zadržení referencí.
 
 `ExitDialog` obnovuje YesNoExit s původním cursor/time pohybem tlačítka a Bee hover obrázky: 24 stromů, 14 512 stavů, 14 400 pohybových kroků a 64 GPU snímků/30 720 000 přesně shodných RGB pixelů. `EXIT_DIALOG.md` uvádí adresy a hranice; actual MainMenu exit/Win32 zavření stále zbývají.

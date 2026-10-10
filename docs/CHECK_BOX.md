@@ -1,0 +1,7 @@
+# Přepínač nastavení
+
+CheckBox obnovuje původní cCheckBox (648 bajtů): constructor `00504180`, XML `005042a0`, step `00504780`, release `00504b80`, destructor `00504210`/`00504280`. Button vlastní Tick Picture. SetChecked (`00504270`) jen změní hodnotu; XML a step srovnají checked s efektivní viditelností Tick. Při skrytém parent a checked=true se opakuje show stejně jako v originálu. Step nejdříve vykoná ButtonPrototype step. Release nejdříve vykoná základní release/click callback, pak vždy invertuje checked a zavolá changed(self,bool), včetně uvolnění mimo plochu. XML používá texture-switching Button; frame atributy z FullScreen XML nezmění jeho typ na AnimationButton.
+
+Obě x87 přesnosti: 24 vlastněných stromů ze skutečného `UI/Options.xml`/FullScreen, 2 968 stavů, 1 184 click/changed událostí, 64 GPU snímků a 30 720 000 přesně shodných RGB pixelů/draw volání. Porovnání zahrnuje původně false/true, odloženou aktualizaci, skrytý/null parent, cursor hit/miss, press/release, disable/enable, sprity a resource/input cleanup. Native XML používá nezávisle načtený strom; dekompilovaný index končí před pokračováním, testovací relocations zahrnují normální cestu do `0050441a`. Produkční implementace nepoužívá původní programový kód.
+
+Options fullscreen callback, skutečný device reset, fyzický vstup a zvuk ještě nejsou propojené. Diagnostika používá stejné explicitní frame/input/graphics/audio hranice jako ostatní UI testy. Checked XML typed conversion, neplatné vstupy a původní object/exception ABI nejsou ověřené.
