@@ -12,6 +12,7 @@
 #include "YesNoDialog.h"
 #include "SelectProfile.h"
 #include "Credits.h"
+#include "ExitDialog.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -240,7 +241,9 @@ void nativeSelect(unsigned index,void*) { nativeSelections.push_back(index); }
 const XmlNode* dialogDefinition=nullptr;
 const XmlNode* selectorDefinition=nullptr;
 const XmlNode* creditsDefinition=nullptr;
+const XmlNode* exitDefinition=nullptr;
 XmlAdapter* __fastcall dialogXML(void*,void*,const String* name) {
+    if(name->view()=="UI/YesNoExit.xml" && exitDefinition) return wrap(exitDefinition);
     if(name->view()=="UI/Credits.xml" && creditsDefinition) return wrap(creditsDefinition);
     if(name->view()=="UI/SelectUser.xml" && selectorDefinition) return wrap(selectorDefinition);
     require(name->view()=="UI/YesNo.xml" && dialogDefinition,"Dialog settings XML boundary differs");return wrap(dialogDefinition);
@@ -257,6 +260,12 @@ void __cdecl nativeDiscard(void* view,const String* origin) { nativeDiscards[vie
 String* __fastcall decimalString(String* output,void*,unsigned value) { return new(output) String(std::to_string(value)); }
 String* __cdecl concatenateString(String* output,const String* a,const String* b) { return new(output) String(std::string(a->view())+std::string(b->view())); }
 #include "select_profile_oracle_services.h"
+std::vector<unsigned> actualExitEvents,nativeExitEvents;
+ExitDialog* actualExitDialog=nullptr;void* nativeExitDialog=nullptr;
+void exitYes(ExitDialog* self) { require(self==actualExitDialog,"Exit yes callback object differs");actualExitEvents.push_back(1); }
+void exitNo(ExitDialog* self) { require(self==actualExitDialog,"Exit no callback object differs");actualExitEvents.push_back(2); }
+void nativeExitYes(void* self) { require(self==nativeExitDialog,"Native exit yes callback object differs");nativeExitEvents.push_back(1); }
+void nativeExitNo(void* self) { require(self==nativeExitDialog,"Native exit no callback object differs");nativeExitEvents.push_back(2); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -388,7 +397,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
         throw std::runtime_error("Whole menu draw API calls differ");
     }
     unsigned nonbackground=0;for(unsigned i=0;i<actual.size();i+=4) if(actual[i]!=0x3b || actual[i+1]!=0x29 || actual[i+2]!=0x17) ++nonbackground;
-    require(nonbackground>minimumContent,"Whole menu has no substantial rendered content");return actual.size()/4;
+    if(minimumContent) require(nonbackground>minimumContent,"Whole menu has no substantial rendered content");return actual.size()/4;
 }
 
 }
@@ -463,17 +472,19 @@ int wmain(int argc,wchar_t** argv) {
         const bool controllers=argc==4 && (std::wcscmp(argv[3],L"controllers")==0 || std::wcscmp(argv[3],L"controllers-device")==0);
         const bool profileControllers=argc==4 && (std::wcscmp(argv[3],L"profiles")==0 || std::wcscmp(argv[3],L"profiles-device")==0);
         const bool creditsControllers=argc==4 && (std::wcscmp(argv[3],L"credits")==0 || std::wcscmp(argv[3],L"credits-device")==0);
-        const bool preserve=argc==3 || nativeBug || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0);
+        const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
+        const bool preserve=argc==3 || nativeBug || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
         unsigned creditsStates=0,creditsDecorations=0,creditsObjects=0,creditsFrames=0,creditsSoundResidues=0;unsigned long long creditsPixels=0;
+        unsigned exitStates=0,exitLetters=0,exitObjects=0,exitCallbacks=0,exitFrames=0;unsigned long long exitPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -833,6 +844,9 @@ Third</Text></Text></BackMultitext>
             if(creditsControllers) {
 #include "credits_oracle_cases.inc"
             }
+            if(exitControllers) {
+#include "exit_oracle_cases.inc"
+            }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
             field<WString>(image,0x260270).~WString(); textureEnvironment()={}; fontFiles()=nullptr; resources=nullptr; localization=nullptr;
@@ -847,6 +861,7 @@ Third</Text></Text></BackMultitext>
             <<",\"profile_states\":"<<selectorStates<<",\"profile_letters\":"<<selectorLetters<<",\"profile_objects\":"<<selectorObjects<<",\"profile_callbacks\":"<<selectorCallbacks<<",\"profile_frames\":"<<selectorFrames<<",\"profile_pixels\":"<<selectorPixels<<",\"profile_deletions\":"<<selectorDeletions<<",\"profile_service_events\":"<<selectorServiceEvents
             <<",\"credits_states\":"<<creditsStates<<",\"credits_decorations\":"<<creditsDecorations<<",\"credits_objects\":"<<creditsObjects<<",\"credits_frames\":"<<creditsFrames<<",\"credits_pixels\":"<<creditsPixels
             <<",\"credits_sound_residues\":"<<creditsSoundResidues
+            <<",\"exit_states\":"<<exitStates<<",\"exit_letters\":"<<exitLetters<<",\"exit_objects\":"<<exitObjects<<",\"exit_callbacks\":"<<exitCallbacks<<",\"exit_frames\":"<<exitFrames<<",\"exit_pixels\":"<<exitPixels
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

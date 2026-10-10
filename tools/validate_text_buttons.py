@@ -79,6 +79,17 @@ def main():
     for key in ('credits_states','credits_decorations','credits_objects','credits_frames','credits_pixels','credits_sound_residues'):
         report[key]=sum(context[key] for context in credits_contexts)
     report['credits_precision_contexts']=credits_contexts
+    exit_contexts=[]
+    for precision,mode in (('preserved','exit'),('original-device-0x20','exit-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'Exit controller oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['exit_states']==7256 and context['exit_letters']==210424 and context['exit_objects']==12
+        assert context['exit_callbacks']==530 and context['exit_frames']==32 and context['exit_pixels']==15360000
+        context['precision']=precision;exit_contexts.append(context)
+    for key in ('exit_states','exit_letters','exit_objects','exit_callbacks','exit_frames','exit_pixels'):
+        report[key]=sum(context[key] for context in exit_contexts)
+    report['exit_precision_contexts']=exit_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -161,6 +172,11 @@ def main():
         'Credits whole scene: 40 source/native GPU frames, 19200000 exactly matching RGB pixels and draw API calls, RTL off/on, return hover/press/release and both fade transitions',
         'Credits repeated ReturnButton XML preserves the native overwrite without releasing old Click/Hover sound references; 32 retained diagnostic references matched and explicitly cleaned only after comparison']
     report['test_adapters'] += ['Credits XML factory uses an independent shipped tree; return target is a real recovered MenuView with original base View hooks rather than the still incomplete MainMenu controller. Native Credits load/callback/deletion execute original instructions; frame/input/graphics/audio services retain previously documented boundaries']
+    report['original_functions'] += ['0047b1c0','0047a4e0','0047ac90','00479c70','00479c90','00479c80','00479cb0','00479ce0','00479d10','00479d40','0047a110','00421520']
+    report['coverage'] += ['ExitDialog: 24 owned source/native MenuView trees with shipped UI/YesNoExit.xml, 14512 states and 420848 text letters/sprites; 14400 randomized cursor/time/button movement steps, nullable View parent, Yes hover motion suspension, Bee0/Bee1/Bee2 hover/leave/pressed branches, default hide/custom callbacks and destruction deltas',
+        'ExitDialog GPU: 64 source/native frames, 30720000 exactly matching RGB pixels and draw API calls, RTL off/on, Yes/No mouse hover/press/release, cursor-dependent movement and deliberate blank frames after original default hide callback; 1060 custom callback events match']
+    report['test_adapters'] += ['ExitDialog XML factory uses an independent shipped tree. Native motion/normalization, hover, click and owned lifecycle instructions execute; source implements 00421520 x87 normalization including retained extended X ratio and float-spilled Y ratio. OriginalArithmetic sqrt uses current x87 precision on Win32',
+        'ExitDialog deliberate hidden frames allow zero scene submissions, while comparing all RGB bytes/API traces; other scene content assertions remain unchanged. Actual MainMenu exit/Win32 close binding and physical audio/input remain pending']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

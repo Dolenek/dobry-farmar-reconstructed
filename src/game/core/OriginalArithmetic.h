@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 // The original Win32 engine performs these operations with x87. Direct3D8's
 // CreateDevice flags 0x20 change its precision control to 24 bits; MSVC's modern
 // SSE double expressions otherwise retain 53 bits between original spill points.
@@ -60,5 +61,18 @@ inline double originalDivide(double lhs,double rhs) noexcept {
 inline double originalUnsigned(unsigned value) noexcept {
     const auto signedValue=static_cast<int>(value);
     return signedValue<0 ? originalAdd(signedValue,4294967296.0):double(signedValue);
+}
+inline double originalSqrt(double value) noexcept {
+#if defined(_MSC_VER) && defined(_M_IX86)
+    double result;
+    __asm {
+        fld value
+        fsqrt
+        fstp result
+    }
+    return result;
+#else
+    return std::sqrt(value);
+#endif
 }
 }
