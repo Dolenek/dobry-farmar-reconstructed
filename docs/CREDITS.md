@@ -1,0 +1,11 @@
+# Obrazovka autorů
+
+`Credits` obnovuje původní 64-byte singleton s MenuView subobject +4: constructor `00479b30`, XML `004795b0`, ReturnButton callback `00479110`, destructor `00478e90`, scalar destructor `00478f00` a View thunk `00478ef0`. Zdroj používá moderní layout, vlastní hierarchii a skutečný ResourceManager. Po konstrukci ReturnButton načte `UI/Credits.xml`; MenuView načte dekorace a loader přidá všechny položky Texts jako TextLine do stejné množiny dekorací. Opakovaný load nic z této množiny neodstraňuje a přidává další Texts/Background.
+
+ReturnButton nemá samostatně vymyšlený Escape binding. Callback provede vlastní discardTransparently a na hlavním menu showTransparently + enable. Zdroj dostává menu jako View referenci, která odpovídá původnímu globálnímu View subobject; vlastní controller hlavního menu ještě není obnovený. Destructor obnoví MenuView cleanup a vyprázdní singleton.
+
+`analysis/text-buttons-validation.json` eviduje obě device/x87 přesnosti: 16 stromů, 412 celých View stavů, 25 628 kontrol dekorací včetně všech jejich písmen/spritů, opakované XML a reference/input lifetime. Celých 40 GPU snímků obsahuje všechny původní obrázky a texty, hover/press/release návratového tlačítka a přechody obou obrazovek. Všech 19 200 000 RGB pixelů a draw API volání se shoduje s native scénou.
+
+Při opakovaném načtení ReturnButton Sounds původní ButtonPrototype přepíše Click/Hover pointer bez release předchozího zdroje (`004f4b80`), což již source implementace zachovává. Nový test tuto vlastnost potvrzuje: 32 starých diagnostic sound referencí zůstalo se stejným count 1 na obou stranách. Diagnostic cleanup je explicitně uvolní až po porovnání, produkční loader se tím nemění. Ostatní textury/fonty a aktuální sound references mají shodné destrukční delty.
+
+Native XML factory má nezávislý strom skutečného souboru. Návratovým cílem diagnostiky je skutečný recovered MenuView s původními base View hooks; doplňkové MainMenu hooks zatím nejsou propojené. UI callback, loader a lifetime běží v původních instrukcích. Frame/input/clock/graphics/audio hranice zůstávají stejné jako u dosavadních scén; neověřují fyzickou klávesnici/myš ani slyšitelný zvuk. Celé herní EXE, navigace hlavního menu a neplatné/exception vstupy zůstávají rozpracované.

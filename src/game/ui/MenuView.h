@@ -13,6 +13,8 @@ public:
         ViewRegistry& views,ControlRegistry& controls); // 004fb040
     void loadXML(const XmlNode& node) override; // 004fa8c0
     const ViewRegistry::Views& decorations() const noexcept { return decorations_; }
+protected:
+    void addDecoration(View* view) { decorations_.insert(view); } // owned by View, native set +2c
 private:
     ResourceManager& resources_;Settings& settings_;StringManager& strings_;ControlRegistry& controls_;
     ViewRegistry::Views decorations_; // destructor 004fafc0 frees set, then View owns deletion

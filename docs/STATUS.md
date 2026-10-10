@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+Obrazovka `Credits` je obnovená ze skutečného UI/Credits.xml s ReturnButton a návratovým přechodem: 16 stromů, 412 stavů, 25 628 dekorací a 40 GPU snímků/19 200 000 přesně shodných RGB pixelů. Detaily a hranice MainMenu cíle jsou v `CREDITS.md`; opakované sound XML zachovává potvrzené původní zadržení referencí.
+
 Další obnovené části: `ListBox` a 2D copy chain pro profily, `MultilineText` a BackText/BackMultitext dekorace menu. YesNo controller: 34 vlastněných dialogů, 2 400 stavů, 1 940 callbacků a 64 celých GPU snímků/30 720 000 shodných RGB pixelů v obou přesnostech. SelectProfile nově propojuje skutečné profily, jejich přepínání/vytvoření/mazání a YesNo: 32 selectorů, 1 650 stavů a dalších 64 GPU snímků/30 720 000 přesně shodných RGB pixelů. Source zapisuje skutečné hlavičky/vlastnosti; nativní UI má explicitní profilovou service fixture a plný lifecycle se porovnává samostatně. Podrobnosti a neověřené oblasti jsou v `LIST_BOX.md`, `MULTILINE_TEXT.md`, `YES_NO.md` a `SELECT_PROFILE.md`. Propojení navigace hlavního menu, skutečné audio a funkční herní EXE stále zbývají.
 
 - Původní Ghidra: `C:\ghidra_12.1.4_PUBLIC`, minimální JDK podle instalace: 21.

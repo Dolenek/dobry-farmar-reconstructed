@@ -68,6 +68,17 @@ def main():
     for key in ('profile_states','profile_letters','profile_objects','profile_callbacks','profile_frames','profile_pixels','profile_deletions','profile_service_events'):
         report[key]=sum(context[key] for context in profile_contexts)
     report['profile_precision_contexts']=profile_contexts
+    credits_contexts=[]
+    for precision,mode in (('preserved','credits'),('original-device-0x20','credits-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'Credits controller oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['credits_states']==206 and context['credits_decorations']==12814 and context['credits_objects']==8
+        assert context['credits_frames']==20 and context['credits_pixels']==9600000 and context['credits_sound_residues']==16
+        context['precision']=precision;credits_contexts.append(context)
+    for key in ('credits_states','credits_decorations','credits_objects','credits_frames','credits_pixels','credits_sound_residues'):
+        report[key]=sum(context[key] for context in credits_contexts)
+    report['credits_precision_contexts']=credits_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -145,6 +156,11 @@ def main():
         'Native SelectProfile XML factory uses an independent parsed shipped tree; missing indexed constructor tail is inspected and relocated through 005002e3, unindexed changed callback spans 004fe9b0..004fea9b',
         'Text control comparison invokes original virtual makeLetters at +11c, including EditBox caret positioning, matching the source width getter virtual path']
     report['pending'] += ['MainMenu-to-SelectProfile startup/navigation, physical keyboard/mouse, actual audio and complete reconstructed game runtime; combined native profile persistence+controller execution']
+    report['original_functions'] += ['00479b30','004795b0','00479110','00478e90','00478f00','00478ef0']
+    report['coverage'] += ['Credits controller: 16 owned trees with shipped UI/Credits.xml, 412 full activation/transition states, 25628 decoration/sprite comparisons including every text letter; repeat XML accumulates owned text/backgrounds, ReturnButton restores target transparency/enabled state and discards Credits, singleton/resource/input lifetime checked',
+        'Credits whole scene: 40 source/native GPU frames, 19200000 exactly matching RGB pixels and draw API calls, RTL off/on, return hover/press/release and both fade transitions',
+        'Credits repeated ReturnButton XML preserves the native overwrite without releasing old Click/Hover sound references; 32 retained diagnostic references matched and explicitly cleaned only after comparison']
+    report['test_adapters'] += ['Credits XML factory uses an independent shipped tree; return target is a real recovered MenuView with original base View hooks rather than the still incomplete MainMenu controller. Native Credits load/callback/deletion execute original instructions; frame/input/graphics/audio services retain previously documented boundaries']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")
