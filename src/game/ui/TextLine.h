@@ -44,7 +44,7 @@ public:
     float textHeight(); // 004db5e0, deliberately retains previous max height
     const std::vector<Letter*>& letters() const noexcept { return letters_; }
     bool textDirty() const noexcept { return textDirty_; }
-private:
+protected:
     StringManager& strings_;
     WString text_;
     std::vector<Letter*> letters_; // View owns these children

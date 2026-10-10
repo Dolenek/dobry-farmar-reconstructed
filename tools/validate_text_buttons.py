@@ -30,8 +30,9 @@ def main():
         assert context['menu_content_comparisons']==27
         assert context['menu_frames']==48 and context['menu_pixels']==23040000
         assert context['menu_input_frames']==24 and context['menu_sound_requests']==12
+        assert context['edit_frames']==2400 and context['edit_letters']>20000
         context['precision']=precision;contexts.append(context)
-    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests')}
+    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests','edit_frames','edit_letters')}
     report['precision_contexts']=contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
@@ -39,7 +40,8 @@ def main():
         original_functions=['0051fe90','0041e8d0','0051f5a0','0041ed10','0051f570','0051f9b0','0041f120',
             '0051dbf0','0041f5f0','004dd980','004d43a0','004eded0','004d22a0','004f1860','004f4b80','004f20f0','00508560',
             '005202d0','004fe470','0051f540','0046bea0','00508120','004f5480','004da840','004d58a0',
-            '004fb040','004fa8c0','004fafc0','00481e10','00481770','00531b20','00506a10','0052fe50','00515830'],
+            '004fb040','004fa8c0','004fafc0','00481e10','00481770','00531b20','00506a10','0052fe50','00515830',
+            '005213c0','00521500','00521820','00521840','00521860','00521f00','00522320','00522860','00522c40'],
         test_adapters=['Allocation/free and String/WString operations use diagnostic CRT/recovered ABI strings',
             'XML virtual attribute/section calls wrap recovered trees parsed from original packages',
             'Typed XML scalar/vector/color conversion uses controlled modern stream adapters; old CRT extraction is unverified',
@@ -57,6 +59,8 @@ def main():
             'Whole main-menu content: seven owned text buttons, two text lines, three backgrounds, native 00481e10 XML bindings and 20 profile-name refresh sequences per context',
             '48 whole-scene menu RGB comparisons per context: independent source/native hierarchies and GPU buffers; native 00531b20 step/transition frame, 00506a10 traversal, 0052fe50 submission and 00515830 draw; transparent hide/show through completion',
             'Six buttons driven through cursor hover, press, release and leave via recovered input dispatch; states and sound request order match native methods',
+            'Profile NameEdit: 12 native/source constructors and destructors per context, actual shipped XML, character input through binding sets, mutable/rejecting callbacks, width limits, caret geometry/sprites/blink and three alignments',
+            'Profile NameEdit: RTL off/on, Czech/Hebrew keyboard-language fixtures, whitespace, backspace, Enter/LF, unavailable/Czech/Hebrew/NBSP characters and disabled binding cleanup',
             'Both original GPU x87 precision contexts'],
         pending=['Original XML parser and old CRT typed conversion ABI','Full object/exception ABI',
             'MenuView BackText/BackMultitext branches; original MainMenu loader 00481e10 ignores legacy submenu sections',
@@ -71,6 +75,8 @@ def main():
         'Native draw fixture uses sprite-only linked batches and previously checked recovered render-state setup; device creation, reset, mesh and complete graphics singleton ABI remain separate work',
         'GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly',
         'Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact']
+    report['test_adapters'] += ['EditBox keyboard-language query uses a controlled GetKeyboardLayout IAT fixture; physical keyboard/IME is unverified',
+        'EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

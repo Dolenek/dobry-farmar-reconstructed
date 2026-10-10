@@ -62,6 +62,7 @@ public:
     const ControlMaterial& material() const noexcept { return material_; }
     bool playing() const noexcept { return playing_; }
     bool dirty() const noexcept { return dirty_; }
+    void markTransformDirty() noexcept { dirty_=true; }
     cTexture* texture() const noexcept { return texture_; }
     unsigned renderFlags() const noexcept { return flags_; }
     void addCallback(Callback callback); // 004f1680, queued until enabledStep processing

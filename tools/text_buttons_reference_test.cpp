@@ -6,6 +6,7 @@
 #include "ButtonText.h"
 #include "MenuView.h"
 #include "MainMenuContent.h"
+#include "EditBox.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -196,6 +197,15 @@ void __fastcall bind(InputAdapter* self,void*,unsigned c,InputBindings::Handler 
 void __fastcall unbind(InputAdapter* self,void*,unsigned c,InputBindings::Handler h,void* v) { self->input->unbind(c,h,v); }
 void __fastcall bindMouse(InputAdapter* self,void*,InputBindings::MouseHandler h,void* v) { self->input->bindMouse(h,v); }
 void __fastcall unbindMouse(InputAdapter* self,void*,InputBindings::MouseHandler h,void* v) { self->input->unbindMouse(h,v); }
+void __fastcall bindCharacters(InputAdapter* self,void*,InputBindings::CharHandler h,void* v) { self->input->bindKeyboard(h,v); }
+void __fastcall unbindCharacters(InputAdapter* self,void*,InputBindings::CharHandler h,void* v) { self->input->unbindKeyboard(h,v); }
+unsigned editLanguage=0x0405;
+HKL WINAPI editKeyboardLayout(DWORD) { return reinterpret_cast<HKL>(editLanguage); }
+std::vector<std::pair<std::wstring,bool>> actualEditEvents,nativeEditEvents;
+bool editConfirm(wchar_t* value) { if(*value==L'~') *value=L'X';return *value!=L'!'; }
+void actualEditChanged(EditBox* self) { actualEditEvents.emplace_back(std::wstring(self->string().view()),self->rightInput()); }
+void nativeEditChanged(void* self) { nativeEditEvents.emplace_back(std::wstring(field<WString>(self,0x22c).view()),bool(field<unsigned char>(self,0x2b8))); }
+WString* __fastcall substring(WString* self,void*,WString* output,unsigned first,unsigned count) { return new(output) WString(self->view().substr(first,count)); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -341,6 +351,7 @@ int wmain(int argc,wchar_t** argv) {
         redirect(0xd97d0,reinterpret_cast<void*>(&typed<unsigned>));redirect(0xd9720,reinterpret_cast<void*>(&typed<unsigned>));redirect(0xd94a0,reinterpret_cast<void*>(&typed<unsigned>));
         redirect(0xd9240,reinterpret_cast<void*>(&vectorValue<2>));redirect(0xd9180,reinterpret_cast<void*>(&vectorValue<3>));redirect(0xd93b0,reinterpret_cast<void*>(&colorValue));
         redirect(0xd9dc0,reinterpret_cast<void*>(&appendString)); redirect(0x1600,reinterpret_cast<void*>(&appendUnits)); redirect(0xda980,reinterpret_cast<void*>(&replaceUnits));
+        redirect(0x1c10,reinterpret_cast<void*>(&substring));
         for(unsigned rva:{0x26025c,0x2604fc,0x2605fc,0x260508,0x260514,0x260520,0x26052c,0x260538,0x260544,0x260550}) initializeSet(rva);
         auto* discarded=static_cast<unsigned char*>(allocate(48)); std::memset(discarded,0,48); for(unsigned offset:{0U,4U,8U}) std::memcpy(discarded+offset,&discarded,4); discarded[44]=discarded[45]=1; putPointer(0x2604e8,discarded);
         std::array<void*,11> settingsTable{}; settingsTable[10]=reinterpret_cast<void*>(&getBool); auto* settingsPointer=settingsTable.data(); putPointer(0x25f728,&settingsPointer);
@@ -360,6 +371,8 @@ int wmain(int argc,wchar_t** argv) {
         void* cursorPositionFunction=reinterpret_cast<void*>(&menuCursorPosition);write(0x1ee258,&cursorPositionFunction,4);
         InputBindings input,nativeInput;std::array<void*,12> inputTable{};inputTable[1]=reinterpret_cast<void*>(&bind);inputTable[2]=reinterpret_cast<void*>(&unbind);inputTable[11]=reinterpret_cast<void*>(&frameService);
         inputTable[8]=reinterpret_cast<void*>(&bindMouse);inputTable[9]=reinterpret_cast<void*>(&unbindMouse);InputAdapter inputAdapter{inputTable.data(),&nativeInput};putPointer(0x25f6e0,&inputAdapter);
+        inputTable[5]=reinterpret_cast<void*>(&bindCharacters);inputTable[7]=reinterpret_cast<void*>(&unbindCharacters);
+        void* keyboardLayoutFunction=reinterpret_cast<void*>(&editKeyboardLayout);write(0x1ee254,&keyboardLayoutFunction,4);
         ButtonInteraction interaction;interaction.cursor=[] { return cursorPosition; };interaction.loadSound=&loadSound;
         interaction.cursor=[] { return menuCursor ? menuCursor->position():cursorPosition; };
         interaction.playHover=[](cResource* sound,bool loop,unsigned count) { require(!loop && count==1,"Menu source hover sound arguments differ");actualSounds.emplace_back(std::string(sound->resourceName().view()),0); };
@@ -377,7 +390,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool preserve=argc==3;
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
-        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0;unsigned long long menuPixels=0;
+        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0;unsigned long long menuPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
@@ -481,6 +494,39 @@ int wmain(int argc,wchar_t** argv) {
             }
             const char* names[]={"StartButton","CreditsButton","Options","ExitButton","AwardsButton","ChangeUserButton","ContinueButton","SubmenuStart","SubmenuCancel"};
             std::mt19937 random(0x584d4c42);
+            {
+                auto select=manager.loadSettingsXML(String("UI/SelectUser.xml"));XmlNode* node=nullptr;require(select->section(String("NameEdit"),node),"Shipped profile NameEdit missing");
+                bool oldRtl=false;settings.get(String("game"),String("RightToLeftEnable"),oldRtl);
+                for(trial=0;trial<12;++trial) {
+                    stage=25;rtl=trial>=6;editLanguage=trial%2 ? 0x040d:0x0405;settings.set(String("game"),String("RightToLeftEnable"),rtl);
+                    ViewRegistry views;ControlRegistry controls;auto box=std::make_unique<EditBox>(nullptr,manager,settings,strings,input,views,controls);
+                    box->keyboardLanguage=[] { return editLanguage; };auto* nativeBox=allocate(732);function<void*(__thiscall*)(void*,void*)>(0x1213c0)(nativeBox,nullptr);
+                    const auto before=textureCounts();box->loadXML(*node);const auto middle=textureCounts();function<void(__thiscall*)(void*,void*)>(0x121860)(nativeBox,wrap(node));compareReferenceDeltas(before,middle);
+                    box->confirm=trial%3 ? &editConfirm:nullptr;box->changed=&actualEditChanged;
+                    field<void*>(nativeBox,0x2bc)=trial%3 ? reinterpret_cast<void*>(&editConfirm):nullptr;field<void*>(nativeBox,0x2c0)=reinterpret_cast<void*>(&nativeEditChanged);
+                    actualEditEvents.clear();nativeEditEvents.clear();
+                    const unsigned alignment=(trial/2)%3;box->setAlignment(alignment);function<void(__thiscall*)(void*,const unsigned*)>(0x15cf0)(nativeBox,&alignment);
+                    const wchar_t values[]={L'A',L'B',L' ',L'~',L'!',8,13,10,L'\u017e',L'\u05d0',L'\u05d1',L'\u00a0',L'\u65e5',0,8,8};
+                    for(action=0;action<200;++action) {
+                        stage=26;
+                        if(action%17==0) { box->disable();call(0xd3750,nativeBox);require(input.keyboard().empty() && nativeInput.keyboard().empty(),"Disabled EditBox retained character binding");box->enable();call(0xd3bb0,nativeBox); }
+                        const wchar_t value=values[action%std::size(values)];input.dispatchCharacter(value);nativeInput.dispatchCharacter(value);
+                        require(actualEditEvents==nativeEditEvents,"EditBox accepted character callback sequence differs");
+                        elapsed=action%4==0 ? 0.3f:action%4==1 ? 0.000001f:action%4==2 ? 0.8f:0.f;
+                        box->enabledStep();call(0x121f00,nativeBox);box->makeLetters();call(0x122320,nativeBox);box->process();call(0x122860,nativeBox);
+                        editLetters+=compare(*box,nativeBox);auto* caret=field<void*>(nativeBox,0x2d4);require(caret && box->caret(),"EditBox owned caret missing");
+                        compareControl(*box,nativeBox);compareControl(*const_cast<Letter*>(box->caret()),caret);
+                        require(box->rightInput()==bool(field<unsigned char>(nativeBox,0x2b8)) && box->caretShown()==bool(field<unsigned char>(nativeBox,0x2cc)),"EditBox direction/blink state differs");
+                        compareFloat(box->maximumWidth(),field<float>(nativeBox,0x2c4),"EditBox maximum width");compareFloat(box->blinkingPeriod(),field<float>(nativeBox,0x2c8),"EditBox period");
+                        compareFloat(box->blinkTime(),field<float>(nativeBox,0x2d0),"EditBox elapsed");compareFloat(box->caretAdvance(),field<float>(nativeBox,0x2d8),"EditBox underscore advance");
+                        require(!std::memcmp(box->caret()->uv().data(),static_cast<unsigned char*>(caret)+0x238,16),"EditBox caret UV differs");
+                        const auto& sprite=const_cast<Letter*>(box->caret())->sprite();call(0x10c500,caret);require(!std::memcmp(&sprite,static_cast<unsigned char*>(caret)+0x70,76),"EditBox caret sprite differs");++editFrames;
+                    }
+                    stage=27;const auto beforeDelete=textureCounts();box.reset();const auto middleDelete=textureCounts();call(0x122c40,nativeBox);compareReferenceDeltas(beforeDelete,middleDelete);
+                    require(input.keyboard().empty() && nativeInput.keyboard().empty(),"EditBox destructor retained keyboard handler");
+                }
+                rtl=oldRtl;settings.set(String("game"),String("RightToLeftEnable"),oldRtl);
+            }
             for(trial=0;trial<9;++trial) {
                 rtl=bool(trial%2);settings.set(String("game"),String("RightToLeftEnable"),rtl);ViewRegistry views;ControlRegistry controls;
                 XmlNode* node=nullptr;require(menu->section(String(names[trial]),node),"Menu button XML missing");
@@ -531,7 +577,7 @@ int wmain(int argc,wchar_t** argv) {
         }
         for(auto* p:allocations) if(!ui_test_heap::owns(p)) std::free(p); allocations.clear(); uiElapsedTime()={};device->Release(); d3d->Release(); DestroyWindow(window); FreeLibrary(runtime); FreeLibrary(reference);
         std::cout<<"{\"scenarios\":"<<scenarios<<",\"letter_comparisons\":"<<comparisons<<",\"direction_comparisons\":"<<directionComparisons
-            <<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
+            <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
 }

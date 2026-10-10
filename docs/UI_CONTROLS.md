@@ -1,5 +1,7 @@
 # Ovládací prvky a hierarchie UI
 
+Vstupní pole NameEdit pro výběr profilu nyní obnovuje EditBox: 4 800 native snímků, 43 016 písmen/spritů, callbacky, width limit, RTL, blink a owned caret. Adresy, hranice a ověření jsou v [EDIT_BOX.md](EDIT_BOX.md). ListBox a celý SelectProfile controller zbývají.
+
 Současná implementace propojuje geometrii, animaci, cView a 2D cControl/cPicture s resource cache a spritovými dávkami. Obnoveny jsou také níže uvedené tlačítkové a vstupní části. Další ovládací prvky, celé menu a hlavní herní EXE dosud nejsou obnovené.
 
 ## Sprity a animace
