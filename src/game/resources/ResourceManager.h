@@ -10,6 +10,7 @@ class FileIndex;
 class cTexture;
 class cShader;
 class cFont;
+class cSound;
 class XmlResource;
 class XmlNode;
 // Recovered manager cache/lifetime behavior. Modern containers do not reproduce
@@ -23,6 +24,7 @@ public:
     cTexture* getTexture(const String& name); // 00545e80 / 00544260
     cShader* getShader(const String& name); // 00545a50 / 00543da0
     cFont* getFont(const String& name); // 00546770 / 00544720
+    cSound* getSound(const String& name); // 00546fb0 / 005450a0
     XmlResource* getXML(const String& name); // 005473d0
     std::shared_ptr<const XmlNode> loadSettingsXML(const String& name); // settings deletes iXML directly
     void releaseResource(cResource* resource); // 005478c0, removes cache entries only

@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Shader.h"
 #include "Font.h"
+#include "Sound.h"
 #include "XmlResource.h"
 #include <memory>
 #include <vector>
@@ -69,6 +70,13 @@ cFont* ResourceManager::getFont(const String& name) {
     if(auto* resource=find(normalized,2)) return static_cast<cFont*>(resource);
     auto resource=std::make_unique<cFont>(normalized);
     insert(normalized,resource.get()); return resource.release();
+}
+cSound* ResourceManager::getSound(const String& name) {
+    String normalized(name);normalized.lowercase();
+    // Original public sound lookup, like font, does not reinsert a cache hit.
+    if(auto* resource=find(normalized,4)) return static_cast<cSound*>(resource);
+    auto resource=std::make_unique<cSound>(normalized);
+    insert(normalized,resource.get());return resource.release();
 }
 std::shared_ptr<const XmlNode> ResourceManager::loadSettingsXML(const String& name) {
     auto* resource=getXML(name);

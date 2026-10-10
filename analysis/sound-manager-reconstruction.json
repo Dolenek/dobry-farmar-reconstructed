@@ -1,5 +1,5 @@
 {
-  "status": "files_and_volume_native_verified_remaining_manager_instruction_analysis",
+  "status": "manager_resource_channel_normal_paths_native_verified_backend_pending",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "runtime_verified": false,
   "source_built": true,
@@ -7,7 +7,7 @@
   "singleton_address": "0065f734",
   "vtable_address": "0060028c",
   "object_fields": {
-    "04": "pause flag getter/setter 00535840/00532e00; constructor initial value requires further inspection",
+    "04": "pause byte left untouched by native constructor; source caller supplies byte, 0/1 compared",
     "08": "file handle map container",
     "0c": "map header sentinel",
     "10": "file handle count",
@@ -42,7 +42,12 @@
     "004fbda0": "cChannel pause conditional on disabled and Channel_Status",
     "00559570": "cSound constructor, 40 bytes, cResource then sample ID at +24 through loadResource",
     "00559d60": "cSound scalar deleting destructor, calls destructor 00559970",
-    "00559970": "unloads sample through SoundManager if singleton exists, then cResource destructor"
+    "00559970": "unloads sample through SoundManager if singleton exists, then cResource destructor",
+    "004fb700": "channel destructor: unconditional Channel_Stop then sound releaseReference",
+    "004fc1d0": "channel start: disabled guard, unpause if status2, start if subsequent status is not1",
+    "00546fb0": "public ResourceManager getSound; lowercase then internal factory, no pointer-set reinsert on hit",
+    "005450a0": "internal sound cache factory; lowercase, type4, addReference or new40-byte cSound/cache insertion",
+    "00559960": "cSound resourceType4"
   },
   "volume": {
     "input_scale_float_bits": "3c23d70a",
@@ -85,17 +90,22 @@
     1065353216
   ],
   "pending": [
-    "Complete SoundManager, cChannel and cSound implementations and interface verification",
-    "Link ResourceManager getSound and ButtonInteraction to actual recovered audio operations",
-    "Bind OptionsServices to SoundManager and complete graphics reset",
+    "Complete graphics reset and physical Options audio validation",
     "All 97 exact Squall export implementations and audible runtime comparison",
     "File callback null/negative/overflow inputs, singleton exception lifetime and multi-thread interactions",
-    "Original exception wrappers and old object ABI"
+    "Original exception wrappers and old object ABI",
+    "Whole native ResourceManager sound cache trees",
+    "Negative sample/channel and callback setup exceptions/logging, original object/unwind ABI",
+    "Physical UI/audio/engine lifecycle and initial allocation pause byte",
+    "Confirmed native hover cChannel/reference retention, integrated lifecycle unverified"
   ],
   "validation_report": "analysis/sound-manager-validation.json",
   "verification_scope": [
     "SoundFiles callbacks normal paths",
     "SoundVolume exact group arithmetic",
-    "native failed-init map constructor/destructor fixture"
+    "native failed-init map constructor/destructor fixture",
+    "SoundManager enabled/disabled normal constructor/settings/destructor and all virtual methods",
+    "cSound/cChannel original-layout lifetimes and normal methods",
+    "source ResourceManager sound cache and Button click/Options bindings"
   ]
 }

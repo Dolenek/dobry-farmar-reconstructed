@@ -3,10 +3,16 @@
   "test_only": true,
   "fixups": [
     {
-      "rva": 4950,
-      "original_address": 5964400,
-      "function": "00401350",
-      "instruction": "push   0x5b0270"
+      "rva": 7363,
+      "original_address": 5964440,
+      "function": "00401cc0",
+      "instruction": "push   0x5b0298"
+    },
+    {
+      "rva": 26374,
+      "original_address": 5966024,
+      "function": "00406700",
+      "instruction": "push   0x5b08c8"
     },
     {
       "rva": 34611,
@@ -19,6 +25,330 @@
       "original_address": 6321516,
       "function": "00408730",
       "instruction": "mov    DWORD PTR [esi],0x60756c"
+    },
+    {
+      "rva": 34915,
+      "original_address": 5966551,
+      "function": "00408860",
+      "instruction": "push   0x5b0ad7"
+    },
+    {
+      "rva": 34960,
+      "original_address": 6219432,
+      "function": "00408860",
+      "instruction": "mov    DWORD PTR [esi],0x5ee6a8"
+    },
+    {
+      "rva": 34967,
+      "original_address": 6219424,
+      "function": "00408860",
+      "instruction": "mov    DWORD PTR [esi+0x8],0x5ee6a0"
+    },
+    {
+      "rva": 34974,
+      "original_address": 6218912,
+      "function": "00408860",
+      "instruction": "mov    DWORD PTR [esi+0x54],0x5ee4a0"
+    },
+    {
+      "rva": 35014,
+      "original_address": 6219320,
+      "function": "00408860",
+      "instruction": "mov    DWORD PTR [esi+ecx*1],0x5ee638"
+    },
+    {
+      "rva": 42099,
+      "original_address": 5970840,
+      "function": "0040a470",
+      "instruction": "push   0x5b1b98"
+    },
+    {
+      "rva": 859650,
+      "original_address": 6685272,
+      "function": "004d1e00",
+      "instruction": "mov    cl,BYTE PTR ds:0x660258"
+    },
+    {
+      "rva": 859665,
+      "original_address": 6685272,
+      "function": "004d1e00",
+      "instruction": "mov    edx,DWORD PTR ds:0x660258"
+    },
+    {
+      "rva": 859674,
+      "original_address": 6216496,
+      "function": "004d1e00",
+      "instruction": "push   0x5edb30"
+    },
+    {
+      "rva": 859680,
+      "original_address": 6685272,
+      "function": "004d1e00",
+      "instruction": "mov    DWORD PTR ds:0x660258,edx"
+    },
+    {
+      "rva": 859686,
+      "original_address": 6685268,
+      "function": "004d1e00",
+      "instruction": "mov    DWORD PTR ds:0x660254,0xf"
+    },
+    {
+      "rva": 859695,
+      "original_address": 6685264,
+      "function": "004d1e00",
+      "instruction": "mov    ds:0x660250,eax"
+    },
+    {
+      "rva": 859700,
+      "original_address": 6685248,
+      "function": "004d1e00",
+      "instruction": "mov    ds:0x660240,al"
+    },
+    {
+      "rva": 859713,
+      "original_address": 6685244,
+      "function": "004d1e00",
+      "instruction": "mov    eax,0x66023c"
+    },
+    {
+      "rva": 1029897,
+      "original_address": 6279004,
+      "function": "004fb700",
+      "instruction": "mov    DWORD PTR [esi],0x5fcf5c"
+    },
+    {
+      "rva": 1029958,
+      "original_address": 6138208,
+      "function": "004fb740",
+      "instruction": "push   0x5da960"
+    },
+    {
+      "rva": 1030326,
+      "original_address": 6138484,
+      "function": "004fb8b0",
+      "instruction": "push   0x5daa74"
+    },
+    {
+      "rva": 1030356,
+      "original_address": 6674076,
+      "function": "004fb8b0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1030376,
+      "original_address": 6279004,
+      "function": "004fb8b0",
+      "instruction": "mov    DWORD PTR [esi],0x5fcf5c"
+    },
+    {
+      "rva": 1030433,
+      "original_address": 6279036,
+      "function": "004fb8b0",
+      "instruction": "push   0x5fcf7c"
+    },
+    {
+      "rva": 1030661,
+      "original_address": 6366348,
+      "function": "004fb8b0",
+      "instruction": "push   0x61248c"
+    },
+    {
+      "rva": 1030680,
+      "original_address": 6279008,
+      "function": "004fb8b0",
+      "instruction": "push   0x5fcf60"
+    },
+    {
+      "rva": 1030701,
+      "original_address": 6218524,
+      "function": "004fb8b0",
+      "instruction": "push   0x5ee31c"
+    },
+    {
+      "rva": 1030877,
+      "original_address": 6366348,
+      "function": "004fb8b0",
+      "instruction": "push   0x61248c"
+    },
+    {
+      "rva": 1030896,
+      "original_address": 6279008,
+      "function": "004fb8b0",
+      "instruction": "push   0x5fcf60"
+    },
+    {
+      "rva": 1030914,
+      "original_address": 6218524,
+      "function": "004fb8b0",
+      "instruction": "push   0x5ee31c"
+    },
+    {
+      "rva": 1031116,
+      "original_address": 6366348,
+      "function": "004fb8b0",
+      "instruction": "push   0x61248c"
+    },
+    {
+      "rva": 1031146,
+      "original_address": 6218520,
+      "function": "004fb8b0",
+      "instruction": "push   0x5ee318"
+    },
+    {
+      "rva": 1031160,
+      "original_address": 6279008,
+      "function": "004fb8b0",
+      "instruction": "push   0x5fcf60"
+    },
+    {
+      "rva": 1031178,
+      "original_address": 6218524,
+      "function": "004fb8b0",
+      "instruction": "push   0x5ee31c"
+    },
+    {
+      "rva": 1031381,
+      "original_address": 6366348,
+      "function": "004fb8b0",
+      "instruction": "push   0x61248c"
+    },
+    {
+      "rva": 1031398,
+      "original_address": 6279008,
+      "function": "004fb8b0",
+      "instruction": "push   0x5fcf60"
+    },
+    {
+      "rva": 1031416,
+      "original_address": 6218524,
+      "function": "004fb8b0",
+      "instruction": "push   0x5ee31c"
+    },
+    {
+      "rva": 1031528,
+      "original_address": 6366348,
+      "function": "004fb8b0",
+      "instruction": "push   0x61248c"
+    },
+    {
+      "rva": 1031590,
+      "original_address": 6138723,
+      "function": "004fbda0",
+      "instruction": "push   0x5dab63"
+    },
+    {
+      "rva": 1031620,
+      "original_address": 6674076,
+      "function": "004fbda0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1031630,
+      "original_address": 6682420,
+      "function": "004fbda0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1031659,
+      "original_address": 6682420,
+      "function": "004fbda0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1031701,
+      "original_address": 6682420,
+      "function": "004fbda0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1032662,
+      "original_address": 6138963,
+      "function": "004fc1d0",
+      "instruction": "push   0x5dac53"
+    },
+    {
+      "rva": 1032692,
+      "original_address": 6674076,
+      "function": "004fc1d0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1032702,
+      "original_address": 6682420,
+      "function": "004fc1d0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1032731,
+      "original_address": 6682420,
+      "function": "004fc1d0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1032782,
+      "original_address": 6682420,
+      "function": "004fc1d0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1093027,
+      "original_address": 6151043,
+      "function": "0050ada0",
+      "instruction": "push   0x5ddb83"
+    },
+    {
+      "rva": 1093055,
+      "original_address": 6283480,
+      "function": "0050ada0",
+      "instruction": "mov    DWORD PTR [esi],0x5fe0d8"
+    },
+    {
+      "rva": 1093061,
+      "original_address": 6682416,
+      "function": "0050ada0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f730"
+    },
+    {
+      "rva": 1093125,
+      "original_address": 6283452,
+      "function": "0050ada0",
+      "instruction": "mov    DWORD PTR [esi],0x5fe0bc"
+    },
+    {
+      "rva": 1093251,
+      "original_address": 6151064,
+      "function": "0050ae80",
+      "instruction": "push   0x5ddb98"
+    },
+    {
+      "rva": 1093284,
+      "original_address": 6283480,
+      "function": "0050ae80",
+      "instruction": "mov    DWORD PTR [esi],0x5fe0d8"
+    },
+    {
+      "rva": 1169532,
+      "original_address": 6218272,
+      "function": "0051d87a",
+      "instruction": "jmp    DWORD PTR ds:0x5ee220"
+    },
+    {
+      "rva": 1169538,
+      "original_address": 6218228,
+      "function": "0051d880",
+      "instruction": "jmp    DWORD PTR ds:0x5ee1f4"
+    },
+    {
+      "rva": 1169544,
+      "original_address": 6218220,
+      "function": "0051d886",
+      "instruction": "jmp    DWORD PTR ds:0x5ee1ec"
+    },
+    {
+      "rva": 1169550,
+      "original_address": 6218224,
+      "function": "0051d88c",
+      "instruction": "jmp    DWORD PTR ds:0x5ee1f0"
     },
     {
       "rva": 1257051,
@@ -129,6 +459,36 @@
       "instruction": "mov    DWORD PTR [esp+0x2c],0x607578"
     },
     {
+      "rva": 1259046,
+      "original_address": 6177970,
+      "function": "00533620",
+      "instruction": "push   0x5e44b2"
+    },
+    {
+      "rva": 1259076,
+      "original_address": 6674076,
+      "function": "00533620",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1259169,
+      "original_address": 6291628,
+      "function": "00533620",
+      "instruction": "push   0x6000ac"
+    },
+    {
+      "rva": 1259234,
+      "original_address": 6291624,
+      "function": "00533620",
+      "instruction": "push   0x6000a8"
+    },
+    {
+      "rva": 1259259,
+      "original_address": 6588252,
+      "function": "00533620",
+      "instruction": "push   0x64875c"
+    },
+    {
       "rva": 1260182,
       "original_address": 6178211,
       "function": "00533a90",
@@ -217,6 +577,54 @@
       "original_address": 6291732,
       "function": "005342c0",
       "instruction": "mov    DWORD PTR [ebp-0x1054],0x600114"
+    },
+    {
+      "rva": 1263331,
+      "original_address": 6178704,
+      "function": "005346e0",
+      "instruction": "push   0x5e4790"
+    },
+    {
+      "rva": 1263353,
+      "original_address": 6674076,
+      "function": "005346e0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1263414,
+      "original_address": 6178961,
+      "function": "00534730",
+      "instruction": "push   0x5e4891"
+    },
+    {
+      "rva": 1263444,
+      "original_address": 6674076,
+      "function": "00534730",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1264499,
+      "original_address": 6178704,
+      "function": "00534b70",
+      "instruction": "push   0x5e4790"
+    },
+    {
+      "rva": 1264521,
+      "original_address": 6674076,
+      "function": "00534b70",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1264614,
+      "original_address": 6179217,
+      "function": "00534be0",
+      "instruction": "push   0x5e4991"
+    },
+    {
+      "rva": 1264644,
+      "original_address": 6674076,
+      "function": "00534be0",
+      "instruction": "mov    eax,ds:0x65d69c"
     },
     {
       "rva": 1266310,
@@ -459,6 +867,30 @@
       "instruction": "jmp    DWORD PTR ds:0x5ee1f8"
     },
     {
+      "rva": 1405828,
+      "original_address": 6218236,
+      "function": "00557382",
+      "instruction": "jmp    DWORD PTR ds:0x5ee1fc"
+    },
+    {
+      "rva": 1405834,
+      "original_address": 6218240,
+      "function": "00557388",
+      "instruction": "jmp    DWORD PTR ds:0x5ee200"
+    },
+    {
+      "rva": 1405840,
+      "original_address": 6218244,
+      "function": "0055738e",
+      "instruction": "jmp    DWORD PTR ds:0x5ee204"
+    },
+    {
+      "rva": 1405846,
+      "original_address": 6218260,
+      "function": "00557394",
+      "instruction": "jmp    DWORD PTR ds:0x5ee214"
+    },
+    {
       "rva": 1405852,
       "original_address": 6218248,
       "function": "0055739a",
@@ -489,10 +921,214 @@
       "instruction": "jmp    DWORD PTR ds:0x5ee21c"
     },
     {
+      "rva": 1414518,
+      "original_address": 6203486,
+      "function": "00559570",
+      "instruction": "push   0x5ea85e"
+    },
+    {
+      "rva": 1414548,
+      "original_address": 6674076,
+      "function": "00559570",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1414582,
+      "original_address": 6297208,
+      "function": "00559570",
+      "instruction": "mov    DWORD PTR [esi],0x601678"
+    },
+    {
+      "rva": 1414591,
+      "original_address": 6682420,
+      "function": "00559570",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1415542,
+      "original_address": 6203742,
+      "function": "00559970",
+      "instruction": "push   0x5ea95e"
+    },
+    {
+      "rva": 1415572,
+      "original_address": 6674076,
+      "function": "00559970",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1415595,
+      "original_address": 6297208,
+      "function": "00559970",
+      "instruction": "mov    DWORD PTR [esi],0x601678"
+    },
+    {
+      "rva": 1415601,
+      "original_address": 6682420,
+      "function": "00559970",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
       "rva": 1575349,
       "original_address": 6674076,
       "function": "005809b3",
       "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    },
+    {
+      "rva": 2097804,
+      "original_address": 5462240,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 0"
+    },
+    {
+      "rva": 2097808,
+      "original_address": 5457712,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 1"
+    },
+    {
+      "rva": 2097812,
+      "original_address": 5458800,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 2"
+    },
+    {
+      "rva": 2097816,
+      "original_address": 5458912,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 3"
+    },
+    {
+      "rva": 2097820,
+      "original_address": 5462096,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 4"
+    },
+    {
+      "rva": 2097824,
+      "original_address": 5451232,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 5"
+    },
+    {
+      "rva": 2097828,
+      "original_address": 5451584,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 6"
+    },
+    {
+      "rva": 2097832,
+      "original_address": 5451248,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 7"
+    },
+    {
+      "rva": 2097836,
+      "original_address": 5451664,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 8"
+    },
+    {
+      "rva": 2097840,
+      "original_address": 5462080,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 9"
+    },
+    {
+      "rva": 2097844,
+      "original_address": 5451264,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 10"
+    },
+    {
+      "rva": 2102904,
+      "original_address": 5610848,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 0"
+    },
+    {
+      "rva": 2102908,
+      "original_address": 5609824,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 1"
+    },
+    {
+      "rva": 2102912,
+      "original_address": 4970528,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 2"
+    },
+    {
+      "rva": 2102916,
+      "original_address": 4970528,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 3"
+    },
+    {
+      "rva": 2102920,
+      "original_address": 5287456,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 4"
+    },
+    {
+      "rva": 2102924,
+      "original_address": 5287472,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 5"
+    },
+    {
+      "rva": 2102928,
+      "original_address": 5287504,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 6"
+    },
+    {
+      "rva": 2089176,
+      "original_address": 5287520,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 0"
+    },
+    {
+      "rva": 2089180,
+      "original_address": 5771277,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 1"
+    },
+    {
+      "rva": 2089184,
+      "original_address": 4970528,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 2"
+    },
+    {
+      "rva": 2089188,
+      "original_address": 4970528,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 3"
+    },
+    {
+      "rva": 2089192,
+      "original_address": 5287456,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 4"
+    },
+    {
+      "rva": 2089196,
+      "original_address": 5287472,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 5"
+    },
+    {
+      "rva": 2089200,
+      "original_address": 5287504,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 6"
+    },
+    {
+      "rva": 2084700,
+      "original_address": 5224192,
+      "function": "SoundManager/resource/channel-vtable",
+      "instruction": "virtual slot 0"
     }
   ]
 }

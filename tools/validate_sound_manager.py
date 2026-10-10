@@ -26,6 +26,14 @@ def main():
                               initializations=32,frees=32,sound_files=45).items():
             assert context[key]==value,(key,context[key])
         context['precision']=precision;contexts.append(context)
+    manager_contexts=[]
+    for precision,output in run_precision_cases(oracle,[original,data,'manager']):
+        context=json.loads(output)
+        for key,value in dict(manager_states=20250,manager_lifetimes=24,sample_objects=24,
+                              channel_objects=2886,api_events=33330,group_calls=105938,
+                              initializations=81,frees=81).items():
+            assert context[key]==value,(key,context[key])
+        context['precision']=precision;manager_contexts.append(context)
     report={key:sum(context[key] for context in contexts) for key in contexts[0] if key not in ('precision','sound_files')}
     report.update(status='passed',sound_files=45,precision_contexts=contexts,
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -48,6 +56,31 @@ def main():
             'Enabled destructor with files remaining, disabled destructor with artificially opened files',
             'Actual Squall initialization/decoders/device/playback and production UI sound binding',
             'Complete reconstructed game runtime and physical audible validation'])
+    report['manager_precision_contexts']=manager_contexts
+    for key in ('manager_states','manager_lifetimes','sample_objects','channel_objects','api_events'):
+        report[key]=sum(context[key] for context in manager_contexts)
+    report['original_functions']+=['00532e00','00535840','00535850','00532de0','00532df0',
+        '00533620','005346e0','00534730','00534b70','00534be0','00559570','00559970','00559960',
+        '004fb8b0','004fb700','004fbda0','004fc1d0','0050ae80','0050ada0','0050ae20','0050ae30','0050ae50']
+    report['coverage']+=[
+        '48 whole manager lifetimes: enabled/failed initialization, present/absent Settings, music-before-sound setup, original retained caller pause byte and changed-only pause API calls',
+        '48 real-layout cSound source/native constructor/destructor pairs: sample load flags, names, IDs, references, type, disabled sample 0 and conditional unload',
+        '5772 cChannel source/native pairs: sound/music PlayEx eight arguments, frequency-before-play, loop/start/group/transformed volume, sound start=false pause, scripted statuses, pause/start call order, unconditional destructor stop/refcount decrement',
+        '40500 whole manager/resource state checks and 66660 native/source API events; negative ignored API results do not change controller branches',
+        'Enabled manager destruction saves both Settings before Stop/Free; installed real file callbacks remain live during Free close, and leftover files are deleted afterwards',
+        'Source integration in both precisions: actual ResourceManager getSound lowercase/reuse/refcounts/wrong-type/forced-delete and cSound unload; Button click and Options volume/getter/reset routing use recovered SoundManager']
+    report['test_adapters']+=[
+        'Required SoundApi is an abstract boundary; API fixtures exist only in tools. No production decoder, mixer, device or Squall export implementation is supplied by this fixture',
+        'Native manager Settings adapters use independently constructed recovered Settings; cSound and cChannel construction/refcount/lifetime run original instructions with relocated native virtual tables',
+        'Native getSound manager factory/map remains instruction-analyzed; integrated source cache/UI binding checks are distinguished from native whole-manager comparisons',
+        'SoundManager caller provides the initial pause byte left unwritten by original constructor; tested bytes 0/1. The final engine allocation path remains unverified']
+    report['pending']=[entry for entry in report['pending'] if not entry.startswith('Whole SoundManager enabled') and not entry.startswith('Enabled destructor with files')]
+    report['pending']+=[
+        'Native getSound ResourceManager cache trees and whole physical UI-to-Squall integration',
+        'Original negative sample/channel and file-callback setup exceptions/logging, allocation failures, manager construction unwinding and full old ABI',
+        'cSound destruction after manager and cChannel destruction after manager lifetime; production SoundApi must outlive wrappers',
+        'Native Button hover discards returned cChannel and retains a wrapper/reference; source binding preserves this observed leak, but its integrated lifetime is not exercised here',
+        'Original initial pause allocation byte, actual MainMenu/engine lifecycle, complete Squall.dll and graphics reset']
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
