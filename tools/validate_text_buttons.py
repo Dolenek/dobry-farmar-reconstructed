@@ -31,8 +31,16 @@ def main():
         assert context['menu_frames']==48 and context['menu_pixels']==23040000
         assert context['menu_input_frames']==24 and context['menu_sound_requests']==12
         assert context['edit_frames']==2400 and context['edit_letters']>20000
+        assert context['copies']==60 and context['copy_letters']==690
+        assert context['list_states']==1398 and context['list_letters']>315000
+        assert context['list_boxes']==12 and context['list_selections']==960 and context['list_xml']==2
         context['precision']=precision;contexts.append(context)
-    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests','edit_frames','edit_letters')}
+    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests','edit_frames','edit_letters','copies','copy_letters','list_states','list_letters','list_boxes','list_selections','list_xml')}
+    fault=subprocess.run([str(executable),str(original),str(original.parent/'Data'),'clear-fault'],capture_output=True,text=True,timeout=90)
+    if fault.returncode!=77:raise RuntimeError(f'Original scrolled ListBox clear did not match documented fault: {fault.returncode}, {fault.stderr}')
+    report['list_clear_fault']=json.loads(fault.stdout)
+    assert report['list_clear_fault']['native_clear_fault'] and report['list_clear_fault']['source_clear_exception']
+    assert report['list_clear_fault']['exception_code']==0xc0000005
     report['precision_contexts']=contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
@@ -41,7 +49,9 @@ def main():
             '0051dbf0','0041f5f0','004dd980','004d43a0','004eded0','004d22a0','004f1860','004f4b80','004f20f0','00508560',
             '005202d0','004fe470','0051f540','0046bea0','00508120','004f5480','004da840','004d58a0',
             '004fb040','004fa8c0','004fafc0','00481e10','00481770','00531b20','00506a10','0052fe50','00515830',
-            '005213c0','00521500','00521820','00521840','00521860','00521f00','00522320','00522860','00522c40'],
+            '005213c0','00521500','00521820','00521840','00521860','00521f00','00522320','00522860','00522c40',
+            '004d56b0','004d20b0','004ed720','004f1730','004f5b60','00507f00','004dd750','0051d8a0','0051f100',
+            '00521100','005206e0','005212a0','00521020','00521060','00521080','0051e6d0','0051ec50','0051d920'],
         test_adapters=['Allocation/free and String/WString operations use diagnostic CRT/recovered ABI strings',
             'XML virtual attribute/section calls wrap recovered trees parsed from original packages',
             'Typed XML scalar/vector/color conversion uses controlled modern stream adapters; old CRT extraction is unverified',
@@ -77,6 +87,15 @@ def main():
         'Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact']
     report['test_adapters'] += ['EditBox keyboard-language query uses a controlled GetKeyboardLayout IAT fixture; physical keyboard/IME is unverified',
         'EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute']
+    report['test_adapters'] += ['ListBox native vector growth uses diagnostic CRT memmove; original clone/append/vector bookkeeping execute',
+        'ListBox Strings decimal stream key formatting uses controlled modern stream construction/insertion/extraction/destruction; native XML clone/replacement and unchanged logical end execute',
+        'Original scrolled clear is checked in a separate process terminated by its access-violation observer; source bounds check raises out_of_range instead of dereferencing released storage']
+    report['coverage'] += ['120 native/source TextButton copies: copied resources/state, fresh owned text pool and reset motion, position/string mutation and destruction reference deltas',
+        '24 ListBox constructors, shipped UserList XML, 732 appended profiles, 2796 whole list states, 1920 indexed selection callbacks, scrolling/repositioning, clear/repopulate and owned destruction in both device precisions',
+        'Four indexed Strings XML loads: empty reserved and populated vectors, logical count unchanged, replaced/orphan clones retained by View hierarchy and all text/resource lifetime compared',
+        'Original scrolled ListBox clear access violation confirmed; safe source exception documented as an intentional memory-safety difference']
+    report['pending'] += ['Control copy with Mesh/Animation resources; TextAnimationButton copy and full original object ABI',
+        'ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; full profile selection controller integration']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

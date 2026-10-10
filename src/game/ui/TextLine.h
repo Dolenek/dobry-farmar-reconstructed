@@ -25,6 +25,7 @@ class TextLine : public Control {
 public:
     TextLine(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,
         ViewRegistry& views=globalViewRegistry(),ControlRegistry& controls=globalControlRegistry()); // 004daca0
+    TextLine(const TextLine& source); // 004dd750, fresh letter pool and current Settings RTL flag
     ~TextLine() override; // 004da840
     void loadXML(const XmlNode& node) override; // 004dd980
     void onShown() override; // 004da2f0, the line itself is not drawable
@@ -46,6 +47,7 @@ public:
     bool textDirty() const noexcept { return textDirty_; }
 protected:
     StringManager& strings_;
+    Settings& settings_;
     WString text_;
     std::vector<Letter*> letters_; // View owns these children
     String fontName_,textureName_;

@@ -49,7 +49,7 @@ class View {
 public:
     explicit View(View* parent=nullptr,ViewRegistry& registry=globalViewRegistry()); // 004d55b0
     virtual ~View(); // 004d58a0: owns and deletes children
-    View(const View&)=delete;
+    View(const View& source); // 004d56b0, same parent, fresh child set and transitions
     View& operator=(const View&)=delete;
     virtual unsigned type() const noexcept { return 0; } // 005585b0
     virtual void enabledStep() {} // base slots +8/+c: 004bd820

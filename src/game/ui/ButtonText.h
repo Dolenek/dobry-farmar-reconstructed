@@ -8,6 +8,7 @@ namespace farmar::recovered {
 class ButtonText : public TextLine {
 public:
     using TextLine::TextLine; // native cBtnText inside both TextButton specializations
+    ButtonText(const ButtonText& source):TextLine(source),offset(source.offset),speed(source.speed) {} // 0051d8a0, motion flags reset
     void enabledStep() override; // 0051e040 / 0041fa40
     void loadXML(const XmlNode& node) override; // 0051dbf0 / 0041f5f0
     void setHovered(bool value) noexcept { hovered_=value; moving_=true; }
@@ -22,6 +23,7 @@ public:
     BasicTextButton(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,
         InputBindings& input,ButtonInteraction& interaction,ViewRegistry& views=globalViewRegistry(),ControlRegistry& controls=globalControlRegistry())
         : Base(parent,resources,input,interaction,views,controls),text_(new ButtonText(this,resources,settings,strings,views,controls)) {} // 0051fe90 / 0041e8d0
+    BasicTextButton(const BasicTextButton& source):Base(source),text_(new ButtonText(*source.text_)) { text_->setParent(this); } // 0051f100 for TextButton
     void setState(ButtonState state) override {
         ButtonPrototype::setState(state);
         switch(state) { case ButtonState::Disabled:case ButtonState::Normal:case ButtonState::Pressed:text_->setHovered(false);break;
@@ -39,6 +41,7 @@ public:
     } // 0051f9b0 / 0041f120
     void setText(const WString& value) { if(text_->string().view()!=value.view()) text_->setString(value); } // 005202d0 / 004fe470
     ButtonText& text() noexcept { return *text_; }
+    const ButtonText& text() const noexcept { return *text_; }
 private:
     ButtonText* text_; // owned and deleted by View, as original
 };

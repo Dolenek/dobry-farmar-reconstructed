@@ -18,6 +18,7 @@ public:
     using Event=void(*)(ButtonPrototype*);
     ButtonPrototype(View* parent,ResourceManager& resources,InputBindings& input,ButtonInteraction& interaction,
         ViewRegistry& views=globalViewRegistry(),ControlRegistry& controls=globalControlRegistry()); // 004f53b0
+    ButtonPrototype(const ButtonPrototype& source); // 004f5b60
     ~ButtonPrototype() override; // 004f5480
     void enabledStep() override; // 004f28c0
     void onEnabled() override; // 004f2770
@@ -58,6 +59,7 @@ public:
 class Button : public ButtonPrototype {
 public:
     using ButtonPrototype::ButtonPrototype; // 00507ec0
+    Button(const Button& source); // 00507f00
     ~Button() override; // 00508120
     void onStateChanged(ButtonState state) override; // 00507fd0
     void loadXML(const XmlNode& node) override; // 00508560

@@ -15,6 +15,9 @@ template<class T> void attribute(const XmlNode& node,const wchar_t* key,T& outpu
 }
 ButtonPrototype::ButtonPrototype(View* parent,ResourceManager& resources,InputBindings& input,ButtonInteraction& interaction,ViewRegistry& views,ControlRegistry& controls)
     : Picture(parent,resources,views,controls),input_(input),interaction_(interaction) {}
+ButtonPrototype::ButtonPrototype(const ButtonPrototype& source):Picture(source),deepProcessing(source.deepProcessing),soundOnUnclick(source.soundOnUnclick),clickEvent(source.clickEvent),hoverEvent(source.hoverEvent),unhoverEvent(source.unhoverEvent),pressEvent(source.pressEvent),unusedEvent(source.unusedEvent),buttonState_(source.buttonState_),input_(source.input_),interaction_(source.interaction_),clickSound_(source.clickSound_),hoverSound_(source.hoverSound_),maskEnabled_(source.maskEnabled_),mask_(source.mask_) {
+    if(clickSound_) clickSound_->addReference();if(hoverSound_) hoverSound_->addReference();
+}
 ButtonPrototype::~ButtonPrototype() {
     ButtonPrototype::onDisabled();
     if(clickSound_) clickSound_->releaseReference(); if(hoverSound_) hoverSound_->releaseReference();
@@ -110,6 +113,9 @@ void AnimationButton::loadXML(const XmlNode& node) {
     ButtonPrototype::loadXML(node); attribute(node,L"frame_normal",normalFrame); attribute(node,L"frame_pressed",pressedFrame);
     attribute(node,L"frame_hover",hoverFrame); attribute(node,L"frame_disabled",disabledFrame); playing_=false;
     setState(state_.enabled && state_.parentEnabled ? ButtonState::Normal:ButtonState::Disabled);
+}
+Button::Button(const Button& source):ButtonPrototype(source),stateTextures_(source.stateTextures_) {
+    for(auto* texture:stateTextures_) if(texture) texture->addReference();
 }
 Button::~Button() {
     // 00508120 releases normal, pressed, hovered, then disabled before the

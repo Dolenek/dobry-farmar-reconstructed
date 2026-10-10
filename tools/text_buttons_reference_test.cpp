@@ -7,6 +7,7 @@
 #include "MenuView.h"
 #include "MainMenuContent.h"
 #include "EditBox.h"
+#include "ListBox.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -36,10 +37,12 @@
 #include <memory>
 #include <sstream>
 #include <filesystem>
+#include <fstream>
 using namespace farmar::recovered;
 namespace {
 unsigned char* image=nullptr;
 unsigned stage=0,trial=0,action=0;
+bool expectedListFault=false;
 float elapsed=0;
 float currentElapsed() { return GameTimer::instance() ? GameTimer::instance()->elapsed():elapsed; }
 float __fastcall timer(void*,void*) { return currentElapsed(); }
@@ -64,6 +67,11 @@ void* __cdecl allocate(unsigned bytes) { auto* p=::operator new(bytes); allocati
 void __cdecl release(void* p) { allocations.erase(p); if(!ui_test_heap::owns(p)) std::free(p); }
 LONG CALLBACK diagnose(EXCEPTION_POINTERS* e) {
     if(e->ExceptionRecord->ExceptionCode==EXCEPTION_ACCESS_VIOLATION) {
+        if(expectedListFault) {
+            std::cout<<"{\"native_clear_fault\":true,\"source_clear_exception\":true,\"exception_code\":"<<e->ExceptionRecord->ExceptionCode
+                <<",\"fault_rva\":"<<(reinterpret_cast<unsigned>(e->ExceptionRecord->ExceptionAddress)-reinterpret_cast<unsigned>(image))<<"}\n"<<std::flush;
+            TerminateProcess(GetCurrentProcess(),77);
+        }
         std::cerr<<"Text control AV stage "<<stage<<" trial "<<trial<<" action "<<action<<" RVA 0x"<<std::hex
             <<(reinterpret_cast<unsigned>(e->ExceptionRecord->ExceptionAddress)-reinterpret_cast<unsigned>(image))<<" address 0x"<<e->ExceptionRecord->ExceptionInformation[1]<<'\n';
         auto* stack=reinterpret_cast<unsigned*>(e->ContextRecord->Esp);std::cerr<<"EIP "<<e->ContextRecord->Eip<<" ECX "<<e->ContextRecord->Ecx<<" EDX "<<e->ContextRecord->Edx<<" stack";
@@ -86,6 +94,7 @@ const WString* __fastcall getString(void*,void*,const WString* source) { return 
 std::set<cTexture*> textureResources;
 cTexture* __fastcall getTexture(void*,void*,const String* name) { auto* texture=resources->getTexture(*name);textureResources.insert(texture);return texture; }
 bool __fastcall releaseFont(void* font,void*) { return --field<unsigned>(font,4)==0; }
+void* __fastcall addFont(void* font,void*) { ++field<unsigned>(font,4);return font; }
 String* __fastcall assignNarrow(String* self,void*,const char* source,unsigned count) { return &self->assign(source,count); }
 WString* __fastcall assignWide(WString* self,void*,const WString* source,unsigned start,unsigned count) { return &self->assign(*source,start,count); }
 WString* __fastcall assignUnits(WString* self,void*,const wchar_t* source,unsigned count) { return &self->assign(source,count); }
@@ -152,7 +161,7 @@ struct FontFixture {
     explicit FontFixture(cFont& font):nodes(font.ranges().size()) {
         unsigned i=0; for(const auto& pair:font.ranges()) { const auto& r=pair.second; auto& n=nodes[i++]; n.key=n.last=r.last;n.first=r.first;n.index=r.index; }
         head.nil=1;head.parent=tree(nodes,0,unsigned(nodes.size()),&head,&head);head.left=&nodes.front();head.right=&nodes.back();
-        table[5]=reinterpret_cast<void*>(&releaseFont); field<void**>(object.data(),0)=table.data();field<unsigned>(object.data(),4)=1;
+        table[4]=reinterpret_cast<void*>(&addFont);table[5]=reinterpret_cast<void*>(&releaseFont); field<void**>(object.data(),0)=table.data();field<unsigned>(object.data(),4)=1;
         field<FontNode*>(object.data(),0x28)=&head;field<const FontGlyph*>(object.data(),0x34)=font.glyphs().data();
     }
 };
@@ -206,6 +215,16 @@ bool editConfirm(wchar_t* value) { if(*value==L'~') *value=L'X';return *value!=L
 void actualEditChanged(EditBox* self) { actualEditEvents.emplace_back(std::wstring(self->string().view()),self->rightInput()); }
 void nativeEditChanged(void* self) { nativeEditEvents.emplace_back(std::wstring(field<WString>(self,0x22c).view()),bool(field<unsigned char>(self,0x2b8))); }
 WString* __fastcall substring(WString* self,void*,WString* output,unsigned first,unsigned count) { return new(output) WString(self->view().substr(first,count)); }
+std::wostringstream listKey;
+void __fastcall listStreamConstruct(void*,void*,void*,int) { listKey.str(L"");listKey.clear(); }
+void __fastcall listStreamNoop(void*,void*) {}
+void* __cdecl listWriteLiteral(void* self,const wchar_t* text) { listKey<<text;return self; }
+void* __fastcall listWriteUnsigned(void* self,void*,unsigned value) { listKey<<value;return self; }
+WString* __fastcall listStreamContents(void*,void*,WString* output) { return new(output) WString(listKey.str()); }
+WString* __fastcall wideAttribute(XmlAdapter* self,void*,WString* output,const WString* key) { return new(output) WString(self->node->attribute(*key)); }
+std::vector<unsigned> actualSelections,nativeSelections;
+void actualSelect(unsigned index,ListBox*) { actualSelections.push_back(index); }
+void nativeSelect(unsigned index,void*) { nativeSelections.push_back(index); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -345,6 +364,7 @@ int wmain(int argc,wchar_t** argv) {
         std::set<unsigned> applied;
         for(const auto& f:fixups) { if(!applied.insert(f.rva).second) continue; unsigned address; std::memcpy(&address,image+f.rva,4); require(address==f.address,"Text control oracle operand differs"); address=reinterpret_cast<unsigned>(image)+address-0x400000; write(f.rva,&address,4); }
         redirect(0x17edb1,reinterpret_cast<void*>(&allocate)); redirect(0x1803af,reinterpret_cast<void*>(&release));
+        redirect(0x17ffc0,reinterpret_cast<void*>(&std::memmove)); // diagnostic CRT boundary for vector growth
         redirect(0x19c0,reinterpret_cast<void*>(&assignNarrow)); redirect(0x17c0,reinterpret_cast<void*>(&assignWide)); redirect(0x1ab0,reinterpret_cast<void*>(&assignUnits));
         redirect(0x16d0,reinterpret_cast<void*>(&assignString));redirect(0xda20,reinterpret_cast<void*>(&narrow));redirect(0xdb50,reinterpret_cast<void*>(&fromNarrow));
         redirect(0xd95c0,reinterpret_cast<void*>(&typed<float>));redirect(0xd9670,reinterpret_cast<void*>(&typed<bool>));
@@ -352,6 +372,9 @@ int wmain(int argc,wchar_t** argv) {
         redirect(0xd9240,reinterpret_cast<void*>(&vectorValue<2>));redirect(0xd9180,reinterpret_cast<void*>(&vectorValue<3>));redirect(0xd93b0,reinterpret_cast<void*>(&colorValue));
         redirect(0xd9dc0,reinterpret_cast<void*>(&appendString)); redirect(0x1600,reinterpret_cast<void*>(&appendUnits)); redirect(0xda980,reinterpret_cast<void*>(&replaceUnits));
         redirect(0x1c10,reinterpret_cast<void*>(&substring));
+        redirect(0x6a20,reinterpret_cast<void*>(&listStreamConstruct));redirect(0x4ff0,reinterpret_cast<void*>(&listStreamNoop));
+        redirect(0xae240,reinterpret_cast<void*>(&listWriteLiteral));redirect(0x6400,reinterpret_cast<void*>(&listWriteUnsigned));
+        redirect(0xa430,reinterpret_cast<void*>(&listStreamContents));redirect(0x5710,reinterpret_cast<void*>(&listStreamNoop));redirect(0x17f6f0,reinterpret_cast<void*>(&listStreamNoop));
         for(unsigned rva:{0x26025c,0x2604fc,0x2605fc,0x260508,0x260514,0x260520,0x26052c,0x260538,0x260544,0x260550}) initializeSet(rva);
         auto* discarded=static_cast<unsigned char*>(allocate(48)); std::memset(discarded,0,48); for(unsigned offset:{0U,4U,8U}) std::memcpy(discarded+offset,&discarded,4); discarded[44]=discarded[45]=1; putPointer(0x2604e8,discarded);
         std::array<void*,11> settingsTable{}; settingsTable[10]=reinterpret_cast<void*>(&getBool); auto* settingsPointer=settingsTable.data(); putPointer(0x25f728,&settingsPointer);
@@ -363,6 +386,7 @@ int wmain(int argc,wchar_t** argv) {
         std::array<void*,3> timerTable{};timerTable[1]=reinterpret_cast<void*>(&frameService);timerTable[2]=reinterpret_cast<void*>(&timer);auto* timerPointer=timerTable.data();putPointer(0x25ff50,&timerPointer);
         uiElapsedTime()=[] { return currentElapsed(); };
         xmlTable[4]=reinterpret_cast<void*>(&section);xmlTable[5]=reinterpret_cast<void*>(&indexedSection);xmlTable[31]=reinterpret_cast<void*>(&attribute);xmlTable[38]=reinterpret_cast<void*>(&sectionCount);
+        xmlTable[32]=reinterpret_cast<void*>(&wideAttribute);
         std::array<void*,5> cursorTable{};cursorTable[4]=reinterpret_cast<void*>(&cursor);auto* cursorPointer=cursorTable.data();putPointer(0x25ff60,&cursorPointer);
         std::array<void*,20> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);
         graphicsTable[14]=image+0x112330;graphicsTable[19]=image+0x10d260;
@@ -387,10 +411,11 @@ int wmain(int argc,wchar_t** argv) {
         D3DPRESENT_PARAMETERS parameters{}; parameters.BackBufferWidth=800; parameters.BackBufferHeight=600; parameters.BackBufferFormat=D3DFMT_X8R8G8B8; parameters.BackBufferCount=1;
         parameters.SwapEffect=D3DSWAPEFFECT_DISCARD; parameters.Windowed=TRUE; parameters.hDeviceWindow=window;
         const auto controlBefore=_control87(0,0);
-        const bool preserve=argc==3;
+        const bool nativeBug=argc==4 && std::wcscmp(argv[3],L"clear-fault")==0;
+        const bool preserve=argc==3 || nativeBug;
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
-        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0;unsigned long long menuPixels=0;
+        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0;unsigned long long menuPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
@@ -567,9 +592,74 @@ int wmain(int argc,wchar_t** argv) {
                     compareControl(*parent,f);compareControl(line,nativeLine);comparisons+=compare(line,nativeLine);
                     parent->updateTransform();call(0xf0b70,f);require(!std::memcmp(&parent->sprite(),f+0x70,76),"Text button background sprite differs");++scenarios;
                 }
+                if(trial>=6) for(action=0;action<20;++action) {
+                    stage=28;const auto beforeCopy=textureCounts();auto clone=std::make_unique<TextButton>(static_cast<TextButton&>(*parent));const auto middleCopy=textureCounts();auto* nativeClone=allocate(640);
+                    function<void*(__thiscall*)(void*,void*)>(0x11f100)(nativeClone,f);compareReferenceDeltas(beforeCopy,middleCopy);
+                    auto* nativeText=field<void*>(nativeClone,0x27c);compareControl(*clone,nativeClone);compareControl(clone->text(),nativeText);copyLetters+=compare(clone->text(),nativeText);
+                    require(clone->parent()==parent->parent() && clone->text().parent()==clone.get(),"Copied text button parent/ownership differs");
+                    require(!clone->text().hovered() && !clone->text().moving(),"Copied button text retained source motion flags");
+                    const Point2 position{float(10+action*17),float(20+action*9)};clone->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(nativeClone,&position);
+                    clone->show();clone->enable();call(0xd37d0,nativeClone);call(0xd3bb0,nativeClone);const WString text(action%2 ? L"Profile clone":L"AB 123");clone->setText(text);function<void(__thiscall*)(void*,const WString*)>(0x1202d0)(nativeClone,&text);
+                    clone->text().enabledStep();call(0x11e040,nativeText);copyLetters+=compare(clone->text(),nativeText);compareControl(*clone,nativeClone);
+                    const auto beforeDelete=textureCounts();clone.reset();const auto middleDelete=textureCounts();call(0x11f540,nativeClone);compareReferenceDeltas(beforeDelete,middleDelete);++copies;
+                }
                 stage=5;const auto referencesBefore=textureCounts();parent.reset();const auto referencesMiddle=textureCounts();call(trial<6 ? 0x6bea0:0x11f540,f);
                 compareReferenceDeltas(referencesBefore,referencesMiddle);
                 require(input.mouse().empty() && nativeInput.mouse().empty(),"Owned button left input bindings");
+            }
+            {
+                auto document=manager.loadSettingsXML(String("UI/SelectUser.xml"));XmlNode* definition=nullptr;require(document->section(String("UserList"),definition),"UserList missing");
+                for(trial=0;trial<12;++trial) {
+                    stage=30;ViewRegistry views;ControlRegistry controls;auto box=std::make_unique<ListBox>(nullptr,manager,settings,strings,input,interaction,views,controls);
+                    auto* original=allocate(628);function<void*(__thiscall*)(void*,void*)>(0x121100)(original,nullptr);
+                    box->selected=&actualSelect;field<void*>(original,0x270)=reinterpret_cast<void*>(&nativeSelect);actualSelections.clear();nativeSelections.clear();
+                    stage=31;box->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(0x1206e0)(original,wrap(definition));
+                    const auto check=[&] {
+                        compareControl(*box,original);compareControl(const_cast<Button&>(box->up()),field<void*>(original,0x248));compareControl(const_cast<Button&>(box->down()),field<void*>(original,0x24c));
+                        auto** begin=field<void**>(original,0x23c);auto** end=field<void**>(original,0x240);const unsigned count=begin ? unsigned(end-begin):0;
+                        require(box->rows().size()==count && box->firstRow()==field<unsigned>(original,0x268) && box->maxRows()==field<unsigned>(original,0x250),"ListBox rows/page differs");
+                        compareFloat(box->interlinear(),field<float>(original,0x264),"ListBox interlinear");require(!std::memcmp(box->topLeft().data(),static_cast<unsigned char*>(original)+0x254,8) && !std::memcmp(box->bottomRight().data(),static_cast<unsigned char*>(original)+0x25c,8),"ListBox bounds differ");
+                        auto* prototype=field<void*>(original,0x26c);compareControl(const_cast<TextButton&>(box->prototype()),prototype);listLetters+=compare(const_cast<ButtonText&>(box->prototype().text()),field<void*>(prototype,0x27c));
+                        for(unsigned i=0;i<count;++i) { auto* row=box->rows()[i];compareControl(*row,begin[i]);require(row->userData==field<unsigned>(begin[i],0x1b4),"ListBox row index differs");listLetters+=compare(row->text(),field<void*>(begin[i],0x27c)); }
+                        require(actualSelections==nativeSelections,"ListBox selection callbacks differ");++listStates;
+                    };check();
+                    for(action=0;action<25+trial;++action) {
+                        stage=32;const WString name(std::wstring(L"Profile ")+std::to_wstring(action));const auto before=textureCounts();box->append(name);const auto middle=textureCounts();function<void(__thiscall*)(void*,const WString*)>(0x1212a0)(original,&name);compareReferenceDeltas(before,middle);check();
+                    }
+                    for(action=0;action<80;++action) {
+                        stage=33;if(action%7<4) { box->scrollDown();function<void(__cdecl*)(void*)>(0x121020)(field<void*>(original,0x24c)); } else { box->scrollUp();function<void(__cdecl*)(void*)>(0x121060)(field<void*>(original,0x248)); }
+                        const unsigned index=(action*13)%unsigned(box->rows().size());auto* row=box->rows()[index];row->clickEvent(row);function<void(__cdecl*)(void*)>(0x11ec50)(field<void**>(original,0x23c)[index]);++listSelections;
+                        if(action%11==0) { const Point2 position{397.f+action*.75f,295.f-action*.125f};box->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&position);box->updateList();call(0x11e6d0,original); }
+                        check();
+                    }
+                    if(trial==11 && nativeBug) {
+                        stage=35;require(box->firstRow()>0,"ListBox clear fault fixture did not scroll");bool fault=false;const auto before=textureCounts();
+                        try { box->clear(); } catch(const std::out_of_range&) { fault=true; }const auto middle=textureCounts();
+                        require(fault,"Source scrolled ListBox did not detect out-of-range row");expectedListFault=true;call(0x121080,original);
+                        throw std::runtime_error("Original scrolled ListBox clear did not fault");
+                    } else {
+                    stage=34;while(box->firstRow()) { box->scrollUp();function<void(__cdecl*)(void*)>(0x121060)(field<void*>(original,0x248)); }check();
+                    const auto beforeClear=textureCounts();box->clear();const auto middleClear=textureCounts();call(0x121080,original);compareReferenceDeltas(beforeClear,middleClear);check();
+                    for(unsigned i=0;i<3;++i) { const WString value(L"After clear");box->append(value);function<void(__thiscall*)(void*,const WString*)>(0x1212a0)(original,&value);check(); }
+                    }
+                    const auto beforeDelete=textureCounts();box.reset();const auto middleDelete=textureCounts();call(0x11d920,original);compareReferenceDeltas(beforeDelete,middleDelete);++listBoxes;
+                    require(input.mouse().empty() && nativeInput.mouse().empty(),"ListBox left input bindings");
+                }
+                const auto directory=std::filesystem::current_path()/L".local/listbox-xml-fixtures";std::filesystem::create_directories(directory);
+                const std::string text="<ListBox Interlinear=\"25\" TopLeft=\"0 0\" BottomRight=\"0 205\"><Strings Count=\"3\" str0=\"Alpha\" str1=\"Beta\" str2=\"Gamma\"/></ListBox>";
+                { std::ofstream file(directory/L"indexed.xml",std::ios::binary);file<<text; }
+                FileIndex fixtureFiles(toNarrow(WString(directory.wstring())),String("pack"));XmlDocument xml(fixtureFiles,String("indexed.xml"));
+                for(unsigned populated=0;populated<2;++populated) {
+                    stage=36;ViewRegistry views;ControlRegistry controls;auto box=std::make_unique<ListBox>(nullptr,manager,settings,strings,input,interaction,views,controls);
+                    auto* original=allocate(628);function<void*(__thiscall*)(void*,void*)>(0x121100)(original,nullptr);box->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(0x1206e0)(original,wrap(definition));
+                    if(populated) for(unsigned i=0;i<5;++i) { const WString value(L"Old row");box->append(value);function<void(__thiscall*)(void*,const WString*)>(0x1212a0)(original,&value); }
+                    const auto before=textureCounts();box->loadXML(xml);const auto middle=textureCounts();function<void(__thiscall*)(void*,void*)>(0x1206e0)(original,wrap(&xml));compareReferenceDeltas(before,middle);
+                    auto** begin=field<void**>(original,0x23c);auto** end=field<void**>(original,0x240);require(box->rows().size()==unsigned(end-begin) && box->rows().size()==(populated ? 5:0),"ListBox Strings changed logical row count");
+                    std::vector<void*> nativeChildren;auto* head=field<Node*>(original,0x18);collectControls(head->parent,nativeChildren);require(box->children().size()==nativeChildren.size(),"ListBox Strings hierarchy count differs");
+                    unsigned i=0;for(auto* child:box->children()) { auto* control=static_cast<Control*>(child);auto* native=nativeChildren[i++];compareControl(*control,native);if(auto* textButton=dynamic_cast<TextButton*>(control)) listLetters+=compare(textButton->text(),field<void*>(native,0x27c)); }
+                    for(unsigned row=0;row<box->rows().size();++row) { compareControl(*box->rows()[row],begin[row]);listLetters+=compare(box->rows()[row]->text(),field<void*>(begin[row],0x27c)); }
+                    const auto beforeDelete=textureCounts();box.reset();const auto middleDelete=textureCounts();call(0x11d920,original);compareReferenceDeltas(beforeDelete,middleDelete);++listXml;
+                }
             }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
@@ -577,7 +667,9 @@ int wmain(int argc,wchar_t** argv) {
         }
         for(auto* p:allocations) if(!ui_test_heap::owns(p)) std::free(p); allocations.clear(); uiElapsedTime()={};device->Release(); d3d->Release(); DestroyWindow(window); FreeLibrary(runtime); FreeLibrary(reference);
         std::cout<<"{\"scenarios\":"<<scenarios<<",\"letter_comparisons\":"<<comparisons<<",\"direction_comparisons\":"<<directionComparisons
-            <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
+            <<",\"list_states\":"<<listStates<<",\"list_letters\":"<<listLetters<<",\"list_boxes\":"<<listBoxes<<",\"list_selections\":"<<listSelections
+            <<",\"list_xml\":"<<listXml<<",\"list_clear_faults\":"<<listFaults
+            <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
 }

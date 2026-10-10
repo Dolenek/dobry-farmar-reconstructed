@@ -39,6 +39,7 @@ public:
     using Callback=bool(*)(Control*);
     Control(View* parent,ResourceManager& resources,ViewRegistry& views=globalViewRegistry(),
             ControlRegistry& controls=globalControlRegistry()); // 004edc80
+    Control(const Control& source); // 004ed720, fresh sprites/callbacks, copied resources and properties
     ~Control() override; // 004f1560
     void loadXML(const XmlNode& node) override; // 004eded0 + 004d22a0
     void onShown() override; // 004f14e0
@@ -61,6 +62,7 @@ public:
     const ControlAnimationState& animation() const noexcept { return animation_; }
     const ControlMaterial& material() const noexcept { return material_; }
     bool playing() const noexcept { return playing_; }
+    unsigned userData=0; // original +1b4, copied by 004ed720; ListBox row index
     bool dirty() const noexcept { return dirty_; }
     void markTransformDirty() noexcept { dirty_=true; }
     cTexture* texture() const noexcept { return texture_; }
@@ -90,6 +92,7 @@ protected:
 class Picture : public Control {
 public:
     using Control::Control; // original 004f16f0 adds three null callbacks
+    Picture(const Picture& source):Control(source),hiddenCallback(source.hiddenCallback),shownCallback(source.shownCallback),updateCallback(source.updateCallback) {} // 004f1730
     unsigned type() const noexcept override { return 2; } // 0050bd60
     void enabledStep() override; // 004f1810
     void onShown() override; // 004f17a0

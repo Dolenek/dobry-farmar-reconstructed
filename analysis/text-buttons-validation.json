@@ -11,13 +11,34 @@
   "menu_sound_requests": 24,
   "edit_frames": 4800,
   "edit_letters": 43016,
+  "copies": 120,
+  "copy_letters": 1380,
+  "list_states": 2796,
+  "list_letters": 631404,
+  "list_boxes": 24,
+  "list_selections": 1920,
+  "list_xml": 4,
+  "list_clear_fault": {
+    "native_clear_fault": true,
+    "source_clear_exception": true,
+    "exception_code": 3221225477,
+    "fault_rva": 1173462
+  },
   "precision_contexts": [
     {
       "scenarios": 1080,
       "letter_comparisons": 4893,
       "direction_comparisons": 0,
+      "list_states": 1398,
+      "list_letters": 315702,
+      "list_boxes": 12,
+      "list_selections": 960,
+      "list_xml": 2,
+      "list_clear_faults": 0,
       "edit_frames": 2400,
       "edit_letters": 21508,
+      "copies": 60,
+      "copy_letters": 690,
       "lines_destroyed": 9,
       "decoration_comparisons": 15,
       "menu_views_destroyed": 3,
@@ -35,8 +56,16 @@
       "scenarios": 1080,
       "letter_comparisons": 4893,
       "direction_comparisons": 0,
+      "list_states": 1398,
+      "list_letters": 315702,
+      "list_boxes": 12,
+      "list_selections": 960,
+      "list_xml": 2,
+      "list_clear_faults": 0,
       "edit_frames": 2400,
       "edit_letters": 21508,
+      "copies": 60,
+      "copy_letters": 690,
       "lines_destroyed": 9,
       "decoration_comparisons": 15,
       "menu_views_destroyed": 3,
@@ -52,9 +81,9 @@
     }
   ],
   "status": "passed",
-  "recorded_at_utc": "2026-10-10T09:25:22.674008+00:00",
+  "recorded_at_utc": "2026-10-10T09:51:25.469209+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-  "oracle_sha256": "ce6654cb35ee7c9c2f53ec32289ba339fb12f16d3b77d21b6dcbb91e35585c72",
+  "oracle_sha256": "4a1da1070290b9082ae6d07bcefee900bfd731e64b583bdf5c1f8b7b4abb3f06",
   "original_entry_point_executed": false,
   "reference_files_modified": false,
   "original_functions": [
@@ -100,7 +129,25 @@
     "00521f00",
     "00522320",
     "00522860",
-    "00522c40"
+    "00522c40",
+    "004d56b0",
+    "004d20b0",
+    "004ed720",
+    "004f1730",
+    "004f5b60",
+    "00507f00",
+    "004dd750",
+    "0051d8a0",
+    "0051f100",
+    "00521100",
+    "005206e0",
+    "005212a0",
+    "00521020",
+    "00521060",
+    "00521080",
+    "0051e6d0",
+    "0051ec50",
+    "0051d920"
   ],
   "test_adapters": [
     "Allocation/free and String/WString operations use diagnostic CRT/recovered ABI strings",
@@ -125,7 +172,10 @@
     "GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly",
     "Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact",
     "EditBox keyboard-language query uses a controlled GetKeyboardLayout IAT fixture; physical keyboard/IME is unverified",
-    "EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute"
+    "EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute",
+    "ListBox native vector growth uses diagnostic CRT memmove; original clone/append/vector bookkeeping execute",
+    "ListBox Strings decimal stream key formatting uses controlled modern stream construction/insertion/extraction/destruction; native XML clone/replacement and unchanged logical end execute",
+    "Original scrolled clear is checked in a separate process terminated by its access-violation observer; source bounds check raises out_of_range instead of dereferencing released storage"
   ],
   "coverage": [
     "Six shipped MainMenu animated buttons: constructor, native XML, localized owned letters, parent state/alpha/position/text changes, sprites and owned destruction",
@@ -136,7 +186,11 @@
     "Six buttons driven through cursor hover, press, release and leave via recovered input dispatch; states and sound request order match native methods",
     "Profile NameEdit: 12 native/source constructors and destructors per context, actual shipped XML, character input through binding sets, mutable/rejecting callbacks, width limits, caret geometry/sprites/blink and three alignments",
     "Profile NameEdit: RTL off/on, Czech/Hebrew keyboard-language fixtures, whitespace, backspace, Enter/LF, unavailable/Czech/Hebrew/NBSP characters and disabled binding cleanup",
-    "Both original GPU x87 precision contexts"
+    "Both original GPU x87 precision contexts",
+    "120 native/source TextButton copies: copied resources/state, fresh owned text pool and reset motion, position/string mutation and destruction reference deltas",
+    "24 ListBox constructors, shipped UserList XML, 732 appended profiles, 2796 whole list states, 1920 indexed selection callbacks, scrolling/repositioning, clear/repopulate and owned destruction in both device precisions",
+    "Four indexed Strings XML loads: empty reserved and populated vectors, logical count unchanged, replaced/orphan clones retained by View hierarchy and all text/resource lifetime compared",
+    "Original scrolled ListBox clear access violation confirmed; safe source exception documented as an intentional memory-safety difference"
   ],
   "pending": [
     "Original XML parser and old CRT typed conversion ABI",
@@ -145,6 +199,8 @@
     "MainMenu singleton, navigation callbacks and unusual enable/disable hooks",
     "Whole menu physical input/frame service integration and actual navigation",
     "Actual sound loading/playback",
-    "Complete main game EXE"
+    "Complete main game EXE",
+    "Control copy with Mesh/Animation resources; TextAnimationButton copy and full original object ABI",
+    "ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; full profile selection controller integration"
   ]
 }

@@ -32,8 +32,12 @@ void Letter::updateTransform() {
     updateLetterSprite(first_,letter,packedColor_,parent() ? rootTransparency():1,alpha()); dirty_=false;
 }
 TextLine::TextLine(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,ViewRegistry& views,ControlRegistry& controls)
-    : Control(parent,resources,views,controls),strings_(strings) {
+    : Control(parent,resources,views,controls),strings_(strings),settings_(settings) {
     settings.get(String("game"),String("RightToLeftEnable"),rightToLeft_);
+}
+TextLine::TextLine(const TextLine& source):Control(source),strings_(source.strings_),settings_(source.settings_),fontName_(source.fontName_),textureName_(source.textureName_),localized_(source.localized_),spaceWidth_(source.spaceWidth_),multiplier_(source.multiplier_),width_(source.width_),height_(source.height_),packedColor_(source.packedColor_),alignment_(source.alignment_),font_(source.font_),textTexture_(source.font_ ? source.textTexture_:nullptr) {
+    if(font_) font_->addReference();if(textTexture_) textTexture_->addReference();
+    settings_.get(String("game"),String("RightToLeftEnable"),rightToLeft_);setString(source.text_);
 }
 TextLine::~TextLine() {
     callbacks_.clear();

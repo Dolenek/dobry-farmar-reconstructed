@@ -41,6 +41,8 @@ View oracle používá soukromou PE mapu bez entry pointu a vlastněné 44bajtov
 
 ## Tlačítka, popisky a masky
 
+Kopírování 2D TextButton a ListBox pro výběr profilů nyní popisuje [LIST_BOX.md](LIST_BOX.md). Nativní clone chain je porovnaný pro texture/font/motion/owned text a seznam pro XML, append, scroll, indexed selection a lifecycle; plný controller dialogu zbývá.
+
 `ButtonPrototype` obnovuje `004f53b0`, `004f5480`, state setter `004f30e0`, mouse/control handlery `004f2620`, `004f2690`, `004f26b0`, event pořadí a deep-selection globály `006604dc/006604e0`. Registruje levé tlačítko 520/512 a mouse movement. Hover/play guard se vyhodnotí znovu po callbacku; click zvuk je před změnou stavu. `AnimationButton` (`004f1c30`, `004f1ce0`, `004f20f0`) mění snímek. `Button` (`00507ec0`, `00507fd0`, `00508560`) mění resource reference; chybějící stavová textura zachová current texture. Destruktor `00508120` uvolňuje normal/pressed/hover/disabled v tomto pořadí, poté základ deaktivuje prvek a uvolní current texture.
 
 `TextButton`/`TextAnimationButton` obnovují `0051fe90`/`0041e8d0` a vlastněný `ButtonText`. Opakované setState znovu nastavuje moving i při stejné hodnotě. Virtuální setAlpha `0051f570` vždy propíše hodnotu do textu i jeho písmen. XML `0051f9b0`/`0041f120` čte Text, UseTextPosition a nastaví text depth na parent+1. Motion `0051e040`/`0041fa40` střídá vertikální Offset a rychlost Speed, při překročení cíle jej přicvakne; moving zhasne až další průchod. Source arithmetic zachovává obě GPU x87 přesnosti.

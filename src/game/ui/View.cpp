@@ -77,6 +77,18 @@ View::View(View* parent,ViewRegistry& registry) : registry_(registry),parent_(pa
         state_.parentAbsoluteEnabled=p.absoluteEnabled && p.parentAbsoluteEnabled;
     }
 }
+View::View(const View& source):registry_(source.registry_),parent_(source.parent_) {
+    state_.transparency=0;state_.transparencySpeed=0;state_.transition=0;
+    state_.shown=source.state_.shown;state_.enabled=source.state_.enabled;state_.absoluteEnabled=source.state_.absoluteEnabled;
+    registry_.all_.insert(this);
+    if(parent_) {
+        parent_->addChild(this);const auto& p=parent_->state_;
+        state_.parentShown=p.shown && p.parentShown;state_.parentEnabled=p.enabled && p.parentEnabled;
+        state_.parentAbsoluteEnabled=p.absoluteEnabled && p.parentAbsoluteEnabled;
+    }
+    if(state_.enabled && state_.parentEnabled) registry_.registerEnabled(this);
+    if(state_.absoluteEnabled && state_.parentAbsoluteEnabled) registry_.registerAbsolute(this);
+}
 View::~View() {
     registry_.transitions_.erase(this);
     while(!children_.empty()) delete *children_.begin();

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-10-10T09:25:42.860961+00:00",
+  "recorded_at_utc": "2026-10-10T09:51:44.576585+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "partial_reconstruction",
@@ -90,7 +90,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "a0f00890c15c56169ed74d0aac1d98105569a9ed792943eecc9e93d846c99497",
+  "source_tree_sha256": "8413d9e8f5259f92c141018fe4f0c58a641d17dc56b4bf1a50ca4fa7715c46b0",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -151,7 +151,7 @@
     "status": "passed"
   },
   "settings": {
-    "recorded_at_utc": "2026-10-10T09:25:40.689727+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:42.721618+00:00",
     "test_sha256": "10d13eac8cc54ea43ea3f6b9be830954fb7abf2b2a613815920a66fc3a313a55",
     "loader_sha256": "806a5aca1fc37e17ed6bc6d22b5d045922b1dd4b52b0130eb76bf558ee7bf088",
     "original_settings_runtime_compared": false,
@@ -168,8 +168,8 @@
     "status": "passed"
   },
   "window": {
-    "recorded_at_utc": "2026-10-10T09:25:41.332536+00:00",
-    "test_sha256": "9fce5e1b7ba0ed9862a7a49f801d49c994c90c7eec05d2b2a075f3e6a6321779",
+    "recorded_at_utc": "2026-10-10T09:51:43.288908+00:00",
+    "test_sha256": "7769367465a454ec2795527ec92e69c695a54ffd883cea70cc57604a48e84756",
     "native_checks": 18,
     "original_window_runtime_compared": false,
     "hidden_window_only": true,
@@ -219,9 +219,9 @@
   },
   "resource-manager": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:41.114620+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:43.061892+00:00",
     "native_checks": 15,
-    "executable_sha256": "833c78f76bb232bb1dbcbcaa26bf845bd403cf72255f54b102dd0330c4b98650",
+    "executable_sha256": "19f2eaf2dc3077278b6092d3cec698781a587a9bbcc146afe8f7c0eb9c0743ac",
     "original_manager_runtime_compared": false,
     "pending": [
       "Original manager runtime oracle",
@@ -233,7 +233,7 @@
   },
   "color": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:43.126503+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:46.428736+00:00",
     "comparisons": 121538,
     "precision_contexts": [
       {
@@ -292,7 +292,7 @@
   },
   "matrix": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:43.342476+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:46.607707+00:00",
     "comparisons": 140004,
     "precision_contexts": [
       {
@@ -323,7 +323,7 @@
   },
   "sprite-geometry": {
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:43.826087+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:47.024859+00:00",
     "comparisons": 40000,
     "trials": 20000,
     "precision_contexts": [
@@ -406,7 +406,7 @@
     "images_compared": 10,
     "source_bytes_compared": 345368,
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:44.121121+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:47.253890+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
@@ -437,13 +437,13 @@
     "available_glyphs": 2217,
     "cache_checks": 7,
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:44.356138+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:47.482581+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "a7611fd6ae86f537604ec794387d7e8214e7117bc3bb80d64b4ff87d6ededbfd",
+    "oracle_sha256": "82da8d42bf3651e1172f12855fa9a998470bdae1608bc62a17b41710df7678c1",
     "original_functions": [
       "0050b3d0",
       "0050b450"
@@ -464,13 +464,13 @@
     "letter_comparisons": 88583,
     "letter_sprite_comparisons": 88583,
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:44.635148+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:47.755289+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "7e325860348524597e4157875f283e1d5cc3f70f339903fecc04cef351de5619",
+    "oracle_sha256": "8cf6420910e1bfacdf02a5d543a9742ce4f30691b0dfd33d98e70608e449e3a5",
     "original_functions": [
       "004dc800",
       "0050b450",
@@ -500,13 +500,13 @@
     "original_lookup_comparisons": 10464,
     "dump_fixture_checks": 4,
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:44.891302+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:47.995793+00:00",
     "reference_sha256": {
       "Dobrý farmář.exe": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
       "Data/Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
       "Data/cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
     },
-    "oracle_sha256": "b541ffe16059b1b546369dc791fea4c08cbfee3388ab7b60ed643183f7f9eb91",
+    "oracle_sha256": "c6ed5fa30d2600b159c754f7572b8b25d2af7201d14c79d1d7e94e7788626409",
     "original_functions": [
       "0052ed20",
       "0052d2a0",
@@ -542,9 +542,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:45.205188+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:48.297376+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "4e3c1cb08ea46cb25403c32a615f747ad83968eff8710c7df898ff42200531d6",
+    "oracle_sha256": "1660dc90787251834368f4e40b4ee44ec7bbf27f0c9f432bfcc3c954021b3d38",
     "original_functions": [
       "004ef3b0",
       "004ed4f0",
@@ -592,9 +592,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:45.495529+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:48.566770+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "7aa50fc5536d318128650aa583eb61243e83833d99c5f0dff057057a8dd2c28a",
+    "oracle_sha256": "c1ba3cb6fb9adeb8cc7e5f49b4d5f0b58cbf57192c38bda7f86be32c64b85aa4",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -668,9 +668,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:16.894572+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:17.356764+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "fc26077eb8f135b4ef2173a165070003c2192363a6351733d171e870b21e8631",
+    "oracle_sha256": "3a2e03dfc910da07bff7b766f698ca9fdb50bcb914eb7595626070bf86e0ffb3",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -734,9 +734,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:18.270436+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:18.506924+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "b459e8ece8cea09ddb7db51c3f0c652f017aaf809a056ec40f9dc3f60f872508",
+    "oracle_sha256": "8de3d8e7653b0aacac5244fe1bae69c0eb48c9d883e29ac44d61a4a118d99a66",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -800,9 +800,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:18.626552+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:18.831975+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "7be1aec38c1c1188aa691c4a3486845782a0e14906b91026f2800b25d52046fb",
+    "oracle_sha256": "7dbf08ef60fec325b32386297b6dd8051bd7f6a02abafb8c28d0beb1e1cfef58",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -870,9 +870,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:19.868046+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:20.006952+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "ce7b0b1f803d9e5e7c898d5c0ac2986407dae6a2f41758a833161472bd728b0c",
+    "oracle_sha256": "40e4f61d7fd8f812a7d81d19a1297891fcc6dfc1ac0374ebce5acddafb52177e",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -932,9 +932,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:39.540436+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:41.899535+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "3c91dc474a619eafd1ec44c4d35186d7056c3c688c6cfa2451f1aaa5337ced1c",
+    "oracle_sha256": "0afb37ada9af472e1b34bf38fa0d634913d5c7888192aae159aec63016c56776",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -968,9 +968,9 @@
     "cached_key_queries": 5000,
     "format_objects": 267,
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:39.846616+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:42.178283+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "6414ee2d7bac285a6056f0eba9c7e6cfd12f42e2ce930311ab641a4c50296337",
+    "oracle_sha256": "41b32363aa735bcc7bf3831142e89e10efa0c0bbc96105f2761d0dbad9e8f6d7",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1024,13 +1024,34 @@
     "menu_sound_requests": 24,
     "edit_frames": 4800,
     "edit_letters": 43016,
+    "copies": 120,
+    "copy_letters": 1380,
+    "list_states": 2796,
+    "list_letters": 631404,
+    "list_boxes": 24,
+    "list_selections": 1920,
+    "list_xml": 4,
+    "list_clear_fault": {
+      "native_clear_fault": true,
+      "source_clear_exception": true,
+      "exception_code": 3221225477,
+      "fault_rva": 1173462
+    },
     "precision_contexts": [
       {
         "scenarios": 1080,
         "letter_comparisons": 4893,
         "direction_comparisons": 0,
+        "list_states": 1398,
+        "list_letters": 315702,
+        "list_boxes": 12,
+        "list_selections": 960,
+        "list_xml": 2,
+        "list_clear_faults": 0,
         "edit_frames": 2400,
         "edit_letters": 21508,
+        "copies": 60,
+        "copy_letters": 690,
         "lines_destroyed": 9,
         "decoration_comparisons": 15,
         "menu_views_destroyed": 3,
@@ -1048,8 +1069,16 @@
         "scenarios": 1080,
         "letter_comparisons": 4893,
         "direction_comparisons": 0,
+        "list_states": 1398,
+        "list_letters": 315702,
+        "list_boxes": 12,
+        "list_selections": 960,
+        "list_xml": 2,
+        "list_clear_faults": 0,
         "edit_frames": 2400,
         "edit_letters": 21508,
+        "copies": 60,
+        "copy_letters": 690,
         "lines_destroyed": 9,
         "decoration_comparisons": 15,
         "menu_views_destroyed": 3,
@@ -1065,9 +1094,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:25:22.674008+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:25.469209+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "ce6654cb35ee7c9c2f53ec32289ba339fb12f16d3b77d21b6dcbb91e35585c72",
+    "oracle_sha256": "4a1da1070290b9082ae6d07bcefee900bfd731e64b583bdf5c1f8b7b4abb3f06",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1113,7 +1142,25 @@
       "00521f00",
       "00522320",
       "00522860",
-      "00522c40"
+      "00522c40",
+      "004d56b0",
+      "004d20b0",
+      "004ed720",
+      "004f1730",
+      "004f5b60",
+      "00507f00",
+      "004dd750",
+      "0051d8a0",
+      "0051f100",
+      "00521100",
+      "005206e0",
+      "005212a0",
+      "00521020",
+      "00521060",
+      "00521080",
+      "0051e6d0",
+      "0051ec50",
+      "0051d920"
     ],
     "test_adapters": [
       "Allocation/free and String/WString operations use diagnostic CRT/recovered ABI strings",
@@ -1138,7 +1185,10 @@
       "GPU readback ignores only the undefined X byte of X8R8G8B8; compares all RGB bytes exactly",
       "Draw API trace normalizes only distinct source/native vertex/index buffer identities; texture identities and draw parameters remain exact",
       "EditBox keyboard-language query uses a controlled GetKeyboardLayout IAT fixture; physical keyboard/IME is unverified",
-      "EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute"
+      "EditBox native substring copies use recovered WString adapter; original character routing, glyph/width comparisons, callbacks, blink, caret and lifetime instructions execute",
+      "ListBox native vector growth uses diagnostic CRT memmove; original clone/append/vector bookkeeping execute",
+      "ListBox Strings decimal stream key formatting uses controlled modern stream construction/insertion/extraction/destruction; native XML clone/replacement and unchanged logical end execute",
+      "Original scrolled clear is checked in a separate process terminated by its access-violation observer; source bounds check raises out_of_range instead of dereferencing released storage"
     ],
     "coverage": [
       "Six shipped MainMenu animated buttons: constructor, native XML, localized owned letters, parent state/alpha/position/text changes, sprites and owned destruction",
@@ -1149,7 +1199,11 @@
       "Six buttons driven through cursor hover, press, release and leave via recovered input dispatch; states and sound request order match native methods",
       "Profile NameEdit: 12 native/source constructors and destructors per context, actual shipped XML, character input through binding sets, mutable/rejecting callbacks, width limits, caret geometry/sprites/blink and three alignments",
       "Profile NameEdit: RTL off/on, Czech/Hebrew keyboard-language fixtures, whitespace, backspace, Enter/LF, unavailable/Czech/Hebrew/NBSP characters and disabled binding cleanup",
-      "Both original GPU x87 precision contexts"
+      "Both original GPU x87 precision contexts",
+      "120 native/source TextButton copies: copied resources/state, fresh owned text pool and reset motion, position/string mutation and destruction reference deltas",
+      "24 ListBox constructors, shipped UserList XML, 732 appended profiles, 2796 whole list states, 1920 indexed selection callbacks, scrolling/repositioning, clear/repopulate and owned destruction in both device precisions",
+      "Four indexed Strings XML loads: empty reserved and populated vectors, logical count unchanged, replaced/orphan clones retained by View hierarchy and all text/resource lifetime compared",
+      "Original scrolled ListBox clear access violation confirmed; safe source exception documented as an intentional memory-safety difference"
     ],
     "pending": [
       "Original XML parser and old CRT typed conversion ABI",
@@ -1158,7 +1212,9 @@
       "MainMenu singleton, navigation callbacks and unusual enable/disable hooks",
       "Whole menu physical input/frame service integration and actual navigation",
       "Actual sound loading/playback",
-      "Complete main game EXE"
+      "Complete main game EXE",
+      "Control copy with Mesh/Animation resources; TextAnimationButton copy and full original object ABI",
+      "ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; full profile selection controller integration"
     ]
   },
   "ui-frame": {
@@ -1192,9 +1248,9 @@
       }
     ],
     "status": "passed",
-    "recorded_at_utc": "2026-10-10T09:24:45.811227+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:48.845092+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-    "oracle_sha256": "436afaaa9b50e1daf2c4f0380eabf102ad77bc630bc74a9fe35ba94aba0c275c",
+    "oracle_sha256": "31ce18085e78d484dae7ba01728fbb05cd77f672582f9cea81e05711d587078a",
     "original_entry_point_executed": false,
     "reference_files_modified": false,
     "original_functions": [
@@ -1271,7 +1327,7 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-10T09:24:46.105014+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:49.078716+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
     "oracle_sha256": "ce148f5a3bd55d039fab232e8318c9c9436a004c7d4f50e0aca5f61f04f6f318",
     "original_entry_point_executed": false,
@@ -1333,7 +1389,7 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-10T09:24:46.340834+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:49.272547+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
     "oracle_sha256": "4ebf58904cf7cf13df64187c6411f697540bb924c5d6baf17ab7a9007b0de8ed",
     "original_entry_point_executed": false,
@@ -1388,7 +1444,7 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-10T09:24:57.490296+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:57.569785+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
     "oracle_sha256": "711965d17c03c764aef37257f7c437088e5b6cc6fda27bde88b9feff50a7a32e",
     "original_entry_point_executed": false,
@@ -1457,7 +1513,7 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-10T09:24:58.047572+00:00",
+    "recorded_at_utc": "2026-10-10T09:50:58.125025+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
     "oracle_sha256": "02cd6a85aff41a26a3df8f16c010ff4d5f1331bc7e5174a0308543a919ba52c3",
     "original_entry_point_executed": false,
@@ -1532,7 +1588,7 @@
         "precision": "x87-pc24"
       }
     ],
-    "recorded_at_utc": "2026-10-10T09:25:16.299151+00:00",
+    "recorded_at_utc": "2026-10-10T09:51:16.994838+00:00",
     "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
     "oracle_sha256": "45a04d67fdeb4747acd691355303e5ce21be7abf966e271f1e16d5f355f4a9aa",
     "original_entry_point_executed": false,

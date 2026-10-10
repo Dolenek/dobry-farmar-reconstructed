@@ -55,6 +55,14 @@ Control::Control(View* parent,ResourceManager& resources,ViewRegistry& views,Con
         sprite->subdivisions=1; sprite->u1=sprite->v1=1;
     }
 }
+Control::Control(const Control& source):View(source),resources_(source.resources_),controls_(source.controls_),geometry_(source.geometry_),animation_(source.animation_),material_(source.material_),deep_(source.deep_),playing_(source.playing_),flags_(source.flags_),texture_(source.texture_) {
+    userData=source.userData;
+    if(texture_) texture_->addReference();
+    for(auto* sprite:{&first_,&second_}) {
+        for(auto& corner:sprite->corners) corner.color=0xffffffffU;
+        sprite->subdivisions=1;sprite->u1=sprite->v1=1;
+    }
+}
 Control::~Control() {
     controls_.erase(this); View::onHidden(); controls_.erase(this);
     callbacks_.clear();
