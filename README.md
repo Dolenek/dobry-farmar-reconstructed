@@ -52,7 +52,7 @@ Exportuje se pseudokód, seznam funkcí, graf volání, symboly, řetězce s odk
 
 Cílové prostředí je Windows x86, MSVC 2022 a CMake, se zachováním Direct3D 8. Sestavitelné cíle jsou `JNGLoad`, diagnostika `jng-decode`, `resource-inspect`, `pack-decode`, `recovered_game_utilities` a `recovered_squall_utilities`. Postup, závislosti a Windows porovnání jsou v [docs/JNGLOAD.md](docs/JNGLOAD.md) a [docs/RESOURCE_LOADING.md](docs/RESOURCE_LOADING.md). Před konfigurací herních utilit je nutné také `python tools/fetch_minizip.py` a `python tools/fetch_expat.py`. Cíl hlavní hry ještě není k dispozici. Obnovené herní metody popisuje [docs/GAME.md](docs/GAME.md), zvuk [docs/SQUALL.md](docs/SQUALL.md) a odinstalátor [docs/UNINSTALL.md](docs/UNINSTALL.md).
 
-Explicitní `recovered_game_audio` nyní propojuje SoundManager/cSound/cChannel a zvukové služby MainMenu/Options s vlastní zdrojovou Squall.dll. `game-audio-reference-test` ověřuje skutečný playback cursor, pauzu a 190 stavů v obou x87 přesnostech, také ze samostatného sestavení. Jde o propojený diagnostický scénář; celý herní EXE a audible/full-game porovnání ještě čekají. Postup a rozsah v [SOUND_MANAGER.md](docs/SOUND_MANAGER.md).
+Explicitní `recovered_game_audio` nyní propojuje SoundManager/cSound/cChannel a zvukové služby MainMenu/Options s vlastní zdrojovou Squall.dll. `game-audio-reference-test` ověřuje skutečný playback cursor, pauzu a 378 stavů v obou x87 přesnostech, také ze samostatného sestavení. Jde o propojený diagnostický scénář; celý herní EXE a audible/full-game porovnání ještě čekají. Postup a rozsah v [SOUND_MANAGER.md](docs/SOUND_MANAGER.md).
 
 Příprava **dat bez hry** do samostatné lokální složky:
 

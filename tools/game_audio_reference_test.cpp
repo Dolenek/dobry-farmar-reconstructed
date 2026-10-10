@@ -18,6 +18,8 @@
 #include "ImageTexture.h"
 #include "XmlDocument.h"
 #include "GameCursor.h"
+#include "LoadingFromLog.h"
+#include "MusicPlayback.h"
 #include "../src/squall/runtime/Squall.h"
 #include <array>
 #include <cstring>
@@ -30,6 +32,8 @@
 #include <vector>
 using namespace farmar::recovered;
 namespace {
+unsigned loadingAudioCompletions=0;
+void loadingAudioComplete() {++loadingAudioCompletions;}
 void require(bool condition,const char* message) {if(!condition) throw std::runtime_error(message);}
 struct LoadedApi {
     HMODULE module{};
@@ -199,6 +203,9 @@ Result run(SoundApi& backend,LoadedApi& dll,const wchar_t* data,IDirect3DDevice8
             content.start->clicked();const auto after=counts("actual menu button counts");
             require(after.Play==before.Play+1,"Actual menu button did not start its ambient click channel");
         }
+        {
+#include "loading_audio_cases.inc"
+        }
         record("stop all",backend.stop());
         const auto deadline=GetTickCount64()+2000;
         for(;;) {
@@ -234,7 +241,7 @@ int wmain(int argc,wchar_t** argv) {
                 std::cerr<<i<<' '<<actual.states[i].name<<" source="<<actual.states[i].value<<" native="<<expected.states[i].value<<'\n';throw std::runtime_error("Actual game audio behavior differs");
             }
         }
-        require(actual.cursorProgressChecks==4 && expected.cursorProgressChecks==4 && actual.pausedCursorChecks==2 && expected.pausedCursorChecks==2,"Playback checks incomplete");
+        require(actual.cursorProgressChecks==9 && expected.cursorProgressChecks==9 && actual.pausedCursorChecks==4 && expected.pausedCursorChecks==4,"Playback checks incomplete");
         require((_control87(0,0)&_MCW_PC)==(argc==4 ? _PC_24:_PC_53),"Playback changed x87 precision");
         std::cout<<"{\"state_comparisons\":"<<actual.states.size()<<",\"production_imports\":15,\"cursor_progress_checks\":"<<actual.cursorProgressChecks+expected.cursorProgressChecks<<",\"paused_cursor_checks\":"<<actual.pausedCursorChecks+expected.pausedCursorChecks<<",\"source_position_progress\":"<<actual.positionProgress<<",\"native_position_progress\":"<<expected.positionProgress<<",\"playback_tested\":true,\"silent_playback\":true,\"audible_output_verified\":false}\n";
         return 0;

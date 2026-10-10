@@ -132,7 +132,10 @@ def main():
                 'SQUALL_Channel_Pause':'Actual cChannel pause/resume status and frozen cursor',
                 'SQUALL_Channel_Status':'Real prepared/play/pause/resume/retirement observations',
                 'SQUALL_ChannelGroup_SetVolume':'Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter',
-                'SQUALL_Sample_PlayEx':'Real ResourceManager/cSound music and actual MainMenu button click through production imports'}
+                'SQUALL_Sample_PlayEx':'Real ResourceManager/cSound music, actual MainMenu click and Loading game/menu music replacement through production imports',
+                'SQUALL_Sample_LoadFile':'Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds',
+                'SQUALL_Sample_Unload':'Actual unused preloaded sound cleanup across Loading screens, wrapper/resource destruction before Free',
+                'SQUALL_Channel_Stop':'Actual old shared music wrapper deletion before Loading selects and starts new music'}
             for row in audit['exports']:
                 if row['name'] in scopes:
                     row['status']='partially_compared';row['integrated_game_audio_verified_scope']=scopes[row['name']]
@@ -145,6 +148,14 @@ def main():
         write('analysis/progress-validation.json',progress);report['progress']=progress
         if 'analysis/progress-validation.json' not in report['reports']: report['reports'].append('analysis/progress-validation.json')
         if 'progress-sprite-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('progress-sprite-reference-test.exe')
+    loading_path=ROOT/'.local/loading-validation.json'
+    if loading_path.exists():
+        loading=read(loading_path.relative_to(ROOT));assert loading['status']=='passed_for_loading_and_shipped_resource_log_scope'
+        for name,expected in loading['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/loading-validation.json',loading);report['loading']=loading
+        if 'analysis/loading-validation.json' not in report['reports']: report['reports'].append('analysis/loading-validation.json')
+    report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

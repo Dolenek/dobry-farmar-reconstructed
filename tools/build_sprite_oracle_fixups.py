@@ -128,14 +128,15 @@ def main():
             0x504180,0x5042a0,0x504780,0x504b80,0x504210,0x504280,
             0x502970,0x503bf0,0x5036d0,0x5031a0,0x502dc0,0x502170,
             0x5021a0,0x502590,0x5020f0,0x5020c0,0x502130,0x502150,0x489770,0x487ae0,0x487a30,0x487ac0,0x488f10,0x4892f0,0x488770,0x488b40,
-            0x4f91e0,0x4f9230,0x4f9270,0x4f9290,0x4f9b20,0x4f9f80,0x413750];seen=set(addresses)
-        boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20}
+            0x4f91e0,0x4f9230,0x4f9270,0x4f9290,0x4f9b20,0x4f9f80,0x413750,
+            0x480770,0x47fff0,0x4800f0,0x480110,0x481130,0x541700,0x480d10];seen=set(addresses)
+        boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20,0x42fe80,0x401cc0}
         while todo:
             address=todo.pop()
             if address in seen:continue
             seen.add(address);addresses.append(address)
             if address in rows:
-                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16) not in boundaries]
+                todo += [int(c,16) for c in rows[address]['callees'] if re.fullmatch(r'[0-9a-fA-F]+',c) and int(c,16)<0x558000 and int(c,16) not in boundaries]
         addresses=list(dict.fromkeys(addresses))
     if args.input_bindings:
         prefix='input-bindings'; seen=set(); todo=[0x526190,0x5280f0,0x526580,0x5284e0,0x526970,0x5288e0,0x524640,0x524a30,0x524e60,
@@ -263,7 +264,7 @@ def main():
             if args.button_text: tables += [(0x1fee10,72)]
             if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3),(0x1f5870,14),(0x1f58a8,1),(0x1f5900,14),(0x1fd8b0,92),(0x1fd618,92),(0x1fd4b0,88),(0x1f62e4,14),(0x1f631c,3)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
-            if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4)]
+            if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4),(0x1f5e0c,14),(0x141c60,5)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:
                 for slot in range(count):

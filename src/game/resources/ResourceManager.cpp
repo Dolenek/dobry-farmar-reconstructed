@@ -5,8 +5,10 @@
 #include "Font.h"
 #include "Sound.h"
 #include "XmlResource.h"
+#include "StringConversion.h"
 #include <memory>
 #include <vector>
+#include <sstream>
 
 namespace farmar::recovered {
 namespace { ResourceManager* manager=nullptr; }
@@ -125,5 +127,26 @@ void ResourceManager::deleteAllSound() {
     std::vector<cResource*> sounds;
     for(auto* resource:resources_) if(resource->resourceType()==4) sounds.push_back(resource);
     for(auto* resource:sounds) delete resource;
+}
+void ResourceManager::loadFromLog(const XmlNode& log,unsigned first,unsigned end) {
+    // The original reuses the first argument's stack slot for Type. Missing
+    // attributes preserve the last parsed type, initially the starting index.
+    unsigned type=first;
+    for(unsigned index=first;index<end;++index) {
+        XmlNode* entry=nullptr;if(!log.section(index,entry)) continue;
+        const auto name=toNarrow(entry->attribute(WString(L"Path")));
+        const auto value=entry->attribute(WString(L"Type"));
+        if(!value.empty()) {std::wistringstream stream(value.c_str());stream>>type;}
+        cResource* resource=nullptr;
+        switch(type) {
+        case 0:resource=getTexture(name);break;
+        case 1:delete getXML(name);continue; // iXML deleting destructor, not releaseReference
+        case 2:resource=getFont(name);break;
+        case 3:resource=getShader(name);break;
+        case 4:resource=getSound(name);break;
+        default:continue; // original ignores all other resource types
+        }
+        resource->releaseReference();
+    }
 }
 }

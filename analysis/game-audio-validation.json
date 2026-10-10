@@ -1,29 +1,29 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-10T20:12:07.831577+00:00",
+  "recorded_at_utc": "2026-10-10T20:27:07.060157+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "c94ec6918ccb6c63e8a916660f000e8ab2bc5713d26d0188a19ac59531e3f6d5",
+  "oracle_sha256": "bf6de8ccd68be001b1b6520e6d3edbc4696d2033e84e12f49f51769ab77df102",
   "precision_contexts": [
     {
-      "state_comparisons": 95,
+      "state_comparisons": 189,
       "production_imports": 15,
-      "cursor_progress_checks": 8,
-      "paused_cursor_checks": 4,
-      "source_position_progress": 1797,
-      "native_position_progress": 18963,
+      "cursor_progress_checks": 18,
+      "paused_cursor_checks": 8,
+      "source_position_progress": 39251,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
       "precision": "process-default"
     },
     {
-      "state_comparisons": 95,
+      "state_comparisons": 189,
       "production_imports": 15,
-      "cursor_progress_checks": 8,
-      "paused_cursor_checks": 4,
-      "source_position_progress": 1797,
-      "native_position_progress": 18963,
+      "cursor_progress_checks": 18,
+      "paused_cursor_checks": 8,
+      "source_position_progress": 20762,
+      "native_position_progress": 19880,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -61,6 +61,14 @@
     {
       "path": "src/game/audio/Channel.h",
       "sha256": "2819950c23ff00e59e112788bdb7f03da8989252b9c6ddd50eed02a5acfa37a9"
+    },
+    {
+      "path": "src/game/audio/MusicPlayback.cpp",
+      "sha256": "f8a3caf512559a23ed111b7440352de5ea7dac403db23abc026036908e53166e"
+    },
+    {
+      "path": "src/game/audio/MusicPlayback.h",
+      "sha256": "a05e63dc4876b44657b96e754f2dbd55d3aa1ee9a922b636c1d2c5b30d439e69"
     },
     {
       "path": "src/game/audio/Sound.cpp",
@@ -340,11 +348,11 @@
     },
     {
       "path": "src/game/resources/ResourceManager.cpp",
-      "sha256": "20e6eb123a7c4a88829c1ab763f2044e62c0fb397d0ba276826d0fe0c6c82310"
+      "sha256": "ddbfe3edde6cb81ff54acc645fa9364357451da3131d4a167a64ccb576c59c69"
     },
     {
       "path": "src/game/resources/ResourceManager.h",
-      "sha256": "187eb1ba620bc2eae60bab7307b4e2436038ac69efffacb3b0810e081f1d0337"
+      "sha256": "62c6de5438c5dc935fce8482fab0c1e7e87838ad516134b0f532bcda0f659eb3"
     },
     {
       "path": "src/game/resources/Shader.cpp",
@@ -477,6 +485,14 @@
     {
       "path": "src/game/ui/ListBox.h",
       "sha256": "37c62a9cffa21b00ee0465b8ca35d9872685ee0c7e21d75a2e167c0d2fbf84bf"
+    },
+    {
+      "path": "src/game/ui/LoadingFromLog.cpp",
+      "sha256": "9baecc879530f32cec14b621d0c6fe58679329200417f127be967f04f5f5e0e4"
+    },
+    {
+      "path": "src/game/ui/LoadingFromLog.h",
+      "sha256": "d90b96d88abdf72465483289886b9ebd064cc00faea36477ce76a6175c78ee91"
     },
     {
       "path": "src/game/ui/MainMenuContent.cpp",
@@ -988,7 +1004,11 @@
     },
     {
       "path": "tools/game_audio_reference_test.cpp",
-      "sha256": "a739f40ad9e69aef440883dd29924d299965abe95bd8d393a8ec21db2ecdd8ba"
+      "sha256": "04a757456492d945a0e0d56b2267f1c9519ffc3650d83a1e29eeaefbf1b4d3dc"
+    },
+    {
+      "path": "tools/loading_audio_cases.inc",
+      "sha256": "6cc1a32f7fc4d5e2b805bb5aee22bbfa5eb1099a47528081db2fadfd46f33784"
     },
     {
       "path": "tools/squall_exports.inc",
@@ -996,17 +1016,20 @@
     },
     {
       "path": "tools/validate_game_audio.py",
-      "sha256": "8ce3b3eca1ccd15157f0da611837cc020d6de940b11ccf0a35bcd58e91a51472"
+      "sha256": "a4c01c10d1ff9814e6baf66a9844115d23d3a7160a8c1c91cffd3c26eac6fdcb"
     }
   ],
   "coverage": [
     "Actual production SquallSoundApi imports all fifteen game functions from the source-built DLL; executable IAT pointers are checked at runtime",
     "Actual game SoundSetup with null HWND: each backend creates its real hidden audio window, workers and DirectSound buffers",
     "Recovered Settings -> SoundManager -> FileIndex/SoundFiles -> ResourceManager/cSound -> cChannel chain, cache reuse and exact lifetime cleanup",
-    "190 observed state comparisons across PC53 and PC24: prepared/play/pause/resume/manager pause, six channel counts, volume/pan/frequency/loop/priority and Settings",
-    "16 independent actual playback cursor progress checks and 8 frozen paused cursor checks; playback is silent, timing progress amounts are recorded but not compared",
+    "378 observed state comparisons across PC53 and PC24: prepared/play/pause/resume/manager pause, six channel counts, volume/pan/frequency/loop/priority, Loading and Settings",
+    "36 independent actual playback cursor progress checks and 16 frozen paused cursor checks; playback is silent, timing progress amounts are recorded but not compared",
     "Real original MainMenu/FixedBack/Options XML, recovered owned controls, real D3D8 texture/font loading and actual game cursor binding",
     "Actual MainMenu start-button pressed sound through Button -> SoundManager -> own DLL; Options Slider callbacks set both native volume groups, including fractional truncation",
+    "Actual LoadingFromLog over shipped GameResLog.xml (539 entries) and MenuResLog.xml (148 entries), batch progress and resource loading through actual GPU/font/XML/sound factories",
+    "Shared music replacement deletes old cChannel and releases cSound before playing selected GameMusic/MenuMusic; physical cursor, pause/resume and volume zero verified",
+    "Both log completions queue and delete actual Loading control trees, release XML, retain playing music; absent-log constructor branch completes and destroys controls immediately",
     "Bounded actual worker retirement after Stop, channel wrapper destruction and resource sample unloading before SoundManager Free; no callback handles remain"
   ],
   "test_adapters": [
@@ -1014,7 +1037,8 @@
     "Both runs use the previously native-compared recovered game controllers. This comparison is not a new native game-controller oracle",
     "Windows D3D8 HAL device uses diagnostic presentation settings and FPU preserve; full original graphics initialization/reset is separate",
     "Fullscreen reset boundary throws if exercised; this audio scenario never toggles fullscreen and cannot claim reset validation",
-    "MainMenu content is loaded; action/navigation controller and complete engine are not supplied by this tool"
+    "MainMenu content and actual LoadingFromLog are loaded; completion is a counted diagnostic callback, not a cGame implementation. The native EXE controller comparison is reported separately",
+    "This comparison applies recovered LoadingFromLog to both audio DLLs, with native game instructions compared in validate_loading.py"
   ],
   "pending": [
     "Audible or WASAPI loopback comparison and hardware output; silence deliberately used for cursor tests",

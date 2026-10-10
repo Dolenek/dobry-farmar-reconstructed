@@ -92,7 +92,7 @@ if(WIN32)
         src/game/ui/ControlAnimation.cpp src/game/ui/View.cpp src/game/ui/Control.cpp src/game/ui/TextLine.cpp src/game/ui/EditBox.cpp src/game/ui/ListBox.cpp src/game/ui/MultilineText.cpp
         src/game/ui/InputBindings.cpp src/game/ui/InputDevices.cpp src/game/ui/Button.cpp src/game/ui/ButtonText.cpp src/game/ui/MenuView.cpp src/game/ui/MainMenuContent.cpp src/game/ui/YesNoDialog.cpp
         src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/ui/Slider.cpp src/game/ui/Options.cpp src/game/graphics/ClickMask.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/ui/ProgressBar.cpp src/game/ui/ProgressSprite.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -230,6 +230,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_control_sprites.py" --oracle "$<TARGET_FILE:control-sprite-reference-test>")
             add_test(NAME original-progress-bar COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_progress.py" --sprite-oracle "$<TARGET_FILE:progress-sprite-reference-test>" --ui-oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-loading-from-log COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_loading.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-view-hierarchy COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"

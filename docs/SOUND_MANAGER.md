@@ -30,9 +30,11 @@ Po manager/channel rozšíření prošlo celé Win32 Release sestavení a 36 CTe
 
 ## Propojení se skutečnou zdrojovou DLL
 
+Rozšířený scénář zahrnuje skutečný `LoadingFromLog`: celé GameResLog.xml (539 položek) a MenuResLog.xml (148), výměnu sdílené hudby, přehrávání/pauzu a úklid obrazovek i XML. Callback počítá dokončení a nepředstírá `cGame`. Původní EXE instrukce tohoto controlleru mají samostatný UI/GPU oracle; rozsah je v [LOADING_FROM_LOG.md](LOADING_FROM_LOG.md).
+
 `recovered_game_audio` je explicitní source cíl závislý na SquallCandidate. `game-audio-reference-test` má v PE právě patnáct Squall importů. Za běhu kontroluje všechny jejich IAT ukazatele proti konkrétní načtené vlastní DLL; nestačí předpoklad o loader search path. Post-build kopíruje jen tuto vlastní sestavenou DLL do adresáře diagnostiky. Originální DLL načítá samostatná oracle strana v testovacím nástroji.
 
-Obě přesnosti prošly pro **190 stavových porovnání**, 16 samostatných kontrol pohybu skutečného playback cursoru a osm kontrol jeho zastavení při pauze. Každý backend používá skutečný původní SoundSetup s window=0 a vytvoří vlastní audio okno, DirectSound, workery a buffery. Cesta zahrnuje Settings, SoundManager, FileIndex/SoundFiles, ResourceManager/cache/cSound a cChannel: připravená hudba, start, pause/resume wrapperu, celková pause/resume manageru, Options hlasitosti, Stop/retirement, unload a destructor Free.
+Obě přesnosti prošly pro **378 stavových porovnání**, 36 samostatných kontrol pohybu skutečného playback cursoru a 16 kontrol jeho zastavení při pauze. Každý backend používá skutečný původní SoundSetup s window=0 a vytvoří vlastní audio okno, DirectSound, workery a buffery. Cesta zahrnuje Settings, SoundManager, FileIndex/SoundFiles, ResourceManager/cache/cSound a cChannel: připravená hudba, start, pause/resume wrapperu, celková pause/resume manageru, Options hlasitosti, Stop/retirement, unload a destructor Free.
 
 Diagnostika navíc skutečně načítá `UI/MainMenu.xml`, `UI/FixedBack.xml` a `UI/Options.xml`, vytváří obnovené ovládací prvky, lokalizované fonty a textury přes skutečné D3D8 zařízení. Původní StartButton při pressed kroku zvýší počet přehrávajících ambientních kanálů o jeden přes skutečnou Button→SoundManager→DLL cestu. Oba skutečné Options slidery předávají callbacky i zlomkové hodnoty a původní truncation. Fullscreen reset service vyhodí chybu, kdyby tento scénář odbočil do resetu; fullscreen se zde nepřepíná a není označen za ověřený.
 
@@ -43,4 +45,4 @@ cmake --build build/windows --config Release --target game-audio-reference-test 
 python tools/validate_game_audio.py
 ```
 
-Konfigurace a získání kodeků jsou v `SQUALL.md`. Reporty `analysis/game-audio-validation.json` a `analysis/game-audio-fresh-validation.json` uvádějí obě přesnosti, zdrojové/executable/DLL hashe, konkrétní rozsah a zbývající práci. Samostatné sestavení v `build/squall-source-repro-vs20261010` prošlo stejným propojeným scénářem. Celkové Win32 sestavení a všech 37 CTest kontrol prošly (90,91 s); 17 původních souborů zůstalo shodných.
+Konfigurace a získání kodeků jsou v `SQUALL.md`. Reporty `analysis/game-audio-validation.json` a `analysis/game-audio-fresh-validation.json` uvádějí obě přesnosti, zdrojové/executable/DLL hashe, konkrétní rozsah a zbývající práci. Samostatné sestavení v `build/squall-source-repro-vs20261010` prošlo stejným propojeným scénářem. Celkové Win32 sestavení a všech 39 CTest kontrol prošly (125,43 s); 17 původních souborů zůstalo shodných.
