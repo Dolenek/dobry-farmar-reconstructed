@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "architecture": "Win32",
+  "source_commit": "20988426d2dde0a4b7aa6e18578f59c55d3af3a8",
+  "layout": {
+    "sample": 308,
+    "context": 1344,
+    "parameters": 52,
+    "defaults": 28,
+    "channel_end_worker": 300,
+    "channel_user_data": 296,
+    "channel_worker": 292,
+    "channel_parameters": 84
+  },
+  "probe_sha256": "9a0eaf642009a3377443caddf61333ad68b1b10d47e707e18a512f91be407dda",
+  "recorded_at_utc": "2026-10-10T15:40:07.027461+00:00",
+  "native_channel_size": 300,
+  "native_size_evidence": [
+    "100033d2..100033e5",
+    "100033fe..10003418"
+  ],
+  "source_runtime_compared": false,
+  "original_runtime_compared": false,
+  "limitation": "sizeof/offsetof of the public reference only; does not prove remaining context or channel fields match the original"
+}

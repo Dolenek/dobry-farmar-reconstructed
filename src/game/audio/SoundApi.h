@@ -1,9 +1,9 @@
 #pragma once
 #include <cstdint>
+#include "../../squall/Parameters.h"
 namespace farmar::recovered {
-struct SoundSetup {
-    unsigned window=0;int device=0,rate=44100,bits=16,channels=16,hardware2D=0,hardware3D=0,algorithm=3,bufferMilliseconds=200,listenerMode=0;
-    float distanceFactor=1.0f,rolloffFactor=0.001f,dopplerFactor=1.0f;
+struct SoundSetup : SquallParameters {
+    SoundSetup():SquallParameters{0,0,44100,16,16,0,0,3,200,0,1.0f,0.001f,1.0f} {}
 };
 static_assert(sizeof(SoundSetup)==52,"Original Squall Init parameter ABI");
 using SoundOpen=unsigned(__cdecl*)(const char*);

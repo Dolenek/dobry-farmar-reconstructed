@@ -1,0 +1,19 @@
+{
+  "status": "parameter_normalization_native_verified_full_runtime_pending",
+  "source_built": true,
+  "runtime_verified": false,
+  "original_program_code_used_as_implementation": false,
+  "function": "100030a0..1000321d",
+  "parameter_size": 52,
+  "shared_game_type": "SoundSetup derives from SquallParameters with original game defaults",
+  "native_channel_size": 300,
+  "public_reference_channel_size": 308,
+  "source": ["src/squall/Parameters.h", "src/squall/Parameters.cpp"],
+  "verification": "analysis/squall-parameters-validation.json",
+  "source_layout_verification": "analysis/squall-layout-validation.json",
+  "pending": [
+    "Complete Squall Init/context/DirectSound/97 exported implementations",
+    "Floating-point status/exception flags and invalid output pointer behavior",
+    "Actual device enumeration, sample decoding, playback and full game integration"
+  ]
+}

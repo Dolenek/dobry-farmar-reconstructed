@@ -43,7 +43,7 @@ def main():
     assert settings['status']=='passed'
     write('analysis/settings-validation.json',settings)
     report['settings']=settings
-    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer','cursor','profile-headers','profile-properties','profile-lifecycle','sound-manager'):
+    for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer','cursor','profile-headers','profile-properties','profile-lifecycle','sound-manager','squall-parameters'):
         validation=read(f'.local/{module}-validation.json')
         assert validation['status']=='passed'
         write(f'analysis/{module}-validation.json',validation)
@@ -68,6 +68,8 @@ def main():
     if 'analysis/profile-lifecycle-validation.json' not in report['reports']: report['reports'].append('analysis/profile-lifecycle-validation.json')
     if 'sound-manager-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('sound-manager-reference-test.exe')
     if 'analysis/sound-manager-validation.json' not in report['reports']: report['reports'].append('analysis/sound-manager-validation.json')
+    if 'squall-parameters-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('squall-parameters-reference-test.exe')
+    if 'analysis/squall-parameters-validation.json' not in report['reports']: report['reports'].append('analysis/squall-parameters-validation.json')
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

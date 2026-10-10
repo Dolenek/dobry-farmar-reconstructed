@@ -40,8 +40,21 @@ def main():
                   extra_declarations=sorted(set(declarations) - original),
                   verified_implementation_differences=[
                       "Original volume table uses trunc(10000 * log10(0.009F * i + 0.1F)); "
-                      "reference uses floor(5000 * log10(i / 99.0F))."],
+                      "reference uses floor(5000 * log10(i / 99.0F)).",
+                      "Original channels are 300 bytes (100033d2..100033e5 and 100033fe..10003418). "
+                      "Reference SSample has two additional end-worker fields at offsets 300 and 304, totaling 308 bytes.",
+                      "Original InitParameters 100030a0 clamps DistanceFactor above 10 to 10. "
+                      "Reference InitParameters lacks this upper limit.",
+                      "Original InitParameters changes unordered (NaN) distance/rolloff/doppler values to 1. "
+                      "Reference uses <=0 tests which retain NaNs."],
+                  instruction_evidence=dict(channel_allocation="100033d2..100033e5",channel_zeroing="100033fe..10003418",
+                      parameter_normalization="100030a0..1000321d",factor_nan_tests=["10003170","10003198","100031c0"]),
+                  reference_source_evidence=dict(channel_fields="source/SoundEngine/Channels.h:104",
+                      end_callback="source/SoundEngine/Channels.cpp:746",end_callback_export="source/SoundEngine/Squall.cpp:4634",
+                      parameter_validation="source/SoundEngine/Squall.cpp:133"),
                   original_runtime_compared=False, exports=rows)
+    layout=ROOT/'analysis/squall-layout-validation.json'
+    if layout.exists(): report['reference_layout_probe']=json.loads(layout.read_text(encoding='utf-8'))
     output = ROOT / "analysis" / "squall-source-match.json"
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(f"Mapped {len(rows)} original exports; source variant differs from original")

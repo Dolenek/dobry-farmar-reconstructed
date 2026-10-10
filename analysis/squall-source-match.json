@@ -9,8 +9,27 @@
     "SQUALL_Sample_LoadFromMemory"
   ],
   "verified_implementation_differences": [
-    "Original volume table uses trunc(10000 * log10(0.009F * i + 0.1F)); reference uses floor(5000 * log10(i / 99.0F))."
+    "Original volume table uses trunc(10000 * log10(0.009F * i + 0.1F)); reference uses floor(5000 * log10(i / 99.0F)).",
+    "Original channels are 300 bytes (100033d2..100033e5 and 100033fe..10003418). Reference SSample has two additional end-worker fields at offsets 300 and 304, totaling 308 bytes.",
+    "Original InitParameters 100030a0 clamps DistanceFactor above 10 to 10. Reference InitParameters lacks this upper limit.",
+    "Original InitParameters changes unordered (NaN) distance/rolloff/doppler values to 1. Reference uses <=0 tests which retain NaNs."
   ],
+  "instruction_evidence": {
+    "channel_allocation": "100033d2..100033e5",
+    "channel_zeroing": "100033fe..10003418",
+    "parameter_normalization": "100030a0..1000321d",
+    "factor_nan_tests": [
+      "10003170",
+      "10003198",
+      "100031c0"
+    ]
+  },
+  "reference_source_evidence": {
+    "channel_fields": "source/SoundEngine/Channels.h:104",
+    "end_callback": "source/SoundEngine/Channels.cpp:746",
+    "end_callback_export": "source/SoundEngine/Squall.cpp:4634",
+    "parameter_validation": "source/SoundEngine/Squall.cpp:133"
+  },
   "original_runtime_compared": false,
   "exports": [
     {
@@ -789,5 +808,30 @@
       "header_line": 403,
       "implementation_line": 552
     }
-  ]
+  ],
+  "reference_layout_probe": {
+    "status": "passed",
+    "architecture": "Win32",
+    "source_commit": "20988426d2dde0a4b7aa6e18578f59c55d3af3a8",
+    "layout": {
+      "sample": 308,
+      "context": 1344,
+      "parameters": 52,
+      "defaults": 28,
+      "channel_end_worker": 300,
+      "channel_user_data": 296,
+      "channel_worker": 292,
+      "channel_parameters": 84
+    },
+    "probe_sha256": "9a0eaf642009a3377443caddf61333ad68b1b10d47e707e18a512f91be407dda",
+    "recorded_at_utc": "2026-10-10T15:40:07.027461+00:00",
+    "native_channel_size": 300,
+    "native_size_evidence": [
+      "100033d2..100033e5",
+      "100033fe..10003418"
+    ],
+    "source_runtime_compared": false,
+    "original_runtime_compared": false,
+    "limitation": "sizeof/offsetof of the public reference only; does not prove remaining context or channel fields match the original"
+  }
 }

@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "oracle_sha256": "c98a3a3ca2182980e58b33b523264a712d74c923653f1abd3317b4379813ad4b",
+  "recorded_at_utc": "2026-10-10T15:40:36.351309+00:00",
+  "checks": 201154,
+  "precision_contexts": [
+    {
+      "checks": 100577,
+      "device_enumerations": 51344,
+      "invalid_inputs": 72,
+      "overlap_cases": 25,
+      "relocations": 3707,
+      "precision": "process-default"
+    },
+    {
+      "checks": 100577,
+      "device_enumerations": 51344,
+      "invalid_inputs": 72,
+      "overlap_cases": 25,
+      "relocations": 3707,
+      "precision": "x87-pc24"
+    }
+  ],
+  "original_functions": [
+    "100030a0"
+  ],
+  "original_entry_point_executed": false,
+  "reference_files_modified": false,
+  "coverage": [
+    "All thirteen output words compared byte-for-byte: 100000 seeded inputs per precision plus individual integer/float boundaries",
+    "Signed integer limits, all hardware/listener/algorithm flags, zero/negative values, NaNs including signaling payloads, infinities, subnormal and maximum floats",
+    "Real hidden Win32 window, null/invalid HWND, null/unmapped/unreadable/page-straddling input pointers",
+    "Device enumeration short-circuit and return boundaries; forward word copy for identical and overlapping buffers"
+  ],
+  "test_adapters": [
+    "Native IsBadReadPtr and IsWindow imports use the same real Win32 APIs as source",
+    "Native api_GetNumDevice is redirected to an explicitly scripted test-only device count; no DirectSound initialization or enumeration is claimed",
+    "Original PE is privately relocated using its relocation directory; DLL entry point is never executed"
+  ],
+  "pending": [
+    "Whole Squall initialization, actual device enumeration and all exported interfaces",
+    "Floating-point exception/status flags and invalid output pointers",
+    "DirectSound backend, decoder versions and sample/playback behavior"
+  ]
+}

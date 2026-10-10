@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from pe import PE
@@ -39,7 +40,14 @@ def main():
             print(match.group(0) if match else f'{address:08x}: no Ghidra function; inspect instructions')
             if args.asm:
                 row = functions.get(address)
-                end = int(row['body_max'],16)+1 if row else address+args.bytes
+                if row and 'body_max' in row:
+                    end=int(row['body_max'],16)+1
+                else:
+                    # Older DLL exports contain a byte count but no body bounds.
+                    # Counts can include disjoint blocks; do not invent an end
+                    # address from their sum. Show the requested bounded range.
+                    end=address+args.bytes
+                    if row: print(f'{address:08x}: metadata has no body bounds; disassembling --bytes {args.bytes} only',file=sys.stderr)
                 result = subprocess.run(['objdump','-d','-Mintel',f'--start-address={address}',
                                          f'--stop-address={end}',target.name],cwd=temporary,
                                         check=True,capture_output=True,text=True)
