@@ -85,6 +85,29 @@ def main():
         report['build']['squall_candidate_complete_equivalence']=False
         for path in ('analysis/squall-runtime-validation.json','analysis/squall-candidate-abi.json','analysis/squall-export-audit.json'):
             if path not in report['reports']: report['reports'].append(path)
+    for suffix in ('','-fresh'):
+        dll_path=ROOT/f'.local/squall-dll{suffix}-validation.json'
+        if not dll_path.exists(): continue
+        dll=read(dll_path.relative_to(ROOT))
+        assert dll['status']=='passed_for_loaded_DLL_samples_and_prepared_DirectSound_scope'
+        for row in dll['source_files']:
+            assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']
+        for path_key,hash_key in (('candidate_path','rebuilt_sha256'),('oracle_path','oracle_sha256'),('linker_map_path','linker_map_sha256')):
+            assert hashlib.sha256((ROOT/dll[path_key]).read_bytes()).hexdigest()==dll[hash_key],dll[path_key]
+        assert dll['reference_sha256']==runtime['reference_sha256']
+        portable=f'analysis/squall-dll{suffix}-validation.json'
+        write(portable,dll);report['squall-dll'+suffix]=dll
+        if portable not in report['reports']: report['reports'].append(portable)
+        if not suffix:
+            assert dll['rebuilt_sha256']==runtime['export_contract']['rebuilt_sha256']
+            audit=read('analysis/squall-export-audit.json')
+            for row in audit['exports']:
+                scope=dll['export_scopes'].get(row['name'])
+                if scope:
+                    row['status']='partially_compared'
+                    row['loaded_DLL_verified_scope']=scope
+            write('analysis/squall-export-audit.json',audit)
+            report['build']['explicit_audit_targets'].append('squall-dll-reference-test')
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

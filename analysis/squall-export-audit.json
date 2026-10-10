@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "74a982bb6d43f35b46540f8ffac19f63310d6c8592dda7869b38d0099b6b813c",
+  "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -87,33 +87,37 @@
       "name": "SQUALL_Channel_GetFrequency",
       "ordinal": 11,
       "original_address": "100057a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001"
     },
     {
       "name": "SQUALL_Channel_GetLength",
       "ordinal": 12,
       "original_address": "10006020",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared menu music channel"
     },
     {
       "name": "SQUALL_Channel_GetLengthMs",
       "ordinal": 13,
       "original_address": "100060a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared menu music channel"
     },
     {
       "name": "SQUALL_Channel_GetLoop",
       "ordinal": 14,
       "original_address": "10006350",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared looping menu music channel"
     },
     {
       "name": "SQUALL_Channel_GetMinMaxDistance",
@@ -127,9 +131,10 @@
       "name": "SQUALL_Channel_GetPan",
       "ordinal": 16,
       "original_address": "100064a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101"
     },
     {
       "name": "SQUALL_Channel_GetPlayPosition",
@@ -151,9 +156,10 @@
       "name": "SQUALL_Channel_GetPriority",
       "ordinal": 19,
       "original_address": "10006210",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared priority 7 menu music channel"
     },
     {
       "name": "SQUALL_Channel_GetVelocity",
@@ -169,7 +175,8 @@
       "original_address": "10005620",
       "status": "partially_compared",
       "verified_scope": "All -10000..0 inverse arithmetic values with native lookup and explicit COM getter fixture",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101"
     },
     {
       "name": "SQUALL_Channel_Pause",
@@ -215,9 +222,10 @@
       "name": "SQUALL_Channel_SetFrequency",
       "ordinal": 27,
       "original_address": "100056f0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001"
     },
     {
       "name": "SQUALL_Channel_SetLoop",
@@ -239,17 +247,19 @@
       "name": "SQUALL_Channel_SetPan",
       "ordinal": 30,
       "original_address": "100063d0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101"
     },
     {
       "name": "SQUALL_Channel_SetPlayPosition",
       "ordinal": 31,
       "original_address": "10005840",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Three frame positions including near-end loop wrap; full physical buffers compared"
     },
     {
       "name": "SQUALL_Channel_SetPlayPositionMs",
@@ -279,9 +289,10 @@
       "name": "SQUALL_Channel_SetVolume",
       "ordinal": 35,
       "original_address": "10005570",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101"
     },
     {
       "name": "SQUALL_Channel_SetWorker",
@@ -303,17 +314,19 @@
       "name": "SQUALL_Channel_Status",
       "ordinal": 38,
       "original_address": "100054b0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared"
     },
     {
       "name": "SQUALL_Channel_Stop",
       "ordinal": 39,
       "original_address": "10005430",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual buffer stop return and bounded worker retirement"
     },
     {
       "name": "SQUALL_Channel_ZOOMFX_GetProperties",
@@ -337,63 +350,71 @@
       "original_address": "10003520",
       "status": "partially_compared",
       "verified_scope": "Cleanup after sample-only enumeration/loading; initialized backend lifecycle unverified",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Sample-only and initialized prepared-channel cleanup"
     },
     {
       "name": "SQUALL_Get3DAlgorithm",
       "ordinal": 43,
       "original_address": "10003af0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
     },
     {
       "name": "SQUALL_GetBufferSize",
       "ordinal": 44,
       "original_address": "10003b90",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
     },
     {
       "name": "SQUALL_GetChannelsInfo",
       "ordinal": 45,
       "original_address": "10003e40",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Complete empty initialized channel counts"
     },
     {
       "name": "SQUALL_GetDevice",
       "ordinal": 46,
       "original_address": "10003770",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
     },
     {
       "name": "SQUALL_GetDeviceCaps",
       "ordinal": 47,
       "original_address": "10003d30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All device capability fields on this host"
     },
     {
       "name": "SQUALL_GetDeviceName",
       "ordinal": 48,
       "original_address": "10003c80",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All device name output bytes in 512-byte guarded buffers on this host"
     },
     {
       "name": "SQUALL_GetEAXVersion",
       "ordinal": 49,
       "original_address": "10003e00",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
     },
     {
       "name": "SQUALL_GetHardwareAcceleration",
@@ -409,15 +430,17 @@
       "original_address": "10003c70",
       "status": "partially_compared",
       "verified_scope": "Real device count on this host; device details and switching unverified",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual device count on this host"
     },
     {
       "name": "SQUALL_GetSpeakerMode",
       "ordinal": 52,
       "original_address": "10003970",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
     },
     {
       "name": "SQUALL_Init",
@@ -425,7 +448,8 @@
       "original_address": "10003280",
       "status": "partially_compared",
       "verified_scope": "Normalizer and all 256 volume table words only; backend initialization unverified",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Successful actual DirectSound initialization with game parameter values and hidden HWND"
     },
     {
       "name": "SQUALL_Listener_EAX_GetProperties",
@@ -609,7 +633,8 @@
       "original_address": "100074e0",
       "status": "partially_compared",
       "verified_scope": "All 28 default bytes for 45 valid loaded samples",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 28 default bytes for 45 valid samples"
     },
     {
       "name": "SQUALL_Sample_GetFileFrequency",
@@ -617,7 +642,8 @@
       "original_address": "10007470",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample rates",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 45 game samples"
     },
     {
       "name": "SQUALL_Sample_GetFileLength",
@@ -625,7 +651,8 @@
       "original_address": "100073e0",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample frame lengths",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 45 game samples"
     },
     {
       "name": "SQUALL_Sample_GetFileLengthMs",
@@ -633,7 +660,8 @@
       "original_address": "10007410",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample millisecond lengths",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 45 game samples"
     },
     {
       "name": "SQUALL_Sample_LoadFile",
@@ -641,7 +669,8 @@
       "original_address": "10007370",
       "status": "partially_compared",
       "verified_scope": "All 45 original Vorbis files with memory flag 1, null defaults and real game callbacks",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music"
     },
     {
       "name": "SQUALL_Sample_Pause",
@@ -679,9 +708,10 @@
       "name": "SQUALL_Sample_PlayEx",
       "ordinal": 85,
       "original_address": "100075a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Actual prepared ambient music buffer, loop=1, group=17, start=0, priority=7, volume=43, frequency=0, pan=50"
     },
     {
       "name": "SQUALL_Sample_SetDefault",
@@ -705,7 +735,8 @@
       "original_address": "100073d0",
       "status": "partially_compared",
       "verified_scope": "Successful loaded sample IDs and callback lifetime; invalid/busy IDs unverified",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "All 45 valid sample lifetimes and menu music after channel retirement"
     },
     {
       "name": "SQUALL_Sample_UnloadAll",
@@ -745,7 +776,8 @@
       "original_address": "10003c10",
       "status": "partially_compared",
       "verified_scope": "Four recovered read-only callbacks used for all game samples; partial/null/custom cases unverified",
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_verified_scope": "Recovered game read-only callbacks used before and after Init"
     },
     {
       "name": "SQUALL_SetHardwareAcceleration",

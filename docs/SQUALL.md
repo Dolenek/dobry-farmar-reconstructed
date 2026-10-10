@@ -36,7 +36,7 @@ Originální `SQUALL_Init` přiděluje a nuluje **300 bajtů na kanál** (`10003
 Opakování porovnání a probe (nejprve připnutý zdroj podle postupu výše):
 
 ```powershell
-cmake -S . -B build/windows -A Win32 -DBUILD_SQUALL_REFERENCE_LAYOUT=ON
+cmake -S . -B build/windows -G 'Visual Studio 17 2022' -A Win32 -DBUILD_SQUALL_REFERENCE_LAYOUT=ON
 cmake --build build/windows --config Release --target squall-reference-layout squall-parameters-reference-test
 python tools/validate_squall_layout.py
 python tools/validate_squall_parameters.py
@@ -66,11 +66,24 @@ Reprodukování:
 
 ```powershell
 python tools/fetch_squall_codecs.py
-cmake -S . -B build/windows -A Win32 '-DBUILD_SQUALL_CANDIDATE=ON' '-DSQUALL_VORBIS_CANDIDATE=1.1.0' '-DSQUALL_VORBIS_FP=fast'
-cmake --build build/windows --config Release --target SquallCandidate squall-runtime-reference-test squall-vorbis-reference-test --parallel
+cmake -S . -B build/windows -G 'Visual Studio 17 2022' -A Win32 '-DBUILD_SQUALL_CANDIDATE=ON' '-DSQUALL_VORBIS_CANDIDATE=1.1.0' '-DSQUALL_VORBIS_FP=fast'
+cmake --build build/windows --config Release --target SquallCandidate squall-runtime-reference-test squall-vorbis-reference-test squall-dll-reference-test --parallel
 python tools/validate_squall_runtime.py
+python tools/validate_squall_dll.py
 ```
 
 Výstup: `build/windows/squall-candidate/Release/Squall.dll`. Candidate cíle jsou explicitně mimo běžné sestavení, dokud celý nativní audit není dokončen. Přenositelné důkazy: `analysis/squall-runtime-validation.json`, `analysis/squall-candidate-abi.json` a stav jednotlivých exportů `analysis/squall-export-audit.json`. Výchozí DirectSound zařízení zde mají shodný počet 3; jiné hosty mohou mít jiný počet. Všechny potvrzené i neověřené oblasti jsou v reportu.
 
-Další práce: načítání skutečné rebuilt DLL a porovnání veřejných API, celá inicializace a fyzický DirectSound playback, kanály/workers/synchronizace, 3D/EAX/ZoomFX, mode 0 se seekovatelnými callbacky, EOF/loop/error/poškozené vstupy, další dekodéry a celý herní audio lifecycle. PCM shoda na herních souborech neprokazuje obecnou shodu dekodéru ani historický release tag.
+Další práce: úplné veřejné API, fyzický DirectSound playback, kanály/workers/synchronizace, 3D/EAX/ZoomFX, mode 0 se seekovatelnými callbacky, EOF/loop/error/poškozené vstupy, další dekodéry a celý herní audio lifecycle. PCM shoda na herních souborech neprokazuje obecnou shodu dekodéru ani historický release tag.
+
+## Skutečně načtená DLL a fyzické buffery
+
+`squall-dll-reference-test` nepřilinkovává statický Squall runtime. Normálně načítá obě samostatné DLL, rozpozná všech 97 pojmenovaných exportů a vykonává vybrané veřejné API. Přes dekodéry uvnitř skutečně načtené zdrojové DLL souhlasí všech 122 527 752 mono/stereo PCM bajtů všech 45 herních souborů, včetně sequential sentinel a guard bajtů. Vlastní neveřejné symboly test vyhledává v její vlastní linker mapě; mapa musí mít timestamp načteného PE. Nativní neveřejné adresy slouží pouze tomuto oracle. DLL nepřidává exporty ani forwarding.
+
+Na tomto hostu obě DLL skutečně inicializují DirectSound s původními herními parametry. Obě přesnosti prošly pro 299 API výsledků: enumerace tří zařízení, kompletní názvy/capabilities, vzorky/defaulty, initialized getters, připravený ambientní hudební kanál, hranice volume/pan/frequency a délka/loop/priority. Osm celých fyzických bufferů čtených skutečným DirectSound `Lock` obsahuje přesně **564 480 shodných PCM bajtů**. Zahrnují frame pozice 0, 13 230 a 100 framů před koncem při loop=1. Nejde o falešný COM backend. `start=0` znamená přípravu bez přehrávání; slyšitelný výstup ani časově korelované přehrávání zatím nejsou ověřené.
+
+Stop má asynchronní mezistav: `100054b0` vrací při STAGE=STOP −24, po odstranění workerem 0. Test každému workeru dovoluje pouze tyto stavy a nejvýše dvě sekundy; teprve po ukončení obou porovnává terminální stav. Nesrovnává časování dvou sekvenčních volání jako současný snímek.
+
+Při tomto ověření byla opravena chyba sestavovacího cíle: Visual Studio s jediným vstupem `.def` a bez object file mohlo přeskočit link DLL po změně statické runtime knihovny. Cíl nyní kompiluje existující `Abi.cpp` s kontrolami rozložení a skutečně přelinkovává DLL. Předchozí statické PCM porovnání tím nebylo zneplatněno; samotná předchozí DLL tím nebyla dokladem těchto runtime oprav. Nynější porovnání prošlo také nad samostatným čistým sestavením `build/squall-source-repro-vs20261010`, bez předchozí DLL v jeho výstupu. Nová cache musí explicitně volit Visual Studio; výchozí Ninja nepřijímá `-A Win32`.
+
+Reporty `analysis/squall-dll-validation.json` a `analysis/squall-dll-fresh-validation.json` obsahují hash zdrojů, kandidáta, testovacího EXE a mapy, jednotlivé přesnosti, rozsah a neověřené oblasti. Audit exportů rozlišuje vybrané porovnané vstupy od úplně ověřeného podpisu/chování všech 97 API. Žádný export zde není automaticky označen za úplně ověřený.

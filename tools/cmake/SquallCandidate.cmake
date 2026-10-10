@@ -43,9 +43,13 @@ target_compile_definitions(squall_runtime_candidate PUBLIC _USRDLL PRIVATE _WIND
 # without the algorithm GUID field used by the actual source and native DLL.
 target_include_directories(squall_runtime_candidate PUBLIC "${SQUALL_RUNTIME_DIR}" PRIVATE "${SQUALL_RUNTIME_DIR}/SoundFile")
 target_link_libraries(squall_runtime_candidate PUBLIC recovered_squall_utilities squall_vorbis_candidate PRIVATE dsound dxguid winmm ole32 user32 strmiids)
-add_library(SquallCandidate SHARED EXCLUDE_FROM_ALL "${SQUALL_RUNTIME_DIR}/Squall.def")
+add_library(SquallCandidate SHARED EXCLUDE_FROM_ALL "${SQUALL_RUNTIME_DIR}/Abi.cpp" "${SQUALL_RUNTIME_DIR}/Squall.def")
+# Visual Studio skips Link with no object inputs. Compile the actual ABI proof
+# into the DLL too, so changes in the static runtime reliably relink the DLL.
+target_compile_options(SquallCandidate PRIVATE /utf-8)
 set_target_properties(SquallCandidate PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(SquallCandidate PRIVATE squall_runtime_candidate)
+target_link_options(SquallCandidate PRIVATE "/MAP:$<TARGET_FILE_DIR:SquallCandidate>/Squall.map")
 set_target_properties(SquallCandidate PROPERTIES OUTPUT_NAME Squall
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/squall-candidate"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/squall-candidate")
@@ -65,3 +69,9 @@ target_link_libraries(squall-runtime-reference-test PRIVATE squall_runtime_candi
 add_executable(squall-vorbis-reference-test EXCLUDE_FROM_ALL "${CMAKE_CURRENT_SOURCE_DIR}/tools/squall_vorbis_reference_test.cpp")
 target_include_directories(squall-vorbis-reference-test PRIVATE "${SQUALL_VORBIS_DIR}/lib")
 target_link_libraries(squall-vorbis-reference-test PRIVATE squall_vorbis_candidate)
+add_executable(squall-dll-reference-test EXCLUDE_FROM_ALL "${CMAKE_CURRENT_SOURCE_DIR}/tools/squall_dll_reference_test.cpp")
+target_compile_definitions(squall-dll-reference-test PRIVATE _USRDLL)
+target_compile_options(squall-dll-reference-test PRIVATE /utf-8)
+target_include_directories(squall-dll-reference-test PRIVATE "${SQUALL_RUNTIME_DIR}")
+target_link_libraries(squall-dll-reference-test PRIVATE recovered_game_utilities)
+add_dependencies(squall-dll-reference-test SquallCandidate)
