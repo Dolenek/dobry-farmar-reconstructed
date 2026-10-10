@@ -1,6 +1,6 @@
 # Rekonstrukce Squall
 
-Původní `Squall.dll` má 97 pojmenovaných C exportů. Ghidra export obsahuje 916 funkcí: 911 dekompilovaných, čtyři přesměrování a jednu chybu v matematické x87 rutině `1003cf82`. Celou DLL zatím nelze sestavit.
+Původní `Squall.dll` má 97 pojmenovaných C exportů. Ghidra export obsahuje 916 funkcí: 911 dekompilovaných, čtyři přesměrování a jednu chybu v matematické x87 rutině `1003cf82`. Úplný zdrojový kandidát DLL nyní lze sestavit; má přesně původních 97 exportních názvů a ordinálů bez forwardingů. Shoda celé implementace ještě není prokázaná.
 
 ## Zdrojový podklad
 
@@ -47,3 +47,30 @@ python tools/validate_squall_parameters.py
 ## Zbývající práce
 
 Zveřejněné zdroje pomáhají pojmenovat a pochopit původní rutiny. Každá použitá implementace se musí porovnat s inventarizovanou DLL; už první kontrola našla skutečnou odchylku. Zbývá obnovit kontext a kanály, DirectSound backend, WAV/ADPCM/MP3/OGG a další přítomné dekodéry, callbacky, 3D zvuk/EAX/ZoomFX, chybové stavy a celý exportní ABI. Zveřejněný projekt rovněž odkazuje na nepřibalené statické Ogg/Vorbis knihovny. Jejich původní verze zatím nejsou určeny.
+
+## Sestavitelný kandidát a přesné PCM
+
+Upravitelná implementace je v `src/squall/runtime`, s původem 84 převzatých zdrojů/hlaviček a licencí v `analysis/squall-runtime-provenance.json`. Původní 107souborový snapshot zůstává nezměněný. Žádná původní programová binárka ani zveřejněná statická knihovna není použita jako implementace. Candidate sestavuje skutečný DirectSound backend, kontext, kanály, callbacky, WAV/PCM/ADPCM/MPEG/Vorbis/WMA a tracker code. Přítomnost kódu není důkaz shodného chování.
+
+Původní kanál má 300 bajtů, callbacky 292/296 a kontextová pole kanálů 252/256. `Abi.cpp` tyto hodnoty kontroluje při Win32 sestavení. Původní dekodér Vorbis přiděluje `OggVorbis_File` o 720 bajtech (`100138f0`); stejně velká candidate struktura sama neurčuje verzi kodeku. WMA extension branch a tracker fallback jsou podle `1002d8c0` opět zapojené. Opravený GetNumDevice odpovídá původnímu tail jumpu `10003c70 -> 10007e40`. Výchozí public zdroj zde dereferencoval neinicializovaný CDXOutput ukazatel.
+
+Tabulka má podle `1000329a` 256 položek; první stovka je vypočtená původní křivkou a dalších 156 zůstává nulových. Inverzní převod `Channel_GetVolume` na `100056b0..100056d7` používá `trunc((pow(10,attenuation*0.0001)-double(0.1F))*100*(1/double(0.9F)))`. Nativní test prošel pro všech 10 001 DirectSound hodnot −10000..0 v obou přesnostech a všech 256 slov tabulky. Source reference inverse je odlišná. Testovací COM getter dodává attenuation, nativní lookup/aritmetika a lock/unlock jsou vykonané; skutečné přehrávání tím není ověřené.
+
+Ogg 1.1 a Vorbis 1.0.1/1.1.0 jsou kandidáti připnutí podle archivu a každého source SHA v `analysis/squall-codecs.lock.json`. Zdroje se získávají z oficiálních archivů Xiph. [Oficiální historie Vorbisu](https://github.com/xiph/vorbis/blob/main/CHANGES) a [archivní hashe](https://github.com/xiph/vorbis/blob/main/releases.sha2) dokládají původ podkladů; původní release tag v této DLL není prokázaný. Obě kandidátní verze vykazovaly stejné počáteční PCM odchylky.
+
+Instrukce `10037330`, `10037840`, `10037d40` a `10037dd0` určily přesné binary32 spill hranice MDCT a přenos nezapsaných registrů mezi 32/16/8point stadii. Upravený source v `src/squall/codecs/vorbis` zachovává BSD licenci Xiph a realizuje tyto hranice explicitně. Vnitřní double výpočty zachovávají šířku PC53/PC24; konkrétní float zápisy mají skutečný binary32 spill. Pouhé přepnutí MSVC floating-point režimu shodu neopravovalo. Nyní oba režimy prošly: 40 800 lookup hodnot, 800 000 butterfly hodnot a 4 177 920 hodnot celých MDCT transformací velikosti 64..8192, bez tolerance.
+
+Všech **45 herních zvukových souborů včetně přípony WAV je ve skutečnosti Vorbis** (native decoder vtable RVA `482a0`). Z obnoveného FileIndex/SoundFiles se načítají v memory režimu 1. Obě přesnosti prošly pro všechny sample IDs, délky, frekvence a 28bajtové defaulty; 540 náhodně přístupných PCM oken a všech **122 527 752 bajtů celého mono/stereo PCM**. Průběžné čtení používá 4096frame chunky a sentinel `0xffffffff`, buffer guards zůstávají shodné. Native reference se zde normálně načítá jako samostatný test oracle včetně CRT entrypointu. Source strana používá vlastní staticky sestavený runtime; exportní contract sestavené DLL se ověřuje zvlášť. Celé veřejné DLL runtime tím ještě není ověřené.
+
+Reprodukování:
+
+```powershell
+python tools/fetch_squall_codecs.py
+cmake -S . -B build/windows -A Win32 '-DBUILD_SQUALL_CANDIDATE=ON' '-DSQUALL_VORBIS_CANDIDATE=1.1.0' '-DSQUALL_VORBIS_FP=fast'
+cmake --build build/windows --config Release --target SquallCandidate squall-runtime-reference-test squall-vorbis-reference-test --parallel
+python tools/validate_squall_runtime.py
+```
+
+Výstup: `build/windows/squall-candidate/Release/Squall.dll`. Candidate cíle jsou explicitně mimo běžné sestavení, dokud celý nativní audit není dokončen. Přenositelné důkazy: `analysis/squall-runtime-validation.json`, `analysis/squall-candidate-abi.json` a stav jednotlivých exportů `analysis/squall-export-audit.json`. Výchozí DirectSound zařízení zde mají shodný počet 3; jiné hosty mohou mít jiný počet. Všechny potvrzené i neověřené oblasti jsou v reportu.
+
+Další práce: načítání skutečné rebuilt DLL a porovnání veřejných API, celá inicializace a fyzický DirectSound playback, kanály/workers/synchronizace, 3D/EAX/ZoomFX, mode 0 se seekovatelnými callbacky, EOF/loop/error/poškozené vstupy, další dekodéry a celý herní audio lifecycle. PCM shoda na herních souborech neprokazuje obecnou shodu dekodéru ani historický release tag.

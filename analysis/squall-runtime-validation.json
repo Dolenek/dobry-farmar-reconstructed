@@ -1,0 +1,1284 @@
+{
+  "status": "passed_for_recorded_sample_and_transform_scope",
+  "recorded_at_utc": "2026-10-10T18:57:21.282098+00:00",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "reference_files_modified": false,
+  "original_entry_point_executed": true,
+  "original_program_code_used_in_implementation": false,
+  "build_options": {
+    "SQUALL_VORBIS_CANDIDATE": "1.1.0",
+    "SQUALL_VORBIS_FP": "fast"
+  },
+  "export_contract": {
+    "recorded_at_utc": "2026-10-10T18:57:21.254892+00:00",
+    "status": "matches_export_contract",
+    "original_name": "Squall.dll",
+    "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+    "rebuilt_sha256": "74a982bb6d43f35b46540f8ffac19f63310d6c8592dda7869b38d0099b6b813c",
+    "bits": 32,
+    "machine": "014c",
+    "exports": [
+      {
+        "ordinal": 1,
+        "names": [
+          "SQUALL_ChannelGroup_Pause"
+        ],
+        "rva": 14000,
+        "address": "100036b0"
+      },
+      {
+        "ordinal": 2,
+        "names": [
+          "SQUALL_ChannelGroup_SetFrequency"
+        ],
+        "rva": 14176,
+        "address": "10003760"
+      },
+      {
+        "ordinal": 3,
+        "names": [
+          "SQUALL_ChannelGroup_SetVolume"
+        ],
+        "rva": 14384,
+        "address": "10003830"
+      },
+      {
+        "ordinal": 4,
+        "names": [
+          "SQUALL_ChannelGroup_Stop"
+        ],
+        "rva": 14560,
+        "address": "100038e0"
+      },
+      {
+        "ordinal": 5,
+        "names": [
+          "SQUALL_Channel_EAX_GetProperties"
+        ],
+        "rva": 14736,
+        "address": "10003990"
+      },
+      {
+        "ordinal": 6,
+        "names": [
+          "SQUALL_Channel_EAX_SetProperties"
+        ],
+        "rva": 14992,
+        "address": "10003a90"
+      },
+      {
+        "ordinal": 7,
+        "names": [
+          "SQUALL_Channel_Get3DPosition"
+        ],
+        "rva": 15264,
+        "address": "10003ba0"
+      },
+      {
+        "ordinal": 8,
+        "names": [
+          "SQUALL_Channel_GetConeParameters"
+        ],
+        "rva": 15472,
+        "address": "10003c70"
+      },
+      {
+        "ordinal": 9,
+        "names": [
+          "SQUALL_Channel_GetFragment"
+        ],
+        "rva": 15760,
+        "address": "10003d90"
+      },
+      {
+        "ordinal": 10,
+        "names": [
+          "SQUALL_Channel_GetFragmentMs"
+        ],
+        "rva": 16000,
+        "address": "10003e80"
+      },
+      {
+        "ordinal": 11,
+        "names": [
+          "SQUALL_Channel_GetFrequency"
+        ],
+        "rva": 16304,
+        "address": "10003fb0"
+      },
+      {
+        "ordinal": 12,
+        "names": [
+          "SQUALL_Channel_GetLength"
+        ],
+        "rva": 16480,
+        "address": "10004060"
+      },
+      {
+        "ordinal": 13,
+        "names": [
+          "SQUALL_Channel_GetLengthMs"
+        ],
+        "rva": 16640,
+        "address": "10004100"
+      },
+      {
+        "ordinal": 14,
+        "names": [
+          "SQUALL_Channel_GetLoop"
+        ],
+        "rva": 16848,
+        "address": "100041d0"
+      },
+      {
+        "ordinal": 15,
+        "names": [
+          "SQUALL_Channel_GetMinMaxDistance"
+        ],
+        "rva": 16992,
+        "address": "10004260"
+      },
+      {
+        "ordinal": 16,
+        "names": [
+          "SQUALL_Channel_GetPan"
+        ],
+        "rva": 17232,
+        "address": "10004350"
+      },
+      {
+        "ordinal": 17,
+        "names": [
+          "SQUALL_Channel_GetPlayPosition"
+        ],
+        "rva": 17424,
+        "address": "10004410"
+      },
+      {
+        "ordinal": 18,
+        "names": [
+          "SQUALL_Channel_GetPlayPositionMs"
+        ],
+        "rva": 17600,
+        "address": "100044c0"
+      },
+      {
+        "ordinal": 19,
+        "names": [
+          "SQUALL_Channel_GetPriority"
+        ],
+        "rva": 17808,
+        "address": "10004590"
+      },
+      {
+        "ordinal": 20,
+        "names": [
+          "SQUALL_Channel_GetVelocity"
+        ],
+        "rva": 17952,
+        "address": "10004620"
+      },
+      {
+        "ordinal": 21,
+        "names": [
+          "SQUALL_Channel_GetVolume"
+        ],
+        "rva": 18160,
+        "address": "100046f0"
+      },
+      {
+        "ordinal": 22,
+        "names": [
+          "SQUALL_Channel_Pause"
+        ],
+        "rva": 18352,
+        "address": "100047b0"
+      },
+      {
+        "ordinal": 23,
+        "names": [
+          "SQUALL_Channel_Set3DPosition"
+        ],
+        "rva": 18512,
+        "address": "10004850"
+      },
+      {
+        "ordinal": 24,
+        "names": [
+          "SQUALL_Channel_SetConeParameters"
+        ],
+        "rva": 18752,
+        "address": "10004940"
+      },
+      {
+        "ordinal": 25,
+        "names": [
+          "SQUALL_Channel_SetFragment"
+        ],
+        "rva": 19008,
+        "address": "10004a40"
+      },
+      {
+        "ordinal": 26,
+        "names": [
+          "SQUALL_Channel_SetFragmentMs"
+        ],
+        "rva": 19200,
+        "address": "10004b00"
+      },
+      {
+        "ordinal": 27,
+        "names": [
+          "SQUALL_Channel_SetFrequency"
+        ],
+        "rva": 19424,
+        "address": "10004be0"
+      },
+      {
+        "ordinal": 28,
+        "names": [
+          "SQUALL_Channel_SetLoop"
+        ],
+        "rva": 19600,
+        "address": "10004c90"
+      },
+      {
+        "ordinal": 29,
+        "names": [
+          "SQUALL_Channel_SetMinMaxDistance"
+        ],
+        "rva": 19824,
+        "address": "10004d70"
+      },
+      {
+        "ordinal": 30,
+        "names": [
+          "SQUALL_Channel_SetPan"
+        ],
+        "rva": 20016,
+        "address": "10004e30"
+      },
+      {
+        "ordinal": 31,
+        "names": [
+          "SQUALL_Channel_SetPlayPosition"
+        ],
+        "rva": 20208,
+        "address": "10004ef0"
+      },
+      {
+        "ordinal": 32,
+        "names": [
+          "SQUALL_Channel_SetPlayPositionMs"
+        ],
+        "rva": 20368,
+        "address": "10004f90"
+      },
+      {
+        "ordinal": 33,
+        "names": [
+          "SQUALL_Channel_SetPriority"
+        ],
+        "rva": 20560,
+        "address": "10005050"
+      },
+      {
+        "ordinal": 34,
+        "names": [
+          "SQUALL_Channel_SetVelocity"
+        ],
+        "rva": 20672,
+        "address": "100050c0"
+      },
+      {
+        "ordinal": 35,
+        "names": [
+          "SQUALL_Channel_SetVolume"
+        ],
+        "rva": 20912,
+        "address": "100051b0"
+      },
+      {
+        "ordinal": 36,
+        "names": [
+          "SQUALL_Channel_SetWorker"
+        ],
+        "rva": 21088,
+        "address": "10005260"
+      },
+      {
+        "ordinal": 37,
+        "names": [
+          "SQUALL_Channel_Start"
+        ],
+        "rva": 21360,
+        "address": "10005370"
+      },
+      {
+        "ordinal": 38,
+        "names": [
+          "SQUALL_Channel_Status"
+        ],
+        "rva": 21536,
+        "address": "10005420"
+      },
+      {
+        "ordinal": 39,
+        "names": [
+          "SQUALL_Channel_Stop"
+        ],
+        "rva": 21712,
+        "address": "100054d0"
+      },
+      {
+        "ordinal": 40,
+        "names": [
+          "SQUALL_Channel_ZOOMFX_GetProperties"
+        ],
+        "rva": 21872,
+        "address": "10005570"
+      },
+      {
+        "ordinal": 41,
+        "names": [
+          "SQUALL_Channel_ZOOMFX_SetProperties"
+        ],
+        "rva": 22112,
+        "address": "10005660"
+      },
+      {
+        "ordinal": 42,
+        "names": [
+          "SQUALL_Free"
+        ],
+        "rva": 22352,
+        "address": "10005750"
+      },
+      {
+        "ordinal": 43,
+        "names": [
+          "SQUALL_Get3DAlgorithm"
+        ],
+        "rva": 22640,
+        "address": "10005870"
+      },
+      {
+        "ordinal": 44,
+        "names": [
+          "SQUALL_GetBufferSize"
+        ],
+        "rva": 22752,
+        "address": "100058e0"
+      },
+      {
+        "ordinal": 45,
+        "names": [
+          "SQUALL_GetChannelsInfo"
+        ],
+        "rva": 22864,
+        "address": "10005950"
+      },
+      {
+        "ordinal": 46,
+        "names": [
+          "SQUALL_GetDevice"
+        ],
+        "rva": 23184,
+        "address": "10005a90"
+      },
+      {
+        "ordinal": 47,
+        "names": [
+          "SQUALL_GetDeviceCaps"
+        ],
+        "rva": 23296,
+        "address": "10005b00"
+      },
+      {
+        "ordinal": 48,
+        "names": [
+          "SQUALL_GetDeviceName"
+        ],
+        "rva": 23488,
+        "address": "10005bc0"
+      },
+      {
+        "ordinal": 49,
+        "names": [
+          "SQUALL_GetEAXVersion"
+        ],
+        "rva": 23648,
+        "address": "10005c60"
+      },
+      {
+        "ordinal": 50,
+        "names": [
+          "SQUALL_GetHardwareAcceleration"
+        ],
+        "rva": 23760,
+        "address": "10005cd0"
+      },
+      {
+        "ordinal": 51,
+        "names": [
+          "SQUALL_GetNumDevice"
+        ],
+        "rva": 23952,
+        "address": "10005d90"
+      },
+      {
+        "ordinal": 52,
+        "names": [
+          "SQUALL_GetSpeakerMode"
+        ],
+        "rva": 23968,
+        "address": "10005da0"
+      },
+      {
+        "ordinal": 53,
+        "names": [
+          "SQUALL_Init"
+        ],
+        "rva": 24208,
+        "address": "10005e90"
+      },
+      {
+        "ordinal": 54,
+        "names": [
+          "SQUALL_Listener_EAX_GetProperties"
+        ],
+        "rva": 24832,
+        "address": "10006100"
+      },
+      {
+        "ordinal": 55,
+        "names": [
+          "SQUALL_Listener_EAX_SetPreset"
+        ],
+        "rva": 25056,
+        "address": "100061e0"
+      },
+      {
+        "ordinal": 56,
+        "names": [
+          "SQUALL_Listener_EAX_SetProperties"
+        ],
+        "rva": 25264,
+        "address": "100062b0"
+      },
+      {
+        "ordinal": 57,
+        "names": [
+          "SQUALL_Listener_GetDistanceFactor"
+        ],
+        "rva": 25488,
+        "address": "10006390"
+      },
+      {
+        "ordinal": 58,
+        "names": [
+          "SQUALL_Listener_GetDopplerFactor"
+        ],
+        "rva": 25648,
+        "address": "10006430"
+      },
+      {
+        "ordinal": 59,
+        "names": [
+          "SQUALL_Listener_GetParameters"
+        ],
+        "rva": 25808,
+        "address": "100064d0"
+      },
+      {
+        "ordinal": 60,
+        "names": [
+          "SQUALL_Listener_GetPosition"
+        ],
+        "rva": 26160,
+        "address": "10006630"
+      },
+      {
+        "ordinal": 61,
+        "names": [
+          "SQUALL_Listener_GetRolloffFactor"
+        ],
+        "rva": 26336,
+        "address": "100066e0"
+      },
+      {
+        "ordinal": 62,
+        "names": [
+          "SQUALL_Listener_GetVelocity"
+        ],
+        "rva": 26496,
+        "address": "10006780"
+      },
+      {
+        "ordinal": 63,
+        "names": [
+          "SQUALL_Listener_SetDistanceFactor"
+        ],
+        "rva": 26672,
+        "address": "10006830"
+      },
+      {
+        "ordinal": 64,
+        "names": [
+          "SQUALL_Listener_SetDopplerFactor"
+        ],
+        "rva": 26880,
+        "address": "10006900"
+      },
+      {
+        "ordinal": 65,
+        "names": [
+          "SQUALL_Listener_SetParameters"
+        ],
+        "rva": 27088,
+        "address": "100069d0"
+      },
+      {
+        "ordinal": 66,
+        "names": [
+          "SQUALL_Listener_SetPosition"
+        ],
+        "rva": 27760,
+        "address": "10006c70"
+      },
+      {
+        "ordinal": 67,
+        "names": [
+          "SQUALL_Listener_SetRolloffFactor"
+        ],
+        "rva": 28048,
+        "address": "10006d90"
+      },
+      {
+        "ordinal": 68,
+        "names": [
+          "SQUALL_Listener_SetVelocity"
+        ],
+        "rva": 28256,
+        "address": "10006e60"
+      },
+      {
+        "ordinal": 69,
+        "names": [
+          "SQUALL_Listener_SetWorker"
+        ],
+        "rva": 28576,
+        "address": "10006fa0"
+      },
+      {
+        "ordinal": 70,
+        "names": [
+          "SQUALL_Listener_Update"
+        ],
+        "rva": 28752,
+        "address": "10007050"
+      },
+      {
+        "ordinal": 71,
+        "names": [
+          "SQUALL_Pause"
+        ],
+        "rva": 28880,
+        "address": "100070d0"
+      },
+      {
+        "ordinal": 72,
+        "names": [
+          "SQUALL_SampleGroup_Play"
+        ],
+        "rva": 29040,
+        "address": "10007170"
+      },
+      {
+        "ordinal": 73,
+        "names": [
+          "SQUALL_SampleGroup_Play3D"
+        ],
+        "rva": 29232,
+        "address": "10007230"
+      },
+      {
+        "ordinal": 74,
+        "names": [
+          "SQUALL_SampleGroup_Play3DEx"
+        ],
+        "rva": 29488,
+        "address": "10007330"
+      },
+      {
+        "ordinal": 75,
+        "names": [
+          "SQUALL_SampleGroup_PlayEx"
+        ],
+        "rva": 29696,
+        "address": "10007400"
+      },
+      {
+        "ordinal": 76,
+        "names": [
+          "SQUALL_Sample_GetDefault"
+        ],
+        "rva": 29840,
+        "address": "10007490"
+      },
+      {
+        "ordinal": 77,
+        "names": [
+          "SQUALL_Sample_GetFileFrequency"
+        ],
+        "rva": 29904,
+        "address": "100074d0"
+      },
+      {
+        "ordinal": 78,
+        "names": [
+          "SQUALL_Sample_GetFileLength"
+        ],
+        "rva": 29952,
+        "address": "10007500"
+      },
+      {
+        "ordinal": 79,
+        "names": [
+          "SQUALL_Sample_GetFileLengthMs"
+        ],
+        "rva": 30000,
+        "address": "10007530"
+      },
+      {
+        "ordinal": 80,
+        "names": [
+          "SQUALL_Sample_LoadFile"
+        ],
+        "rva": 30096,
+        "address": "10007590"
+      },
+      {
+        "ordinal": 81,
+        "names": [
+          "SQUALL_Sample_Pause"
+        ],
+        "rva": 30176,
+        "address": "100075e0"
+      },
+      {
+        "ordinal": 82,
+        "names": [
+          "SQUALL_Sample_Play"
+        ],
+        "rva": 30352,
+        "address": "10007690"
+      },
+      {
+        "ordinal": 83,
+        "names": [
+          "SQUALL_Sample_Play3D"
+        ],
+        "rva": 30512,
+        "address": "10007730"
+      },
+      {
+        "ordinal": 84,
+        "names": [
+          "SQUALL_Sample_Play3DEx"
+        ],
+        "rva": 30752,
+        "address": "10007820"
+      },
+      {
+        "ordinal": 85,
+        "names": [
+          "SQUALL_Sample_PlayEx"
+        ],
+        "rva": 30928,
+        "address": "100078d0"
+      },
+      {
+        "ordinal": 86,
+        "names": [
+          "SQUALL_Sample_SetDefault"
+        ],
+        "rva": 31056,
+        "address": "10007950"
+      },
+      {
+        "ordinal": 87,
+        "names": [
+          "SQUALL_Sample_Stop"
+        ],
+        "rva": 31120,
+        "address": "10007990"
+      },
+      {
+        "ordinal": 88,
+        "names": [
+          "SQUALL_Sample_Unload"
+        ],
+        "rva": 31296,
+        "address": "10007a40"
+      },
+      {
+        "ordinal": 89,
+        "names": [
+          "SQUALL_Sample_UnloadAll"
+        ],
+        "rva": 31312,
+        "address": "10007a50"
+      },
+      {
+        "ordinal": 90,
+        "names": [
+          "SQUALL_Set3DAlgorithm"
+        ],
+        "rva": 31328,
+        "address": "10007a60"
+      },
+      {
+        "ordinal": 91,
+        "names": [
+          "SQUALL_SetBufferSize"
+        ],
+        "rva": 31472,
+        "address": "10007af0"
+      },
+      {
+        "ordinal": 92,
+        "names": [
+          "SQUALL_SetDevice"
+        ],
+        "rva": 31600,
+        "address": "10007b70"
+      },
+      {
+        "ordinal": 93,
+        "names": [
+          "SQUALL_SetFileCallbacks"
+        ],
+        "rva": 31744,
+        "address": "10007c00"
+      },
+      {
+        "ordinal": 94,
+        "names": [
+          "SQUALL_SetHardwareAcceleration"
+        ],
+        "rva": 31840,
+        "address": "10007c60"
+      },
+      {
+        "ordinal": 95,
+        "names": [
+          "SQUALL_SetMemoryCallbacks"
+        ],
+        "rva": 31984,
+        "address": "10007cf0"
+      },
+      {
+        "ordinal": 96,
+        "names": [
+          "SQUALL_SetSpeakerMode"
+        ],
+        "rva": 32048,
+        "address": "10007d30"
+      },
+      {
+        "ordinal": 97,
+        "names": [
+          "SQUALL_Stop"
+        ],
+        "rva": 32272,
+        "address": "10007e10"
+      }
+    ],
+    "failures": [],
+    "note": "Checks the PE export contract, not runtime behavior or exception ABI"
+  },
+  "runtime_precision_contexts": [
+    {
+      "devices": 3,
+      "files": 45,
+      "metadata": 180,
+      "pcm_calls": 270,
+      "pcm_bytes": 825918,
+      "sequential_calls": 5034,
+      "sequential_bytes": 61263876,
+      "sequential_frames": 20421292,
+      "decoders": {
+        "482a0": 45
+      },
+      "precision": "process-default"
+    },
+    {
+      "devices": 3,
+      "files": 45,
+      "metadata": 180,
+      "pcm_calls": 270,
+      "pcm_bytes": 825918,
+      "sequential_calls": 5034,
+      "sequential_bytes": 61263876,
+      "sequential_frames": 20421292,
+      "decoders": {
+        "482a0": 45
+      },
+      "precision": "x87-pc24"
+    }
+  ],
+  "mdct_precision_contexts": [
+    {
+      "lookup_values": 20400,
+      "butterfly_values": 400000,
+      "transforms": 1024,
+      "transform_values": 2088960,
+      "differences": 0,
+      "precision": "process-default"
+    },
+    {
+      "lookup_values": 20400,
+      "butterfly_values": 400000,
+      "transforms": 1024,
+      "transform_values": 2088960,
+      "differences": 0,
+      "precision": "x87-pc24"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "src/squall/codecs/vorbis/COPYING",
+      "sha256": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6"
+    },
+    {
+      "path": "src/squall/codecs/vorbis/mdct.c",
+      "sha256": "8a4fcfde0ad92eb87e1d32bec640b1635ff94f6db3e9c318130efe71e4cfde77"
+    },
+    {
+      "path": "src/squall/codecs/vorbis/mdct.h",
+      "sha256": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93"
+    },
+    {
+      "path": "src/squall/codecs/vorbis/NativeButterfly.c",
+      "sha256": "bfff72d15cddaedbea2e6ad6b5ba6bebbafbf0b0bf7c7fb6084947e0561d37b1"
+    },
+    {
+      "path": "src/squall/Parameters.cpp",
+      "sha256": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508"
+    },
+    {
+      "path": "src/squall/Parameters.h",
+      "sha256": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d"
+    },
+    {
+      "path": "src/squall/runtime/Abi.cpp",
+      "sha256": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6"
+    },
+    {
+      "path": "src/squall/runtime/LICENSE",
+      "sha256": "8b2ee763bd48e9d0ba84de84433b3b921cb666e75d5ba2949c78b11677e06ef2"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/Channels.cpp",
+      "sha256": "9ede448e6c727499c5f5b94d91e78388bbe169e8f37afd9495df3838ea1892db"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/Channels.h",
+      "sha256": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/Context.cpp",
+      "sha256": "527aeb60b4ffdfb40e8280163522323d2ae724ef1bb58245ec680f2ad9d7fa32"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/Context.h",
+      "sha256": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/DirectSound.cpp",
+      "sha256": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/DirectSound.h",
+      "sha256": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/dsound.h",
+      "sha256": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax.cpp",
+      "sha256": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax.h",
+      "sha256": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax1_api.h",
+      "sha256": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax2_api.h",
+      "sha256": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax3_api.h",
+      "sha256": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/Eax4_api.h",
+      "sha256": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp",
+      "sha256": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/ZoomFX.h",
+      "sha256": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h",
+      "sha256": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/HiddenWindow.cpp",
+      "sha256": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/HiddenWindow.h",
+      "sha256": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "sha256": "03b9033f9100ee058c2d4950fec99068278ba8767b8e6494a6fa8182d638b55d"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/SquallApi.cpp",
+      "sha256": "5f30d2dfc69006e0292f0ce3c9d7580e106ce17e3e7dc5b79ecbcf4b8dc337ed"
+    },
+    {
+      "path": "src/squall/runtime/SoundEngine/SquallApi.h",
+      "sha256": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/AbstractDecoder.h",
+      "sha256": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/AbstractSoundFile.h",
+      "sha256": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/ExternFunction.h",
+      "sha256": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/l1dec.cpp",
+      "sha256": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/l2dec.cpp",
+      "sha256": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/l3dec.cpp",
+      "sha256": "1e24973366f55f2fd0d673952c25c73b92a7895c62acb51178339d65bbdc9d82"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp",
+      "sha256": "8cd3b73b32ee169cc39cc736e45d2cac0065fa646350c3d83541650f0cd9b0ae"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/MpegDecoder.h",
+      "sha256": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/MpegFile.cpp",
+      "sha256": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/MpegFile.h",
+      "sha256": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/MP3/MpegHuff.h",
+      "sha256": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp",
+      "sha256": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Ogg/OggDecoder.h",
+      "sha256": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Ogg/OggFile.cpp",
+      "sha256": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Ogg/OggFile.h",
+      "sha256": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Reader.cpp",
+      "sha256": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Reader.h",
+      "sha256": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/SoundFile.cpp",
+      "sha256": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/SoundFile.h",
+      "sha256": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/fastmix.cpp",
+      "sha256": "de0e1e8c3deb1ccd80b9ef78100dc5b1686ba7f8f464b9897f28f4294796f383"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/it_defs.h",
+      "sha256": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_669.cpp",
+      "sha256": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_amf.cpp",
+      "sha256": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_ams.cpp",
+      "sha256": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_dbm.cpp",
+      "sha256": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_dmf.cpp",
+      "sha256": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_dsm.cpp",
+      "sha256": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_far.cpp",
+      "sha256": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_it.cpp",
+      "sha256": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_mdl.cpp",
+      "sha256": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_med.cpp",
+      "sha256": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_mod.cpp",
+      "sha256": "f2775b27e3c8958060b9e04c01c38e5073c2d17ea27c217add5d6272ecb043e5"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_mt2.cpp",
+      "sha256": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_mtm.cpp",
+      "sha256": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_okt.cpp",
+      "sha256": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_psm.cpp",
+      "sha256": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_ptm.cpp",
+      "sha256": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_s3m.cpp",
+      "sha256": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_stm.cpp",
+      "sha256": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_ult.cpp",
+      "sha256": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_umx.cpp",
+      "sha256": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/load_xm.cpp",
+      "sha256": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/snd_fx.cpp",
+      "sha256": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/sndmix.cpp",
+      "sha256": "a2fbaacd2939af9767d8cc86f97fa9981b0085e1860f78dc34e526253f289cee"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/stdafx.h",
+      "sha256": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/tables.cpp",
+      "sha256": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/TrackDecoder.cpp",
+      "sha256": "bbc515903ec6e5de6daada5bbf7bbca7229a83545616275415a1a3878dee633f"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/TrackDecoder.h",
+      "sha256": "d608767616f042d0369a606d1514decc91564634e3f07d8fddd8b05e5fea54eb"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/TrackFile.cpp",
+      "sha256": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/track/TrackFile.h",
+      "sha256": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp",
+      "sha256": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h",
+      "sha256": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp",
+      "sha256": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h",
+      "sha256": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp",
+      "sha256": "ece3cf623213396d823a2553d6e882c22fec2bad12e21fac5002da0b8596a4b8"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/PcmDecoder.h",
+      "sha256": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/WavFile.cpp",
+      "sha256": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/WAV/WavFile.h",
+      "sha256": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp",
+      "sha256": "0e8a29750c4437944e5914c9d40e9a60bbf30886a888b99b73ca8d76c079b63c"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Wma/WmaDecoder.h",
+      "sha256": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Wma/WmaFile.cpp",
+      "sha256": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa"
+    },
+    {
+      "path": "src/squall/runtime/SoundFile/Wma/WmaFile.h",
+      "sha256": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56"
+    },
+    {
+      "path": "src/squall/runtime/Squall.def",
+      "sha256": "11adf81ca9722174ab945f02ebf9af8e60cf79832518d297b94ca6d3963a0d98"
+    },
+    {
+      "path": "src/squall/runtime/Squall.h",
+      "sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234"
+    },
+    {
+      "path": "src/squall/VolumeTable.cpp",
+      "sha256": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1"
+    },
+    {
+      "path": "src/squall/VolumeTable.h",
+      "sha256": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da"
+    },
+    {
+      "path": "tools/cmake/OriginalCodecs.cmake",
+      "sha256": "9eb1346a640721d50a8d2b83a23ae76763a73c04e2aa5d08afce21427af2ddfd"
+    },
+    {
+      "path": "tools/cmake/SquallCandidate.cmake",
+      "sha256": "0ab92df411fb71a097bfe21f6b27f49bc6f8640580b967bcc1a7412fa434ba00"
+    }
+  ],
+  "oracle_files": [
+    {
+      "path": "build/windows/Release/squall-runtime-reference-test.exe",
+      "sha256": "f90fd2994004b0a33b3e1164fa5575cffe7b51ef13fe5388dc7fecda6d2b7d4e"
+    },
+    {
+      "path": "build/windows/Release/squall-vorbis-reference-test.exe",
+      "sha256": "693ca2eaf499c59143a0d6c55a31fb5af8a53f6d5d0429de28bfe540268de13d"
+    }
+  ],
+  "native_addresses": {
+    "sample_get_file": "10008300",
+    "mono_pcm": "1002e020",
+    "stereo_pcm": "1002e060",
+    "mdct_init": "10037110",
+    "mdct_clear": "100372f0",
+    "mdct_backward": "10037330",
+    "butterfly32": "10037840",
+    "butterfly8": "10037d40",
+    "generic_stage": "10037dd0"
+  },
+  "coverage": [
+    "Actual DirectSound device enumeration count compared on this host",
+    "Recovered FileIndex and SoundFiles read-only callbacks load all 45 original sounds in memory mode 1",
+    "Public sample IDs, frame and millisecond length, frequency and all 28 default bytes",
+    "Initial, middle and final random-access windows in mono and stereo",
+    "Complete PCM in both channel conversions through 4096-frame chunks, sequential start sentinel and buffer guards",
+    "MDCT lookup, bit reversal and scale for sizes 64..8192; seeded whole transforms and 8/32 butterflies",
+    "Both PC53 and PC24 set after loading the oracle; precision remains unchanged after comparisons"
+  ],
+  "test_adapters": [
+    "Original DLL is loaded normally as an independent test oracle, including its CRT entry point",
+    "PCM accesses the original private sample reader and wrappers; source calls its own editable static runtime",
+    "No Squall initialization, DirectSound playback or fake audio device is used by this sample comparison",
+    "Candidate DLL export contract is checked separately; its whole runtime is not proved by statically linked PCM tests"
+  ],
+  "pending": [
+    "Actual candidate DLL public API runtime and all 97 interfaces/calling conventions",
+    "Full initialization, DirectSound buffer playback, channel state, device switching, workers and thread synchronization",
+    "3D listener and channels, EAX/ZoomFX and hardware-dependent behavior",
+    "PCM WAV, IMA/MS ADPCM, MPEG, WMA and tracker decoders: all original game sound files use Vorbis",
+    "Streaming file mode 0 with genuinely seekable callbacks, looping, EOF/error/corrupt inputs and custom allocations",
+    "Original Ogg/Vorbis release tag; identical game-file PCM does not identify the historical release",
+    "Whole game audio integration, real menu/engine and saves"
+  ]
+}

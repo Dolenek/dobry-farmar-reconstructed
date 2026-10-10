@@ -70,6 +70,21 @@ def main():
     if 'analysis/sound-manager-validation.json' not in report['reports']: report['reports'].append('analysis/sound-manager-validation.json')
     if 'squall-parameters-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('squall-parameters-reference-test.exe')
     if 'analysis/squall-parameters-validation.json' not in report['reports']: report['reports'].append('analysis/squall-parameters-validation.json')
+    runtime_path=ROOT/'.local/squall-runtime-validation.json'
+    if runtime_path.exists():
+        runtime=read('.local/squall-runtime-validation.json')
+        assert runtime['status']=='passed_for_recorded_sample_and_transform_scope'
+        for row in runtime['source_files']+runtime['oracle_files']:
+            assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']
+        assert hashlib.sha256((ROOT/'build/windows/squall-candidate/Release/Squall.dll').read_bytes()).hexdigest()==runtime['export_contract']['rebuilt_sha256']
+        write('analysis/squall-runtime-validation.json',runtime)
+        write('analysis/squall-candidate-abi.json',read('.local/squall-candidate-abi.json'))
+        write('analysis/squall-export-audit.json',read('.local/squall-export-audit.json'))
+        report['squall-runtime']=runtime
+        report['build']['explicit_audit_targets']=['SquallCandidate','squall-runtime-reference-test','squall-vorbis-reference-test']
+        report['build']['squall_candidate_complete_equivalence']=False
+        for path in ('analysis/squall-runtime-validation.json','analysis/squall-candidate-abi.json','analysis/squall-export-audit.json'):
+            if path not in report['reports']: report['reports'].append(path)
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

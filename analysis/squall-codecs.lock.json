@@ -1,0 +1,753 @@
+{
+  "status": "historical_candidates_original_versions_unproved",
+  "digest_sources": [
+    "https://github.com/xiph/ogg/blob/main/releases.sha2",
+    "https://github.com/xiph/vorbis/blob/main/releases.sha2"
+  ],
+  "dependencies": [
+    {
+      "name": "libogg-1.1",
+      "archive": "libogg-1.1.tar.gz",
+      "url": "https://downloads.xiph.org/releases/ogg/libogg-1.1.tar.gz",
+      "sha256": "01453d561255b5fcb361997904752860e4f8c6b9742f290578a44615fcc94356",
+      "files": [
+        {
+          "path": "CHANGES",
+          "sha256": "a2630e84eb6e752c32c2fdf3f90d092c1bf09e0a3b7f72970dfce5a699fcc1e5"
+        },
+        {
+          "path": "COPYING",
+          "sha256": "d2ab5758336489da61c12cc5bb757da5339c4ae9001f9bb0562b4370249af814"
+        },
+        {
+          "path": "include/ogg/ogg.h",
+          "sha256": "4304d4e2b0f14dd638c12a3956f98a2f421c13818c3ccc10d193c1f42edd65f4"
+        },
+        {
+          "path": "include/ogg/os_types.h",
+          "sha256": "5987269e6693911dc0ecc3c16f7b73fefad6e342c4434872db460fec08b75539"
+        },
+        {
+          "path": "macos/compat/strdup.c",
+          "sha256": "26ba8d07ae5e2ab9a82bf751d582db0cfb29b3bf10b5f2d866eba3a917a91518"
+        },
+        {
+          "path": "macos/compat/sys/types.h",
+          "sha256": "33955ad11b41622abe7bd5f4447526241db1419305aa8c3940927cfa5f4884dd"
+        },
+        {
+          "path": "src/bitwise.c",
+          "sha256": "3229a61677908d5048f7fe9a733d7777d6eafa999f920e87234ce128d2edc950"
+        },
+        {
+          "path": "src/framing.c",
+          "sha256": "f9ca45780f10bb9870159b10a558d64580bbac06d811ab025bfcf69e401bf7bd"
+        }
+      ]
+    },
+    {
+      "name": "libvorbis-1.0.1",
+      "archive": "libvorbis-1.0.1.tar.gz",
+      "url": "https://downloads.xiph.org/releases/vorbis/libvorbis-1.0.1.tar.gz",
+      "sha256": "20b3cbdb4b05322d470404a7d2e8cdae1e0ce5372113218ae3cada3b29da70f7",
+      "files": [
+        {
+          "path": "COPYING",
+          "sha256": "d2ab5758336489da61c12cc5bb757da5339c4ae9001f9bb0562b4370249af814"
+        },
+        {
+          "path": "examples/chaining_example.c",
+          "sha256": "e97584192d89ad70ae28f2878ebcca96af0212e71745fd2348268c32501b56b5"
+        },
+        {
+          "path": "examples/decoder_example.c",
+          "sha256": "a5ee4bff0b2060be1de0c4aca9717bf5b2d3bc2260d90930a7153e70da782c7b"
+        },
+        {
+          "path": "examples/encoder_example.c",
+          "sha256": "d38135b113342d929a4e4c0b14607cb7d625760468622f788c862db905f06c56"
+        },
+        {
+          "path": "examples/seeking_example.c",
+          "sha256": "e2e1d04f44d5073d121f12492418b0a5007158b926c2bc265c3e6f9e11cc5230"
+        },
+        {
+          "path": "examples/vorbisfile_example.c",
+          "sha256": "3ea8e5bb26b3200c46b5f1fb1dc93ade1ab29246f7bd71238913fbc3ed510601"
+        },
+        {
+          "path": "include/vorbis/codec.h",
+          "sha256": "be59307cb8af9a61711817e240b36c7ecb66d774c55fb6f810c5132701b5d5eb"
+        },
+        {
+          "path": "include/vorbis/vorbisenc.h",
+          "sha256": "f21156118de9f351ca3bb74c0187e95ff3ef597a4b8b8998e0a32ed90ea9a277"
+        },
+        {
+          "path": "include/vorbis/vorbisfile.h",
+          "sha256": "c2f9db230ec6ef106078651ea5a0418dca04d8d1f1d86dc1c3e8e774937bb454"
+        },
+        {
+          "path": "lib/analysis.c",
+          "sha256": "bc468459915de17f7eca22ba7018f684cd870e975483b83f74462182d40a62af"
+        },
+        {
+          "path": "lib/backends.h",
+          "sha256": "8a978850647224b64452c9bd22ef1513468571d6f66274e7d88afec666699693"
+        },
+        {
+          "path": "lib/barkmel.c",
+          "sha256": "e53d0e92033583a3388d724e99f3dc1d780c433ce7e96c68045166a6e7738425"
+        },
+        {
+          "path": "lib/bitrate.c",
+          "sha256": "46271daff56f83e1754a14aa65a928d560821aee9951d9ad95129e4e4b35fbce"
+        },
+        {
+          "path": "lib/bitrate.h",
+          "sha256": "01508993cacdedf94f450cfb138cfa22302c5bf6044fc6b3d0ab3002d1b51168"
+        },
+        {
+          "path": "lib/block.c",
+          "sha256": "49227c74635a24bde7c6eb01c32d5cf073daf99bc9d65f46c9706c4d44cfbcc2"
+        },
+        {
+          "path": "lib/books/coupled/res_books_stereo.h",
+          "sha256": "01b53dc8efaf98c11e5a2f2f999994defa716e533c37ec03b9c10c54c6520eaf"
+        },
+        {
+          "path": "lib/books/floor/floor_books.h",
+          "sha256": "5a50b93a3c13af7435da62da9560d0c5e8f31a510d0949d6422b0ae1f5f0844e"
+        },
+        {
+          "path": "lib/books/uncoupled/res_books_uncoupled.h",
+          "sha256": "03c3d1a795916e3c114518ff62e74d36cdf2321baa2f1717a7e23a4e228db819"
+        },
+        {
+          "path": "lib/codebook.c",
+          "sha256": "8621955dddeab339cd59d101ba6a87160951f1af521e1426d6ef9a001defcf70"
+        },
+        {
+          "path": "lib/codebook.h",
+          "sha256": "e4d070867ba28a9fd91868e0bb94cb0c996a060829b4ca1a78a6fd6beb29cca3"
+        },
+        {
+          "path": "lib/codec_internal.h",
+          "sha256": "0f2a643cf816f53d3160f67adc902f147f127264015fe63445931f983cde201d"
+        },
+        {
+          "path": "lib/envelope.c",
+          "sha256": "a442a5c00b69a1cb7417f3d89843f1d5387a732f556de0add8b199665233af1a"
+        },
+        {
+          "path": "lib/envelope.h",
+          "sha256": "af0c88f93ea74605abbe4862ac01307537d929fbcd24a90fb06249a91f01f730"
+        },
+        {
+          "path": "lib/floor0.c",
+          "sha256": "fe95edbc87ef182dd63fd37aa1c3047ee08e06f5783fcd0574adfce114627c56"
+        },
+        {
+          "path": "lib/floor1.c",
+          "sha256": "256ee7b29c50079f073a9741d413077a8c0a058639c84d90a9f7e21756c8b841"
+        },
+        {
+          "path": "lib/highlevel.h",
+          "sha256": "b33384e9fd566a5b746717a76da5d5afd4b2456f45228c163505fa7e8e74de39"
+        },
+        {
+          "path": "lib/info.c",
+          "sha256": "00a862289fc85b40bd8c1cb5f5a312f22f8fc2ded7b63d09aa8ea75739ed9b8b"
+        },
+        {
+          "path": "lib/lookup.c",
+          "sha256": "4d9cefffe0759a6fe86ccca3bf731777333525e6b24f6240ee8b97b6c7aa2301"
+        },
+        {
+          "path": "lib/lookup.h",
+          "sha256": "eb019abae10214d1ba4852b330c270f405b14b93ebaa4c20598a0fb4f1935a4b"
+        },
+        {
+          "path": "lib/lookup_data.h",
+          "sha256": "b40dc214b450e32dc27c89b97f689f8a4840f3d7fb737fb83d7fb99103fdf4dd"
+        },
+        {
+          "path": "lib/lpc.c",
+          "sha256": "b6208d726261746192c7e489614aa5f38a0368b8b78c79dfd34ca94d261d14ed"
+        },
+        {
+          "path": "lib/lpc.h",
+          "sha256": "8d172ba6efc102e310cd56d06b0d54271bc9ec5feb4cd9c1abed475116782470"
+        },
+        {
+          "path": "lib/lsp.c",
+          "sha256": "0497167c779a5a671ac555985bead6dd284b4d3600bca654934d75816185efca"
+        },
+        {
+          "path": "lib/lsp.h",
+          "sha256": "2dbb7b60a61c55ff4bcb1c3acab34bf7b71a4e22119466884753b3ae0d9f6c90"
+        },
+        {
+          "path": "lib/mapping0.c",
+          "sha256": "95b34ab573c431944e1a1a4cfb0aca02a443233bc9a94f18b475534d75bda49e"
+        },
+        {
+          "path": "lib/masking.h",
+          "sha256": "04a24519d5c1964c2bb7845ac40a8aa98959b318f5e0db582d80ec53dbee25cf"
+        },
+        {
+          "path": "lib/mdct.c",
+          "sha256": "96031aa074a49a0912b7de6edd13b222a3c38e7ea9a3cbe0fa4014d8575ee2fa"
+        },
+        {
+          "path": "lib/mdct.h",
+          "sha256": "3d8b031f836d8062703d5bcaa73792c2513c1f82135e3ab7b17fc26013f61c40"
+        },
+        {
+          "path": "lib/misc.h",
+          "sha256": "77121622500d5b55c4b148ce69ae12896811796606c264e385487cd2c74e5474"
+        },
+        {
+          "path": "lib/modes/floor_all.h",
+          "sha256": "9448e8f1e5f3b31018de4d91853c6764c33fb039e33b5fef2443fb3f2aa6ef95"
+        },
+        {
+          "path": "lib/modes/psych_11.h",
+          "sha256": "91d29c6e01ec7e76c10fd24fca67b760eaa2ffeb45bb23b865193c7ee5f61155"
+        },
+        {
+          "path": "lib/modes/psych_16.h",
+          "sha256": "5d68b86b4b15a5cc7c1ae5580acc6b7a95119dd6b77363197ac03d62065737ba"
+        },
+        {
+          "path": "lib/modes/psych_44.h",
+          "sha256": "f89057d7c38e9b53cd7b2616689628dbc9757d92c02cfa82c7041295ce7615b1"
+        },
+        {
+          "path": "lib/modes/psych_8.h",
+          "sha256": "66c0e28321a0f206cfd3c439d90c23e3e2e15d5681413503550676a8336bd0b5"
+        },
+        {
+          "path": "lib/modes/residue_16.h",
+          "sha256": "5cad9502f7732fa7cf5b067f5eba10065d385b4f88134844edf34d822b5674bd"
+        },
+        {
+          "path": "lib/modes/residue_44.h",
+          "sha256": "04ac69defe5c2e7d05da9df1798fce713742990d7f66f49810ece3c3634c72b7"
+        },
+        {
+          "path": "lib/modes/residue_44u.h",
+          "sha256": "a3e6c8e88aec1e21ccd9dcb899200f8d7513474e1432e82957bec96a51274d91"
+        },
+        {
+          "path": "lib/modes/residue_8.h",
+          "sha256": "358a55f603f562242de54e99b2447766ca1fc0227cdce3258cf413e2ff925331"
+        },
+        {
+          "path": "lib/modes/setup_11.h",
+          "sha256": "84dfe7034b8b0b78c1c9831c185f90ea8fe459bd25846f18446b3b73aef93927"
+        },
+        {
+          "path": "lib/modes/setup_16.h",
+          "sha256": "be8830890c30c708299539e1af35de88571cba7d356deefa02861b3e946d5c27"
+        },
+        {
+          "path": "lib/modes/setup_22.h",
+          "sha256": "60dac10832b6e57bbb6358e34548c0eb468390ae6f9e04ade305508631608cc3"
+        },
+        {
+          "path": "lib/modes/setup_32.h",
+          "sha256": "96c7da336e6600af45a08d13a90dbfbb53d230279975e2c5b639d9086b81e252"
+        },
+        {
+          "path": "lib/modes/setup_44.h",
+          "sha256": "1fe060daa85aa1c4a1fce98884a45b55adf93aae3fda19d97a617c9a210d3e11"
+        },
+        {
+          "path": "lib/modes/setup_44u.h",
+          "sha256": "c624ef23b70f3af3dc59fd1b5fd57a2dbcb8b184bff6b2d3d0bda1a62d8e634f"
+        },
+        {
+          "path": "lib/modes/setup_8.h",
+          "sha256": "f5b78108b5c10393c5aba07e8b1b01d783c6fca0cdd8f0c8e8f9269de591ec6a"
+        },
+        {
+          "path": "lib/modes/setup_X.h",
+          "sha256": "5042dcad2dad7b0ba03ad0fab0fd22d626fa240a43627ca2ff9e3a53c758c594"
+        },
+        {
+          "path": "lib/os.h",
+          "sha256": "6a98d810dc9e30e7cecbdf600bba9605b5367050efcb6d4bd385136ff35b4610"
+        },
+        {
+          "path": "lib/psy.c",
+          "sha256": "f0756445a1f903e79cb525f6e4b171fbb6c2aff0c5cb802ffed344699c0e3511"
+        },
+        {
+          "path": "lib/psy.h",
+          "sha256": "deaae3679064e03e2308d44438c739615fe9b2581bb2a55a00f090b7494f7691"
+        },
+        {
+          "path": "lib/psytune.c",
+          "sha256": "ca36341d96adeea9fc9d04a21ef6a2b923ee73915bd55adafb9a900e3d84a434"
+        },
+        {
+          "path": "lib/registry.c",
+          "sha256": "a8606a5f83008f0d72af19a2e43fd22df7f5c0627e5fe60d0b796a8394140ee8"
+        },
+        {
+          "path": "lib/registry.h",
+          "sha256": "b58718daf4522f6471db7efa77bae51251b077c662537c985ccfb0a40c37fa7c"
+        },
+        {
+          "path": "lib/res0.c",
+          "sha256": "80a676729d1ec3a4d5f7ebff075377462ee1502f2463872e84a3038d40628140"
+        },
+        {
+          "path": "lib/scales.h",
+          "sha256": "02d05ef1f2ecab4e2ae4424e536de0f9ba6dac10240bae653796edb1e4684a1d"
+        },
+        {
+          "path": "lib/sharedbook.c",
+          "sha256": "67c6815f481506946868ea4964ea5d5fc6ee3b4d089cfe6afc74f1d4a601ed55"
+        },
+        {
+          "path": "lib/smallft.c",
+          "sha256": "16b2005cd3615a45d7c700e45be902b0746f4ea2b6dbea417398d32de065b0e0"
+        },
+        {
+          "path": "lib/smallft.h",
+          "sha256": "366211c195128b19257d732a94502c58583742835b730a2d46bf84ebe77b8288"
+        },
+        {
+          "path": "lib/synthesis.c",
+          "sha256": "b060408fa3825dbb745940e35f9455c78df158e0369624c949ebaf8d477095ef"
+        },
+        {
+          "path": "lib/tone.c",
+          "sha256": "7306d9d1b00a5111f2e9eb372935b8a4bfd7c3c4d59b158079f4be1ec0f701e1"
+        },
+        {
+          "path": "lib/vorbisenc.c",
+          "sha256": "7f9bc84f4d8d1788666341d3d6a8836817e20ddcf622d3ba6afc9e6143595c9e"
+        },
+        {
+          "path": "lib/vorbisfile.c",
+          "sha256": "5a7631ce478d42cf47ae3524ec9548948f95e44c96adb723504c8c85b7560b73"
+        },
+        {
+          "path": "lib/window.c",
+          "sha256": "b7d5d99d6bffaf9ab0293fde5e73fbbec3344f7d0b8980c951821051830446b1"
+        },
+        {
+          "path": "lib/window.h",
+          "sha256": "278f5da7a77b1b3942418dd39c7d46f8550717e3e9c130baf577ecfa51ccb777"
+        },
+        {
+          "path": "macos/compat/strdup.c",
+          "sha256": "26ba8d07ae5e2ab9a82bf751d582db0cfb29b3bf10b5f2d866eba3a917a91518"
+        },
+        {
+          "path": "macos/compat/sys/types.h",
+          "sha256": "33955ad11b41622abe7bd5f4447526241db1419305aa8c3940927cfa5f4884dd"
+        },
+        {
+          "path": "vq/bookutil.c",
+          "sha256": "82945029459cab1ca3513ca584fdf22c9fd4d7b43e7163f1ff0e9800b136f122"
+        },
+        {
+          "path": "vq/bookutil.h",
+          "sha256": "8e380517716a1b4027b4047fec7fb95ba540d84d77f89d4574675c7fc83f7ff5"
+        },
+        {
+          "path": "vq/distribution.c",
+          "sha256": "12e186bbbbf0beff692fff0c7264bba6c3b3eb49fe15b5562239a496230945bf"
+        },
+        {
+          "path": "vq/huffbuild.c",
+          "sha256": "3ee8aed91d125c7f56e5aaddc67930b34a5179031e203de850dbeeae8e54921b"
+        },
+        {
+          "path": "vq/latticebuild.c",
+          "sha256": "68e453589acd19786a03d69bb567b9b02b9c81afecb7605fa6d4d32c3c12b2f5"
+        },
+        {
+          "path": "vq/latticehint.c",
+          "sha256": "c9126a523096aeb0fff49bd504db161e2e97cbef5f1bd98a92b30efd00156aaa"
+        },
+        {
+          "path": "vq/latticepare.c",
+          "sha256": "c097d85cdb5717f7dd401b9bbb13c878311d8cbbec80a72096da04e94b327cbe"
+        },
+        {
+          "path": "vq/latticetune.c",
+          "sha256": "33c5ea8b21b0f8febbaa9efdf3bcb094d1cf09290337f2620d057d2598037905"
+        },
+        {
+          "path": "vq/vqgen.c",
+          "sha256": "5a89a93abe0d3727dbc28b74e7224a8d7f1367a0d6dd263fcc9f8fa9a127642b"
+        },
+        {
+          "path": "vq/vqgen.h",
+          "sha256": "7ef56ed906db07beee26507b3c88ecb8b2729548f9278346c22a4d9d923f0d6b"
+        },
+        {
+          "path": "vq/vqsplit.c",
+          "sha256": "07f20c6aa9e651294d9a8ae53a872f7eb3c72645b165daf74601af09c1094a53"
+        }
+      ]
+    },
+    {
+      "name": "libvorbis-1.1.0",
+      "archive": "libvorbis-1.1.0.tar.gz",
+      "url": "https://downloads.xiph.org/releases/vorbis/libvorbis-1.1.0.tar.gz",
+      "sha256": "928c94d373ad9a4a04a38cfe0a849ddcc7a87ad06c8e8012931c37faefa19c00",
+      "files": [
+        {
+          "path": "COPYING",
+          "sha256": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6"
+        },
+        {
+          "path": "examples/chaining_example.c",
+          "sha256": "7b0fb3940bd5a4be24fa30865ae502d5dba5f4ba17399f5adc35aec9af336e94"
+        },
+        {
+          "path": "examples/decoder_example.c",
+          "sha256": "d134071b7cbfc7d07d867fc9815eba46a1573ac59ebdc8d718a88e1d8c273a9c"
+        },
+        {
+          "path": "examples/encoder_example.c",
+          "sha256": "f86e026ff5f93c7a0b8b05844e155d12cf82d815c6a5dd9b162e4277f78292a5"
+        },
+        {
+          "path": "examples/seeking_example.c",
+          "sha256": "fd6f0ef115087801d7f60878ba549560d858475f6fd0368bd14a9748528957ca"
+        },
+        {
+          "path": "examples/vorbisfile_example.c",
+          "sha256": "1ddea1223bdf866390703ed51b366293865825b77711703d616954ba90db5e2a"
+        },
+        {
+          "path": "include/vorbis/codec.h",
+          "sha256": "e06ca14a207b067df82f2fa65874915f9818548ac14236e7b3b9c2359bd2d17c"
+        },
+        {
+          "path": "include/vorbis/vorbisenc.h",
+          "sha256": "8cf974bec8facf02088bf4e0300cdecc9f818cb25e9d47c10def0e9e4e61f50f"
+        },
+        {
+          "path": "include/vorbis/vorbisfile.h",
+          "sha256": "728677d2fa89031db1a6afbda07f61e227e38b0b59425626806089e737790608"
+        },
+        {
+          "path": "lib/analysis.c",
+          "sha256": "c49adccfa8889949f1c8977a8c7ff256d4ad9697c1a2eba7a6d56e043a5ae7c8"
+        },
+        {
+          "path": "lib/backends.h",
+          "sha256": "569a1f554d97942a3eb63a7c4b9e4f9f0853a8539dc9b6a35249041782596069"
+        },
+        {
+          "path": "lib/barkmel.c",
+          "sha256": "b7166bb8fb0aaaa7a875e9af3aec5429afa29bf82f20af6e06a33259ce83988f"
+        },
+        {
+          "path": "lib/bitrate.c",
+          "sha256": "566fa853a877c33921ed51094275eb31a32bbd76a61a192079278677748b2b94"
+        },
+        {
+          "path": "lib/bitrate.h",
+          "sha256": "86e5cdea5390771fd11f9d5751e07904e47f4d307867a20342251b0afa1d7748"
+        },
+        {
+          "path": "lib/block.c",
+          "sha256": "0937854b08b2b7cb67a9d40585aff2fd5e09917d8efea146f6942de6c29ad116"
+        },
+        {
+          "path": "lib/books/coupled/res_books_stereo.h",
+          "sha256": "5e0d770d6206239a9d8b862ac965b6a2331e9974217fe2f7991499766894fb8b"
+        },
+        {
+          "path": "lib/books/floor/floor_books.h",
+          "sha256": "6c4dd15d00f53b1b1c6c6b03c789fd27c85c07a9a25d87a58d143bfc238b182f"
+        },
+        {
+          "path": "lib/books/uncoupled/res_books_uncoupled.h",
+          "sha256": "b20d32bfc0ce5ed19a69dcfc17e63afd2cc2ddf3a754984d44440b46bb38f634"
+        },
+        {
+          "path": "lib/codebook.c",
+          "sha256": "0d73d18cb243d8d161f91775d45cc5d401f4d7d3409191712be6c39676912062"
+        },
+        {
+          "path": "lib/codebook.h",
+          "sha256": "7854c5687c6b71db43cc24724583f71125393a4ee25ac54ce3f4a7a8281e251d"
+        },
+        {
+          "path": "lib/codec_internal.h",
+          "sha256": "d3778512ce56788affc1666240f98fb38bc1f7e6ffd6774c11b420675d374b7f"
+        },
+        {
+          "path": "lib/envelope.c",
+          "sha256": "e6a28ea2a455a606efae5921eda2a31ecc42b60c96d60717e88b2bfb207576f1"
+        },
+        {
+          "path": "lib/envelope.h",
+          "sha256": "c3dc19913dbefa3499a72743ad0b52509100c38acf09e5c998756142fb37dd4f"
+        },
+        {
+          "path": "lib/floor0.c",
+          "sha256": "b7e4bbf0c57a2b73ab25c19fd3e185aab42c8e04e21df6e27acaa73a83a494a0"
+        },
+        {
+          "path": "lib/floor1.c",
+          "sha256": "01369168c1d279a50f42d252bc3909bd30aecd97981664462d2a7229b86281ac"
+        },
+        {
+          "path": "lib/highlevel.h",
+          "sha256": "050887a3f2218bcb8e639ff84aaa7e405e4175a314498772bd775cd40cd7362d"
+        },
+        {
+          "path": "lib/info.c",
+          "sha256": "f72a56a9e538215b0f4e8fbf06d9dc551f47cb407f41881b2960bdfff45e7835"
+        },
+        {
+          "path": "lib/lookup.c",
+          "sha256": "e09f831b80168bb6d0eea2fc403ace5f699bd245dbf50a09a051d1651ec9b1b4"
+        },
+        {
+          "path": "lib/lookup.h",
+          "sha256": "00968e32d847f103963bbd2489ba34711804327a52c7a75207855071efe45d01"
+        },
+        {
+          "path": "lib/lookup_data.h",
+          "sha256": "fc9f50c03d057c3fff4b466effbb89e07943bf39c69e59bb53408c61773f76b9"
+        },
+        {
+          "path": "lib/lpc.c",
+          "sha256": "9765e7bf9af9e1711458d3ec3531a688f1a828d008840d3d25fbcde6c76237c2"
+        },
+        {
+          "path": "lib/lpc.h",
+          "sha256": "8b3b9a3c311cd5cbf2c036e79d278d9b6291dd143fee1733350dfaacc244a0da"
+        },
+        {
+          "path": "lib/lsp.c",
+          "sha256": "ffe690a2318611bec3677eb15c6077360cb41eaf3f68a634619b34e764d1ab08"
+        },
+        {
+          "path": "lib/lsp.h",
+          "sha256": "2346f5263f6561ebd09d79d571593a15c2775ab2635af2cfba5d3f3b6a22863e"
+        },
+        {
+          "path": "lib/mapping0.c",
+          "sha256": "aba40a1849701b0cd5945033e180ebeb5eb7dfca5d0d13597ebab76486bcf911"
+        },
+        {
+          "path": "lib/masking.h",
+          "sha256": "6940cc4ab4a7ac4fa8e9750f84999f5edad191b05c4bf7d76b4e42a4f521c881"
+        },
+        {
+          "path": "lib/mdct.c",
+          "sha256": "b4711f1310df818c16fbe698ad3eedbf26ac84d9c3baa1131bde13af2f4efe29"
+        },
+        {
+          "path": "lib/mdct.h",
+          "sha256": "439e47c541725e115c9f3c43f5d0a1f66ccbc8fdd29b4447dfc19a8351e5854f"
+        },
+        {
+          "path": "lib/misc.h",
+          "sha256": "730471d7f83ba2a02356e9a46197b26ee5b64165fb35f649f396a7f1533f31a1"
+        },
+        {
+          "path": "lib/modes/floor_all.h",
+          "sha256": "8ddcf6c7e1094fdff9293bdd7099c5a619d6d565309638682cf6ebbea86e8ba3"
+        },
+        {
+          "path": "lib/modes/psych_11.h",
+          "sha256": "ff6b0a4045bfbe4c21e38b5cefa7fd23783b144a76ca78a2006182b0b1a3095b"
+        },
+        {
+          "path": "lib/modes/psych_16.h",
+          "sha256": "a849ff49b3b484974a9c85867219ec7cf6ce121f60b27974943f7e701280f5eb"
+        },
+        {
+          "path": "lib/modes/psych_44.h",
+          "sha256": "296406e77a442a1665878369a99ed7670177d29b12f8f82a63f2e021c3ef49a6"
+        },
+        {
+          "path": "lib/modes/psych_8.h",
+          "sha256": "8eaa2ce80e54470ba5bb0b09d10ede53b34fc96cf1a0c7101698922acef7dab9"
+        },
+        {
+          "path": "lib/modes/residue_16.h",
+          "sha256": "ef84291c4054b148cb2d51d1fa14d656b3d2861bb3aa2259b64dc171b11410c5"
+        },
+        {
+          "path": "lib/modes/residue_44.h",
+          "sha256": "c0d7bee9005424f7a62466a83d23a2b5b4ba99bd7a00e95f8b15545b23841a2d"
+        },
+        {
+          "path": "lib/modes/residue_44u.h",
+          "sha256": "6c25625b8feb9b06798272f6409aaf5147dffa78cb586257c1645b187cb46473"
+        },
+        {
+          "path": "lib/modes/residue_8.h",
+          "sha256": "73c662e754788b2f20267df533034d9f238548c5c49b1d7061d317812038c039"
+        },
+        {
+          "path": "lib/modes/setup_11.h",
+          "sha256": "d413084df76f0e19143dca099838512bedad3ea8431937be1b3ab99a8299e894"
+        },
+        {
+          "path": "lib/modes/setup_16.h",
+          "sha256": "2e7da68d6fb628be5d3e34a4b4022cd74fc4201766056d3284c8c131d183b254"
+        },
+        {
+          "path": "lib/modes/setup_22.h",
+          "sha256": "69ffd63cc5cfd4f5245e5244c4ee9d248f48dc5ab659f0980c2234af2d283427"
+        },
+        {
+          "path": "lib/modes/setup_32.h",
+          "sha256": "c05e7740b940e5487185661d1e7fc3e2b163b673b8911aad1c08d245fcae565e"
+        },
+        {
+          "path": "lib/modes/setup_44.h",
+          "sha256": "f6794d5dcd790c32449cede7b0d3e13ac617b457a3685c407f07bec54077a304"
+        },
+        {
+          "path": "lib/modes/setup_44u.h",
+          "sha256": "7eef38bda1d0be57cfc69abbfe7c2d4e924f10d74f7cbc43c7085bd668f50b24"
+        },
+        {
+          "path": "lib/modes/setup_8.h",
+          "sha256": "916d7fb59f4a76899b79e74709e3efb674f62f9ebe0f231bd2b95ffb7e0d272b"
+        },
+        {
+          "path": "lib/modes/setup_X.h",
+          "sha256": "c6e2e25598324d3936aca0c5273cfe48663f8b073c5054d91bed62b9b2a35a5c"
+        },
+        {
+          "path": "lib/os.h",
+          "sha256": "95e938e022cee9ead2be3466a96881c700ee9141e214d704ef4bbae66f7c682b"
+        },
+        {
+          "path": "lib/psy.c",
+          "sha256": "965852f3a980c9e7cb6c2667e9a8e402f573423be65c2cdf49ddd2f7d279f508"
+        },
+        {
+          "path": "lib/psy.h",
+          "sha256": "27a00ab5a1b2a49cdc72a90bcb10b095cf8d385872bf17bee157ddb2e54cc1d1"
+        },
+        {
+          "path": "lib/psytune.c",
+          "sha256": "786ec5af132066fa0068ce464c484e57cfa551c98b7dd1fe5d7cb92957786574"
+        },
+        {
+          "path": "lib/registry.c",
+          "sha256": "34f1c697683799af2e8d4228040f57db9b526e824b1cf0bd42bc13b1cdc8c993"
+        },
+        {
+          "path": "lib/registry.h",
+          "sha256": "e5e5d4f9471f6d30e3bd4f768e0ecb75de40be6669b032066a306c0993ee5831"
+        },
+        {
+          "path": "lib/res0.c",
+          "sha256": "4b52ec3b30fd8ecebe525590ae71a1f17dbbad8cfa88c38ef9555f5fa9755f44"
+        },
+        {
+          "path": "lib/scales.h",
+          "sha256": "04456c36a2ed8bfbe709703bf5b6cf3f6c2f9222aece7f51253ceb337fba85ef"
+        },
+        {
+          "path": "lib/sharedbook.c",
+          "sha256": "8cc4690aac7eebc12bb0bfab13237b8c4a9513f9e9a6f6e75e3f54c8d4a7ee41"
+        },
+        {
+          "path": "lib/smallft.c",
+          "sha256": "5d13381e39715e31583d315f8bb0a879465025acad6f3e6661ff0b5a8fe662ce"
+        },
+        {
+          "path": "lib/smallft.h",
+          "sha256": "1bf1ddb9ff64f80bdaab9202439702dc1b8d0cb53e0bb13f1a2a956b5423df49"
+        },
+        {
+          "path": "lib/synthesis.c",
+          "sha256": "432477efaf306a39cd07c876384652614017d34d38baf88bf9f642bb9fffc0b2"
+        },
+        {
+          "path": "lib/tone.c",
+          "sha256": "7306d9d1b00a5111f2e9eb372935b8a4bfd7c3c4d59b158079f4be1ec0f701e1"
+        },
+        {
+          "path": "lib/vorbisenc.c",
+          "sha256": "0ae398144eaeedba7fb6309647ca6811e09537c15eb775b95ddd99aa65881830"
+        },
+        {
+          "path": "lib/vorbisfile.c",
+          "sha256": "49d24ba4d1609685a320cecf75b4f8a88ff563f321cbdbfa220fd90fcc85bfcd"
+        },
+        {
+          "path": "lib/window.c",
+          "sha256": "ffae6d5089a2b42d1125eb2724ea6ff988ccab9bf40e74026e8d9419f79d0952"
+        },
+        {
+          "path": "lib/window.h",
+          "sha256": "7cc8242abd5ad9480c8fd63275601085fe85ca3da9dfdf62b2ce2a17ce6d2078"
+        },
+        {
+          "path": "macos/compat/strdup.c",
+          "sha256": "26ba8d07ae5e2ab9a82bf751d582db0cfb29b3bf10b5f2d866eba3a917a91518"
+        },
+        {
+          "path": "macos/compat/sys/types.h",
+          "sha256": "33955ad11b41622abe7bd5f4447526241db1419305aa8c3940927cfa5f4884dd"
+        },
+        {
+          "path": "vq/bookutil.c",
+          "sha256": "068b7db410915866a0a11b61d107075f3d65a0151a5a17c53dffa5ece0da5852"
+        },
+        {
+          "path": "vq/bookutil.h",
+          "sha256": "9bc2006bca2b6353a64a6d18642602219525442db011662f0cf5037a95815ec8"
+        },
+        {
+          "path": "vq/distribution.c",
+          "sha256": "c0aebeecab8871669430e6cacb9f361ea275305b9244cda86e30b02b3c6c4468"
+        },
+        {
+          "path": "vq/huffbuild.c",
+          "sha256": "6e9424deb9498672754e77d750e4181717e7fc8da5515aad4c4ce6ca98b016b3"
+        },
+        {
+          "path": "vq/latticebuild.c",
+          "sha256": "e3420f6e2252a3c5ec6d5b26c1fbb5d419a0934965e4d6b317e0eef42b6af70b"
+        },
+        {
+          "path": "vq/latticehint.c",
+          "sha256": "35d66b09d4edf3fbf2beb650770caaed24057c66d0711166adaec3a5349e7662"
+        },
+        {
+          "path": "vq/latticepare.c",
+          "sha256": "8d2e3fbc3ec7a345276b33d22a8480a47e7e19b6f47cc8f739ee40517328f96c"
+        },
+        {
+          "path": "vq/latticetune.c",
+          "sha256": "ed4bcff4d45053a72ed56632473e923c68465bd3c9e913400e2e61b4ddc8c69d"
+        },
+        {
+          "path": "vq/vqgen.c",
+          "sha256": "7485e7f63aaefe8c10be9ef9100c56c5533320c612b43cb3b56c22e31f2bbfe2"
+        },
+        {
+          "path": "vq/vqgen.h",
+          "sha256": "a8696087113eacd7e895a4aa76cf9810306d74482fe461d075963b713f774b3d"
+        },
+        {
+          "path": "vq/vqsplit.c",
+          "sha256": "2a48292c70a582fb060081369c73932732321c01870d5d9e533ec44974f700f0"
+        }
+      ]
+    }
+  ]
+}

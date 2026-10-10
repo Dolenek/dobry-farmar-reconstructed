@@ -14,4 +14,9 @@ std::array<int, 100> makeSquallVolumeTable() {
     }
     return table;
 }
+int squallVolumeFromAttenuation(int attenuation) {
+    // Original double constants at 100481b0/b8/a8/a0/98, respectively.
+    return static_cast<int>((std::pow(10.0,attenuation*0.0001)-0.10000000149011612)
+                            *100.0*1.1111111405455043);
+}
 }

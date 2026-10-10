@@ -1,0 +1,384 @@
+{
+  "status": "editable_runtime_port_under_native_audit_not_equivalent_yet",
+  "source_commit": "20988426d2dde0a4b7aa6e18578f59c55d3af3a8",
+  "license": "src/squall/runtime/LICENSE",
+  "original_program_binaries_copied": false,
+  "files": [
+    {
+      "path": "Squall.h",
+      "reference_sha256": "73c02b197258537358b76a59053279f7b74035c4bc5aeed6176f3d2a2d20a9f0"
+    },
+    {
+      "path": "SoundEngine/Channels.cpp",
+      "reference_sha256": "2da12200af014cf5abc05713e93e609bc2e4187cab7f888bdaa3d36958e397e4"
+    },
+    {
+      "path": "SoundEngine/Channels.h",
+      "reference_sha256": "0baf8a339df401bc5e23515bfccc6d81a05bb91aa12569efddb1cb924a7f2955"
+    },
+    {
+      "path": "SoundEngine/Context.cpp",
+      "reference_sha256": "dc6df0955e2f30790ddbe29d5b358c6e5fe32bd4b0a9e89c208d339b835f8b40"
+    },
+    {
+      "path": "SoundEngine/Context.h",
+      "reference_sha256": "b4298bb22119edae0cbcfc7087e16aa7d7ba87f9a22ec0f85b3a1f351d93a0ff"
+    },
+    {
+      "path": "SoundEngine/DirectSound.cpp",
+      "reference_sha256": "534db9e8e9a95071d128791a89dac5cba06aed0004c52b6cfe6e95677bba85bc"
+    },
+    {
+      "path": "SoundEngine/DirectSound.h",
+      "reference_sha256": "b84e1584b2ea68442caaa31f4276b746a11beb50cd08073fc2bbf1e3332095cc"
+    },
+    {
+      "path": "SoundEngine/HiddenWindow.cpp",
+      "reference_sha256": "7db9bcfd3465b03bfb043f54848056f56ba0a793889198b609347b8e5fb1fad5"
+    },
+    {
+      "path": "SoundEngine/HiddenWindow.h",
+      "reference_sha256": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced"
+    },
+    {
+      "path": "SoundEngine/Squall.cpp",
+      "reference_sha256": "58f5a4956af0397a8bca79434e0afbff304232e717f2b5583405ccfae18a5d3b"
+    },
+    {
+      "path": "SoundEngine/SquallApi.cpp",
+      "reference_sha256": "7540a7f6548da0ea109f22719c92856024b9c995f7bc2723ed86f3b82b7a00d1"
+    },
+    {
+      "path": "SoundEngine/SquallApi.h",
+      "reference_sha256": "f87d7940c0ef274334c3ac51ee0f86bb38a865bcdd8b2d2f4f2081d2932750af"
+    },
+    {
+      "path": "SoundEngine/ext/dsound.h",
+      "reference_sha256": "4cc7967da0f26e62b5dae9d6510e2dd66b57aed755ef2feb5474f385fe3e64da"
+    },
+    {
+      "path": "SoundEngine/ext/Eax.cpp",
+      "reference_sha256": "2bc84833a571f170c1cc39dd36fa8a9951971d1b43200da86e45d2c52afa21b6"
+    },
+    {
+      "path": "SoundEngine/ext/Eax.h",
+      "reference_sha256": "a6854f22310e991211059b5c726ccfc0b8beecb6aeb4e5a75c21cb1a3ed45515"
+    },
+    {
+      "path": "SoundEngine/ext/Eax1_api.h",
+      "reference_sha256": "abda90cfd96ff37aff04d9dd89a4e833fae22304b8033045d126d4c76e7ec6f8"
+    },
+    {
+      "path": "SoundEngine/ext/Eax2_api.h",
+      "reference_sha256": "1c1004b7832e51e143df643ee241bbce86c33b4fbb43a24d577724ee0f2d8f47"
+    },
+    {
+      "path": "SoundEngine/ext/Eax3_api.h",
+      "reference_sha256": "92eab44ab9d46481aa7ce5a1660734cdf4c4f6387ef1d3223d0c69b07648186b"
+    },
+    {
+      "path": "SoundEngine/ext/Eax4_api.h",
+      "reference_sha256": "19bb25d8c82c156cf4acb11b5fa9ed6a3ba8b5e78f9b3d52efd25f366542c1ff"
+    },
+    {
+      "path": "SoundEngine/ext/ZoomFX.cpp",
+      "reference_sha256": "2cb3a8d6dc0fe87cb5b5dc53b261715ea3b3891c84c696d2ec19f2b286c7448a"
+    },
+    {
+      "path": "SoundEngine/ext/ZoomFX.h",
+      "reference_sha256": "30736dae62ad275b194d22fe42cc13e20e610314668aa24b9cb6bb6e5d8b745f"
+    },
+    {
+      "path": "SoundEngine/ext/ZoomFX_api.h",
+      "reference_sha256": "1c038708df49cc14af7feea5d203ee8eb299fee9269a9a05b746ae6e27bbf327"
+    },
+    {
+      "path": "SoundFile/AbstractDecoder.h",
+      "reference_sha256": "5e85897bc7b284f248c1633fca3ab6f3b5fec9f3130c35707b9ca50a15e025f4"
+    },
+    {
+      "path": "SoundFile/AbstractSoundFile.h",
+      "reference_sha256": "bd88f88e7c73fbbf3d0101b5b1313ea1233aa0672d4e33d37da6e76ab316e29b"
+    },
+    {
+      "path": "SoundFile/ExternFunction.h",
+      "reference_sha256": "7220cc7f58fea02699c55da0efb2f64d0d65dd06836478f2281b3428ff51c82f"
+    },
+    {
+      "path": "SoundFile/Reader.cpp",
+      "reference_sha256": "c066f223184fb9dba797bad26fdb1992c34fe6f30ef96ca77fb6471f3301f3c5"
+    },
+    {
+      "path": "SoundFile/Reader.h",
+      "reference_sha256": "ab169609ffde3974a382d427271c5969cd1ab483f1a51d97adab6b135cd9de29"
+    },
+    {
+      "path": "SoundFile/SoundFile.cpp",
+      "reference_sha256": "32bdf8f2dfb311fc8958ecccc61d505e636b55b68102c33f96408cee6572d8a4"
+    },
+    {
+      "path": "SoundFile/SoundFile.h",
+      "reference_sha256": "a855389481cac6acccdb2fff6044f08eff6c8437383fdb998995fe940449d0dc"
+    },
+    {
+      "path": "SoundFile/WAV/ImaAdpcmDecoder.cpp",
+      "reference_sha256": "e3324e525d3249d71b17a57beffebe40c678bd03969236eef6bcd222f8acf88f"
+    },
+    {
+      "path": "SoundFile/WAV/ImaAdpcmDecoder.h",
+      "reference_sha256": "0c4e4f256f789dc0688bb086958a7044051e6ce7d394e90b6e5d3dff5b464e8b"
+    },
+    {
+      "path": "SoundFile/WAV/MsAdpcmDecoder.cpp",
+      "reference_sha256": "51753d3a081f1e51670181c51cd0a07ba38a60f8ac0f2ddbe95bf35d7b0f1211"
+    },
+    {
+      "path": "SoundFile/WAV/MsAdpcmDecoder.h",
+      "reference_sha256": "a7c4076be7418cf7259d3bb3ecf1d3e87aa5bad24052ef45aa16d674f2a26aea"
+    },
+    {
+      "path": "SoundFile/WAV/PcmDecoder.cpp",
+      "reference_sha256": "8aace974ce61a0754593dc99e182c5b07d2403704b8f4f7a175bc63ea9e84481"
+    },
+    {
+      "path": "SoundFile/WAV/PcmDecoder.h",
+      "reference_sha256": "c7842996cb9da4e0a6ad449cfb2bbf27335dfa761aa1b03414c418b838399ef5"
+    },
+    {
+      "path": "SoundFile/WAV/WavFile.cpp",
+      "reference_sha256": "8e6cc16dc92a046c733043a27267a478f33e279a2d60be5b8b8ffd1dc0622cf3"
+    },
+    {
+      "path": "SoundFile/WAV/WavFile.h",
+      "reference_sha256": "5fb03ac452ec28dda5c5a321748455638e606d918be23fe48bf867d41a493ef4"
+    },
+    {
+      "path": "SoundFile/MP3/l1dec.cpp",
+      "reference_sha256": "61105b62ba17ebf28ed34a7b43eb054ad2848a2ba6fd27ed60f51211771e2886"
+    },
+    {
+      "path": "SoundFile/MP3/l2dec.cpp",
+      "reference_sha256": "c35d567b162bac94ba6ca12a0285d0ac2172e1d0a1a9651a008db75093d877a7"
+    },
+    {
+      "path": "SoundFile/MP3/l3dec.cpp",
+      "reference_sha256": "2f9d0a7c876dbcf19223c5034562e0b1cb33bbe59dd401945f8483dc7b3d264c"
+    },
+    {
+      "path": "SoundFile/MP3/MpegDecoder.cpp",
+      "reference_sha256": "514dc3919f66677e53885b98d06f92df1b11e2e04e5ffa80008a0d544459197b"
+    },
+    {
+      "path": "SoundFile/MP3/MpegDecoder.h",
+      "reference_sha256": "667d50877472e6d1d00b073e752f23048a827510d38746a5cd9ebf22ce7e368f"
+    },
+    {
+      "path": "SoundFile/MP3/MpegFile.cpp",
+      "reference_sha256": "ef78b350092e31c467dfcf0177d5d10c380150df81e2ec826df4cd227b13c106"
+    },
+    {
+      "path": "SoundFile/MP3/MpegFile.h",
+      "reference_sha256": "2b3a0363d89d95f56e14d58571f6249f66fd7f076e0782b16ecd8d0242cca1f8"
+    },
+    {
+      "path": "SoundFile/MP3/MpegHuff.h",
+      "reference_sha256": "be1051f2800727c65d4bac882e7c225daefce4b8aa1ecd2d946b15bc6d09953c"
+    },
+    {
+      "path": "SoundFile/Ogg/OggDecoder.cpp",
+      "reference_sha256": "8b88887fb1b3623690f48565c983db62d7ec779904ccd09ef8942ffc71ca9b20"
+    },
+    {
+      "path": "SoundFile/Ogg/OggDecoder.h",
+      "reference_sha256": "f21480b829cfc0f4484d9f15a8b326eb6f45ae91ec9e10b82a837df34d621fa3"
+    },
+    {
+      "path": "SoundFile/Ogg/OggFile.cpp",
+      "reference_sha256": "48fb824b316ced65a56d074ba0664a93ce712576315917728757b25f4a09614e"
+    },
+    {
+      "path": "SoundFile/Ogg/OggFile.h",
+      "reference_sha256": "1a95c68d41fb420ea8b96dfa1a48c4aa05f61d7b5bd4664cc534cbdc12c88a2c"
+    },
+    {
+      "path": "SoundFile/Wma/WmaDecoder.cpp",
+      "reference_sha256": "9825b12c4d1f7e8cdb3b36caaae0d732c1c2409118e22d2f2ba88b7e58482d45"
+    },
+    {
+      "path": "SoundFile/Wma/WmaDecoder.h",
+      "reference_sha256": "3789bb089dabcf1d8c260741ea22df69522b2437cbc7f9093486dd8bc4c337f0"
+    },
+    {
+      "path": "SoundFile/Wma/WmaFile.cpp",
+      "reference_sha256": "b89d37a873a260776b53b3d3b8c37ec77632fdca69cbba0edf721efc604c28de"
+    },
+    {
+      "path": "SoundFile/Wma/WmaFile.h",
+      "reference_sha256": "bc0dbcc1c2c05d6f3b618be5ea93434a0881d7d7e3ee27e074e34b2c1a69bcbd"
+    },
+    {
+      "path": "SoundFile/track/fastmix.cpp",
+      "reference_sha256": "51447f8e5ac3f2b512db45fc53e96cb603e1ae29f7b3d10e15c7e8bf2bd3af2c"
+    },
+    {
+      "path": "SoundFile/track/it_defs.h",
+      "reference_sha256": "e5c00255943ff854c77448a5b39f4acc1505c24ce6f6fcab1d15b148a8738928"
+    },
+    {
+      "path": "SoundFile/track/load_669.cpp",
+      "reference_sha256": "a49b925f072522f4c5bcf300310ef4c9650db4d5ebee2d70c2e96be99e123bc5"
+    },
+    {
+      "path": "SoundFile/track/load_amf.cpp",
+      "reference_sha256": "f35fc17cac6fccf097b9b3486bb54b89fb013f45dd7e1cfe2c671bccccd3c861"
+    },
+    {
+      "path": "SoundFile/track/load_ams.cpp",
+      "reference_sha256": "7ba5137ca302bae734b5c1bcf6b007dbda2f6b66708e91d5fb98d95e05819a6f"
+    },
+    {
+      "path": "SoundFile/track/load_dbm.cpp",
+      "reference_sha256": "8cff70cb36c3904bca2e13a50ca242b6c2004b2a2f192e6ce9e0ccb43c35d1c8"
+    },
+    {
+      "path": "SoundFile/track/load_dmf.cpp",
+      "reference_sha256": "169b6624f6d6dd7dc7d7b02b0903b2c49f07084d2b9f09ba6c7c35ea7b8ad46b"
+    },
+    {
+      "path": "SoundFile/track/load_dsm.cpp",
+      "reference_sha256": "157572eaed8927549cdabc78fe7ece3ddb8f10e0649a6886b50829dff19593dd"
+    },
+    {
+      "path": "SoundFile/track/load_far.cpp",
+      "reference_sha256": "55b00c5a54549790e0ad3144329e8d533a7c112b5639695570e39035d8073579"
+    },
+    {
+      "path": "SoundFile/track/load_it.cpp",
+      "reference_sha256": "57014d53b91facc93b94333276f78dfe89990fffae0236e7acb1b7f480e17027"
+    },
+    {
+      "path": "SoundFile/track/load_mdl.cpp",
+      "reference_sha256": "910a98dba6a6190f0bb7eab2ae2bf9124c93875df6d455a31fe6027ee9d8d9ec"
+    },
+    {
+      "path": "SoundFile/track/load_med.cpp",
+      "reference_sha256": "eefd26d12676027fd5678bc4bf3d30ca7182589643e4ebe0757f0ddc66f1ae9d"
+    },
+    {
+      "path": "SoundFile/track/load_mod.cpp",
+      "reference_sha256": "bb175d20b8c00dc7aef458eaf60b04f7b72b5ae26bb9186c079bbae2792392e6"
+    },
+    {
+      "path": "SoundFile/track/load_mt2.cpp",
+      "reference_sha256": "efe05442eea5e14f986945888520acfc0cf55007443f5827f68453ec60dd3086"
+    },
+    {
+      "path": "SoundFile/track/load_mtm.cpp",
+      "reference_sha256": "490e0c19899775800e67c0cec69d6c4541772f8a0a7a03a2bf960b9d523725d0"
+    },
+    {
+      "path": "SoundFile/track/load_okt.cpp",
+      "reference_sha256": "b6a7bfb44ba68880b7dd447f2e37fa59c752c214c4e9b4ff29fc69326b4f44eb"
+    },
+    {
+      "path": "SoundFile/track/load_psm.cpp",
+      "reference_sha256": "49970589a0421904771ed53f91fb1a29b139203d048c21c1abeeae070a534091"
+    },
+    {
+      "path": "SoundFile/track/load_ptm.cpp",
+      "reference_sha256": "bf8ede3229c59b2cf263eb6b97ebcf6ea460ce6aa7480e33abd62703e3a4ae6c"
+    },
+    {
+      "path": "SoundFile/track/load_s3m.cpp",
+      "reference_sha256": "591a9aeaf49613e0f1550292f4ed6ea342108749f089e6570ce70cec601854e4"
+    },
+    {
+      "path": "SoundFile/track/load_stm.cpp",
+      "reference_sha256": "e87416874e711825ec26e20f8b3526704ad8233810f5b58f29268ffd857a84bd"
+    },
+    {
+      "path": "SoundFile/track/load_ult.cpp",
+      "reference_sha256": "76908540e51c2122df36a519613f45e80a12d1d7745f087d68a42e30a325542f"
+    },
+    {
+      "path": "SoundFile/track/load_umx.cpp",
+      "reference_sha256": "4cb0a5255e30ba548fd97bd3c8ae6cf628cb53d81d65e465a9e23b5246148534"
+    },
+    {
+      "path": "SoundFile/track/load_xm.cpp",
+      "reference_sha256": "6d7b215d9b2874c64b2f49015a8984c4d1880cf4f4eda038c68679814628116b"
+    },
+    {
+      "path": "SoundFile/track/snd_fx.cpp",
+      "reference_sha256": "1bbe21aa0cee08523a052f2ce3ca9de9ac8843eb973c76504883e6fb2d75fa36"
+    },
+    {
+      "path": "SoundFile/track/sndmix.cpp",
+      "reference_sha256": "2912016f9a8fe85223e02c7485cae9f1a83e32f72cb0a243cdee15b08c391ffa"
+    },
+    {
+      "path": "SoundFile/track/stdafx.h",
+      "reference_sha256": "126063497718c2d9bd8324d81a742e2bd5a6122cddff931d24c891933e361be6"
+    },
+    {
+      "path": "SoundFile/track/tables.cpp",
+      "reference_sha256": "6b9bfcd6f9589513716a9b979d77ffcb035e20a50785358b2e3e6966d20cf768"
+    },
+    {
+      "path": "SoundFile/track/TrackDecoder.cpp",
+      "reference_sha256": "d44a3f4b59ec7f96f22bde814b272ae510c09cfa51416eff9e8a359bae36812b"
+    },
+    {
+      "path": "SoundFile/track/TrackDecoder.h",
+      "reference_sha256": "1734711cb86c3c9d3579348f2d830a088427ae6529eb4a6a862bd7781cda45b7"
+    },
+    {
+      "path": "SoundFile/track/TrackFile.cpp",
+      "reference_sha256": "6f7d698a07f6b45e5727323e48372b03753515fe052ab5ae5c43e3fae940d9c3"
+    },
+    {
+      "path": "SoundFile/track/TrackFile.h",
+      "reference_sha256": "bb2c1f964572f80b35edaca0f6e609029da89d27a3b6c4804b5d748cdccdbc9d"
+    }
+  ],
+  "pending": [
+    "Verify each of all 97 implementations and signatures",
+    "Identify original Vorbis/Ogg versions by PCM and instruction comparison",
+    "Actual DirectSound and game integration"
+  ],
+  "instruction_findings": {
+    "1002d8c0": "Native sound dispatch includes WMA extension branch, MPEG, Ogg and tracker fallback",
+    "10003c70": "GetNumDevice tail jump to api_GetNumDevice 10007e40",
+    "1000329a": "Native Init clears 256 volume words; 100..255 remain zero",
+    "100056b0..100056d7": "Original inverse volume constants and truncation recovered; public inverse differs"
+  },
+  "derived_codec_sources": [
+    {
+      "path": "src/squall/codecs/vorbis/mdct.c",
+      "source": "libvorbis-1.1.0/lib/mdct.c",
+      "reference_sha256": "b4711f1310df818c16fbe698ad3eedbf26ac84d9c3baa1131bde13af2f4efe29",
+      "license": "src/squall/codecs/vorbis/COPYING"
+    },
+    {
+      "path": "src/squall/codecs/vorbis/mdct.h",
+      "source": "libvorbis-1.1.0/lib/mdct.h",
+      "reference_sha256": "439e47c541725e115c9f3c43f5d0a1f66ccbc8fdd29b4447dfc19a8351e5854f",
+      "license": "src/squall/codecs/vorbis/COPYING"
+    },
+    {
+      "path": "src/squall/codecs/vorbis/COPYING",
+      "source": "libvorbis-1.1.0/COPYING",
+      "reference_sha256": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6",
+      "license": "src/squall/codecs/vorbis/COPYING"
+    }
+  ],
+  "new_native_reconstruction": {
+    "src/squall/codecs/vorbis/NativeButterfly.c": [
+      "10037330: inlined first stage/bit reversal",
+      "10037840: 32/16/8 register carry and float spills",
+      "10037d40: independent 8 point stage",
+      "10037dd0: generic stage"
+    ]
+  },
+  "verified_sample_scope": "All 45 game files are Vorbis (native vtable RVA 482a0); complete mono/stereo PCM matches in PC53 and PC24. This does not verify other decoder families or full DLL behavior."
+}

@@ -46,7 +46,11 @@ def main():
                       "Original InitParameters 100030a0 clamps DistanceFactor above 10 to 10. "
                       "Reference InitParameters lacks this upper limit.",
                       "Original InitParameters changes unordered (NaN) distance/rolloff/doppler values to 1. "
-                      "Reference uses <=0 tests which retain NaNs."],
+                      "Reference uses <=0 tests which retain NaNs.",
+                      "Original volume table reserves 256 integers, zeroes the tail and calculates indices 0..99; reference reserves only 100.",
+                      "Original Channel_GetVolume applies the inverse of its original curve (100056b0..100056d7); reference uses another inverse.",
+                      "Original GetNumDevice tail-calls api_GetNumDevice at 10007e40; reference dereferences an uninitialized CDXOutput pointer.",
+                      "Original decoder dispatch includes the WMA extension branch and tracker fallback (1002d8c0); these branches are disabled in reference source."],
                   instruction_evidence=dict(channel_allocation="100033d2..100033e5",channel_zeroing="100033fe..10003418",
                       parameter_normalization="100030a0..1000321d",factor_nan_tests=["10003170","10003198","100031c0"]),
                   reference_source_evidence=dict(channel_fields="source/SoundEngine/Channels.h:104",

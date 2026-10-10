@@ -1,8 +1,8 @@
 {
   "status": "passed",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "oracle_sha256": "c98a3a3ca2182980e58b33b523264a712d74c923653f1abd3317b4379813ad4b",
-  "recorded_at_utc": "2026-10-10T15:40:36.351309+00:00",
+  "oracle_sha256": "a1b11efe317f669c852cf9a2a3dffcf74614f0a4a4ff2d105438cc1bc82b95ca",
+  "recorded_at_utc": "2026-10-10T18:52:22.716772+00:00",
   "checks": 201154,
   "precision_contexts": [
     {
@@ -23,7 +23,9 @@
     }
   ],
   "original_functions": [
-    "100030a0"
+    "100030a0",
+    "10003280..100032ef",
+    "10005620"
   ],
   "original_entry_point_executed": false,
   "reference_files_modified": false,
@@ -31,16 +33,40 @@
     "All thirteen output words compared byte-for-byte: 100000 seeded inputs per precision plus individual integer/float boundaries",
     "Signed integer limits, all hardware/listener/algorithm flags, zero/negative values, NaNs including signaling payloads, infinities, subnormal and maximum floats",
     "Real hidden Win32 window, null/invalid HWND, null/unmapped/unreadable/page-straddling input pointers",
-    "Device enumeration short-circuit and return boundaries; forward word copy for identical and overlapping buffers"
+    "Device enumeration short-circuit and return boundaries; forward word copy for identical and overlapping buffers",
+    "Native Init volume loop: all 100 calculated table values and all 156 zero tail words in both precisions",
+    "Inverse volume arithmetic: every integer DirectSound attenuation -10000..0 through original Channel_GetVolume"
   ],
   "test_adapters": [
     "Native IsBadReadPtr and IsWindow imports use the same real Win32 APIs as source",
     "Native api_GetNumDevice is redirected to an explicitly scripted test-only device count; no DirectSound initialization or enumeration is claimed",
-    "Original PE is privately relocated using its relocation directory; DLL entry point is never executed"
+    "Original PE is privately relocated using its relocation directory; DLL entry point is never executed",
+    "Native Init returns after the actual table loop through an explicit test-only epilogue; parameters/devices/context are not initialized by this table oracle",
+    "Native Channel_GetVolume uses actual channel lookup and legacy pow/ftol instructions; a test COM buffer provides requested attenuation and lock/unlock are counted fixtures"
   ],
   "pending": [
     "Whole Squall initialization, actual device enumeration and all exported interfaces",
     "Floating-point exception/status flags and invalid output pointers",
     "DirectSound backend, decoder versions and sample/playback behavior"
-  ]
+  ],
+  "volume_precision_contexts": [
+    {
+      "table_values": 256,
+      "inverse_values": 10001,
+      "buffer_reads": 10001,
+      "locks": 10001,
+      "unlocks": 10001,
+      "precision": "process-default"
+    },
+    {
+      "table_values": 256,
+      "inverse_values": 10001,
+      "buffer_reads": 10001,
+      "locks": 10001,
+      "unlocks": 10001,
+      "precision": "x87-pc24"
+    }
+  ],
+  "native_table_words": 512,
+  "native_inverse_volume_values": 20002
 }

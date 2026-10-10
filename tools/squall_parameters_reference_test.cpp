@@ -4,6 +4,7 @@
 #define NOMINMAX
 #include <windows.h>
 #include "Parameters.h"
+#include "VolumeTable.h"
 #include <array>
 #include <cstring>
 #include <float.h>
@@ -19,10 +20,55 @@ void redirect(unsigned char* image,unsigned rva,void* target) {
     image[rva]=0xe9;const unsigned offset=reinterpret_cast<unsigned>(target)-reinterpret_cast<unsigned>(image+rva+5);
     std::memcpy(image+rva+1,&offset,4);
 }
+int attenuation=0;unsigned locks=0,unlocks=0,bufferReads=0;
+void __cdecl lockFixture(void*) { ++locks; }
+void __cdecl unlockFixture(void*) { ++unlocks; }
+int __stdcall bufferVolume(void*,int* output) { ++bufferReads;*output=attenuation;return 0; }
+__declspec(naked) void finishTableOracle() {
+    // Return after the original Init table loop, before parameters/device work.
+    __asm {
+        pop edi
+        pop esi
+        pop ebp
+        pop ebx
+        add esp,38h
+        xor eax,eax
+        ret
+    }
+}
+void compareVolumes(unsigned char* image) {
+    devices=0;redirect(image,0x32f1,reinterpret_cast<void*>(&finishTableOracle));
+    reinterpret_cast<int(__cdecl*)(const void*)>(image+0x3280)(nullptr);
+    const auto table=makeSquallVolumeTable();const auto* expected=reinterpret_cast<int*>(image+0x74824);
+    for(unsigned i=0;i<100;++i) require(table[i]==expected[i],"Native initialization volume table differs");
+    for(unsigned i=100;i<256;++i) require(expected[i]==0,"Native volume table tail differs");
+    redirect(image,0x3220,reinterpret_cast<void*>(&lockFixture));
+    redirect(image,0x3250,reinterpret_cast<void*>(&unlockFixture));
+    std::array<void*,7> methods{};methods[6]=reinterpret_cast<void*>(&bufferVolume);
+    struct Buffer { void** methods; } buffer{methods.data()};
+    alignas(4) std::array<unsigned char,600> channels{};
+    channels[300]=7;channels[300+0x48]=1;
+    Buffer* pointer=&buffer;std::memcpy(channels.data()+304,&pointer,4);
+    *reinterpret_cast<int*>(image+0x75130)=2;
+    *reinterpret_cast<void**>(image+0x75134)=channels.data();devices=1;
+    const auto native=reinterpret_cast<int(__cdecl*)(unsigned)>(image+0x5620);
+    unsigned inverse=0;
+    for(attenuation=-10000;attenuation<=0;++attenuation) {
+        const int actual=squallVolumeFromAttenuation(attenuation),wanted=native(0x701);
+        if(actual!=wanted) {
+            std::cerr<<"Attenuation "<<attenuation<<": source "<<actual<<", native "<<wanted<<'\n';
+            throw std::runtime_error("Inverse volume arithmetic differs");
+        }
+        ++inverse;
+    }
+    require(locks==inverse && unlocks==inverse && bufferReads==inverse,"Native volume boundary coverage differs");
+    std::cout<<"{\"table_values\":256,\"inverse_values\":"<<inverse<<",\"buffer_reads\":"<<bufferReads<<",\"locks\":"<<locks<<",\"unlocks\":"<<unlocks<<"}\n";
+}
 }
 int wmain(int argc,wchar_t** argv) {
-    if(argc<2 || argc>3) return 2;
-    if(argc==3) _control87(_PC_24,_MCW_PC);
+    if(argc<2 || argc>4) return 2;
+    const bool volumeMode=argc>=3 && !std::wcscmp(argv[2],L"volume");
+    if((argc==3 && !volumeMode) || argc==4) _control87(_PC_24,_MCW_PC);
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES);
     if(!reference) return 2;
     unsigned char* image=nullptr;void* unreadable=nullptr;HWND window=nullptr;
@@ -53,6 +99,9 @@ int wmain(int argc,wchar_t** argv) {
         *reinterpret_cast<void**>(image+0x48148)=reinterpret_cast<void*>(&IsWindow);
         redirect(image,0x7e40,reinterpret_cast<void*>(&deviceCount));
         FlushInstructionCache(GetCurrentProcess(),image,headers->OptionalHeader.SizeOfImage);
+        if(volumeMode) {
+            compareVolumes(image);VirtualFree(image,0,MEM_RELEASE);FreeLibrary(reference);return 0;
+        }
         const auto native=reinterpret_cast<void(__cdecl*)(const SquallParameters*,SquallParameters*)>(image+0x30a0);
         window=CreateWindowExW(0,L"STATIC",L"Squall parameter oracle",0,0,0,1,1,nullptr,nullptr,GetModuleHandleW(nullptr),nullptr);
         require(window!=nullptr,"Window fixture creation failed");
