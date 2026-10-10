@@ -44,6 +44,18 @@ def main():
     assert report['list_clear_fault']['native_clear_fault'] and report['list_clear_fault']['source_clear_exception']
     assert report['list_clear_fault']['exception_code']==0xc0000005
     report['precision_contexts']=contexts
+    controller_contexts=[]
+    for precision,mode in (('preserved','controllers'),('original-device-0x20','controllers-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'YesNo controller oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['dialog_states']==1200 and context['dialog_letters']==20792 and context['dialog_objects']==17
+        assert context['dialog_callbacks']==970 and context['dialog_discard_checks']==1
+        assert context['dialog_frames']==32 and context['dialog_pixels']==15360000
+        context['precision']=precision;controller_contexts.append(context)
+    for key in ('dialog_states','dialog_letters','dialog_objects','dialog_callbacks','dialog_discard_checks','dialog_frames','dialog_pixels'):
+        report[key]=sum(context[key] for context in controller_contexts)
+    report['controller_precision_contexts']=controller_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -104,7 +116,15 @@ def main():
     report['test_adapters'] += ['MultilineText and MenuView XML section text wraps recovered XmlNode text; string length/find/compare/substring operations use explicit recovered/modern CRT boundaries',
         'TextLine width getter 004db210 executes original dirty-layout path through its vtable; relocation operands include this indirect dependency',
         'Test-only monotonic heap reserves 512 MiB after the enlarged comparison exhausted its previous 256 MiB; allocation order and production code are unchanged']
-    report['pending'] += ['MultilineText invalid/negative dimensions and infinite/NaN spacing; complete YesNo and SelectProfile controller navigation']
+    report['pending'] += ['MultilineText invalid/negative dimensions and infinite/NaN spacing; complete SelectProfile controller navigation']
+    report['original_functions'] += ['00501b60','00500df0','005014d0','00501530','00501590','00501970','00500650','00500a20','00501a20','00501430','00501480']
+    report['coverage'] += ['YesNo controller: 34 source/native owned dialog trees using shipped UI/YesNo.xml, 2400 full states, 41584 letter/sprite comparisons, 1940 keyboard/button callbacks, nullable/enabled/initially disabled suspended view, disable/enable/step enforcement and destructor restoration',
+        'YesNo scene: 64 native/source GPU frames with actual owned background/buttons/multiline text, 30720000 exactly matching RGB pixels and draw API calls; cursor hover/press/release/leave, Enter/Space/Escape dispatch, text updates, alpha and movement, RTL off/on',
+        'YesNo default callback: matching duplicate discard requests/origin in both precisions; source queue owns deferred frame deletion and removes input bindings']
+    report['test_adapters'] += ['YesNo native XML virtual factory/release uses an independent recovered tree parsed from shipped UI/YesNo.xml; source constructor uses actual ResourceManager loadSettingsXML',
+        'YesNo native callbacks, key bindings, suspended-view lifecycle and step execute original instructions; default callback decimal formatting/concatenation use recovered diagnostic String boundaries and discard service records the request instead of executing the native queue',
+        'YesNo controller cases run in separate processes from earlier UI scenarios to bound monotonic diagnostic heap consumption; scene uses the same explicit cursor/timer/input/graphics/sound boundaries as main-menu rendering']
+    report['pending'] += ['Native nonempty discard-queue traversal/deletion and old CRT diagnostic origin formatting; physical dialog keyboard/mouse and actual audio']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

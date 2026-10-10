@@ -9,6 +9,7 @@
 #include "EditBox.h"
 #include "ListBox.h"
 #include "MultilineText.h"
+#include "YesNoDialog.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -234,6 +235,21 @@ WString* __fastcall wideAttribute(XmlAdapter* self,void*,WString* output,const W
 std::vector<unsigned> actualSelections,nativeSelections;
 void actualSelect(unsigned index,ListBox*) { actualSelections.push_back(index); }
 void nativeSelect(unsigned index,void*) { nativeSelections.push_back(index); }
+const XmlNode* dialogDefinition=nullptr;
+XmlAdapter* __fastcall dialogXML(void*,void*,const String* name) {
+    require(name->view()=="UI/YesNo.xml" && dialogDefinition,"Dialog settings XML boundary differs");return wrap(dialogDefinition);
+}
+void __fastcall releaseDialogXML(void*,void*) {}
+std::vector<unsigned> actualDialogEvents,nativeDialogEvents;
+YesNoDialog* actualDialog=nullptr;void* nativeDialog=nullptr;
+void yesDialog(YesNoDialog* self) { require(self==actualDialog,"Source yes callback object differs");actualDialogEvents.push_back(1); }
+void noDialog(YesNoDialog* self) { require(self==actualDialog,"Source no callback object differs");actualDialogEvents.push_back(2); }
+void yesNativeDialog(void* self) { require(self==nativeDialog,"Native yes callback object differs");nativeDialogEvents.push_back(1); }
+void noNativeDialog(void* self) { require(self==nativeDialog,"Native no callback object differs");nativeDialogEvents.push_back(2); }
+std::map<void*,std::string> nativeDiscards;
+void __cdecl nativeDiscard(void* view,const String* origin) { nativeDiscards[view]=std::string(origin->view()); }
+String* __fastcall decimalString(String* output,void*,unsigned value) { return new(output) String(std::to_string(value)); }
+String* __cdecl concatenateString(String* output,const String* a,const String* b) { return new(output) String(std::string(a->view())+std::string(b->view())); }
 void compareControl(Control& control,void* object) {
     compareFloat(control.geometry().x,field<float>(object,0x5c),"control x");compareFloat(control.geometry().y,field<float>(object,0x60),"control y");
     compareFloat(control.geometry().width,field<float>(object,0x64),"control width");compareFloat(control.geometry().height,field<float>(object,0x68),"control height");
@@ -289,7 +305,7 @@ std::vector<unsigned char> readPixels(IDirect3DDevice8* device) {
     for(unsigned i=3;i<result.size();i+=4) result[i]=0;
     copy->UnlockRect();copy->Release();return result;
 }
-unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWND window,ViewRegistry& views,ControlRegistry& controls,InputBindings& input) {
+unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWND window,ViewRegistry& views,ControlRegistry& controls,InputBindings& input,unsigned minimumContent=100000) {
     require(GameTimer::instance()!=nullptr,"Menu frame has no reconstructed timer");
     PrimaryGraphicsSettings settings;GraphicsPresentation presentation(d3d,window);presentation.prepare(settings);
     WINDOWINFO bounds{};bounds.cbSize=sizeof(bounds);require(GetWindowInfo(window,&bounds)!=FALSE,"Menu input client bounds failed");
@@ -362,7 +378,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
         throw std::runtime_error("Whole menu draw API calls differ");
     }
     unsigned nonbackground=0;for(unsigned i=0;i<actual.size();i+=4) if(actual[i]!=0x3b || actual[i+1]!=0x29 || actual[i+2]!=0x17) ++nonbackground;
-    require(nonbackground>100000,"Whole menu has no substantial rendered content");return actual.size()/4;
+    require(nonbackground>minimumContent,"Whole menu has no substantial rendered content");return actual.size()/4;
 }
 
 }
@@ -398,7 +414,7 @@ int wmain(int argc,wchar_t** argv) {
         for(unsigned rva:{0x26025c,0x2604fc,0x2605fc,0x260508,0x260514,0x260520,0x26052c,0x260538,0x260544,0x260550}) initializeSet(rva);
         auto* discarded=static_cast<unsigned char*>(allocate(48)); std::memset(discarded,0,48); for(unsigned offset:{0U,4U,8U}) std::memcpy(discarded+offset,&discarded,4); discarded[44]=discarded[45]=1; putPointer(0x2604e8,discarded);
         std::array<void*,11> settingsTable{}; settingsTable[10]=reinterpret_cast<void*>(&getBool); auto* settingsPointer=settingsTable.data(); putPointer(0x25f728,&settingsPointer);
-        std::array<void*,6> managerTable{}; managerTable[1]=reinterpret_cast<void*>(&getTexture);managerTable[2]=reinterpret_cast<void*>(&getFont);managerTable[3]=reinterpret_cast<void*>(&getSound); auto* managerPointer=managerTable.data(); putPointer(0x25f730,&managerPointer);
+        std::array<void*,7> managerTable{}; managerTable[1]=reinterpret_cast<void*>(&getTexture);managerTable[2]=reinterpret_cast<void*>(&getFont);managerTable[3]=reinterpret_cast<void*>(&getSound);managerTable[6]=reinterpret_cast<void*>(&dialogXML); auto* managerPointer=managerTable.data(); putPointer(0x25f730,&managerPointer);
         std::array<void*,2> stringTable{}; stringTable[1]=reinterpret_cast<void*>(&getString); auto* stringPointer=stringTable.data(); putPointer(0x26026c,&stringPointer);
         // Bypass only static string initialization/atexit; original direction
         // algorithm and original reverse routine execute on ABI String objects.
@@ -408,6 +424,7 @@ int wmain(int argc,wchar_t** argv) {
         xmlTable[4]=reinterpret_cast<void*>(&section);xmlTable[5]=reinterpret_cast<void*>(&indexedSection);xmlTable[31]=reinterpret_cast<void*>(&attribute);xmlTable[38]=reinterpret_cast<void*>(&sectionCount);
         xmlTable[32]=reinterpret_cast<void*>(&wideAttribute);
         xmlTable[15]=reinterpret_cast<void*>(&sectionText);
+        xmlTable[0]=reinterpret_cast<void*>(&releaseDialogXML);
         std::array<void*,5> cursorTable{};cursorTable[4]=reinterpret_cast<void*>(&cursor);auto* cursorPointer=cursorTable.data();putPointer(0x25ff60,&cursorPointer);
         std::array<void*,20> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);
         graphicsTable[14]=image+0x112330;graphicsTable[19]=image+0x10d260;
@@ -433,15 +450,17 @@ int wmain(int argc,wchar_t** argv) {
         parameters.SwapEffect=D3DSWAPEFFECT_DISCARD; parameters.Windowed=TRUE; parameters.hDeviceWindow=window;
         const auto controlBefore=_control87(0,0);
         const bool nativeBug=argc==4 && std::wcscmp(argv[3],L"clear-fault")==0;
-        const bool preserve=argc==3 || nativeBug;
+        const bool controllers=argc==4 && (std::wcscmp(argv[3],L"controllers")==0 || std::wcscmp(argv[3],L"controllers-device")==0);
+        const bool preserve=argc==3 || nativeBug || (controllers && std::wcscmp(argv[3],L"controllers")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
-        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0;unsigned long long menuPixels=0;
+        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
+            if(!controllers) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -728,6 +747,73 @@ Third</Text></Text></BackMultitext>
                     const auto before=textureCounts();view.reset();const auto middle=textureCounts();call(0xfafc0,original.data());compareReferenceDeltas(before,middle);
                 }
             }
+            }
+            if(controllers) {
+                // The source loads its own resource-backed XML. Native virtual
+                // load/release uses an independent parsed shipped tree fixture.
+                XmlDocument definition(files,String("UI/YesNo.xml"));dialogDefinition=&definition;
+                redirect(0x2fe80,reinterpret_cast<void*>(&decimalString));redirect(0x1cc0,reinterpret_cast<void*>(&concatenateString));redirect(0x7d0b0,reinterpret_cast<void*>(&nativeDiscard));
+                for(trial=0;trial<16;++trial) {
+                    rtl=bool(trial&2);settings.set(String("game"),String("RightToLeftEnable"),rtl);
+                    ViewRegistry views;ControlRegistry controls;auto subject=std::make_unique<View>(nullptr,views);std::array<unsigned char,44> nativeSubject{};
+                    function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeSubject.data(),nullptr);subject->show();subject->enable();call(0xd37d0,nativeSubject.data());call(0xd3bb0,nativeSubject.data());
+                    if(trial&4) { subject->disable();call(0xd3750,nativeSubject.data()); }
+                    stage=60;auto dialog=std::make_unique<YesNoDialog>(trial&1 ? subject.get():nullptr,manager,settings,strings,input,interaction,views,controls);
+                    auto* original=allocate(592);function<void*(__thiscall*)(void*,void*)>(0x101b60)(original,trial&1 ? nativeSubject.data():nullptr);actualDialog=dialog.get();nativeDialog=original;
+                    dialog->setYesEvent(&yesDialog);dialog->setNoEvent(&noDialog);function<void(__thiscall*)(void*,void*)>(0x101430)(original,reinterpret_cast<void*>(&yesNativeDialog));function<void(__thiscall*)(void*,void*)>(0x101480)(original,reinterpret_cast<void*>(&noNativeDialog));
+                    const auto check=[&] {
+                        stage=61;compareControl(*dialog,original);dialog->updateTransform();call(0xf0b70,original);require(!std::memcmp(&dialog->sprite(),static_cast<unsigned char*>(original)+0x70,76),"Dialog background sprite differs");
+                        for(const auto& pair:std::initializer_list<std::pair<TextAnimationButton*,unsigned>>{{&dialog->yesButton(),0x238},{&dialog->noButton(),0x23c}}) {
+                            auto* button=field<void*>(original,pair.second);compareControl(*pair.first,button);require(unsigned(pair.first->buttonState())==field<unsigned>(button,0x238),"Dialog button state differs");dialogLetters+=compare(pair.first->text(),field<void*>(button,0x27c));
+                        }
+                        auto& text=dialog->text();auto* nativeText=field<void*>(original,0x240);text.enabledStep();call(0xf8e10,nativeText);compareControl(text,nativeText);
+                        auto* head=field<Link*>(nativeText,0x230);auto* node=head->next;require(text.lines().size()==field<unsigned>(nativeText,0x234),"Dialog text rows differ");
+                        for(auto* line:text.lines()) { require(node!=head,"Dialog text list ended early");compareControl(*line,node->control);dialogLetters+=compare(*line,node->control);node=node->next; }require(node==head,"Dialog text list ended late");
+                        for(unsigned control:{1U,0x1cU,0x39U}) require(input.controls(control).size()==nativeInput.controls(control).size(),"Dialog key bindings differ");
+                        require(subject->state().enabled==bool(field<unsigned char>(nativeSubject.data(),0x26)),"Dialog subject enable differs");require(actualDialogEvents==nativeDialogEvents,"Dialog callback order differs");++dialogStates;
+                    };check();
+                    for(action=0;action<72;++action) {
+                        stage=62;const WString text(action%2 ? L"First/nSecond":L"Delete profile?");dialog->text().setString(text);function<void(__thiscall*)(void*,const WString*,bool)>(0xf8ce0)(field<void*>(original,0x240),&text,false);
+                        switch(action%6) {
+                        case 0:dialog->disable();call(0xd3750,original);break;
+                        case 1:dialog->enable();call(0xd3bb0,original);break;
+                        case 2:subject->enable();call(0xd3bb0,nativeSubject.data());dialog->enabledStep();call(0x101590,original);break;
+                        case 3:input.dispatchControls({0x1c,0x39,1});nativeInput.dispatchControls({0x1c,0x39,1});break;
+                        case 4:cursorPosition={dialog->yesButton().geometry().x,dialog->yesButton().geometry().y};dialog->yesButton().unclicked();call(0xf4620,field<void*>(original,0x238));break;
+                        case 5:cursorPosition={dialog->noButton().geometry().x,dialog->noButton().geometry().y};dialog->noButton().unclicked();call(0xf4620,field<void*>(original,0x23c));break;
+                        }check();
+                    }
+                    if(trial==0 || trial==2) {
+                        menuMilliseconds=0;GameTimer frameTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor frameCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&frameCursor;
+                        std::array<unsigned char,24> logicFrame{};field<void*>(logicFrame.data(),0)=cursorTable.data();nativeCursorFrame=logicFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
+                        for(unsigned frame=0;frame<16;++frame) {
+                            stage=65;action=frame;menuMilliseconds+=17*(1+frame%3);menuInputEvents.clear();menuMouseDelta={};menuPoint={0,0};
+                            if(frame<8) {
+                                const auto& button=frame<4 ? dialog->yesButton():dialog->noButton();if(frame%4!=3) menuPoint={button.geometry().x,button.geometry().y};
+                                if(frame%4==0 || frame%4==3) menuMouseDelta={1,0,0};if(frame%4==1) menuInputEvents={0x208};if(frame%4==2) menuInputEvents={0x200};
+                            }
+                            if(frame==8) menuInputEvents={0x1c};if(frame==9) menuInputEvents={0x39};if(frame==10) menuInputEvents={1};
+                            if(frame==12) { const WString text(L"First/nSecond/nThird");dialog->text().setString(text);function<void(__thiscall*)(void*,const WString*,bool)>(0xf8ce0)(field<void*>(original,0x240),&text,false); }
+                            if(frame==13) { const float alpha=.625f;dialog->setAlpha(alpha);function<void(__thiscall*)(void*,const float*)>(0x13b50)(original,&alpha); }
+                            if(frame==14) { const Point2 position{418,310};dialog->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&position); }
+                            dialogPixels+=compareMenuFrame(d3d,device,window,views,controls,input,60000);++dialogFrames;check();
+                        }
+                        menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
+                    }
+                    stage=63;require(actualSounds==expectedSounds,"Dialog sound request order differs");actualSounds.clear();expectedSounds.clear();dialogCallbacks+=unsigned(actualDialogEvents.size());actualDialogEvents.clear();nativeDialogEvents.clear();const auto before=textureCounts();dialog.reset();const auto middle=textureCounts();call(0x101970,original);compareReferenceDeltas(before,middle);++dialogObjects;
+                    require(subject->state().enabled==bool(field<unsigned char>(nativeSubject.data(),0x26)),"Dialog destruction subject enable differs");subject.reset();call(0xd58a0,nativeSubject.data());
+                    for(unsigned control:{1U,0x1cU,0x39U}) require(input.controls(control).empty() && nativeInput.controls(control).empty(),"Dialog destruction retained keyboard bindings");
+                }
+                // Default callback goes through native String/discard service
+                // boundaries; source queue retains the dialog until frame deletion.
+                ViewRegistry views;ControlRegistry controls;auto* dialog=new YesNoDialog(nullptr,manager,settings,strings,input,interaction,views,controls);
+                auto* original=allocate(592);function<void*(__thiscall*)(void*,void*)>(0x101b60)(original,nullptr);stage=64;
+                input.dispatchControls({0x1c,1});nativeInput.dispatchControls({0x1c,1});
+                require(views.discarded().size()==1 && nativeDiscards.size()==1 && views.discarded().at(dialog).view()==nativeDiscards.at(original),"Dialog default discard request differs");++dialogDiscardChecks;
+                const auto before=textureCounts();views.deleteDiscarded();const auto middle=textureCounts();call(0x101970,original);compareReferenceDeltas(before,middle);++dialogObjects;nativeDiscards.clear();dialogDefinition=nullptr;
+                require(views.discarded().empty(),"Dialog source frame deletion retained a discard entry");
+                for(unsigned control:{1U,0x1cU,0x39U}) require(input.controls(control).empty() && nativeInput.controls(control).empty(),"Default dialog destruction retained bindings");
+            }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
             field<WString>(image,0x260270).~WString(); textureEnvironment()={}; fontFiles()=nullptr; resources=nullptr; localization=nullptr;
@@ -737,6 +823,8 @@ Third</Text></Text></BackMultitext>
             <<",\"list_states\":"<<listStates<<",\"list_letters\":"<<listLetters<<",\"list_boxes\":"<<listBoxes<<",\"list_selections\":"<<listSelections
             <<",\"list_xml\":"<<listXml<<",\"list_clear_faults\":"<<listFaults
             <<",\"multi_states\":"<<multiStates<<",\"multi_letters\":"<<multiLetters<<",\"multi_objects\":"<<multiObjects<<",\"menu_text_branches\":"<<menuTextBranches
+            <<",\"dialog_states\":"<<dialogStates<<",\"dialog_letters\":"<<dialogLetters<<",\"dialog_objects\":"<<dialogObjects<<",\"dialog_callbacks\":"<<dialogCallbacks<<",\"dialog_discard_checks\":"<<dialogDiscardChecks
+            <<",\"dialog_frames\":"<<dialogFrames<<",\"dialog_pixels\":"<<dialogPixels
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

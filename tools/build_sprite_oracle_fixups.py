@@ -112,7 +112,9 @@ def main():
         todo=[0x4fb040,0x4fafc0,0x4fb0c0,0x4fa8c0,0x4794f0,0x4fa800,0x51f100,
             0x521100,0x5206e0,0x5212a0,0x521080,0x51e6d0,0x51ec50,0x51d920,
             0x4f5e70,0x4f8580,0x4f8ce0,0x4f8e10,0x4f7e10,0x4f7250,0x4f7700,0x4f6a80,0x4f6130,
-            0x4db210];seen=set(addresses) # wrap calls TextLine width through vtable +10c
+            0x4db210, # wrap calls TextLine width through vtable +10c
+            0x501b60,0x500df0,0x5014d0,0x501530,0x501590,0x501970,
+            0x500650,0x500a20,0x501a20,0x501430,0x501480];seen=set(addresses)
         while todo:
             address=todo.pop()
             if address in seen:continue
@@ -223,7 +225,7 @@ def main():
             tables=[(0x1fbfd8,59),(0x1fc388,65)]
             if args.text_state: tables += [(0x1fb818,72),(0x1fe198,69)]
             if args.button_text: tables += [(0x1fee10,72)]
-            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67)]
+            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:
