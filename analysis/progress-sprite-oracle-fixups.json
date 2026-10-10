@@ -1,0 +1,270 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 1020596,
+      "original_address": 6674076,
+      "function": "004f9290",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1020711,
+      "original_address": 6222656,
+      "function": "004f9290",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 1020789,
+      "original_address": 6222532,
+      "function": "004f9290",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1020795,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fdivr  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 1020817,
+      "original_address": 6222532,
+      "function": "004f9290",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1020823,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fdivr  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 1020868,
+      "original_address": 6222532,
+      "function": "004f9290",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1020902,
+      "original_address": 6222532,
+      "function": "004f9290",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1020959,
+      "original_address": 6673164,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x65d30c"
+    },
+    {
+      "rva": 1020997,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021009,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021035,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021047,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021076,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021088,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021109,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021118,
+      "original_address": 6222536,
+      "function": "004f9290",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1021179,
+      "original_address": 6222656,
+      "function": "004f9290",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 1021232,
+      "original_address": 5217040,
+      "function": "004f9290",
+      "instruction": "jmp    DWORD PTR [eax*4+0x4f9b10]"
+    },
+    {
+      "rva": 1021238,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fld    DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 1021295,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fld    DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 1021355,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fld    DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 1021415,
+      "original_address": 6222260,
+      "function": "004f9290",
+      "instruction": "fld    DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 284138,
+      "original_address": 6222260,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 284160,
+      "original_address": 6222656,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 284179,
+      "original_address": 6236244,
+      "function": "004455e0",
+      "instruction": "fmul   DWORD PTR ds:0x5f2854"
+    },
+    {
+      "rva": 284185,
+      "original_address": 6222536,
+      "function": "004455e0",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 284201,
+      "original_address": 6222260,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 284224,
+      "original_address": 6222656,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 284244,
+      "original_address": 6236244,
+      "function": "004455e0",
+      "instruction": "fmul   DWORD PTR ds:0x5f2854"
+    },
+    {
+      "rva": 284250,
+      "original_address": 6222536,
+      "function": "004455e0",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 284266,
+      "original_address": 6222260,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 284289,
+      "original_address": 6222656,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 284309,
+      "original_address": 6236244,
+      "function": "004455e0",
+      "instruction": "fmul   DWORD PTR ds:0x5f2854"
+    },
+    {
+      "rva": 284315,
+      "original_address": 6222536,
+      "function": "004455e0",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 284331,
+      "original_address": 6222260,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef1b4"
+    },
+    {
+      "rva": 284372,
+      "original_address": 6222656,
+      "function": "004455e0",
+      "instruction": "fcomp  DWORD PTR ds:0x5ef340"
+    },
+    {
+      "rva": 284410,
+      "original_address": 6236244,
+      "function": "004455e0",
+      "instruction": "fmul   DWORD PTR ds:0x5f2854"
+    },
+    {
+      "rva": 284416,
+      "original_address": 6222536,
+      "function": "004455e0",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    },
+    {
+      "rva": 1022736,
+      "original_address": 5215597,
+      "function": "ProgressBar-switch",
+      "instruction": "side 0"
+    },
+    {
+      "rva": 1022740,
+      "original_address": 5215657,
+      "function": "ProgressBar-switch",
+      "instruction": "side 1"
+    },
+    {
+      "rva": 1022744,
+      "original_address": 5215540,
+      "function": "ProgressBar-switch",
+      "instruction": "side 2"
+    },
+    {
+      "rva": 1022748,
+      "original_address": 5215717,
+      "function": "ProgressBar-switch",
+      "instruction": "side 3"
+    }
+  ]
+}

@@ -137,6 +137,14 @@ def main():
                 if row['name'] in scopes:
                     row['status']='partially_compared';row['integrated_game_audio_verified_scope']=scopes[row['name']]
             write('analysis/squall-export-audit.json',audit)
+    progress_path=ROOT/'.local/progress-validation.json'
+    if progress_path.exists():
+        progress=read(progress_path.relative_to(ROOT));assert progress['status']=='passed'
+        for name,expected in progress['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/progress-validation.json',progress);report['progress']=progress
+        if 'analysis/progress-validation.json' not in report['reports']: report['reports'].append('analysis/progress-validation.json')
+        if 'progress-sprite-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('progress-sprite-reference-test.exe')
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

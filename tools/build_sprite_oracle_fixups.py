@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--profile-properties',action='store_true',help='Record thirteen profile property trees and typed dispatch')
     parser.add_argument('--profile-lifecycle',action='store_true',help='Record profile constructors, full load/save/create/destructor')
     parser.add_argument('--sound-manager',action='store_true',help='Record SoundManager files, native lifetime and volume operands')
+    parser.add_argument('--progress-sprite',action='store_true',help='Record native ProgressBar sprite and switch table operands')
     args=parser.parse_args()
     if args.profile_lifecycle: args.profile_properties=True
     if args.text_buttons: args.button_text=True; args.button_state=True
@@ -66,6 +67,8 @@ def main():
     if args.control:
         assert not args.draw and not args.font and not args.text_layout and not args.letter and not args.string_manager
         addresses=[0x4ef3b0,0x4f0b70,0x4ed510,0x413a10,0x4455e0,0x5809b3]; prefix='control'
+    if args.progress_sprite:
+        addresses=[0x4f9290,0x4ed4f0,0x4455e0,0x5809b3];prefix='progress-sprite'
     if args.view:
         assert sum((args.draw,args.font,args.text_layout,args.letter,args.string_manager,args.control))==0
         addresses=[0x4d55b0,0x4d58a0,0x4d3460,0x4d37d0,0x4d3720,0x4d3bb0,0x4d3fb0,
@@ -124,7 +127,8 @@ def main():
             0x479cb0,0x479ce0,0x479d10,0x479d40,0x47a110,0x421520,
             0x504180,0x5042a0,0x504780,0x504b80,0x504210,0x504280,
             0x502970,0x503bf0,0x5036d0,0x5031a0,0x502dc0,0x502170,
-            0x5021a0,0x502590,0x5020f0,0x5020c0,0x502130,0x502150,0x489770,0x487ae0,0x487a30,0x487ac0,0x488f10,0x4892f0,0x488770,0x488b40];seen=set(addresses)
+            0x5021a0,0x502590,0x5020f0,0x5020c0,0x502130,0x502150,0x489770,0x487ae0,0x487a30,0x487ac0,0x488f10,0x4892f0,0x488770,0x488b40,
+            0x4f91e0,0x4f9230,0x4f9270,0x4f9290,0x4f9b20,0x4f9f80,0x413750];seen=set(addresses)
         boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20}
         while todo:
             address=todo.pop()
@@ -209,13 +213,14 @@ def main():
             # Preserve the original contiguous normal path through RET 8.
             if args.text_buttons and address==0x4fffb0: end=max(end,0x5002e4)
             if args.text_buttons and address==0x5042a0: end=max(end,0x50441b)
+            if args.text_buttons and address==0x4f9b20: end=max(end,0x4f9c0b)
             result=subprocess.run(['objdump','-d','-Mintel',f'--start-address={address}',f'--stop-address={end}',reference.name],cwd=directory,capture_output=True,text=True,check=True)
             for line in result.stdout.splitlines():
                 match=re.match(r'\s*([0-9a-f]+):\s*((?:[0-9a-f]{2} )+)\s*(.*)',line)
                 if not match: continue
                 instruction,encoded,text=int(match[1],16),bytes.fromhex(match[2]),match[3]
                 memory=re.search(r'ds:0x([0-9a-f]+)',text)
-                if args.button_state and not memory and text.startswith('jmp'):
+                if (args.button_state or args.progress_sprite) and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
                 if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle else ('mov','push')):
@@ -239,6 +244,11 @@ def main():
                     operand=binary.find(target.to_bytes(4,'little'))
                     assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager else 3),line
                 fixups.append(dict(rva=instruction-pe.image_base+operand,original_address=target,function=f'{address:08x}',instruction=text))
+    if args.progress_sprite:
+        for slot in range(4):
+            rva=0xf9b10+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
+            assert 0x4f9534<=target<0x4f961f
+            fixups.append(dict(rva=rva,original_address=target,function='ProgressBar-switch',instruction=f'side {slot}'))
     if args.view:
         # cView's base destructor reinstates its original virtual table before
         # destroying children; those children call the parent's removeChild.
@@ -253,6 +263,7 @@ def main():
             if args.button_text: tables += [(0x1fee10,72)]
             if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3),(0x1f5870,14),(0x1f58a8,1),(0x1f5900,14),(0x1fd8b0,92),(0x1fd618,92),(0x1fd4b0,88),(0x1f62e4,14),(0x1f631c,3)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
+            if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:
                 for slot in range(count):

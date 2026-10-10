@@ -1,16 +1,16 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-10T19:55:59.757001+00:00",
+  "recorded_at_utc": "2026-10-10T20:12:07.831577+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "36db198e7785392e9a0ca19f4246c4c90ed6f8212868bf5fed7ceb8b916b4757",
+  "oracle_sha256": "c94ec6918ccb6c63e8a916660f000e8ab2bc5713d26d0188a19ac59531e3f6d5",
   "precision_contexts": [
     {
       "state_comparisons": 95,
       "production_imports": 15,
       "cursor_progress_checks": 8,
       "paused_cursor_checks": 4,
-      "source_position_progress": 18555,
+      "source_position_progress": 1797,
       "native_position_progress": 18963,
       "playback_tested": true,
       "silent_playback": true,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 8,
       "paused_cursor_checks": 4,
-      "source_position_progress": 19404,
-      "native_position_progress": 18996,
+      "source_position_progress": 1797,
+      "native_position_progress": 18963,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -517,6 +517,22 @@
     {
       "path": "src/game/ui/ProfileSession.h",
       "sha256": "3d9bbc2d1ba6a728b232f55cdbf40ec6c0230f4777a870a204f1f357bd3bd53f"
+    },
+    {
+      "path": "src/game/ui/ProgressBar.cpp",
+      "sha256": "8cc039c9043e37222146f3500f1cd497c8f6bb65e1f1126315fa591af0393f20"
+    },
+    {
+      "path": "src/game/ui/ProgressBar.h",
+      "sha256": "40f08dc1d79aba39e880d25f9149a7d3d266d851b5718d7edb2ee6164b43a2c9"
+    },
+    {
+      "path": "src/game/ui/ProgressSprite.cpp",
+      "sha256": "d95281df17547defb1e5328d041b5ee401be9328e737edf59c162451fa494c9e"
+    },
+    {
+      "path": "src/game/ui/ProgressSprite.h",
+      "sha256": "9832b10833febe48d17d3516f05472d8c8580fabe8877e05039fcedcda29ea02"
     },
     {
       "path": "src/game/ui/SelectProfile.cpp",

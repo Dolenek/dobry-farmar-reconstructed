@@ -72,6 +72,8 @@ Další aktuálně sestavitelné části: datový správce nastavení, Windows o
 
 ## Ověření
 
+Obnovený ProgressBar ze skutečného `UI/Load.xml` je porovnaný s originálem: 200 000 transformací, 7 368 stavů a 96 Direct3D8 snímků s 46 080 000 shodnými RGB pixely. Včetně víčka, opakovaného XML a uvolnění referencí; rozsah a další práce jsou v [docs/PROGRESS_BAR.md](docs/PROGRESS_BAR.md). Přednačítání a vytvoření skutečného herního světa pokračují.
+
 ```powershell
 python -m unittest discover -s tests -v
 ```
