@@ -8,6 +8,7 @@
 #include "MainMenuContent.h"
 #include "EditBox.h"
 #include "ListBox.h"
+#include "MultilineText.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
 #include "Profile.h"
@@ -62,7 +63,7 @@ ResourceManager* resources=nullptr; StringManager* localization=nullptr; bool rt
 template<class T> T& field(void* object,unsigned offset) { return *reinterpret_cast<T*>(static_cast<unsigned char*>(object)+offset); }
 template<class T> T function(unsigned rva) { return reinterpret_cast<T>(image+rva); }
 void call(unsigned rva,void* object) { function<void(__thiscall*)(void*)>(rva)(object); }
-void require(bool result,const char* message) { if(!result) throw std::runtime_error(message); }
+void require(bool result,const char* message) { if(!result) { std::cerr<<message<<'\n';throw std::runtime_error(message); } }
 void* __cdecl allocate(unsigned bytes) { auto* p=::operator new(bytes); allocations.insert(p); return p; }
 void __cdecl release(void* p) { allocations.erase(p); if(!ui_test_heap::owns(p)) std::free(p); }
 LONG CALLBACK diagnose(EXCEPTION_POINTERS* e) {
@@ -92,16 +93,16 @@ FontNode* tree(std::vector<FontNode>& nodes,unsigned first,unsigned end,FontNode
 bool __fastcall getBool(void*,void*,const String*,const String*,bool* output) { *output=rtl; return true; }
 const WString* __fastcall getString(void*,void*,const WString* source) { return &localization->getString(*source); }
 std::set<cTexture*> textureResources;
-cTexture* __fastcall getTexture(void*,void*,const String* name) { auto* texture=resources->getTexture(*name);textureResources.insert(texture);return texture; }
+cTexture* __fastcall getTexture(void*,void*,const String* name) { try { auto* texture=resources->getTexture(*name);textureResources.insert(texture);return texture; } catch(const std::exception& e) { std::cerr<<"Texture adapter "<<name->c_str()<<": "<<e.what()<<'\n';throw; } }
 bool __fastcall releaseFont(void* font,void*) { return --field<unsigned>(font,4)==0; }
 void* __fastcall addFont(void* font,void*) { ++field<unsigned>(font,4);return font; }
 String* __fastcall assignNarrow(String* self,void*,const char* source,unsigned count) { return &self->assign(source,count); }
-WString* __fastcall assignWide(WString* self,void*,const WString* source,unsigned start,unsigned count) { return &self->assign(*source,start,count); }
+WString* __fastcall assignWide(WString* self,void*,const WString* source,unsigned start,unsigned count) { try { return &self->assign(*source,start,count); } catch(const std::exception& e) { std::cerr<<"assignWide "<<source->size()<<' '<<start<<' '<<count<<' '<<e.what()<<'\n';throw; } }
 WString* __fastcall assignUnits(WString* self,void*,const wchar_t* source,unsigned count) { return &self->assign(source,count); }
-WString* __fastcall appendString(WString* self,void*,const WString* source,unsigned start,unsigned count) { return &self->append(*source,start,count); }
+WString* __fastcall appendString(WString* self,void*,const WString* source,unsigned start,unsigned count) { try { return &self->append(*source,start,count); } catch(const std::exception& e) { std::cerr<<"appendWide "<<source->size()<<' '<<start<<' '<<count<<' '<<e.what()<<'\n';throw; } }
 WString* __fastcall appendUnits(WString* self,void*,unsigned count,wchar_t unit) { for(unsigned i=0;i<count;++i) self->append(&unit,1); return self; }
 WString* __fastcall replaceUnits(WString* self,void*,unsigned position,unsigned count,const wchar_t* source,unsigned length) {
-    std::wstring text(self->view()); text.replace(position,count,source,length); return &self->assign(text.data(),unsigned(text.size()));
+    try { std::wstring text(self->view()); text.replace(position,count,source,length); return &self->assign(text.data(),unsigned(text.size())); } catch(const std::exception& e) { std::cerr<<"replaceWide "<<self->size()<<' '<<position<<' '<<count<<' '<<length<<' '<<e.what()<<'\n';throw; }
 }
 struct Link { Link *next,*previous; void* control; };
 std::vector<void*> originalLetters(void* object) { auto* head=field<Link*>(object,0x24c); std::vector<void*> result; for(auto* node=head->next;node!=head;node=node->next) result.push_back(node->control); return result; }
@@ -109,7 +110,9 @@ void compareFloat(float a,float e,const char* message) { if(std::memcmp(&a,&e,4)
 unsigned compare(TextLine& line,void* object) {
     // Width/height accessors construct dirty letters. Apply the native
     // accessor's virtual makeLetters path before comparing its raw fields.
+    const unsigned callerStage=stage;if(callerStage==47) stage=48;
     if(field<unsigned char>(object,0x254)) call(0xdc800,object);
+    if(callerStage==47) stage=49;
     auto expected=originalLetters(object); require(expected.size()==line.letters().size(),"Original TextLine letter pool differs");
     compareFloat(line.textWidth(),field<float>(object,0x29c),"text width"); compareFloat(line.textHeight(),field<float>(object,0x2a0),"text height");
     require(line.textDirty()==bool(field<unsigned char>(object,0x254)),"Original TextLine dirty differs");
@@ -126,7 +129,7 @@ unsigned compare(TextLine& line,void* object) {
         require(letter->state().shown==bool(field<unsigned char>(f,0x24)) && letter->state().enabled==bool(field<unsigned char>(f,0x26)),"Original letter activation differs");
         require(letter->texture()==field<cTexture*>(f,0x30),"Original letter texture factory binding differs");
     }
-    return at;
+    stage=callerStage;return at;
 }
 struct XmlAdapter { void** table; const XmlNode* node; };
 std::array<void*,39> xmlTable{};
@@ -142,6 +145,9 @@ bool __fastcall section(XmlAdapter* self,void*,const String* name,XmlAdapter** o
 }
 bool __fastcall indexedSection(XmlAdapter* self,void*,unsigned index,XmlAdapter** output,String* name) {
     XmlNode* child=nullptr;if(!self->node->section(index,child,name)) return false;*output=wrap(child);return true;
+}
+bool __fastcall sectionText(XmlAdapter* self,void*,const String* name,WString* output) {
+    XmlNode* child=nullptr;if(!self->node->section(*name,child)) return false;*output=child->text();return true;
 }
 unsigned __fastcall sectionCount(XmlAdapter* self,void*) { return unsigned(self->node->children().size()); }
 template<class T> T* __cdecl typed(T* output,const WString* value) {
@@ -215,6 +221,9 @@ bool editConfirm(wchar_t* value) { if(*value==L'~') *value=L'X';return *value!=L
 void actualEditChanged(EditBox* self) { actualEditEvents.emplace_back(std::wstring(self->string().view()),self->rightInput()); }
 void nativeEditChanged(void* self) { nativeEditEvents.emplace_back(std::wstring(field<WString>(self,0x22c).view()),bool(field<unsigned char>(self,0x2b8))); }
 WString* __fastcall substring(WString* self,void*,WString* output,unsigned first,unsigned count) { return new(output) WString(self->view().substr(first,count)); }
+unsigned __cdecl wideLength(const wchar_t* text) { return unsigned(std::wcslen(text)); }
+unsigned __fastcall findWide(WString* self,void*,const wchar_t* text,unsigned first,unsigned count) { const auto found=self->view().find(std::wstring_view(text,count),first);return found==std::wstring_view::npos ? WString::npos:unsigned(found); }
+int __fastcall compareWide(WString* self,void*,unsigned first,unsigned count,const wchar_t* text,unsigned size) { return self->compare(first,count,text,size); }
 std::wostringstream listKey;
 void __fastcall listStreamConstruct(void*,void*,void*,int) { listKey.str(L"");listKey.clear(); }
 void __fastcall listStreamNoop(void*,void*) {}
@@ -254,7 +263,16 @@ unsigned compareDecorations(MenuView& view,void* original) {
     const auto nativeLess=[](void* a,void* b) { if(field<float>(a,0x228)!=field<float>(b,0x228)) return field<float>(a,0x228)<field<float>(b,0x228);return field<float>(a,0x60)<field<float>(b,0x60); };
     std::sort(actual.begin(),actual.end(),actualLess);std::sort(expected.begin(),expected.end(),nativeLess);
     for(unsigned i=0;i<actual.size();++i) { compareControl(*actual[i],expected[i]);actual[i]->updateTransform();call(0xf0b70,expected[i]);
-        require(!std::memcmp(&actual[i]->sprite(),static_cast<unsigned char*>(expected[i])+0x70,76),"Menu decoration sprite differs"); }
+        require(!std::memcmp(&actual[i]->sprite(),static_cast<unsigned char*>(expected[i])+0x70,76),"Menu decoration sprite differs");
+        if(auto* line=dynamic_cast<TextLine*>(actual[i])) compare(*line,expected[i]);
+        if(auto* text=dynamic_cast<MultilineText*>(actual[i])) {
+            require(text->string().view()==field<WString>(expected[i],0x23c).view(),"Menu multiline string differs");
+            auto* head=field<Link*>(expected[i],0x230);auto* node=head->next;
+            require(text->lines().size()==field<unsigned>(expected[i],0x234),"Menu multiline row count differs");
+            for(auto* line:text->lines()) { require(node!=head,"Menu multiline list ended early");compareControl(*line,node->control);compare(*line,node->control);node=node->next; }
+            require(node==head,"Menu multiline list ended late");
+        }
+    }
     return unsigned(actual.size());
 }
 
@@ -372,6 +390,8 @@ int wmain(int argc,wchar_t** argv) {
         redirect(0xd9240,reinterpret_cast<void*>(&vectorValue<2>));redirect(0xd9180,reinterpret_cast<void*>(&vectorValue<3>));redirect(0xd93b0,reinterpret_cast<void*>(&colorValue));
         redirect(0xd9dc0,reinterpret_cast<void*>(&appendString)); redirect(0x1600,reinterpret_cast<void*>(&appendUnits)); redirect(0xda980,reinterpret_cast<void*>(&replaceUnits));
         redirect(0x1c10,reinterpret_cast<void*>(&substring));
+        redirect(0x1802fd,reinterpret_cast<void*>(&wideLength));redirect(0xda320,reinterpret_cast<void*>(&findWide));
+        redirect(0x1050,reinterpret_cast<void*>(&compareWide));
         redirect(0x6a20,reinterpret_cast<void*>(&listStreamConstruct));redirect(0x4ff0,reinterpret_cast<void*>(&listStreamNoop));
         redirect(0xae240,reinterpret_cast<void*>(&listWriteLiteral));redirect(0x6400,reinterpret_cast<void*>(&listWriteUnsigned));
         redirect(0xa430,reinterpret_cast<void*>(&listStreamContents));redirect(0x5710,reinterpret_cast<void*>(&listStreamNoop));redirect(0x17f6f0,reinterpret_cast<void*>(&listStreamNoop));
@@ -387,6 +407,7 @@ int wmain(int argc,wchar_t** argv) {
         uiElapsedTime()=[] { return currentElapsed(); };
         xmlTable[4]=reinterpret_cast<void*>(&section);xmlTable[5]=reinterpret_cast<void*>(&indexedSection);xmlTable[31]=reinterpret_cast<void*>(&attribute);xmlTable[38]=reinterpret_cast<void*>(&sectionCount);
         xmlTable[32]=reinterpret_cast<void*>(&wideAttribute);
+        xmlTable[15]=reinterpret_cast<void*>(&sectionText);
         std::array<void*,5> cursorTable{};cursorTable[4]=reinterpret_cast<void*>(&cursor);auto* cursorPointer=cursorTable.data();putPointer(0x25ff60,&cursorPointer);
         std::array<void*,20> graphicsTable{};graphicsTable[1]=graphicsTable[2]=reinterpret_cast<void*>(&frameService);graphicsTable[11]=reinterpret_cast<void*>(&submitNative);graphicsTable[18]=reinterpret_cast<void*>(&getMask);
         graphicsTable[14]=image+0x112330;graphicsTable[19]=image+0x10d260;
@@ -415,7 +436,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool preserve=argc==3 || nativeBug;
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
-        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0;unsigned long long menuPixels=0;
+        unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0;unsigned long long menuPixels=0;
         {
             FileIndex files(toNarrow(WString(argv[2])),String("pack")); ResourceManager manager(files); resources=&manager;
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
@@ -661,6 +682,52 @@ int wmain(int argc,wchar_t** argv) {
                     const auto beforeDelete=textureCounts();box.reset();const auto middleDelete=textureCounts();call(0x11d920,original);compareReferenceDeltas(beforeDelete,middleDelete);++listXml;
                 }
             }
+            {
+                auto document=manager.loadSettingsXML(String("UI/YesNo.xml"));XmlNode* definition=nullptr;require(document->section(String("Text"),definition),"YesNo Text missing");
+                for(trial=0;trial<16;++trial) {
+                    rtl=bool(trial&2);settings.set(String("game"),String("RightToLeftEnable"),rtl);
+                    stage=40;ViewRegistry views;ControlRegistry controls;auto text=std::make_unique<MultilineText>(nullptr,manager,settings,strings,views,controls);auto* original=allocate(636);
+                    function<void*(__thiscall*)(void*,void*)>(0xf5e70)(original,nullptr);text->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(0xf8580)(original,wrap(definition));
+                    const bool wrapText=bool(trial&4),localized=bool(trial&8);text->setWrap(wrapText);field<unsigned char>(original,0x278)=wrapText;text->setLocalized(localized);field<unsigned char>(original,0x260)=localized;
+                    text->setVerticalAlignment(trial%4);field<unsigned>(original,0x264)=trial%4;
+                    const auto check=[&] {
+                        stage=45;text->enabledStep();stage=46;call(0xf8e10,original);stage=47;
+                        require(text->string().view()==field<WString>(original,0x23c).view() && text->textDirty()==bool(field<unsigned char>(original,0x258)),"Multiline text/dirty differs");
+                        require(text->localized()==bool(field<unsigned char>(original,0x260)) && text->wraps()==bool(field<unsigned char>(original,0x278)) && text->verticalAlignment()==field<unsigned>(original,0x264),"Multiline options differ");
+                        compareFloat(text->interlinear(),field<float>(original,0x25c),"multiline interlinear");require(!std::memcmp(&text->textColor(),static_cast<unsigned char*>(original)+0x268,16),"Multiline color differs");
+                        compareControl(*text,original);compareControl(const_cast<TextLine&>(text->prototype()),field<void*>(original,0x238));
+                        auto* head=field<Link*>(original,0x230);auto* node=head->next;require(text->lines().size()==field<unsigned>(original,0x234),"Multiline row count differs");
+                        for(auto* line:text->lines()) { require(node!=head,"Multiline row list ended early");compareControl(*line,node->control);multiLetters+=compare(*line,node->control);node=node->next; }require(node==head,"Multiline row list ended late");++multiStates;
+                    };check();
+                    const wchar_t* values[]={L"",L"One line",L"First/nSecond",L"First\nSecond\n",L"\n\nFinal",L"Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa",L" ALongWordWithoutSpacesButOverWidth",L"ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",L"a  b    c d",L"Delete profile?",L"Привет/n\x5d0\x5d1\x5d2 ABC 123"};
+                    for(action=0;action<110;++action) {
+                        stage=41;const WString value(values[action%11]);const bool immediate=action%3==0;
+                        text->setString(value,immediate);stage=43;function<void(__thiscall*)(void*,const WString*,bool)>(0xf8ce0)(original,&value,immediate);stage=44;check();
+                        if(action%5==0) { const float alpha=float(action%7)*.125f;text->setAlpha(alpha);function<void(__thiscall*)(void*,const float*)>(0xf6a80)(original,&alpha);check(); }
+                        if(action%7==0) { const Point2 position{400.f+action*.125f,268.f-action*.375f};text->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&position);check(); }
+                    }
+                    stage=42;const auto before=textureCounts();text.reset();const auto middle=textureCounts();call(0xf6130,original);compareReferenceDeltas(before,middle);++multiObjects;
+                }
+            }
+            {
+                const auto directory=std::filesystem::current_path()/".local"/"menu-text-fixtures";std::filesystem::create_directories(directory);
+                std::ofstream(directory/"decorations.xml")<<R"(<root>
+<BackText><Line position="130 110" size="240 40" Font="UI/menu_font.fnt" Texture="UI/menu_font.dds" Multiplier="0.75" String="One line" Localized="0" deep="7"/></BackText>
+<BackMultitext><Text position="330 210" size="273 84" Font="UI/menu_font.fnt" Texture="UI/menu_font.dds" Multiplier="0.75" String="First/nSecond/nThird" Localized="0" Interlinear="25" WrapText="1" VerticalAlign="2" deep="11" Color="B37F25E1"/>
+<Text position="330 370" size="273 84" Font="UI/menu_font.fnt" Texture="UI/menu_font.dds" Multiplier="0.75" String="Overridden" Localized="0" Interlinear="25" VerticalAlign="1"><Text>Section/ncontent
+Third</Text></Text></BackMultitext>
+</root>)";
+                FileIndex fixtures(toNarrow(WString(directory.wstring())),String("pack"));XmlDocument definition(fixtures,String("decorations.xml"));
+                for(trial=0;trial<2;++trial) {
+                    rtl=bool(trial);settings.set(String("game"),String("RightToLeftEnable"),rtl);
+                    ViewRegistry views;ControlRegistry controls;auto view=std::make_unique<MenuView>(nullptr,manager,settings,strings,views,controls);
+                    std::array<unsigned char,56> original{};stage=50;function<void*(__thiscall*)(void*,void*)>(0xfb040)(original.data(),nullptr);
+                    for(action=0;action<2;++action) {
+                        view->loadXML(definition);function<void(__thiscall*)(void*,void*)>(0xfa8c0)(original.data(),wrap(&definition));menuTextBranches+=compareDecorations(*view,original.data());
+                    }
+                    const auto before=textureCounts();view.reset();const auto middle=textureCounts();call(0xfafc0,original.data());compareReferenceDeltas(before,middle);
+                }
+            }
             for(const auto& pair:fontFixtures) require(field<unsigned>(pair.second->object.data(),4)==1,"Owned text font lifetime differs");
             for(const auto& sound:sounds) require(sound->referenceCount()==0,"Button XML sound lifetime differs");sounds.clear();fontFixtures.clear();xmlNodes.clear();
             field<WString>(image,0x260270).~WString(); textureEnvironment()={}; fontFiles()=nullptr; resources=nullptr; localization=nullptr;
@@ -669,6 +736,7 @@ int wmain(int argc,wchar_t** argv) {
         std::cout<<"{\"scenarios\":"<<scenarios<<",\"letter_comparisons\":"<<comparisons<<",\"direction_comparisons\":"<<directionComparisons
             <<",\"list_states\":"<<listStates<<",\"list_letters\":"<<listLetters<<",\"list_boxes\":"<<listBoxes<<",\"list_selections\":"<<listSelections
             <<",\"list_xml\":"<<listXml<<",\"list_clear_faults\":"<<listFaults
+            <<",\"multi_states\":"<<multiStates<<",\"multi_letters\":"<<multiLetters<<",\"multi_objects\":"<<multiObjects<<",\"menu_text_branches\":"<<menuTextBranches
             <<",\"edit_frames\":"<<editFrames<<",\"edit_letters\":"<<editLetters<<",\"copies\":"<<copies<<",\"copy_letters\":"<<copyLetters<<",\"lines_destroyed\":9,\"decoration_comparisons\":"<<decorationComparisons<<",\"menu_views_destroyed\":3,\"menu_content_comparisons\":"<<menuContentComparisons<<",\"menu_frames\":"<<menuFrames<<",\"menu_pixels\":"<<menuPixels<<",\"menu_input_frames\":24,\"menu_sound_requests\":"<<menuSoundRequests<<",\"device_flags\":"<<(preserve ? 0x22:0x20)<<",\"x87_control_before\":"<<controlBefore<<",\"x87_control_after\":"<<_control87(0,0)<<"}\n";
     } catch(const std::exception& e) { std::cerr<<e.what()<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }
       catch(const char* e) { std::cerr<<e<<" stage "<<stage<<" trial "<<trial<<" action "<<action<<'\n'; return 1; }

@@ -9,7 +9,7 @@
 namespace ui_test_heap {
 inline unsigned char* base=nullptr;
 inline std::size_t used=0,committed=0;
-constexpr std::size_t capacity=256U*1024*1024;
+constexpr std::size_t capacity=512U*1024*1024;
 inline bool owns(const void* pointer) noexcept {
     const auto address=reinterpret_cast<std::size_t>(pointer),start=reinterpret_cast<std::size_t>(base);
     return base && address>=start && address<start+capacity;

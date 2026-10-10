@@ -36,6 +36,7 @@ public:
     void setTexture(const String& name); // 004dab90
     void setString(const WString& text); // 004dd030, owns a reusable Letter pool
     const WString& string() const noexcept { return text_; }
+    unsigned packedColor() const noexcept { return packedColor_; } // 00415c30, original virtual +f4
     void setPackedColor(unsigned value); // 00415ca0
     void setMultiplier(float value); // 00415cc0
     void setAlignment(unsigned value); // 00415cf0

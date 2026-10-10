@@ -34,8 +34,10 @@ def main():
         assert context['copies']==60 and context['copy_letters']==690
         assert context['list_states']==1398 and context['list_letters']>315000
         assert context['list_boxes']==12 and context['list_selections']==960 and context['list_xml']==2
+        assert context['multi_states']==2384 and context['multi_letters']==43392 and context['multi_objects']==16
+        assert context['menu_text_branches']==18
         context['precision']=precision;contexts.append(context)
-    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests','edit_frames','edit_letters','copies','copy_letters','list_states','list_letters','list_boxes','list_selections','list_xml')}
+    report={key:sum(context[key] for context in contexts) for key in ('scenarios','letter_comparisons','lines_destroyed','decoration_comparisons','menu_views_destroyed','menu_content_comparisons','menu_frames','menu_pixels','menu_input_frames','menu_sound_requests','edit_frames','edit_letters','copies','copy_letters','list_states','list_letters','list_boxes','list_selections','list_xml','multi_states','multi_letters','multi_objects','menu_text_branches')}
     fault=subprocess.run([str(executable),str(original),str(original.parent/'Data'),'clear-fault'],capture_output=True,text=True,timeout=90)
     if fault.returncode!=77:raise RuntimeError(f'Original scrolled ListBox clear did not match documented fault: {fault.returncode}, {fault.stderr}')
     report['list_clear_fault']=json.loads(fault.stdout)
@@ -73,7 +75,7 @@ def main():
             'Profile NameEdit: RTL off/on, Czech/Hebrew keyboard-language fixtures, whitespace, backspace, Enter/LF, unavailable/Czech/Hebrew/NBSP characters and disabled binding cleanup',
             'Both original GPU x87 precision contexts'],
         pending=['Original XML parser and old CRT typed conversion ABI','Full object/exception ABI',
-            'MenuView BackText/BackMultitext branches; original MainMenu loader 00481e10 ignores legacy submenu sections',
+            'Original MainMenu loader 00481e10 ignores legacy submenu sections',
             'MainMenu singleton, navigation callbacks and unusual enable/disable hooks','Whole menu physical input/frame service integration and actual navigation','Actual sound loading/playback','Complete main game EXE'])
     report['test_adapters'] += ['Test-only monotonic allocation preserves matching address ranks: original equal-depth UI comparator orders by object pointer; production comparators remain unchanged',
         'Native graphics virtual submission boundary uses recovered SpriteBatches; native batching routines themselves are not executed by this scene test',
@@ -96,6 +98,13 @@ def main():
         'Original scrolled ListBox clear access violation confirmed; safe source exception documented as an intentional memory-safety difference']
     report['pending'] += ['Control copy with Mesh/Animation resources; TextAnimationButton copy and full original object ABI',
         'ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; full profile selection controller integration']
+    report['original_functions'] += ['004f5e70','004f8580','004f8ce0','004f8e10','004f7e10','004f7250','004f7700','004f6a80','004f6130','004db210']
+    report['coverage'] += ['MultilineText: 32 native/source owned trees, 4768 full states and 86784 letter/sprite comparisons; /n and LF splitting, empty/trailing rows, space-based wrapping and over-width words, all four vertical alignments, RTL off/on, localization on/off, immediate/deferred updates, position/alpha propagation and destruction',
+        'MenuView BackText/BackMultitext: 36 accumulated decoration comparisons, repeated XML loading and owned resource deletion in both precision contexts; attribute text and overriding nonempty Text section, color, wrapping and RTL']
+    report['test_adapters'] += ['MultilineText and MenuView XML section text wraps recovered XmlNode text; string length/find/compare/substring operations use explicit recovered/modern CRT boundaries',
+        'TextLine width getter 004db210 executes original dirty-layout path through its vtable; relocation operands include this indirect dependency',
+        'Test-only monotonic heap reserves 512 MiB after the enlarged comparison exhausted its previous 256 MiB; allocation order and production code are unchanged']
+    report['pending'] += ['MultilineText invalid/negative dimensions and infinite/NaN spacing; complete YesNo and SelectProfile controller navigation']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

@@ -110,13 +110,15 @@ def main():
             0x5213c0,0x521430,0x521440,0x521460,0x521500,0x521820,0x521840,0x521860,0x521f00,0x522320,0x522860,0x522c40,0x4db9b0]
         addresses += [0x521020,0x521060]
         todo=[0x4fb040,0x4fafc0,0x4fb0c0,0x4fa8c0,0x4794f0,0x4fa800,0x51f100,
-            0x521100,0x5206e0,0x5212a0,0x521080,0x51e6d0,0x51ec50,0x51d920];seen=set(addresses)
+            0x521100,0x5206e0,0x5212a0,0x521080,0x51e6d0,0x51ec50,0x51d920,
+            0x4f5e70,0x4f8580,0x4f8ce0,0x4f8e10,0x4f7e10,0x4f7250,0x4f7700,0x4f6a80,0x4f6130,
+            0x4db210];seen=set(addresses) # wrap calls TextLine width through vtable +10c
         while todo:
             address=todo.pop()
             if address in seen:continue
             seen.add(address);addresses.append(address)
             if address in rows:
-                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16) not in (0x4f5e70,0x4d43a0)]
+                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16)!=0x4d43a0]
         addresses=list(dict.fromkeys(addresses))
     if args.input_bindings:
         prefix='input-bindings'; seen=set(); todo=[0x526190,0x5280f0,0x526580,0x5284e0,0x526970,0x5288e0,0x524640,0x524a30,0x524e60,
@@ -221,7 +223,7 @@ def main():
             tables=[(0x1fbfd8,59),(0x1fc388,65)]
             if args.text_state: tables += [(0x1fb818,72),(0x1fe198,69)]
             if args.button_text: tables += [(0x1fee10,72)]
-            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65)]
+            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:
