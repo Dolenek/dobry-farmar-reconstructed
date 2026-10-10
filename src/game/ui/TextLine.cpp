@@ -100,6 +100,10 @@ void TextLine::makeLetters() {
 }
 float TextLine::textWidth() { if(textDirty_) makeLetters(); return width_; }
 float TextLine::textHeight() { if(textDirty_) makeLetters(); return height_; }
+bool TextLine::isCharAvailable(wchar_t character) const {
+    if(!font_) throw std::logic_error("TextLine font resource is not loaded");
+    return font_->isCharAvailable(static_cast<unsigned short>(character));
+}
 void TextLine::loadXML(const XmlNode& node) {
     Control::loadXML(node);
     const auto text=node.attribute(WString(L"String"));

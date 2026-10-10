@@ -56,6 +56,18 @@ def main():
     for key in ('dialog_states','dialog_letters','dialog_objects','dialog_callbacks','dialog_discard_checks','dialog_frames','dialog_pixels'):
         report[key]=sum(context[key] for context in controller_contexts)
     report['controller_precision_contexts']=controller_contexts
+    profile_contexts=[]
+    for precision,mode in (('preserved','profiles'),('original-device-0x20','profiles-device')):
+        result=subprocess.run([str(executable),str(original),str(original.parent/'Data'),mode],capture_output=True,text=True,timeout=90)
+        if result.returncode:raise RuntimeError(f'SelectProfile controller oracle failed ({result.returncode}, {precision}): {result.stderr}')
+        context=json.loads(result.stdout)
+        assert context['profile_states']==825 and context['profile_letters']==36128 and context['profile_objects']==16
+        assert context['profile_callbacks']==20 and context['profile_deletions']==12 and context['profile_service_events']==180
+        assert context['profile_frames']==32 and context['profile_pixels']==15360000
+        context['precision']=precision;profile_contexts.append(context)
+    for key in ('profile_states','profile_letters','profile_objects','profile_callbacks','profile_frames','profile_pixels','profile_deletions','profile_service_events'):
+        report[key]=sum(context[key] for context in profile_contexts)
+    report['profile_precision_contexts']=profile_contexts
     assert hashlib.sha256(original.read_bytes()).hexdigest()==expected
     report.update(status='passed',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),reference_sha256=expected,
         oracle_sha256=hashlib.sha256(executable.read_bytes()).hexdigest(),original_entry_point_executed=False,reference_files_modified=False,
@@ -109,14 +121,14 @@ def main():
         'Four indexed Strings XML loads: empty reserved and populated vectors, logical count unchanged, replaced/orphan clones retained by View hierarchy and all text/resource lifetime compared',
         'Original scrolled ListBox clear access violation confirmed; safe source exception documented as an intentional memory-safety difference']
     report['pending'] += ['Control copy with Mesh/Animation resources; TextAnimationButton copy and full original object ABI',
-        'ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; full profile selection controller integration']
+        'ListBox invalid/zero spacing, negative bounds and Strings exceeding reserved capacity; scrolled clear retains the documented safe source exception']
     report['original_functions'] += ['004f5e70','004f8580','004f8ce0','004f8e10','004f7e10','004f7250','004f7700','004f6a80','004f6130','004db210']
     report['coverage'] += ['MultilineText: 32 native/source owned trees, 4768 full states and 86784 letter/sprite comparisons; /n and LF splitting, empty/trailing rows, space-based wrapping and over-width words, all four vertical alignments, RTL off/on, localization on/off, immediate/deferred updates, position/alpha propagation and destruction',
         'MenuView BackText/BackMultitext: 36 accumulated decoration comparisons, repeated XML loading and owned resource deletion in both precision contexts; attribute text and overriding nonempty Text section, color, wrapping and RTL']
     report['test_adapters'] += ['MultilineText and MenuView XML section text wraps recovered XmlNode text; string length/find/compare/substring operations use explicit recovered/modern CRT boundaries',
         'TextLine width getter 004db210 executes original dirty-layout path through its vtable; relocation operands include this indirect dependency',
         'Test-only monotonic heap reserves 512 MiB after the enlarged comparison exhausted its previous 256 MiB; allocation order and production code are unchanged']
-    report['pending'] += ['MultilineText invalid/negative dimensions and infinite/NaN spacing; complete SelectProfile controller navigation']
+    report['pending'] += ['MultilineText invalid/negative dimensions and infinite/NaN spacing']
     report['original_functions'] += ['00501b60','00500df0','005014d0','00501530','00501590','00501970','00500650','00500a20','00501a20','00501430','00501480']
     report['coverage'] += ['YesNo controller: 34 source/native owned dialog trees using shipped UI/YesNo.xml, 2400 full states, 41584 letter/sprite comparisons, 1940 keyboard/button callbacks, nullable/enabled/initially disabled suspended view, disable/enable/step enforcement and destructor restoration',
         'YesNo scene: 64 native/source GPU frames with actual owned background/buttons/multiline text, 30720000 exactly matching RGB pixels and draw API calls; cursor hover/press/release/leave, Enter/Space/Escape dispatch, text updates, alpha and movement, RTL off/on',
@@ -125,6 +137,14 @@ def main():
         'YesNo native callbacks, key bindings, suspended-view lifecycle and step execute original instructions; default callback decimal formatting/concatenation use recovered diagnostic String boundaries and discard service records the request instead of executing the native queue',
         'YesNo controller cases run in separate processes from earlier UI scenarios to bound monotonic diagnostic heap consumption; scene uses the same explicit cursor/timer/input/graphics/sound boundaries as main-menu rendering']
     report['pending'] += ['Native nonempty discard-queue traversal/deletion and old CRT diagnostic origin formatting; physical dialog keyboard/mouse and actual audio']
+    report['original_functions'] += ['004fffb0','004fca60','004fcea0','004fefa0','004fe870','004fef60','004fe9a0','004fe9b0','004fdfd0','004fe020','004fe070','004fc680','004feaa0','004fd780','004fdbb0','004ffb70','004ff410','004ffa00','004db9f0','0050b3d0']
+    report['coverage'] += ['SelectProfile: 32 owned native/source trees from shipped UI/SelectUser.xml, 1650 whole states and 72256 letters/sprites; empty/one/three persisted profiles, hideCancel, RTL, glyph-confirmed character input, button visibility/labels, list selection, profile switching, accept/cancel, modal deletion and full resource/input cleanup',
+        'SelectProfile GPU: 64 complete selector/YesNo frames, 30720000 exactly matching RGB pixels and draw API calls; profile names, text caret, button hover and modal hide/show transitions',
+        'Source selector executes real ProfileSession with 790 game defaults and ResourceManager-backed XML: 24 confirmed deletions remove XML/sav/sav.bak, cancelled deletion retains them, original pack-extension exclusion remains, selected headers and property files persist on close']
+    report['test_adapters'] += ['Native SelectProfile profile constructor/scalar destructor/name list/removal use explicit 88-byte service fixtures recording 360 open/close/remove events; source uses actual recovered persistence, independently native-verified by profile-lifecycle tests. Controller methods and UI callbacks execute original instructions; this is not an independent whole profile+UI native runtime test',
+        'Native SelectProfile XML factory uses an independent parsed shipped tree; missing indexed constructor tail is inspected and relocated through 005002e3, unindexed changed callback spans 004fe9b0..004fea9b',
+        'Text control comparison invokes original virtual makeLetters at +11c, including EditBox caret positioning, matching the source width getter virtual path']
+    report['pending'] += ['MainMenu-to-SelectProfile startup/navigation, physical keyboard/mouse, actual audio and complete reconstructed game runtime; combined native profile persistence+controller execution']
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(f"Owned text buttons: {report['scenarios']} scenarios, {report['letter_comparisons']} letters/sprites, {report['lines_destroyed']} owned trees destroyed")

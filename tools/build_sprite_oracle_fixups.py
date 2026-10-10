@@ -114,13 +114,17 @@ def main():
             0x4f5e70,0x4f8580,0x4f8ce0,0x4f8e10,0x4f7e10,0x4f7250,0x4f7700,0x4f6a80,0x4f6130,
             0x4db210, # wrap calls TextLine width through vtable +10c
             0x501b60,0x500df0,0x5014d0,0x501530,0x501590,0x501970,
-            0x500650,0x500a20,0x501a20,0x501430,0x501480];seen=set(addresses)
+            0x500650,0x500a20,0x501a20,0x501430,0x501480,
+            0x4fffb0,0x4fca60,0x4fcea0,0x4fefa0,0x4fe870,0x4fef60,0x4fe9a0,0x4fe9b0,
+            0x4fdfd0,0x4fe020,0x4fe070,0x4fc680,0x4feaa0,0x4fd780,0x4fdbb0,
+            0x4ffb70,0x4ff410,0x4ffa00,0x4db9f0,0x50b3d0];seen=set(addresses)
+        boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20}
         while todo:
             address=todo.pop()
             if address in seen:continue
             seen.add(address);addresses.append(address)
             if address in rows:
-                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16)!=0x4d43a0]
+                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16) not in boundaries]
         addresses=list(dict.fromkeys(addresses))
     if args.input_bindings:
         prefix='input-bindings'; seen=set(); todo=[0x526190,0x5280f0,0x526580,0x5284e0,0x526970,0x5288e0,0x524640,0x524a30,0x524e60,
@@ -182,7 +186,10 @@ def main():
                 0x413a10:0x413a47,0x413b20:0x413b41,0x413b50:0x413b74,0x413b80:0x413bb6,
                 0x413bc0:0x413be7,0x51f570:0x51f5a0,0x481770:0x48179e,
                 0x536480:0x536498,0x5364a0:0x5364a7,0x536500:0x536519,0x50d260:0x50d2ad,0x531a40:0x531a44,0x521500:0x52181f,
-                0x521020:0x521057,0x521060:0x52107e}[address]
+                0x521020:0x521057,0x521060:0x52107e,0x4fe9a0:0x4fe9a8,0x4fe9b0:0x4fea9c}[address]
+            # The exported constructor range stops before its allocation tail.
+            # Preserve the original contiguous normal path through RET 8.
+            if args.text_buttons and address==0x4fffb0: end=max(end,0x5002e4)
             result=subprocess.run(['objdump','-d','-Mintel',f'--start-address={address}',f'--stop-address={end}',reference.name],cwd=directory,capture_output=True,text=True,check=True)
             for line in result.stdout.splitlines():
                 match=re.match(r'\s*([0-9a-f]+):\s*((?:[0-9a-f]{2} )+)\s*(.*)',line)
@@ -225,7 +232,7 @@ def main():
             tables=[(0x1fbfd8,59),(0x1fc388,65)]
             if args.text_state: tables += [(0x1fb818,72),(0x1fe198,69)]
             if args.button_text: tables += [(0x1fee10,72)]
-            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65)]
+            if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:

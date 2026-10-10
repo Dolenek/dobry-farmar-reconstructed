@@ -44,6 +44,7 @@ public:
     virtual void makeLetters(); // 004dc800
     float textWidth(); // 004db210
     float textHeight(); // 004db5e0, deliberately retains previous max height
+    bool isCharAvailable(wchar_t character) const; // 004db9f0 -> font 0050b3d0
     const std::vector<Letter*>& letters() const noexcept { return letters_; }
     bool textDirty() const noexcept { return textDirty_; }
 protected:

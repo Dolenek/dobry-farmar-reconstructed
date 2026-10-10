@@ -18,7 +18,7 @@
 
 ## Prostředí
 
-Další obnovené části: `ListBox` a 2D copy chain pro profily, `MultilineText` a BackText/BackMultitext dekorace menu. Následuje skutečný YesNo controller: 34 vlastněných dialogů, 2 400 stavů, 1 940 callbacků a 64 celých GPU snímků/30 720 000 shodných RGB pixelů v obou přesnostech. Podrobnosti a neověřené oblasti jsou v `LIST_BOX.md`, `MULTILINE_TEXT.md` a `YES_NO.md`. Controller SelectProfile, propojení navigace a funkční herní EXE stále zbývají.
+Další obnovené části: `ListBox` a 2D copy chain pro profily, `MultilineText` a BackText/BackMultitext dekorace menu. YesNo controller: 34 vlastněných dialogů, 2 400 stavů, 1 940 callbacků a 64 celých GPU snímků/30 720 000 shodných RGB pixelů v obou přesnostech. SelectProfile nově propojuje skutečné profily, jejich přepínání/vytvoření/mazání a YesNo: 32 selectorů, 1 650 stavů a dalších 64 GPU snímků/30 720 000 přesně shodných RGB pixelů. Source zapisuje skutečné hlavičky/vlastnosti; nativní UI má explicitní profilovou service fixture a plný lifecycle se porovnává samostatně. Podrobnosti a neověřené oblasti jsou v `LIST_BOX.md`, `MULTILINE_TEXT.md`, `YES_NO.md` a `SELECT_PROFILE.md`. Propojení navigace hlavního menu, skutečné audio a funkční herní EXE stále zbývají.
 
 - Původní Ghidra: `C:\ghidra_12.1.4_PUBLIC`, minimální JDK podle instalace: 21.
 - Nativní JDK 21.0.7+6: `C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot`. Výchozí `java` na PATH je Java 8; nástroji analýzy předávat `--java-home`. Linuxový dočasný JDK se zde nepoužívá.
