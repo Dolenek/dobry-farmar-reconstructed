@@ -1,0 +1,498 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 4950,
+      "original_address": 5964400,
+      "function": "00401350",
+      "instruction": "push   0x5b0270"
+    },
+    {
+      "rva": 34611,
+      "original_address": 5966728,
+      "function": "00408730",
+      "instruction": "push   0x5b0b88"
+    },
+    {
+      "rva": 34649,
+      "original_address": 6321516,
+      "function": "00408730",
+      "instruction": "mov    DWORD PTR [esi],0x60756c"
+    },
+    {
+      "rva": 1257051,
+      "original_address": 6673260,
+      "function": "00532e40",
+      "instruction": "fld    DWORD PTR ds:0x65d36c"
+    },
+    {
+      "rva": 1257068,
+      "original_address": 6673264,
+      "function": "00532e40",
+      "instruction": "fld    DWORD PTR ds:0x65d370"
+    },
+    {
+      "rva": 1257102,
+      "original_address": 6239244,
+      "function": "00532e40",
+      "instruction": "fsubr  DWORD PTR ds:0x5f340c"
+    },
+    {
+      "rva": 1257111,
+      "original_address": 6222536,
+      "function": "00532e40",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 1257298,
+      "original_address": 6222532,
+      "function": "00532f40",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1257304,
+      "original_address": 6264984,
+      "function": "00532f40",
+      "instruction": "fmul   DWORD PTR ds:0x5f9898"
+    },
+    {
+      "rva": 1257319,
+      "original_address": 6228208,
+      "function": "00532f40",
+      "instruction": "fmul   DWORD PTR ds:0x5f08f0"
+    },
+    {
+      "rva": 1257378,
+      "original_address": 6222532,
+      "function": "00532f90",
+      "instruction": "fadd   DWORD PTR ds:0x5ef2c4"
+    },
+    {
+      "rva": 1257384,
+      "original_address": 6264984,
+      "function": "00532f90",
+      "instruction": "fmul   DWORD PTR ds:0x5f9898"
+    },
+    {
+      "rva": 1257399,
+      "original_address": 6228208,
+      "function": "00532f90",
+      "instruction": "fmul   DWORD PTR ds:0x5f08f0"
+    },
+    {
+      "rva": 1257721,
+      "original_address": 6177688,
+      "function": "005330f0",
+      "instruction": "push   0x5e4398"
+    },
+    {
+      "rva": 1257756,
+      "original_address": 6221188,
+      "function": "005330f0",
+      "instruction": "push   0x5eed84"
+    },
+    {
+      "rva": 1257805,
+      "original_address": 6372956,
+      "function": "005330f0",
+      "instruction": "push   0x613e5c"
+    },
+    {
+      "rva": 1257818,
+      "original_address": 6321540,
+      "function": "005330f0",
+      "instruction": "mov    DWORD PTR [esp+0x30],0x607584"
+    },
+    {
+      "rva": 1258617,
+      "original_address": 6177688,
+      "function": "00533470",
+      "instruction": "push   0x5e4398"
+    },
+    {
+      "rva": 1258650,
+      "original_address": 6221168,
+      "function": "00533470",
+      "instruction": "push   0x5eed70"
+    },
+    {
+      "rva": 1258699,
+      "original_address": 6369212,
+      "function": "00533470",
+      "instruction": "push   0x612fbc"
+    },
+    {
+      "rva": 1258712,
+      "original_address": 6321528,
+      "function": "00533470",
+      "instruction": "mov    DWORD PTR [esp+0x2c],0x607578"
+    },
+    {
+      "rva": 1260182,
+      "original_address": 6178211,
+      "function": "00533a90",
+      "instruction": "push   0x5e45a3"
+    },
+    {
+      "rva": 1260212,
+      "original_address": 6674076,
+      "function": "00533a90",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1260220,
+      "original_address": 6682420,
+      "function": "00533a90",
+      "instruction": "mov    esi,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1260318,
+      "original_address": 6620852,
+      "function": "00533a90",
+      "instruction": "push   0x6506b4"
+    },
+    {
+      "rva": 1260335,
+      "original_address": 6291732,
+      "function": "00533a90",
+      "instruction": "mov    DWORD PTR [ebp-0x1054],0x600114"
+    },
+    {
+      "rva": 1261222,
+      "original_address": 6178451,
+      "function": "00533ea0",
+      "instruction": "push   0x5e4693"
+    },
+    {
+      "rva": 1261252,
+      "original_address": 6674076,
+      "function": "00533ea0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1261260,
+      "original_address": 6682420,
+      "function": "00533ea0",
+      "instruction": "mov    esi,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1261367,
+      "original_address": 6620852,
+      "function": "00533ea0",
+      "instruction": "push   0x6506b4"
+    },
+    {
+      "rva": 1261384,
+      "original_address": 6291732,
+      "function": "00533ea0",
+      "instruction": "mov    DWORD PTR [ebp-0x1054],0x600114"
+    },
+    {
+      "rva": 1262278,
+      "original_address": 6178691,
+      "function": "005342c0",
+      "instruction": "push   0x5e4783"
+    },
+    {
+      "rva": 1262308,
+      "original_address": 6674076,
+      "function": "005342c0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1262316,
+      "original_address": 6682420,
+      "function": "005342c0",
+      "instruction": "mov    esi,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 1262433,
+      "original_address": 6620852,
+      "function": "005342c0",
+      "instruction": "push   0x6506b4"
+    },
+    {
+      "rva": 1262450,
+      "original_address": 6291732,
+      "function": "005342c0",
+      "instruction": "mov    DWORD PTR [ebp-0x1054],0x600114"
+    },
+    {
+      "rva": 1266310,
+      "original_address": 6179528,
+      "function": "00535280",
+      "instruction": "push   0x5e4ac8"
+    },
+    {
+      "rva": 1266340,
+      "original_address": 6674076,
+      "function": "00535280",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1266363,
+      "original_address": 6292108,
+      "function": "00535280",
+      "instruction": "mov    DWORD PTR [edi],0x60028c"
+    },
+    {
+      "rva": 1266393,
+      "original_address": 6292100,
+      "function": "00535280",
+      "instruction": "push   0x600284"
+    },
+    {
+      "rva": 1266429,
+      "original_address": 6292092,
+      "function": "00535280",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1266468,
+      "original_address": 6682408,
+      "function": "00535280",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f728"
+    },
+    {
+      "rva": 1266572,
+      "original_address": 6292092,
+      "function": "00535280",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1266608,
+      "original_address": 6292092,
+      "function": "00535280",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1266647,
+      "original_address": 6682408,
+      "function": "00535280",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f728"
+    },
+    {
+      "rva": 1266860,
+      "original_address": 6291564,
+      "function": "00535280",
+      "instruction": "mov    DWORD PTR [edi],0x60006c"
+    },
+    {
+      "rva": 1266879,
+      "original_address": 6682420,
+      "function": "00535280",
+      "instruction": "mov    DWORD PTR ds:0x65f734,ebx"
+    },
+    {
+      "rva": 1267974,
+      "original_address": 6179790,
+      "function": "00535900",
+      "instruction": "push   0x5e4bce"
+    },
+    {
+      "rva": 1268004,
+      "original_address": 6674076,
+      "function": "00535900",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1268076,
+      "original_address": 6682412,
+      "function": "00535900",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f72c"
+    },
+    {
+      "rva": 1268131,
+      "original_address": 6673284,
+      "function": "00535900",
+      "instruction": "mov    edx,DWORD PTR ds:0x65d384"
+    },
+    {
+      "rva": 1268136,
+      "original_address": 6682420,
+      "function": "00535900",
+      "instruction": "mov    eax,ds:0x65f734"
+    },
+    {
+      "rva": 1268142,
+      "original_address": 6673284,
+      "function": "00535900",
+      "instruction": "push   0x65d384"
+    },
+    {
+      "rva": 1268151,
+      "original_address": 6673284,
+      "function": "00535900",
+      "instruction": "mov    DWORD PTR ds:0x65d384,edx"
+    },
+    {
+      "rva": 1268163,
+      "original_address": 6673284,
+      "function": "00535900",
+      "instruction": "mov    eax,ds:0x65d384"
+    },
+    {
+      "rva": 1269078,
+      "original_address": 6180104,
+      "function": "00535d50",
+      "instruction": "push   0x5e4d08"
+    },
+    {
+      "rva": 1269108,
+      "original_address": 6674076,
+      "function": "00535d50",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1269121,
+      "original_address": 6291564,
+      "function": "00535d50",
+      "instruction": "mov    DWORD PTR [esi],0x60006c"
+    },
+    {
+      "rva": 1269126,
+      "original_address": 6682420,
+      "function": "00535d50",
+      "instruction": "mov    eax,ds:0x65f734"
+    },
+    {
+      "rva": 1269147,
+      "original_address": 6365900,
+      "function": "00535d50",
+      "instruction": "push   0x6122cc"
+    },
+    {
+      "rva": 1269164,
+      "original_address": 6218492,
+      "function": "00535d50",
+      "instruction": "mov    DWORD PTR [ebp-0x108c],0x5ee2fc"
+    },
+    {
+      "rva": 1269175,
+      "original_address": 6682420,
+      "function": "00535d50",
+      "instruction": "mov    DWORD PTR ds:0x65f734,esi"
+    },
+    {
+      "rva": 1269189,
+      "original_address": 6292108,
+      "function": "00535d50",
+      "instruction": "mov    DWORD PTR [esi],0x60028c"
+    },
+    {
+      "rva": 1269392,
+      "original_address": 5456576,
+      "function": "00535d50",
+      "instruction": "push   0x5342c0"
+    },
+    {
+      "rva": 1269397,
+      "original_address": 5454480,
+      "function": "00535d50",
+      "instruction": "push   0x533a90"
+    },
+    {
+      "rva": 1269402,
+      "original_address": 5455520,
+      "function": "00535d50",
+      "instruction": "push   0x533ea0"
+    },
+    {
+      "rva": 1269407,
+      "original_address": 5462272,
+      "function": "00535d50",
+      "instruction": "push   0x535900"
+    },
+    {
+      "rva": 1269424,
+      "original_address": 6620852,
+      "function": "00535d50",
+      "instruction": "push   0x6506b4"
+    },
+    {
+      "rva": 1269441,
+      "original_address": 6292240,
+      "function": "00535d50",
+      "instruction": "mov    DWORD PTR [ebp-0x1088],0x600310"
+    },
+    {
+      "rva": 1269463,
+      "original_address": 6292100,
+      "function": "00535d50",
+      "instruction": "push   0x600284"
+    },
+    {
+      "rva": 1269503,
+      "original_address": 6292092,
+      "function": "00535d50",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1269546,
+      "original_address": 6682408,
+      "function": "00535d50",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f728"
+    },
+    {
+      "rva": 1269651,
+      "original_address": 6292092,
+      "function": "00535d50",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1269691,
+      "original_address": 6292092,
+      "function": "00535d50",
+      "instruction": "push   0x60027c"
+    },
+    {
+      "rva": 1269734,
+      "original_address": 6682408,
+      "function": "00535d50",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f728"
+    },
+    {
+      "rva": 1405822,
+      "original_address": 6218232,
+      "function": "0055737c",
+      "instruction": "jmp    DWORD PTR ds:0x5ee1f8"
+    },
+    {
+      "rva": 1405852,
+      "original_address": 6218248,
+      "function": "0055739a",
+      "instruction": "jmp    DWORD PTR ds:0x5ee208"
+    },
+    {
+      "rva": 1405858,
+      "original_address": 6218252,
+      "function": "005573a0",
+      "instruction": "jmp    DWORD PTR ds:0x5ee20c"
+    },
+    {
+      "rva": 1405864,
+      "original_address": 6218256,
+      "function": "005573a6",
+      "instruction": "jmp    DWORD PTR ds:0x5ee210"
+    },
+    {
+      "rva": 1405870,
+      "original_address": 6218264,
+      "function": "005573ac",
+      "instruction": "jmp    DWORD PTR ds:0x5ee218"
+    },
+    {
+      "rva": 1405876,
+      "original_address": 6218268,
+      "function": "005573b2",
+      "instruction": "jmp    DWORD PTR ds:0x5ee21c"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    }
+  ]
+}

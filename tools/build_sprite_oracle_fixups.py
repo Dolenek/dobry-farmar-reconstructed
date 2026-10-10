@@ -32,6 +32,7 @@ def main():
     parser.add_argument('--profile-headers',action='store_true',help='Record profile header construction/XML/tree operations')
     parser.add_argument('--profile-properties',action='store_true',help='Record thirteen profile property trees and typed dispatch')
     parser.add_argument('--profile-lifecycle',action='store_true',help='Record profile constructors, full load/save/create/destructor')
+    parser.add_argument('--sound-manager',action='store_true',help='Record SoundManager files, native lifetime and volume operands')
     args=parser.parse_args()
     if args.profile_lifecycle: args.profile_properties=True
     if args.text_buttons: args.button_text=True; args.button_state=True
@@ -183,6 +184,16 @@ def main():
             if address in rows and address not in boundaries:
                 todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000]
         addresses=sorted(seen)
+    if args.sound_manager:
+        prefix='sound-manager';seen=set();todo=[0x535d50,0x535280,0x535900,0x533ea0,0x533a90,0x5342c0,0x532f40,0x532f90,0x532e40,0x580f98,0x5809b3]
+        boundaries={0x4019c0,0x5573b2,0x55739a,0x5573ac,0x5573a6,0x55737c,0x557382,0x580375}
+        while todo:
+            address=todo.pop()
+            if address in seen: continue
+            seen.add(address)
+            if address in rows and address not in boundaries:
+                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000]
+        addresses=sorted(seen)
     scratch=ROOT/'.local/function-inspection'; scratch.mkdir(parents=True,exist_ok=True)
     fixups=[]
     with tempfile.TemporaryDirectory(dir=scratch) as directory:
@@ -207,7 +218,7 @@ def main():
                 if args.button_state and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle else ('mov','push')):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -226,7 +237,7 @@ def main():
                 if operand<0:
                     binary=pe.data[pe.offset(instruction-pe.image_base):pe.offset(instruction-pe.image_base)+15]
                     operand=binary.find(target.to_bytes(4,'little'))
-                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties else 3),line
+                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager else 3),line
                 fixups.append(dict(rva=instruction-pe.image_base+operand,original_address=target,function=f'{address:08x}',instruction=text))
     if args.view:
         # cView's base destructor reinstates its original virtual table before

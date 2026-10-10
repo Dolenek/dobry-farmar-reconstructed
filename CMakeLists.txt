@@ -47,6 +47,8 @@ if(WIN32)
     target_sources(recovered_game_utilities PRIVATE src/game/core/WString.cpp src/game/file_manager/RealFile.cpp
         src/game/file_manager/FileIndex.cpp src/game/xml/XmlDocument.cpp
         src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
+    target_sources(recovered_game_utilities PRIVATE src/game/audio/SoundFiles.cpp src/game/audio/SoundVolume.cpp)
+    target_include_directories(recovered_game_utilities PUBLIC src/game/audio)
     target_include_directories(recovered_game_utilities PUBLIC src/game/xml src/game/settings src/game/engine src/game/profiles)
     execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/fetch_expat.py"
         --verify-only RESULT_VARIABLE EXPAT_VERIFY_RESULT)
@@ -138,6 +140,8 @@ if(WIN32)
     target_link_libraries(view-reference-test PRIVATE recovered_resource_utilities)
     add_executable(ui-frame-reference-test tools/ui_frame_reference_test.cpp)
     target_link_libraries(ui-frame-reference-test PRIVATE recovered_resource_utilities)
+    add_executable(sound-manager-reference-test tools/sound_manager_reference_test.cpp)
+    target_link_libraries(sound-manager-reference-test PRIVATE recovered_game_utilities)
     add_executable(timer-reference-test tools/timer_reference_test.cpp)
     target_link_libraries(timer-reference-test PRIVATE recovered_game_utilities)
     add_executable(cursor-reference-test tools/cursor_reference_test.cpp)
@@ -199,6 +203,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --frame --oracle "$<TARGET_FILE:ui-frame-reference-test>")
+            add_test(NAME original-sound-files-volume COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_sound_manager.py" --oracle "$<TARGET_FILE:sound-manager-reference-test>")
             add_test(NAME original-timer COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_timer.py" --oracle "$<TARGET_FILE:timer-reference-test>")
             add_test(NAME original-cursor COMMAND "${Python3_EXECUTABLE}"
