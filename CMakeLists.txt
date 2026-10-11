@@ -93,6 +93,7 @@ if(WIN32)
         src/game/ui/InputBindings.cpp src/game/ui/InputDevices.cpp src/game/ui/Button.cpp src/game/ui/ButtonText.cpp src/game/ui/MenuView.cpp src/game/ui/MainMenuContent.cpp src/game/ui/YesNoDialog.cpp
         src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/ui/Slider.cpp src/game/ui/Options.cpp src/game/graphics/ClickMask.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp src/game/ui/TooltipFrame.cpp src/game/ui/AwardEffect.cpp src/game/ui/AwardButton.cpp src/game/ui/Awards.cpp src/game/ui/AwardPanel.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/ui/MainMenu.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -242,6 +243,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_award_panel.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-resource-log-writer COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_resource_log.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-main-menu-navigation COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_main_menu.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-view-hierarchy COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"

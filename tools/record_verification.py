@@ -190,6 +190,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/resource-log-validation.json',log);report['resource-log']=log
         if 'analysis/resource-log-validation.json' not in report['reports']: report['reports'].append('analysis/resource-log-validation.json')
+    menu_path=ROOT/'.local/main-menu-validation.json'
+    if menu_path.exists():
+        menu=read(menu_path.relative_to(ROOT));assert menu['status']=='passed_for_main_menu_navigation_and_loading_scope'
+        for name,expected in menu['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/main-menu-validation.json',menu);report['main-menu']=menu
+        if 'analysis/main-menu-validation.json' not in report['reports']: report['reports'].append('analysis/main-menu-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

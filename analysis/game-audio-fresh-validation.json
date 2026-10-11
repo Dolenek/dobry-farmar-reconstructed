@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T07:25:30.909692+00:00",
+  "recorded_at_utc": "2026-10-11T07:53:49.445586+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "8229627d315b7ef34a5cd0c5f8ddfee56c83b4fb62347847c1f5a13f4b6e9377",
+  "oracle_sha256": "1fe072a139014e41a40ce3e78fc169eb4fdee81e34d0ab1cbd91467870827480",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38369,
-      "native_position_progress": 2241,
+      "source_position_progress": 56449,
+      "native_position_progress": 38369,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20321,
-      "native_position_progress": 19440,
+      "source_position_progress": 38369,
+      "native_position_progress": 38369,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -527,8 +527,16 @@
       "sha256": "d90b96d88abdf72465483289886b9ebd064cc00faea36477ce76a6175c78ee91"
     },
     {
+      "path": "src/game/ui/MainMenu.cpp",
+      "sha256": "ea8229eeee4b5963dacf46f12cf7ded8f9b09d81693b216bb3be3131a256adce"
+    },
+    {
+      "path": "src/game/ui/MainMenu.h",
+      "sha256": "bedeef7d4a7556d7af5b593536cf133013ea6beda74f5287bd7b80726cc8b496"
+    },
+    {
       "path": "src/game/ui/MainMenuContent.cpp",
-      "sha256": "099a3bc988849a429e92111045214a70b1af04b4522ff0b81e10098701571983"
+      "sha256": "70017a0ebf20a172cc61a2639a46941dd0821e41ad0bd4f9dfde61b70634a743"
     },
     {
       "path": "src/game/ui/MainMenuContent.h",

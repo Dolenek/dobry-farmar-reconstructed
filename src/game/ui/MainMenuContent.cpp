@@ -12,7 +12,7 @@ MainMenuContent::MainMenuContent(MenuView& owner,ResourceManager& resources,Sett
     awards=button();credits=button();unused=button();
 }
 void MainMenuContent::loadXML(const XmlNode& node,const std::function<void()>& ensureFixedBack,const WString* profileName) {
-    owner_.loadXML(node);ensureFixedBack();
+    owner_.MenuView::loadXML(node);ensureFixedBack();
     const std::pair<const char*,TextAnimationButton*> buttons[]={{"StartButton",start},{"Options",options},{"ExitButton",exit},
         {"ChangeUserButton",changeUser},{"AwardsButton",credits},{"CreditsButton",awards}};
     // The native XML loader addresses the embedded View, four bytes past
