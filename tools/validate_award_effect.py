@@ -23,6 +23,7 @@ def main():
         state=json.loads(result.stdout)
         assert state['effect_states']==5439 and state['effect_objects']==21 and state['effect_reloads']==126
         assert state['effect_steps']==5040 and state['effect_sounds']==21
+        assert state['effect_sound_reloads']==168
         assert state['effect_frames']==84 and state['effect_pixels']==40320000
         assert state['device_flags']==(0x22 if precision=='PC53' else 0x20)
         state['precision']=precision;contexts.append(state);unchanged()
@@ -34,21 +35,20 @@ def main():
         original_entry_point_executed=False,original_program_code_used_in_implementation=False,
         oracle_sha256=digest(oracle),source_files={path.relative_to(ROOT).as_posix():digest(path) for path in paths},precision_contexts=contexts,
         control_states=10878,owned_objects=42,bulk_xml_reloads=252,steps=10080,sound_callbacks=42,
-        gpu_frames=168,gpu_rgb_pixels=80640000,
+        gpu_frames=168,gpu_rgb_pixels=80640000,sound_reference_reloads=336,
         original_functions=['004c6a40','004c61e0','004c60e0','004c61c0','004c5b70','004c5bc0','00421520'],
         coverage=['All 21 actual UI/Awards.xml Effect/Button definitions, labels, constructor XML deletion and sound ownership',
             'Native constructor/loadXML/state setter/steps/destructor, nullable parent, phases 0..8 and unknown 9..11, random scale/time and hover flag',
             'Exact whole sprite bytes, state/flags/size/position/depth, appearance, timed animation, move completion and hover grow/shrink under PC53/PC24',
             'Native/recovered whole-frame traversal and ordered GPU draw: all 21 actual textures across phase paths, 168 exact RGB frames',
-            'Explicit root Sound XML using a shipped sound, completion callback dispatch and destructor reference release'],
+            'Actual root Sounds/Award.wav, 336 sound reload/reference-retention checks, explicit replacement Sounds/menu_click.wav, completion callback dispatch and destructor reference release'],
         test_adapters=['Original PE mapped in diagnostics with entry point disabled; production never calls original code',
             'XML/resource/font/typed extraction and allocation use existing explicit diagnostic boundaries',
             'Recovered SoundManager deliberately initialized disabled; click callback recorder calls its real disabled path. Audible playback is not verified here',
             'Real recovered GameTimer with controlled WinMM clock, controlled input and cursor',
             'Diagnostic monotonic 512 MiB heap preserves equal-depth allocation order; four GPU frames per award cover every image and each phase across the suite'],
-        pending=['AwardButton, Awards controller, MainMenu navigation and gameplay award manager',
-            'Actual root Sound playback with source Squall; shipped Awards root has no Sound and the branch uses explicit XML fixture',
-            'Repeated nonempty Sound reload retains earlier references in original; not claimed verified here',
+        pending=['MainMenu navigation and gameplay award manager; AwardButton/Awards are compared separately',
+            'Audible root Sound playback with source Squall; this oracle uses disabled SoundManager and callback recorders',
             'Degenerate move denominator, nonfinite values, malformed XML and original exception/object ABI',
             'Full engine/gameplay and saved-game compatibility'])
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

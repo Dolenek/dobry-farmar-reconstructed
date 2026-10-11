@@ -131,8 +131,10 @@ def main():
             0x4f91e0,0x4f9230,0x4f9270,0x4f9290,0x4f9b20,0x4f9f80,0x413750,
             0x480770,0x47fff0,0x4800f0,0x480110,0x481130,0x541700,0x480d10,
             0x4c8d10,0x4c8de0,0x4c8e00,0x4c8e80,0x4c95c0,0x4c9a80,0x4d2080,0x4d2130,0x4d2160,
-            0x4c6a40,0x4c61e0,0x4c60e0,0x4c61c0,0x4c5b70,0x4c5bc0,0x421520];seen=set(addresses)
-        boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20,0x42fe80,0x401cc0}
+            0x4c6a40,0x4c61e0,0x4c60e0,0x4c61c0,0x4c5b70,0x4c5bc0,0x421520,
+            0x4728c0,0x472d50,0x474da0,0x474dc0,0x473150,0x473520,0x473940,0x473d50,0x474130,0x474520,0x474910,
+            0x4787e0,0x478dc0,0x478da0,0x4763a0,0x476ae0,0x4776b0,0x477ab0,0x477e80,0x40ab50];seen=set(addresses)
+        boundaries={0x4d43a0,0x4ecb20,0x4e8900,0x4e8d20,0x42fe80,0x401cc0,0x40a670,0x4105e0,0x477290}
         while todo:
             address=todo.pop()
             if address in seen:continue
@@ -226,7 +228,7 @@ def main():
                 if (args.button_state or args.progress_sprite) and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle else ('mov','push')):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle or (args.text_buttons and address==0x40ab50) else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -266,7 +268,7 @@ def main():
             if args.button_text: tables += [(0x1fee10,72)]
             if args.text_buttons: tables += [(0x1ff0d8,88),(0x1f0020,88),(0x1efe20,72),(0x1f104,4),(0x11f994,4),(0x1fcf04,14),(0x1ff2b0,72),(0x1fef38,65),(0x1fca60,67),(0x1fd360,65),(0x1fd18c,14),(0x1fd1c4,3),(0x1f5870,14),(0x1f58a8,1),(0x1f5900,14),(0x1fd8b0,92),(0x1fd618,92),(0x1fd4b0,88),(0x1f62e4,14),(0x1f631c,3)]
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
-            if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4),(0x1f5e0c,14),(0x141c60,5),(0x1fad98,65),(0x1fb568,2),(0x1faad8,65),(0xc60b8,9)]
+            if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4),(0x1f5e0c,14),(0x141c60,5),(0x1fad98,65),(0x1fb568,2),(0x1faad8,65),(0xc60b8,9),(0x1f51a0,88),(0x74d88,4),(0x1f5830,14),(0x1f5868,3)]
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:
                 for slot in range(count):

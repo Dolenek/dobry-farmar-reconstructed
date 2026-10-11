@@ -80,6 +80,8 @@ python -m unittest discover -s tests -v
 
 Porovnávání hry bude pokrývat grafiku a české texty, vstup, zvuk, tutoriál, pěstování, výrobu, trh, zakázky, odměny a obousměrnou kompatibilitu uložených her. Podrobnosti jsou v [docs/VALIDATION.md](docs/VALIDATION.md). Neověřené části nesmějí být označeny za shodné s originálem.
 
-Nápověda ocenění `TooltipFrame` / cAwardTip je obnovená včetně čtyř podkladů a vlastněného textu: 7 320 stavů, 720 XML reloadů, 177 116 písmen a 96 snímků / 46 080 000 shodných RGB pixelů. [docs/AWARD_TOOLTIP.md](docs/AWARD_TOOLTIP.md) uvádí původní adresy a hranice. Pokračuje animovaný efekt a controller ocenění.
+Nápověda ocenění `TooltipFrame` / cAwardTip je obnovená včetně čtyř podkladů a vlastněného textu: 7 320 stavů, 720 XML reloadů, 177 116 písmen a 96 snímků / 46 080 000 shodných RGB pixelů. [docs/AWARD_TOOLTIP.md](docs/AWARD_TOOLTIP.md) uvádí původní adresy a hranice. Navazující efekt a controller jsou nyní porovnané níže.
 
-Animovaný `AwardEffect` obnovuje původní phase switch a všech 21 obrazových definic: 10 878 stavů, 10 080 kroků a 168 snímků / 80 640 000 shodných RGB pixelů. [docs/AWARD_EFFECT.md](docs/AWARD_EFFECT.md) popisuje přesnou aritmetiku, zvukové testovací rozhraní a zbývající propojení tlačítek/controlleru.
+Animovaný `AwardEffect` obnovuje původní phase switch a všech 21 obrazových definic: 10 878 stavů, 10 080 kroků a 168 snímků / 80 640 000 shodných RGB pixelů. [docs/AWARD_EFFECT.md](docs/AWARD_EFFECT.md) popisuje přesnou aritmetiku, zvukové testovací rozhraní; propojená tlačítka/controller jsou popsané v AWARDS.md.
+
+Awards a všech 21 AwardButton nyní propojují obnovované nápovědy, efekty, input a skutečné profilové booleans: 16 632 stavů, 574 992 písmen, 126 potvrzení podmínek ocenění a 156 GPU snímků / 74 880 000 shodných RGB pixelů. Podrobnosti, původní adresy, shodné retained reference a servisní hranice jsou v [docs/AWARDS.md](docs/AWARDS.md). Gameplay award manager/AwardPanel a MainMenu navigation pokračují; hlavní herní EXE ještě není sestavený.

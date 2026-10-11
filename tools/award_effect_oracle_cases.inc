@@ -19,6 +19,8 @@ for(trial=0;trial<21;++trial) {
     auto effect=std::make_unique<AwardEffect>(trial&1 ? parent.get():nullptr,trial,manager,audio,views,controls);auto* original=allocate(704);
     function<void*(__thiscall*)(void*,void*,unsigned)>(0xc6a40)(original,trial&1 ? nativeParent:nullptr,trial);
     require(loadingNativeXMLDeletes==deletes+1,"AwardEffect constructor XML destruction differs");
+    require(definition.attribute(WString(L"Sound")).view()==L"Sounds/Award.wav","AwardEffect shipped root Sound attribute differs");
+    auto* shippedSound=effect->sound();require(shippedSound && shippedSound->resourceName().view()=="sounds/award.wav","AwardEffect normalized resource sound differs");
     const auto check=[&] {
         stage=141;compareControl(*effect,original);const auto& state=effect->effectState();
         require(effect->index()==field<unsigned>(original,0x2bc) && state.phase==field<unsigned>(original,0x238),"AwardEffect index/phase differs");
@@ -44,18 +46,27 @@ for(trial=0;trial<21;++trial) {
             const float time=float(int(random()%1400)-100)/1000.f;effect->setTime(time);function<void(__thiscall*)(void*,const float*)>(0x13bc0)(original,&time);
         }
         if(action%40==7) {
-            const auto before=textureCounts();effect->loadXML(definition);const auto middle=textureCounts();function<void(__thiscall*)(void*,void*)>(0xc61e0)(original,wrap(&definition));compareReferenceDeltas(before,middle);++effectReloads;
+            const auto soundBefore=shippedSound->referenceCount();const auto before=textureCounts();effect->loadXML(definition);const auto middle=textureCounts();
+            require(effect->sound()==shippedSound && shippedSound->referenceCount()==soundBefore+1,"AwardEffect source sound reload retained reference differs");
+            function<void(__thiscall*)(void*,void*)>(0xc61e0)(original,wrap(&definition));
+            require(shippedSound->referenceCount()==soundBefore+2,"AwardEffect native sound reload retained reference differs");
+            compareReferenceDeltas(before,middle);++effectReloads;++effectSoundReloads;
         }
         menuMilliseconds+=random()%30+1;frameTimer.process();actualSounds.clear();expectedSounds.clear();
         effect->enabledStep();call(0xc5bc0,original);require(actualSounds==expectedSounds,"AwardEffect click sound dispatch differs");check();++effectSteps;
     }
-    // Actual root Sound is absent from shipped Awards: exercise its explicit
-    // reload/service branch with a shipped sound, recording the callback boundary.
+    // Replace the actual Sounds/Award.wav with another shipped sound. Native
+    // XML keeps the prior reference; the replacement callback is recorded too.
+    const auto retainedShipped=shippedSound->referenceCount();
     stage=143;effect->loadXML(soundDefinition);function<void(__thiscall*)(void*,void*)>(0xc61e0)(original,wrap(&soundDefinition));check();
+    require(shippedSound->referenceCount()==retainedShipped,"AwardEffect replacement released original sound");++effectSoundReloads;
     effect->setPhase(0);function<void(__thiscall*)(void*,unsigned)>(0xc5b70)(original,0);effect->effectState().scale=1;field<float>(original,0x250)=1;
     actualSounds.clear();expectedSounds.clear();effect->enabledStep();call(0xc5bc0,original);
     require(actualSounds==expectedSounds && actualSounds.size()==1,"AwardEffect completed appearance sound missing");++effectSounds;check();
-    stage=144;effect->loadXML(definition);function<void(__thiscall*)(void*,void*)>(0xc61e0)(original,wrap(&definition));
+    auto* replacedSound=effect->sound();const auto retainedReplacement=replacedSound->referenceCount();
+    stage=144;effect->loadXML(definition);require(shippedSound->referenceCount()==retainedShipped+1,"AwardEffect source sound restore differs");
+    function<void(__thiscall*)(void*,void*)>(0xc61e0)(original,wrap(&definition));
+    require(shippedSound->referenceCount()==retainedShipped+2 && replacedSound->referenceCount()==retainedReplacement,"AwardEffect native restore/reference retention differs");++effectSoundReloads;
     parent->show();call(0xd37d0,nativeParent);effect->show();call(0xd37d0,original);effect->enable();call(0xd3bb0,original);
     GameCursor frameCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&frameCursor;
     std::array<unsigned char,24> logicFrame{};field<void*>(logicFrame.data(),0)=cursorTable.data();nativeCursorFrame=logicFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
