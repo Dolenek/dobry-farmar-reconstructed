@@ -9,6 +9,11 @@
 #include <stdexcept>
 #include <string>
 namespace farmar::recovered {
+std::uint32_t GameConfiguration::upgradeCost(std::uint32_t item,std::uint32_t level) const {
+    if(level>3) throw std::runtime_error("bad level");
+    if(item>14) throw std::runtime_error("bad upgrade item");
+    return costs[item][level];
+}
 namespace {
 template<class T> void attribute(const XmlNode& node,const wchar_t* name,T& output) {
     const auto text=node.attribute(WString(name));

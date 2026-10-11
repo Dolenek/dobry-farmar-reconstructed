@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T13:45:10.856749+00:00",
+  "recorded_at_utc": "2026-10-11T14:04:10.642497+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "687b970bdbe632c0f7c85b6e53d28e495d57fa51feaa1aa6a85184962bbceee3",
+  "oracle_sha256": "738bf9eedb3c8e290709fb6a3dd662f8a062d4dd8a6e33bf0abcca396ed2eff4",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 21171,
+      "source_position_progress": 20762,
+      "native_position_progress": 21644,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38369,
-      "native_position_progress": 20289,
+      "source_position_progress": 37928,
+      "native_position_progress": 37960,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -160,11 +160,11 @@
     },
     {
       "path": "src/game/engine/GameConfiguration.cpp",
-      "sha256": "6b06bffe042fbc37c6194d7b4870087383e6c21a0375ea8b66f976950748d027"
+      "sha256": "7e18ca86d37b9e831f197aa491cbac1ecaa6ed296f6db2c0491f61ed56d7b09e"
     },
     {
       "path": "src/game/engine/GameConfiguration.h",
-      "sha256": "089902a186d3285d46281f1a972c81c2ebd57660871316d133fa48b7040c268f"
+      "sha256": "0dd95fa9b22f75354a4943321dd1fc792251f80633dd4be980d600a98f508fa2"
     },
     {
       "path": "src/game/engine/GameCursor.cpp",
@@ -217,6 +217,14 @@
     {
       "path": "src/game/engine/GameWindow.h",
       "sha256": "abb8382fc1fbf9a0d986c45d1c8b9def35bb020df93905466a71505ebb4dd2a6"
+    },
+    {
+      "path": "src/game/engine/Upgrade.cpp",
+      "sha256": "638c2d23441525531827c7a18bbbf9af9b0f84a609de8863be6ca73f8d739374"
+    },
+    {
+      "path": "src/game/engine/Upgrade.h",
+      "sha256": "fe04b442d48f6fab87b1b634a1ba0c2f6340959abe0cf817a636156ad11fbb0d"
     },
     {
       "path": "src/game/file_manager/FileIndex.cpp",

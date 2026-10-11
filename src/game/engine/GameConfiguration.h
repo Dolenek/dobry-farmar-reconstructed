@@ -31,6 +31,7 @@ public:
     GameConfiguration(const GameConfiguration&)=delete;
     GameConfiguration& operator=(const GameConfiguration&)=delete;
     void loadXML(const XmlNode& node); // configuration portion of 0040e6e0
+    std::uint32_t upgradeCost(std::uint32_t item,std::uint32_t level) const; // 0040ba00
     std::array<ProductionInfo,19> products;
     std::array<SeedInfo,8> seeds;
     std::array<std::array<std::uint32_t,4>,15> costs;

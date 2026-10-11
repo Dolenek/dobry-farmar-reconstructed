@@ -218,6 +218,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/gameplay-runtime-validation.json',gameplay);report['gameplay-runtime']=gameplay
         if 'analysis/gameplay-runtime-validation.json' not in report['reports']: report['reports'].append('analysis/gameplay-runtime-validation.json')
+    upgrade_path=ROOT/'.local/upgrade-validation.json'
+    if upgrade_path.exists():
+        upgrade=read(upgrade_path.relative_to(ROOT));assert upgrade['status']=='passed_for_abstract_upgrade_and_cost_state_scope'
+        for name,expected in upgrade['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/upgrade-validation.json',upgrade);report['upgrade']=upgrade
+        if 'analysis/upgrade-validation.json' not in report['reports']: report['reports'].append('analysis/upgrade-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
