@@ -9,6 +9,7 @@
 #include "ContractDialogs.h"
 #include "ContractProvide.h"
 #include "GamePauseMenu.h"
+#include "StateView.h"
 #include "MenuView.h"
 #include "MainMenuContent.h"
 #include "GameConfiguration.h"
@@ -535,6 +536,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool stateViews=argc==4 && (std::wcscmp(argv[3],L"state-view")==0 || std::wcscmp(argv[3],L"state-view-device")==0);
         const bool gamePauses=argc==4 && (std::wcscmp(argv[3],L"game-pause")==0 || std::wcscmp(argv[3],L"game-pause-device")==0);
         const bool contractProvides=argc==4 && (std::wcscmp(argv[3],L"contract-provide")==0 || std::wcscmp(argv[3],L"contract-provide-device")==0);
         const bool contractDialogs=argc==4 && (std::wcscmp(argv[3],L"contract-dialogs")==0 || std::wcscmp(argv[3],L"contract-dialogs-device")==0);
@@ -555,7 +557,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -565,6 +567,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
         unsigned mainMenuStates=0,mainMenuLetters=0,mainMenuActions=0,mainMenuFrames=0,mainMenuQuitChecks=0,mainMenuLoadingSteps=0;unsigned long long mainMenuPixels=0;
+        unsigned stateViewStates=0,stateViewMoves=0,stateViewSteps=0,stateViewFrames=0,stateViewReloads=0;unsigned long long stateViewPixels=0;
         unsigned pauseStates=0,pauseLetters=0,pauseFrames=0,pauseActions=0,pauseReloads=0,pauseLoadingSteps=0,pauseSoundResidues=0;unsigned long long pausePixels=0;
         unsigned contractOfferStates=0,contractOfferLetters=0,contractOfferObjects=0,contractOfferStarts=0,contractOfferClicks=0,contractOfferReloads=0,contractOfferFrames=0,contractOfferInputClicks=0;unsigned long long contractOfferPixels=0;
         unsigned contractDialogStates=0,contractDialogLetters=0,contractDialogObjects=0,contractDialogStarts=0,contractDialogClicks=0,contractDialogReloads=0,contractDialogFrames=0,contractDialogInputClicks=0;unsigned long long contractDialogPixels=0;
@@ -587,7 +590,7 @@ int wmain(int argc,wchar_t** argv) {
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons && !contractStatuses && !priceTexts && !contractDialogs && !contractProvides && !gamePauses) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons && !contractStatuses && !priceTexts && !contractDialogs && !contractProvides && !gamePauses && !stateViews) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -960,6 +963,9 @@ Third</Text></Text></BackMultitext>
             if(priceTexts) {
 #include "price_text_oracle_cases.inc"
             }
+            if(stateViews) {
+#include "state_view_oracle_cases.inc"
+            }
             if(gamePauses) {
 #include "game_pause_oracle_cases.inc"
             }
@@ -1031,6 +1037,7 @@ Third</Text></Text></BackMultitext>
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
             <<",\"main_menu_states\":"<<mainMenuStates<<",\"main_menu_letters\":"<<mainMenuLetters<<",\"main_menu_actions\":"<<mainMenuActions<<",\"main_menu_frames\":"<<mainMenuFrames<<",\"main_menu_pixels\":"<<mainMenuPixels<<",\"main_menu_quit_checks\":"<<mainMenuQuitChecks<<",\"main_menu_loading_steps\":"<<mainMenuLoadingSteps
             <<",\"extended_states\":"<<extendedStates<<",\"extended_objects\":"<<extendedObjects<<",\"extended_reloads\":"<<extendedReloads<<",\"extended_letters\":"<<extendedLetters<<",\"extended_frames\":"<<extendedFrames<<",\"extended_pixels\":"<<extendedPixels<<",\"extended_steps\":"<<extendedSteps<<",\"extended_sound_residues\":"<<extendedSoundResidues
+            <<",\"state_view_states\":"<<stateViewStates<<",\"state_view_moves\":"<<stateViewMoves<<",\"state_view_steps\":"<<stateViewSteps<<",\"state_view_frames\":"<<stateViewFrames<<",\"state_view_pixels\":"<<stateViewPixels<<",\"state_view_reloads\":"<<stateViewReloads
             <<",\"pause_states\":"<<pauseStates<<",\"pause_letters\":"<<pauseLetters<<",\"pause_frames\":"<<pauseFrames<<",\"pause_pixels\":"<<pausePixels<<",\"pause_actions\":"<<pauseActions<<",\"pause_reloads\":"<<pauseReloads<<",\"pause_loading_steps\":"<<pauseLoadingSteps<<",\"pause_sound_residues\":"<<pauseSoundResidues
             <<",\"contract_offer_states\":"<<contractOfferStates<<",\"contract_offer_letters\":"<<contractOfferLetters<<",\"contract_offer_objects\":"<<contractOfferObjects<<",\"contract_offer_starts\":"<<contractOfferStarts<<",\"contract_offer_clicks\":"<<contractOfferClicks<<",\"contract_offer_reloads\":"<<contractOfferReloads<<",\"contract_offer_frames\":"<<contractOfferFrames<<",\"contract_offer_pixels\":"<<contractOfferPixels<<",\"contract_offer_input_clicks\":"<<contractOfferInputClicks
             <<",\"contract_dialog_states\":"<<contractDialogStates<<",\"contract_dialog_letters\":"<<contractDialogLetters<<",\"contract_dialog_objects\":"<<contractDialogObjects<<",\"contract_dialog_starts\":"<<contractDialogStarts<<",\"contract_dialog_clicks\":"<<contractDialogClicks<<",\"contract_dialog_reloads\":"<<contractDialogReloads<<",\"contract_dialog_frames\":"<<contractDialogFrames<<",\"contract_dialog_pixels\":"<<contractDialogPixels<<",\"contract_dialog_input_clicks\":"<<contractDialogInputClicks

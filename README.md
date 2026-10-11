@@ -111,3 +111,5 @@ Dialogy zakázek (požadavky, výsledek a potvrzení) jsou propojené s obnoven�
 Menu pro pauzu propojuje skutečné Options, Awards, YesNoDialog a Loading/MainMenu. PC53/PC24: 28 navigačních akcí a 264 GPU snímků / 126 720 000 shodných pixelů. Uložení a zrušení celého cGame stále vyžaduje dokončení herního světa; rozsah v [docs/GAME_PAUSE_MENU.md](docs/GAME_PAUSE_MENU.md).
 
 ContractProvide propojuje nabidku zakazky s realnym ContractStatus. PC53/PC24: 2 738 stavu, 1 308 startu, 96 GPU snimku / 46 080 000 shodnych RGB pixelu a ctyri input release. Diagnostika vykonava puvodni aktivaci do tri skutecnych controlleru; plny zdrojovy GameMenu a Farm letter actor pokracuji. Rozsah v [docs/CONTRACT_PROVIDE.md](docs/CONTRACT_PROVIDE.md).
+
+StateView nyní obnovuje skutečný sdílený pohyb herních obrazovek: 22 242 stavů, 2508 pohybů a 108 GPU snímků / 51 840 000 shodných RGB pixelů v PC53/PC24. Skutečné XML Farm/Manufacture/WareDetail ověřuje společný základ; odvozené herní controllery, GameMenu a celý svět pokračují. Rozsah a původní adresy v [STATE_VIEW.md](docs/STATE_VIEW.md).
