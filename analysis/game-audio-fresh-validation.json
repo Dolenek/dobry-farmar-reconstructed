@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-10T20:29:33.554622+00:00",
+  "recorded_at_utc": "2026-10-11T07:25:30.909692+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "cf8ada6c326a78b5eb842eb68e3cb73abf52fd3c9cf349722468f78834f33448",
+  "oracle_sha256": "8229627d315b7ef34a5cd0c5f8ddfee56c83b4fb62347847c1f5a13f4b6e9377",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 2682,
-      "native_position_progress": 37079,
+      "source_position_progress": 38369,
+      "native_position_progress": 2241,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37079,
-      "native_position_progress": 37961,
+      "source_position_progress": 20321,
+      "native_position_progress": 19440,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -348,11 +348,11 @@
     },
     {
       "path": "src/game/resources/ResourceManager.cpp",
-      "sha256": "ddbfe3edde6cb81ff54acc645fa9364357451da3131d4a167a64ccb576c59c69"
+      "sha256": "2c8332a65a50cc3e0d1df6a7dfad89d6020dc9f592b48bd98276e3c1decf62b0"
     },
     {
       "path": "src/game/resources/ResourceManager.h",
-      "sha256": "62c6de5438c5dc935fce8482fab0c1e7e87838ad516134b0f532bcda0f659eb3"
+      "sha256": "f48d54431ed03c8b7ea37a08ce84d081166f24a56923517ac66c284c225dd4ff"
     },
     {
       "path": "src/game/resources/Shader.cpp",
@@ -381,6 +381,38 @@
     {
       "path": "src/game/settings/Settings.h",
       "sha256": "841252e29290f0e2bb87431880d2d4a34c3e41d355da475adb70647d8e08c0ba"
+    },
+    {
+      "path": "src/game/ui/AwardButton.cpp",
+      "sha256": "89fb6bc0fe15ce809d241db0a558f23ae3a884f0ec497ba577f1ca1a89af503c"
+    },
+    {
+      "path": "src/game/ui/AwardButton.h",
+      "sha256": "66cc9a48878ca357772c815ba374a83c970d85e68e673fbb3b8b15ca158c5cb2"
+    },
+    {
+      "path": "src/game/ui/AwardEffect.cpp",
+      "sha256": "58762c96f5f1866dd4cdbded9eb0e02bc068e9532b2a138f100890f6da86685c"
+    },
+    {
+      "path": "src/game/ui/AwardEffect.h",
+      "sha256": "912c6bfb6ec83d83cd19717991dcc81667c4f21ea3360351b3515ba766aabda3"
+    },
+    {
+      "path": "src/game/ui/AwardPanel.cpp",
+      "sha256": "9dd962c3a32f71fa2a482325f17508a9c1910c9c195559beea64cd9ddb3f9ab2"
+    },
+    {
+      "path": "src/game/ui/AwardPanel.h",
+      "sha256": "da46f258d2ed3d2f434f36dbf764bb5346a3b5d5f6069a160a5accedf579d75c"
+    },
+    {
+      "path": "src/game/ui/Awards.cpp",
+      "sha256": "2fb2ab693f1c1aa30de8de95009d13c9ea1b8f6bcb6bbb395e7b0d30cf0b0faf"
+    },
+    {
+      "path": "src/game/ui/Awards.h",
+      "sha256": "909d6d6ea69ce60341dbfdcb71681e00b14ecc962a4a91119c4a31482c6b7814"
     },
     {
       "path": "src/game/ui/Button.cpp",
@@ -589,6 +621,14 @@
     {
       "path": "src/game/ui/TextLineLayout.h",
       "sha256": "8bb0c54bf302d61b27da10994810d478321811e5b7576105d61e7d993f9c081d"
+    },
+    {
+      "path": "src/game/ui/TooltipFrame.cpp",
+      "sha256": "cdf482d42fb29062bf8fc533131d7b83c59acbbe6ce3bc7dbce919d4c1e7d1f6"
+    },
+    {
+      "path": "src/game/ui/TooltipFrame.h",
+      "sha256": "0a12d9785576ca7348803b81fd055ff889bee6f2dc7d28f2b0c2cb60305ea7c2"
     },
     {
       "path": "src/game/ui/View.cpp",

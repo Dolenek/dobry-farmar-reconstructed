@@ -23,9 +23,10 @@
       "name": "SQUALL_ChannelGroup_SetVolume",
       "ordinal": 3,
       "original_address": "10007220",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "integrated_game_audio_verified_scope": "Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter"
     },
     {
       "name": "SQUALL_ChannelGroup_Stop",
@@ -182,9 +183,10 @@
       "name": "SQUALL_Channel_Pause",
       "ordinal": 22,
       "original_address": "100053a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "integrated_game_audio_verified_scope": "Actual cChannel pause/resume status and frozen cursor"
     },
     {
       "name": "SQUALL_Channel_Set3DPosition",
@@ -306,9 +308,10 @@
       "name": "SQUALL_Channel_Start",
       "ordinal": 37,
       "original_address": "10005310",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "integrated_game_audio_verified_scope": "Actual prepared and resumed music through cChannel with cursor progress"
     },
     {
       "name": "SQUALL_Channel_Status",
@@ -317,7 +320,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared"
+      "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared",
+      "integrated_game_audio_verified_scope": "Real prepared/play/pause/resume/retirement observations"
     },
     {
       "name": "SQUALL_Channel_Stop",
@@ -326,7 +330,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual buffer stop return and bounded worker retirement"
+      "loaded_DLL_verified_scope": "Actual buffer stop return and bounded worker retirement",
+      "integrated_game_audio_verified_scope": "Actual old shared music wrapper deletion before Loading selects and starts new music"
     },
     {
       "name": "SQUALL_Channel_ZOOMFX_GetProperties",
@@ -351,7 +356,8 @@
       "status": "partially_compared",
       "verified_scope": "Cleanup after sample-only enumeration/loading; initialized backend lifecycle unverified",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Sample-only and initialized prepared-channel cleanup"
+      "loaded_DLL_verified_scope": "Sample-only and initialized prepared-channel cleanup",
+      "integrated_game_audio_verified_scope": "Actual recovered SoundManager destruction after resource/channel cleanup"
     },
     {
       "name": "SQUALL_Get3DAlgorithm",
@@ -449,7 +455,8 @@
       "status": "partially_compared",
       "verified_scope": "Normalizer and all 256 volume table words only; backend initialization unverified",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Successful actual DirectSound initialization with game parameter values and hidden HWND"
+      "loaded_DLL_verified_scope": "Successful actual DirectSound initialization with game parameter values and hidden HWND",
+      "integrated_game_audio_verified_scope": "Actual game SoundSetup with null HWND and backend-owned window in both precisions"
     },
     {
       "name": "SQUALL_Listener_EAX_GetProperties",
@@ -591,9 +598,10 @@
       "name": "SQUALL_Pause",
       "ordinal": 71,
       "original_address": "10003610",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "integrated_game_audio_verified_scope": "Actual playing/paused/resumed music cursor and status through SoundManager"
     },
     {
       "name": "SQUALL_SampleGroup_Play",
@@ -670,7 +678,8 @@
       "status": "partially_compared",
       "verified_scope": "All 45 original Vorbis files with memory flag 1, null defaults and real game callbacks",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music"
+      "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music",
+      "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds"
     },
     {
       "name": "SQUALL_Sample_Pause",
@@ -711,7 +720,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual prepared ambient music buffer, loop=1, group=17, start=0, priority=7, volume=43, frequency=0, pan=50"
+      "loaded_DLL_verified_scope": "Actual prepared ambient music buffer, loop=1, group=17, start=0, priority=7, volume=43, frequency=0, pan=50",
+      "integrated_game_audio_verified_scope": "Real ResourceManager/cSound music, actual MainMenu click and Loading game/menu music replacement through production imports"
     },
     {
       "name": "SQUALL_Sample_SetDefault",
@@ -736,7 +746,8 @@
       "status": "partially_compared",
       "verified_scope": "Successful loaded sample IDs and callback lifetime; invalid/busy IDs unverified",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 45 valid sample lifetimes and menu music after channel retirement"
+      "loaded_DLL_verified_scope": "All 45 valid sample lifetimes and menu music after channel retirement",
+      "integrated_game_audio_verified_scope": "Actual unused preloaded sound cleanup across Loading screens, wrapper/resource destruction before Free"
     },
     {
       "name": "SQUALL_Sample_UnloadAll",
@@ -807,9 +818,10 @@
       "name": "SQUALL_Stop",
       "ordinal": 97,
       "original_address": "10003690",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "integrated_game_audio_verified_scope": "Actual group 1 UI clicks and group 2 music; bounded full worker retirement"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-11T07:04:18.627079+00:00",
+  "recorded_at_utc": "2026-10-11T07:20:53.368291+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -51,7 +51,7 @@
     "src/game/profiles/ProfileProperties.h": "ea0f8026e20ec281480151432129557f7958b55329b9e5b3d5317a893aa1920d",
     "src/game/resources/Font.h": "f4042393509c51438e61338ed2f162f096bee54d43a5d4369f52fa856e405310",
     "src/game/resources/Resource.h": "9332bcaf94923f0540f7bd9c78e94029c7ba7d15e24beaf9755077d942ced98f",
-    "src/game/resources/ResourceManager.h": "62c6de5438c5dc935fce8482fab0c1e7e87838ad516134b0f532bcda0f659eb3",
+    "src/game/resources/ResourceManager.h": "f48d54431ed03c8b7ea37a08ce84d081166f24a56923517ac66c284c225dd4ff",
     "src/game/resources/Shader.h": "8b8d48c094d45b235e173f83ccc441871eb9eb34e8b6b18402cc7e509d1aee92",
     "src/game/resources/Texture.h": "277dadc8ef5f97ab056e64406ca93b13b67ef71bc33b07b1789f12881be6f7d3",
     "src/game/resources/XmlResource.h": "eed15d7808c6aede9d2979c41b98fc5c15dc1d97ae8ae19f770c950b9e05628a",
@@ -125,7 +125,7 @@
     "src/game/profiles/ProfileProperties.cpp": "71aa8dd871ccf44bc45dd041b88cfc9db41f07ba94291338a72520454f4147a7",
     "src/game/resources/Font.cpp": "a2c842a812ff887cf7870383bfaae16a96bee6807d2203fc98f7cfce674c2465",
     "src/game/resources/Resource.cpp": "c90d171722e328ab52a6a21d635625659f5e66a66b05981db66b041b128a4970",
-    "src/game/resources/ResourceManager.cpp": "ddbfe3edde6cb81ff54acc645fa9364357451da3131d4a167a64ccb576c59c69",
+    "src/game/resources/ResourceManager.cpp": "2c8332a65a50cc3e0d1df6a7dfad89d6020dc9f592b48bd98276e3c1decf62b0",
     "src/game/resources/Shader.cpp": "9f4111918eb00a0312f18eded755d36a04b977404b8de68dd1b9b674b4144610",
     "src/game/resources/Texture.cpp": "711675af8aef41155d84186a1b9ae3327c0a7ffd9f1418876c71334c534d3ea8",
     "src/game/settings/Settings.cpp": "c0ca27c8940621646d8f668a005649bd21ecd732152440ddb6b0fcf9ca721714",
@@ -165,15 +165,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "21766e3702370f9193841e1299a795b1fd9e270b6aab2318ef70ab668cdec2bf",
+    "tools/text_buttons_reference_test.cpp": "bc66bbacb5e554cc97d7bbc64d48fc26f79853576d4cbe1c59858eb7a17133bd",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "4fc072d2f71b134b7e92566846b6a607e9db06d58e3b0e34e8bff48959f82a85",
+    "tools/text_buttons_oracle_fixups.inc": "9f46b4f91a37412003196cbd5eecc738a4b18cc0c6150442d94e72fee3c7de0e",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "3b0a3afb492ca0d8d3f5433f8ef25421a87e51e3a3652979c05d9032b2a72f77"
+    "CMakeLists.txt": "46a7441909c447f15abeec077db924e2fa916d3610cbeba19eed83d534977a72"
   },
   "oracle_sha256": {
-    "sprite": "45f183845e58020bf3eb1652b1298579622d072adb2d93276d8c532e908435e6",
-    "ui": "025d13542f378adff19f780341bc8b213168705c249eeff557c0461c8111436f"
+    "sprite": "c79afc48c36087606292b42c9e53e0ffd6ab8df9e768f649dfbddffa99503fe1",
+    "ui": "cec84a8f19ed69ca097e0c871bc4fbc25d00ba821a9230d64e726bbea3287a4d"
   },
   "precision_contexts": [
     {
@@ -240,6 +240,10 @@
         "loading_completed": 0,
         "loading_missing": 0,
         "loading_ranges": 0,
+        "resource_log_states": 0,
+        "resource_log_units": 0,
+        "resource_log_entries": 0,
+        "resource_log_shaders": 0,
         "panel_states": 0,
         "panel_objects": 0,
         "panel_frames": 0,
@@ -366,6 +370,10 @@
         "loading_completed": 0,
         "loading_missing": 0,
         "loading_ranges": 0,
+        "resource_log_states": 0,
+        "resource_log_units": 0,
+        "resource_log_entries": 0,
+        "resource_log_shaders": 0,
         "panel_states": 0,
         "panel_objects": 0,
         "panel_frames": 0,
