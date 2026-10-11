@@ -98,7 +98,7 @@ LONG CALLBACK diagnose(EXCEPTION_POINTERS* e) {
         }
         std::cerr<<"Text control AV stage "<<stage<<" trial "<<trial<<" action "<<action<<" RVA 0x"<<std::hex
             <<(reinterpret_cast<unsigned>(e->ExceptionRecord->ExceptionAddress)-reinterpret_cast<unsigned>(image))<<" address 0x"<<e->ExceptionRecord->ExceptionInformation[1]<<'\n';
-        auto* stack=reinterpret_cast<unsigned*>(e->ContextRecord->Esp);std::cerr<<"EIP "<<e->ContextRecord->Eip<<" ECX "<<e->ContextRecord->Ecx<<" EDX "<<e->ContextRecord->Edx<<" stack";
+        auto* stack=reinterpret_cast<unsigned*>(e->ContextRecord->Esp);std::cerr<<"EIP "<<e->ContextRecord->Eip<<" ECX "<<e->ContextRecord->Ecx<<" EDX "<<e->ContextRecord->Edx<<" ESI "<<e->ContextRecord->Esi<<" EDI "<<e->ContextRecord->Edi<<" EBX "<<e->ContextRecord->Ebx<<" stack";
         for(unsigned i=0;i<20;++i) std::cerr<<' '<<stack[i];std::cerr<<'\n';
         TerminateProcess(GetCurrentProcess(),1);
     } return EXCEPTION_CONTINUE_SEARCH;
@@ -454,6 +454,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
 #include "gameplay_oracle_services.h"
 #include "gameplay_runtime_oracle_services.h"
 #include "upgrade_oracle_services.h"
+#include "contract_status_oracle_services.h"
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr;
@@ -528,6 +529,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool contractStatuses=argc==4 && (std::wcscmp(argv[3],L"contract-status")==0 || std::wcscmp(argv[3],L"contract-status-device")==0);
         const bool extendedAnimationButtons=argc==4 && (std::wcscmp(argv[3],L"extended-animation-buttons")==0 || std::wcscmp(argv[3],L"extended-animation-buttons-device")==0);
         const bool extendedButtons=extendedAnimationButtons || argc==4 && (std::wcscmp(argv[3],L"extended-buttons")==0 || std::wcscmp(argv[3],L"extended-buttons-device")==0);
         const bool upgrades=argc==4 && (std::wcscmp(argv[3],L"upgrades")==0 || std::wcscmp(argv[3],L"upgrades-device")==0);
@@ -542,7 +544,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -552,6 +554,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
         unsigned mainMenuStates=0,mainMenuLetters=0,mainMenuActions=0,mainMenuFrames=0,mainMenuQuitChecks=0,mainMenuLoadingSteps=0;unsigned long long mainMenuPixels=0;
+        unsigned contractStates=0,contractObjects=0,contractAssignments=0,contractSteps=0,contractClicks=0,contractReloads=0,contractLetters=0,contractFormats=0,contractFrames=0,contractInputClicks=0;unsigned long long contractPixels=0;
         unsigned extendedStates=0,extendedObjects=0,extendedReloads=0,extendedLetters=0,extendedFrames=0,extendedSteps=0,extendedSoundResidues=0;unsigned long long extendedPixels=0;
         unsigned upgradeStates=0,upgradeQueries=0,upgradeChanges=0,upgradeCosts=0,upgradeObjects=0,upgradeReloads=0,upgradeLevelLoads=0,upgradeSoundCalls=0;
         unsigned gameplayRuntimeStates=0,gameplayRuntimeSteps=0,gameplayRuntimeObjects=0,gameplayRuntimeEvents=0,gameplayRuntimeRestores=0,gameplayRandomStates=0;
@@ -569,7 +572,7 @@ int wmain(int argc,wchar_t** argv) {
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons && !contractStatuses) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -939,6 +942,9 @@ Third</Text></Text></BackMultitext>
             if(extendedButtons) {
 #include "extended_button_oracle_run.inc"
             }
+            if(contractStatuses) {
+#include "contract_status_oracle_cases.inc"
+            }
             if(upgrades) {
 #include "upgrade_oracle_cases.inc"
             }
@@ -998,6 +1004,7 @@ Third</Text></Text></BackMultitext>
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
             <<",\"main_menu_states\":"<<mainMenuStates<<",\"main_menu_letters\":"<<mainMenuLetters<<",\"main_menu_actions\":"<<mainMenuActions<<",\"main_menu_frames\":"<<mainMenuFrames<<",\"main_menu_pixels\":"<<mainMenuPixels<<",\"main_menu_quit_checks\":"<<mainMenuQuitChecks<<",\"main_menu_loading_steps\":"<<mainMenuLoadingSteps
             <<",\"extended_states\":"<<extendedStates<<",\"extended_objects\":"<<extendedObjects<<",\"extended_reloads\":"<<extendedReloads<<",\"extended_letters\":"<<extendedLetters<<",\"extended_frames\":"<<extendedFrames<<",\"extended_pixels\":"<<extendedPixels<<",\"extended_steps\":"<<extendedSteps<<",\"extended_sound_residues\":"<<extendedSoundResidues
+            <<",\"contract_states\":"<<contractStates<<",\"contract_objects\":"<<contractObjects<<",\"contract_assignments\":"<<contractAssignments<<",\"contract_steps\":"<<contractSteps<<",\"contract_clicks\":"<<contractClicks<<",\"contract_reloads\":"<<contractReloads<<",\"contract_letters\":"<<contractLetters<<",\"contract_formats\":"<<contractFormats<<",\"contract_frames\":"<<contractFrames<<",\"contract_pixels\":"<<contractPixels<<",\"contract_input_clicks\":"<<contractInputClicks
             <<",\"upgrade_states\":"<<upgradeStates<<",\"upgrade_queries\":"<<upgradeQueries<<",\"upgrade_changes\":"<<upgradeChanges<<",\"upgrade_costs\":"<<upgradeCosts<<",\"upgrade_objects\":"<<upgradeObjects<<",\"upgrade_reloads\":"<<upgradeReloads<<",\"upgrade_level_loads\":"<<upgradeLevelLoads<<",\"upgrade_sound_calls\":"<<upgradeSoundCalls
             <<",\"gameplay_runtime_states\":"<<gameplayRuntimeStates<<",\"gameplay_runtime_steps\":"<<gameplayRuntimeSteps<<",\"gameplay_runtime_objects\":"<<gameplayRuntimeObjects<<",\"gameplay_runtime_events\":"<<gameplayRuntimeEvents<<",\"gameplay_runtime_restores\":"<<gameplayRuntimeRestores<<",\"gameplay_random_states\":"<<gameplayRandomStates
             <<",\"gameplay_time_states\":"<<gameplayTimeStates<<",\"gameplay_timeline_states\":"<<gameplayTimelineStates<<",\"gameplay_event_states\":"<<gameplayEventStates<<",\"gameplay_contract_states\":"<<gameplayContractStates<<",\"gameplay_popularity_states\":"<<gameplayPopularityStates<<",\"gameplay_objects\":"<<gameplayObjects<<",\"gameplay_reloads\":"<<gameplayReloads
