@@ -95,6 +95,8 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp src/game/ui/TooltipFrame.cpp src/game/ui/AwardEffect.cpp src/game/ui/AwardButton.cpp src/game/ui/Awards.cpp src/game/ui/AwardPanel.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/ui/MainMenu.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/resources/AnimableAppearance.cpp src/game/engine/GameConfiguration.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -246,8 +248,10 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_resource_log.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-main-menu-navigation COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_main_menu.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
-        add_test(NAME original-game-configuration COMMAND "${Python3_EXECUTABLE}"
+            add_test(NAME original-game-configuration COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_game_configuration.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-gameplay-definitions COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_gameplay.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-view-hierarchy COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"

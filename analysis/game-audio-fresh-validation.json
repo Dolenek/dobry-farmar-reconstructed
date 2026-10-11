@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T08:02:20.018672+00:00",
+  "recorded_at_utc": "2026-10-11T13:33:44.793963+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "3c5688171ccc29bb5b7336bd20175a11382118492cee5cb47f796418c6a21ede",
+  "oracle_sha256": "ed7e3d57001d66eed7b708090e67699ae60225d7cbb6ffd9982fc0a93563d271",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 56008,
+      "source_position_progress": 55126,
+      "native_position_progress": 38842,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 2241,
+      "source_position_progress": 37960,
+      "native_position_progress": 55567,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -173,6 +173,22 @@
     {
       "path": "src/game/engine/GameCursor.h",
       "sha256": "75f1513cbdd694ac0e055c3a507787d05e56c4f180c6b25336e730575359da46"
+    },
+    {
+      "path": "src/game/engine/GameplayEvents.cpp",
+      "sha256": "6dba985827e3cb308acbeea2d661be71e18e1a579fdef59141c13c9ea48daf0b"
+    },
+    {
+      "path": "src/game/engine/GameplayEvents.h",
+      "sha256": "69a516faf6072ba236541f6c133baf068bf6cc5d0762fef894a1f4e382ec7431"
+    },
+    {
+      "path": "src/game/engine/GameplayTime.cpp",
+      "sha256": "2eed82d4d420d58703c09a397369f449e507cd571472a976cd5825cece890973"
+    },
+    {
+      "path": "src/game/engine/GameplayTime.h",
+      "sha256": "f221930eb388f2750b72ebf7e837e8b35e5861643ad80a95cfe13e6e19827b9c"
     },
     {
       "path": "src/game/engine/GameTimer.cpp",
