@@ -10,6 +10,7 @@ class ResourceManager;
 class cTexture;
 class SpriteBatches;
 class Control;
+class AnimableAppearance;
 using Point2=std::array<float,2>;
 struct ControlMaterial {
     std::array<float,3> scale{1,1,1}; float yaw=0,pitch=0;
@@ -57,6 +58,7 @@ public:
     void setAlphaSource(float* value) noexcept { alpha_=value; dirty_=true; }
     float alpha() const noexcept { return *alpha_; }
     void setTextureName(const String& name); // cAnimable::setPicture, 004d2260
+    void copyAppearance(const AnimableAppearance&); // 004d2160, preserves play/time and dirty flag
     float deep() const noexcept { return deep_; }
     const ControlSpriteProperties& geometry() const noexcept { return geometry_; }
     const ControlAnimationState& animation() const noexcept { return animation_; }

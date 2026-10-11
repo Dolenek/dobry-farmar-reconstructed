@@ -1,4 +1,5 @@
 #include "Control.h"
+#include "AnimableAppearance.h"
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "Shader.h"
@@ -10,6 +11,14 @@
 #include <stdexcept>
 #include <vector>
 namespace farmar::recovered {
+void Control::copyAppearance(const AnimableAppearance& value) {
+    if(texture_!=value.texture) {
+        if(texture_) texture_->releaseReference();texture_=value.texture;
+        if(texture_) texture_->addReference();
+    }
+    animation_.frames=value.frames;animation_.length=value.length;animation_.loop=value.loop;
+    geometry_.columns=value.columns;geometry_.rows=value.rows;
+}
 namespace {
 template<class Value> void attribute(const XmlNode& node,const wchar_t* key,Value& value) {
     const WString text=node.attribute(WString(key));

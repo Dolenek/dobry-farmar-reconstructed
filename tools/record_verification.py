@@ -225,6 +225,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/upgrade-validation.json',upgrade);report['upgrade']=upgrade
         if 'analysis/upgrade-validation.json' not in report['reports']: report['reports'].append('analysis/upgrade-validation.json')
+    extended_path=ROOT/'.local/extended-buttons-validation.json'
+    if extended_path.exists():
+        extended=read(extended_path.relative_to(ROOT));assert extended['status']=='passed_for_extended_animation_text_button_and_tooltip_scope'
+        for name,expected in extended['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/extended-buttons-validation.json',extended);report['extended-buttons']=extended
+        if 'analysis/extended-buttons-validation.json' not in report['reports']: report['reports'].append('analysis/extended-buttons-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

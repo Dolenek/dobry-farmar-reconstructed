@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T14:04:10.642497+00:00",
+  "recorded_at_utc": "2026-10-11T14:19:10.751702+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "738bf9eedb3c8e290709fb6a3dd662f8a062d4dd8a6e33bf0abcca396ed2eff4",
+  "oracle_sha256": "8333751bff0ebf5e0c755c5bab476ffc54cfe21c69d4a5a8106a5e8b7881103f",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20762,
-      "native_position_progress": 21644,
+      "source_position_progress": 37960,
+      "native_position_progress": 55599,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 37960,
+      "source_position_progress": 37487,
+      "native_position_progress": 39692,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -492,11 +492,11 @@
     },
     {
       "path": "src/game/ui/Control.cpp",
-      "sha256": "a5ea4d9b59ca9e86d9ce3bbed21a2ac7c578ee63cff06ff65c1b04fbd5b73e04"
+      "sha256": "80a9330854e4aee3bc60e40b8fe9d52b0b9491c2fdb9e4524379f98c49b3a0c9"
     },
     {
       "path": "src/game/ui/Control.h",
-      "sha256": "1b5b4064b63b84a04a351be72f3f5ce5e1f8ce033726bd5705bda07f38453be6"
+      "sha256": "f88e7d888c7e101fdc16c867baa28b0e98ba6d46a1d15f145f21c8e97394332d"
     },
     {
       "path": "src/game/ui/ControlAnimation.cpp",
@@ -537,6 +537,14 @@
     {
       "path": "src/game/ui/ExitDialog.h",
       "sha256": "4c29a8a6eb24c6f62c99d5053f01ce4adf97645bcb86241bc8e5669f44fe1c14"
+    },
+    {
+      "path": "src/game/ui/ExtendedTextButton.cpp",
+      "sha256": "4dec6e2fd72dbf21f051899154a320b811b4c9dd06e48bee2aa37aa0b4b6dd69"
+    },
+    {
+      "path": "src/game/ui/ExtendedTextButton.h",
+      "sha256": "049ee650da3919e4c5f47dad5b91cc8ad54cab7be4582e211c8d09608d429d00"
     },
     {
       "path": "src/game/ui/InputBindings.cpp",

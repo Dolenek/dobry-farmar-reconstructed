@@ -99,3 +99,5 @@ GameplayEventDefinitions obnovuje všech 383 událostí ze skutečného Gameplay
 Gameplay nyní obnovuje konstruktor, singleton, scheduling, x87 randomizaci a save koeficienty. PC53/PC24: 70 368 stavů, 10 104 kroků, 2 690 706 event stavů a 600 000 RNG porovnání. Povinné světové rozhraní nemá výchozí implementaci; actual dispatch a celý cGame pokračují. Rozsah a hranice jsou v [docs/GAMEPLAY_RUNTIME.md](docs/GAMEPLAY_RUNTIME.md).
 
 Upgrade obnovuje společnou logiku původního abstraktního vylepšení: signed dostupnost/ceny, horní clamp, kumulativní XML reload a sdílený upgrade zvuk. PC53/PC24: 131 296 stavů, 65 536 setterů a 245 760 cenových hodnot. Odvozené herní objekty a skutečný nákup pokračují; rozsah v [docs/UPGRADE.md](docs/UPGRADE.md).
+
+ExtendedTextAnimationButton propojuje původní nápovědy farmy, budov a menu s vlastněnými texty, obrázky, vstupem a animacemi. PC53/PC24: 77 724 stavů, 77 328 kroků, 144 GPU snímků / 69 120 000 shodných RGB pixelů. Vyžaduje napojení na tutoriál; cGame a controllery světa pokračují. Rozsah v [docs/EXTENDED_BUTTONS.md](docs/EXTENDED_BUTTONS.md).
