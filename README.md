@@ -107,3 +107,5 @@ ContractStatus propojuje skutečné vlastněné UI, všech 131 definic zakázek,
 PriceText a TextMoney jsou obnovené a nativně porovnané v obou x87 přesnostech, včetně vlastněné Coin ikony a všech 14 XML definic. Rozsah: [docs/PRICE_TEXT.md](docs/PRICE_TEXT.md). Celá hra zůstává rozpracovaná.
 
 Dialogy zakázek (požadavky, výsledek a potvrzení) jsou propojené s obnoveným ContractStatus a porovnané s originálem včetně input callbacks a UI přechodů. Rozsah a zbývající světové vazby: [docs/CONTRACT_DIALOGS.md](docs/CONTRACT_DIALOGS.md).
+
+ContractProvide propojuje nabidku zakazky s realnym ContractStatus. PC53/PC24: 2 738 stavu, 1 308 startu, 96 GPU snimku / 46 080 000 shodnych RGB pixelu a ctyri input release. Diagnostika vykonava puvodni aktivaci do tri skutecnych controlleru; plny zdrojovy GameMenu a Farm letter actor pokracuji. Rozsah v [docs/CONTRACT_PROVIDE.md](docs/CONTRACT_PROVIDE.md).

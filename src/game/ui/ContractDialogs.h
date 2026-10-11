@@ -10,7 +10,7 @@ class ContractStatus;class GameConfiguration;
 struct ContractDialogContext {
     ResourceManager& resources;Settings& settings;StringManager& strings;
     InputBindings& input;ButtonInteraction& interaction;GameConfiguration& configuration;
-    View& game;
+    View& game; // suspended GameMenu singleton 0065f740, not cGame
     ViewRegistry& views=globalViewRegistry();ControlRegistry& controls=globalControlRegistry();
 };
 struct ContractRequirementLine {

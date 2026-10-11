@@ -44,9 +44,9 @@ def main():
         test_adapters=['Original EXE mapped only for diagnosis without entry point; production never calls original program code',
             'Native XML/string/old CRT/resource service boundaries use explicit diagnostic adapters; original constructors, dialog starts, callbacks, status algorithms and UI frame methods execute native instructions',
             'Profiles are independent actual ProfileProperties; game configuration appearances use independently verified source definitions',
-            'Context game is a real recovered View in this component fixture; full cGame constructor/world scene remains pending',
+            'Context game is a real recovered View in this component fixture; full GameMenu and cGame constructor/world scene remain pending',
             'World stock changes/money refresh/removal/notification and tutorial are explicit diagnostic trace bindings; disabled real SoundManager compares requests and resources, not audible output'],
-        pending=['ContractProvide offer controller and actual Farm letter objects; GameMenu, warehouse, tutorial and full cGame binding',
+        pending=['Actual Farm letter objects; GameMenu, warehouse, tutorial and full cGame binding',
             'Full physical mouse/device input, audible playback, scene integration, complete main EXE and bidirectional saves',
             'Invalid product, native allocation/exception/locale paths; constructor unspecified borrowed pointer differs from zeroed diagnostic heap'])
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

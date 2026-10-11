@@ -253,6 +253,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/contract-dialogs-validation.json',dialogs);report['contract-dialogs']=dialogs
         if 'analysis/contract-dialogs-validation.json' not in report['reports']: report['reports'].append('analysis/contract-dialogs-validation.json')
+    provide_path=ROOT/'.local/contract-provide-validation.json'
+    if provide_path.exists():
+        provide=read(provide_path.relative_to(ROOT));assert provide['status']=='passed_for_contract_offer_and_connected_status_scope'
+        for name,expected in provide['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/contract-provide-validation.json',provide);report['contract-provide']=provide
+        if 'analysis/contract-provide-validation.json' not in report['reports']: report['reports'].append('analysis/contract-provide-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

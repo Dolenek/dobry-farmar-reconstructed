@@ -98,7 +98,7 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Gameplay.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp src/game/ui/ContractProvide.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -258,6 +258,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_gameplay_runtime.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-price-money-text COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_price_text.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-contract-provide COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_contract_provide.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-contract-dialogs COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_contract_dialogs.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-contract-status COMMAND "${Python3_EXECUTABLE}"

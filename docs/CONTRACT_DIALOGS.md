@@ -28,4 +28,4 @@ Skutečný ContractStatus::goalClicked, readiness i expiry otevírají skutečn�
 
 Diagnostika mapuje reference EXE bez entry pointu; produkce originální kód nevolá. XML, staré CRT a resource interfaces mají explicitní diagnostické adaptéry. Profily jsou skutečné nezávislé ProfileProperties. Kontext game zastupuje obnovený GameMenu View; plný cGame a jeho světová scéna nejsou tímto testem dodané. Warehouse/money refresh/removal/notification a tutoriál jsou evidované trace hranice; disabled SoundManager ověřuje requests a lifetime, nikoli slyšitelný zvuk.
 
-Pokračuje ContractProvide, původní Farm letter objekty a GameMenu, warehouse, tutoriál a kompletní hra/savy. Neověřené jsou invalid product, native exception/allocation/locale cesty a neurčený constructor pointer stav mimo nulovanou diagnostickou haldu.
+ContractProvide je samostatně porovnaný v `CONTRACT_PROVIDE.md`. Pokračují původní Farm letter objekty a GameMenu, warehouse, tutoriál a kompletní hra/savy. Neověřené jsou invalid product, native exception/allocation/locale cesty a neurčený constructor pointer stav mimo nulovanou diagnostickou haldu.
