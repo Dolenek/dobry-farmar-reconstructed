@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T19:01:38.908152+00:00",
+  "recorded_at_utc": "2026-10-11T19:16:39.917546+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "aed7ab73df235735868fadf8f2f784b577a02045f49599522437a9a095828ac8",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 54718,
-      "native_position_progress": 37520,
+      "source_position_progress": 2682,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20321,
-      "native_position_progress": 19848,
+      "source_position_progress": 38369,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -569,6 +569,14 @@
     {
       "path": "src/game/ui/ExtendedTextButton.h",
       "sha256": "e4f117b740dcd193429794163eef57c0ea4ba69ac685e0fd4f9abf50e47aebb8"
+    },
+    {
+      "path": "src/game/ui/GamePauseMenu.cpp",
+      "sha256": "e4167dbf17d0840665b5b1103d870e8d325806f2a800763807e4327fbdd62537"
+    },
+    {
+      "path": "src/game/ui/GamePauseMenu.h",
+      "sha256": "3b499a643a4939d05fdc9d9ccd49653c9fc5b7e6043429fdafb2939175ca28b0"
     },
     {
       "path": "src/game/ui/InputBindings.cpp",

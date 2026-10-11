@@ -260,6 +260,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/contract-provide-validation.json',provide);report['contract-provide']=provide
         if 'analysis/contract-provide-validation.json' not in report['reports']: report['reports'].append('analysis/contract-provide-validation.json')
+    pause_path=ROOT/'.local/game-pause-validation.json'
+    if pause_path.exists():
+        pause=read(pause_path.relative_to(ROOT));assert pause['status']=='passed_for_game_pause_menu_and_connected_navigation_scope'
+        for name,expected in pause['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/game-pause-validation.json',pause);report['game-pause']=pause
+        if 'analysis/game-pause-validation.json' not in report['reports']: report['reports'].append('analysis/game-pause-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
