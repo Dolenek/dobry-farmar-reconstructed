@@ -37,6 +37,7 @@ public:
     void clear(); // 00542b60, likewise only signed reference count <1
     void deleteAllSound(); // 00542fd0, type 4 regardless of reference count
     void loadFromLog(const XmlNode& log,unsigned first,unsigned end); // 00541700, [first,end)
+    void logResources(const String& filename); // 0053fdf0, name-ordered cache, UTF-16 without BOM
     std::size_t cachedCount() const noexcept { return named_.size(); }
 private:
     struct PointerLess {

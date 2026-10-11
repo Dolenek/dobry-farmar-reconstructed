@@ -149,4 +149,17 @@ void ResourceManager::loadFromLog(const XmlNode& log,unsigned first,unsigned end
         resource->releaseReference();
     }
 }
+void ResourceManager::logResources(const String& filename) {
+    std::wostringstream stream;
+    stream<<"<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n"<<L"<ResourceLog>\n";
+    for(const auto& entry:named_)
+        stream<<L"<Tag Path=\""<<entry.first.c_str()<<L"\" Type=\""
+              <<static_cast<std::int32_t>(entry.second->resourceType())<<L"\" />\n";
+    stream<<L"</ResourceLog>";
+    // Create invalidates a cached resource with the output name. The original
+    // completes serialization first, so that entry must remain in this output.
+    const auto text=stream.str();
+    auto file=files_.create(filename);
+    file->write(text.data(),static_cast<unsigned>(text.size()*sizeof(wchar_t)));
+}
 }

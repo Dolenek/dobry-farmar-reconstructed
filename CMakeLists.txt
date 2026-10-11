@@ -240,6 +240,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_awards.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-award-panel COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_award_panel.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-resource-log-writer COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_resource_log.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-view-hierarchy COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"

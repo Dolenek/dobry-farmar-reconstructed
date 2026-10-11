@@ -183,6 +183,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/loading-validation.json',loading);report['loading']=loading
         if 'analysis/loading-validation.json' not in report['reports']: report['reports'].append('analysis/loading-validation.json')
+    log_path=ROOT/'.local/resource-log-validation.json'
+    if log_path.exists():
+        log=read(log_path.relative_to(ROOT));assert log['status']=='passed_for_resource_log_writer_and_isolated_file_scope'
+        for name,expected in log['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/resource-log-validation.json',log);report['resource-log']=log
+        if 'analysis/resource-log-validation.json' not in report['reports']: report['reports'].append('analysis/resource-log-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

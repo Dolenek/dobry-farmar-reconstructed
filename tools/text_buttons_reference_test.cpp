@@ -443,6 +443,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
 }
 #include "loading_oracle_services.h"
 #include "awards_oracle_services.h"
+#include "resource_log_oracle_services.h"
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr;
@@ -517,13 +518,14 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool resourceLogs=argc==4 && (std::wcscmp(argv[3],L"resource-log")==0 || std::wcscmp(argv[3],L"resource-log-device")==0);
         const bool awardPanels=argc==4 && (std::wcscmp(argv[3],L"panel")==0 || std::wcscmp(argv[3],L"panel-device")==0);
         const bool awardsControllers=argc==4 && (std::wcscmp(argv[3],L"awards")==0 || std::wcscmp(argv[3],L"awards-device")==0);
         const bool effectControllers=argc==4 && (std::wcscmp(argv[3],L"effect")==0 || std::wcscmp(argv[3],L"effect-device")==0);
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -532,6 +534,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned checkStates=0,checkObjects=0,checkCallbacks=0,checkFrames=0;unsigned long long checkPixels=0;
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
+        unsigned resourceLogStates=0,resourceLogShaders=0;unsigned long long resourceLogUnits=0,resourceLogEntries=0;
         unsigned panelStates=0,panelObjects=0,panelFrames=0,panelLetters=0,panelReloads=0,panelSoundResidues=0,panelSourceCallbacks=0,panelNativeCallbacks=0;unsigned long long panelPixels=0;
         unsigned awardsStates=0,awardsObjects=0,awardsFrames=0,awardsReloads=0,awardsDecorations=0,awardsLetters=0,awardsSoundResidues=0,awardsPanelCallbacks=0;unsigned long long awardsPixels=0;
         unsigned effectStates=0,effectObjects=0,effectFrames=0,effectSteps=0,effectReloads=0,effectSounds=0,effectSoundReloads=0;unsigned long long effectPixels=0;
@@ -543,7 +546,7 @@ int wmain(int argc,wchar_t** argv) {
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -910,6 +913,9 @@ Third</Text></Text></BackMultitext>
 #include "widgets_oracle_cases.inc"
 #include "slider_oracle_cases.inc"
             }
+            if(resourceLogs) {
+#include "resource_log_oracle_cases.inc"
+            }
             if(loadingControllers) {
 #include "loading_oracle_cases.inc"
             }
@@ -949,6 +955,7 @@ Third</Text></Text></BackMultitext>
             <<",\"checkbox_states\":"<<checkStates<<",\"checkbox_objects\":"<<checkObjects<<",\"checkbox_callbacks\":"<<checkCallbacks<<",\"checkbox_frames\":"<<checkFrames<<",\"checkbox_pixels\":"<<checkPixels
             <<",\"slider_states\":"<<sliderStates<<",\"slider_objects\":"<<sliderObjects<<",\"slider_callbacks\":"<<sliderCallbacks<<",\"slider_frames\":"<<sliderFrames<<",\"slider_pixels\":"<<sliderPixels
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
+            <<",\"resource_log_states\":"<<resourceLogStates<<",\"resource_log_units\":"<<resourceLogUnits<<",\"resource_log_entries\":"<<resourceLogEntries<<",\"resource_log_shaders\":"<<resourceLogShaders
             <<",\"panel_states\":"<<panelStates<<",\"panel_objects\":"<<panelObjects<<",\"panel_frames\":"<<panelFrames<<",\"panel_pixels\":"<<panelPixels<<",\"panel_letters\":"<<panelLetters<<",\"panel_reloads\":"<<panelReloads<<",\"panel_sound_residues\":"<<panelSoundResidues<<",\"panel_callbacks\":"<<panelSourceCallbacks
             <<",\"awards_states\":"<<awardsStates<<",\"awards_objects\":"<<awardsObjects<<",\"awards_frames\":"<<awardsFrames<<",\"awards_pixels\":"<<awardsPixels<<",\"awards_reloads\":"<<awardsReloads<<",\"awards_decorations\":"<<awardsDecorations<<",\"awards_letters\":"<<awardsLetters<<",\"awards_returns\":"<<awardsSourceReturns<<",\"awards_sound_residues\":"<<awardsSoundResidues<<",\"awards_panel_callbacks\":"<<awardsPanelCallbacks
             <<",\"effect_states\":"<<effectStates<<",\"effect_objects\":"<<effectObjects<<",\"effect_frames\":"<<effectFrames<<",\"effect_pixels\":"<<effectPixels<<",\"effect_steps\":"<<effectSteps<<",\"effect_reloads\":"<<effectReloads<<",\"effect_sounds\":"<<effectSounds<<",\"effect_sound_reloads\":"<<effectSoundReloads
