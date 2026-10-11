@@ -227,7 +227,7 @@ def main():
         if 'analysis/upgrade-validation.json' not in report['reports']: report['reports'].append('analysis/upgrade-validation.json')
     extended_path=ROOT/'.local/extended-buttons-validation.json'
     if extended_path.exists():
-        extended=read(extended_path.relative_to(ROOT));assert extended['status']=='passed_for_extended_animation_text_button_and_tooltip_scope'
+        extended=read(extended_path.relative_to(ROOT));assert extended['status']=='passed_for_extended_game_button_specializations_and_tooltip_scope'
         for name,expected in extended['source_files'].items():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/extended-buttons-validation.json',extended);report['extended-buttons']=extended

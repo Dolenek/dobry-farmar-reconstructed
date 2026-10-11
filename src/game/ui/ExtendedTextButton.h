@@ -3,11 +3,11 @@
 #include "AnimableAppearance.h"
 #include <vector>
 namespace farmar::recovered {
-// cExtendedTextButton<cAnimationButton>, original 868 bytes. Its tooltip
-// controls are children of this view, with independent resource appearances.
-class ExtendedTextAnimationButton:public TextAnimationButton {
+// Original extended animation/text-animation specializations: 864/868 bytes. Tooltip
+// controls are owned View children, with independent resource appearances.
+template<class Base> class BasicExtendedTooltipButton:public Base {
 public:
-    ExtendedTextAnimationButton(View*,ResourceManager&,Settings&,StringManager&,InputBindings&,
+    BasicExtendedTooltipButton(View*,ResourceManager&,Settings&,StringManager&,InputBindings&,
         ButtonInteraction&,std::function<bool()> tutorialActive,
         ViewRegistry& views=globalViewRegistry(),ControlRegistry& controls=globalControlRegistry()); // 00428370
     void loadXML(const XmlNode&) override; // 0042a1b0
@@ -30,6 +30,7 @@ public:
     const std::array<AnimableAppearance,4>& tipAppearances() const noexcept {return appearances_;}
     Picture& tipImage() noexcept {return *image_;}
 private:
+    using Base::resources_;using Base::registry_;using Base::controls_;using Base::geometry_;using Base::interaction_;
     std::function<bool()> tutorialActive_;
     Settings& settings_;StringManager& strings_;
     std::vector<Control*> tips_;
@@ -37,4 +38,6 @@ private:
     Picture* image_;
     std::array<AnimableAppearance,4> appearances_;
 };
+using ExtendedTextAnimationButton=BasicExtendedTooltipButton<TextAnimationButton>;
+using ExtendedAnimationButton=BasicExtendedTooltipButton<AnimationButton>;
 }

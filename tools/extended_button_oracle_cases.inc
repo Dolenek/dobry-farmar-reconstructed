@@ -1,3 +1,7 @@
+using ExtendedButtonType=std::remove_pointer_t<decltype(tag)>;
+constexpr bool hasText=std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>;
+const auto offset=[hasText](unsigned value) {return !hasText && value>=0x27c ? value-4:value;};
+const auto nativeRva=[hasText](unsigned text,unsigned animation) {return hasText ? text:animation;};
 stage=240;xmlTable[34]=reinterpret_cast<void*>(&sectionCount);
 std::array<unsigned char,3072> tutorial{};field<int>(tutorial.data(),0xbfc)=-1;putPointer(0x25f73c,tutorial.data());
 const auto directory=std::filesystem::path(".local")/(std::string("extended-button-")+std::to_string(GetCurrentProcessId())+"-"+std::to_string(GetTickCount64()));std::filesystem::create_directories(directory);
@@ -20,26 +24,26 @@ for(const auto& entry:definitions) {
         stage=241;trial=extendedObjects;XmlNode* definition=nullptr;require(document.section(String(name),definition),"Extended button definition missing");
         ViewRegistry views;ControlRegistry controls;interaction.active=nullptr;interaction.pending=0;putPointer(0x2604dc,nullptr);field<unsigned>(image,0x2604e0)=0;
         cursorPosition={790,590};field<int>(tutorial.data(),0xbfc)=-1;
-        auto button=std::make_unique<ExtendedTextAnimationButton>(nullptr,manager,settings,strings,input,interaction,[&] {return field<int>(tutorial.data(),0xbfc)!=-1;},views,controls);
-        auto* original=allocate(868);function<void*(__thiscall*)(void*,void*)>(0x28370)(original,nullptr);
+        auto button=std::make_unique<ExtendedButtonType>(nullptr,manager,settings,strings,input,interaction,[&] {return field<int>(tutorial.data(),0xbfc)!=-1;},views,controls);
+        auto* original=allocate(hasText ? 868:864);function<void*(__thiscall*)(void*,void*)>(nativeRva(0x28370,0x23550))(original,nullptr);
         const auto firstSound=sounds.size();
-        button->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(0x2a1b0)(original,wrap(definition));
+        button->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(nativeRva(0x2a1b0,0x236f0))(original,wrap(definition));
         const auto compareLine=[&](TextLine& text,void* native) {
             if(text.textDirty()) text.makeLetters();compareControl(text,native);extendedLetters+=compare(text,native);
         };
         const auto check=[&] {
-            stage=242;compareControl(*button,original);compareLine(button->text(),field<void*>(original,0x27c));
+            stage=242;compareControl(*button,original);if constexpr(std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>) compareLine(button->text(),field<void*>(original,0x27c));
             require(unsigned(button->buttonState())==field<unsigned>(original,0x238),"Extended button state differs");
-            require(button->tipsDisabled==bool(field<unsigned char>(original,0x280)) && button->tipsDirection==field<int>(original,0x2b4),"Extended tip direction differs");
-            compareFloat(button->waitTime,field<float>(original,0x2a4),"Tip wait time");compareFloat(button->waitRemaining,field<float>(original,0x2a8),"Tip remaining time");
-            compareFloat(button->alphaChangeTime,field<float>(original,0x2ac),"Tip fade time");compareFloat(button->tipsAlpha,field<float>(original,0x2b0),"Tip alpha");
-            require(!std::memcmp(button->tipOffset.data(),static_cast<unsigned char*>(original)+0x2b8,8),"Tip offset differs");
-            auto** begin=field<void**>(original,0x288);auto** end=field<void**>(original,0x28c);
+            require(button->tipsDisabled==bool(field<unsigned char>(original,offset(0x280))) && button->tipsDirection==field<int>(original,offset(0x2b4)),"Extended tip direction differs");
+            compareFloat(button->waitTime,field<float>(original,offset(0x2a4)),"Tip wait time");compareFloat(button->waitRemaining,field<float>(original,offset(0x2a8)),"Tip remaining time");
+            compareFloat(button->alphaChangeTime,field<float>(original,offset(0x2ac)),"Tip fade time");compareFloat(button->tipsAlpha,field<float>(original,offset(0x2b0)),"Tip alpha");
+            require(!std::memcmp(button->tipOffset.data(),static_cast<unsigned char*>(original)+offset(0x2b8),8),"Tip offset differs");
+            auto** begin=field<void**>(original,offset(0x288));auto** end=field<void**>(original,offset(0x28c));
             require(button->tips().size()==std::size_t(end-begin),"Tip list size differs");
-            auto* layouts=field<unsigned char*>(original,0x298);require(button->tipLayouts().size()==std::size_t(field<unsigned char*>(original,0x29c)-layouts)/12,"Tip layout count differs");
+            auto* layouts=field<unsigned char*>(original,offset(0x298));require(button->tipLayouts().size()==std::size_t(field<unsigned char*>(original,offset(0x29c))-layouts)/12,"Tip layout count differs");
             for(std::size_t i=0;i<button->tipLayouts().size();++i) require(!std::memcmp(&button->tipLayouts()[i],layouts+i*12,12),"Tip saved layout differs");
             for(unsigned i=0;i<4;++i) {
-                const auto& appearance=button->tipAppearances()[i];auto* native=static_cast<unsigned char*>(original)+0x2c4+i*40;
+                const auto& appearance=button->tipAppearances()[i];auto* native=static_cast<unsigned char*>(original)+offset(0x2c4)+i*40;
                 require(appearance.texture==field<cTexture*>(native,4) && appearance.frames==field<unsigned>(native,8) && appearance.columns==field<unsigned>(native,20) && appearance.rows==field<unsigned>(native,24),"Tip appearance differs");
                 compareFloat(appearance.length,field<float>(native,12),"Tip appearance duration");require(appearance.loop==bool(field<unsigned char>(native,16)) && appearance.playing==bool(field<unsigned char>(native,28)),"Tip appearance flags differ");
             }
@@ -57,28 +61,28 @@ for(const auto& entry:definitions) {
             require(actualSounds==expectedSounds,"Extended button sound requests differ");++extendedStates;
         };check();
         for(action=0;action<3;++action) {
-            const auto before=textureCounts();button->loadXML(*definition);const auto middle=textureCounts();function<void(__thiscall*)(void*,void*)>(0x2a1b0)(original,wrap(definition));compareReferenceDeltas(before,middle);check();++extendedReloads;
+            const auto before=textureCounts();button->loadXML(*definition);const auto middle=textureCounts();function<void(__thiscall*)(void*,void*)>(nativeRva(0x2a1b0,0x236f0))(original,wrap(definition));compareReferenceDeltas(before,middle);check();++extendedReloads;
         }
         // Exercise every screen quadrant including the exact native split.
         for(Point2 position:{Point2{400,300},Point2{401,300},Point2{400,301},Point2{401,301},Point2{-50,-10},Point2{850,650}}) {
             stage=243;button->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&position);
-            button->positionTips();call(0x28a90,original);check();
+            button->positionTips();call(nativeRva(0x28a90,0x227b0),original);check();
         }
         const Point2 center{400,300};button->setPosition(center);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&center);cursorPosition=center;
         actualSounds.clear();expectedSounds.clear();button->enable();call(0xd3bb0,original);button->show();call(0xd37d0,original);check();
         for(action=0;action<96;++action) {
             stage=244;actualSounds.clear();expectedSounds.clear();field<int>(tutorial.data(),0xbfc)=action%8==5 ? 0:-1;
             switch(action%8) {
-            case 0:button->hovered();call(0x28ff0,original);break;
-            case 1:button->unhovered();call(0x293e0,original);break;
-            case 2:button->clicked();call(0x99ca0,original);break;
-            case 3:button->unclicked();call(0x99cc0,original);break;
+            case 0:button->hovered();call(nativeRva(0x28ff0,0x22cc0),original);break;
+            case 1:button->unhovered();call(nativeRva(0x293e0,0x21800),original);break;
+            case 2:button->clicked();call(nativeRva(0x99ca0,0x215e0),original);break;
+            case 3:button->unclicked();call(nativeRva(0x99cc0,0x8fb30),original);break;
             case 4:button->disable();call(0xd3750,original);break;
             case 5:button->enable();call(0xd3bb0,original);break;
-            case 6:button->tipsDisabled=true;field<unsigned char>(original,0x280)=1;button->hovered();call(0x28ff0,original);break;
-            case 7:button->hideTips();call(0x9a340,original);break;
+            case 6:button->tipsDisabled=true;field<unsigned char>(original,offset(0x280))=1;button->hovered();call(nativeRva(0x28ff0,0x22cc0),original);break;
+            case 7:button->hideTips();call(nativeRva(0x9a340,0x8fb50),original);break;
             }
-            elapsed=(action%4)*0.025f;button->enabledStep();call(0x28590,original);++extendedSteps;check();
+            elapsed=(action%4)*0.025f;button->enabledStep();call(nativeRva(0x28590,0x222b0),original);++extendedSteps;check();
         }
         // Deterministic fade/wait boundary states, nonstandard directions,
         // zero durations and NaN; compare actual native x87 arithmetic.
@@ -93,24 +97,24 @@ for(const auto& entry:definitions) {
             if(action%101==0) button->tipsAlpha=nan;
             if(action%103==0) button->waitRemaining=nan;
             if(action%107==0) button->alphaChangeTime=nan;
-            field<float>(original,0x2b0)=button->tipsAlpha;field<int>(original,0x2b4)=button->tipsDirection;
-            field<float>(original,0x2ac)=button->alphaChangeTime;field<float>(original,0x2a8)=button->waitRemaining;
-            button->enabledStep();call(0x28590,original);++extendedSteps;check();
+            field<float>(original,offset(0x2b0))=button->tipsAlpha;field<int>(original,offset(0x2b4))=button->tipsDirection;
+            field<float>(original,offset(0x2ac))=button->alphaChangeTime;field<float>(original,offset(0x2a8))=button->waitRemaining;
+            button->enabledStep();call(nativeRva(0x28590,0x222b0),original);++extendedSteps;check();
         }
-        field<int>(tutorial.data(),0xbfc)=-1;button->alphaChangeTime=0.1f;field<float>(original,0x2ac)=0.1f;
-        button->waitRemaining=0;field<float>(original,0x2a8)=0;button->tipsDirection=0;field<int>(original,0x2b4)=0;button->tipsAlpha=1;field<float>(original,0x2b0)=1;
-        elapsed=0;button->positionTips();call(0x28a90,original);button->show();call(0xd37d0,original);button->enable();call(0xd3bb0,original);
+        field<int>(tutorial.data(),0xbfc)=-1;button->alphaChangeTime=0.1f;field<float>(original,offset(0x2ac))=0.1f;
+        button->waitRemaining=0;field<float>(original,offset(0x2a8))=0;button->tipsDirection=0;field<int>(original,offset(0x2b4))=0;button->tipsAlpha=1;field<float>(original,offset(0x2b0))=1;
+        elapsed=0;button->positionTips();call(nativeRva(0x28a90,0x227b0),original);button->show();call(0xd37d0,original);button->enable();call(0xd3bb0,original);
         menuMilliseconds=0;GameTimer frameTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});
         GameCursor frameCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&frameCursor;
         std::array<unsigned char,24> logicFrame{};field<void*>(logicFrame.data(),0)=cursorTable.data();nativeCursorFrame=logicFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
         for(action=0;action<4;++action) {
-            stage=246;elapsed=action==0 ? 2.01f:0.05f;button->enabledStep();call(0x28590,original);++extendedSteps;check();
-            if(action==3) button->unhovered(),call(0x293e0,original);
+            stage=246;elapsed=action==0 ? 2.01f:0.05f;button->enabledStep();call(nativeRva(0x28590,0x222b0),original);++extendedSteps;check();
+            if(action==3) button->unhovered(),call(nativeRva(0x293e0,0x21800),original);
             menuMilliseconds+=action==0 ? 2010:50;menuPoint=center;menuInputEvents.clear();menuMouseDelta={1,0,0};
             extendedPixels+=compareMenuFrame(d3d,device,window,views,controls,input,0);++extendedFrames;
         }
         menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
-        const auto beforeDelete=textureCounts();button.reset();const auto middleDelete=textureCounts();call(0x284c0,original);compareReferenceDeltas(beforeDelete,middleDelete);
+        const auto beforeDelete=textureCounts();button.reset();const auto middleDelete=textureCounts();call(nativeRva(0x284c0,0x21600),original);compareReferenceDeltas(beforeDelete,middleDelete);
         require(views.enabled().empty() && controls.visible().empty(),"Extended button destructor leaves owned controls");++extendedObjects;
         const auto soundCount=sounds.size()-firstSound;require(soundCount==0 || soundCount==16,"Extended button reload sound count differs");
         for(std::size_t i=firstSound;i+4<sounds.size();++i) {require(sounds[i]->referenceCount()==1,"Extended button prior sound retention differs");sounds[i]->releaseReference();++extendedSoundResidues;}

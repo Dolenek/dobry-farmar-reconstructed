@@ -100,4 +100,4 @@ Gameplay nyní obnovuje konstruktor, singleton, scheduling, x87 randomizaci a sa
 
 Upgrade obnovuje společnou logiku původního abstraktního vylepšení: signed dostupnost/ceny, horní clamp, kumulativní XML reload a sdílený upgrade zvuk. PC53/PC24: 131 296 stavů, 65 536 setterů a 245 760 cenových hodnot. Odvozené herní objekty a skutečný nákup pokračují; rozsah v [docs/UPGRADE.md](docs/UPGRADE.md).
 
-ExtendedTextAnimationButton propojuje původní nápovědy farmy, budov a menu s vlastněnými texty, obrázky, vstupem a animacemi. PC53/PC24: 77 724 stavů, 77 328 kroků, 144 GPU snímků / 69 120 000 shodných RGB pixelů. Vyžaduje napojení na tutoriál; cGame a controllery světa pokračují. Rozsah v [docs/EXTENDED_BUTTONS.md](docs/EXTENDED_BUTTONS.md).
+Obě specializace rozšířených tlačítek propojují původní nápovědy farmy, budov a menu s vlastněnými texty, obrázky, vstupem a animacemi. PC53/PC24: 155 448 stavů, 154 656 kroků, 288 GPU snímků / 138 240 000 shodných RGB pixelů. Vyžadují napojení na tutoriál; cGame a controllery světa pokračují. Rozsah v [docs/EXTENDED_BUTTONS.md](docs/EXTENDED_BUTTONS.md).
