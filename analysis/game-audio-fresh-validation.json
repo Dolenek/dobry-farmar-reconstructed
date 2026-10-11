@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-11T07:53:49.445586+00:00",
+  "recorded_at_utc": "2026-10-11T08:02:20.018672+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "1fe072a139014e41a40ce3e78fc169eb4fdee81e34d0ab1cbd91467870827480",
+  "oracle_sha256": "3c5688171ccc29bb5b7336bd20175a11382118492cee5cb47f796418c6a21ede",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56449,
-      "native_position_progress": 38369,
+      "source_position_progress": 37487,
+      "native_position_progress": 56008,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38369,
-      "native_position_progress": 38369,
+      "source_position_progress": 37487,
+      "native_position_progress": 2241,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -157,6 +157,14 @@
     {
       "path": "src/game/core/WString.cpp",
       "sha256": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2"
+    },
+    {
+      "path": "src/game/engine/GameConfiguration.cpp",
+      "sha256": "6b06bffe042fbc37c6194d7b4870087383e6c21a0375ea8b66f976950748d027"
+    },
+    {
+      "path": "src/game/engine/GameConfiguration.h",
+      "sha256": "089902a186d3285d46281f1a972c81c2ebd57660871316d133fa48b7040c268f"
     },
     {
       "path": "src/game/engine/GameCursor.cpp",
@@ -329,6 +337,14 @@
     {
       "path": "src/game/profiles/ProfileProperties.h",
       "sha256": "ea0f8026e20ec281480151432129557f7958b55329b9e5b3d5317a893aa1920d"
+    },
+    {
+      "path": "src/game/resources/AnimableAppearance.cpp",
+      "sha256": "f263377b3643a8874395e6d914ff2ee6a20466d53c52ec3bc70bc7e1c6b11b00"
+    },
+    {
+      "path": "src/game/resources/AnimableAppearance.h",
+      "sha256": "75d6dcdaa3b71516600d426839886c7679b42ac7ea165b94dfa0c32656d79173"
     },
     {
       "path": "src/game/resources/Font.cpp",
