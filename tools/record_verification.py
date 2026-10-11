@@ -148,6 +148,13 @@ def main():
         write('analysis/progress-validation.json',progress);report['progress']=progress
         if 'analysis/progress-validation.json' not in report['reports']: report['reports'].append('analysis/progress-validation.json')
         if 'progress-sprite-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('progress-sprite-reference-test.exe')
+    tooltip_path=ROOT/'.local/tooltip-validation.json'
+    if tooltip_path.exists():
+        tooltip=read(tooltip_path.relative_to(ROOT));assert tooltip['status']=='passed_for_owned_award_tooltip_and_shipped_2d_scope'
+        for name,expected in tooltip['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/tooltip-validation.json',tooltip);report['tooltip']=tooltip
+        if 'analysis/tooltip-validation.json' not in report['reports']: report['reports'].append('analysis/tooltip-validation.json')
     loading_path=ROOT/'.local/loading-validation.json'
     if loading_path.exists():
         loading=read(loading_path.relative_to(ROOT));assert loading['status']=='passed_for_loading_and_shipped_resource_log_scope'

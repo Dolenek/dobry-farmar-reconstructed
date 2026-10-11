@@ -79,3 +79,5 @@ python -m unittest discover -s tests -v
 ```
 
 Porovnávání hry bude pokrývat grafiku a české texty, vstup, zvuk, tutoriál, pěstování, výrobu, trh, zakázky, odměny a obousměrnou kompatibilitu uložených her. Podrobnosti jsou v [docs/VALIDATION.md](docs/VALIDATION.md). Neověřené části nesmějí být označeny za shodné s originálem.
+
+Nápověda ocenění `TooltipFrame` / cAwardTip je obnovená včetně čtyř podkladů a vlastněného textu: 7 320 stavů, 720 XML reloadů, 177 116 písmen a 96 snímků / 46 080 000 shodných RGB pixelů. [docs/AWARD_TOOLTIP.md](docs/AWARD_TOOLTIP.md) uvádí původní adresy a hranice. Pokračuje animovaný efekt a controller ocenění.
