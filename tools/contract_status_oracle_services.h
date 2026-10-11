@@ -31,7 +31,7 @@ void __fastcall contractNativeNotify(void*,void*,const WString* note,bool flag) 
 void __fastcall contractNativeReady(void*,void*,void* status) {require(status==contractNativeStatus,"Contract ready pointer differs");contractNativeCalls.push_back({6,0,0,0,0});}
 void __fastcall contractNativeRequirements(void*,void*,void* status) {require(status==contractNativeStatus,"Contract requirements pointer differs");contractNativeCalls.push_back({7,0,0,0,0});}
 void __fastcall contractNativeResult(void*,void*,void* status) {require(status==contractNativeStatus,"Contract result pointer differs");contractNativeCalls.push_back({8,0,0,0,0});}
-struct ContractTrace final:ContractStatusWorld {
+struct ContractTrace:ContractStatusWorld {
     ProfileProperties& profile;std::array<View*,3> transitions;
     ContractTrace(ProfileProperties& value,std::array<View*,3> views):profile(value),transitions(views) {}
     bool tutorialActive() const override {return contractTutorial;}

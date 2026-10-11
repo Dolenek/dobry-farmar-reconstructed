@@ -105,3 +105,5 @@ Obě specializace rozšířených tlačítek propojují původní nápovědy far
 ContractStatus propojuje skutečné vlastněné UI, všech 131 definic zakázek, deadline, požadavky a profilové klíče. PC53/PC24: 31 264 stavů, 5 144 přiřazení a 64 GPU snímků / 30 720 000 shodných RGB pixelů; osm skutečných input release otevře dialog, osm blokuje jiný tutorial step. Skutečné GameMenu, warehouse, dialogy, tutoriál, hlavní EXE a saves pokračují. Rozsah v [docs/CONTRACT_STATUS.md](docs/CONTRACT_STATUS.md).
 
 PriceText a TextMoney jsou obnovené a nativně porovnané v obou x87 přesnostech, včetně vlastněné Coin ikony a všech 14 XML definic. Rozsah: [docs/PRICE_TEXT.md](docs/PRICE_TEXT.md). Celá hra zůstává rozpracovaná.
+
+Dialogy zakázek (požadavky, výsledek a potvrzení) jsou propojené s obnoveným ContractStatus a porovnané s originálem včetně input callbacks a UI přechodů. Rozsah a zbývající světové vazby: [docs/CONTRACT_DIALOGS.md](docs/CONTRACT_DIALOGS.md).
