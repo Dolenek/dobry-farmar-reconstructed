@@ -37,6 +37,7 @@ public:
     void absoluteStep() override; // 004bcc20
     void assign(GameplayEvent&,bool restored); // 004bd2f0
     void refreshRequirements(); // 004ba0b0
+    void stockChanged(bool preview); // 004bb330 / 004bb7e0
     void fail(); // 004bbee0
     bool passCancel(); // 004bc460, inserts default profile boolean
     void setPassCancel(bool); // 004bc840

@@ -11,6 +11,11 @@
 #include <stdexcept>
 #include <vector>
 namespace farmar::recovered {
+void Control::setColor(const Color& value) {
+    const auto& old=geometry_.color;
+    if(old.r==value.r && old.g==value.g && old.b==value.b && old.a==value.a) return;
+    geometry_.color=value;dirty_=true;
+}
 void Control::copyAppearance(const AnimableAppearance& value) {
     if(texture_!=value.texture) {
         if(texture_) texture_->releaseReference();texture_=value.texture;

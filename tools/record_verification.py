@@ -274,6 +274,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/state-view-validation.json',state);report['state-view']=state
         if 'analysis/state-view-validation.json' not in report['reports']: report['reports'].append('analysis/state-view-validation.json')
+    hud_path=ROOT/'.local/game-menu-validation.json'
+    if hud_path.exists():
+        hud=read(hud_path.relative_to(ROOT));assert hud['status']=='passed_for_game_menu_hud_contracts_scene_navigation_and_input_scope'
+        for name,expected in hud['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/game-menu-validation.json',hud);report['game-menu']=hud
+        if 'analysis/game-menu-validation.json' not in report['reports']: report['reports'].append('analysis/game-menu-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

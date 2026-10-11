@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "Sound.h"
 #include "OriginalArithmetic.h"
+#include "ContractDialogs.h"
 #include <algorithm>
 #include <cstring>
 namespace farmar::recovered {
@@ -38,6 +39,19 @@ ContractStatus::ContractStatus(View* parent,unsigned identifier,ResourceManager&
 ContractStatus::~ContractStatus() {if(lossSound_) lossSound_->releaseReference();if(winSound_) winSound_->releaseReference();}
 std::string ContractStatus::key(const char* prefix) const {return std::string(prefix)+std::to_string(id);}
 unsigned ContractStatus::stock(unsigned product) {return product<19 ? profile_.uints["WGoodCount"+std::to_string(product)]:0;}
+void ContractStatus::stockChanged(bool preview) {
+    const auto& requirements=std::get<ContractEvent>(event->data).requirements;
+    bool ready=true;
+    for(const auto& req:requirements) if(req.reqType==0 && stock(req.productType)<req.count) {ready=false;break;}
+    refreshRequirements();bool newlyReady=false;
+    if(!preview) {
+        if(ready) for(unsigned n=0;n<2;++n) if(requirements[n].reqType==0 && signedBits(initialStocks[n])<signedBits(requirements[n].count)) {newlyReady=true;break;}
+        for(unsigned n=0;n<2;++n) if(requirements[n].reqType==0) initialStocks[n]=stock(requirements[n].productType);
+    }
+    if(newlyReady) if(auto* dialog=ContractPassConfirm::instance()) {
+        if(!dialog->state().shown || !dialog->state().parentShown) world_.openReadyDialog(*this);else dirty=true;
+    }
+}
 bool ContractStatus::passCancel() {return profile_.booleans[key("taskPassCancel")];}
 void ContractStatus::setPassCancel(bool value) {profile_.booleans[key("taskPassCancel")]=value;}
 void ContractStatus::loadXML(const XmlNode& node) {
