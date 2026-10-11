@@ -148,6 +148,13 @@ def main():
         write('analysis/progress-validation.json',progress);report['progress']=progress
         if 'analysis/progress-validation.json' not in report['reports']: report['reports'].append('analysis/progress-validation.json')
         if 'progress-sprite-reference-test.exe' not in report['build']['targets']: report['build']['targets'].append('progress-sprite-reference-test.exe')
+    panel_path=ROOT/'.local/award-panel-validation.json'
+    if panel_path.exists():
+        panel=read(panel_path.relative_to(ROOT));assert panel['status']=='passed_for_award_panel_owned_tree_and_shipped_2d_scope'
+        for name,expected in panel['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/award-panel-validation.json',panel);report['award-panel']=panel
+        if 'analysis/award-panel-validation.json' not in report['reports']: report['reports'].append('analysis/award-panel-validation.json')
     awards_path=ROOT/'.local/awards-validation.json'
     if awards_path.exists():
         awards=read(awards_path.relative_to(ROOT));assert awards['status']=='passed_for_awards_controller_buttons_and_shipped_2d_scope'

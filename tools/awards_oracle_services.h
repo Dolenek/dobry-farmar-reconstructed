@@ -8,6 +8,13 @@ int __cdecl awardsRegisterExit(void(*callback)()) {
     ++awardsExitRegistrations;return 0; // Diagnostic CRT service; PE entry point and CRT lifecycle are disabled.
 }
 String awardsKey;
+unsigned *panelSourceCounter=nullptr,*panelNativeCounter=nullptr;
+void panelAcceptedSource(ButtonPrototype*) {++*panelSourceCounter;}
+void __cdecl panelAcceptedNative(void*) {++*panelNativeCounter;}
+cResource* __fastcall panelResourceFactory(void*,void*,const String* name) {
+    if(name->view()=="Sounds/Award.wav") return resources->getSound(*name);
+    return loadSound(*name); // Existing Button diagnostic resource boundary.
+}
 String* __cdecl awardsProfileKey(const char* prefix,unsigned index) {awardsKey=String(std::string(prefix)+std::to_string(index));return &awardsKey;}
 bool* __fastcall awardsProfileBool(void*,void*,const String* name) {return &profileProperties().booleans[std::string(name->view())];}
 void awardsReturned() {

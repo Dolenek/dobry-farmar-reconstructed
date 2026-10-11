@@ -72,22 +72,25 @@ for(trial=0;trial<3;++trial) {
     // Show refresh uses the real profile map, independently of previous ownership.
     for(unsigned i=0;i<21;++i) profileProperties().booleans["awardShow"+std::to_string(i)]=bool((i+trial)&1);
     screen->hide();call(0xd3720,nativeView);screen->show();call(0xd37d0,nativeView);check();
-    // The callback only requires the button's generic parent, not an AwardPanel
-    // subclass. Its actual gameplay creation and world award manager remain pending.
-    auto panel=std::make_unique<View>(nullptr,views);auto* nativePanel=allocate(44);function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativePanel,nullptr);
-    auto* panelButton=new ButtonPrototype(panel.get(),manager,input,interaction,views,controls);auto* nativePanelButton=allocate(620);function<void*(__thiscall*)(void*,void*)>(0xf53b0)(nativePanelButton,nativePanel);
+    // Actual recovered/native Awards factories create the gameplay panel for
+    // each borrowed effect, rather than substituting a generic View fixture.
     for(unsigned index=0;index<21;++index) {
         screen->enable();call(0xd3bb0,nativeView);
-        auto* nativeEffect=field<void*>(field<void*>(original,0x44+index*4),0x27c);screen->pendingEffect=&screen->button(index).effect();field<void*>(original,0x2e4)=nativeEffect;
+        auto* nativeEffect=field<void*>(field<void*>(original,0x44+index*4),0x27c);auto* panel=screen->showAwardPanel(screen->button(index).effect());
+        lastNativeAwardPanel=nullptr;function<void(__thiscall*)(void*,void*,void(*)())>(0x783d0)(original,nativeEffect,nullptr);auto* nativePanel=lastNativeAwardPanel;require(nativePanel,"Awards factory did not allocate native panel");
+        compareControl(*panel,nativePanel);require(panel->state().transition==field<unsigned>(nativePanel,0x10) && panel->state().transition==1,"Awards panel show transition differs");
+        auto* nativePanelButton=field<void*>(nativePanel,0x238);require(screen->pendingEffect==&screen->button(index).effect() && field<void*>(original,0x2e4)==nativeEffect,"Awards factory pending effect differs");
         const auto* nativeKey=function<const String*(__cdecl*)(unsigned)>(0xab50)(index);require(Awards::conditionKey(index).view()==nativeKey->view(),"Awards condition key differs");
         profileProperties().booleans[std::string(nativeKey->view())]=false;
-        Awards::onAwardPanelOk(panelButton);require(profileProperties().booleans.at(std::string(nativeKey->view())),"Awards source condition commit missing");
+        panel->okButton().clickEvent(&panel->okButton());require(profileProperties().booleans.at(std::string(nativeKey->view())),"Awards source condition commit missing");
         profileProperties().booleans[std::string(nativeKey->view())]=false;function<void(__cdecl*)(void*)>(0x77e80)(nativePanelButton);
         require(profileProperties().booleans.at(std::string(nativeKey->view())) && !screen->pendingEffect && !field<void*>(original,0x2e4),"Awards native condition/pending clear differs");
-        require(views.discarded().size()==1 && nativeDiscards.size()==1 && views.discarded().at(panel.get()).view()==nativeDiscards.at(nativePanel),"Awards panel discard origin differs");
+        require(views.discarded().size()==1 && nativeDiscards.size()==1 && views.discarded().at(panel).view()==nativeDiscards.at(nativePanel),"Awards panel discard origin differs");
         require(!screen->state().enabled && !field<unsigned char>(nativeView,0x26),"Awards panel callback disable differs");check();++awardsPanelCallbacks;
+        const auto beforePanelDelete=textureCounts();views.deleteDiscarded();const auto middlePanelDelete=textureCounts();call(0x75300,nativePanel);compareReferenceDeltas(beforePanelDelete,middlePanelDelete);nativeDiscards.clear();
+        screen->markOwned(index);function<void(__thiscall*)(void*,unsigned)>(0x76ec0)(original,index);require(screen->button(index).owned()==1 && field<unsigned char>(field<void*>(original,0x44+index*4),0x280)==1,"Awards mark-owned helper differs");
     }
-    panel.reset();call(0xd58a0,nativePanel);nativeDiscards.clear();screen->enable();call(0xd3bb0,nativeView);
+    screen->enable();call(0xd3bb0,nativeView);
     stage=155;
     for(unsigned frame=0;frame<2;++frame) {
         action=24+frame;menuMilliseconds+=25;menuPoint={screen->returnButton().geometry().x,screen->returnButton().geometry().y};menuMouseDelta={1,0,0};menuInputEvents={frame ? 0x200U:0x208U};

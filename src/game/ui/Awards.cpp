@@ -2,6 +2,7 @@
 #include "ResourceManager.h"
 #include "XmlDocument.h"
 #include "ProfileProperties.h"
+#include "AwardPanel.h"
 #include <algorithm>
 #include <string>
 namespace farmar::recovered {
@@ -11,7 +12,7 @@ AwardsLifetime::~AwardsLifetime() { currentAwards=nullptr; }
 Awards* Awards::instance() noexcept { return currentAwards; }
 Awards::Awards(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,SoundManager& sound,
     InputBindings& input,ButtonInteraction& interaction,TooltipFrame::ScreenSize screenSize,ViewRegistry& views,ControlRegistry& controls)
-    :AwardsLifetime(this),MenuView(parent,resources,settings,strings,views,controls),resources_(resources) {
+    :AwardsLifetime(this),MenuView(parent,resources,settings,strings,views,controls),resources_(resources),settings_(settings),strings_(strings),sound_(sound),input_(input),interaction_(interaction),controls_(controls) {
     for(unsigned i=0;i<21;++i) buttons_[i]=new AwardButton(this,i,descriptions_[i],resources,settings,strings,sound,input,interaction,screenSize,views,controls);
     caption_=new TextLine(this,resources,settings,strings,views,controls);
     return_=new TextAnimationButton(this,resources,settings,strings,input,interaction,views,controls);return_->clickEvent=&returnClick;
@@ -29,6 +30,11 @@ void Awards::loadXML(const XmlNode& node) {
     }
 }
 void Awards::refresh() { for(unsigned i=0;i<21;++i) buttons_[i]->setOwned(profileProperties().booleans["awardShow"+std::to_string(i)]); }
+void Awards::markOwned(unsigned index) { buttons_.at(index)->setOwned(1); }
+AwardPanel* Awards::showAwardPanel(AwardEffect& effect,void(*)()) {
+    auto* panel=new AwardPanel(effect,&onAwardPanelOk,resources_,settings_,strings_,sound_,input_,interaction_,registry_,controls_);
+    panel->hide();panel->showTransparently();pendingEffect=&effect;return panel;
+}
 void Awards::onShown() { View::onShown();refresh(); }
 void Awards::returnClick(ButtonPrototype*) { instance()->returnFromScreen(); }
 void Awards::returnFromScreen() { discardTransparently();if(returnEvent) returnEvent(); }
