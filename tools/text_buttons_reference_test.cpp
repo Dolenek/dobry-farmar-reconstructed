@@ -450,6 +450,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
 #include "main_menu_oracle_services.h"
 #include "game_configuration_oracle_services.h"
 #include "gameplay_oracle_services.h"
+#include "gameplay_runtime_oracle_services.h"
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr;
@@ -524,6 +525,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool gameplayRuntime=argc==4 && (std::wcscmp(argv[3],L"gameplay-runtime")==0 || std::wcscmp(argv[3],L"gameplay-runtime-device")==0);
         const bool gameplayDefinitions=argc==4 && (std::wcscmp(argv[3],L"gameplay")==0 || std::wcscmp(argv[3],L"gameplay-device")==0);
         const bool gameConfigurations=argc==4 && (std::wcscmp(argv[3],L"game-configuration")==0 || std::wcscmp(argv[3],L"game-configuration-device")==0);
         const bool mainMenus=argc==4 && (std::wcscmp(argv[3],L"main-menu")==0 || std::wcscmp(argv[3],L"main-menu-device")==0);
@@ -534,7 +536,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -544,6 +546,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
         unsigned mainMenuStates=0,mainMenuLetters=0,mainMenuActions=0,mainMenuFrames=0,mainMenuQuitChecks=0,mainMenuLoadingSteps=0;unsigned long long mainMenuPixels=0;
+        unsigned gameplayRuntimeStates=0,gameplayRuntimeSteps=0,gameplayRuntimeObjects=0,gameplayRuntimeEvents=0,gameplayRuntimeRestores=0,gameplayRandomStates=0;
         unsigned gameplayTimeStates=0,gameplayTimelineStates=0,gameplayEventStates=0,gameplayContractStates=0,gameplayPopularityStates=0,gameplayObjects=0,gameplayReloads=0;
         unsigned gameConfigurationStates=0,gameConfigurationObjects=0,gameConfigurationReloads=0,gameConfigurationAppearances=0,gameConfigurationSoundResidues=0;
         unsigned resourceLogStates=0,resourceLogShaders=0;unsigned long long resourceLogUnits=0,resourceLogEntries=0;
@@ -558,7 +561,7 @@ int wmain(int argc,wchar_t** argv) {
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions) {
+            if(!controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -925,6 +928,9 @@ Third</Text></Text></BackMultitext>
 #include "widgets_oracle_cases.inc"
 #include "slider_oracle_cases.inc"
             }
+            if(gameplayRuntime) {
+#include "gameplay_runtime_oracle_cases.inc"
+            }
             if(gameplayDefinitions) {
 #include "gameplay_oracle_cases.inc"
             }
@@ -977,6 +983,7 @@ Third</Text></Text></BackMultitext>
             <<",\"slider_states\":"<<sliderStates<<",\"slider_objects\":"<<sliderObjects<<",\"slider_callbacks\":"<<sliderCallbacks<<",\"slider_frames\":"<<sliderFrames<<",\"slider_pixels\":"<<sliderPixels
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
             <<",\"main_menu_states\":"<<mainMenuStates<<",\"main_menu_letters\":"<<mainMenuLetters<<",\"main_menu_actions\":"<<mainMenuActions<<",\"main_menu_frames\":"<<mainMenuFrames<<",\"main_menu_pixels\":"<<mainMenuPixels<<",\"main_menu_quit_checks\":"<<mainMenuQuitChecks<<",\"main_menu_loading_steps\":"<<mainMenuLoadingSteps
+            <<",\"gameplay_runtime_states\":"<<gameplayRuntimeStates<<",\"gameplay_runtime_steps\":"<<gameplayRuntimeSteps<<",\"gameplay_runtime_objects\":"<<gameplayRuntimeObjects<<",\"gameplay_runtime_events\":"<<gameplayRuntimeEvents<<",\"gameplay_runtime_restores\":"<<gameplayRuntimeRestores<<",\"gameplay_random_states\":"<<gameplayRandomStates
             <<",\"gameplay_time_states\":"<<gameplayTimeStates<<",\"gameplay_timeline_states\":"<<gameplayTimelineStates<<",\"gameplay_event_states\":"<<gameplayEventStates<<",\"gameplay_contract_states\":"<<gameplayContractStates<<",\"gameplay_popularity_states\":"<<gameplayPopularityStates<<",\"gameplay_objects\":"<<gameplayObjects<<",\"gameplay_reloads\":"<<gameplayReloads
             <<",\"game_configuration_states\":"<<gameConfigurationStates<<",\"game_configuration_objects\":"<<gameConfigurationObjects<<",\"game_configuration_reloads\":"<<gameConfigurationReloads<<",\"game_configuration_appearances\":"<<gameConfigurationAppearances<<",\"game_configuration_sound_residues\":"<<gameConfigurationSoundResidues
             <<",\"resource_log_states\":"<<resourceLogStates<<",\"resource_log_units\":"<<resourceLogUnits<<",\"resource_log_entries\":"<<resourceLogEntries<<",\"resource_log_shaders\":"<<resourceLogShaders

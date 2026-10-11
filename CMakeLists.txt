@@ -97,6 +97,7 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/resources/AnimableAppearance.cpp src/game/engine/GameConfiguration.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Gameplay.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -252,6 +253,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_game_configuration.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-gameplay-definitions COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_gameplay.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-gameplay-runtime COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_gameplay_runtime.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-view-hierarchy COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_views.py" --oracle "$<TARGET_FILE:view-reference-test>")
             add_test(NAME original-main-frame-ui COMMAND "${Python3_EXECUTABLE}"
