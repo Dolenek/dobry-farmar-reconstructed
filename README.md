@@ -103,3 +103,5 @@ Upgrade obnovuje společnou logiku původního abstraktního vylepšení: signed
 Obě specializace rozšířených tlačítek propojují původní nápovědy farmy, budov a menu s vlastněnými texty, obrázky, vstupem a animacemi. PC53/PC24: 155 448 stavů, 154 656 kroků, 288 GPU snímků / 138 240 000 shodných RGB pixelů. Vyžadují napojení na tutoriál; cGame a controllery světa pokračují. Rozsah v [docs/EXTENDED_BUTTONS.md](docs/EXTENDED_BUTTONS.md).
 
 ContractStatus propojuje skutečné vlastněné UI, všech 131 definic zakázek, deadline, požadavky a profilové klíče. PC53/PC24: 31 264 stavů, 5 144 přiřazení a 64 GPU snímků / 30 720 000 shodných RGB pixelů; osm skutečných input release otevře dialog, osm blokuje jiný tutorial step. Skutečné GameMenu, warehouse, dialogy, tutoriál, hlavní EXE a saves pokračují. Rozsah v [docs/CONTRACT_STATUS.md](docs/CONTRACT_STATUS.md).
+
+PriceText a TextMoney jsou obnovené a nativně porovnané v obou x87 přesnostech, včetně vlastněné Coin ikony a všech 14 XML definic. Rozsah: [docs/PRICE_TEXT.md](docs/PRICE_TEXT.md). Celá hra zůstává rozpracovaná.
