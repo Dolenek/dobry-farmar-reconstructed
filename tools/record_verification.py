@@ -339,6 +339,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/field-object-validation.json',field);report['field-object']=field
         if 'analysis/field-object-validation.json' not in report['reports']:report['reports'].append('analysis/field-object-validation.json')
+    area_path=ROOT/'.local/action-area-validation.json'
+    if area_path.exists():
+        area=read(area_path.relative_to(ROOT));assert area['status']=='passed_for_action_area_controller_and_explicit_world_boundaries'
+        for name,expected in area['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/action-area-validation.json',area);report['action-area']=area
+        if 'analysis/action-area-validation.json' not in report['reports']:report['reports'].append('analysis/action-area-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
