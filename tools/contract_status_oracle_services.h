@@ -4,7 +4,9 @@ using ContractCalls=std::vector<std::array<unsigned,5>>;
 ContractCalls contractSourceCalls,contractNativeCalls;
 ProfileProperties* contractNativeProfile=nullptr;void* contractNativeStatus=nullptr;
 bool contractTutorial=false,contractTutorialStep=false,contractCanShow=false;
-std::array<unsigned char,3072> contractTutorialObject{};
+// Original TutorialManager is 3104 bytes. +c08 cancellation and +c09 enable
+// flags lie beyond 3072; the old fixture overlapped unrelated test globals.
+std::array<unsigned char,3104> contractTutorialObject{};
 void* __fastcall contractProperty(void* storage,void*,const String* key) {
     const std::string name(key->view());
     if(storage==image+0x25ff20) return &contractNativeProfile->ints[name];

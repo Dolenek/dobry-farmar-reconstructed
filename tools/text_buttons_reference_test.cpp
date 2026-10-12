@@ -12,6 +12,7 @@
 #include "StateView.h"
 #include "MovableUnion.h"
 #include "BuySeeds.h"
+#include "BuyBuilding.h"
 #include "MenuView.h"
 #include "MainMenuContent.h"
 #include "GameConfiguration.h"
@@ -71,6 +72,7 @@ unsigned stage=0,trial=0,action=0;
 bool expectedListFault=false;
 float elapsed=0;
 bool explicitTipElapsed=false;
+bool menuStencil=false;
 float currentElapsed() { return !explicitTipElapsed && GameTimer::instance() ? GameTimer::instance()->elapsed():elapsed; }
 float __fastcall timer(void*,void*) { return currentElapsed(); }
 void __fastcall frameService(void*,void*) {}
@@ -398,6 +400,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
     expectedBatches.begin();nativeBatches=&expectedBatches;nativeSubmissions.clear();
     call(0x131b20,nativeCursorFrame);nativeBatches=nullptr;expectedBatches.finish();
     require(!std::memcmp(menuCursor->position().data(),static_cast<unsigned char*>(nativeCursorFrame)+0x10,8),"Menu native/source cursor differs");
+    if(actualSounds!=expectedSounds) {std::cerr<<"Actual menu sounds";for(const auto& item:actualSounds) std::cerr<<char(32)<<item.first<<char(58)<<item.second;std::cerr<<"\nNative menu sounds";for(const auto& item:expectedSounds) std::cerr<<char(32)<<item.first<<char(58)<<item.second;std::cerr<<"\n";}
     require(actualSounds==expectedSounds,"Menu input sound request order differs");
     menuSoundRequests+=unsigned(actualSounds.size());
     require(actualSubmissions.size()==nativeSubmissions.size(),"Menu submission count differs");
@@ -413,8 +416,15 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
     require(actualBatches.vertexCount()==expectedBatches.vertexCount() && actualBatches.indexCount()==expectedBatches.indexCount(),"Menu submitted geometry counts differ");
     const auto reset=[&] {
         render.setup(settings,presentation);device->SetVertexShader(0x142);device->SetRenderState(D3DRS_STENCILENABLE,0);
+        // PictureButton exercises stencil writes and tests. Both renderings
+        // must start with the same device state, including states the ordinary
+        // no-stencil menus leave untouched. These writes are outside tracing.
+        device->SetRenderState(D3DRS_STENCILFUNC,8);device->SetRenderState(D3DRS_STENCILREF,0);
+        device->SetRenderState(D3DRS_STENCILMASK,0xffffffffU);device->SetRenderState(D3DRS_STENCILWRITEMASK,0xffffffffU);
+        device->SetRenderState(D3DRS_STENCILFAIL,1);device->SetRenderState(D3DRS_STENCILZFAIL,1);device->SetRenderState(D3DRS_STENCILPASS,1);
+        device->SetRenderState(D3DRS_ALPHAREF,0);
         device->SetTextureStageState(0,D3DTSS_MAGFILTER,1);device->SetTextureStageState(0,D3DTSS_MINFILTER,1);
-        require(SUCCEEDED(device->Clear(0,nullptr,D3DCLEAR_TARGET,0xff17293b,0,0)),"Menu clear failed");
+        require(SUCCEEDED(device->Clear(0,nullptr,D3DCLEAR_TARGET|(menuStencil ? D3DCLEAR_STENCIL:0),0xff17293b,0,0)),"Menu clear failed");
         require(SUCCEEDED(device->BeginScene()),"Menu BeginScene failed");
     };
     SpriteDeviceTrace actualTrace(device),expectedTrace(device);
@@ -469,6 +479,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
 #include "tutorial_tips_oracle_services.h"
 #include "tutorial_manager_oracle_services.h"
 #include "buy_seeds_oracle_services.h"
+#include "buy_building_oracle_services.h"
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr;
@@ -543,10 +554,12 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
+        const bool buyBuildingMode=argc==4 && (std::wcscmp(argv[3],L"buy-building")==0 || std::wcscmp(argv[3],L"buy-building-device")==0);
+        if(buyBuildingMode) {menuStencil=true;parameters.EnableAutoDepthStencil=TRUE;parameters.AutoDepthStencilFormat=D3DFMT_D24S8;}
         const bool buySeedsMode=argc==4 && (std::wcscmp(argv[3],L"buy-seeds")==0 || std::wcscmp(argv[3],L"buy-seeds-device")==0);
         const bool movableUnions=argc==4 && (std::wcscmp(argv[3],L"movable-union")==0 || std::wcscmp(argv[3],L"movable-union-device")==0);
         const bool tutorialManagerMode=argc==4 && (std::wcscmp(argv[3],L"tutorial-manager")==0 || std::wcscmp(argv[3],L"tutorial-manager-device")==0);
-        const bool tutorialTips=buySeedsMode || movableUnions || tutorialManagerMode || argc==4 && (std::wcscmp(argv[3],L"tutorial-tips")==0 || std::wcscmp(argv[3],L"tutorial-tips-device")==0);
+        const bool tutorialTips=buyBuildingMode || buySeedsMode || movableUnions || tutorialManagerMode || argc==4 && (std::wcscmp(argv[3],L"tutorial-tips")==0 || std::wcscmp(argv[3],L"tutorial-tips-device")==0);
         const bool gameMenus=tutorialTips || argc==4 && (std::wcscmp(argv[3],L"game-menu")==0 || std::wcscmp(argv[3],L"game-menu-device")==0);
         const bool stateViews=argc==4 && (std::wcscmp(argv[3],L"state-view")==0 || std::wcscmp(argv[3],L"state-view-device")==0);
         const bool gamePauses=argc==4 && (std::wcscmp(argv[3],L"game-pause")==0 || std::wcscmp(argv[3],L"game-pause-device")==0);
@@ -569,7 +582,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(buyBuildingMode && std::wcscmp(argv[3],L"buy-building")==0) || (buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -579,6 +592,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
         unsigned mainMenuStates=0,mainMenuLetters=0,mainMenuActions=0,mainMenuFrames=0,mainMenuQuitChecks=0,mainMenuLoadingSteps=0;unsigned long long mainMenuPixels=0;
+        unsigned buyBuildingStates=0,buyBuildingStarts=0,buyBuildingFrames=0,buyBuildingChoices=0,buyBuildingLetters=0;
         unsigned buySeedsStates=0,buySeedsStarts=0,buySeedsFrames=0,buySeedsChoices=0,buySeedsLetters=0;
         unsigned movableUnionStates=0,movableUnionMoves=0,movableUnionSteps=0,movableUnionFrames=0,movableUnionReloads=0;
         unsigned tutorialManagerStates=0,tutorialManagerStarts=0,tutorialManagerSteps=0,tutorialManagerPredicates=0,tutorialManagerFrames=0;
@@ -1057,6 +1071,7 @@ Third</Text></Text></BackMultitext>
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
             <<",\"main_menu_states\":"<<mainMenuStates<<",\"main_menu_letters\":"<<mainMenuLetters<<",\"main_menu_actions\":"<<mainMenuActions<<",\"main_menu_frames\":"<<mainMenuFrames<<",\"main_menu_pixels\":"<<mainMenuPixels<<",\"main_menu_quit_checks\":"<<mainMenuQuitChecks<<",\"main_menu_loading_steps\":"<<mainMenuLoadingSteps
             <<",\"extended_states\":"<<extendedStates<<",\"extended_objects\":"<<extendedObjects<<",\"extended_reloads\":"<<extendedReloads<<",\"extended_letters\":"<<extendedLetters<<",\"extended_frames\":"<<extendedFrames<<",\"extended_pixels\":"<<extendedPixels<<",\"extended_steps\":"<<extendedSteps<<",\"extended_sound_residues\":"<<extendedSoundResidues
+            <<",\"buy_building_states\":"<<buyBuildingStates<<",\"buy_building_starts\":"<<buyBuildingStarts<<",\"buy_building_frames\":"<<buyBuildingFrames<<",\"buy_building_choices\":"<<buyBuildingChoices<<",\"buy_building_letters\":"<<buyBuildingLetters
             <<",\"buy_seeds_states\":"<<buySeedsStates<<",\"buy_seeds_starts\":"<<buySeedsStarts<<",\"buy_seeds_frames\":"<<buySeedsFrames<<",\"buy_seeds_choices\":"<<buySeedsChoices<<",\"buy_seeds_letters\":"<<buySeedsLetters
             <<",\"movable_union_states\":"<<movableUnionStates<<",\"movable_union_moves\":"<<movableUnionMoves<<",\"movable_union_steps\":"<<movableUnionSteps<<",\"movable_union_frames\":"<<movableUnionFrames<<",\"movable_union_reloads\":"<<movableUnionReloads
             <<",\"tutorial_manager_states\":"<<tutorialManagerStates<<",\"tutorial_manager_starts\":"<<tutorialManagerStarts<<",\"tutorial_manager_steps\":"<<tutorialManagerSteps<<",\"tutorial_manager_predicates\":"<<tutorialManagerPredicates<<",\"tutorial_manager_frames\":"<<tutorialManagerFrames

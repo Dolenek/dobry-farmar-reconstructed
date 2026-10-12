@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T06:20:15.134359+00:00",
+  "recorded_at_utc": "2026-10-12T10:07:03.792187+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "aed7ab73df235735868fadf8f2f784b577a02045f49599522437a9a095828ac8",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 56449,
+      "source_position_progress": 38810,
+      "native_position_progress": 37520,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 40133,
+      "source_position_progress": 56008,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -483,8 +483,16 @@
       "sha256": "351f15996b39d7178439b7df38d202b411b7b2fa4fa5722cd3a79023ec41a775"
     },
     {
+      "path": "src/game/ui/BuyBuilding.cpp",
+      "sha256": "d5a4874640f0305cdd1349beff1b4c79009d8887de588464642efe2f1ca86f80"
+    },
+    {
+      "path": "src/game/ui/BuyBuilding.h",
+      "sha256": "4aa30fab86443e0475bb691d7647b204583e566c916cc9754ab24444afa6a5e0"
+    },
+    {
       "path": "src/game/ui/BuySeeds.cpp",
-      "sha256": "8cc79f64723e7549d05252584d5b4e60f7e8d42001cb3f59de7b7cc550f03f38"
+      "sha256": "43394b003304c69688d9f1ffa733a9f01d159691481e774cfebff4c34b443a1f"
     },
     {
       "path": "src/game/ui/BuySeeds.h",
@@ -528,7 +536,7 @@
     },
     {
       "path": "src/game/ui/Control.h",
-      "sha256": "8ab65a5f7a1f6d8b590c11db4ca4245227a700dfb90d36dbe6216ea65ad7f861"
+      "sha256": "6997b11d4d875acbb715dc46ad69b4a990bc9ac1a9133f48a6742f722a69fc25"
     },
     {
       "path": "src/game/ui/ControlAnimation.cpp",
@@ -572,11 +580,11 @@
     },
     {
       "path": "src/game/ui/ExtendedTextButton.cpp",
-      "sha256": "94b9aad7a0c41711afc9e4d33aa390f4b2c40ceab64568794ba23b00e51f55fc"
+      "sha256": "b9a6adc8fb47ccb7089ee790d7b800c208531487905a04b054b4d4770b0fd7ab"
     },
     {
       "path": "src/game/ui/ExtendedTextButton.h",
-      "sha256": "e4f117b740dcd193429794163eef57c0ea4ba69ac685e0fd4f9abf50e47aebb8"
+      "sha256": "787286e87cfcafec87eaad919d7e81c3126e9539073260b3a8dd4fb4b0c2f7ef"
     },
     {
       "path": "src/game/ui/GameMenu.cpp",
@@ -681,6 +689,14 @@
     {
       "path": "src/game/ui/Options.h",
       "sha256": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa"
+    },
+    {
+      "path": "src/game/ui/PictureButton.cpp",
+      "sha256": "62326a543f010696595cdf4b7eeef61722d62d465d0b1b280790484675ed4eb7"
+    },
+    {
+      "path": "src/game/ui/PictureButton.h",
+      "sha256": "10095e21d807c5e99c0257f962e842b5bf1a91f57cd6492defaef949be2de16d"
     },
     {
       "path": "src/game/ui/PriceText.cpp",

@@ -46,7 +46,7 @@ void BuySeeds::loadXML(const XmlNode& node) {
 void BuySeeds::enabledStep() {Picture::enabledStep();if(movement) return;auto& t=context_.world.tutorial();if(t.canShow(14)) {t.showDisabledAnchor(14,this);return;}if(t.canShow(15)) t.showRepeatedAction(15,cells_[0].button);}
 void BuySeeds::open() {
     enable();unsigned count=0;for(unsigned seed=1;seed<8;++seed) if(context_.profile.uints["SeedAvail"+std::to_string(seed)]) {
-        auto& cell=cells_[count++];const auto& definition=definitions[seed];cell.name->setString(definition.name,false);cell.name->show();cell.button->copyAppearance(definition.appearance);cell.button->deepProcessing=true;cell.button->show();
+        auto& cell=cells_[count++];const auto& definition=definitions[seed];cell.name->setString(definition.name,false);cell.name->show();cell.button->copyAppearance(definition.appearance);cell.button->markTransformDirty();cell.button->show();
         const auto price=context_.configuration.seeds[seed].price;cell.price->setString(WString(std::to_wstring(price)));cell.button->seed=seed;cell.price->show();
         const bool unavailable=context_.world.money()<signedBits(price);if(unavailable) cell.button->disable();else cell.button->enable();cell.price->setFrame(unavailable ? 1:0);
     }

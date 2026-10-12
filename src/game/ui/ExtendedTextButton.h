@@ -40,4 +40,5 @@ private:
 };
 using ExtendedTextAnimationButton=BasicExtendedTooltipButton<TextAnimationButton>;
 using ExtendedAnimationButton=BasicExtendedTooltipButton<AnimationButton>;
+using ExtendedButton=BasicExtendedTooltipButton<Button>; // 0048fa00, native 864 bytes
 }

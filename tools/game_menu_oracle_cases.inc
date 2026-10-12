@@ -1,5 +1,5 @@
 std::map<unsigned,std::array<unsigned char,5>> tutorialEntries;
-if(tutorialManagerMode || buySeedsMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);
+if(tutorialManagerMode || buySeedsMode || buyBuildingMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);
 stage=310;hudInputs={};new(image+0x260208) WString();field<unsigned>(image,0x260224)=1;new(image+0x25ff68) WString();field<unsigned>(image,0x25ff84)=1;redirect(0x1d680,reinterpret_cast<void*>(&hudLiteral));new(image+0x2601e8) String();field<unsigned char>(image,0x260204)=1;
 redirect(0x8860,reinterpret_cast<void*>(&upgradeStreamConstruct));
 redirect(0x10770,reinterpret_cast<void*>(&contractProperty));redirect(0x106a0,reinterpret_cast<void*>(&contractFloatProperty));redirect(0x105e0,reinterpret_cast<void*>(&contractBoolProperty));
@@ -129,7 +129,7 @@ frame({hud->warehouseButton().geometry().x,hud->warehouseButton().geometry().y},
 frame({0,0},{1});require(!game.state().enabled && hud->pauseMenu().state().shown,"HUD Escape did not suspend actual game");++hudActions;
 for(unsigned n=0;n<12;++n) frame();frame({0,0},{0x1c});++hudActions;for(unsigned n=0;n<12;++n) frame();require(game.state().enabled && !hud->pauseMenu().state().shown,"HUD pause Enter did not restore game");
 }
-if(tutorialTips && !tutorialManagerMode && !movableUnions && !buySeedsMode) {
+if(tutorialTips && !tutorialManagerMode && !movableUnions && !buySeedsMode && !buyBuildingMode) {
 #include "tutorial_tips_oracle_cases.inc"
 }
 if(tutorialManagerMode) {
@@ -140,6 +140,9 @@ if(movableUnions) {
 }
 if(buySeedsMode) {
 #include "buy_seeds_oracle_cases.inc"
+}
+if(buyBuildingMode) {
+#include "buy_building_oracle_cases.inc"
 }
 stage=314;const auto before=textureCounts();delete hud;const auto middle=textureCounts();call(0xc31f0,original);compareReferenceDeltas(before,middle);require(!GameMenu::instance() && !field<void*>(image,0x25f740),"HUD destruction retains singleton");
 for(unsigned n=0;n<3;++n) {scenes[n].reset();call(0x2c7d0,nativeScenes[n]);putPointer(sceneGlobals[n],nullptr);}for(auto* native:{nativeHelp,nativeOverlay,nativeSelection,nativeTip,nativeGame}) call(0xd58a0,native);

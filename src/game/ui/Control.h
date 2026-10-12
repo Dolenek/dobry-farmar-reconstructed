@@ -72,6 +72,7 @@ public:
     void markTransformDirty() noexcept { dirty_=true; }
     cTexture* texture() const noexcept { return texture_; }
     unsigned renderFlags() const noexcept { return flags_; }
+    void setRenderFlags(unsigned value) noexcept {flags_=value;} // 00413a00, no dirty change
     void addCallback(Callback callback); // 004f1680, queued until enabledStep processing
     std::size_t callbackCount() const noexcept { return callbacks_.size(); }
     virtual void onAnimationEnded() {} // original cControl slot +dc, 004bd820

@@ -309,6 +309,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/buy-seeds-validation.json',seeds);report['buy-seeds']=seeds
         if 'analysis/buy-seeds-validation.json' not in report['reports']: report['reports'].append('analysis/buy-seeds-validation.json')
+    building_path=ROOT/'.local/buy-building-validation.json'
+    if building_path.exists():
+        building=read(building_path.relative_to(ROOT));assert building['status']=='passed_for_buy_building_ui_profile_and_tutorial_scope'
+        for name,expected in building['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/buy-building-validation.json',building);report['buy-building']=building
+        if 'analysis/buy-building-validation.json' not in report['reports']:report['reports'].append('analysis/buy-building-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
