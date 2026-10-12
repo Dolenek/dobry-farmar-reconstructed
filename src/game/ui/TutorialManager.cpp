@@ -91,12 +91,12 @@ bool TutorialManager::evaluate(unsigned index,Control* anchor) {
     case 4:return w.characterActivity()>=4 && w.characterActivity()<=7;
     case 5:return w.warehouseProductCount(0)!=0;
     case 6:case 7:return w.manufacture().movement!=0 && w.farm().movement!=0;
-    case 13:return w.selectionPresent();case 15:return w.seedMoveActive();
+    case 13:return w.seedSelectionMoving();case 15:return w.seedMoveActive();
     case 16:return w.plantState(first(w.farmPlants()))==0;case 17:return w.anchorState(required(anchor))==1;
     case 18:return visible(w.contractConfirm()) || visible(w.contractAim());
     case 20:return w.characterHeldType()==2;case 21:return w.characterActivity()<=3 && w.characterActivity()>=0;
     case 22:return w.characterHeldType()==10;case 23:return w.plotKind(required(anchor))==0 || w.characterActivity()==8;
-    case 30:return w.wareDetails().movement!=0;case 32:return w.sceneSelectionPresent();case 33:return w.wareItems().empty();
+    case 30:return w.wareDetails().movement!=0;case 32:return w.buildingSelectionMoving();case 33:return w.wareItems().empty();
     case 34:return w.wareItemUpgrade(first(w.wareItems()))!=0;case 36:return w.wareSelectionPresent();case 37:return !(w.wareItemFlags(first(w.wareItems()))&1);
     case 39:return visible(w.contractDialog764());case 40:return w.characterHeldType()!=6 || w.characterToolFlag();
     case 41:return w.characterHeldType()!=6 || w.warehouseFree()!=0 || w.farm().movement!=0;

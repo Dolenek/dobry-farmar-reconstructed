@@ -119,3 +119,5 @@ GameMenu propojuje HUD, tři ContractStatus, skutečný potvrzovací dialog a pa
 Pět typů oken tutoriálu má ověřené skutečné texty, šipky, rušení akcí a OK input: 3 474 stavů a 64 GPU snímků / 30 720 000 shodných pixelů v PC53/PC24. Správce tutoriálu a skutečný svět pokračují; rozsah v [docs/TUTORIAL_TIPS.md](docs/TUTORIAL_TIPS.md).
 
 TutorialManager propojuje skutečný HUD, okna a profil: 2 500 stavů, 14 848 predicate porovnání a 204 GPU snímků / 97 920 000 shodných pixelů. Původní adresy, zvláštnosti a dosud řízené world hranice jsou v [docs/TUTORIAL_MANAGER.md](docs/TUTORIAL_MANAGER.md). Skutečný herní svět a celý průchod tutoriálem pokračují.
+
+MovableUnion propojuje společný základ nákupních panelů s HUD: 11 604 stavů, 1 036 pohybů a 144 GPU snímků / 69 120 000 shodných pixelů v PC53/PC24. BuySeeds/BuyBuilding controllery a skutečný nákup pokračují; rozsah v [docs/MOVABLE_UNION.md](docs/MOVABLE_UNION.md).

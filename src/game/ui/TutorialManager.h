@@ -41,8 +41,8 @@ struct TutorialWorld {
     virtual unsigned warehouseFree()=0; // 00465e70
     virtual bool seedMoveActive() const=0; // 0065f721
     virtual bool wareSelectionPresent() const=0; // 00660150, 00499c80
-    virtual bool selectionPresent() const=0; // 0065ff64 +248
-    virtual bool sceneSelectionPresent() const=0; // 00660010 +248
+    virtual bool seedSelectionMoving() const=0; // 0065ff64 +248, MovableUnion movement
+    virtual bool buildingSelectionMoving() const=0; // 00660010 +248, MovableUnion movement
     virtual View& contractConfirm()=0; // 0065f76c
     virtual View& contractAim()=0; // 0065f768
     virtual View& contractDialog764()=0; // 0065f764

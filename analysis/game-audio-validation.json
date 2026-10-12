@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T05:06:43.149305+00:00",
+  "recorded_at_utc": "2026-10-12T05:25:11.844207+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "aed7ab73df235735868fadf8f2f784b577a02045f49599522437a9a095828ac8",
@@ -11,7 +11,7 @@
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
       "source_position_progress": 20321,
-      "native_position_progress": 38842,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 37928,
+      "source_position_progress": 20762,
+      "native_position_progress": 55567,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -651,6 +651,14 @@
       "sha256": "f13b91a43d082b6659719a7a2d0ec46c9e1bf152105ba5bfe743a82e06589980"
     },
     {
+      "path": "src/game/ui/MovableUnion.cpp",
+      "sha256": "a43595bc8de8288e23b985ce8f2b336bded56074b03275c9e60bf07b6750b70b"
+    },
+    {
+      "path": "src/game/ui/MovableUnion.h",
+      "sha256": "fafb6e2963f468428b1d0aa962d12e301bfd4bb0dda837b6225b5963951c5254"
+    },
+    {
       "path": "src/game/ui/MultilineText.cpp",
       "sha256": "7c4e5a97afebe59c8d770d668555a9f6ed7bc82fa68e68c3ef7a6cd4d50d20db"
     },
@@ -756,11 +764,11 @@
     },
     {
       "path": "src/game/ui/TutorialManager.cpp",
-      "sha256": "bc293ee57384ebea3b624e9a2c281446398464f3b1c6cc892043b0ad5e94a640"
+      "sha256": "bf0dee9dd10ea502f9d45a4974d280c1aade0c92cb16e7e187621df8e713cd2a"
     },
     {
       "path": "src/game/ui/TutorialManager.h",
-      "sha256": "e9fc713ce12e859aa71b34e820998311ec27e531be57831d2a7b6aa0a88bfe15"
+      "sha256": "90ce555938f812f7dd783882d4b89cdbb07eb2ff75d42669e1092d4f5fb998de"
     },
     {
       "path": "src/game/ui/TutorialTips.cpp",

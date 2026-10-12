@@ -295,6 +295,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/tutorial-manager-validation.json',tutorial);report['tutorial-manager']=tutorial
         if 'analysis/tutorial-manager-validation.json' not in report['reports']: report['reports'].append('analysis/tutorial-manager-validation.json')
+    union_path=ROOT/'.local/movable-union-validation.json'
+    if union_path.exists():
+        union=read(union_path.relative_to(ROOT));assert union['status']=='passed_for_movable_union_picture_motion_and_hud_overlay_scope'
+        for name,expected in union['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/movable-union-validation.json',union);report['movable-union']=union
+        if 'analysis/movable-union-validation.json' not in report['reports']: report['reports'].append('analysis/movable-union-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

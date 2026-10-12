@@ -129,11 +129,14 @@ frame({hud->warehouseButton().geometry().x,hud->warehouseButton().geometry().y},
 frame({0,0},{1});require(!game.state().enabled && hud->pauseMenu().state().shown,"HUD Escape did not suspend actual game");++hudActions;
 for(unsigned n=0;n<12;++n) frame();frame({0,0},{0x1c});++hudActions;for(unsigned n=0;n<12;++n) frame();require(game.state().enabled && !hud->pauseMenu().state().shown,"HUD pause Enter did not restore game");
 }
-if(tutorialTips && !tutorialManagerMode) {
+if(tutorialTips && !tutorialManagerMode && !movableUnions) {
 #include "tutorial_tips_oracle_cases.inc"
 }
 if(tutorialManagerMode) {
 #include "tutorial_manager_oracle_cases.inc"
+}
+if(movableUnions) {
+#include "movable_union_oracle_cases.inc"
 }
 stage=314;const auto before=textureCounts();delete hud;const auto middle=textureCounts();call(0xc31f0,original);compareReferenceDeltas(before,middle);require(!GameMenu::instance() && !field<void*>(image,0x25f740),"HUD destruction retains singleton");
 for(unsigned n=0;n<3;++n) {scenes[n].reset();call(0x2c7d0,nativeScenes[n]);putPointer(sceneGlobals[n],nullptr);}for(auto* native:{nativeHelp,nativeOverlay,nativeSelection,nativeTip,nativeGame}) call(0xd58a0,native);
