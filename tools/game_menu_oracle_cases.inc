@@ -1,3 +1,5 @@
+std::map<unsigned,std::array<unsigned char,5>> tutorialEntries;
+if(tutorialManagerMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);
 stage=310;hudInputs={};new(image+0x260208) WString();field<unsigned>(image,0x260224)=1;new(image+0x25ff68) WString();field<unsigned>(image,0x25ff84)=1;redirect(0x1d680,reinterpret_cast<void*>(&hudLiteral));new(image+0x2601e8) String();field<unsigned char>(image,0x260204)=1;
 redirect(0x8860,reinterpret_cast<void*>(&upgradeStreamConstruct));
 redirect(0x10770,reinterpret_cast<void*>(&contractProperty));redirect(0x106a0,reinterpret_cast<void*>(&contractFloatProperty));redirect(0x105e0,reinterpret_cast<void*>(&contractBoolProperty));
@@ -19,7 +21,7 @@ ProfileSession profiles(files,settings,manager);profiles.open(WString(L"Alpha"))
 ViewRegistry views;ControlRegistry controls;View game(nullptr,views),help(nullptr,views),overlay(nullptr,views),selection(nullptr,views),tip(nullptr,views);
 auto* nativeGame=allocate(2716);function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeGame,nullptr);putPointer(0x25f6ec,nativeGame);
 for(unsigned n=0;n<19;++n) {const auto& a=configuration.products[n].icon;auto* out=static_cast<unsigned char*>(nativeGame)+0x30+n*100+16;field<cTexture*>(out,4)=a.texture;field<unsigned>(out,8)=a.frames;field<float>(out,12)=a.length;field<unsigned char>(out,16)=a.loop;field<unsigned>(out,20)=a.columns;field<unsigned>(out,24)=a.rows;}
-auto* nativeHelp=allocate(44);auto* nativeOverlay=allocate(44);auto* nativeSelection=allocate(44);auto* nativeTip=allocate(900);
+auto* nativeHelp=allocate(44);auto* nativeOverlay=allocate(900);auto* nativeSelection=allocate(900);auto* nativeTip=allocate(900);
 for(auto* value:{nativeHelp,nativeOverlay,nativeSelection,nativeTip}) function<void*(__thiscall*)(void*,void*)>(0xd55b0)(value,nullptr);
 putPointer(0x25f778,nativeHelp);putPointer(0x260010,nativeOverlay);putPointer(0x25ff64,nativeSelection);putPointer(0x25ffc4,nativeTip);field<unsigned char>(nativeTip,0x370)=0;auto* nativeWarehouse=allocate(8192);std::memset(nativeWarehouse,0,8192);putPointer(0x25f748,nativeWarehouse);
 game.show();game.enable();game.absoluteEnable();call(0xd37d0,nativeGame);call(0xd3bb0,nativeGame);call(0xd3fb0,nativeGame);
@@ -127,8 +129,11 @@ frame({hud->warehouseButton().geometry().x,hud->warehouseButton().geometry().y},
 frame({0,0},{1});require(!game.state().enabled && hud->pauseMenu().state().shown,"HUD Escape did not suspend actual game");++hudActions;
 for(unsigned n=0;n<12;++n) frame();frame({0,0},{0x1c});++hudActions;for(unsigned n=0;n<12;++n) frame();require(game.state().enabled && !hud->pauseMenu().state().shown,"HUD pause Enter did not restore game");
 }
-if(tutorialTips) {
+if(tutorialTips && !tutorialManagerMode) {
 #include "tutorial_tips_oracle_cases.inc"
+}
+if(tutorialManagerMode) {
+#include "tutorial_manager_oracle_cases.inc"
 }
 stage=314;const auto before=textureCounts();delete hud;const auto middle=textureCounts();call(0xc31f0,original);compareReferenceDeltas(before,middle);require(!GameMenu::instance() && !field<void*>(image,0x25f740),"HUD destruction retains singleton");
 for(unsigned n=0;n<3;++n) {scenes[n].reset();call(0x2c7d0,nativeScenes[n]);putPointer(sceneGlobals[n],nullptr);}for(auto* native:{nativeHelp,nativeOverlay,nativeSelection,nativeTip,nativeGame}) call(0xd58a0,native);

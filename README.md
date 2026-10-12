@@ -117,3 +117,5 @@ StateView nyní obnovuje skutečný sdílený pohyb herních obrazovek: 22 242 s
 GameMenu propojuje HUD, tři ContractStatus, skutečný potvrzovací dialog a pauzu: 4 778 stavů, 1 150 akcí a 242 GPU snímků / 116 160 000 shodných RGB pixelů v PC53/PC24. Zahrnuje všech 131 zakázek, obnovu uložených tasků, skutečné přechody StateView, myš a Escape/Enter. Světové závislosti a zbývající práci eviduje [docs/GAME_MENU.md](docs/GAME_MENU.md); celý projekt zůstává rozpracovaný.
 
 Pět typů oken tutoriálu má ověřené skutečné texty, šipky, rušení akcí a OK input: 3 474 stavů a 64 GPU snímků / 30 720 000 shodných pixelů v PC53/PC24. Správce tutoriálu a skutečný svět pokračují; rozsah v [docs/TUTORIAL_TIPS.md](docs/TUTORIAL_TIPS.md).
+
+TutorialManager propojuje skutečný HUD, okna a profil: 2 500 stavů, 14 848 predicate porovnání a 204 GPU snímků / 97 920 000 shodných pixelů. Původní adresy, zvláštnosti a dosud řízené world hranice jsou v [docs/TUTORIAL_MANAGER.md](docs/TUTORIAL_MANAGER.md). Skutečný herní svět a celý průchod tutoriálem pokračují.

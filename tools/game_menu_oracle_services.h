@@ -1,4 +1,5 @@
 #include "GameMenu.h"
+#include "TutorialManager.h"
 namespace {
 using HudCalls=std::vector<std::array<unsigned,3>>;
 HudCalls hudSourceCalls,hudNativeCalls;
@@ -38,7 +39,7 @@ void __fastcall hudResume(void*,void*,unsigned n) {hudNativeCalls.push_back({24,
 struct HudWorld final:GameMenuWorld,ContractTrace {
     HudWorld(ProfileProperties& profile,std::array<StateView*,3> scenes,std::array<View*,3> overlays)
         :ContractTrace(profile,{scenes[1],scenes[0],scenes[2]}),scenes(scenes),overlays(overlays) {}
-    std::array<StateView*,3> scenes;std::array<View*,3> overlays;GameMenu* menu=nullptr;
+    std::array<StateView*,3> scenes;std::array<View*,3> overlays;GameMenu* menu=nullptr;TutorialManager* tutorial=nullptr;
     std::map<int,GameplayEvent*> events;
     StateView& farm() override {return *scenes[0];}StateView& wareDetails() override {return *scenes[1];}StateView& manufacture() override {return *scenes[2];}
     View& sceneOverlay() override {return *overlays[0];}View& selectionOverlay() override {return *overlays[1];}View& warehouseTip() override {return *overlays[2];}
@@ -63,12 +64,13 @@ struct HudWorld final:GameMenuWorld,ContractTrace {
     void stopTool(unsigned n) override {hudSourceCalls.push_back({23,n,0});}
     GameplayEvent& savedContract(int index) override {hudSourceCalls.push_back({25,unsigned(index),0});return *events.at(index);}
     void stepGameplay() override {hudSourceCalls.push_back({20,0,0});}
-    void completeTutorial(unsigned n) override {hudSourceCalls.push_back({18,n,0});}
+    void completeTutorial(unsigned n) override {if(tutorial) {tutorial->complete(n);return;}hudSourceCalls.push_back({18,n,0});}
     void openMessages() override {hudSourceCalls.push_back({19,0,0});}
-    bool tutorialActive() const override {return hudInputs.active;}
-    bool tutorialStepActive(unsigned n) const override {hudSourceCalls.push_back({16,n,0});return bool(hudInputs.steps&(1ULL<<n));}
-    bool tutorialCanShow(unsigned n) const override {hudSourceCalls.push_back({15,n,0});return bool(hudInputs.can&(1ULL<<n));}
+    bool tutorialActive() const override {if(tutorial) return tutorial->active();return hudInputs.active;}
+    bool tutorialStepActive(unsigned n) const override {if(tutorial) return tutorial->activeStep(int(n));hudSourceCalls.push_back({16,n,0});return bool(hudInputs.steps&(1ULL<<n));}
+    bool tutorialCanShow(unsigned n) const override {if(tutorial) return tutorial->canShow(n);hudSourceCalls.push_back({15,n,0});return bool(hudInputs.can&(1ULL<<n));}
     void showTutorial(unsigned n,View& anchor) override {
+        if(tutorial) {tutorial->showAction(n,dynamic_cast<Control*>(&anchor));return;}
         unsigned slot=0;for(auto pair:std::initializer_list<std::pair<View*,unsigned>>{{&menu->mainButton(),0x3c},{&menu->marketButton(),0x40},{&menu->farmButton(),0x44},{&menu->wareButton(),0x48},{&menu->journalButton(),0x68}}) if(pair.first==&anchor) slot=pair.second;
         require(slot,"Source HUD tutorial anchor differs");hudSourceCalls.push_back({17,n,slot});
     }

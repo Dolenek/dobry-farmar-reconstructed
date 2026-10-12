@@ -25,7 +25,7 @@ public:
     Picture& image() noexcept {return *image_;}
     MultilineText& text() noexcept {return *text_;}
     TextAnimationButton& okButton() noexcept {return *ok_;}
-    Point2 originalPosition{},offset{};float originalAlpha=0,defaultMultiplier=0,defaultInterlinear=0;
+    Point2 originalPosition{},offset{};float originalDepth=0,defaultMultiplier=0,defaultInterlinear=0;
 protected:
     TutorialTipContext& context_;Picture* image_;MultilineText* text_;TextAnimationButton* ok_;
     void createBaseControls();

@@ -288,6 +288,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/tutorial-tips-validation.json',tip);report['tutorial-tips']=tip
         if 'analysis/tutorial-tips-validation.json' not in report['reports']: report['reports'].append('analysis/tutorial-tips-validation.json')
+    tutorial_path=ROOT/'.local/tutorial-manager-validation.json'
+    if tutorial_path.exists():
+        tutorial=read(tutorial_path.relative_to(ROOT));assert tutorial['status']=='passed_for_tutorial_manager_profile_predicates_and_connected_hud_scope'
+        for name,expected in tutorial['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/tutorial-manager-validation.json',tutorial);report['tutorial-manager']=tutorial
+        if 'analysis/tutorial-manager-validation.json' not in report['reports']: report['reports'].append('analysis/tutorial-manager-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

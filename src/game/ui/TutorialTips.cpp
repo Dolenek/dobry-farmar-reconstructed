@@ -19,9 +19,9 @@ void TutorialCommonTip::createBaseControls() {
 }
 void TutorialCommonTip::loadXML(const XmlNode& node) {
     View::loadXML(node);for(auto pair:std::initializer_list<std::pair<const char*,View*>>{{"Image",image_},{"Text",text_},{"OkButton",ok_}}) {XmlNode* section=nullptr;if(node.section(String(pair.first),section)) pair.second->loadXML(*section);}
-    defaultMultiplier=text_->multiplier();defaultInterlinear=text_->interlinear();originalPosition={image_->geometry().x,image_->geometry().y};originalAlpha=image_->geometry().color.a;
+    defaultMultiplier=text_->multiplier();defaultInterlinear=text_->interlinear();originalPosition={image_->geometry().x,image_->geometry().y};originalDepth=image_->deep();
 }
-void TutorialCommonTip::updatePlacement() {image_->setPosition({float(originalAdd(originalPosition[0],offset[0])),float(originalAdd(originalPosition[1],offset[1]))});image_->setAlpha(originalAlpha);}
+void TutorialCommonTip::updatePlacement() {image_->setPosition({float(originalAdd(originalPosition[0],offset[0])),float(originalAdd(originalPosition[1],offset[1]))});image_->setDeep(originalDepth);}
 void TutorialCommonTip::start(const Point2& value,const WString& text) {text_->setString(text,true);offset=value;updatePlacement();hide();showTransparently();}
 void TutorialCommonTip::setTextMultiplier(float value) {text_->setMultiplier(value==-1 ? defaultMultiplier:value);}
 void TutorialCommonTip::setTextInterlinear(float value) {text_->setInterlinear(value==-1 ? defaultInterlinear:value);}
@@ -46,7 +46,7 @@ void TutorialArrowTip::updatePlacement() {
     const float inverse=float(originalDivide(1,originalSqrt(originalAdd(originalMultiply(delta[1],delta[1]),originalMultiply(delta[0],delta[0])))));
     velocity={float(originalMultiply(delta[0],inverse)),float(originalMultiply(delta[1],inverse))};for(auto& item:velocity) item=float(originalMultiply(item,8));
     const double x=originalAdd(originalMultiply(phase,velocity[0]),arrowOrigin[0]);const float dy=float(originalMultiply(phase,velocity[1]));const double y=originalAdd(dy,arrowOrigin[1]);
-    arrow_->setPosition(anchor ? Point2{truncateCoordinate(x),truncateCoordinate(float(y))}:Point2{float(x),float(y)});image_->setAlpha(originalAlpha);
+    arrow_->setPosition(anchor ? Point2{truncateCoordinate(x),truncateCoordinate(float(y))}:Point2{float(x),float(y)});image_->setDeep(originalDepth);
 }
 void TutorialArrowTip::enabledStep() {if(!uiElapsedTime()) throw std::logic_error("UI timer is not bound");const auto next=originalAdd(originalMultiply(uiElapsedTime()(),speed),phase);phase=float(next);if(next>1) phase=0;updatePlacement();}
 TutorialDisabledAnchorTip::TutorialDisabledAnchorTip(View* parent,TutorialTipContext& context):TutorialArrowTip(parent,context) {ok_->clickEvent=&okClick;}
