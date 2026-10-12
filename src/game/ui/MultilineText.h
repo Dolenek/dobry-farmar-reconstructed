@@ -21,6 +21,9 @@ public:
     bool wraps() const noexcept { return wrap_; }
     unsigned verticalAlignment() const noexcept { return verticalAlignment_; }
     float interlinear() const noexcept { return interlinear_; }
+    float multiplier() const noexcept {return prototype_->multiplier();} // 004f6260
+    void setMultiplier(float value) {prototype_->setMultiplier(value);} // 004f6630, no multiline dirty change
+    void setInterlinear(float value) {interlinear_=value;textDirty_=true;} // 004f6e80
     const Color& textColor() const noexcept { return textColor_; }
     void setLocalized(bool value) noexcept { localized_=value; } // 004f5fb0, no dirty flag
     void setWrap(bool value) noexcept { wrap_=value; } // 004f5fd0

@@ -55,6 +55,8 @@ public:
     virtual void setAlpha(float value); // 00413b50
     void setSize(const Point2& value); // 00413b80
     void setColor(const Color& value); // 00413c50, float equality before dirtying
+    void setInvertX(bool value); // 00413bf0
+    void setInvertY(bool value); // 00413c10
     void setTime(float value); // 00413bc0
     void setAlphaSource(float* value) noexcept { alpha_=value; dirty_=true; }
     float alpha() const noexcept { return *alpha_; }

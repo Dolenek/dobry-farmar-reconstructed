@@ -115,3 +115,5 @@ ContractProvide propojuje nabidku zakazky s realnym ContractStatus. PC53/PC24: 2
 StateView nyní obnovuje skutečný sdílený pohyb herních obrazovek: 22 242 stavů, 2508 pohybů a 108 GPU snímků / 51 840 000 shodných RGB pixelů v PC53/PC24. Skutečné XML Farm/Manufacture/WareDetail ověřuje společný základ; odvozené herní controllery, GameMenu a celý svět pokračují. Rozsah a původní adresy v [STATE_VIEW.md](docs/STATE_VIEW.md).
 
 GameMenu propojuje HUD, tři ContractStatus, skutečný potvrzovací dialog a pauzu: 4 778 stavů, 1 150 akcí a 242 GPU snímků / 116 160 000 shodných RGB pixelů v PC53/PC24. Zahrnuje všech 131 zakázek, obnovu uložených tasků, skutečné přechody StateView, myš a Escape/Enter. Světové závislosti a zbývající práci eviduje [docs/GAME_MENU.md](docs/GAME_MENU.md); celý projekt zůstává rozpracovaný.
+
+Pět typů oken tutoriálu má ověřené skutečné texty, šipky, rušení akcí a OK input: 3 474 stavů a 64 GPU snímků / 30 720 000 shodných pixelů v PC53/PC24. Správce tutoriálu a skutečný svět pokračují; rozsah v [docs/TUTORIAL_TIPS.md](docs/TUTORIAL_TIPS.md).

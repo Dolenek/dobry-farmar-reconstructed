@@ -11,6 +11,8 @@
 #include <stdexcept>
 #include <vector>
 namespace farmar::recovered {
+void Control::setInvertX(bool value) {if(geometry_.invertX!=value) {geometry_.invertX=value;dirty_=true;}}
+void Control::setInvertY(bool value) {if(geometry_.invertY!=value) {geometry_.invertY=value;dirty_=true;}}
 void Control::setColor(const Color& value) {
     const auto& old=geometry_.color;
     if(old.r==value.r && old.g==value.g && old.b==value.b && old.a==value.a) return;

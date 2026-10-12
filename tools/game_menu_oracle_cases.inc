@@ -116,15 +116,20 @@ for(unsigned n=0;n<3;++n) {scenes[n]->hide();call(0xd3720,nativeScenes[n]);}scen
 menuMilliseconds=0;GameTimer frameTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor frameCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&frameCursor;
 std::array<unsigned char,24> logicFrame{};field<void*>(logicFrame.data(),0)=cursorTable.data();nativeCursorFrame=logicFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);timerTable[3]=reinterpret_cast<void*>(&tooltipUnscaledTimer);graphicsTable[3]=reinterpret_cast<void*>(&tooltipHeight);graphicsTable[4]=reinterpret_cast<void*>(&tooltipWidth);
 const auto frame=[&](Point2 point=Point2{0,0},std::vector<unsigned> events={},std::array<int,3> delta={}) {stage=312;menuMilliseconds+=50;menuPoint=point;menuInputEvents=std::move(events);menuMouseDelta=delta;hudPixels+=compareMenuFrame(d3d,device,window,views,controls,input,0);++hudFrames;check();};
-for(trial=0;trial<6;++trial) {stage=313;switch(trial%3) {case 0:hud->switchMarket();call(0xbf4d0,original);break;case 1:hud->switchWare();call(0xbf9e0,original);break;default:hud->switchFarm();call(0xbef70,original);break;}++hudActions;check();for(unsigned n=0;n<9;++n) frame();}
+if(!tutorialTips) for(trial=0;trial<6;++trial) {stage=313;switch(trial%3) {case 0:hud->switchMarket();call(0xbf4d0,original);break;case 1:hud->switchWare();call(0xbf9e0,original);break;default:hud->switchFarm();call(0xbef70,original);break;}++hudActions;check();for(unsigned n=0;n<9;++n) frame();}
 hud->show();hud->enable();hud->absoluteEnable();call(0xd37d0,original);call(0xd3bb0,original);call(0xd3fb0,original);check();
 const auto click=[&](ButtonPrototype& button) {const Point2 point{button.geometry().x,button.geometry().y};frame(point,{}, {1,0,0});frame(point,{0x208});frame(point,{0x200});frame({0,0},{},{1,0,0});++hudActions;};
+if(!tutorialTips) {
 for(trial=0;trial<3;++trial) {auto& button=*std::array<ButtonPrototype*,3>{&hud->marketButton(),&hud->wareButton(),&hud->farmButton()}[trial];button.enable();call(0xd3bb0,field<void*>(original,std::array<unsigned,3>{0x40,0x48,0x44}[trial]));click(button);for(unsigned n=0;n<9;++n) frame();}
 // Actual warehouse hover input opens and closes its required world service.
 frame({hud->warehouseButton().geometry().x,hud->warehouseButton().geometry().y},{},{1,0,0});frame({0,0},{},{1,0,0});
 // Actual Escape suspends the parent game and the actual pause Enter binding resumes it.
 frame({0,0},{1});require(!game.state().enabled && hud->pauseMenu().state().shown,"HUD Escape did not suspend actual game");++hudActions;
 for(unsigned n=0;n<12;++n) frame();frame({0,0},{0x1c});++hudActions;for(unsigned n=0;n<12;++n) frame();require(game.state().enabled && !hud->pauseMenu().state().shown,"HUD pause Enter did not restore game");
+}
+if(tutorialTips) {
+#include "tutorial_tips_oracle_cases.inc"
+}
 stage=314;const auto before=textureCounts();delete hud;const auto middle=textureCounts();call(0xc31f0,original);compareReferenceDeltas(before,middle);require(!GameMenu::instance() && !field<void*>(image,0x25f740),"HUD destruction retains singleton");
 for(unsigned n=0;n<3;++n) {scenes[n].reset();call(0x2c7d0,nativeScenes[n]);putPointer(sceneGlobals[n],nullptr);}for(auto* native:{nativeHelp,nativeOverlay,nativeSelection,nativeTip,nativeGame}) call(0xd58a0,native);
 for(auto& out:nativeOffers) {field<WString>(out.data(),0x14).~WString();field<WString>(out.data(),0x68).~WString();field<WString>(out.data(),0x84).~WString();}hudNativeEvents.clear();

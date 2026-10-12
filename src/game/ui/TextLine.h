@@ -39,6 +39,7 @@ public:
     unsigned packedColor() const noexcept { return packedColor_; } // 00415c30, original virtual +f4
     void setPackedColor(unsigned value); // 00415ca0
     void setMultiplier(float value); // 00415cc0
+    float multiplier() const noexcept {return multiplier_;} // 00415c40
     void setAlignment(unsigned value); // 00415cf0
     void setLocalized(bool value) noexcept { localized_=value; } // 00415c70, no dirty flag
     virtual void makeLetters(); // 004dc800

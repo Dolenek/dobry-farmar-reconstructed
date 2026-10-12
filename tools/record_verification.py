@@ -281,6 +281,13 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/game-menu-validation.json',hud);report['game-menu']=hud
         if 'analysis/game-menu-validation.json' not in report['reports']: report['reports'].append('analysis/game-menu-validation.json')
+    tip_path=ROOT/'.local/tutorial-tips-validation.json'
+    if tip_path.exists():
+        tip=read(tip_path.relative_to(ROOT));assert tip['status']=='passed_for_five_tutorial_tip_windows_and_input_scope'
+        for name,expected in tip['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/tutorial-tips-validation.json',tip);report['tutorial-tips']=tip
+        if 'analysis/tutorial-tips-validation.json' not in report['reports']: report['reports'].append('analysis/tutorial-tips-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
