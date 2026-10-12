@@ -42,12 +42,15 @@ def main():
             for key, value in counts.items():
                 assert state[prefix+key] == value, (mode, key, state[prefix+key], value)
             assert state['device_flags'] == (0x22 if precision == 'PC53' else 0x20)
+            if component == 'production-houses':
+                assert state['production_placement_states'] == 24576
             contexts.append(dict(component=component, precision=precision, **state))
             unchanged()
 
     paths = sorted([p for p in (ROOT/'src/game').rglob('*') if p.is_file()] + [ROOT/name for name in [
         'CMakeLists.txt', 'tools/text_buttons_reference_test.cpp', 'tools/text_buttons_oracle_fixups.inc',
         'tools/production_house_oracle_cases.inc', 'tools/production_house_oracle_services.h',
+        'tools/production_placement_oracle_cases.inc',
         'tools/game_menu_oracle_cases.inc', 'tools/game_menu_oracle_services.h',
         'tools/contract_status_oracle_services.h', 'tools/tutorial_manager_oracle_services.h',
         'tools/extended_button_oracle_cases.inc', 'tools/extended_button_oracle_run.inc',
@@ -95,9 +98,9 @@ def main():
             'Sound requests/resources are compared; audible full-game playback is pending',
         ],
         pending=[
-            'Real Manufacture factory, twenty-slot ownership, manipulation state, collision validation, remove/destroy/upgrade controls and BuyBuilding integration',
+            'Complete real Manufacture world behavior is tracked separately in manufacture-validation.json; the controlled house boundaries here remain explicit',
             'Real warehouse and cGame binding; complete tutorial play sequence and scene input/audio integration',
-            'ProductionPlacement rectangle/mask implementation is built but its direct comparison is still pending',
+            'ProductionPlacement now has 24,576 direct rectangle/mask comparisons per precision; invalid/nonstandard mask inputs remain unproved',
             'Repeated/malformed XML and invalid upgrades, allocation exceptions, reused-heap raw padding, invalid masks and nonstandard hardware',
             'Main reconstructed game EXE, bidirectional whole-world saves, complete Squall behavior and isolated source uninstaller',
         ],

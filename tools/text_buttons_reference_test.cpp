@@ -14,6 +14,7 @@
 #include "BuySeeds.h"
 #include "BuyBuilding.h"
 #include "ProductionBuilding.h"
+#include "Manufacture.h"
 #include "MenuView.h"
 #include "MainMenuContent.h"
 #include "GameConfiguration.h"
@@ -149,7 +150,7 @@ unsigned compare(TextLine& line,void* object) {
     const unsigned callerStage=stage;if(callerStage==47) stage=48;
     if(field<unsigned char>(object,0x254)) reinterpret_cast<void(__thiscall*)(void*)>(field<void**>(object,0)[0x11c/4])(object);
     if(callerStage==47) stage=49;
-    auto expected=originalLetters(object); require(expected.size()==line.letters().size(),"Original TextLine letter pool differs");
+    auto expected=originalLetters(object); if(expected.size()!=line.letters().size()) {std::cerr<<"Letter pool source/native "<<line.letters().size()<<'/'<<expected.size()<<" strings";for(auto c:line.string().view()) std::cerr<<' '<<std::hex<<unsigned(c);std::cerr<<" /";for(auto c:field<WString>(object,0x22c).view()) std::cerr<<' '<<std::hex<<unsigned(c);std::cerr<<std::dec<<'\n';}require(expected.size()==line.letters().size(),"Original TextLine letter pool differs");
     compareFloat(line.textWidth(),field<float>(object,0x29c),"text width"); compareFloat(line.textHeight(),field<float>(object,0x2a0),"text height");
     require(line.textDirty()==bool(field<unsigned char>(object,0x254)),"Original TextLine dirty differs");
     require(line.string().view()==field<WString>(object,0x22c).view(),"Original TextLine string differs");
@@ -291,6 +292,10 @@ void yesNativeDialog(void* self) { require(self==nativeDialog,"Native yes callba
 void noNativeDialog(void* self) { require(self==nativeDialog,"Native no callback object differs");nativeDialogEvents.push_back(2); }
 std::map<void*,std::string> nativeDiscards;
 void __cdecl nativeDiscard(void* view,const String* origin) { nativeDiscards[view]=std::string(origin->view()); }
+std::map<void*,String> nativeDeferredStrings;
+String* __fastcall deferredString(void* self,void*,void** key) {require(self==image+0x2604e4,"Native deferred registry differs");return &nativeDeferredStrings[*key];}
+std::vector<void*> nativeExitRegistrations;
+int __cdecl registerOracleExit(void* callback) {nativeExitRegistrations.push_back(callback);return 0;}
 String* __fastcall decimalString(String* output,void*,unsigned value) { return new(output) String(std::to_string(value)); }
 String* __cdecl concatenateString(String* output,const String* a,const String* b) { return new(output) String(std::string(a->view())+std::string(b->view())); }
 #include "select_profile_oracle_services.h"
@@ -482,6 +487,7 @@ unsigned long long compareMenuFrame(IDirect3D8* d3d,IDirect3DDevice8* device,HWN
 #include "buy_seeds_oracle_services.h"
 #include "buy_building_oracle_services.h"
 #include "production_house_oracle_services.h"
+int __cdecl manufactureMoney() {return contractNativeProfile->ints["Money"];}
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr;
@@ -503,7 +509,7 @@ int wmain(int argc,wchar_t** argv) {
         redirect(0x16d0,reinterpret_cast<void*>(&assignString));redirect(0xda20,reinterpret_cast<void*>(&narrow));redirect(0xdb50,reinterpret_cast<void*>(&fromNarrow));
         redirect(0xd95c0,reinterpret_cast<void*>(&typed<float>));redirect(0xd9670,reinterpret_cast<void*>(&typed<bool>));
         redirect(0xd97d0,reinterpret_cast<void*>(&typed<unsigned>));redirect(0xd9720,reinterpret_cast<void*>(&typed<unsigned>));redirect(0xd94a0,reinterpret_cast<void*>(&typed<unsigned>));
-        redirect(0xd9240,reinterpret_cast<void*>(&vectorValue<2>));redirect(0xd9180,reinterpret_cast<void*>(&vectorValue<3>));redirect(0xd93b0,reinterpret_cast<void*>(&colorValue));
+        redirect(0xd9240,reinterpret_cast<void*>(&vectorValue<2>));redirect(0xd9180,reinterpret_cast<void*>(&vectorValue<3>));redirect(0xd92e0,reinterpret_cast<void*>(&vectorValue<4>));redirect(0xd93b0,reinterpret_cast<void*>(&colorValue));
         redirect(0xd9dc0,reinterpret_cast<void*>(&appendString)); redirect(0x1600,reinterpret_cast<void*>(&appendUnits)); redirect(0xda980,reinterpret_cast<void*>(&replaceUnits));
         redirect(0x1c10,reinterpret_cast<void*>(&substring));
         redirect(0x1802fd,reinterpret_cast<void*>(&wideLength));redirect(0xda320,reinterpret_cast<void*>(&findWide));
@@ -556,7 +562,8 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
-        const bool productionHouses=argc==4 && (std::wcscmp(argv[3],L"production-houses")==0 || std::wcscmp(argv[3],L"production-houses-device")==0);
+        const bool manufactureMode=argc==4 && (std::wcscmp(argv[3],L"manufacture")==0 || std::wcscmp(argv[3],L"manufacture-device")==0);
+        const bool productionHouses=manufactureMode || argc==4 && (std::wcscmp(argv[3],L"production-houses")==0 || std::wcscmp(argv[3],L"production-houses-device")==0);
         if(productionHouses) {menuStencil=true;parameters.EnableAutoDepthStencil=TRUE;parameters.AutoDepthStencilFormat=D3DFMT_D24S8;}
         const bool buyBuildingMode=argc==4 && (std::wcscmp(argv[3],L"buy-building")==0 || std::wcscmp(argv[3],L"buy-building-device")==0);
         if(buyBuildingMode) {menuStencil=true;parameters.EnableAutoDepthStencil=TRUE;parameters.AutoDepthStencilFormat=D3DFMT_D24S8;}
@@ -588,7 +595,7 @@ int wmain(int argc,wchar_t** argv) {
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(productionHouses && std::wcscmp(argv[3],L"production-houses")==0) || (extendedPictureButtons && std::wcscmp(argv[3],L"extended-picture-buttons")==0) || (buyBuildingMode && std::wcscmp(argv[3],L"buy-building")==0) || (buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(manufactureMode && std::wcscmp(argv[3],L"manufacture")==0) || (productionHouses && std::wcscmp(argv[3],L"production-houses")==0) || (extendedPictureButtons && std::wcscmp(argv[3],L"extended-picture-buttons")==0) || (buyBuildingMode && std::wcscmp(argv[3],L"buy-building")==0) || (buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -598,6 +605,9 @@ int wmain(int argc,wchar_t** argv) {
         unsigned sliderStates=0,sliderObjects=0,sliderCallbacks=0,sliderFrames=0;unsigned long long sliderPixels=0;
         unsigned loadingStates=0,loadingObjects=0,loadingFrames=0,loadingDecorations=0,loadingCompleted=0,loadingMissing=0,loadingRanges=0;unsigned long long loadingPixels=0;
         unsigned mainMenuStates=0,mainMenuLetters=0,mainMenuActions=0,mainMenuFrames=0,mainMenuQuitChecks=0,mainMenuLoadingSteps=0;unsigned long long mainMenuPixels=0;
+        unsigned manufactureStates=0,manufactureObjects=0,manufactureFactories=0,manufacturePlacements=0,manufactureRemovals=0,manufacturePurchases=0,manufactureBuilds=0;
+        unsigned manufactureFrames=0,manufactureEffects=0,manufactureInvalidSlots=0,manufactureReloads=0;unsigned long long manufacturePixels=0;
+        unsigned productionPlacementStates=0;
         unsigned long long productionHousePixels=0;
         unsigned productionHouseStates=0,productionHouseObjects=0,productionHouseActions=0,productionHouseFrames=0;
         unsigned buyBuildingStates=0,buyBuildingStarts=0,buyBuildingFrames=0,buyBuildingChoices=0,buyBuildingLetters=0;
@@ -1079,7 +1089,7 @@ Third</Text></Text></BackMultitext>
             <<",\"loading_states\":"<<loadingStates<<",\"loading_objects\":"<<loadingObjects<<",\"loading_frames\":"<<loadingFrames<<",\"loading_pixels\":"<<loadingPixels<<",\"loading_decorations\":"<<loadingDecorations<<",\"loading_completed\":"<<loadingCompleted<<",\"loading_missing\":"<<loadingMissing<<",\"loading_ranges\":"<<loadingRanges
             <<",\"main_menu_states\":"<<mainMenuStates<<",\"main_menu_letters\":"<<mainMenuLetters<<",\"main_menu_actions\":"<<mainMenuActions<<",\"main_menu_frames\":"<<mainMenuFrames<<",\"main_menu_pixels\":"<<mainMenuPixels<<",\"main_menu_quit_checks\":"<<mainMenuQuitChecks<<",\"main_menu_loading_steps\":"<<mainMenuLoadingSteps
             <<",\"extended_states\":"<<extendedStates<<",\"extended_objects\":"<<extendedObjects<<",\"extended_reloads\":"<<extendedReloads<<",\"extended_letters\":"<<extendedLetters<<",\"extended_frames\":"<<extendedFrames<<",\"extended_pixels\":"<<extendedPixels<<",\"extended_steps\":"<<extendedSteps<<",\"extended_sound_residues\":"<<extendedSoundResidues
-            <<",\"production_house_states\":"<<productionHouseStates<<",\"production_house_objects\":"<<productionHouseObjects<<",\"production_house_actions\":"<<productionHouseActions<<",\"production_house_frames\":"<<productionHouseFrames<<",\"production_house_pixels\":"<<productionHousePixels
+            <<",\"production_house_states\":"<<productionHouseStates<<",\"production_house_objects\":"<<productionHouseObjects<<",\"production_house_actions\":"<<productionHouseActions<<",\"production_house_frames\":"<<productionHouseFrames<<",\"production_house_pixels\":"<<productionHousePixels<<",\"production_placement_states\":"<<productionPlacementStates<<",\"manufacture_states\":"<<manufactureStates<<",\"manufacture_objects\":"<<manufactureObjects<<",\"manufacture_factories\":"<<manufactureFactories<<",\"manufacture_placements\":"<<manufacturePlacements<<",\"manufacture_removals\":"<<manufactureRemovals<<",\"manufacture_purchases\":"<<manufacturePurchases<<",\"manufacture_builds\":"<<manufactureBuilds<<",\"manufacture_frames\":"<<manufactureFrames<<",\"manufacture_pixels\":"<<manufacturePixels<<",\"manufacture_effects\":"<<manufactureEffects<<",\"manufacture_invalid_slots\":"<<manufactureInvalidSlots<<",\"manufacture_reloads\":"<<manufactureReloads
             <<",\"buy_building_states\":"<<buyBuildingStates<<",\"buy_building_starts\":"<<buyBuildingStarts<<",\"buy_building_frames\":"<<buyBuildingFrames<<",\"buy_building_choices\":"<<buyBuildingChoices<<",\"buy_building_letters\":"<<buyBuildingLetters
             <<",\"buy_seeds_states\":"<<buySeedsStates<<",\"buy_seeds_starts\":"<<buySeedsStarts<<",\"buy_seeds_frames\":"<<buySeedsFrames<<",\"buy_seeds_choices\":"<<buySeedsChoices<<",\"buy_seeds_letters\":"<<buySeedsLetters
             <<",\"movable_union_states\":"<<movableUnionStates<<",\"movable_union_moves\":"<<movableUnionMoves<<",\"movable_union_steps\":"<<movableUnionSteps<<",\"movable_union_frames\":"<<movableUnionFrames<<",\"movable_union_reloads\":"<<movableUnionReloads

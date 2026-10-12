@@ -1,3 +1,4 @@
+std::map<unsigned,std::array<unsigned char,5>> manufactureEntries;if(manufactureMode) for(unsigned rva:{0x94a20U,0x93b70U,0x957c0U,0x95bd0U,0x98400U,0x94e70U,0x98c60U}) std::memcpy(manufactureEntries[rva].data(),image+rva,5);
 std::array<unsigned char,5> productionLevelEntry{};if(productionHouses) std::memcpy(productionLevelEntry.data(),image+0x17050,5);
 std::map<unsigned,std::array<unsigned char,5>> tutorialEntries;
 if(productionHouses || tutorialManagerMode || buySeedsMode || buyBuildingMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);

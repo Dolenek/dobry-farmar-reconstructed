@@ -45,7 +45,7 @@ private:ProductionBuilding& owner_;
 };
 ProductionBuilding::ProductionBuilding(unsigned type,unsigned slot,View* parent,ProductionBuildingContext& c)
     :ExtendedPictureButton(parent,c.resources,c.settings,c.strings,c.input,c.interaction,[&c]{return c.world.tutorial().active();},c.views,c.controls),
-    Upgrade(c.upgrades,type,slot),buildingType(type),context_(c) {
+    Upgrade(c.upgrades,type,slot),buildingType(type),context_(c),movingAddress_(&c.world.movingBuilding()) {
     context_.profile.uints[property("ProdType",slot)]=type;
     take_=new ButtonPrototype(this,c.resources,c.input,c.interaction,c.views,c.controls);
     given_=new ButtonPrototype(this,c.resources,c.input,c.interaction,c.views,c.controls);
@@ -65,7 +65,7 @@ ProductionBuilding::ProductionBuilding(unsigned type,unsigned slot,View* parent,
     loadXML(*c.resources.loadSettingsXML(String(productionKind(type).xml)));
 }
 ProductionBuilding::~ProductionBuilding() {
-    if(context_.world.movingBuilding()==this) context_.world.movingBuilding()=nullptr;
+    if(*movingAddress_==this) *movingAddress_=nullptr;
     for(auto* sound:sounds_) if(sound) sound->releaseReference();
 }
 void ProductionBuilding::loadXML(const XmlNode& node) {
@@ -111,6 +111,10 @@ void ProductionBuilding::setProductionStopped(bool value) {
 }
 void ProductionBuilding::positionProduction(const Point2& position,bool save) {
     setPosition(position);if(save) {context_.profile.floats[property("XProdPos",propertyId)]=position[0];context_.profile.floats[property("YProdPos",propertyId)]=position[1];}
+}
+void ProductionBuilding::cancelMove() {
+    flags&=~1U;setDeep(originalDepth);positionProduction(pressPosition,true);context_.world.movingBuilding()=nullptr;context_.world.endManipulation();
+    for(auto* building:context_.world.buildings()) building->lighter_->hide();if(sounds_[3]) context_.sound.clickSound(sounds_[3]);
 }
 void ProductionBuilding::loadLevel(unsigned index,const XmlNode& node) {levels.at(index).loadXML(node,context_.resources);}
 unsigned ProductionBuilding::capacity() {

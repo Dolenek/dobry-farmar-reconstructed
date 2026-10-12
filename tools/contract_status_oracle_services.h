@@ -53,6 +53,9 @@ struct ContractTrace:ContractStatusWorld {
 };
 struct ContractAudio final:SoundManager {
     using SoundManager::SoundManager;
+    bool tracePlay=false;
+    cChannel* playSound(cSound* sound,bool loop,bool start) override {if(tracePlay) actualSounds.emplace_back(std::string(sound->resourceName().view()),2+unsigned(loop)*2+unsigned(start));return SoundManager::playSound(sound,loop,start);}
     void clickSound(cSound* sound) override {actualSounds.emplace_back(std::string(sound->resourceName().view()),1);SoundManager::clickSound(sound);}
 };
+cChannel* __fastcall contractPlaySound(void*,void*,cSound* sound,bool loop,bool start) {expectedSounds.emplace_back(std::string(sound->resourceName().view()),2+unsigned(loop)*2+unsigned(start));return loadingSoundManager->SoundManager::playSound(sound,loop,start);}
 }

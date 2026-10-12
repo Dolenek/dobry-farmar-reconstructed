@@ -324,6 +324,14 @@ def main():
         write('analysis/production-houses-validation.json',production);report['production-houses']=production
         if 'analysis/production-houses-validation.json' not in report['reports']:report['reports'].append('analysis/production-houses-validation.json')
         report['build']['production_house_complete_world_equivalence']=False
+    manufacture_path=ROOT/'.local/manufacture-validation.json'
+    if manufacture_path.exists():
+        manufacture=read(manufacture_path.relative_to(ROOT));assert manufacture['status']=='passed_for_manufacture_scene_and_explicit_remaining_world_boundaries'
+        for name,expected in manufacture['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/manufacture-validation.json',manufacture);report['manufacture']=manufacture
+        if 'analysis/manufacture-validation.json' not in report['reports']:report['reports'].append('analysis/manufacture-validation.json')
+        report['build']['manufacture_complete_world_equivalence']=False
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

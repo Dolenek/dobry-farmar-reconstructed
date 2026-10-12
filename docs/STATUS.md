@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+`Manufacture` nyní vlastní skutečné výrobní budovy a propojuje nákup přes BuyBuilding, HUD, selection, placement, přesun a demolici. PC53/PC24: 3 210 stavů, 8 192 real-mask/control guard porovnání, 49 152 geometrických porovnání a 170 GPU snímků / 81 600 000 přesně shodných RGB pixelů. Source/native factory restore dvaceti slots, skutečné nákupy/stavby, Upgrade callbacks, right cancel, protected destroy a dokončení depotExplos animace jsou doložené v [MANUFACTURE.md](MANUFACTURE.md). Všech 64 CTest kontrol prošlo (279,91 s). Skutečný sklad a jeho notifikace, celý tutoriál, ostatní světové scény a cGame stále chybějí; hlavní EXE a projekt nejsou dokončené.
+
 `AwardEffect` obnovuje skutečný phase switch všech 21 ocenění: 10 878 stavů, 10 080 kroků a 168 GPU snímků / 80 640 000 přesně shodných RGB pixelů. Původní constructor/XML/phase setter/movement/hover/destructor jsou porovnané v PC53/PC24. Root Sound je ověřen na explicitním service rozhraní s disabled managerem, physical playback tohoto callbacku zbývá. Adresy a hranice v `AWARD_EFFECT.md` a `analysis/award-effect-validation.json`; tlačítka a controller jsou nyní samostatně porovnané v AWARDS.md.
 
 `TooltipFrame` / cAwardTip se skutečným UI/AwardTip.xml a všemi 21 popisy ocenění: 7 320 stavů, 720 XML reloadů, 177 116 písmen a 96 GPU snímků / 46 080 000 shodných RGB pixelů. Obnovené vlastnění podkladů, přesná výměna referencí, umístění a fade v PC53/PC24; rozsah v `AWARD_TOOLTIP.md` a `analysis/tooltip-validation.json`. Navazující AwardEffect a Awards controller jsou nyní samostatně porovnané.

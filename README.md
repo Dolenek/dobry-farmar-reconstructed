@@ -4,6 +4,8 @@ Pracovní rekonstrukce původní 32bitové hry pro Windows do upravitelného a s
 
 **Projekt zatím neobsahuje kompletní rekonstruovanou hru ani sestavené herní EXE. Export Ghidry je analytický pseudokód, nikoliv hotový zdrojový projekt.** Průběžný stav a ověření jsou v [docs/STATUS.md](docs/STATUS.md).
 
+Obnovená [výrobní scéna Manufacture](docs/MANUFACTURE.md) již propojuje skutečné budovy, nákupní panel, HUD, výběr, umístění, přesun a demolici. Přímé porovnání v obou přesnostech: 3 210 stavů a 170 GPU snímků / 81 600 000 shodných pixelů; celý Win32 projekt prošel 64 CTest kontrolami. Skutečný sklad, další světové systémy, celý cGame a herní EXE pokračují.
+
 ## Původní programy a knihovny
 
 | Soubor | Doložená úloha | Stav |

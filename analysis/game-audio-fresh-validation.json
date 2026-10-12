@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T11:57:27.536094+00:00",
+  "recorded_at_utc": "2026-10-12T16:08:15.645069+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "d145bba7781dc23f7367c559ed95068d8f8c3ed37e6233d42644ab8361b5e8c0",
+  "oracle_sha256": "224fdf2bd51c60f60974984281a4f2bf840e7257050f541ab6eb02fc69f4caac",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20762,
-      "native_position_progress": 19880,
+      "source_position_progress": 37928,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 37928,
+      "source_position_progress": 37928,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -671,6 +671,14 @@
       "sha256": "f448ca88aa5687bd11d51e4ea1dcc230aced7c28c3e94d85cadf1a979acd2b59"
     },
     {
+      "path": "src/game/ui/Manufacture.cpp",
+      "sha256": "4a15358d15022cd2ae2836517728b752977fc99e2d1533b6fcd50a830be39c88"
+    },
+    {
+      "path": "src/game/ui/Manufacture.h",
+      "sha256": "b406dce1d18be6515675434243e783cfb534ea036cbd14dcc7b9e71d19e72fdf"
+    },
+    {
       "path": "src/game/ui/MenuView.cpp",
       "sha256": "5c0f6ff47762eb25338b77e106da73dcd04c9650d3621044cc88802e35eaf79d"
     },
@@ -720,11 +728,11 @@
     },
     {
       "path": "src/game/ui/ProductionBuilding.cpp",
-      "sha256": "6c53d8bd061235de62abfd41b0df24493a61acc3b3fd1560ed29b3218d7ce75d"
+      "sha256": "f96708760d6477b9c8618b4d3b605013b2afcb48e1ef68f95510c590cc4212a5"
     },
     {
       "path": "src/game/ui/ProductionBuilding.h",
-      "sha256": "b411ca57cf657e80d854366ebd37acc6432fe6c00436bfc01c7233687f399805"
+      "sha256": "633d9f8afa50ab8070657551905ebeabf30d5205323d60b5ea49ccf86b3a6989"
     },
     {
       "path": "src/game/ui/ProductionControls.cpp",

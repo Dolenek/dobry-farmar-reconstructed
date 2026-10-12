@@ -67,6 +67,7 @@ public:
     void setProductionProgress(float); // 0049f300
     void setProductionStopped(bool); // 0049f210
     void positionProduction(const Point2&,bool save); // 0049f3c0
+    void cancelMove(); // 0049f7d0, restore saved press position, hide placement pictures
     void showControls();void hideControls(); // 00499f00 / 00499c00
     bool refreshHover();bool cursorInControls(); // 00499fe0 / 0049a0b0
     ButtonPrototype& takeIcon() noexcept {return *take_;}ButtonPrototype& givenIcon() noexcept {return *given_;}
@@ -86,6 +87,7 @@ public:
 private:
     friend class ProductionSubstrateButton;
     ProductionBuildingContext& context_;
+    ProductionBuilding** movingAddress_; // stable 00660150 address; teardown must not dispatch through destroyed scene
     ButtonPrototype *take_,*given_;ProductionStartStopButton* startStop_;
     TextLine *warehouseQty_,*loadedQty_;ProgressBar* loadedFloat_;Slider* loaded_;
     AnimationButton *addStock_,*addDepot_;Button* sensorPanel_;

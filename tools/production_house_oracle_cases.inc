@@ -25,7 +25,8 @@ const auto appearanceCheck=[&](const AnimableAppearance& a,void* n) {
     require(a.texture==field<cTexture*>(n,4) && a.frames==field<unsigned>(n,8) && a.columns==field<unsigned>(n,20) && a.rows==field<unsigned>(n,24),"Production level appearance differs");
     compareFloat(a.length,field<float>(n,12),"Production level duration");require(a.loop==bool(field<unsigned char>(n,16)) && a.playing==bool(field<unsigned char>(n,28)),"Production level animation flags differ");
 };
-for(unsigned type=0;type<11;++type) for(unsigned initialLevel=0;initialLevel<5;++initialLevel) {
+#include "production_placement_oracle_cases.inc"
+if(!manufactureMode) for(unsigned type=0;type<11;++type) for(unsigned initialLevel=0;initialLevel<5;++initialLevel) {
     trial=type*5+initialLevel;stage=411;const unsigned slot=type;const auto key=[&](const char* prefix){return std::string(prefix)+std::to_string(slot);};
     profile.ints[key("Upgrade")]=nativeProfile.ints[key("Upgrade")]=initialLevel==4 ? -1:int(initialLevel);
     profile.uints[key("ProdCount")]=nativeProfile.uints[key("ProdCount")]=initialLevel==4 ? 0:initialLevel%2;
@@ -141,6 +142,9 @@ for(unsigned type=0;type<11;++type) for(unsigned initialLevel=0;initialLevel<5;+
     }
     stage=417;productionSourceBuildings.clear();productionNativeBuildings.clear();productionFocused=nullptr;field<void*>(nativeScenes[1],0xf8)=nullptr;
     const auto before=textureCounts();building.reset();const auto middle=textureCounts();call(0x9b080,nativeBuilding);compareReferenceDeltas(before,middle);++productionHouseObjects;
+}
+if(manufactureMode) {
+#include "manufacture_oracle_cases.inc"
 }
 std::array<TutorialCommonTip*,5> keptProductionTips{&productionTutorial->common(),&productionTutorial->arrow(),&productionTutorial->disabledAnchor(),&productionTutorial->action(),&productionTutorial->repeatedAction()};std::array<void*,5> nativeKeptProductionTips{};for(unsigned i=0;i<5;++i) nativeKeptProductionTips[i]=field<void*>(nativeProductionTutorial,0xbe8+i*4);
 delete productionTutorial;world.tutorial=nullptr;call(0xd0490,nativeProductionTutorial);const auto tipBefore=textureCounts();views.deleteDiscarded();delete keptProductionTips[4];const auto tipMiddle=textureCounts();for(auto* n:nativeKeptProductionTips) call(0xcc770,n);compareReferenceDeltas(tipBefore,tipMiddle);nativeDiscards.clear();
