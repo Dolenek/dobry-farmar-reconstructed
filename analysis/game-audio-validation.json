@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T17:36:22.841222+00:00",
+  "recorded_at_utc": "2026-10-12T18:42:08.514216+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "214618c48d56b742184a411d02da179ad9c893c7fbaddaf317f2178b70505be9",
+  "oracle_sha256": "0b75b4a86ea7afd87ab0d38943866aa3be03236acf94bab2d70483b982f5a446",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20321,
-      "native_position_progress": 19880,
+      "source_position_progress": 20730,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 37928,
+      "source_position_progress": 37487,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -272,11 +272,11 @@
     },
     {
       "path": "src/game/graphics/ClickMask.cpp",
-      "sha256": "dfb317b0aabc2f5f098c7d9c5eb1f58ea215e52653085402ae5b74da8c7db79e"
+      "sha256": "1d747ff0d68a0f0dd02950019263343015b6edf4351e8b6d4592aa7e68f8d554"
     },
     {
       "path": "src/game/graphics/ClickMask.h",
-      "sha256": "951b6d1c7e8d098dae939c6b1a5bb072e150941e71815f84cb737a341328af7d"
+      "sha256": "ed22aadfb1a922fe1d060904fbde17b3dc165f3c1d734b67cdf321d9025eb220"
     },
     {
       "path": "src/game/graphics/Direct3D8.h",
@@ -692,7 +692,7 @@
     },
     {
       "path": "src/game/ui/Manufacture.h",
-      "sha256": "b406dce1d18be6515675434243e783cfb534ea036cbd14dcc7b9e71d19e72fdf"
+      "sha256": "019242e6107f71fd8e08ce1557122273facd9e42e5962a99f8234e797f2761ea"
     },
     {
       "path": "src/game/ui/MenuView.cpp",
@@ -869,6 +869,14 @@
     {
       "path": "src/game/ui/View.h",
       "sha256": "3ada58e8310d1c1eee8a4b377fd02f792cbf170f571f8840898747cbc45a36cc"
+    },
+    {
+      "path": "src/game/ui/Warehouse.cpp",
+      "sha256": "da0e6f0e6e8b5f665cbfc4bde45cf9937cc0d27cc65d88c5949a864aaad24bea"
+    },
+    {
+      "path": "src/game/ui/Warehouse.h",
+      "sha256": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828"
     },
     {
       "path": "src/game/ui/YesNoDialog.cpp",

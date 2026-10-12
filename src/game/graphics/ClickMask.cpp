@@ -1,6 +1,7 @@
 #include "ClickMask.h"
 #include "Texture.h"
 #include "FileIndex.h"
+#include "NativeImage.h"
 #include "OriginalArithmetic.h"
 #include <cstring>
 #include <stdexcept>
@@ -10,7 +11,15 @@ std::vector<ClickMaskColumn> loadClickMask(const String& name) {
     if(!environment.files || !environment.load) throw std::logic_error("Click-mask texture environment is not bound");
     auto file=environment.files->open(name); const auto count=file->size(); std::vector<unsigned char> bytes(count); file->read(bytes.data(),count); file.reset();
     unsigned magic=0; if(count>=4) std::memcpy(&magic,bytes.data(),4);
-    if(magic!=0x474e4a8bU) throw std::runtime_error("Non-JNG click-mask D3DX conversion is not reconstructed yet");
+    if(magic!=0x474e4a8bU) {
+        // 0051c040 requests A8R8G8B8 from D3DX for native images. Shipped
+        // 32-bit TGA masks already have this format, so the reconstructed
+        // native reader/upload needs no format conversion. Other formats
+        // remain an explicit unsupported path until conversion is recovered.
+        const auto native=decodeNativeImage(bytes.data(),bytes.size());
+        if(native.planes.empty() || native.planes.front().format!=D3DFMT_A8R8G8B8)
+            throw std::runtime_error("Click-mask D3DX conversion to BGRA is not reconstructed yet");
+    }
     IDirect3DTexture8* texture=nullptr; TextureImageSize dimensions{}; const unsigned long size=count;
     environment.load(bytes.data(),size,texture,dimensions);
     if(!texture) throw std::runtime_error("Click-mask texture is unavailable");

@@ -97,13 +97,22 @@ def main():
                     0x4f3a00,0x4f3e00,0x4f41f0,0x4f4620,0x4f2620,0x4f26b0,0x4f1c30,0x4f1ce0,
                     0x507ec0,0x507fd0,0x508120]
     if args.click_mask:
-        prefix='click-mask'; seen=set(); todo=[0x51c040,0x4f5200,0x5809b3]
+        # Native D3DX's image probes install libjpeg function pointers. The
+        # exported call graph omits those data references; follow their exact
+        # named entries as well so the oracle works away from 00400000.
+        native_blocks={int(m[1],16):m[2] for m in re.finditer(r'/\* ADDRESS ([0-9a-f]{8})[^\n]*\*/(.*?)(?=/\* ADDRESS |\Z)',
+            (ROOT/'analysis/raw/game/pseudocode.c').read_text(encoding='utf-8'),re.S)}
+        prefix='click-mask'; seen=set(); todo=[0x51c040,0x4f5200,0x5809b3,0x59c2a9,0x59ab98,0x59996e,
+            0x5a20a6,0x5a21a2,0x5a2230,0x5a22c2,0x5a2360,0x5a23c1,0x5a2422,0x5a26b4,0x5a27d2,0x5a28f5,0x5a29d6,
+            0x5a1f75,0x5a2008,0x5a1f3b,0x5a203f,0x5a1b78,0x580912,0x5a0c8a]
         while todo:
             address=todo.pop()
             if address in seen: continue
             seen.add(address)
             if address in rows:
-                todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16)!=0x50f580]
+                todo += [int(c,16) for c in rows[address]['callees'] if (int(c,16)<0x558000 or 0x590000<=int(c,16)<0x5b0000) and int(c,16)!=0x50f580]
+                todo += [int(c,16) for c in re.findall(r'(?:FUN_|LAB_)([0-9a-f]{8})',native_blocks.get(address,''))
+                    if 0x590000<=int(c,16)<0x5b0000 and int(c,16) in rows]
         addresses=sorted(seen)
     if args.text_buttons:
         prefix='text-buttons'
@@ -148,7 +157,8 @@ def main():
         todo += [0x499c90] # right-button callback's unindexed caller does not export callees
         todo += [0x41be20,0x4182b0,0x41c0e0,0x41b010,0x41b520,0x419e70,0x41ab10,0x41a250,0x41b910,0x419680,0x4192a0,0x419a90]
         todo += [0x41c010,0x41cd10,0x418800,0x417f60,0x418c60,0x418110,0x4187a0,0x417e10,0x431530]
-        boundaries |= {0x44d2f0}
+        todo += [0x467fe0,0x466020,0x4660f0,0x467220,0x467910,0x466530,0x4678b0,0x448b20,0x45f210,0x466e30,0x465ee0,0x465f40,0x465fa0,0x466110,0x467fa0,0x465e70,0x467ec0,0x4682d0,0x466a40,0x4953e0]
+        boundaries |= {0x44d2f0,0x46f9e0,0x464b40,0x42d700,0x42db30}
         boundaries |= {0x493b70,0x494a20,0x4957c0,0x495bd0,0x494e70,0x498c60,0x467ec0}
         while todo:
             address=todo.pop()
@@ -224,7 +234,7 @@ def main():
         reference=Path(directory)/'reference.exe'; shutil.copyfile(original,reference)
         for address in addresses:
             end=int(rows[address]['body_max'],16)+1 if address in rows else {
-                0x417e10:0x417f40,0x417f60:0x417f7d,0x493dd0:0x493fc8,0x493c60:0x493ca2,0x499630:0x499729,0x496440:0x496513,0x493bb0:0x493bcb,0x49a050:0x49a080,0x499ea0:0x499f00,0x49a080:0x49a0b0,0x49f8c0:0x49fc22,0x49fc30:0x49fdaf,0x4a0000:0x4a0224,0x4a0230:0x4a02c0,0x4a02c0:0x4a0330,0x413a00:0x413a0c,0x48e980:0x48e9d6,0x41d610:0x41d666,0x41d5e0:0x41d601,0x4c9fc0:0x4c9fd0,0x4c9fd0:0x4c9fe0,0x4c9fe0:0x4c9ff0,0x4c9ff0:0x4ca050,0x4ca050:0x4ca080,0x4ca080:0x4ca0b0,0x4ca0b0:0x4ca0d0,0x4ca0d0:0x4ca0f0,0x4ca0f0:0x4ca110,0x4ca110:0x4ca140,0x4ca140:0x4ca160,0x4ca160:0x4ca190,0x4ca190:0x4ca1b0,0x4ca1b0:0x4ca1e0,0x4ca1e0:0x4ca1f0,0x4ca1f0:0x4ca210,0x4ca210:0x4ca230,0x4ca230:0x4ca260,0x4ca260:0x4ca290,0x4ca290:0x4ca2b0,0x4ca2b0:0x4ca310,0x4ca310:0x4ca330,0x4ca330:0x4ca350,0x4ca350:0x4ca44d,0x4cdf10:0x4cdf19,
+                0x5a1f75:0x5a2008,0x5a203f:0x5a2050,0x465ee0:0x465f3f,0x45f210:0x45f215,0x417e10:0x417f40,0x417f60:0x417f7d,0x493dd0:0x493fc8,0x493c60:0x493ca2,0x499630:0x499729,0x496440:0x496513,0x493bb0:0x493bcb,0x49a050:0x49a080,0x499ea0:0x499f00,0x49a080:0x49a0b0,0x49f8c0:0x49fc22,0x49fc30:0x49fdaf,0x4a0000:0x4a0224,0x4a0230:0x4a02c0,0x4a02c0:0x4a0330,0x413a00:0x413a0c,0x48e980:0x48e9d6,0x41d610:0x41d666,0x41d5e0:0x41d601,0x4c9fc0:0x4c9fd0,0x4c9fd0:0x4c9fe0,0x4c9fe0:0x4c9ff0,0x4c9ff0:0x4ca050,0x4ca050:0x4ca080,0x4ca080:0x4ca0b0,0x4ca0b0:0x4ca0d0,0x4ca0d0:0x4ca0f0,0x4ca0f0:0x4ca110,0x4ca110:0x4ca140,0x4ca140:0x4ca160,0x4ca160:0x4ca190,0x4ca190:0x4ca1b0,0x4ca1b0:0x4ca1e0,0x4ca1e0:0x4ca1f0,0x4ca1f0:0x4ca210,0x4ca210:0x4ca230,0x4ca230:0x4ca260,0x4ca260:0x4ca290,0x4ca290:0x4ca2b0,0x4ca2b0:0x4ca310,0x4ca310:0x4ca330,0x4ca330:0x4ca350,0x4ca350:0x4ca44d,0x4cdf10:0x4cdf19,
                 0x4c32c0:0x4c32c8,0x4bd830:0x4bd835,0x4bd8f0:0x4bd91b,0x4bd920:0x4bd94b,0x42c7d0:0x42c7d5,0x485560:0x485584,0x485630:0x485654,0x485660:0x485679,0x487950:0x487958,0x48bd80:0x48bdce,0x4b9350:0x4b93e0,0x4b4340:0x4b4345,0x413a10:0x413a47,0x413b20:0x413b41,0x413b50:0x413b74,0x413b80:0x413bb6,
                 0x413bc0:0x413be7,0x51f570:0x51f5a0,0x481770:0x48179e,0x4817a0:0x4817bc,0x4817c0:0x4817cb,0x4816d0:0x4816f5,0x4842a0:0x4842a8,
                 0x536480:0x536498,0x5364a0:0x5364a7,0x536500:0x536519,0x50d260:0x50d2ad,0x531a40:0x531a44,0x521500:0x52181f,
@@ -241,10 +251,10 @@ def main():
                 if not match: continue
                 instruction,encoded,text=int(match[1],16),bytes.fromhex(match[2]),match[3]
                 memory=re.search(r'ds:0x([0-9a-f]+)',text)
-                if (args.button_state or args.progress_sprite) and not memory and text.startswith('jmp'):
+                if (args.button_state or args.progress_sprite or args.click_mask) and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520)) else ('mov','push')):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.click_mask or args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520)) else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -263,8 +273,16 @@ def main():
                 if operand<0:
                     binary=pe.data[pe.offset(instruction-pe.image_base):pe.offset(instruction-pe.image_base)+15]
                     operand=binary.find(target.to_bytes(4,'little'))
-                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager else 3),line
+                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask else 3),line
                 fixups.append(dict(rva=instruction-pe.image_base+operand,original_address=target,function=f'{address:08x}',instruction=text))
+    if args.click_mask:
+        # Exact A8R8G8B8 converter table and factory switch used by original
+        # D3DX mask uploads, plus format-description array's end pointer.
+        for table,count in [(0x209fc4,3),(0x19c947,11),(0x25ed50,1)]:
+            for slot in range(count):
+                rva=table+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
+                assert pe.image_base<=target<pe.image_base+0x300000
+                fixups.append(dict(rva=rva,original_address=target,function='native-mask-D3DX-data',instruction=f'table {table:x} slot {slot}'))
     if args.progress_sprite:
         for slot in range(4):
             rva=0xf9b10+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
@@ -286,7 +304,7 @@ def main():
             if args.button_state: tables += [(0x1fc8d0,88),(0x1fc4c0,88),(0x1fdd98,88)]
             if args.text_buttons: tables += [(0x1fcd30,67),(0xf9b10,4),(0xf9f70,4),(0x1f5e0c,14),(0x141c60,5),(0x1fad98,65),(0x1fb568,2),(0x1faad8,65),(0xc60b8,9),(0x1f51a0,88),(0x74d88,4),(0x1f5830,14),(0x1f5868,3),(0x1f54b0,65),(0x1f60a8,14),(0x1f60e0,1),(0x1f98c8,2),(0x1f98d0,18),(0x1f9c60,2)]
             if args.text_buttons: tables += [(2063096, 89), (2063072, 3), (2063084, 2), (2061880, 88), (2061872, 2), (2062240, 92), (2062232, 2), (2061520, 88), (2068136, 91), (2068116, 3), (2068128, 2), (2066232, 91), (2066212, 3), (2066224, 2), (2065272, 91), (2065252, 3), (2065264, 2), (2067664, 91), (2067640, 3), (2067652, 2), (2064784, 91), (2064764, 3), (2064776, 2), (2065752, 91), (2065728, 3), (2065740, 2), (2069104, 91), (2069080, 3), (2069092, 2), (2066712, 91), (2066692, 3), (2066704, 2), (2068616, 91), (2068596, 3), (2068608, 2), (2064312, 91), (2064288, 3), (2064300, 2), (2067192, 91), (2067172, 3), (2067184, 2)]
-            if args.text_buttons: tables += [(0x1f7134,15),(0x1f7130,1),(0x1f6e10,65),(0x1f6e04,2),(0x949f0,11),(0x1ef7a0,89),(0x1ef798,2),(0x1ef958,91),(0x1ef94c,2),(0x17f44,4)]
+            if args.text_buttons: tables += [(0x1f7134,15),(0x1f7130,1),(0x1f6e10,65),(0x1f6e04,2),(0x949f0,11),(0x1ef7a0,89),(0x1ef798,2),(0x1ef958,91),(0x1ef94c,2),(0x17f44,4),(0x1f4528,91),(0x1f4510,3),(0x1f451c,1),(0x1f4520,2)]
             if args.text_buttons: tables += [(0x1f7918,89),(0x1f6dc8,1)] # ExtendedButton HideTips virtual at +160
             if args.button_state: tables += [(0x0f20d4,4),(0x108110,4)] # state switch destinations
             for table,count in tables:

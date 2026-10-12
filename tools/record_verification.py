@@ -46,6 +46,10 @@ def main():
     for module in ('window','texture','resource-manager','color','graphics-presentation','matrix','sprite-geometry','sprite-draw','native-image','font','text-layout','string-manager','control-sprite','view','ui-frame','control','text-control','button','button-text','text-buttons','click-mask','input-bindings','timer','cursor','profile-headers','profile-properties','profile-lifecycle','sound-manager','squall-parameters'):
         validation=read(f'.local/{module}-validation.json')
         assert validation['status']=='passed'
+        if module=='click-mask' and 'source_files' in validation:
+            for name,expected in validation['source_files'].items():
+                assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+            assert hashlib.sha256((ROOT/'build/windows/Release/click-mask-reference-test.exe').read_bytes()).hexdigest()==validation['oracle_sha256']
         write(f'analysis/{module}-validation.json',validation)
         report[module]=validation
     wide=read('.local/wstring-validation.json')
@@ -347,6 +351,14 @@ def main():
         write('analysis/action-area-validation.json',area);report['action-area']=area
         if 'analysis/action-area-validation.json' not in report['reports']:report['reports'].append('analysis/action-area-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
+    warehouse_path=ROOT/'.local/warehouse-validation.json'
+    if warehouse_path.exists():
+        warehouse=read(warehouse_path.relative_to(ROOT));assert warehouse['status']=='passed_for_warehouse_and_actual_manufacture_production_hud_chain'
+        for name,expected in warehouse['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/warehouse-validation.json',warehouse);report['warehouse']=warehouse
+        if 'analysis/warehouse-validation.json' not in report['reports']:report['reports'].append('analysis/warehouse-validation.json')
+        report['build']['warehouse_complete_world_equivalence']=False
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

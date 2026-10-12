@@ -4,7 +4,9 @@ Pracovní rekonstrukce původní 32bitové hry pro Windows do upravitelného a s
 
 **Projekt zatím neobsahuje kompletní rekonstruovanou hru ani sestavené herní EXE. Export Ghidry je analytický pseudokód, nikoliv hotový zdrojový projekt.** Průběžný stav a ověření jsou v [docs/STATUS.md](docs/STATUS.md).
 
-Obnovená [výrobní scéna Manufacture](docs/MANUFACTURE.md) již propojuje skutečné budovy, nákupní panel, HUD, výběr, umístění, přesun a demolici. Přímé porovnání v obou přesnostech: 3 210 stavů a 170 GPU snímků / 81 600 000 shodných pixelů; celý Win32 projekt prošel 66 CTest kontrolami. Navazující [FieldObject](docs/FIELD_OBJECT.md) a [ActionArea](docs/ACTION_AREAS.md) obnovují základ akčních oblastí farmy včetně výškového offsetu, klikacích cílů, parkovacích bodů a původní přesnosti. ActionArea: dalších 17 842 stavů a 84 GPU snímků / 40 320 000 shodných pixelů; skutečné Farm/Person služby zbývají. Skutečný sklad, další světové systémy, celý cGame a herní EXE pokračují.
+Obnovená [výrobní scéna Manufacture](docs/MANUFACTURE.md) již propojuje skutečné budovy, nákupní panel, HUD, výběr, umístění, přesun a demolici. Přímé porovnání v obou přesnostech: 3 210 stavů a 170 GPU snímků / 81 600 000 shodných pixelů; celý Win32 projekt prošel 67 CTest kontrolami. Navazující [FieldObject](docs/FIELD_OBJECT.md) a [ActionArea](docs/ACTION_AREAS.md) obnovují základ akčních oblastí farmy včetně výškového offsetu, klikacích cílů, parkovacích bodů a původní přesnosti. ActionArea: dalších 17 842 stavů a 84 GPU snímků / 40 320 000 shodných pixelů; skutečné Farm/Person služby zbývají.
+
+Skutečný [Warehouse](docs/WAREHOUSE.md) nyní propojuje zásoby profilu, výrobní budovu, popisky Manufacture a HUD; výrobní callbacky odebírají/vracejí vstup a absoluteStep uloží vyrobený výstup do stejného skladu. PC53/PC24: 1 608 stavů, 1 024 transferů a 48 snímků / 23 040 000 shodných pixelů. Native BGRA masky jsou porovnané přes původní D3DX loader. Obchod, WareDetail tooltip, Farm/Person, další systémy, celý cGame a herní EXE pokračují.
 
 ## Původní programy a knihovny
 

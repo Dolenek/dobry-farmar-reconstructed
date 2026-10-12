@@ -66,6 +66,7 @@ public:
     Picture& currentPicture() noexcept {return *currentPicture_;}TextLine& currentText() noexcept {return *currentText_;}
     TextMoney& upgradePrice() noexcept {return *price_;}
     static Manufacture* instance() noexcept;
+    void refreshHouseControls(); // 004953e0; Warehouse transfers refresh real owned labels
 private:
     ManufactureContext& context_;ProductionBuildingContext buildingContext_;
     ExtendedTextAnimationButton* build_;TextLine* currentText_;Picture* currentPicture_;
@@ -75,6 +76,5 @@ private:
     ProductionBuilding* focused_=nullptr;cSound* selectSound_=nullptr;
     static void buildClick(ButtonPrototype*);static void destroyClick(ButtonPrototype*);static void upgradeClick(ButtonPrototype*);
     static void outsidePress(void*);static void rightPress(void*);
-    void refreshHouseControls(); // 004953e0
 };
 }
