@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-12T05:22:12.067947+00:00",
+  "recorded_at_utc": "2026-10-12T06:15:34.265698+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -69,6 +69,7 @@
     "src/game/ui/Awards.h": "909d6d6ea69ce60341dbfdcb71681e00b14ecc962a4a91119c4a31482c6b7814",
     "src/game/ui/Button.h": "7a6a69f320d1a82eb466008c18a99956d29c995da4417ad0691db4b8ebbc13f2",
     "src/game/ui/ButtonText.h": "351f15996b39d7178439b7df38d202b411b7b2fa4fa5722cd3a79023ec41a775",
+    "src/game/ui/BuySeeds.h": "d69853753f501aef18cf19c7111fc41342af7ac13d7cecd98295ae41eb154c08",
     "src/game/ui/CheckBox.h": "c72e54ec62c51d8ee36cefef0fbc47cda6cdf42c56b16396f48b49147d78f857",
     "src/game/ui/ContractDialogs.h": "a1c96c1034c87e5bead25824c07e4e838cd30fe943bd5b504349a1d5a2590c90",
     "src/game/ui/ContractProvide.h": "ff7f7aada17f8df6bd9670ba88442e9591532f2c3b162b15ebbe6d032d0584cf",
@@ -160,6 +161,7 @@
     "src/game/ui/Awards.cpp": "2fb2ab693f1c1aa30de8de95009d13c9ea1b8f6bcb6bbb395e7b0d30cf0b0faf",
     "src/game/ui/Button.cpp": "b4d12a93067fc9a800b4f6e3ef975ec6f1f5c9b1094b0e6ac26df303973dd9f0",
     "src/game/ui/ButtonText.cpp": "01c294f0902cb0ae39064b460ff036d1e40f18e2f09b35efe06abfc41185163d",
+    "src/game/ui/BuySeeds.cpp": "8cc79f64723e7549d05252584d5b4e60f7e8d42001cb3f59de7b7cc550f03f38",
     "src/game/ui/CheckBox.cpp": "3738d49016878639d40e205c74743c17943f76f3678b7eeb2b8ea394816963b1",
     "src/game/ui/ContractDialogs.cpp": "41283bfaa258aa25be87369bbb60de45d7921649591a3d5769ce747981b6ae49",
     "src/game/ui/ContractProvide.cpp": "f4cbd605acd2a1d7ed347144feec12a1e8d069262c9fd257d73d5f7fedc8add6",
@@ -202,15 +204,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "f6f2622c196c5164f358b656947a53841888c13fdff92cba0b5ffdea3ef10945",
+    "tools/text_buttons_reference_test.cpp": "366c1e9fc3cb8eb92d034a67d3b1f022b5f61adbdb58ce3387591e2d85786c7e",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "f1f532d8f29cc919a80aca79e5e7a0147595a6f1b7ffc2a20cea4c14082d9025",
+    "tools/text_buttons_oracle_fixups.inc": "46f9ad0cb62880d196218e6a772e0a62dfabd0a333fb90b79b1b56544d742e8b",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "ebe95e71aa434621d801f3b50aadd77b7e1b90ef861853489606bdfd3b0fc8af"
+    "CMakeLists.txt": "1e7c50719b380aab71e16a05dc887266ec0f3a510799c0038c24e0785e26af9d"
   },
   "oracle_sha256": {
-    "sprite": "6208583717ac1ae956d225aa85ad2f8f1f245d50460506f945ab7dfd4cd3824e",
-    "ui": "40307235d53305ae0c9c5013ba1485698e9d7134b84c5add69f4305731a29c0e"
+    "sprite": "aa566a270a7ae6e7d632c9a093d3d2098e0934c3f28ac4f64555ff91693c4a44",
+    "ui": "957658f26d8cd23c7ca9c74fe16b867bd04e3a3c43083f0497dec1dc78afdf61"
   },
   "precision_contexts": [
     {
@@ -292,6 +294,11 @@
         "extended_pixels": 0,
         "extended_steps": 0,
         "extended_sound_residues": 0,
+        "buy_seeds_states": 0,
+        "buy_seeds_starts": 0,
+        "buy_seeds_frames": 0,
+        "buy_seeds_choices": 0,
+        "buy_seeds_letters": 0,
         "movable_union_states": 0,
         "movable_union_moves": 0,
         "movable_union_steps": 0,
@@ -534,6 +541,11 @@
         "extended_pixels": 0,
         "extended_steps": 0,
         "extended_sound_residues": 0,
+        "buy_seeds_states": 0,
+        "buy_seeds_starts": 0,
+        "buy_seeds_frames": 0,
+        "buy_seeds_choices": 0,
+        "buy_seeds_letters": 0,
         "movable_union_states": 0,
         "movable_union_moves": 0,
         "movable_union_steps": 0,

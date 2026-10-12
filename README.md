@@ -121,3 +121,5 @@ Pět typů oken tutoriálu má ověřené skutečné texty, šipky, rušení akc
 TutorialManager propojuje skutečný HUD, okna a profil: 2 500 stavů, 14 848 predicate porovnání a 204 GPU snímků / 97 920 000 shodných pixelů. Původní adresy, zvláštnosti a dosud řízené world hranice jsou v [docs/TUTORIAL_MANAGER.md](docs/TUTORIAL_MANAGER.md). Skutečný herní svět a celý průchod tutoriálem pokračují.
 
 MovableUnion propojuje společný základ nákupních panelů s HUD: 11 604 stavů, 1 036 pohybů a 144 GPU snímků / 69 120 000 shodných pixelů v PC53/PC24. BuySeeds/BuyBuilding controllery a skutečný nákup pokračují; rozsah v [docs/MOVABLE_UNION.md](docs/MOVABLE_UNION.md).
+
+BuySeeds propojuje osivo, HUD a původní návody 14/15: 1 696 stavů, 176 předání Farm hranici a 248 GPU snímků / 119 040 000 shodných pixelů. Skutečný seed mover a celý svět pokračují; rozsah a doložená původní undefined-memory chyba jsou v [docs/BUY_SEEDS.md](docs/BUY_SEEDS.md).

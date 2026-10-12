@@ -65,8 +65,8 @@ struct TutorialWorldFixture final:TutorialWorld {
     bool characterToolFlag() override {tutorialSourceQueries.push_back(15);return tutorialInputs.tool;}
     unsigned warehouseProductCount(unsigned) override {tutorialSourceQueries.push_back(6);return tutorialInputs.warehouseProducts;}unsigned manufactureProductCount(unsigned) override {tutorialSourceQueries.push_back(16);return tutorialInputs.manufactureProducts;}
     unsigned warehouseFree() override {tutorialSourceQueries.push_back(17);return tutorialInputs.free;}bool seedMoveActive() const override {return tutorialInputs.seed;}
-    bool wareSelectionPresent() const override {return tutorialInputs.wareSelection;}bool seedSelectionMoving() const override {return tutorialInputs.selection;}
-    bool buildingSelectionMoving() const override {return tutorialInputs.sceneSelection;}
+    bool wareSelectionPresent() const override {return tutorialInputs.wareSelection;}bool seedSelectionMoving() const override {if(auto* moving=dynamic_cast<MovableUnion*>(&world.selectionOverlay())) return moving->movement!=0;return tutorialInputs.selection;}
+    bool buildingSelectionMoving() const override {if(auto* moving=dynamic_cast<MovableUnion*>(&world.sceneOverlay())) return moving->movement!=0;return tutorialInputs.sceneSelection;}
     View& contractConfirm() override {return *dialogs[0];}View& contractAim() override {return *dialogs[1];}
     View& contractDialog764() override {return *dialogs[2];}View& contractProvide() override {return *dialogs[3];}
 };

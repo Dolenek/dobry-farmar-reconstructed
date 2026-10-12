@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T05:25:11.844207+00:00",
+  "recorded_at_utc": "2026-10-12T06:20:15.134359+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "aed7ab73df235735868fadf8f2f784b577a02045f49599522437a9a095828ac8",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20321,
-      "native_position_progress": 37487,
+      "source_position_progress": 19880,
+      "native_position_progress": 56449,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20762,
-      "native_position_progress": 55567,
+      "source_position_progress": 19880,
+      "native_position_progress": 40133,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -481,6 +481,14 @@
     {
       "path": "src/game/ui/ButtonText.h",
       "sha256": "351f15996b39d7178439b7df38d202b411b7b2fa4fa5722cd3a79023ec41a775"
+    },
+    {
+      "path": "src/game/ui/BuySeeds.cpp",
+      "sha256": "8cc79f64723e7549d05252584d5b4e60f7e8d42001cb3f59de7b7cc550f03f38"
+    },
+    {
+      "path": "src/game/ui/BuySeeds.h",
+      "sha256": "d69853753f501aef18cf19c7111fc41342af7ac13d7cecd98295ae41eb154c08"
     },
     {
       "path": "src/game/ui/CheckBox.cpp",

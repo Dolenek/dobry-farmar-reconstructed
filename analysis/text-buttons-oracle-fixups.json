@@ -6285,6 +6285,786 @@
       "instruction": "mov    DWORD PTR [esi+0x2c],0x5ef1b8"
     },
     {
+      "rva": 96545,
+      "original_address": 6684500,
+      "function": "00417910",
+      "instruction": "mov    DWORD PTR ds:0x65ff54,0x3f000000"
+    },
+    {
+      "rva": 96557,
+      "original_address": 6222536,
+      "function": "00417910",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 96570,
+      "original_address": 6222536,
+      "function": "00417910",
+      "instruction": "fmul   DWORD PTR ds:0x5ef2c8"
+    },
+    {
+      "rva": 121331,
+      "original_address": 5979640,
+      "function": "0041d9f0",
+      "instruction": "push   0x5b3df8"
+    },
+    {
+      "rva": 121251,
+      "original_address": 5979640,
+      "function": "0041d9a0",
+      "instruction": "push   0x5b3df8"
+    },
+    {
+      "rva": 121443,
+      "original_address": 5979680,
+      "function": "0041da60",
+      "instruction": "push   0x5b3e20"
+    },
+    {
+      "rva": 121476,
+      "original_address": 6225736,
+      "function": "0041da60",
+      "instruction": "push   0x5eff48"
+    },
+    {
+      "rva": 121538,
+      "original_address": 6225728,
+      "function": "0041da60",
+      "instruction": "push   0x5eff40"
+    },
+    {
+      "rva": 5270,
+      "original_address": 5964416,
+      "function": "00401490",
+      "instruction": "push   0x5b0280"
+    },
+    {
+      "rva": 124102,
+      "original_address": 5980435,
+      "function": "0041e4c0",
+      "instruction": "push   0x5b4113"
+    },
+    {
+      "rva": 124132,
+      "original_address": 6674076,
+      "function": "0041e4c0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 124141,
+      "original_address": 6684516,
+      "function": "0041e4c0",
+      "instruction": "mov    eax,ds:0x65ff64"
+    },
+    {
+      "rva": 124173,
+      "original_address": 6682428,
+      "function": "0041e4c0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f73c"
+    },
+    {
+      "rva": 124188,
+      "original_address": 6684516,
+      "function": "0041e4c0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff64"
+    },
+    {
+      "rva": 124203,
+      "original_address": 6682432,
+      "function": "0041e4c0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 124214,
+      "original_address": 6682432,
+      "function": "0041e4c0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 124225,
+      "original_address": 6684516,
+      "function": "0041e4c0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff64"
+    },
+    {
+      "rva": 122966,
+      "original_address": 5980195,
+      "function": "0041e050",
+      "instruction": "push   0x5b4023"
+    },
+    {
+      "rva": 122996,
+      "original_address": 6674076,
+      "function": "0041e050",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 123061,
+      "original_address": 6684512,
+      "function": "0041e050",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff60"
+    },
+    {
+      "rva": 120200,
+      "original_address": 6682336,
+      "function": "0041d580",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f6e0"
+    },
+    {
+      "rva": 120208,
+      "original_address": 4318400,
+      "function": "0041d580",
+      "instruction": "push   0x41e4c0"
+    },
+    {
+      "rva": 120342,
+      "original_address": 6682432,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 120360,
+      "original_address": 6682432,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 120371,
+      "original_address": 6684516,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff64"
+    },
+    {
+      "rva": 120382,
+      "original_address": 6684516,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff64"
+    },
+    {
+      "rva": 120398,
+      "original_address": 6682420,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 120410,
+      "original_address": 6682436,
+      "function": "0041d610",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f744"
+    },
+    {
+      "rva": 120290,
+      "original_address": 6682432,
+      "function": "0041d5e0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 120301,
+      "original_address": 6682432,
+      "function": "0041d5e0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f740"
+    },
+    {
+      "rva": 120312,
+      "original_address": 6684516,
+      "function": "0041d5e0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65ff64"
+    },
+    {
+      "rva": 120116,
+      "original_address": 6682428,
+      "function": "0041d520",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f73c"
+    },
+    {
+      "rva": 120131,
+      "original_address": 6682428,
+      "function": "0041d520",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f73c"
+    },
+    {
+      "rva": 120166,
+      "original_address": 6682428,
+      "function": "0041d520",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f73c"
+    },
+    {
+      "rva": 131315,
+      "original_address": 5981817,
+      "function": "004200f0",
+      "instruction": "push   0x5b4679"
+    },
+    {
+      "rva": 131346,
+      "original_address": 6226624,
+      "function": "004200f0",
+      "instruction": "mov    DWORD PTR [esi],0x5f02c0"
+    },
+    {
+      "rva": 131353,
+      "original_address": 6226612,
+      "function": "004200f0",
+      "instruction": "mov    DWORD PTR [esi+0x2c],0x5f02b4"
+    },
+    {
+      "rva": 131363,
+      "original_address": 6226608,
+      "function": "004200f0",
+      "instruction": "mov    DWORD PTR [esi+0x27c],0x5f02b0"
+    },
+    {
+      "rva": 131392,
+      "original_address": 6682336,
+      "function": "004200f0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f6e0"
+    },
+    {
+      "rva": 131400,
+      "original_address": 4318400,
+      "function": "004200f0",
+      "instruction": "push   0x41e4c0"
+    },
+    {
+      "rva": 131413,
+      "original_address": 4315632,
+      "function": "004200f0",
+      "instruction": "push   0x41d9f0"
+    },
+    {
+      "rva": 131450,
+      "original_address": 6225428,
+      "function": "004200f0",
+      "instruction": "mov    DWORD PTR [esi+0x27c],0x5efe14"
+    },
+    {
+      "rva": 131458,
+      "original_address": 6684516,
+      "function": "004200f0",
+      "instruction": "mov    DWORD PTR ds:0x65ff64,0x0"
+    },
+    {
+      "rva": 134998,
+      "original_address": 5982611,
+      "function": "00420f50",
+      "instruction": "push   0x5b4993"
+    },
+    {
+      "rva": 135028,
+      "original_address": 6674076,
+      "function": "00420f50",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 135091,
+      "original_address": 6222040,
+      "function": "00420f50",
+      "instruction": "push   0x5ef0d8"
+    },
+    {
+      "rva": 135105,
+      "original_address": 6684484,
+      "function": "00420f50",
+      "instruction": "mov    ecx,0x65ff44"
+    },
+    {
+      "rva": 135238,
+      "original_address": 6682348,
+      "function": "00420f50",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f6ec"
+    },
+    {
+      "rva": 135252,
+      "original_address": 6227089,
+      "function": "00420f50",
+      "instruction": "push   0x5f0491"
+    },
+    {
+      "rva": 135490,
+      "original_address": 6682336,
+      "function": "00420f50",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f6e0"
+    },
+    {
+      "rva": 135498,
+      "original_address": 4318400,
+      "function": "00420f50",
+      "instruction": "push   0x41e4c0"
+    },
+    {
+      "rva": 121702,
+      "original_address": 5979956,
+      "function": "0041db60",
+      "instruction": "push   0x5b3f34"
+    },
+    {
+      "rva": 121732,
+      "original_address": 6674076,
+      "function": "0041db60",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 121741,
+      "original_address": 6684548,
+      "function": "0041db60",
+      "instruction": "mov    al,ds:0x65ff84"
+    },
+    {
+      "rva": 121766,
+      "original_address": 6684548,
+      "function": "0041db60",
+      "instruction": "mov    edx,DWORD PTR ds:0x65ff84"
+    },
+    {
+      "rva": 121774,
+      "original_address": 6216352,
+      "function": "0041db60",
+      "instruction": "push   0x5edaa0"
+    },
+    {
+      "rva": 121780,
+      "original_address": 6684548,
+      "function": "0041db60",
+      "instruction": "mov    DWORD PTR ds:0x65ff84,edx"
+    },
+    {
+      "rva": 121786,
+      "original_address": 6684544,
+      "function": "0041db60",
+      "instruction": "mov    DWORD PTR ds:0x65ff80,edi"
+    },
+    {
+      "rva": 121792,
+      "original_address": 6684540,
+      "function": "0041db60",
+      "instruction": "mov    DWORD PTR ds:0x65ff7c,ebx"
+    },
+    {
+      "rva": 121799,
+      "original_address": 6684524,
+      "function": "0041db60",
+      "instruction": "mov    WORD PTR ds:0x65ff6c,bx"
+    },
+    {
+      "rva": 121927,
+      "original_address": 6684520,
+      "function": "0041db60",
+      "instruction": "mov    ecx,0x65ff68"
+    },
+    {
+      "rva": 122038,
+      "original_address": 6218904,
+      "function": "0041db60",
+      "instruction": "mov    DWORD PTR [ebp-0x1180],0x5ee498"
+    },
+    {
+      "rva": 122061,
+      "original_address": 6684520,
+      "function": "0041db60",
+      "instruction": "mov    eax,0x65ff68"
+    },
+    {
+      "rva": 120454,
+      "original_address": 5979608,
+      "function": "0041d680",
+      "instruction": "push   0x5b3dd8"
+    },
+    {
+      "rva": 22147,
+      "original_address": 5965928,
+      "function": "00405680",
+      "instruction": "push   0x5b0868"
+    },
+    {
+      "rva": 35059,
+      "original_address": 5966600,
+      "function": "004088f0",
+      "instruction": "push   0x5b0b08"
+    },
+    {
+      "rva": 35084,
+      "original_address": 6674076,
+      "function": "004088f0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 25606,
+      "original_address": 5965968,
+      "function": "00406400",
+      "instruction": "push   0x5b0890"
+    },
+    {
+      "rva": 25872,
+      "original_address": 4220181,
+      "function": "00406400",
+      "instruction": "mov    eax,0x406515"
+    },
+    {
+      "rva": 25043,
+      "original_address": 5965928,
+      "function": "004061d0",
+      "instruction": "push   0x5b0868"
+    },
+    {
+      "rva": 24243,
+      "original_address": 5966376,
+      "function": "00405eb0",
+      "instruction": "push   0x5b0a28"
+    },
+    {
+      "rva": 24278,
+      "original_address": 6682368,
+      "function": "00405eb0",
+      "instruction": "mov    eax,ds:0x65f700"
+    },
+    {
+      "rva": 24286,
+      "original_address": 6682504,
+      "function": "00405eb0",
+      "instruction": "mov    edi,DWORD PTR ds:0x65f788"
+    },
+    {
+      "rva": 24316,
+      "original_address": 6682368,
+      "function": "00405eb0",
+      "instruction": "mov    eax,ds:0x65f700"
+    },
+    {
+      "rva": 24325,
+      "original_address": 6690128,
+      "function": "00405eb0",
+      "instruction": "mov    eax,ds:0x661550"
+    },
+    {
+      "rva": 24331,
+      "original_address": 6690128,
+      "function": "00405eb0",
+      "instruction": "mov    ds:0x661550,eax"
+    },
+    {
+      "rva": 24336,
+      "original_address": 6682368,
+      "function": "00405eb0",
+      "instruction": "mov    ds:0x65f700,eax"
+    },
+    {
+      "rva": 24350,
+      "original_address": 6682368,
+      "function": "00405eb0",
+      "instruction": "mov    eax,ds:0x65f700"
+    },
+    {
+      "rva": 24397,
+      "original_address": 6219304,
+      "function": "00405eb0",
+      "instruction": "push   0x5ee628"
+    },
+    {
+      "rva": 24411,
+      "original_address": 6367772,
+      "function": "00405eb0",
+      "instruction": "push   0x612a1c"
+    },
+    {
+      "rva": 24437,
+      "original_address": 6682504,
+      "function": "00405eb0",
+      "instruction": "mov    DWORD PTR ds:0x65f788,esi"
+    },
+    {
+      "rva": 21833,
+      "original_address": 5965675,
+      "function": "00405540",
+      "instruction": "push   0x5b076b"
+    },
+    {
+      "rva": 16819,
+      "original_address": 5965707,
+      "function": "004041b0",
+      "instruction": "push   0x5b078b"
+    },
+    {
+      "rva": 16858,
+      "original_address": 6218968,
+      "function": "004041b0",
+      "instruction": "push   0x5ee4d8"
+    },
+    {
+      "rva": 16879,
+      "original_address": 6219024,
+      "function": "004041b0",
+      "instruction": "mov    DWORD PTR [esi],0x5ee510"
+    },
+    {
+      "rva": 68835,
+      "original_address": 5970840,
+      "function": "00410ce0",
+      "instruction": "push   0x5b1b98"
+    },
+    {
+      "rva": 68860,
+      "original_address": 6221500,
+      "function": "00410ce0",
+      "instruction": "push   0x5eeebc"
+    },
+    {
+      "rva": 68900,
+      "original_address": 6684448,
+      "function": "00410ce0",
+      "instruction": "mov    ecx,0x65ff20"
+    },
+    {
+      "rva": 131574,
+      "original_address": 5982254,
+      "function": "004201f0",
+      "instruction": "push   0x5b482e"
+    },
+    {
+      "rva": 131604,
+      "original_address": 6674076,
+      "function": "004201f0",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 131662,
+      "original_address": 6227016,
+      "function": "004201f0",
+      "instruction": "push   0x5f0448"
+    },
+    {
+      "rva": 131824,
+      "original_address": 6227004,
+      "function": "004201f0",
+      "instruction": "push   0x5f043c"
+    },
+    {
+      "rva": 132036,
+      "original_address": 6226992,
+      "function": "004201f0",
+      "instruction": "push   0x5f0430"
+    },
+    {
+      "rva": 132142,
+      "original_address": 6226980,
+      "function": "004201f0",
+      "instruction": "push   0x5f0424"
+    },
+    {
+      "rva": 132369,
+      "original_address": 6226960,
+      "function": "004201f0",
+      "instruction": "push   0x5f0410"
+    },
+    {
+      "rva": 132460,
+      "original_address": 6682416,
+      "function": "004201f0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f730"
+    },
+    {
+      "rva": 132496,
+      "original_address": 6226948,
+      "function": "004201f0",
+      "instruction": "push   0x5f0404"
+    },
+    {
+      "rva": 132637,
+      "original_address": 6226936,
+      "function": "004201f0",
+      "instruction": "push   0x5f03f8"
+    },
+    {
+      "rva": 132862,
+      "original_address": 6226924,
+      "function": "004201f0",
+      "instruction": "push   0x5f03ec"
+    },
+    {
+      "rva": 133076,
+      "original_address": 6226456,
+      "function": "004201f0",
+      "instruction": "push   0x5f0218"
+    },
+    {
+      "rva": 55871,
+      "original_address": 6221156,
+      "function": "0040da20",
+      "instruction": "push   0x5eed64"
+    },
+    {
+      "rva": 55876,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "push   0x65fc20"
+    },
+    {
+      "rva": 55886,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "mov    eax,0x65fc20"
+    },
+    {
+      "rva": 55921,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "mov    edi,0x65fc20"
+    },
+    {
+      "rva": 55954,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "push   0x65fc20"
+    },
+    {
+      "rva": 55969,
+      "original_address": 6217812,
+      "function": "0040da20",
+      "instruction": "call   DWORD PTR ds:0x5ee054"
+    },
+    {
+      "rva": 55978,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "mov    eax,0x65fc20"
+    },
+    {
+      "rva": 56014,
+      "original_address": 6683680,
+      "function": "0040da20",
+      "instruction": "push   0x65fc20"
+    },
+    {
+      "rva": 134323,
+      "original_address": 5982370,
+      "function": "00420cb0",
+      "instruction": "push   0x5b48a2"
+    },
+    {
+      "rva": 134370,
+      "original_address": 6225428,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [edi+0x27c],0x5efe14"
+    },
+    {
+      "rva": 134376,
+      "original_address": 6684516,
+      "function": "00420cb0",
+      "instruction": "cmp    DWORD PTR ds:0x65ff64,esi"
+    },
+    {
+      "rva": 134387,
+      "original_address": 6365900,
+      "function": "00420cb0",
+      "instruction": "push   0x6122cc"
+    },
+    {
+      "rva": 134400,
+      "original_address": 6218492,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [esp+0x44],0x5ee2fc"
+    },
+    {
+      "rva": 134413,
+      "original_address": 6684516,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR ds:0x65ff64,edx"
+    },
+    {
+      "rva": 134424,
+      "original_address": 6226624,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [edi],0x5f02c0"
+    },
+    {
+      "rva": 134431,
+      "original_address": 6226612,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [edi+0x2c],0x5f02b4"
+    },
+    {
+      "rva": 134441,
+      "original_address": 6226608,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [edi+0x27c],0x5f02b0"
+    },
+    {
+      "rva": 134470,
+      "original_address": 4315632,
+      "function": "00420cb0",
+      "instruction": "push   0x41d9f0"
+    },
+    {
+      "rva": 134475,
+      "original_address": 4315552,
+      "function": "00420cb0",
+      "instruction": "push   0x41d9a0"
+    },
+    {
+      "rva": 134614,
+      "original_address": 6255472,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [esi],0x5f7370"
+    },
+    {
+      "rva": 134621,
+      "original_address": 6225420,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [esi+0x2c],0x5efe0c"
+    },
+    {
+      "rva": 134755,
+      "original_address": 6227032,
+      "function": "00420cb0",
+      "instruction": "push   0x5f0458"
+    },
+    {
+      "rva": 134787,
+      "original_address": 6682416,
+      "function": "00420cb0",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f730"
+    },
+    {
+      "rva": 134877,
+      "original_address": 4314592,
+      "function": "00420cb0",
+      "instruction": "mov    DWORD PTR [esp+0x44],0x41d5e0"
+    },
+    {
+      "rva": 134902,
+      "original_address": 4314640,
+      "function": "00420cb0",
+      "instruction": "mov    ebp,0x41d610"
+    },
+    {
+      "rva": 88947,
+      "original_address": 5974067,
+      "function": "00415b70",
+      "instruction": "push   0x5b2833"
+    },
+    {
+      "rva": 88998,
+      "original_address": 6222856,
+      "function": "00415b70",
+      "instruction": "mov    DWORD PTR [esi],0x5ef408"
+    },
+    {
+      "rva": 89005,
+      "original_address": 6222848,
+      "function": "00415b70",
+      "instruction": "mov    DWORD PTR [esi+0x2c],0x5ef400"
+    },
+    {
+      "rva": 572735,
+      "original_address": 6252000,
+      "function": "0048bd30",
+      "instruction": "mov    DWORD PTR [esi],0x5f65e0"
+    },
+    {
+      "rva": 572742,
+      "original_address": 6251988,
+      "function": "0048bd30",
+      "instruction": "mov    DWORD PTR [esi+0x2c],0x5f65d4"
+    },
+    {
       "rva": 836390,
       "original_address": 6112483,
       "function": "004cc320",
@@ -6603,24 +7383,6 @@
       "instruction": "push   0x61248c"
     },
     {
-      "rva": 35059,
-      "original_address": 5966600,
-      "function": "004088f0",
-      "instruction": "push   0x5b0b08"
-    },
-    {
-      "rva": 35084,
-      "original_address": 6674076,
-      "function": "004088f0",
-      "instruction": "mov    eax,ds:0x65d69c"
-    },
-    {
-      "rva": 5270,
-      "original_address": 5964416,
-      "function": "00401490",
-      "instruction": "push   0x5b0280"
-    },
-    {
       "rva": 786150,
       "original_address": 6104131,
       "function": "004bfee0",
@@ -6709,36 +7471,6 @@
       "original_address": 6685192,
       "function": "004bda10",
       "instruction": "mov    eax,0x660208"
-    },
-    {
-      "rva": 120454,
-      "original_address": 5979608,
-      "function": "0041d680",
-      "instruction": "push   0x5b3dd8"
-    },
-    {
-      "rva": 22147,
-      "original_address": 5965928,
-      "function": "00405680",
-      "instruction": "push   0x5b0868"
-    },
-    {
-      "rva": 68835,
-      "original_address": 5970840,
-      "function": "00410ce0",
-      "instruction": "push   0x5b1b98"
-    },
-    {
-      "rva": 68860,
-      "original_address": 6221500,
-      "function": "00410ce0",
-      "instruction": "push   0x5eeebc"
-    },
-    {
-      "rva": 68900,
-      "original_address": 6684448,
-      "function": "00410ce0",
-      "instruction": "mov    ecx,0x65ff20"
     },
     {
       "rva": 781126,
@@ -8221,234 +8953,6 @@
       "original_address": 6119696,
       "function": "004d6ac0",
       "instruction": "push   0x5d6110"
-    },
-    {
-      "rva": 121702,
-      "original_address": 5979956,
-      "function": "0041db60",
-      "instruction": "push   0x5b3f34"
-    },
-    {
-      "rva": 121732,
-      "original_address": 6674076,
-      "function": "0041db60",
-      "instruction": "mov    eax,ds:0x65d69c"
-    },
-    {
-      "rva": 121741,
-      "original_address": 6684548,
-      "function": "0041db60",
-      "instruction": "mov    al,ds:0x65ff84"
-    },
-    {
-      "rva": 121766,
-      "original_address": 6684548,
-      "function": "0041db60",
-      "instruction": "mov    edx,DWORD PTR ds:0x65ff84"
-    },
-    {
-      "rva": 121774,
-      "original_address": 6216352,
-      "function": "0041db60",
-      "instruction": "push   0x5edaa0"
-    },
-    {
-      "rva": 121780,
-      "original_address": 6684548,
-      "function": "0041db60",
-      "instruction": "mov    DWORD PTR ds:0x65ff84,edx"
-    },
-    {
-      "rva": 121786,
-      "original_address": 6684544,
-      "function": "0041db60",
-      "instruction": "mov    DWORD PTR ds:0x65ff80,edi"
-    },
-    {
-      "rva": 121792,
-      "original_address": 6684540,
-      "function": "0041db60",
-      "instruction": "mov    DWORD PTR ds:0x65ff7c,ebx"
-    },
-    {
-      "rva": 121799,
-      "original_address": 6684524,
-      "function": "0041db60",
-      "instruction": "mov    WORD PTR ds:0x65ff6c,bx"
-    },
-    {
-      "rva": 121927,
-      "original_address": 6684520,
-      "function": "0041db60",
-      "instruction": "mov    ecx,0x65ff68"
-    },
-    {
-      "rva": 122038,
-      "original_address": 6218904,
-      "function": "0041db60",
-      "instruction": "mov    DWORD PTR [ebp-0x1180],0x5ee498"
-    },
-    {
-      "rva": 122061,
-      "original_address": 6684520,
-      "function": "0041db60",
-      "instruction": "mov    eax,0x65ff68"
-    },
-    {
-      "rva": 25606,
-      "original_address": 5965968,
-      "function": "00406400",
-      "instruction": "push   0x5b0890"
-    },
-    {
-      "rva": 25872,
-      "original_address": 4220181,
-      "function": "00406400",
-      "instruction": "mov    eax,0x406515"
-    },
-    {
-      "rva": 25043,
-      "original_address": 5965928,
-      "function": "004061d0",
-      "instruction": "push   0x5b0868"
-    },
-    {
-      "rva": 24243,
-      "original_address": 5966376,
-      "function": "00405eb0",
-      "instruction": "push   0x5b0a28"
-    },
-    {
-      "rva": 24278,
-      "original_address": 6682368,
-      "function": "00405eb0",
-      "instruction": "mov    eax,ds:0x65f700"
-    },
-    {
-      "rva": 24286,
-      "original_address": 6682504,
-      "function": "00405eb0",
-      "instruction": "mov    edi,DWORD PTR ds:0x65f788"
-    },
-    {
-      "rva": 24316,
-      "original_address": 6682368,
-      "function": "00405eb0",
-      "instruction": "mov    eax,ds:0x65f700"
-    },
-    {
-      "rva": 24325,
-      "original_address": 6690128,
-      "function": "00405eb0",
-      "instruction": "mov    eax,ds:0x661550"
-    },
-    {
-      "rva": 24331,
-      "original_address": 6690128,
-      "function": "00405eb0",
-      "instruction": "mov    ds:0x661550,eax"
-    },
-    {
-      "rva": 24336,
-      "original_address": 6682368,
-      "function": "00405eb0",
-      "instruction": "mov    ds:0x65f700,eax"
-    },
-    {
-      "rva": 24350,
-      "original_address": 6682368,
-      "function": "00405eb0",
-      "instruction": "mov    eax,ds:0x65f700"
-    },
-    {
-      "rva": 24397,
-      "original_address": 6219304,
-      "function": "00405eb0",
-      "instruction": "push   0x5ee628"
-    },
-    {
-      "rva": 24411,
-      "original_address": 6367772,
-      "function": "00405eb0",
-      "instruction": "push   0x612a1c"
-    },
-    {
-      "rva": 24437,
-      "original_address": 6682504,
-      "function": "00405eb0",
-      "instruction": "mov    DWORD PTR ds:0x65f788,esi"
-    },
-    {
-      "rva": 21833,
-      "original_address": 5965675,
-      "function": "00405540",
-      "instruction": "push   0x5b076b"
-    },
-    {
-      "rva": 16819,
-      "original_address": 5965707,
-      "function": "004041b0",
-      "instruction": "push   0x5b078b"
-    },
-    {
-      "rva": 16858,
-      "original_address": 6218968,
-      "function": "004041b0",
-      "instruction": "push   0x5ee4d8"
-    },
-    {
-      "rva": 16879,
-      "original_address": 6219024,
-      "function": "004041b0",
-      "instruction": "mov    DWORD PTR [esi],0x5ee510"
-    },
-    {
-      "rva": 55871,
-      "original_address": 6221156,
-      "function": "0040da20",
-      "instruction": "push   0x5eed64"
-    },
-    {
-      "rva": 55876,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "push   0x65fc20"
-    },
-    {
-      "rva": 55886,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "mov    eax,0x65fc20"
-    },
-    {
-      "rva": 55921,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "mov    edi,0x65fc20"
-    },
-    {
-      "rva": 55954,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "push   0x65fc20"
-    },
-    {
-      "rva": 55969,
-      "original_address": 6217812,
-      "function": "0040da20",
-      "instruction": "call   DWORD PTR ds:0x5ee054"
-    },
-    {
-      "rva": 55978,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "mov    eax,0x65fc20"
-    },
-    {
-      "rva": 56014,
-      "original_address": 6683680,
-      "function": "0040da20",
-      "instruction": "push   0x65fc20"
     },
     {
       "rva": 799219,
@@ -11359,36 +11863,6 @@
       "original_address": 6264364,
       "function": "004aadb0",
       "instruction": "mov    DWORD PTR [esi],0x5f962c"
-    },
-    {
-      "rva": 88947,
-      "original_address": 5974067,
-      "function": "00415b70",
-      "instruction": "push   0x5b2833"
-    },
-    {
-      "rva": 88998,
-      "original_address": 6222856,
-      "function": "00415b70",
-      "instruction": "mov    DWORD PTR [esi],0x5ef408"
-    },
-    {
-      "rva": 89005,
-      "original_address": 6222848,
-      "function": "00415b70",
-      "instruction": "mov    DWORD PTR [esi+0x2c],0x5ef400"
-    },
-    {
-      "rva": 572735,
-      "original_address": 6252000,
-      "function": "0048bd30",
-      "instruction": "mov    DWORD PTR [esi],0x5f65e0"
-    },
-    {
-      "rva": 572742,
-      "original_address": 6251988,
-      "function": "0048bd30",
-      "instruction": "mov    DWORD PTR [esi+0x2c],0x5f65d4"
     },
     {
       "rva": 758432,
@@ -21859,6 +22333,924 @@
       "original_address": 5097472,
       "function": "cControl/Picture-vtable",
       "instruction": "virtual slot 71"
+    },
+    {
+      "rva": 2032320,
+      "original_address": 4329264,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 0"
+    },
+    {
+      "rva": 2032324,
+      "original_address": 5291360,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 1"
+    },
+    {
+      "rva": 2032328,
+      "original_address": 4314400,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 2"
+    },
+    {
+      "rva": 2032332,
+      "original_address": 4278496,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 3"
+    },
+    {
+      "rva": 2032336,
+      "original_address": 5060352,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 4"
+    },
+    {
+      "rva": 2032340,
+      "original_address": 5068192,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 5"
+    },
+    {
+      "rva": 2032344,
+      "original_address": 4325872,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 6"
+    },
+    {
+      "rva": 2032348,
+      "original_address": 5183392,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 7"
+    },
+    {
+      "rva": 2032352,
+      "original_address": 5183424,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 8"
+    },
+    {
+      "rva": 2032356,
+      "original_address": 5166480,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 9"
+    },
+    {
+      "rva": 2032360,
+      "original_address": 5056928,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 10"
+    },
+    {
+      "rva": 2032364,
+      "original_address": 5056944,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 11"
+    },
+    {
+      "rva": 2032368,
+      "original_address": 5056960,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 12"
+    },
+    {
+      "rva": 2032372,
+      "original_address": 5056976,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 13"
+    },
+    {
+      "rva": 2032376,
+      "original_address": 4274400,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 14"
+    },
+    {
+      "rva": 2032380,
+      "original_address": 4274976,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 15"
+    },
+    {
+      "rva": 2032384,
+      "original_address": 4274416,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 16"
+    },
+    {
+      "rva": 2032388,
+      "original_address": 4275024,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 17"
+    },
+    {
+      "rva": 2032392,
+      "original_address": 4274432,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 18"
+    },
+    {
+      "rva": 2032396,
+      "original_address": 4275072,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 19"
+    },
+    {
+      "rva": 2032400,
+      "original_address": 4274448,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 20"
+    },
+    {
+      "rva": 2032404,
+      "original_address": 4275136,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 21"
+    },
+    {
+      "rva": 2032408,
+      "original_address": 4274464,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 22"
+    },
+    {
+      "rva": 2032412,
+      "original_address": 4275184,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 23"
+    },
+    {
+      "rva": 2032416,
+      "original_address": 4274480,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 24"
+    },
+    {
+      "rva": 2032420,
+      "original_address": 4275216,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 25"
+    },
+    {
+      "rva": 2032424,
+      "original_address": 4274496,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 26"
+    },
+    {
+      "rva": 2032428,
+      "original_address": 4275248,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 27"
+    },
+    {
+      "rva": 2032432,
+      "original_address": 4274512,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 28"
+    },
+    {
+      "rva": 2032436,
+      "original_address": 4275280,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 29"
+    },
+    {
+      "rva": 2032440,
+      "original_address": 4274528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 30"
+    },
+    {
+      "rva": 2032444,
+      "original_address": 4275408,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 31"
+    },
+    {
+      "rva": 2032448,
+      "original_address": 4274544,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 32"
+    },
+    {
+      "rva": 2032452,
+      "original_address": 4275504,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 33"
+    },
+    {
+      "rva": 2032456,
+      "original_address": 4274560,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 34"
+    },
+    {
+      "rva": 2032460,
+      "original_address": 4275552,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 35"
+    },
+    {
+      "rva": 2032464,
+      "original_address": 4274576,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 36"
+    },
+    {
+      "rva": 2032468,
+      "original_address": 4275600,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 37"
+    },
+    {
+      "rva": 2032472,
+      "original_address": 4274592,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 38"
+    },
+    {
+      "rva": 2032476,
+      "original_address": 4275632,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 39"
+    },
+    {
+      "rva": 2032480,
+      "original_address": 4274608,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 40"
+    },
+    {
+      "rva": 2032484,
+      "original_address": 4275664,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 41"
+    },
+    {
+      "rva": 2032488,
+      "original_address": 4274624,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 42"
+    },
+    {
+      "rva": 2032492,
+      "original_address": 4275792,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 43"
+    },
+    {
+      "rva": 2032496,
+      "original_address": 4274640,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 44"
+    },
+    {
+      "rva": 2032500,
+      "original_address": 4275920,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 45"
+    },
+    {
+      "rva": 2032504,
+      "original_address": 4274656,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 46"
+    },
+    {
+      "rva": 2032508,
+      "original_address": 4276048,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 47"
+    },
+    {
+      "rva": 2032512,
+      "original_address": 5177616,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 48"
+    },
+    {
+      "rva": 2032516,
+      "original_address": 4274672,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 49"
+    },
+    {
+      "rva": 2032520,
+      "original_address": 4274688,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 50"
+    },
+    {
+      "rva": 2032524,
+      "original_address": 4274704,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 51"
+    },
+    {
+      "rva": 2032528,
+      "original_address": 5172144,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 52"
+    },
+    {
+      "rva": 2032532,
+      "original_address": 5181568,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 53"
+    },
+    {
+      "rva": 2032536,
+      "original_address": 4274768,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 54"
+    },
+    {
+      "rva": 2032540,
+      "original_address": 4970528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 55"
+    },
+    {
+      "rva": 2032544,
+      "original_address": 4970528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 56"
+    },
+    {
+      "rva": 2032548,
+      "original_address": 4416624,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 57"
+    },
+    {
+      "rva": 2032552,
+      "original_address": 5180272,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 58"
+    },
+    {
+      "rva": 2032556,
+      "original_address": 4274880,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 59"
+    },
+    {
+      "rva": 2032560,
+      "original_address": 4274896,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 60"
+    },
+    {
+      "rva": 2032564,
+      "original_address": 4274912,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 61"
+    },
+    {
+      "rva": 2032568,
+      "original_address": 4274928,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 62"
+    },
+    {
+      "rva": 2032572,
+      "original_address": 4274944,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 63"
+    },
+    {
+      "rva": 2032576,
+      "original_address": 4274960,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 64"
+    },
+    {
+      "rva": 2061168,
+      "original_address": 4314368,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 0"
+    },
+    {
+      "rva": 2061172,
+      "original_address": 5291360,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 1"
+    },
+    {
+      "rva": 2061176,
+      "original_address": 5187776,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 2"
+    },
+    {
+      "rva": 2061180,
+      "original_address": 4970528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 3"
+    },
+    {
+      "rva": 2061184,
+      "original_address": 5060352,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 4"
+    },
+    {
+      "rva": 2061188,
+      "original_address": 5068192,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 5"
+    },
+    {
+      "rva": 2061192,
+      "original_address": 5185776,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 6"
+    },
+    {
+      "rva": 2061196,
+      "original_address": 5183392,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 7"
+    },
+    {
+      "rva": 2061200,
+      "original_address": 5183424,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 8"
+    },
+    {
+      "rva": 2061204,
+      "original_address": 5166480,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 9"
+    },
+    {
+      "rva": 2061208,
+      "original_address": 5187440,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 10"
+    },
+    {
+      "rva": 2061212,
+      "original_address": 5188800,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 11"
+    },
+    {
+      "rva": 2061216,
+      "original_address": 5056960,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 12"
+    },
+    {
+      "rva": 2061220,
+      "original_address": 5056976,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 13"
+    },
+    {
+      "rva": 2061224,
+      "original_address": 4274400,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 14"
+    },
+    {
+      "rva": 2061228,
+      "original_address": 4274976,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 15"
+    },
+    {
+      "rva": 2061232,
+      "original_address": 4274416,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 16"
+    },
+    {
+      "rva": 2061236,
+      "original_address": 4275024,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 17"
+    },
+    {
+      "rva": 2061240,
+      "original_address": 4274432,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 18"
+    },
+    {
+      "rva": 2061244,
+      "original_address": 4275072,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 19"
+    },
+    {
+      "rva": 2061248,
+      "original_address": 4274448,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 20"
+    },
+    {
+      "rva": 2061252,
+      "original_address": 4275136,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 21"
+    },
+    {
+      "rva": 2061256,
+      "original_address": 4274464,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 22"
+    },
+    {
+      "rva": 2061260,
+      "original_address": 4275184,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 23"
+    },
+    {
+      "rva": 2061264,
+      "original_address": 4274480,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 24"
+    },
+    {
+      "rva": 2061268,
+      "original_address": 4275216,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 25"
+    },
+    {
+      "rva": 2061272,
+      "original_address": 4274496,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 26"
+    },
+    {
+      "rva": 2061276,
+      "original_address": 4275248,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 27"
+    },
+    {
+      "rva": 2061280,
+      "original_address": 4274512,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 28"
+    },
+    {
+      "rva": 2061284,
+      "original_address": 4275280,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 29"
+    },
+    {
+      "rva": 2061288,
+      "original_address": 4274528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 30"
+    },
+    {
+      "rva": 2061292,
+      "original_address": 4275408,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 31"
+    },
+    {
+      "rva": 2061296,
+      "original_address": 4274544,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 32"
+    },
+    {
+      "rva": 2061300,
+      "original_address": 4275504,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 33"
+    },
+    {
+      "rva": 2061304,
+      "original_address": 4274560,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 34"
+    },
+    {
+      "rva": 2061308,
+      "original_address": 4275552,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 35"
+    },
+    {
+      "rva": 2061312,
+      "original_address": 4274576,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 36"
+    },
+    {
+      "rva": 2061316,
+      "original_address": 4275600,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 37"
+    },
+    {
+      "rva": 2061320,
+      "original_address": 4274592,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 38"
+    },
+    {
+      "rva": 2061324,
+      "original_address": 4275632,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 39"
+    },
+    {
+      "rva": 2061328,
+      "original_address": 4274608,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 40"
+    },
+    {
+      "rva": 2061332,
+      "original_address": 4275664,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 41"
+    },
+    {
+      "rva": 2061336,
+      "original_address": 4274624,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 42"
+    },
+    {
+      "rva": 2061340,
+      "original_address": 4275792,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 43"
+    },
+    {
+      "rva": 2061344,
+      "original_address": 4274640,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 44"
+    },
+    {
+      "rva": 2061348,
+      "original_address": 4275920,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 45"
+    },
+    {
+      "rva": 2061352,
+      "original_address": 4274656,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 46"
+    },
+    {
+      "rva": 2061356,
+      "original_address": 4276048,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 47"
+    },
+    {
+      "rva": 2061360,
+      "original_address": 5177616,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 48"
+    },
+    {
+      "rva": 2061364,
+      "original_address": 4274672,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 49"
+    },
+    {
+      "rva": 2061368,
+      "original_address": 4274688,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 50"
+    },
+    {
+      "rva": 2061372,
+      "original_address": 4274704,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 51"
+    },
+    {
+      "rva": 2061376,
+      "original_address": 5172144,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 52"
+    },
+    {
+      "rva": 2061380,
+      "original_address": 5181568,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 53"
+    },
+    {
+      "rva": 2061384,
+      "original_address": 4274768,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 54"
+    },
+    {
+      "rva": 2061388,
+      "original_address": 4970528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 55"
+    },
+    {
+      "rva": 2061392,
+      "original_address": 4970528,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 56"
+    },
+    {
+      "rva": 2061396,
+      "original_address": 4416624,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 57"
+    },
+    {
+      "rva": 2061400,
+      "original_address": 5180272,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 58"
+    },
+    {
+      "rva": 2061404,
+      "original_address": 4274880,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 59"
+    },
+    {
+      "rva": 2061408,
+      "original_address": 4274896,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 60"
+    },
+    {
+      "rva": 2061412,
+      "original_address": 4274912,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 61"
+    },
+    {
+      "rva": 2061416,
+      "original_address": 4274928,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 62"
+    },
+    {
+      "rva": 2061420,
+      "original_address": 4274944,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 63"
+    },
+    {
+      "rva": 2061424,
+      "original_address": 4274960,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 64"
+    },
+    {
+      "rva": 2061428,
+      "original_address": 5189856,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 65"
+    },
+    {
+      "rva": 2061432,
+      "original_address": 5184736,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 66"
+    },
+    {
+      "rva": 2061436,
+      "original_address": 5201808,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 67"
+    },
+    {
+      "rva": 2061440,
+      "original_address": 4292624,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 68"
+    },
+    {
+      "rva": 2061444,
+      "original_address": 5292992,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 69"
+    },
+    {
+      "rva": 2061448,
+      "original_address": 4292640,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 70"
+    },
+    {
+      "rva": 2061452,
+      "original_address": 4292656,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 71"
+    },
+    {
+      "rva": 2061456,
+      "original_address": 4292672,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 72"
+    },
+    {
+      "rva": 2061460,
+      "original_address": 5214816,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 73"
+    },
+    {
+      "rva": 2061464,
+      "original_address": 4462400,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 74"
+    },
+    {
+      "rva": 2061468,
+      "original_address": 4292688,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 75"
+    },
+    {
+      "rva": 2061472,
+      "original_address": 4292704,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 76"
+    },
+    {
+      "rva": 2061476,
+      "original_address": 4292720,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 77"
+    },
+    {
+      "rva": 2061480,
+      "original_address": 4292736,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 78"
+    },
+    {
+      "rva": 2061484,
+      "original_address": 4292752,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 79"
+    },
+    {
+      "rva": 2061488,
+      "original_address": 4292768,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 80"
+    },
+    {
+      "rva": 2061492,
+      "original_address": 4292784,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 81"
+    },
+    {
+      "rva": 2061496,
+      "original_address": 4292800,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 82"
+    },
+    {
+      "rva": 2061500,
+      "original_address": 5190848,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 83"
+    },
+    {
+      "rva": 2061504,
+      "original_address": 5194224,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 84"
+    },
+    {
+      "rva": 2061508,
+      "original_address": 5195296,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 85"
+    },
+    {
+      "rva": 2061512,
+      "original_address": 5192192,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 86"
+    },
+    {
+      "rva": 2061516,
+      "original_address": 5193216,
+      "function": "cControl/Picture-vtable",
+      "instruction": "virtual slot 87"
     },
     {
       "rva": 2027968,
