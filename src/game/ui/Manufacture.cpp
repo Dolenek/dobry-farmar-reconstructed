@@ -181,6 +181,7 @@ void Manufacture::enabledStep() {
     else if(tips.canShow(33)) tips.showAction(33,destroy_);
     // Native final base step is the genuine RET 004bd820.
 }
-// Direct controller/geometry/effect comparison and cGame assembly are still
-// being prepared. Source libraries never forward these calls to the reference.
+// Constructor/factory/selection/input/placement/demolition are directly
+// compared; full tutorial/world providers and cGame assembly remain pending.
+// Source libraries never forward these calls to the reference.
 }

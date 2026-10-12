@@ -110,10 +110,12 @@ void Control::setDeep(float value) {
     deep_=value; dirty_=true;
 }
 bool Control::hitTest(const Point2& point) const noexcept {
-    return double(geometry_.x)-double(geometry_.width)*0.5<=point[0]
-        && point[0]<=double(geometry_.x)+double(geometry_.width)*0.5
-        && double(geometry_.y)-double(geometry_.height)*0.5<=point[1]
-        && point[1]<=double(geometry_.y)+double(geometry_.height)*0.5;
+    // 00413a50 keeps each half extent and bound in x87 registers. Device PC24
+    // rounds arithmetic before comparing, even at the exact rectangle edges.
+    const auto halfWidth=originalMultiply(geometry_.width,0.5);
+    if(!(originalSubtract(geometry_.x,halfWidth)<=point[0]) || !(point[0]<=originalAdd(halfWidth,geometry_.x))) return false;
+    const auto halfHeight=originalMultiply(geometry_.height,0.5);
+    return originalSubtract(geometry_.y,halfHeight)<=point[1] && point[1]<=originalAdd(halfHeight,geometry_.y);
 }
 void Control::setFrame(unsigned frameValue) {
     if(frame()==frameValue) return;

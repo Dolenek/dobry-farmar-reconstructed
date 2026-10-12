@@ -332,6 +332,13 @@ def main():
         write('analysis/manufacture-validation.json',manufacture);report['manufacture']=manufacture
         if 'analysis/manufacture-validation.json' not in report['reports']:report['reports'].append('analysis/manufacture-validation.json')
         report['build']['manufacture_complete_world_equivalence']=False
+    field_path=ROOT/'.local/field-object-validation.json'
+    if field_path.exists():
+        field=read(field_path.relative_to(ROOT));assert field['status']=='passed_for_field_object_and_extended_field_tooltip_scope'
+        for name,expected in field['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/field-object-validation.json',field);report['field-object']=field
+        if 'analysis/field-object-validation.json' not in report['reports']:report['reports'].append('analysis/field-object-validation.json')
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

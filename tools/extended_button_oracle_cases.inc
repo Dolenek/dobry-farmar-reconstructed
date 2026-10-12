@@ -1,8 +1,14 @@
 using ExtendedButtonType=std::remove_pointer_t<decltype(tag)>;
 constexpr bool hasText=std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>;
 constexpr bool hasPicture=std::is_same_v<ExtendedButtonType,ExtendedPictureButton>;
-const auto offset=[hasText,hasPicture](unsigned value) {return !hasText && !hasPicture && value>=0x27c ? value-4:value;};
+constexpr bool hasField=std::is_same_v<ExtendedButtonType,ExtendedFieldButton>;
+const auto offset=[hasText,hasPicture,hasField](unsigned value) {return !hasText && !hasPicture && !hasField && value>=0x27c ? value-4:value;};
 const auto nativeRva=[](unsigned text,unsigned animation) {
+    if constexpr(std::is_same_v<ExtendedButtonType,ExtendedFieldButton>) switch(text) {
+        case 0x28370:return 0x1be20U;case 0x284c0:return 0x182b0U;case 0x2a1b0:return 0x1c0e0U;
+        case 0x28a90:return 0x1b010U;case 0x28ff0:return 0x1b520U;case 0x293e0:return 0x19e70U;
+        case 0x28590:return 0x1ab10U;default:return text;
+    }
     if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) switch(text) {
         case 0x28370:return 0x9dc20U;case 0x284c0:return 0x9a270U;case 0x2a1b0:return 0x9ddc0U;
         case 0x28a90:return 0x9a650U;case 0x28ff0:return 0x9bcc0U;case 0x293e0:return 0x9c0b0U;
@@ -27,14 +33,15 @@ std::vector<std::pair<const char*,std::vector<const char*>>> definitions={
     {"UI/gameUI/Manufacture.xml",{"DestroyButton","BuildButton","UpgradeButton"}}
 };
 if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) {definitions={};for(const char* path:{"Manufacture/SheepFold.xml","Manufacture/HenHouse.xml","Manufacture/CowShed.xml","Manufacture/PigPen.xml","Manufacture/CheeseDairy.xml","Manufacture/Creamery.xml","Manufacture/Weavery.xml","Manufacture/Incubator.xml","Manufacture/TextileDep.xml","Manufacture/Bakery.xml","Manufacture/Mill.xml"}) definitions.push_back({path,{""}});}
+if constexpr(std::is_same_v<ExtendedButtonType,ExtendedFieldButton>) {definitions={{"extended-button-fixture.xml",{"Button","Missing"}}};for(const char* path:{"Farm/ActionAreas/Warehouse.xml","Farm/ActionAreas/WaterSource.xml","Farm/ActionAreas/DigBuilding.xml","Farm/ActionAreas/MowBuilding.xml","Farm/ActionAreas/FarmField.xml","Farm/ActionAreas/SeedPackage.xml","Farm/ActionAreas/Sprinkle.xml"}) definitions.push_back({path,{""}});}
 for(const auto& entry:definitions) {
     XmlDocument document(files,String(entry.first));
     for(const auto* name:entry.second) {
-        stage=241;trial=extendedObjects;XmlNode* definition=nullptr;if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) definition=&document;else require(document.section(String(name),definition),"Extended button definition missing");
+        stage=241;trial=extendedObjects;XmlNode* definition=nullptr;if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) definition=&document;else {if(!*name) definition=&document;else require(document.section(String(name),definition),"Extended button definition missing");}
         ViewRegistry views;ControlRegistry controls;interaction.active=nullptr;interaction.pending=0;putPointer(0x2604dc,nullptr);field<unsigned>(image,0x2604e0)=0;
         cursorPosition={790,590};field<int>(tutorial.data(),0xbfc)=-1;
         auto button=std::make_unique<ExtendedButtonType>(nullptr,manager,settings,strings,input,interaction,[&] {return field<int>(tutorial.data(),0xbfc)!=-1;},views,controls);
-        auto* original=allocate(hasText || hasPicture ? 868:864);function<void*(__thiscall*)(void*,void*)>(nativeRva(0x28370,0x23550))(original,nullptr);
+        auto* original=allocate(hasText || hasPicture || hasField ? 868:864);function<void*(__thiscall*)(void*,void*)>(nativeRva(0x28370,0x23550))(original,nullptr);
         const auto firstSound=sounds.size();
         button->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(nativeRva(0x2a1b0,0x236f0))(original,wrap(definition));
         const auto compareLine=[&](TextLine& text,void* native) {
@@ -43,6 +50,7 @@ for(const auto& entry:definitions) {
         const auto check=[&] {
             stage=242;compareControl(*button,original);if constexpr(std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>) compareLine(button->text(),field<void*>(original,0x27c));
             if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) compareControl(button->overlay(),field<void*>(original,0x27c));
+            if constexpr(std::is_same_v<ExtendedButtonType,ExtendedFieldButton>) compareFloat(button->heightOffset,field<float>(original,0x27c),"Field height offset");
             require(unsigned(button->buttonState())==field<unsigned>(original,0x238),"Extended button state differs");
             require(button->tipsDisabled==bool(field<unsigned char>(original,offset(0x280))) && button->tipsDirection==field<int>(original,offset(0x2b4)),"Extended tip direction differs");
             compareFloat(button->waitTime,field<float>(original,offset(0x2a4)),"Tip wait time");compareFloat(button->waitRemaining,field<float>(original,offset(0x2a8)),"Tip remaining time");
@@ -75,10 +83,10 @@ for(const auto& entry:definitions) {
         }
         // Exercise every screen quadrant including the exact native split.
         for(Point2 position:{Point2{400,300},Point2{401,300},Point2{400,301},Point2{401,301},Point2{-50,-10},Point2{850,650}}) {
-            stage=243;button->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&position);
+            stage=243;button->setPosition(position);function<void(__thiscall*)(void*,const Point2*)>(hasField ? 0x192a0:0xf0110)(original,&position);
             button->positionTips();call(nativeRva(0x28a90,0x227b0),original);check();
         }
-        const Point2 center{400,300};button->setPosition(center);function<void(__thiscall*)(void*,const Point2*)>(0xf0110)(original,&center);cursorPosition=center;
+        const Point2 center{400,300};button->setPosition(center);function<void(__thiscall*)(void*,const Point2*)>(hasField ? 0x192a0:0xf0110)(original,&center);cursorPosition=center;
         actualSounds.clear();expectedSounds.clear();button->enable();call(0xd3bb0,original);button->show();call(0xd37d0,original);check();
         for(action=0;action<96;++action) {
             stage=244;actualSounds.clear();expectedSounds.clear();field<int>(tutorial.data(),0xbfc)=action%8==5 ? 0:-1;
@@ -124,6 +132,25 @@ for(const auto& entry:definitions) {
             extendedPixels+=compareMenuFrame(d3d,device,window,views,controls,input,0);++extendedFrames;
         }
         menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
+        if constexpr(std::is_same_v<ExtendedButtonType,ExtendedFieldButton>) if(extendedObjects==0) {
+            // Actual FieldObject wrappers deliberately spill subtraction and
+            // addition rather than restore saved y. Include repeated clean
+            // transforms and hit tests so their rounding drift is observable.
+            const Point2 extent{160,123};button->setSize(extent);function<void(__thiscall*)(void*,const Point2*)>(0x13b80)(original,&extent);
+            std::mt19937 fieldRandom(0x4192a0);
+            for(float offsetValue:{0.f,7.f,-7.f,0.1f,-0.1f,100000.3f}) for(unsigned sample=0;sample<64;++sample) {
+                stage=247;action=sample;button->heightOffset=field<float>(original,0x27c)=offsetValue;
+                const Point2 point{float(int(fieldRandom()%20000)-10000)*0.0137f,float(int(fieldRandom()%20000)-10000)*0.0137f};
+                button->setPosition(point);function<void(__thiscall*)(void*,const Point2*)>(0x192a0)(original,&point);compareControl(*button,original);
+                for(unsigned repeat=0;repeat<4;++repeat) {
+                    const auto& sprite=button->sprite();call(0x19a90,original);require(!std::memcmp(&sprite,static_cast<unsigned char*>(original)+0x70,76),"Field offset sprite differs");compareControl(*button,original);
+                    const Point2 probe{point[0]+float(int(repeat)-2)*40,float(originalSubtract(button->geometry().y,offsetValue))+float(int(repeat)-2)*30};
+                    const bool hit=button->pointInRect(probe),nativeHit=function<bool(__thiscall*)(void*,const Point2*)>(0x17fe0)(original,&probe);
+                    if(hit!=nativeHit) std::cerr<<"Field hit source/native "<<hit<<'/'<<nativeHit<<" offset "<<std::hexfloat<<offsetValue<<" repeat "<<repeat<<" point "<<probe[0]<<','<<probe[1]<<" center "<<button->geometry().x<<','<<button->geometry().y<<std::defaultfloat<<'\n';
+                    require(hit==nativeHit,"Field offset hit test differs");compareControl(*button,original);++fieldObjectStates;
+                }
+            }
+        }
         const auto beforeDelete=textureCounts();button.reset();const auto middleDelete=textureCounts();call(nativeRva(0x284c0,0x21600),original);compareReferenceDeltas(beforeDelete,middleDelete);
         require(views.enabled().empty() && controls.visible().empty(),"Extended button destructor leaves owned controls");++extendedObjects;
         const auto soundCount=sounds.size()-firstSound;require(soundCount==0 || soundCount==16,"Extended button reload sound count differs");
