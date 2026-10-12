@@ -316,6 +316,14 @@ def main():
             assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
         write('analysis/buy-building-validation.json',building);report['buy-building']=building
         if 'analysis/buy-building-validation.json' not in report['reports']:report['reports'].append('analysis/buy-building-validation.json')
+    production_path=ROOT/'.local/production-houses-validation.json'
+    if production_path.exists():
+        production=read(production_path.relative_to(ROOT));assert production['status']=='passed_for_production_house_controller_and_observed_world_boundary_scope'
+        for name,expected in production['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/production-houses-validation.json',production);report['production-houses']=production
+        if 'analysis/production-houses-validation.json' not in report['reports']:report['reports'].append('analysis/production-houses-validation.json')
+        report['build']['production_house_complete_world_equivalence']=False
     report['build']['explicit_audit_targets']=list(dict.fromkeys(report['build']['explicit_audit_targets']))
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")

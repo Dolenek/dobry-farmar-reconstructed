@@ -1,5 +1,6 @@
 #pragma once
 #include "ButtonText.h"
+#include "PictureButton.h"
 #include "AnimableAppearance.h"
 #include <vector>
 namespace farmar::recovered {
@@ -41,4 +42,5 @@ private:
 using ExtendedTextAnimationButton=BasicExtendedTooltipButton<TextAnimationButton>;
 using ExtendedAnimationButton=BasicExtendedTooltipButton<AnimationButton>;
 using ExtendedButton=BasicExtendedTooltipButton<Button>; // 0048fa00, native 864 bytes
+using ExtendedPictureButton=BasicExtendedTooltipButton<PictureButton>; // 0049dc20, native 868 bytes, base of production houses
 }

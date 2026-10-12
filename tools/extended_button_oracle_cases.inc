@@ -1,13 +1,21 @@
 using ExtendedButtonType=std::remove_pointer_t<decltype(tag)>;
 constexpr bool hasText=std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>;
-const auto offset=[hasText](unsigned value) {return !hasText && value>=0x27c ? value-4:value;};
-const auto nativeRva=[hasText](unsigned text,unsigned animation) {return hasText ? text:animation;};
+constexpr bool hasPicture=std::is_same_v<ExtendedButtonType,ExtendedPictureButton>;
+const auto offset=[hasText,hasPicture](unsigned value) {return !hasText && !hasPicture && value>=0x27c ? value-4:value;};
+const auto nativeRva=[](unsigned text,unsigned animation) {
+    if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) switch(text) {
+        case 0x28370:return 0x9dc20U;case 0x284c0:return 0x9a270U;case 0x2a1b0:return 0x9ddc0U;
+        case 0x28a90:return 0x9a650U;case 0x28ff0:return 0x9bcc0U;case 0x293e0:return 0x9c0b0U;
+        case 0x28590:return 0x9b7c0U;default:return text;
+    }
+    return std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton> ? text:animation;
+};
 stage=240;xmlTable[34]=reinterpret_cast<void*>(&sectionCount);
-std::array<unsigned char,3072> tutorial{};field<int>(tutorial.data(),0xbfc)=-1;putPointer(0x25f73c,tutorial.data());
+std::array<unsigned char,3104> tutorial{};field<int>(tutorial.data(),0xbfc)=-1;putPointer(0x25f73c,tutorial.data());
 const auto directory=std::filesystem::path(".local")/(std::string("extended-button-")+std::to_string(GetCurrentProcessId())+"-"+std::to_string(GetTickCount64()));std::filesystem::create_directories(directory);
 std::ofstream(directory/"extended-button-fixture.xml")<<R"(<Root><Button position="401 301" Visible="1" Enable="1"><Tip Offset="17 23" WaitTime="0.125" TipsAlphaChangeTime="0.3"><Image position="3 4" size="120 140" deep="2100" PlayAnimation="1"/><UpLeftImage Picture="ui/gameUI/tips-l_l_u.jng" frames_count="3" anim_columns="2" anim_rows="2" anim_length="0.7"/><UpRightImage Picture="ui/gameUI/tips-l_r_u.jng"/><DownLeftImage Picture="ui/gameUI/tips-l_l_d.jng"/><DownRightImage Picture="ui/gameUI/tips-l_r_d.jng"/><Texts><T position="8 -9" deep="2101" Font="UI/Font/font_tips.fnt" Texture="UI/Font/font_tips.jng" Localized="0" String="Numbers 123"/></Texts><Pics><P position="-7 11" size="20 24" deep="2102" Picture="ui/gameUI/tips-l_l_u.jng"/></Pics></Tip></Button><Missing position="200 100"/></Root>)";
 files.mountCommon(String(directory.generic_string()));
-const std::pair<const char*,std::vector<const char*>> definitions[]={
+std::vector<std::pair<const char*,std::vector<const char*>>> definitions={
     {"extended-button-fixture.xml",{"Button","Missing"}},
     {"Farm/ActionAreas/DigBuilding.xml",{"UpgradeButton"}},
     {"Farm/ActionAreas/MowBuilding.xml",{"UpgradeButton"}},
@@ -18,14 +26,15 @@ const std::pair<const char*,std::vector<const char*>> definitions[]={
     {"UI/gameUI/GameMenu.xml",{"MainMenuButton","MarketButton","FarmButton","ProducingButton","JournalButton"}},
     {"UI/gameUI/Manufacture.xml",{"DestroyButton","BuildButton","UpgradeButton"}}
 };
+if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) {definitions={};for(const char* path:{"Manufacture/SheepFold.xml","Manufacture/HenHouse.xml","Manufacture/CowShed.xml","Manufacture/PigPen.xml","Manufacture/CheeseDairy.xml","Manufacture/Creamery.xml","Manufacture/Weavery.xml","Manufacture/Incubator.xml","Manufacture/TextileDep.xml","Manufacture/Bakery.xml","Manufacture/Mill.xml"}) definitions.push_back({path,{""}});}
 for(const auto& entry:definitions) {
     XmlDocument document(files,String(entry.first));
     for(const auto* name:entry.second) {
-        stage=241;trial=extendedObjects;XmlNode* definition=nullptr;require(document.section(String(name),definition),"Extended button definition missing");
+        stage=241;trial=extendedObjects;XmlNode* definition=nullptr;if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) definition=&document;else require(document.section(String(name),definition),"Extended button definition missing");
         ViewRegistry views;ControlRegistry controls;interaction.active=nullptr;interaction.pending=0;putPointer(0x2604dc,nullptr);field<unsigned>(image,0x2604e0)=0;
         cursorPosition={790,590};field<int>(tutorial.data(),0xbfc)=-1;
         auto button=std::make_unique<ExtendedButtonType>(nullptr,manager,settings,strings,input,interaction,[&] {return field<int>(tutorial.data(),0xbfc)!=-1;},views,controls);
-        auto* original=allocate(hasText ? 868:864);function<void*(__thiscall*)(void*,void*)>(nativeRva(0x28370,0x23550))(original,nullptr);
+        auto* original=allocate(hasText || hasPicture ? 868:864);function<void*(__thiscall*)(void*,void*)>(nativeRva(0x28370,0x23550))(original,nullptr);
         const auto firstSound=sounds.size();
         button->loadXML(*definition);function<void(__thiscall*)(void*,void*)>(nativeRva(0x2a1b0,0x236f0))(original,wrap(definition));
         const auto compareLine=[&](TextLine& text,void* native) {
@@ -33,6 +42,7 @@ for(const auto& entry:definitions) {
         };
         const auto check=[&] {
             stage=242;compareControl(*button,original);if constexpr(std::is_same_v<ExtendedButtonType,ExtendedTextAnimationButton>) compareLine(button->text(),field<void*>(original,0x27c));
+            if constexpr(std::is_same_v<ExtendedButtonType,ExtendedPictureButton>) compareControl(button->overlay(),field<void*>(original,0x27c));
             require(unsigned(button->buttonState())==field<unsigned>(original,0x238),"Extended button state differs");
             require(button->tipsDisabled==bool(field<unsigned char>(original,offset(0x280))) && button->tipsDirection==field<int>(original,offset(0x2b4)),"Extended tip direction differs");
             compareFloat(button->waitTime,field<float>(original,offset(0x2a4)),"Tip wait time");compareFloat(button->waitRemaining,field<float>(original,offset(0x2a8)),"Tip remaining time");

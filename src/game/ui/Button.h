@@ -36,7 +36,10 @@ public:
     Event clickEvent=nullptr,hoverEvent=nullptr,unhoverEvent=nullptr,pressEvent=nullptr,unusedEvent=nullptr;
     using MaskRow=ClickMaskColumn;
     void setMask(std::vector<MaskRow> rows) { mask_=std::move(rows); maskEnabled_=true; }
+    const std::vector<MaskRow>& clickMask() const noexcept {return mask_;}
 protected:
+    void refreshMouseInput() {mouseInput(1,0,this);} // 004f26b0 direct callback
+    void setMaskEnabled(bool value) noexcept {maskEnabled_=value;}
     ButtonState buttonState_=ButtonState::Uninitialized;
     InputBindings& input_; ButtonInteraction& interaction_;
     cResource* clickSound_=nullptr; cResource* hoverSound_=nullptr;

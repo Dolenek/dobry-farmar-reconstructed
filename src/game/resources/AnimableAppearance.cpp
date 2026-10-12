@@ -13,6 +13,10 @@ template<class T> void attribute(const XmlNode& node,const wchar_t* name,T& outp
 }
 }
 AnimableAppearance::~AnimableAppearance() { if(texture) texture->releaseReference(); }
+void AnimableAppearance::copyAppearance(const AnimableAppearance& source) {
+    if(texture!=source.texture) {if(texture) texture->releaseReference();texture=source.texture ? static_cast<cTexture*>(source.texture->addReference()):nullptr;}
+    columns=source.columns;rows=source.rows;frames=source.frames;length=source.length;loop=source.loop;
+}
 void AnimableAppearance::loadXML(const XmlNode& node,ResourceManager& resources) {
     const auto picture=toNarrow(node.attribute(WString(L"Picture")));
     if(!node.attribute(WString(L"Mesh")).empty() || !node.attribute(WString(L"Animation")).empty())

@@ -31,6 +31,14 @@ template<> BasicExtendedTooltipButton<Button>::BasicExtendedTooltipButton(View* 
     image_(new Picture(this,resources,views,controls)) {
     if(!tutorialActive_) throw std::invalid_argument("Extended button requires tutorial state");
 }
+template<> BasicExtendedTooltipButton<PictureButton>::BasicExtendedTooltipButton(View* parent,ResourceManager& resources,Settings& settings,
+    StringManager& strings,InputBindings& input,ButtonInteraction& interaction,std::function<bool()> tutorialActive,
+    ViewRegistry& views,ControlRegistry& controls)
+    :PictureButton(parent,resources,input,interaction,views,controls),
+    tutorialActive_(std::move(tutorialActive)),settings_(settings),strings_(strings),
+    image_(new Picture(this,resources,views,controls)) {
+    if(!tutorialActive_) throw std::invalid_argument("Extended button requires tutorial state");
+}
 template<class Base> void BasicExtendedTooltipButton<Base>::loadXML(const XmlNode& node) {
     Base::loadXML(node);
     XmlNode* tip=nullptr;if(node.section(String("Tip"),tip)) {
@@ -106,4 +114,5 @@ template<class Base> void BasicExtendedTooltipButton<Base>::hideTips() {this->hi
 template class BasicExtendedTooltipButton<TextAnimationButton>;
 template class BasicExtendedTooltipButton<AnimationButton>;
 template class BasicExtendedTooltipButton<Button>;
+template class BasicExtendedTooltipButton<PictureButton>;
 }

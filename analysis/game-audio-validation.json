@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T10:07:03.792187+00:00",
+  "recorded_at_utc": "2026-10-12T11:57:27.479011+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "aed7ab73df235735868fadf8f2f784b577a02045f49599522437a9a095828ac8",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38810,
-      "native_position_progress": 37520,
+      "source_position_progress": 38369,
+      "native_position_progress": 37961,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56008,
-      "native_position_progress": 37079,
+      "source_position_progress": 19880,
+      "native_position_progress": 37520,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -219,6 +219,18 @@
       "sha256": "abb8382fc1fbf9a0d986c45d1c8b9def35bb020df93905466a71505ebb4dd2a6"
     },
     {
+      "path": "src/game/engine/ProductionKinds.h",
+      "sha256": "c57bb42b773dbefbc2c26e2d30d2310d470f6c2778f4fe948ec4f5cfb08ef61b"
+    },
+    {
+      "path": "src/game/engine/ProductionLevel.cpp",
+      "sha256": "cce8e93bcb3b03980e8e5bbfade4363e610ef1e9348d0aba15da2f1e7589531b"
+    },
+    {
+      "path": "src/game/engine/ProductionLevel.h",
+      "sha256": "bc7424cc3548f7c9f068778bee3894f1f67d9159ab1eae3a8200066aa3bf004d"
+    },
+    {
       "path": "src/game/engine/Upgrade.cpp",
       "sha256": "638c2d23441525531827c7a18bbbf9af9b0f84a609de8863be6ca73f8d739374"
     },
@@ -376,11 +388,11 @@
     },
     {
       "path": "src/game/resources/AnimableAppearance.cpp",
-      "sha256": "f263377b3643a8874395e6d914ff2ee6a20466d53c52ec3bc70bc7e1c6b11b00"
+      "sha256": "0edde5107827f36bcd3953524bd076f5d0053ebe0ce607a92c0893704156fb4f"
     },
     {
       "path": "src/game/resources/AnimableAppearance.h",
-      "sha256": "75d6dcdaa3b71516600d426839886c7679b42ac7ea165b94dfa0c32656d79173"
+      "sha256": "698a3b8991a90112a7b1f8ad1ac236bb3c5d52f70beac32d44b7da745c766657"
     },
     {
       "path": "src/game/resources/Font.cpp",
@@ -472,7 +484,7 @@
     },
     {
       "path": "src/game/ui/Button.h",
-      "sha256": "7a6a69f320d1a82eb466008c18a99956d29c995da4417ad0691db4b8ebbc13f2"
+      "sha256": "00b5388f3a91c732353a3fc068d143c7e95c4d3619aa0e94ee9fe7c2fd384a9e"
     },
     {
       "path": "src/game/ui/ButtonText.cpp",
@@ -580,11 +592,11 @@
     },
     {
       "path": "src/game/ui/ExtendedTextButton.cpp",
-      "sha256": "b9a6adc8fb47ccb7089ee790d7b800c208531487905a04b054b4d4770b0fd7ab"
+      "sha256": "1a5560a66a0ffc3bc8c3b2f8f1e54181ba15aa1c1dab656ef9ce2d8a567c351c"
     },
     {
       "path": "src/game/ui/ExtendedTextButton.h",
-      "sha256": "787286e87cfcafec87eaad919d7e81c3126e9539073260b3a8dd4fb4b0c2f7ef"
+      "sha256": "ffd7217f4be94bd9b0689df67d32238184741ac67687feafb0003a74a560afdf"
     },
     {
       "path": "src/game/ui/GameMenu.cpp",
@@ -705,6 +717,30 @@
     {
       "path": "src/game/ui/PriceText.h",
       "sha256": "f86263dbb615c08667efb15d4fd94bab14ca01e176963e05c71060b39ca084c7"
+    },
+    {
+      "path": "src/game/ui/ProductionBuilding.cpp",
+      "sha256": "6c53d8bd061235de62abfd41b0df24493a61acc3b3fd1560ed29b3218d7ce75d"
+    },
+    {
+      "path": "src/game/ui/ProductionBuilding.h",
+      "sha256": "b411ca57cf657e80d854366ebd37acc6432fe6c00436bfc01c7233687f399805"
+    },
+    {
+      "path": "src/game/ui/ProductionControls.cpp",
+      "sha256": "2c1cf63fa705e53e22c8c0bd03bc50060a8682278022c2af9eaad10d0c082b13"
+    },
+    {
+      "path": "src/game/ui/ProductionControls.h",
+      "sha256": "1710f197341d0f41daafb5b11f473de5efad3f6677d08a08cd67f276d6a91060"
+    },
+    {
+      "path": "src/game/ui/ProductionPlacement.cpp",
+      "sha256": "9ea17e818cd8dd2934d704d369764a4f66238037ca30ccfed9cdda7fa79fc623"
+    },
+    {
+      "path": "src/game/ui/ProductionPlacement.h",
+      "sha256": "3e7dac769a318bc98748528f98906aa5dd0a821c7c01eae10772781295e9efc7"
     },
     {
       "path": "src/game/ui/ProfileSession.cpp",

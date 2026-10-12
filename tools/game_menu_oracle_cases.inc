@@ -1,5 +1,6 @@
+std::array<unsigned char,5> productionLevelEntry{};if(productionHouses) std::memcpy(productionLevelEntry.data(),image+0x17050,5);
 std::map<unsigned,std::array<unsigned char,5>> tutorialEntries;
-if(tutorialManagerMode || buySeedsMode || buyBuildingMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);
+if(productionHouses || tutorialManagerMode || buySeedsMode || buyBuildingMode) for(unsigned rva:{0xd0a20U,0xcdef0U,0xcf3c0U,0xd0ac0U,0xd0c30U}) std::memcpy(tutorialEntries[rva].data(),image+rva,5);
 stage=310;hudInputs={};new(image+0x260208) WString();field<unsigned>(image,0x260224)=1;new(image+0x25ff68) WString();field<unsigned>(image,0x25ff84)=1;redirect(0x1d680,reinterpret_cast<void*>(&hudLiteral));new(image+0x2601e8) String();field<unsigned char>(image,0x260204)=1;
 redirect(0x8860,reinterpret_cast<void*>(&upgradeStreamConstruct));
 redirect(0x10770,reinterpret_cast<void*>(&contractProperty));redirect(0x106a0,reinterpret_cast<void*>(&contractFloatProperty));redirect(0x105e0,reinterpret_cast<void*>(&contractBoolProperty));
@@ -27,7 +28,7 @@ putPointer(0x25f778,nativeHelp);putPointer(0x260010,nativeOverlay);putPointer(0x
 game.show();game.enable();game.absoluteEnable();call(0xd37d0,nativeGame);call(0xd3bb0,nativeGame);call(0xd3fb0,nativeGame);
 std::array<std::unique_ptr<StateView>,3> scenes;std::array<void*,3> nativeScenes{};
 const unsigned sceneGlobals[]={0x25f744,0x25f758,0x25ffc8};const char* sceneFiles[]={"UI/gameUI/Farm.xml","UI/gameUI/WareDetail.xml","UI/gameUI/Manufacture.xml"};
-for(unsigned n=0;n<3;++n) {scenes[n]=std::make_unique<StateView>(&game,manager,settings,strings,views,controls);nativeScenes[n]=allocate(100);std::memset(nativeScenes[n],0,100);function<void*(__thiscall*)(void*,void*)>(0xc48e0)(nativeScenes[n],nativeGame);putPointer(sceneGlobals[n],nativeScenes[n]);XmlDocument xml(files,String(sceneFiles[n]));scenes[n]->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0xc4a80)(nativeScenes[n],wrap(&xml));}
+for(unsigned n=0;n<3;++n) {scenes[n]=std::make_unique<StateView>(&game,manager,settings,strings,views,controls);nativeScenes[n]=allocate(productionHouses ? 256:100);std::memset(nativeScenes[n],0,100);function<void*(__thiscall*)(void*,void*)>(0xc48e0)(nativeScenes[n],nativeGame);putPointer(sceneGlobals[n],nativeScenes[n]);XmlDocument xml(files,String(sceneFiles[n]));scenes[n]->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0xc4a80)(nativeScenes[n],wrap(&xml));}
 MainMenuContext mainContext(files,manager,settings,strings,audio,music,profiles,input,interaction,[] {return tooltipDimensions;},[](bool){},&mainMenuSourceComplete,views,controls);
 GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,help,mainContext,[] {return tooltipDimensions;},[](bool){},[](const String&){},views,controls};
 HudWorld world(profile,{scenes[0].get(),scenes[1].get(),scenes[2].get()},{&overlay,&selection,&tip});
@@ -47,7 +48,11 @@ const auto check=[&] {
     mainMenuCompareView(hud->pauseMenu(),static_cast<unsigned char*>(field<void*>(original,0xa0))+4);mainMenuCompareView(game,nativeGame);
     require(profile.ints==nativeProfile.ints && profile.uints==nativeProfile.uints && profile.floats==nativeProfile.floats && profile.booleans==nativeProfile.booleans,"HUD profile state differs");
     if(hudSourceCalls!=hudNativeCalls) {std::cerr<<"HUD services checkpoint "<<hudStates<<" source/native "<<hudSourceCalls.size()<<'/'<<hudNativeCalls.size()<<'\n';for(const auto& value:hudSourceCalls) std::cerr<<"S "<<value[0]<<' '<<value[1]<<' '<<value[2]<<'\n';for(const auto& value:hudNativeCalls) std::cerr<<"N "<<value[0]<<' '<<value[1]<<' '<<value[2]<<'\n';}require(hudSourceCalls==hudNativeCalls,"HUD world services differ");hudSourceCalls.clear();hudNativeCalls.clear();++hudStates;
-};check();
+};
+if(productionHouses) {
+#include "production_house_oracle_cases.inc"
+} else {
+check();
 // Whole native absolute-step body, wealth/level trigger gates and flash state.
 std::mt19937 random(0x4c3920);
 for(trial=0;trial<128;++trial) {
@@ -144,7 +149,8 @@ if(buySeedsMode) {
 if(buyBuildingMode) {
 #include "buy_building_oracle_cases.inc"
 }
+for(auto& out:nativeOffers) {field<WString>(out.data(),0x14).~WString();field<WString>(out.data(),0x68).~WString();field<WString>(out.data(),0x84).~WString();}hudNativeEvents.clear();
+}
 stage=314;const auto before=textureCounts();delete hud;const auto middle=textureCounts();call(0xc31f0,original);compareReferenceDeltas(before,middle);require(!GameMenu::instance() && !field<void*>(image,0x25f740),"HUD destruction retains singleton");
 for(unsigned n=0;n<3;++n) {scenes[n].reset();call(0x2c7d0,nativeScenes[n]);putPointer(sceneGlobals[n],nullptr);}for(auto* native:{nativeHelp,nativeOverlay,nativeSelection,nativeTip,nativeGame}) call(0xd58a0,native);
-for(auto& out:nativeOffers) {field<WString>(out.data(),0x14).~WString();field<WString>(out.data(),0x68).~WString();field<WString>(out.data(),0x84).~WString();}hudNativeEvents.clear();
 music.clear();profiles.close();settings.set(String("game"),String("profiles"),oldProfiles);menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);loadingDocuments.clear();loadingFiles=nullptr;loadingSoundManager=nullptr;
