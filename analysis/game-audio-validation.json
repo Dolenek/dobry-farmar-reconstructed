@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T18:42:08.514216+00:00",
+  "recorded_at_utc": "2026-10-13T08:22:31.001325+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "0b75b4a86ea7afd87ab0d38943866aa3be03236acf94bab2d70483b982f5a446",
+  "oracle_sha256": "a1e318c07419b7c4a37429670c03a36a2c9c754c0cb0da8529951bcb773b7df5",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20730,
-      "native_position_progress": 37487,
+      "source_position_progress": 20762,
+      "native_position_progress": 2682,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 37487,
+      "source_position_progress": 19880,
+      "native_position_progress": 20321,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -877,6 +877,14 @@
     {
       "path": "src/game/ui/Warehouse.h",
       "sha256": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828"
+    },
+    {
+      "path": "src/game/ui/WarehouseTip.cpp",
+      "sha256": "0a8fbd03b3928e3c24bfab8cf1b241cccd367189548d0c821f9acc969a9906b1"
+    },
+    {
+      "path": "src/game/ui/WarehouseTip.h",
+      "sha256": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5"
     },
     {
       "path": "src/game/ui/YesNoDialog.cpp",

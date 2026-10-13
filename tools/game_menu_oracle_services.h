@@ -11,7 +11,7 @@ struct HudInputs {
     unsigned long long can=0,steps=0;
     std::array<bool,5> tools{};
 };
-HudInputs hudInputs;bool hudUseActualWarehouse=false;
+HudInputs hudInputs;bool hudUseActualWarehouse=false,hudUseActualWarehouseTip=false;
 std::map<int,void*> hudNativeEvents;
 void* __fastcall hudSavedEvent(void*,void*,int index) {hudNativeCalls.push_back({25,unsigned(index),0});return hudNativeEvents.at(index);}
 void* __cdecl hudLiteral(void* self,const char* text) {listKey<<text;return self;}
@@ -42,11 +42,11 @@ struct HudWorld final:GameMenuWorld,ContractTrace {
     std::array<StateView*,3> scenes;std::array<View*,3> overlays;GameMenu* menu=nullptr;TutorialManager* tutorial=nullptr;
     std::map<int,GameplayEvent*> events;
     StateView& farm() override {return *scenes[0];}StateView& wareDetails() override {return *scenes[1];}StateView& manufacture() override {return *scenes[2];}
-    View& sceneOverlay() override {return *overlays[0];}View& selectionOverlay() override {return *overlays[1];}View& warehouseTip() override {return *overlays[2];}
-    bool warehouseTipOpen() const override {return hudInputs.tip;}
-    void showWarehouseTip() override {hudInputs.tip=true;hudSourceCalls.push_back({21,1,0});}
-    void hideWarehouseTip() override {hudInputs.tip=false;hudSourceCalls.push_back({21,0,0});}
-    void resetWarehouseTip() override {hudInputs.tip=false;hudSourceCalls.push_back({22,0,0});}
+    View& sceneOverlay() override {return *overlays[0];}View& selectionOverlay() override {return *overlays[1];}View& warehouseTip() override {if(hudUseActualWarehouseTip) return *WarehouseTip::instance();return *overlays[2];}
+    bool warehouseTipOpen() const override {return hudUseActualWarehouseTip ? WarehouseTip::instance()->opened:hudInputs.tip;}
+    void showWarehouseTip() override {if(hudUseActualWarehouseTip) {WarehouseTip::instance()->open();return;}hudInputs.tip=true;hudSourceCalls.push_back({21,1,0});}
+    void hideWarehouseTip() override {if(hudUseActualWarehouseTip) {WarehouseTip::instance()->armHide();return;}hudInputs.tip=false;hudSourceCalls.push_back({21,0,0});}
+    void resetWarehouseTip() override {if(hudUseActualWarehouseTip) {WarehouseTip::instance()->close();return;}hudInputs.tip=false;hudSourceCalls.push_back({22,0,0});}
     bool inputBlocked() const override {return hudInputs.blocked;}
     int money() const override {hudSourceCalls.push_back({10,0,0});return profile.ints["Money"];}
     int warehouseValue() const override {if(hudUseActualWarehouse) return int(Warehouse::instance()->investment());hudSourceCalls.push_back({10,1,0});return hudInputs.wealth[1];}

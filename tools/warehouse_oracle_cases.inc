@@ -23,7 +23,7 @@ struct WarehouseFixture final:WarehouseWorld,ManufactureWorld {
         require(!excluded && (type==64 || type==32),"Warehouse source Farm gate differs");warehouseSourceEvents.push_back(warehouseSourceSnapshot(3,type));return warehouseCursorGates[type==32];
     }
     void refreshMarketStocks() override {warehouseSourceEvents.push_back(warehouseSourceSnapshot(1));}
-    void refreshWarehouseTip() override {warehouseSourceEvents.push_back(warehouseSourceSnapshot(2));}
+    void refreshWarehouseTip() override {if(hudUseActualWarehouseTip) {WarehouseTip::instance()->refresh();return;}warehouseSourceEvents.push_back(warehouseSourceSnapshot(2));}
     unsigned warehouseGoods(unsigned product) override {return Warehouse::instance()->goods(product);}
     unsigned warehouseFree() override {return Warehouse::instance()->freeSpace();}
     void giveWarehouse(unsigned product,unsigned count,bool a,bool b) override {Warehouse::instance()->give(product,count,a,b);}
@@ -49,6 +49,11 @@ profile.uints["ProdCount0"]=nativeProfile.uints["ProdCount0"]=1;profile.uints["P
 profile.floats["ProdPct0"]=nativeProfile.floats["ProdPct0"]=0;
 profile.floats["XProdPos0"]=nativeProfile.floats["XProdPos0"]=400;profile.floats["YProdPos0"]=nativeProfile.floats["YProdPos0"]=300;
 stage=484;auto* stockBuilding=stockScene->create(0,0);auto* nativeStockBuilding=function<void*(__thiscall*)(void*,unsigned,int)>(0x94390)(nativeStockScene,0,0);
+std::function<void()> warehouseTipCheck;std::unique_ptr<WarehouseTip> detail;void* nativeDetail=nullptr;
+WarehouseTipContext detailContext{manager,settings,strings,configuration,views,controls};
+if(warehouseTipMode) {
+#include "warehouse_tip_oracle_setup.inc"
+}
 const auto warehouseCheck=[&] {
     stage=482;mainMenuCompareView(*warehouse,nw);compareControl(*warehouse,nw);compareControl(warehouse->overlay(),field<void*>(nw,0x500));
     require(unsigned(warehouse->buttonState())==field<unsigned>(nw,0x238) && warehouse->tipsDirection==field<int>(nw,0x2b4) && warehouse->clickIndex==field<unsigned>(nw,0x4fc),"Warehouse ActionArea state differs");
@@ -72,7 +77,7 @@ const auto warehouseCheck=[&] {
     require(warehouseSourceEvents==warehouseNativeEvents,"Warehouse remaining boundary effects differ");warehouseSourceEvents.clear();warehouseNativeEvents.clear();
     require(actionAreaSourceTasks==actionAreaNativeTasks,"Warehouse Person queue observations differ");actionAreaSourceTasks.clear();actionAreaNativeTasks.clear();
     require(hudSourceCalls==hudNativeCalls,"Warehouse actual HUD queries differ");hudSourceCalls.clear();hudNativeCalls.clear();
-    require(actualSounds==expectedSounds,"Warehouse sound events differ");actualSounds.clear();expectedSounds.clear();++warehouseStates;
+    require(actualSounds==expectedSounds,"Warehouse sound events differ");actualSounds.clear();expectedSounds.clear();++warehouseStates;if(warehouseTipCheck) warehouseTipCheck();
 };warehouseCheck();++warehouseObjects;
 for(unsigned product:{0U,1U,18U,19U,20U,0xffffffffU}) {
     require(warehouse->goods(product)==function<unsigned(__thiscall*)(void*,unsigned)>(0x67fa0)(nw,product),"Warehouse goods accessor differs");warehouseCheck();
@@ -137,6 +142,9 @@ profile.ints["Money"]=nativeProfile.ints["Money"]=1000;profile.uints["UpAvail12"
     }
     menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
 }
+if(warehouseTipMode) {
+#include "warehouse_tip_oracle_cases.inc"
+}
 stage=483;const auto beforeWarehouse=textureCounts();warehouse.reset();const auto middleWarehouse=textureCounts();call(0x66020,nw);compareReferenceDeltas(beforeWarehouse,middleWarehouse);
 for(int savedLevel=0;savedLevel<4;++savedLevel) for(unsigned counts=0;counts<2;++counts) {
     stage=488;profile.ints["Upgrade32"]=nativeProfile.ints["Upgrade32"]=savedLevel;
@@ -160,5 +168,6 @@ for(const char* path:{"missing.xml","partial.xml","Farm/ActionAreas/Warehouse.xm
     XmlDocument definition(files,String(path));warehouse->loadXML(definition);function<void(__thiscall*)(void*,void*)>(0x67220)(nw,wrap(&definition));warehouseCheck();
 }
 const auto beforeReloadWarehouse=textureCounts();warehouse.reset();const auto middleReloadWarehouse=textureCounts();call(0x66020,nw);compareReferenceDeltas(beforeReloadWarehouse,middleReloadWarehouse);
+if(detail) {hudUseActualWarehouseTip=false;const auto before=textureCounts();detail.reset();const auto middle=textureCounts();call(0x65a10,nativeDetail);compareReferenceDeltas(before,middle);putPointer(0x25ffc4,nativeTip);}
 hudUseActualWarehouse=false;world.scenes[2]=priorSourceManufacture;warehouseSourceHud=nullptr;
 const auto beforeStockScene=textureCounts();stockScene.reset();const auto middleStockScene=textureCounts();call(0x96fa0,nativeStockScene);compareReferenceDeltas(beforeStockScene,middleStockScene);

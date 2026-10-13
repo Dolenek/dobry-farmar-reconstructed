@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-12T18:35:57.474945+00:00",
+  "recorded_at_utc": "2026-10-13T08:15:40.792670+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -119,6 +119,7 @@
     "src/game/ui/TutorialTips.h": "5560aac0fbdfea5698bc4a2224a35c6827a7fb986ad9db9822b3e06e1d8a63ee",
     "src/game/ui/View.h": "3ada58e8310d1c1eee8a4b377fd02f792cbf170f571f8840898747cbc45a36cc",
     "src/game/ui/Warehouse.h": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828",
+    "src/game/ui/WarehouseTip.h": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5",
     "src/game/ui/YesNoDialog.h": "7439c7fe76f162e95af29c17306b321c7e11c03e96adbe4b8d0020816f6e1f40",
     "src/game/xml/XmlDocument.h": "7fe6f74034f67a8fc4d8ba2099a81c319f7d3bc28f1a5cc705800c4db6394fb0",
     "src/game/audio/Channel.cpp": "62b126fe8d52a00263de3f23b5ffe99124374f817025e59268933756a2e64a76",
@@ -221,19 +222,20 @@
     "src/game/ui/TutorialTips.cpp": "59d2d3f161f982ad66d35706658709016e9a8f98cba55ab7b414e008bafe4529",
     "src/game/ui/View.cpp": "415c82f83420f4c60ece5b78f829a1b77cfddd592f7e964c46c86f002749f1ab",
     "src/game/ui/Warehouse.cpp": "da0e6f0e6e8b5f665cbfc4bde45cf9937cc0d27cc65d88c5949a864aaad24bea",
+    "src/game/ui/WarehouseTip.cpp": "0a8fbd03b3928e3c24bfab8cf1b241cccd367189548d0c821f9acc969a9906b1",
     "src/game/ui/YesNoDialog.cpp": "ecfa881f8b3dc27632c34553a0cbf9dc8dbad80ea2f40efe21ae05b35e8d61fa",
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "c2dece76761dded14e4fdc4a5bae24e5efe86666c6d366e09382e983fb4b121d",
+    "tools/text_buttons_reference_test.cpp": "6eef19b1b2176576eae5fec4698c625bf13efcb3d5af2af9e77f2984f63fdaf6",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "e53e7f7618fc8092503f78fa9a967c34ede8ca901d46fd6abe4ef1ef23fc6660",
+    "tools/text_buttons_oracle_fixups.inc": "46730a256e20529891c1b843f6e01b61c21f6bec530d81ce79c68e53bd530fa6",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "764c59f6d8fbd6cd3b41ebcbb5cb7c21e4213ebf36f5ab8c84de189cac1bb062"
+    "CMakeLists.txt": "d30b4ec0090ad14e72f101a40e08f8f0c93751e17067409eaca169aa7b587cdc"
   },
   "oracle_sha256": {
-    "sprite": "07a62704e18edab9b88a16ef36a1365b1d99874db7a4b2f54cfcde72f142a0a3",
-    "ui": "68b49f41fe246e49e515e28415d439bb41c8d43be572f0343517869c1a61ae5d"
+    "sprite": "99f35aa5cf6dc8c15525c8bef8376f9fa772b6cf2e04e8faa377aefbcf70f312",
+    "ui": "ac2f9246b797a1032373ae1936c7256b6ffa9e5bb4e6ea0d2ac0b27a8448190d"
   },
   "precision_contexts": [
     {
@@ -322,6 +324,10 @@
         "production_house_pixels": 0,
         "production_placement_states": 0,
         "field_object_states": 0,
+        "warehouse_tip_states": 0,
+        "warehouse_tip_frames": 0,
+        "warehouse_tip_pixels": 0,
+        "warehouse_tip_reloads": 0,
         "warehouse_states": 0,
         "warehouse_objects": 0,
         "warehouse_transfers": 0,
@@ -605,6 +611,10 @@
         "production_house_pixels": 0,
         "production_placement_states": 0,
         "field_object_states": 0,
+        "warehouse_tip_states": 0,
+        "warehouse_tip_frames": 0,
+        "warehouse_tip_pixels": 0,
+        "warehouse_tip_reloads": 0,
         "warehouse_states": 0,
         "warehouse_objects": 0,
         "warehouse_transfers": 0,

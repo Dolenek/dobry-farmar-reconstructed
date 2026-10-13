@@ -360,6 +360,14 @@ def main():
         if 'analysis/warehouse-validation.json' not in report['reports']:report['reports'].append('analysis/warehouse-validation.json')
         report['build']['warehouse_complete_world_equivalence']=False
     write('analysis/verification.json',report)
+    tip_path=ROOT/'.local/warehouse-tip-validation.json'
+    if tip_path.exists():
+        tip=read(tip_path.relative_to(ROOT));assert tip['status']=='passed_for_warehouse_tip_and_actual_stock_hud_production_chain'
+        for name,expected in tip['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/warehouse-tip-validation.json',tip);report['warehouse-tip']=tip
+        if 'analysis/warehouse-tip-validation.json' not in report['reports']:report['reports'].append('analysis/warehouse-tip-validation.json')
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

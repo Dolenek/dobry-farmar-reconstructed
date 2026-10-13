@@ -1,16 +1,16 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-12T18:42:34.195941+00:00",
+  "recorded_at_utc": "2026-10-13T08:22:56.281550+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "b8928049d39332546820761be0ea58be120a1954b7afdcf479732f526313bcaa",
+  "oracle_sha256": "c869588fa0bc57b360d72b3baa89d15847940f3c7e4b799acbf4c4f2f5a3a222",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
+      "source_position_progress": 56008,
       "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56008,
-      "native_position_progress": 55126,
+      "source_position_progress": 2682,
+      "native_position_progress": 20762,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -877,6 +877,14 @@
     {
       "path": "src/game/ui/Warehouse.h",
       "sha256": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828"
+    },
+    {
+      "path": "src/game/ui/WarehouseTip.cpp",
+      "sha256": "0a8fbd03b3928e3c24bfab8cf1b241cccd367189548d0c821f9acc969a9906b1"
+    },
+    {
+      "path": "src/game/ui/WarehouseTip.h",
+      "sha256": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5"
     },
     {
       "path": "src/game/ui/YesNoDialog.cpp",
