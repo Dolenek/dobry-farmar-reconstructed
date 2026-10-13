@@ -3,13 +3,17 @@ for(const auto& entry:marketEntries) write(entry.first,entry.second.data(),5);
 redirect(0xef00,reinterpret_cast<void*>(&marketExpense));redirect(0x10f10,reinterpret_cast<void*>(&marketSale));
 redirect(0x185a13,reinterpret_cast<void*>(&gameplayGetThreadData));
 redirect(0xb0b70,reinterpret_cast<void*>(&gameplayTimeAttribute));redirect(0xd9720,reinterpret_cast<void*>(&typed<int>));
+SalesHistory saleHistory(profile);std::function<void()> saleHistoryCheck;
+if(salesHistoryMode) {
+#include "sales_history_oracle_setup.inc"
+}
 struct MarketFixture final:MarketWorld {
-    WarehouseFixture& stock;
-    explicit MarketFixture(WarehouseFixture& s):stock(s) {}
+    WarehouseFixture& stock;SalesHistory* history;
+    explicit MarketFixture(WarehouseFixture& s,SalesHistory* h):stock(s),history(h) {}
     int money() override {return stock.money();}void setMoney(int value) override {stock.setMoney(value);}
     void productExpense(unsigned product) override {marketSourceEffects.push_back({0,product,0});}
-    void recordSale(unsigned amount,float time) override {marketSourceEffects.push_back({1,amount,floatBits(time)});}
-} marketWorld(warehouseWorld);
+    void recordSale(unsigned amount,float time) override {if(history) history->record(amount,time);else marketSourceEffects.push_back({1,amount,floatBits(time)});}
+} marketWorld(warehouseWorld,salesHistoryMode ? &saleHistory:nullptr);
 const auto savedTime=profile.floats["GameTime"];profile.floats["GameTime"]=nativeProfile.floats["GameTime"]=0;
 XmlDocument timeline(files,String("Gameplay/Gameplay.xml"));GameRandom marketRandom(0x471d40);GameplayTrace marketExecutor(profile);
 auto marketGameplay=std::make_unique<Gameplay>(timeline,profile,marketRandom,marketExecutor);
@@ -50,7 +54,7 @@ const auto marketCheck=[&] {
         for(unsigned n:{2U,6U,8U}) {auto& text=*static_cast<TextLine*>(source[n]);if(text.textDirty()) text.makeLetters();compare(text,field<void*>(native,n*4));}
         auto* histogram=field<void*>(native,44);auto** begin=field<void**>(histogram,0x234);auto** end=field<void**>(histogram,0x238);require(row.histogram->bars().size()==std::size_t(end-begin),"Market histogram count differs");
         for(unsigned bar=0;bar<row.histogram->bars().size();++bar) {auto& actual=*row.histogram->bars()[bar];compareControl(actual,begin[bar]);compareFloat(actual.maximum,field<float>(begin[bar],0x238),"Market histogram maximum");compareFloat(actual.current,field<float>(begin[bar],0x23c),"Market histogram current");}
-    }++marketStates;
+    }if(saleHistoryCheck) saleHistoryCheck();++marketStates;
 };marketCheck();
 stage=522;market->refresh();call(0x6f9e0,nativeMarket);marketCheck();
 for(unsigned product=0;product<19;++product) {
@@ -168,6 +172,9 @@ productionTutorial->tutorialEnabled=false;field<unsigned char>(nativeProductionT
     require(market->price(0)!=before,"Market real mouse click did not change price");
     interaction.playHover=savedHover;
     menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
+}
+if(salesHistoryMode) {
+#include "sales_history_oracle_cases.inc"
 }
 // Teardown is compared before any legacy Warehouse reloads resume.
 hudUseActualMarket=false;world.scenes[1]=priorMarket;

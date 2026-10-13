@@ -1,3 +1,4 @@
+std::array<unsigned char,5> saleHistoryEntry{};if(salesHistoryMode) std::memcpy(saleHistoryEntry.data(),image+0x10f10,5);
 std::map<unsigned,std::array<unsigned char,5>> marketEntries;if(marketMode) for(unsigned rva:{0x6f9e0U,0x6f370U,0x6eb70U}) std::memcpy(marketEntries[rva].data(),image+rva,5);
 std::map<unsigned,std::array<unsigned char,5>> manufactureEntries;if(manufactureMode || warehouseMode) for(unsigned rva:{0x94a20U,0x93b70U,0x957c0U,0x95bd0U,0x98400U,0x94e70U,0x98c60U}) std::memcpy(manufactureEntries[rva].data(),image+rva,5);
 std::map<unsigned,std::array<unsigned char,5>> warehouseTipEntries;if(warehouseTipMode) for(unsigned rva:{0x64b40U,0x65050U,0x65460U,0x654b0U}) std::memcpy(warehouseTipEntries[rva].data(),image+rva,5);

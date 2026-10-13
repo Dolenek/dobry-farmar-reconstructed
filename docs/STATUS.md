@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+`SalesHistory` nyní přijímá skutečné Market sales a obnovuje cGame history/awEarn: 5 738 stavů, 2 752 explicitních records a 1 400 prunes, včetně původního successor-skip, wrap32 sum a NaN/inf časů. Actual native history metody mají v tomto režimu původní těla. Celá navazující regrese má 71 úspěšných CTest kontrol (294,12 s) a oba game-audio audity. Úplný cGame, flying expense visual a sales save block stále čekají, viz [SALES_HISTORY.md](SALES_HISTORY.md).
+
 Skutečný `Market` je zapojen do Warehouse, Manufacture/SheepFold, HUD, WareDetail, Gameplay a TutorialManager. PC53/PC24: 1 584 stavů, 1 122 callback/timer actions, 168 GPU snímků / 80 640 000 shodných pixelů, šest reloadů a všechny Market tutorial větve. Zásobení/skladové odečty, skutečné prodeje, RNG, ceny, mouse click a přechody scén jsou porovnané. Celá regrese prošla 70 CTest kontrol za 300,84 s a oba game-audio audity. cGame Money úplné efekty, flying expense/history a audible sale playback jsou další práce; viz [MARKET.md](MARKET.md). Hlavní EXE a celý projekt stále nejsou dokončené.
 
 Obchodní závislosti: skutečný `Histogram` prošel 5 392 stavy, 40 XML reloady a 64 GPU snímky / 30 720 000 shodných pixelů. `Gameplay` doplňuje původní MEffPrice getter a 23 040 přesně shodných cenových forecastů z actual/controlled popularity timeline; nejde o odhad poptávky. Celá navazující regrese prošla 69 CTest kontrol za 278,89 s. Celý cMarket controller a real sales/world propojení zůstávají další prací, viz [MARKET.md](MARKET.md).
