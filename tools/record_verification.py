@@ -426,6 +426,15 @@ def main():
         write('analysis/mow-building-validation.json',mow);report['mow-building']=mow
         if 'analysis/mow-building-validation.json' not in report['reports']:report['reports'].append('analysis/mow-building-validation.json')
         write('analysis/verification.json',report)
+    for key,status in [('water-particles','passed_for_water_particles_copy_motion_and_frames'),('water-emitters','passed_for_water_emitters_creation_modes_frames_and_disposal')]:
+        effect_path=ROOT/f'.local/{key}-validation.json'
+        if effect_path.exists():
+            effect=read(effect_path.relative_to(ROOT));assert effect['status']==status
+            for name,expected in effect['source_files'].items():
+                assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+            write(f'analysis/{key}-validation.json',effect);report[key]=effect
+            if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
+    write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

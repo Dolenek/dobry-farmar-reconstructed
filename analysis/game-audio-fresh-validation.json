@@ -1,9 +1,9 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T17:54:23.173372+00:00",
+  "recorded_at_utc": "2026-10-13T22:33:46.355225+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "8fe454556519475dc99045fe0fadb49aa67ef2ab1c1bfcd9960d8e3e93835059",
+  "oracle_sha256": "325286596532e8323e7d64316235e2444a9a08a32ce8e1842070ec6a6217ef6b",
   "precision_contexts": [
     {
       "state_comparisons": 189,
@@ -11,7 +11,7 @@
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
       "source_position_progress": 37928,
-      "native_position_progress": 38369,
+      "native_position_progress": 56891,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 37928,
+      "source_position_progress": 20321,
+      "native_position_progress": 21203,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -941,6 +941,22 @@
     {
       "path": "src/game/ui/WarehouseTip.h",
       "sha256": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5"
+    },
+    {
+      "path": "src/game/ui/WaterEmitters.cpp",
+      "sha256": "e88afa7d7463543af563ea2faba195d512a8e6df7d3cede6745cce8028f4cce4"
+    },
+    {
+      "path": "src/game/ui/WaterEmitters.h",
+      "sha256": "44c030d9e9bc410d257e2538f37633cccc4abfdc071ba33c649654689c5cb139"
+    },
+    {
+      "path": "src/game/ui/WaterParticles.cpp",
+      "sha256": "f2fab28b6f7dfd8060f630feef4c10c2b3cb140ed5a0019df4f3a6726d92e565"
+    },
+    {
+      "path": "src/game/ui/WaterParticles.h",
+      "sha256": "ef248497ca31aa9d0b20d41452dce8885477164dc8a3bf3a9883155af4f3bd5f"
     },
     {
       "path": "src/game/ui/WaterSource.cpp",
