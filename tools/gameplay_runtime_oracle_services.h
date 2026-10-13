@@ -6,6 +6,7 @@ ProfileProperties* gameplayNativeProfile=nullptr;
 float* __fastcall gameplayFloatProperty(void*,void*,const String* name) {
     require(name->view()=="GameTime","Gameplay float property key differs");return &gameplayNativeProfile->floats[std::string(name->view())];
 }
+int* __fastcall gameplayIntProperty(void*,void*,const String* name) {return &gameplayNativeProfile->ints[std::string(name->view())];}
 const XmlNode* gameplayRuntimeDefinition=nullptr;unsigned gameplayXmlReleased=0;
 XmlAdapter* __fastcall gameplayRuntimeXML(void*,void*,const String* name) {
     require(name->view()=="Gameplay/Gameplay.xml" && gameplayRuntimeDefinition,"Gameplay constructor XML differs");return wrap(gameplayRuntimeDefinition);

@@ -368,6 +368,15 @@ def main():
         write('analysis/warehouse-tip-validation.json',tip);report['warehouse-tip']=tip
         if 'analysis/warehouse-tip-validation.json' not in report['reports']:report['reports'].append('analysis/warehouse-tip-validation.json')
         write('analysis/verification.json',report)
+    histogram_path=ROOT/'.local/histogram-validation.json'
+    if histogram_path.exists():
+        histogram=read(histogram_path.relative_to(ROOT));assert histogram['status']=='passed_for_histogram_values_xml_ownership_and_frames'
+        for name,expected in histogram['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/histogram-validation.json',histogram);report['histogram']=histogram
+        if 'analysis/histogram-validation.json' not in report['reports']:report['reports'].append('analysis/histogram-validation.json')
+        report['build']['market_complete_world_equivalence']=False
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

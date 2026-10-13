@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T08:22:56.281550+00:00",
+  "recorded_at_utc": "2026-10-13T09:02:30.102056+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "c869588fa0bc57b360d72b3baa89d15847940f3c7e4b799acbf4c4f2f5a3a222",
+  "oracle_sha256": "2b739593f89789559bbfb84755ee9018d60d6fd41728804e1b27e8d65baafb20",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56008,
-      "native_position_progress": 37487,
+      "source_position_progress": 20730,
+      "native_position_progress": 20321,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 2682,
-      "native_position_progress": 20762,
+      "source_position_progress": 20762,
+      "native_position_progress": 20321,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -176,11 +176,11 @@
     },
     {
       "path": "src/game/engine/Gameplay.cpp",
-      "sha256": "82c3eff2d1db4f2dead160c774d3f7c641bc599fcfb503b9a500e7ce8e722881"
+      "sha256": "747502f32eb81d8797012c984733c333b0d3075f4c172a8dcf4bd58957b307e3"
     },
     {
       "path": "src/game/engine/Gameplay.h",
-      "sha256": "741c972bf4e2356b6f5a2391ad845fa962660aa72e41bfd0a1015e6b5c3b1c58"
+      "sha256": "2fde9528dfbb00eddc3e84b107c579d3a04b7d461632e987c9ad57be45632af5"
     },
     {
       "path": "src/game/engine/GameplayEvents.cpp",
@@ -629,6 +629,14 @@
     {
       "path": "src/game/ui/GamePauseMenu.h",
       "sha256": "3b499a643a4939d05fdc9d9ccd49653c9fc5b7e6043429fdafb2939175ca28b0"
+    },
+    {
+      "path": "src/game/ui/Histogram.cpp",
+      "sha256": "584dbd5282b09fe46ed51d301915c75c9205599e83326f21ec4b8ad2a509432e"
+    },
+    {
+      "path": "src/game/ui/Histogram.h",
+      "sha256": "741fdbf541dc64778f3ea548d605d07f949ef521747719f080178d0924c9e55b"
     },
     {
       "path": "src/game/ui/InputBindings.cpp",

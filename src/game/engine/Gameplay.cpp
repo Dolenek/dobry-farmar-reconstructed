@@ -91,6 +91,34 @@ void Gameplay::applyCoefficients() {
     }
 }
 void Gameplay::restoreCoefficients(const std::vector<float>& values) {coefficients_=values;applyCoefficients();}
+std::int32_t Gameplay::effectivePrice(unsigned product) {
+    if(product>19) throw "invalid type";
+    return profile_.ints[std::string("MEffPrice")+std::to_string(product)];
+}
+std::vector<float> Gameplay::priceForecast(unsigned product,float interval,unsigned count) {
+    auto price=effectivePrice(product);if(price<0) price=0;
+    std::vector<float> values(count,0);
+    const float duration=float(originalMultiply(originalUnsigned(count),interval));
+    const float time=profile_.floats["GameTime"],end=float(originalAdd(time,duration));
+    std::int32_t next=0;
+    const auto& events=definitions_.events();
+    for(auto i=currentEvent_;i<events.size();++i) {
+        const auto& event=*events[i];const auto eventSeconds=originalUnsigned(seconds(event.time));
+        const float eventTime=float(eventSeconds);
+        if(end<=eventSeconds) break;
+        if(event.type!=GameplayEventType::Popularity) continue;
+        for(const auto& change:std::get<PopularityEvent>(event.data).values) {
+            if(change.productType!=product) continue;
+            const auto indexBits=truncate(originalDivide(originalSubtract(eventTime,time),interval));
+            std::int32_t index;std::memcpy(&index,&indexBits,4);
+            for(auto j=next;j<=index;++j) values.at(static_cast<std::size_t>(j))=float(price);
+            price=change.value;if(price<0) price=0;next=index+1;
+        }
+    }
+    for(auto i=next;i<static_cast<std::int32_t>(count);++i) values.at(static_cast<std::size_t>(i))=float(price);
+    for(auto& value:values) value=float(value>5 ? originalAdd(originalMultiply(originalSubtract(value,5.f),0.52631580829620361328f),50.f):originalMultiply(value,10.f));
+    return values;
+}
 void Gameplay::step() {
     if(definitions_.noTimedEvents) return;
     const float gameTime=profile_.floats["GameTime"];const auto& events=definitions_.events();

@@ -1,5 +1,6 @@
 stage=220;redirect(0x185a13,reinterpret_cast<void*>(&gameplayGetThreadData));
-redirect(0x106a0,reinterpret_cast<void*>(&gameplayFloatProperty));
+redirect(0x106a0,reinterpret_cast<void*>(&gameplayFloatProperty));redirect(0x10770,reinterpret_cast<void*>(&gameplayIntProperty));
+redirect(0xa670,reinterpret_cast<void*>(&gameConfigurationLevel));
 redirect(0xb0b70,reinterpret_cast<void*>(&gameplayTimeAttribute));redirect(0xd9720,reinterpret_cast<void*>(&typed<int>));
 xmlTable[34]=reinterpret_cast<void*>(&sectionCount);xmlTable[0]=reinterpret_cast<void*>(&gameplayReleaseXML);
 managerTable[6]=reinterpret_cast<void*>(&gameplayRuntimeXML);
@@ -85,6 +86,9 @@ for(trial=0;trial<14;++trial) {
         if(!copy.empty()) require(!std::memcmp(copy.data(),field<void*>(copied.data(),4),copy.size()*4),"Gameplay save coefficient copy bytes differ");
     };
     if(initialTime!=0 && trial<12) restore(std::vector<float>(count,0.375f));
+    if(trial<12) {
+#include "market_price_forecast_oracle_cases.inc"
+    }
     for(action=0;action<(trial<12 ? 420U:6U);++action) {
         stage=224;const auto time=source->definitions().noTimedEvents ? GameplayTime{}:source->definitions().events()[source->currentEventIndex()]->time;
         const float seconds=float((time.hours*60U+time.minutes)*60U+time.seconds);

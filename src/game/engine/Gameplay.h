@@ -28,6 +28,8 @@ public:
     void applyCoefficients(); // 004ae570, cumulative updates
     std::vector<float> coefficients() const {return coefficients_;} // 004b4ac0 copy
     void restoreCoefficients(const std::vector<float>&); // 004b4ad0 copy then apply
+    std::int32_t effectivePrice(unsigned product); // 004b5ea0, MEffPrice; native accepts index 19
+    std::vector<float> priceForecast(unsigned product,float interval,unsigned count); // 004b62a0
     const GameplayEventDefinitions& definitions() const noexcept {return definitions_;}
     float endSeconds() const noexcept {return endSeconds_;}
     std::size_t currentEventIndex() const noexcept {return currentEvent_;}

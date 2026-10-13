@@ -92,7 +92,7 @@ if(WIN32)
         src/game/ui/ControlAnimation.cpp src/game/ui/View.cpp src/game/ui/Control.cpp src/game/ui/TextLine.cpp src/game/ui/EditBox.cpp src/game/ui/ListBox.cpp src/game/ui/MultilineText.cpp
         src/game/ui/InputBindings.cpp src/game/ui/InputDevices.cpp src/game/ui/Button.cpp src/game/ui/ButtonText.cpp src/game/ui/ExtendedTextButton.cpp src/game/ui/MenuView.cpp src/game/ui/MainMenuContent.cpp src/game/ui/YesNoDialog.cpp
         src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/ui/Slider.cpp src/game/ui/Options.cpp src/game/graphics/ClickMask.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp src/game/ui/TooltipFrame.cpp src/game/ui/AwardEffect.cpp src/game/ui/AwardButton.cpp src/game/ui/Awards.cpp src/game/ui/AwardPanel.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/Histogram.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp src/game/ui/TooltipFrame.cpp src/game/ui/AwardEffect.cpp src/game/ui/AwardButton.cpp src/game/ui/Awards.cpp src/game/ui/AwardPanel.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/ui/MainMenu.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/resources/AnimableAppearance.cpp src/game/engine/GameConfiguration.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
@@ -237,6 +237,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_control_sprites.py" --oracle "$<TARGET_FILE:control-sprite-reference-test>")
             add_test(NAME original-progress-bar COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_progress.py" --sprite-oracle "$<TARGET_FILE:progress-sprite-reference-test>" --ui-oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-market-histogram COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_histogram.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-loading-from-log COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_loading.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-award-tooltip COMMAND "${Python3_EXECUTABLE}"

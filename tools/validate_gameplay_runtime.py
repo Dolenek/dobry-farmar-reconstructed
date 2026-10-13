@@ -23,19 +23,21 @@ def main():
         state=json.loads(result.stdout)
         for key,value in dict(states=35184,steps=5052,objects=14,events=1345353,restores=30118).items():
             assert state['gameplay_runtime_'+key]==value,(key,state['gameplay_runtime_'+key])
+        assert state['market_forecasts']==11520 and state['market_price_states']==240
         assert state['gameplay_random_states']==300000
         assert state['device_flags']==(0x22 if precision=='PC53' else 0x20)
         state['precision']=precision;contexts.append(state);unchanged()
     paths=sorted([path for path in (ROOT/'src/game').rglob('*') if path.is_file()]+[
         ROOT/'CMakeLists.txt',ROOT/'tools/text_buttons_reference_test.cpp',ROOT/'tools/text_buttons_oracle_fixups.inc',
-        ROOT/'tools/gameplay_oracle_services.h',ROOT/'tools/gameplay_runtime_oracle_cases.inc',ROOT/'tools/gameplay_runtime_oracle_services.h',Path(__file__).resolve()])
+        ROOT/'tools/market_price_forecast_oracle_cases.inc',ROOT/'tools/gameplay_oracle_services.h',ROOT/'tools/gameplay_runtime_oracle_cases.inc',ROOT/'tools/gameplay_runtime_oracle_services.h',Path(__file__).resolve()])
     report=dict(status='passed_for_gameplay_constructor_scheduling_randomization_scope',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
         reference_sha256=digest(original/'Dobrý farmář.exe'),reference_files_unchanged=len(inventory['files']),
         original_entry_point_executed=False,original_program_code_used_in_implementation=False,
         oracle_sha256=digest(oracle),source_files={path.relative_to(ROOT).as_posix():digest(path) for path in paths},precision_contexts=contexts,
-        states=70368,steps=10104,objects=28,event_states=2690706,coefficient_restores=60236,random_states=600000,
-        original_functions=['004b59c0','004b5c60','004ae570','004b4ac0','004b4ad0','004b4920','0042f030','004aeb10','00581021','00580f98'],
-        coverage=['Actual 383-event plan and controlled ten-type plan; new game and restored nonzero GameTime; singleton construction/destruction',
+        market_forecasts=23040,market_effective_prices=480,states=70368,steps=10104,objects=28,event_states=2690706,coefficient_restores=60236,random_states=600000,
+        original_functions=['004b59c0','004b5c60','004ae570','004b4ac0','004b4ad0','004b4920','0042f030','004aeb10','00581021','00580f98','004b5ea0','004b62a0'],
+        coverage=['Effective MEffPrice getter including native accepted product 19; actual and controlled future popularity events, horizon boundaries, empty/short/long forecasts, negative and large signed prices, exact float sample bytes',
+            'Actual 383-event plan and controlled ten-type plan; new game and restored nonzero GameTime; singleton construction/destruction',
             '600000 native rand result/state comparisons across three seeds; native old CRT rand instructions run with explicit thread-data storage adapter',
             'At most one dispatch per frame, contract state 3 skips execution but advances cursor, wrap to beginning and strict restored-time selection',
             'Boundary frames on both sides of every due time, NaN frame, captured GameTime when event callback changes property, repeating end time differs from final timeline time',

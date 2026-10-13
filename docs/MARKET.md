@@ -1,0 +1,23 @@
+# Obchodní scéna – postup rekonstrukce
+
+Skutečný cMarket používá singleton `0065ffc8`, constructor `00471d40`, primary vtable `005f4b80` (15 entries), `UI/gameUI/Market.xml` a 19 řádků po 48 bytech od `+68`. Každý obsahuje podklad, produktový icon, warehouse quantity, Add1/Add10/AddAll, IncPrice/TextMoney/DecPrice, attitude icon, histogram a sending quantity. Obchodní controller se stále obnovuje; hlavní herní EXE a celý projekt nejsou dokončené.
+
+Další rozebrané native vazby: cMarket size `0x528` je potvrzeno alokací v `00413210`. Row offsets: +68 Pic, +6c ProductIcon, +70 WareQtyLabel, +74 IncQtyButton, +78 Inc10QtyButton, +7c IncAllQtyButton, +80 SendingQtyLabel, +84 IncPriceButton, +88 PriceLabel, +8c DecPriceButton, +90 PriceAttitudeIcon, +94 PriceGrowHistogram. Následují 19 Point2 placements od +3f8, tři AnimableAppearance od +490, SellSound +508, IconType +50c, PriceCheckPeriod +510, PriceUpdatePeriod +514/+518, poslední price-click elapsed +51c, ChangePricePeriod +520 (ctor 0.3), increment +524 (ctor 1). Shipped XML nastaví PriceCheckPeriod=10 a PriceUpdatePeriod=1; nevymýšlí se zvláštní MaxPriceForBar vlastnost.
+
+Obnovené závislosti jsou skutečný `Histogram` a původní cenový forecast v `Gameplay`. Histogram není Picture: dědí Control, native size 576/`0x240`, Threshold `+22c`, pointer vector `+234/+238/+23c`, vtable `005f4db8` s 59 entries, MI `005f4dac` se dvěma. Constructor `0046d420` nastaví Threshold=100 a prázdný vector. Destructor `0046d4c0` uvolní vector, potom Control/View zruší vlastněné sloupce.
+
+| Adresa | Obnovené chování |
+| --- | --- |
+| `0046d560` | Smaže dosavadní sloupce, vyprázdní vector, načte Control XML, Threshold/BarCount/Step/position a povinný Bar. Vytvoří skutečné ProgressBar děti, načte jejich XML, nastaví polohu root+bar+index×step a show. Reload zachovává ostatní Control děti, případné Lid controls vlastní příslušný ProgressBar. |
+| `0046b730` | Maximum začíná nulou a vybírá pouze větší vstupní hodnoty. Každému sloupci nastaví maximum → updateLid → current (další vstup nebo nula) → updateLid. Přebytečné vstupy ovlivní maximum, ale nevytvoří další sloupce. |
+| `0046b6f0` | Nastaví maximum všech sloupců a updateLid. Threshold se nemění. |
+| `004b5ea0` | Signed profilový `MEffPrice{product}`. Původní validace přijímá i index 19; až vyšší index vyhazuje `invalid type`. Market sám pracuje s 0..18. |
+| `004b62a0` | Budoucí efektivní ceny od současného event cursoru. Negative price clamp na nulu; horizon je GameTime + count×interval. Popularity událost naplní dosavadní cenu až po truncated časový index včetně a pak změní cenu. Zbytek doplní poslední cenou. Cena ≤5 se mapuje ×10, vyšší `(price−5)×0.52631580829620361328+50`. Zachovány původní float spills a x87 arithmetic. |
+
+PC53 i device PC24 prošly. Histogram: 5 392 stavů, 8 objektů, 40 XML reloadů, 64 celých D3D8 snímků a 30 720 000 shodných RGB pixelů. Používá skutečnou Market histogram definici a texture i explicitní diagnostické definice s 0/1/3/17 sloupci a Lid. Ověřené jsou prázdné/krátké/přebytečné/záporné/nulové vstupy, samostatný maximum override, geometrie, clamp vedlejší účinky, dirty/visible flags, deletion při reloadu a reference delta destrukce. Forecast: 23 040 úplných float vectorů a 480 efektivních cen, skutečný 383-event plán i controlled popularity plán, intervaly 0.125/1/7.25/10/59.75/1000 a counts 0/1/2/3/10/11/19/37. Skutečné Gameplay constructor/restore/randomize instrukce zůstávají v porovnání; žádné forecast metody reference nejsou přesměrované na zdrojovou implementaci.
+
+Reprodukce: `python tools/validate_histogram.py` a `python tools/validate_gameplay_runtime.py`; CTest `original-market-histogram` a `original-gameplay-runtime`. Původní EXE je mapováno pouze v diagnostice, entry point se nespouští. Typed XML, CRT string/property/resource a allocator boundaries jsou explicitní test adapters. Původních 17 souborů zůstává nezměněných.
+
+Další práce: celý cMarket XML/lifecycle, availability včetně skutečného Manufacture/Warehouse, price buttons, transfers a actual sales timer/random demand, Money/awards/sound/tutorial efekty a propojení do skutečného herního frame loop. Neověřené jsou malformed/missing mandatory Bar, NaN/infinity histogram lifecycle, nulový/záporný forecast interval, neplatný/stale timeline cursor a původní allocation/exception ABI. Samotný forecast a widget nesplňují požadavek funkční obchodní scény.
+
+Navazující kompletní Win32 Release regrese: všech 69 CTest kontrol prošlo za 278,89 s. Physical game-audio se ověřuje v canonical i independent build cache; evidence hashů se zapisuje strict `tools/record_verification.py` teprve po dokončení obou auditů.
