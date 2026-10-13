@@ -1,3 +1,4 @@
+std::array<unsigned char,5> digInvestmentEntry{};if(digBuildingMode) std::memcpy(digInvestmentEntry.data(),image+0x26f50,5);
 std::array<unsigned char,5> flyingExpenseEntry{};if(flyingMarketMode) std::memcpy(flyingExpenseEntry.data(),image+0xef00,5);
 std::array<unsigned char,5> saleHistoryEntry{};if(salesHistoryMode) std::memcpy(saleHistoryEntry.data(),image+0x10f10,5);
 std::map<unsigned,std::array<unsigned char,5>> marketEntries;if(marketMode) for(unsigned rva:{0x6f9e0U,0x6f370U,0x6eb70U}) std::memcpy(marketEntries[rva].data(),image+rva,5);

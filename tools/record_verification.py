@@ -402,6 +402,13 @@ def main():
                 assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
             write(f'analysis/{key}-validation.json',effect);report[key]=effect
             if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
+    dig_path=ROOT/'.local/dig-building-validation.json'
+    if dig_path.exists():
+        dig=read(dig_path.relative_to(ROOT));assert dig['status']=='passed_for_dig_building_ui_input_tutorial_and_explicit_person_boundaries'
+        for name,expected in dig['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/dig-building-validation.json',dig);report['dig-building']=dig
+        if 'analysis/dig-building-validation.json' not in report['reports']:report['reports'].append('analysis/dig-building-validation.json')
     write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 

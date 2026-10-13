@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+`DigBuilding` nyní obnovuje kultivátor, jeho skutečné úrovně, appearance/masky, upgrady, tooltip a tutorial28. PC53/PC24: 698 stavů, 236 actions, osm XML reloadů a 104 GPU snímků / 49 920 000 shodných RGB pixelů, včetně nákupu skutečným mouse input. Celá regrese prošla 74 CTest kontrolami (314,79 s), oběma audio sestaveními a kontrolou všech 17 originálů i současných source hashů. Farm/Person animation a cGame Money mají stále výslovné diagnostické hranice; dále se obnovují WaterSource/MowBuilding a celý svět. Podrobnosti: [DIG_BUILDING.md](DIG_BUILDING.md). Hlavní herní EXE a celý projekt nejsou dokončené.
+
 `FlyingText`/`GameEffects` nyní obnovují product/money visual factories. PC53/PC24: 696 stavů a 288 GPU snímků / 138 240 000 shodných pixelů všech tří actual XML; 366 actual effects a 1 752 stavů jsou propojené s Market sales a skutečnou SalesHistory. Deferred discard, icon copy, callbacks, path/alpha curves a cleanup jsou porovnané. Connected game owner je stále hidden fixture, standalone dokládá visible rendering. Celá navazující regrese prošla 73 CTest kontrolami (301,20 s) a oběma game-audio audity. Celé cGame/world a setMoney refresh stále zbývají, viz [FLYING_TEXT.md](FLYING_TEXT.md).
 
 `SalesHistory` nyní přijímá skutečné Market sales a obnovuje cGame history/awEarn: 5 738 stavů, 2 752 explicitních records a 1 400 prunes, včetně původního successor-skip, wrap32 sum a NaN/inf časů. Actual native history metody mají v tomto režimu původní těla. Celá navazující regrese má 71 úspěšných CTest kontrol (294,12 s) a oba game-audio audity. Úplný cGame, flying expense visual a sales save block stále čekají, viz [SALES_HISTORY.md](SALES_HISTORY.md).
