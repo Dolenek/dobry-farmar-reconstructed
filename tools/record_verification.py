@@ -410,6 +410,14 @@ def main():
         write('analysis/dig-building-validation.json',dig);report['dig-building']=dig
         if 'analysis/dig-building-validation.json' not in report['reports']:report['reports'].append('analysis/dig-building-validation.json')
     write('analysis/verification.json',report)
+    water_path=ROOT/'.local/water-source-validation.json'
+    if water_path.exists():
+        water=read(water_path.relative_to(ROOT));assert water['status']=='passed_for_water_source_ui_and_explicit_person_farm_boundaries'
+        for name,expected in water['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/water-source-validation.json',water);report['water-source']=water
+        if 'analysis/water-source-validation.json' not in report['reports']:report['reports'].append('analysis/water-source-validation.json')
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

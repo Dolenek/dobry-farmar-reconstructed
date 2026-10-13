@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-13T17:16:28.610876+00:00",
+  "recorded_at_utc": "2026-10-13T17:35:34.625031+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -126,6 +126,7 @@
     "src/game/ui/View.h": "3ada58e8310d1c1eee8a4b377fd02f792cbf170f571f8840898747cbc45a36cc",
     "src/game/ui/Warehouse.h": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828",
     "src/game/ui/WarehouseTip.h": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5",
+    "src/game/ui/WaterSource.h": "d007ea5b8d220888b169fcc2cbd0f994877da0f8d1cfba925318b777f996a054",
     "src/game/ui/YesNoDialog.h": "7439c7fe76f162e95af29c17306b321c7e11c03e96adbe4b8d0020816f6e1f40",
     "src/game/xml/XmlDocument.h": "7fe6f74034f67a8fc4d8ba2099a81c319f7d3bc28f1a5cc705800c4db6394fb0",
     "src/game/audio/Channel.cpp": "62b126fe8d52a00263de3f23b5ffe99124374f817025e59268933756a2e64a76",
@@ -235,19 +236,20 @@
     "src/game/ui/View.cpp": "415c82f83420f4c60ece5b78f829a1b77cfddd592f7e964c46c86f002749f1ab",
     "src/game/ui/Warehouse.cpp": "da0e6f0e6e8b5f665cbfc4bde45cf9937cc0d27cc65d88c5949a864aaad24bea",
     "src/game/ui/WarehouseTip.cpp": "0a8fbd03b3928e3c24bfab8cf1b241cccd367189548d0c821f9acc969a9906b1",
+    "src/game/ui/WaterSource.cpp": "31e7d8e0062937d75f96af0e7f4ec7f22d8bc07015e04f099caccfbbf6bceccb",
     "src/game/ui/YesNoDialog.cpp": "ecfa881f8b3dc27632c34553a0cbf9dc8dbad80ea2f40efe21ae05b35e8d61fa",
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "02509fcd2407db913dbf5dff595dfa73d76b6faf4e1b7ef98133676b9de57ffd",
+    "tools/text_buttons_reference_test.cpp": "f856e3d98073910942c702ff6dbde5a246aaa7256849abaffb3ab8574d7ebbeb",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "02a0b93fb4fca2c4a6757e159a898b86f8a5419b57b08ba61ea9d336e0a39211",
+    "tools/text_buttons_oracle_fixups.inc": "4d1ecc83be9ab0f6741f5253f243a202aaea178a182504c6ce6ebf439a4416a8",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "84664a1b732f1c580fa7f06c4ed879c678eb27c0670126555951e86c3875da78"
+    "CMakeLists.txt": "c9e643a5b902a10fd75bc3ac5e92088b9665e070af09beaa72f4d0edf8f47201"
   },
   "oracle_sha256": {
-    "sprite": "b98bb1e2433290f745c92d4ba3392a7531a7697d459844a0d2cd32a9048b1896",
-    "ui": "2809e02809245bf6870581f7c354aefc0ec8c2aa2367cbaf10525be6aa820961"
+    "sprite": "ab315227820786020adc74f06deead178555d52c9b903dc4e7c3a0131782f7df",
+    "ui": "191ae1a643afc32120994486240cad04b6b37420bbeb1edd965a043ec88145d8"
   },
   "precision_contexts": [
     {
@@ -515,6 +517,10 @@
         "sales_history_states": 0,
         "sales_history_records": 0,
         "sales_history_prunes": 0,
+        "water_source_states": 0,
+        "water_source_actions": 0,
+        "water_source_frames": 0,
+        "water_source_pixels": 0,
         "dig_building_states": 0,
         "dig_building_actions": 0,
         "dig_building_frames": 0,
@@ -828,6 +834,10 @@
         "sales_history_states": 0,
         "sales_history_records": 0,
         "sales_history_prunes": 0,
+        "water_source_states": 0,
+        "water_source_actions": 0,
+        "water_source_frames": 0,
+        "water_source_pixels": 0,
         "dig_building_states": 0,
         "dig_building_actions": 0,
         "dig_building_frames": 0,

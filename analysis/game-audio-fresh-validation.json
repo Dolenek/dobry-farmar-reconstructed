@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T17:17:29.096916+00:00",
+  "recorded_at_utc": "2026-10-13T17:37:18.124804+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "1a00f63d1bee01e8f3a833d2296a9221ad8fa2356bd5e9019b5ca263c5bbebcc",
+  "oracle_sha256": "e51550e5d5867eb905fa983584d92cca75f3d2eca31cc5e1627f6cbf2cabcaf8",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 37928,
+      "source_position_progress": 19880,
+      "native_position_progress": 21171,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38810,
-      "native_position_progress": 38369,
+      "source_position_progress": 20762,
+      "native_position_progress": 55126,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -933,6 +933,14 @@
     {
       "path": "src/game/ui/WarehouseTip.h",
       "sha256": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5"
+    },
+    {
+      "path": "src/game/ui/WaterSource.cpp",
+      "sha256": "31e7d8e0062937d75f96af0e7f4ec7f22d8bc07015e04f099caccfbbf6bceccb"
+    },
+    {
+      "path": "src/game/ui/WaterSource.h",
+      "sha256": "d007ea5b8d220888b169fcc2cbd0f994877da0f8d1cfba925318b777f996a054"
     },
     {
       "path": "src/game/ui/YesNoDialog.cpp",
