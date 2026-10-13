@@ -1,3 +1,4 @@
+std::array<unsigned char,5> mowInvestmentEntry{};if(mowBuildingMode) std::memcpy(mowInvestmentEntry.data(),image+0x47b40,5);
 std::array<unsigned char,5> waterInvestmentEntry{};if(waterSourceMode) std::memcpy(waterInvestmentEntry.data(),image+0x69400,5);
 std::array<unsigned char,5> digInvestmentEntry{};if(digBuildingMode) std::memcpy(digInvestmentEntry.data(),image+0x26f50,5);
 std::array<unsigned char,5> flyingExpenseEntry{};if(flyingMarketMode) std::memcpy(flyingExpenseEntry.data(),image+0xef00,5);

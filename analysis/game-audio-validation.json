@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T17:37:12.231930+00:00",
+  "recorded_at_utc": "2026-10-13T17:54:17.325962+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "0362cc13e7259feff80ff70faa5decc66f7e9f6e007a6a100554360f0981af93",
+  "oracle_sha256": "78dd5ea28602db3e83cbad8dbd1b1c8bc18d41ef26479799c9068b836452524b",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 37928,
+      "source_position_progress": 19880,
+      "native_position_progress": 20289,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20730,
-      "native_position_progress": 55567,
+      "source_position_progress": 2241,
+      "native_position_progress": 3564,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -757,6 +757,14 @@
     {
       "path": "src/game/ui/MovableUnion.h",
       "sha256": "fafb6e2963f468428b1d0aa962d12e301bfd4bb0dda837b6225b5963951c5254"
+    },
+    {
+      "path": "src/game/ui/MowBuilding.cpp",
+      "sha256": "d3bbd9761bfe70c8394a670fddf8072423bafee227390bbccb44a89623576c2f"
+    },
+    {
+      "path": "src/game/ui/MowBuilding.h",
+      "sha256": "027c2204d1991ce4855c2b8928a7a3b402915cf12a6f2db43eff94bcd8aa3d4d"
     },
     {
       "path": "src/game/ui/MultilineText.cpp",

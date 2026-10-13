@@ -418,6 +418,14 @@ def main():
         write('analysis/water-source-validation.json',water);report['water-source']=water
         if 'analysis/water-source-validation.json' not in report['reports']:report['reports'].append('analysis/water-source-validation.json')
         write('analysis/verification.json',report)
+    mow_path=ROOT/'.local/mow-building-validation.json'
+    if mow_path.exists():
+        mow=read(mow_path.relative_to(ROOT));assert mow['status']=='passed_for_mow_building_held_products_ui_and_explicit_person_boundaries'
+        for name,expected in mow['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/mow-building-validation.json',mow);report['mow-building']=mow
+        if 'analysis/mow-building-validation.json' not in report['reports']:report['reports'].append('analysis/mow-building-validation.json')
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

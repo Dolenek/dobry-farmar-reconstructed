@@ -99,7 +99,7 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Gameplay.cpp src/game/engine/SalesHistory.cpp src/game/engine/GameEffects.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp src/game/ui/ContractProvide.cpp src/game/ui/GamePauseMenu.cpp src/game/ui/StateView.cpp src/game/ui/GameMenu.cpp src/game/ui/TutorialTips.cpp src/game/ui/TutorialManager.cpp src/game/ui/MovableUnion.cpp src/game/ui/BuySeeds.cpp src/game/ui/PictureButton.cpp src/game/ui/BuyBuilding.cpp src/game/ui/ProductionControls.cpp src/game/engine/ProductionLevel.cpp src/game/ui/ProductionPlacement.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/ui/ProductionBuilding.cpp src/game/ui/Manufacture.cpp src/game/ui/FieldObject.cpp src/game/ui/ActionArea.cpp src/game/ui/Warehouse.cpp src/game/ui/WarehouseTip.cpp src/game/ui/Market.cpp src/game/ui/FlyingText.cpp src/game/ui/DigBuilding.cpp src/game/ui/WaterSource.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/ui/ProductionBuilding.cpp src/game/ui/Manufacture.cpp src/game/ui/FieldObject.cpp src/game/ui/ActionArea.cpp src/game/ui/Warehouse.cpp src/game/ui/WarehouseTip.cpp src/game/ui/Market.cpp src/game/ui/FlyingText.cpp src/game/ui/DigBuilding.cpp src/game/ui/WaterSource.cpp src/game/ui/MowBuilding.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -291,6 +291,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_dig_building.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-water-source COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_water_source.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-mow-building COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_mow_building.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-market-controller COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_market.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-sales-history COMMAND "${Python3_EXECUTABLE}"

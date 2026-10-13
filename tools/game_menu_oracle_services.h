@@ -11,7 +11,7 @@ struct HudInputs {
     unsigned long long can=0,steps=0;
     std::array<bool,5> tools{};
 };
-HudInputs hudInputs;bool hudUseActualWarehouse=false,hudUseActualWarehouseTip=false,hudUseActualMarket=false,hudUseActualDig=false,hudUseActualWater=false;
+HudInputs hudInputs;bool hudUseActualWarehouse=false,hudUseActualWarehouseTip=false,hudUseActualMarket=false,hudUseActualDig=false,hudUseActualWater=false,hudUseActualMow=false;
 std::map<int,void*> hudNativeEvents;
 void* __fastcall hudSavedEvent(void*,void*,int index) {hudNativeCalls.push_back({25,unsigned(index),0});return hudNativeEvents.at(index);}
 void* __cdecl hudLiteral(void* self,const char* text) {listKey<<text;return self;}
@@ -51,7 +51,7 @@ struct HudWorld final:GameMenuWorld,ContractTrace {
     int money() const override {hudSourceCalls.push_back({10,0,0});return profile.ints["Money"];}
     int warehouseValue() const override {if(hudUseActualWarehouse) return int(Warehouse::instance()->investment());hudSourceCalls.push_back({10,1,0});return hudInputs.wealth[1];}
     int wareValue() const override {if(hudUseActualWater) return int(WaterSource::instance()->investment());hudSourceCalls.push_back({10,2,0});return hudInputs.wealth[2];}
-    int characterValue() const override {hudSourceCalls.push_back({10,3,0});return hudInputs.wealth[3];}
+    int characterValue() const override {if(hudUseActualMow) return int(MowBuilding::instance()->investment());hudSourceCalls.push_back({10,3,0});return hudInputs.wealth[3];}
     int farmValue() const override {if(hudUseActualDig) return int(DigBuilding::instance()->investment());hudSourceCalls.push_back({10,4,0});return hudInputs.wealth[4];}
     int wareLevel() const override {if(hudUseActualWarehouse) return Warehouse::instance()->level();hudSourceCalls.push_back({11,0,0});return hudInputs.level;}
     unsigned warehouseFree() const override {if(hudUseActualWarehouse) return Warehouse::instance()->freeSpace();hudSourceCalls.push_back({12,0,0});return hudInputs.free;}

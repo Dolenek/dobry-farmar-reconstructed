@@ -145,6 +145,9 @@ profile.ints["Money"]=nativeProfile.ints["Money"]=1000;profile.uints["UpAvail12"
 if(warehouseTipMode) {
 #include "warehouse_tip_oracle_cases.inc"
 }
+if(mowBuildingMode) {
+#include "mow_building_oracle_cases.inc"
+}
 if(waterSourceMode) {
 #include "water_source_oracle_cases.inc"
 }
