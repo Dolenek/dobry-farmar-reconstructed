@@ -37,6 +37,8 @@
 #include "Histogram.h"
 #include "Market.h"
 #include "SalesHistory.h"
+#include "FlyingText.h"
+#include "GameEffects.h"
 #include "TooltipFrame.h"
 #include "AwardEffect.h"
 #include "Awards.h"
@@ -100,12 +102,13 @@ std::vector<std::pair<std::string,unsigned>> actualSounds,expectedSounds;
 unsigned menuSoundRequests=0;
 std::set<void*> allocations;
 void* pauseLastNativeDialog=nullptr;void* lastNativeAwardPanel=nullptr;void* mainMenuLastNativeExit=nullptr;void* mainMenuLastNativeLoading=nullptr;
+void* lastNativeFlyingText=nullptr;std::function<void(void*)> nativeFlyingAllocation;
 ResourceManager* resources=nullptr; StringManager* localization=nullptr; bool rtl=false;
 template<class T> T& field(void* object,unsigned offset) { return *reinterpret_cast<T*>(static_cast<unsigned char*>(object)+offset); }
 template<class T> T function(unsigned rva) { return reinterpret_cast<T>(image+rva); }
 void call(unsigned rva,void* object) { function<void(__thiscall*)(void*)>(rva)(object); }
 void require(bool result,const char* message) { if(!result) { std::cerr<<message<<'\n';throw std::runtime_error(message); } }
-void* __cdecl allocate(unsigned bytes) { auto* p=::operator new(bytes); allocations.insert(p);if(bytes==592) pauseLastNativeDialog=p;if(bytes==596) lastNativeAwardPanel=p;if(bytes==100) mainMenuLastNativeExit=p;if(bytes==196) mainMenuLastNativeLoading=p; return p; }
+void* __cdecl allocate(unsigned bytes) { auto* p=::operator new(bytes); allocations.insert(p);if(bytes==760) {lastNativeFlyingText=p;if(nativeFlyingAllocation) nativeFlyingAllocation(p);}if(bytes==592) pauseLastNativeDialog=p;if(bytes==596) lastNativeAwardPanel=p;if(bytes==100) mainMenuLastNativeExit=p;if(bytes==196) mainMenuLastNativeLoading=p; return p; }
 void __cdecl release(void* p) { allocations.erase(p); if(!ui_test_heap::owns(p)) std::free(p); }
 LONG CALLBACK diagnose(EXCEPTION_POINTERS* e) {
     if(e->ExceptionRecord->ExceptionCode==EXCEPTION_ACCESS_VIOLATION) {
@@ -571,7 +574,8 @@ int wmain(int argc,wchar_t** argv) {
         const bool exitControllers=argc==4 && (std::wcscmp(argv[3],L"exit")==0 || std::wcscmp(argv[3],L"exit-device")==0);
         const bool widgets=argc==4 && (std::wcscmp(argv[3],L"widgets")==0 || std::wcscmp(argv[3],L"widgets-device")==0);
         const bool optionsControllers=argc==4 && (std::wcscmp(argv[3],L"options")==0 || std::wcscmp(argv[3],L"options-device")==0);
-        const bool salesHistoryMode=argc==4 && (std::wcscmp(argv[3],L"sales-history")==0 || std::wcscmp(argv[3],L"sales-history-device")==0);
+        const bool flyingMarketMode=argc==4 && (std::wcscmp(argv[3],L"flying-market")==0 || std::wcscmp(argv[3],L"flying-market-device")==0);
+        const bool salesHistoryMode=flyingMarketMode || argc==4 && (std::wcscmp(argv[3],L"sales-history")==0 || std::wcscmp(argv[3],L"sales-history-device")==0);
         const bool marketMode=salesHistoryMode || argc==4 && (std::wcscmp(argv[3],L"market")==0 || std::wcscmp(argv[3],L"market-device")==0);
         const bool warehouseTipMode=marketMode || argc==4 && (std::wcscmp(argv[3],L"warehouse-tip")==0 || std::wcscmp(argv[3],L"warehouse-tip-device")==0);
         const bool warehouseMode=warehouseTipMode || argc==4 && (std::wcscmp(argv[3],L"warehouse")==0 || std::wcscmp(argv[3],L"warehouse-device")==0);
@@ -608,10 +612,11 @@ int wmain(int argc,wchar_t** argv) {
         const bool awardsControllers=argc==4 && (std::wcscmp(argv[3],L"awards")==0 || std::wcscmp(argv[3],L"awards-device")==0);
         const bool effectControllers=argc==4 && (std::wcscmp(argv[3],L"effect")==0 || std::wcscmp(argv[3],L"effect-device")==0);
         const bool tooltipControllers=argc==4 && (std::wcscmp(argv[3],L"tooltip")==0 || std::wcscmp(argv[3],L"tooltip-device")==0);
+        const bool flyingTextMode=argc==4 && (std::wcscmp(argv[3],L"flying-text")==0 || std::wcscmp(argv[3],L"flying-text-device")==0);
         const bool histogramMode=argc==4 && (std::wcscmp(argv[3],L"histogram")==0 || std::wcscmp(argv[3],L"histogram-device")==0);
         const bool progressControllers=argc==4 && (std::wcscmp(argv[3],L"progress")==0 || std::wcscmp(argv[3],L"progress-device")==0);
         const bool loadingControllers=argc==4 && (std::wcscmp(argv[3],L"loading")==0 || std::wcscmp(argv[3],L"loading-device")==0);
-        const bool preserve=(salesHistoryMode && std::wcscmp(argv[3],L"sales-history")==0) || (marketMode && std::wcscmp(argv[3],L"market")==0) || (histogramMode && std::wcscmp(argv[3],L"histogram")==0) || (warehouseTipMode && std::wcscmp(argv[3],L"warehouse-tip")==0) || (warehouseMode && std::wcscmp(argv[3],L"warehouse")==0) || (actionAreaMode && std::wcscmp(argv[3],L"action-area")==0) || (extendedFieldButtons && std::wcscmp(argv[3],L"extended-field-buttons")==0) || (manufactureMode && std::wcscmp(argv[3],L"manufacture")==0) || (productionHouses && std::wcscmp(argv[3],L"production-houses")==0) || (extendedPictureButtons && std::wcscmp(argv[3],L"extended-picture-buttons")==0) || (buyBuildingMode && std::wcscmp(argv[3],L"buy-building")==0) || (buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
+        const bool preserve=(flyingMarketMode && std::wcscmp(argv[3],L"flying-market")==0) || (flyingTextMode && std::wcscmp(argv[3],L"flying-text")==0) || (salesHistoryMode && std::wcscmp(argv[3],L"sales-history")==0) || (marketMode && std::wcscmp(argv[3],L"market")==0) || (histogramMode && std::wcscmp(argv[3],L"histogram")==0) || (warehouseTipMode && std::wcscmp(argv[3],L"warehouse-tip")==0) || (warehouseMode && std::wcscmp(argv[3],L"warehouse")==0) || (actionAreaMode && std::wcscmp(argv[3],L"action-area")==0) || (extendedFieldButtons && std::wcscmp(argv[3],L"extended-field-buttons")==0) || (manufactureMode && std::wcscmp(argv[3],L"manufacture")==0) || (productionHouses && std::wcscmp(argv[3],L"production-houses")==0) || (extendedPictureButtons && std::wcscmp(argv[3],L"extended-picture-buttons")==0) || (buyBuildingMode && std::wcscmp(argv[3],L"buy-building")==0) || (buySeedsMode && std::wcscmp(argv[3],L"buy-seeds")==0) || (movableUnions && std::wcscmp(argv[3],L"movable-union")==0) || (tutorialManagerMode && std::wcscmp(argv[3],L"tutorial-manager")==0) || (tutorialTips && std::wcscmp(argv[3],L"tutorial-tips")==0) || (gameMenus && std::wcscmp(argv[3],L"game-menu")==0) || (stateViews && std::wcscmp(argv[3],L"state-view")==0) || (gamePauses && std::wcscmp(argv[3],L"game-pause")==0) || (contractProvides && std::wcscmp(argv[3],L"contract-provide")==0) || (contractDialogs && std::wcscmp(argv[3],L"contract-dialogs")==0) || (moneyTexts && std::wcscmp(argv[3],L"text-money")==0) || (priceTexts && std::wcscmp(argv[3],L"price-text")==0) || (contractStatuses && std::wcscmp(argv[3],L"contract-status")==0) || (extendedAnimationButtons && std::wcscmp(argv[3],L"extended-animation-buttons")==0) || (extendedButtons && std::wcscmp(argv[3],L"extended-buttons")==0) || (upgrades && std::wcscmp(argv[3],L"upgrades")==0) || (gameplayRuntime && std::wcscmp(argv[3],L"gameplay-runtime")==0) || (gameplayDefinitions && std::wcscmp(argv[3],L"gameplay")==0) || (gameConfigurations && std::wcscmp(argv[3],L"game-configuration")==0) || (mainMenus && std::wcscmp(argv[3],L"main-menu")==0) || (resourceLogs && std::wcscmp(argv[3],L"resource-log")==0) || (awardPanels && std::wcscmp(argv[3],L"panel")==0) || (awardsControllers && std::wcscmp(argv[3],L"awards")==0) || (effectControllers && std::wcscmp(argv[3],L"effect")==0) || (tooltipControllers && std::wcscmp(argv[3],L"tooltip")==0) || argc==3 || nativeBug || (loadingControllers && std::wcscmp(argv[3],L"loading")==0) || (progressControllers && std::wcscmp(argv[3],L"progress")==0) || (optionsControllers && std::wcscmp(argv[3],L"options")==0) || (widgets && std::wcscmp(argv[3],L"widgets")==0) || (controllers && std::wcscmp(argv[3],L"controllers")==0) || (profileControllers && std::wcscmp(argv[3],L"profiles")==0) || (creditsControllers && std::wcscmp(argv[3],L"credits")==0) || (exitControllers && std::wcscmp(argv[3],L"exit")==0);
         require(SUCCEEDED(d3d->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING|(preserve ? D3DCREATE_FPU_PRESERVE:0),&parameters,&device)),"D3D8 device failed");
         if(preserve) require(_control87(0,0)==controlBefore,"Diagnostic FPU precision changed");
         unsigned comparisons=0,directionComparisons=0,scenarios=0,decorationComparisons=0,menuContentComparisons=0,menuFrames=0,editFrames=0,editLetters=0,copies=0,copyLetters=0,listStates=0,listLetters=0,listBoxes=0,listSelections=0,listXml=0,listFaults=0,multiStates=0,multiLetters=0,multiObjects=0,menuTextBranches=0,dialogStates=0,dialogLetters=0,dialogObjects=0,dialogCallbacks=0,dialogDiscardChecks=0,dialogFrames=0;unsigned long long menuPixels=0,dialogPixels=0;
@@ -654,8 +659,10 @@ int wmain(int argc,wchar_t** argv) {
         unsigned awardsStates=0,awardsObjects=0,awardsFrames=0,awardsReloads=0,awardsDecorations=0,awardsLetters=0,awardsSoundResidues=0,awardsPanelCallbacks=0;unsigned long long awardsPixels=0;
         unsigned effectStates=0,effectObjects=0,effectFrames=0,effectSteps=0,effectReloads=0,effectSounds=0,effectSoundReloads=0;unsigned long long effectPixels=0;
         unsigned tooltipStates=0,tooltipObjects=0,tooltipFrames=0,tooltipPlacements=0,tooltipReloads=0,tooltipLetters=0;unsigned long long tooltipPixels=0;
+        unsigned flyingMarketEffects=0,flyingMarketStates=0;
         unsigned salesHistoryStates=0,salesHistoryRecords=0,salesHistoryPrunes=0;
         unsigned marketStates=0,marketActions=0,marketFrames=0;unsigned long long marketPixels=0;
+        unsigned flyingTextStates=0,flyingTextObjects=0,flyingTextFrames=0,flyingTextReloads=0,flyingTextCallbacks=0;unsigned long long flyingTextPixels=0;
         unsigned histogramStates=0,histogramObjects=0,histogramReloads=0,histogramFrames=0;unsigned long long histogramPixels=0;
         unsigned progressStates=0,progressObjects=0,progressFrames=0,progressReloads=0;unsigned long long progressPixels=0;
         unsigned optionsStates=0,optionsObjects=0,optionsLetters=0,optionsEvents=0,optionsFrames=0,optionsResets=0;unsigned long long optionsPixels=0;
@@ -664,7 +671,7 @@ int wmain(int argc,wchar_t** argv) {
             textureEnvironment().files=&files; textureEnvironment().load=[&](const void* bytes,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& dimensions) { getImageTexture(device,bytes,size,texture,dimensions); };
             fontFiles()=&files; Settings settings(files,[&](const String& name){return manager.loadSettingsXML(name);}); StringManager strings(files,settings,manager); localization=&strings;
 
-            if(!histogramMode && !controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons && !contractStatuses && !priceTexts && !contractDialogs && !contractProvides && !gamePauses && !stateViews && !gameMenus) {
+            if(!flyingTextMode && !histogramMode && !controllers && !profileControllers && !creditsControllers && !exitControllers && !widgets && !optionsControllers && !progressControllers && !loadingControllers && !tooltipControllers && !effectControllers && !awardsControllers && !awardPanels && !resourceLogs && !mainMenus && !gameConfigurations && !gameplayDefinitions && !gameplayRuntime && !upgrades && !extendedButtons && !contractStatuses && !priceTexts && !contractDialogs && !contractProvides && !gamePauses && !stateViews && !gameMenus) {
             auto menu=manager.loadSettingsXML(String("UI/MainMenu.xml"));
             auto options=manager.loadSettingsXML(String("UI/Options.xml"));
             for(const char* name:{"UI/MainMenu.xml","UI/FixedBack.xml","UI/Options.xml"}) {
@@ -1088,6 +1095,9 @@ Third</Text></Text></BackMultitext>
             if(tooltipControllers) {
 #include "tooltip_oracle_cases.inc"
             }
+            if(flyingTextMode) {
+#include "flying_text_oracle_cases.inc"
+            }
             if(histogramMode) {
 #include "histogram_oracle_cases.inc"
             }
@@ -1140,8 +1150,10 @@ Third</Text></Text></BackMultitext>
             <<",\"awards_states\":"<<awardsStates<<",\"awards_objects\":"<<awardsObjects<<",\"awards_frames\":"<<awardsFrames<<",\"awards_pixels\":"<<awardsPixels<<",\"awards_reloads\":"<<awardsReloads<<",\"awards_decorations\":"<<awardsDecorations<<",\"awards_letters\":"<<awardsLetters<<",\"awards_returns\":"<<awardsSourceReturns<<",\"awards_sound_residues\":"<<awardsSoundResidues<<",\"awards_panel_callbacks\":"<<awardsPanelCallbacks
             <<",\"effect_states\":"<<effectStates<<",\"effect_objects\":"<<effectObjects<<",\"effect_frames\":"<<effectFrames<<",\"effect_pixels\":"<<effectPixels<<",\"effect_steps\":"<<effectSteps<<",\"effect_reloads\":"<<effectReloads<<",\"effect_sounds\":"<<effectSounds<<",\"effect_sound_reloads\":"<<effectSoundReloads
             <<",\"tooltip_states\":"<<tooltipStates<<",\"tooltip_objects\":"<<tooltipObjects<<",\"tooltip_frames\":"<<tooltipFrames<<",\"tooltip_pixels\":"<<tooltipPixels<<",\"tooltip_placements\":"<<tooltipPlacements<<",\"tooltip_reloads\":"<<tooltipReloads<<",\"tooltip_letters\":"<<tooltipLetters
+            <<",\"flying_market_effects\":"<<flyingMarketEffects<<",\"flying_market_states\":"<<flyingMarketStates
             <<",\"sales_history_states\":"<<salesHistoryStates<<",\"sales_history_records\":"<<salesHistoryRecords<<",\"sales_history_prunes\":"<<salesHistoryPrunes
             <<",\"market_states\":"<<marketStates<<",\"market_actions\":"<<marketActions<<",\"market_frames\":"<<marketFrames<<",\"market_pixels\":"<<marketPixels
+            <<",\"flying_text_states\":"<<flyingTextStates<<",\"flying_text_objects\":"<<flyingTextObjects<<",\"flying_text_frames\":"<<flyingTextFrames<<",\"flying_text_pixels\":"<<flyingTextPixels<<",\"flying_text_reloads\":"<<flyingTextReloads<<",\"flying_text_callbacks\":"<<flyingTextCallbacks
             <<",\"histogram_states\":"<<histogramStates<<",\"histogram_objects\":"<<histogramObjects<<",\"histogram_reloads\":"<<histogramReloads<<",\"histogram_frames\":"<<histogramFrames<<",\"histogram_pixels\":"<<histogramPixels
             <<",\"progress_states\":"<<progressStates<<",\"progress_objects\":"<<progressObjects<<",\"progress_frames\":"<<progressFrames<<",\"progress_pixels\":"<<progressPixels<<",\"progress_reloads\":"<<progressReloads
             <<",\"options_states\":"<<optionsStates<<",\"options_objects\":"<<optionsObjects<<",\"options_letters\":"<<optionsLetters<<",\"options_events\":"<<optionsEvents<<",\"options_frames\":"<<optionsFrames<<",\"options_pixels\":"<<optionsPixels<<",\"options_resets\":"<<optionsResets

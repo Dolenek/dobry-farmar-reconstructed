@@ -394,6 +394,15 @@ def main():
         write('analysis/sales-history-validation.json',sales);report['sales-history']=sales
         if 'analysis/sales-history-validation.json' not in report['reports']:report['reports'].append('analysis/sales-history-validation.json')
         write('analysis/verification.json',report)
+    for key,status in [('flying-text','passed_for_flying_text_path_alpha_and_frames'),('flying-market','passed_for_actual_market_flying_effects_and_sale_history')]:
+        effect_path=ROOT/f'.local/{key}-validation.json'
+        if effect_path.exists():
+            effect=read(effect_path.relative_to(ROOT));assert effect['status']==status
+            for name,expected in effect['source_files'].items():
+                assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+            write(f'analysis/{key}-validation.json',effect);report[key]=effect
+            if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
+    write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

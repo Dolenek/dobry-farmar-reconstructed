@@ -1,16 +1,16 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T16:18:56.012155+00:00",
+  "recorded_at_utc": "2026-10-13T16:46:27.944051+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "19853dc23cc77b702ef9b56901c5e907e1afd3e3f6ef92e78eeaeaebd03a53e4",
+  "oracle_sha256": "5817e2fa8e1a3b4918b57abc53fbf5fc90f20a529b2b1ed78eb5aa8bb549e2c0",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38369,
+      "source_position_progress": 19880,
       "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 55567,
+      "source_position_progress": 56040,
+      "native_position_progress": 2682,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -173,6 +173,14 @@
     {
       "path": "src/game/engine/GameCursor.h",
       "sha256": "75f1513cbdd694ac0e055c3a507787d05e56c4f180c6b25336e730575359da46"
+    },
+    {
+      "path": "src/game/engine/GameEffects.cpp",
+      "sha256": "76778af23be20be5af448f63b97a18035448e1b2c684cebb3b8389bd05353b2e"
+    },
+    {
+      "path": "src/game/engine/GameEffects.h",
+      "sha256": "75060fba42d36d3ef9215449cbc974421c3bc9714784c2b3133a6b6b6b4e22e4"
     },
     {
       "path": "src/game/engine/Gameplay.cpp",
@@ -621,6 +629,14 @@
     {
       "path": "src/game/ui/FieldObject.h",
       "sha256": "171d04fd649beff8dbc3c2f1946556a091b08db73a4cea7d4b6d84d459e9e790"
+    },
+    {
+      "path": "src/game/ui/FlyingText.cpp",
+      "sha256": "0078e2e1d8b249e0a01ad386db1cb9c20369a2b7a2164a34ff2fd586d8d4c932"
+    },
+    {
+      "path": "src/game/ui/FlyingText.h",
+      "sha256": "a82c0faebe9cd1f25467446e4f646c5f35bb8d7eda860041f07577b5fb3166d7"
     },
     {
       "path": "src/game/ui/GameMenu.cpp",

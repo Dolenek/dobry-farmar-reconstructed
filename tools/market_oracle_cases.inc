@@ -7,13 +7,18 @@ SalesHistory saleHistory(profile);std::function<void()> saleHistoryCheck;
 if(salesHistoryMode) {
 #include "sales_history_oracle_setup.inc"
 }
+FlyingTextContext marketFlyingContext{manager,settings,strings,views,controls};GameEffects marketEffects(game,marketFlyingContext,configuration);
+std::function<void()> flyingMarketCheck;
+if(flyingMarketMode) {
+#include "flying_market_oracle_setup.inc"
+}
 struct MarketFixture final:MarketWorld {
-    WarehouseFixture& stock;SalesHistory* history;
-    explicit MarketFixture(WarehouseFixture& s,SalesHistory* h):stock(s),history(h) {}
+    WarehouseFixture& stock;SalesHistory* history;GameEffects* effects;
+    explicit MarketFixture(WarehouseFixture& s,SalesHistory* h,GameEffects* e):stock(s),history(h),effects(e) {}
     int money() override {return stock.money();}void setMoney(int value) override {stock.setMoney(value);}
-    void productExpense(unsigned product) override {marketSourceEffects.push_back({0,product,0});}
+    void productExpense(unsigned product) override {if(effects) marketFlyingSource.push_back(effects->productExpense(product));else marketSourceEffects.push_back({0,product,0});}
     void recordSale(unsigned amount,float time) override {if(history) history->record(amount,time);else marketSourceEffects.push_back({1,amount,floatBits(time)});}
-} marketWorld(warehouseWorld,salesHistoryMode ? &saleHistory:nullptr);
+} marketWorld(warehouseWorld,salesHistoryMode ? &saleHistory:nullptr,flyingMarketMode ? &marketEffects:nullptr);
 const auto savedTime=profile.floats["GameTime"];profile.floats["GameTime"]=nativeProfile.floats["GameTime"]=0;
 XmlDocument timeline(files,String("Gameplay/Gameplay.xml"));GameRandom marketRandom(0x471d40);GameplayTrace marketExecutor(profile);
 auto marketGameplay=std::make_unique<Gameplay>(timeline,profile,marketRandom,marketExecutor);
@@ -54,7 +59,7 @@ const auto marketCheck=[&] {
         for(unsigned n:{2U,6U,8U}) {auto& text=*static_cast<TextLine*>(source[n]);if(text.textDirty()) text.makeLetters();compare(text,field<void*>(native,n*4));}
         auto* histogram=field<void*>(native,44);auto** begin=field<void**>(histogram,0x234);auto** end=field<void**>(histogram,0x238);require(row.histogram->bars().size()==std::size_t(end-begin),"Market histogram count differs");
         for(unsigned bar=0;bar<row.histogram->bars().size();++bar) {auto& actual=*row.histogram->bars()[bar];compareControl(actual,begin[bar]);compareFloat(actual.maximum,field<float>(begin[bar],0x238),"Market histogram maximum");compareFloat(actual.current,field<float>(begin[bar],0x23c),"Market histogram current");}
-    }if(saleHistoryCheck) saleHistoryCheck();++marketStates;
+    }if(saleHistoryCheck) saleHistoryCheck();if(flyingMarketCheck) flyingMarketCheck();++marketStates;
 };marketCheck();
 stage=522;market->refresh();call(0x6f9e0,nativeMarket);marketCheck();
 for(unsigned product=0;product<19;++product) {
@@ -112,7 +117,7 @@ for(unsigned product=0;product<19;++product) {
 for(unsigned tick=0;tick<200;++tick) {
     stage=528;elapsed=tick%7==0 ? 100.f:tick%7==1 ? 0.f:.125f;market->absoluteStep();call(0x721d0,nativeMarket);++marketActions;marketCheck();
 }
-require(!marketSourceEffects.empty(),"Market did not actually sell supplied goods");
+require(flyingMarketMode ? !marketFlyingSource.empty():!marketSourceEffects.empty(),"Market did not actually sell supplied goods");
 require(profile.booleans["awHighSold"] && nativeProfile.booleans["awHighSold"],"Market high-price award was not triggered");
 {
     stage=529;menuMilliseconds=0;GameTimer marketTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor marketCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&marketCursor;
@@ -172,6 +177,9 @@ productionTutorial->tutorialEnabled=false;field<unsigned char>(nativeProductionT
     require(market->price(0)!=before,"Market real mouse click did not change price");
     interaction.playHover=savedHover;
     menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
+}
+if(flyingMarketMode) {
+#include "flying_market_oracle_cases.inc"
 }
 if(salesHistoryMode) {
 #include "sales_history_oracle_cases.inc"
