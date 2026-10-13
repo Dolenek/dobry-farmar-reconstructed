@@ -11,7 +11,7 @@ struct HudInputs {
     unsigned long long can=0,steps=0;
     std::array<bool,5> tools{};
 };
-HudInputs hudInputs;bool hudUseActualWarehouse=false,hudUseActualWarehouseTip=false;
+HudInputs hudInputs;bool hudUseActualWarehouse=false,hudUseActualWarehouseTip=false,hudUseActualMarket=false;
 std::map<int,void*> hudNativeEvents;
 void* __fastcall hudSavedEvent(void*,void*,int index) {hudNativeCalls.push_back({25,unsigned(index),0});return hudNativeEvents.at(index);}
 void* __cdecl hudLiteral(void* self,const char* text) {listKey<<text;return self;}
@@ -56,8 +56,8 @@ struct HudWorld final:GameMenuWorld,ContractTrace {
     int wareLevel() const override {if(hudUseActualWarehouse) return Warehouse::instance()->level();hudSourceCalls.push_back({11,0,0});return hudInputs.level;}
     unsigned warehouseFree() const override {if(hudUseActualWarehouse) return Warehouse::instance()->freeSpace();hudSourceCalls.push_back({12,0,0});return hudInputs.free;}
     unsigned warehouseCapacity(int level) const override {return hudUseActualWarehouse ? Warehouse::instance()->levels.at(unsigned(level)).capacity:hudInputs.capacity;}
-    unsigned manufactureProductCount(unsigned n) override {hudSourceCalls.push_back({13,n,0});return hudInputs.products.at(n);}
-    bool manufactureProductAvailable(unsigned n) override {hudSourceCalls.push_back({14,n,0});return hudInputs.available.at(n);}
+    unsigned manufactureProductCount(unsigned n) override {if(hudUseActualMarket) return Market::instance()->goods(n);hudSourceCalls.push_back({13,n,0});return hudInputs.products.at(n);}
+    bool manufactureProductAvailable(unsigned n) override {if(hudUseActualMarket) return Market::instance()->available(n);hudSourceCalls.push_back({14,n,0});return hudInputs.available.at(n);}
     bool mainCharacterPresent() const override {return hudInputs.character;}
     bool toolRunning(unsigned n) const override {return hudInputs.tools.at(n);}
     void resumeTool(unsigned n) override {hudSourceCalls.push_back({24,n,0});}

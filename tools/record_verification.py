@@ -377,6 +377,15 @@ def main():
         if 'analysis/histogram-validation.json' not in report['reports']:report['reports'].append('analysis/histogram-validation.json')
         report['build']['market_complete_world_equivalence']=False
         write('analysis/verification.json',report)
+    market_path=ROOT/'.local/market-validation.json'
+    if market_path.exists():
+        market=read(market_path.relative_to(ROOT));assert market['status']=='passed_for_market_and_actual_stock_ui_tutorial_chain'
+        for name,expected in market['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        write('analysis/market-validation.json',market);report['market']=market
+        if 'analysis/market-validation.json' not in report['reports']:report['reports'].append('analysis/market-validation.json')
+        report['build']['market_complete_world_equivalence']=False
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

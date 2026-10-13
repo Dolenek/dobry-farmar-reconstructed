@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-13T09:02:12.047469+00:00",
+  "recorded_at_utc": "2026-10-13T09:43:35.105750+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -97,6 +97,7 @@
     "src/game/ui/MainMenu.h": "bedeef7d4a7556d7af5b593536cf133013ea6beda74f5287bd7b80726cc8b496",
     "src/game/ui/MainMenuContent.h": "f448ca88aa5687bd11d51e4ea1dcc230aced7c28c3e94d85cadf1a979acd2b59",
     "src/game/ui/Manufacture.h": "019242e6107f71fd8e08ce1557122273facd9e42e5962a99f8234e797f2761ea",
+    "src/game/ui/Market.h": "71f56e31816a96b4cd94b3cda8f98afee09444a566f2849fd9a79201d6490191",
     "src/game/ui/MenuView.h": "f13b91a43d082b6659719a7a2d0ec46c9e1bf152105ba5bfe743a82e06589980",
     "src/game/ui/MovableUnion.h": "fafb6e2963f468428b1d0aa962d12e301bfd4bb0dda837b6225b5963951c5254",
     "src/game/ui/MultilineText.h": "3243def710790560855a606f40686e9c3acca4e380cb146806f4d5b67d8d2eb8",
@@ -201,6 +202,7 @@
     "src/game/ui/MainMenu.cpp": "ea8229eeee4b5963dacf46f12cf7ded8f9b09d81693b216bb3be3131a256adce",
     "src/game/ui/MainMenuContent.cpp": "70017a0ebf20a172cc61a2639a46941dd0821e41ad0bd4f9dfde61b70634a743",
     "src/game/ui/Manufacture.cpp": "c6b426fffc4f979297e43adbefa0f2f4b5c0b0879e7251634c220b68f0cca6e8",
+    "src/game/ui/Market.cpp": "2ff5e2639a67be42a20755f9e8e9b40e845ce44b8cfc25814f9f534b510e0e0e",
     "src/game/ui/MenuView.cpp": "5c0f6ff47762eb25338b77e106da73dcd04c9650d3621044cc88802e35eaf79d",
     "src/game/ui/MovableUnion.cpp": "a43595bc8de8288e23b985ce8f2b336bded56074b03275c9e60bf07b6750b70b",
     "src/game/ui/MultilineText.cpp": "7c4e5a97afebe59c8d770d668555a9f6ed7bc82fa68e68c3ef7a6cd4d50d20db",
@@ -229,15 +231,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "a816836f850905eb9a372d2b31c6086fffca67f4de44f5ef7b35455dce06480a",
+    "tools/text_buttons_reference_test.cpp": "1987e82b17f38503e0056f61beaf6af1f9009686f5e08c4a7fa39f1fb0e8d332",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "9880efe8274979bd9b5cba40a6ff6ad01cc577ab12ece225bada0d73f3f552d5",
+    "tools/text_buttons_oracle_fixups.inc": "ca20e8ff2878720b43324d2f6404d1baacaba31549e0a11428d528be37e9331b",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "d77cf89251af834e2a32a72b8834a01f28250a23d25c19ec7f3ae43edd1e13e8"
+    "CMakeLists.txt": "c8b7d35ae6a7e6aa88f00f4a18015c38214933ef49d381a67a51a4f5150cd825"
   },
   "oracle_sha256": {
-    "sprite": "d4868392ae49fe6254bfe14fcb8c375c88ed689143f5eddc7bce1af91c52055b",
-    "ui": "5d95eac3f8d8ab7a92058c72a9984f802735f365439edd2ba72b458af537f302"
+    "sprite": "db1cdd9c275d82fca59270a55bfd1705c1a0d5e43660c035c3eabc8804c8074f",
+    "ui": "20e66077c799553ca7af1cd480ee5a1d6ca1b2a3a454ed6a8b9257a77e5e45a0"
   },
   "precision_contexts": [
     {
@@ -500,6 +502,10 @@
         "tooltip_placements": 0,
         "tooltip_reloads": 0,
         "tooltip_letters": 0,
+        "market_states": 0,
+        "market_actions": 0,
+        "market_frames": 0,
+        "market_pixels": 0,
         "histogram_states": 0,
         "histogram_objects": 0,
         "histogram_reloads": 0,
@@ -794,6 +800,10 @@
         "tooltip_placements": 0,
         "tooltip_reloads": 0,
         "tooltip_letters": 0,
+        "market_states": 0,
+        "market_actions": 0,
+        "market_frames": 0,
+        "market_pixels": 0,
         "histogram_states": 0,
         "histogram_objects": 0,
         "histogram_reloads": 0,

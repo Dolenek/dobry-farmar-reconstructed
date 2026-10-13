@@ -22,7 +22,7 @@ struct WarehouseFixture final:WarehouseWorld,ManufactureWorld {
     bool cursorOverAreaType(unsigned type,const ActionArea* excluded) override {
         require(!excluded && (type==64 || type==32),"Warehouse source Farm gate differs");warehouseSourceEvents.push_back(warehouseSourceSnapshot(3,type));return warehouseCursorGates[type==32];
     }
-    void refreshMarketStocks() override {warehouseSourceEvents.push_back(warehouseSourceSnapshot(1));}
+    void refreshMarketStocks() override {if(hudUseActualMarket) {Market::instance()->refresh();return;}warehouseSourceEvents.push_back(warehouseSourceSnapshot(1));}
     void refreshWarehouseTip() override {if(hudUseActualWarehouseTip) {WarehouseTip::instance()->refresh();return;}warehouseSourceEvents.push_back(warehouseSourceSnapshot(2));}
     unsigned warehouseGoods(unsigned product) override {return Warehouse::instance()->goods(product);}
     unsigned warehouseFree() override {return Warehouse::instance()->freeSpace();}
@@ -144,6 +144,9 @@ profile.ints["Money"]=nativeProfile.ints["Money"]=1000;profile.uints["UpAvail12"
 }
 if(warehouseTipMode) {
 #include "warehouse_tip_oracle_cases.inc"
+}
+if(marketMode) {
+#include "market_oracle_cases.inc"
 }
 stage=483;const auto beforeWarehouse=textureCounts();warehouse.reset();const auto middleWarehouse=textureCounts();call(0x66020,nw);compareReferenceDeltas(beforeWarehouse,middleWarehouse);
 for(int savedLevel=0;savedLevel<4;++savedLevel) for(unsigned counts=0;counts<2;++counts) {

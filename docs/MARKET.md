@@ -1,6 +1,6 @@
 # Obchodní scéna – postup rekonstrukce
 
-Skutečný cMarket používá singleton `0065ffc8`, constructor `00471d40`, primary vtable `005f4b80` (15 entries), `UI/gameUI/Market.xml` a 19 řádků po 48 bytech od `+68`. Každý obsahuje podklad, produktový icon, warehouse quantity, Add1/Add10/AddAll, IncPrice/TextMoney/DecPrice, attitude icon, histogram a sending quantity. Obchodní controller se stále obnovuje; hlavní herní EXE a celý projekt nejsou dokončené.
+Skutečný cMarket používá singleton `0065ffc8`, constructor `00471d40`, primary vtable `005f4b80` (15 entries), `UI/gameUI/Market.xml` a 19 řádků po 48 bytech od `+68`. Každý obsahuje podklad, produktový icon, warehouse quantity, Add1/Add10/AddAll, IncPrice/TextMoney/DecPrice, attitude icon, histogram a sending quantity. Zdrojový `Market` nyní obsahuje původní XML/lifecycle, zásoby, dostupnost, ceny, forecasts, prodejní časovač, sound calls a tutorial větve. Používá skutečný Warehouse a skutečné Gameplay/Configuration/Random/TutorialManager; neobsahuje stock provider ani náhradní ekonomiku. Čtyři zbývající cGame operace jsou povinné `MarketWorld` metody bez default implementace. Hlavní herní EXE a celý projekt nejsou dokončené.
 
 Další rozebrané native vazby: cMarket size `0x528` je potvrzeno alokací v `00413210`. Row offsets: +68 Pic, +6c ProductIcon, +70 WareQtyLabel, +74 IncQtyButton, +78 Inc10QtyButton, +7c IncAllQtyButton, +80 SendingQtyLabel, +84 IncPriceButton, +88 PriceLabel, +8c DecPriceButton, +90 PriceAttitudeIcon, +94 PriceGrowHistogram. Následují 19 Point2 placements od +3f8, tři AnimableAppearance od +490, SellSound +508, IconType +50c, PriceCheckPeriod +510, PriceUpdatePeriod +514/+518, poslední price-click elapsed +51c, ChangePricePeriod +520 (ctor 0.3), increment +524 (ctor 1). Shipped XML nastaví PriceCheckPeriod=10 a PriceUpdatePeriod=1; nevymýšlí se zvláštní MaxPriceForBar vlastnost.
 
@@ -18,6 +18,30 @@ PC53 i device PC24 prošly. Histogram: 5 392 stavů, 8 objektů, 40 XML reloadů
 
 Reprodukce: `python tools/validate_histogram.py` a `python tools/validate_gameplay_runtime.py`; CTest `original-market-histogram` a `original-gameplay-runtime`. Původní EXE je mapováno pouze v diagnostice, entry point se nespouští. Typed XML, CRT string/property/resource a allocator boundaries jsou explicitní test adapters. Původních 17 souborů zůstává nezměněných.
 
-Další práce: celý cMarket XML/lifecycle, availability včetně skutečného Manufacture/Warehouse, price buttons, transfers a actual sales timer/random demand, Money/awards/sound/tutorial efekty a propojení do skutečného herního frame loop. Neověřené jsou malformed/missing mandatory Bar, NaN/infinity histogram lifecycle, nulový/záporný forecast interval, neplatný/stale timeline cursor a původní allocation/exception ABI. Samotný forecast a widget nesplňují požadavek funkční obchodní scény.
+Další práce: skutečné cGame Money efekty, FlyProductExpence a sale history/awEarn, audible sale sound a propojení do úplného herního loop/save/load. Neověřené jsou malformed/missing mandatory ProductLine/Bar, NaN/infinity lifecycle, nulový/záporný forecast interval, neplatný/stale timeline cursor a původní allocation/exception ABI. Dílčí propojení controllerů nesplňuje celý původní cíl.
 
 Navazující kompletní Win32 Release regrese: všech 69 CTest kontrol prošlo za 278,89 s. Physical game-audio se ověřuje v canonical i independent build cache; evidence hashů se zapisuje strict `tools/record_verification.py` teprve po dokončení obou auditů.
+
+
+## Skutečný Market controller a propojené ověření
+
+PC53/PC24: 1 584 Market stavů, 1 122 explicitních callback/timer actions, 168 celých GPU snímků / 80 640 000 shodných RGB pixelů, šest XML reloadů a deset actual TutorialManager branch start/finish porovnání. Skutečný mouse hover/press/release/leave přes úplný frame loop změnil cenu a zachoval shodné sound call order. Integrovaná diagnostika zahrnuje současně 2 098 Warehouse stavů, 1 024 dříve ověřených stock transferů, actual Manufacture/SheepFold, HUD a WareDetail; vlastní zásobení trhu přes skutečné Warehouse.give je další přímé propojení. Test žádné Market stock/price/sale/forecast metody reference nenahrazuje.
+
+| Adresa | Implementace |
+| --- | --- |
+| `00471d40` / `0046b630` | StateView → singleton → rows/appearances → skutečné XML. SaleSound release → appearance teardown → singleton clear → View-owned children. Row allocation/callback order zachováno. |
+| `0046bec0` | StateView, IconType a periody; `ProductPlaces` čte **pos**, nikoli position. Texts append children. ProductLine Back/ProductIcon/WareQty/quantity buttons/MarketQty/price/attitude/histogram XML a offset všech dvanácti controls. Tři attitude appearances. Reload zachovává native SellSound reference retention. |
+| `0046eb70` / `0046ef70` | uint MGoodCount/MGoodPrice, product>18 vyhodí původní literal. |
+| `004707e0` / `00470c00` | Zápis uint → refresh → MSellTime=-1. Price setter sám nemá index gate. |
+| `0046f370` | Product0 vždy; uint SeedAvail pro 1..7; jakýkoli Warehouse/Market stock; jinak všechny uint UpAvail0..10 (hodnota FFFFFFFF znamená unavailable) a původní input/output product listy. Nejde o počet současných Manufacture buildings. |
+| `0046b850` | Signed wrap32 price−MEffPrice; goodAttPriceRadius určí attitude 0/1/2. |
+| `0046f9e0` / `00470270` | Kompaktní řádky pro available goods, přesné popisky/icon type, původní show/enable pořadí a množstevní gates 0/10. Forecast count=barCount+1, average sousedních samples, applyValues a následné maximum=100. |
+| `004713c0` / `00471420` / `00471480` | MGoodCount → WGoodCount → min1/min10/all; skutečný Warehouse.take(false,false), potom Market.setGoods. |
+| `004714e0` / `00471910` | Shared priceClickElapsed/ChangePricePeriod; rychlé clicks inkrementují increment, pomalejší resetují na 1. Signed decrease clamp 1; unsigned increase clamp 99. |
+| `004721d0` | StateView step, druhý float elapsed query, 19 sale timers. Původní interval a random threshold, nejvýše jeden prodej každého produktu za krok. Market count−1, **integer** price přičtený k Money (dekompilovaný float je chybný; ASM používá EBX), product expense, signed price≥80 awHighSold, sound, MSellTime=-1, cGame recordSale(uint price,float GameTime). Update forecast period a price-click elapsed. |
+| `00471d30` / `0046eaa0` | onShown refresh → View.onShown; incoming state zvyšuje signed wrap32 marketIt. |
+| `0046e760` | Market visits 1/2/3 a actual tutorial 8/9/45/11/12, původní guards a anchors. Tip12 nastaví maximum100 a potom ukázkové hodnoty 100/50/200/25/50/75/100/150/100/10. |
+
+Ověřené jsou 64 availability patterns na přesnost, all nineteen callbacks/products, accelerated price changes, 200 sale steps na přesnost a high-price award, small/large icons, 56 moving frames a enterState, actual/partial XML reloads i reference deltas. Prodejní průběh používá actual Gameplay initialization a stejné sdílené rand states; Money, profile stores, timer a přesné cGame service arguments souhlasí. Flight expense creation a sale history internals jsou explicitní diagnostické hranice; jejich skutečné efekty zůstávají další rekonstrukcí. SoundManager backend této UI diagnostiky je disabled, physical audible playback není tímto tvrzený.
+
+Diagnostický monotonic heap má 768 MiB: původních 512 MiB se při moving-frame rozšíření vyčerpalo. Paměť se stále nerecykluje, aby se zachovalo původní pořadí equal-depth controls podle allocation ranks; herní allocator tím implementován ani měněn není. Reprodukce `python tools/validate_market.py`, CTest `original-market-controller`, metadata `analysis/market-validation.json`. Navazující kompletní Win32 Release regrese prošla všech 70 CTest kontrol za 300,84 s; oba physical game-audio build audity prošly po 378 stavech / 36 playback / 16 pause kontrolách. Strict record_verification kontroluje všechny současné source hashe a 17 nezměněných originálů před commitem.

@@ -18,6 +18,8 @@
 
 ## Prostředí
 
+Skutečný `Market` je zapojen do Warehouse, Manufacture/SheepFold, HUD, WareDetail, Gameplay a TutorialManager. PC53/PC24: 1 584 stavů, 1 122 callback/timer actions, 168 GPU snímků / 80 640 000 shodných pixelů, šest reloadů a všechny Market tutorial větve. Zásobení/skladové odečty, skutečné prodeje, RNG, ceny, mouse click a přechody scén jsou porovnané. Celá regrese prošla 70 CTest kontrol za 300,84 s a oba game-audio audity. cGame Money úplné efekty, flying expense/history a audible sale playback jsou další práce; viz [MARKET.md](MARKET.md). Hlavní EXE a celý projekt stále nejsou dokončené.
+
 Obchodní závislosti: skutečný `Histogram` prošel 5 392 stavy, 40 XML reloady a 64 GPU snímky / 30 720 000 shodných pixelů. `Gameplay` doplňuje původní MEffPrice getter a 23 040 přesně shodných cenových forecastů z actual/controlled popularity timeline; nejde o odhad poptávky. Celá navazující regrese prošla 69 CTest kontrol za 278,89 s. Celý cMarket controller a real sales/world propojení zůstávají další prací, viz [MARKET.md](MARKET.md).
 
 `WarehouseTip` / skutečný cWareDetail (`0065ffc4`) je zapojený do Warehouse a HUD: 2 100 přímých stavů v PC53/PC24, 40 GPU snímků / 19 200 000 shodných pixelů a dvanáct XML reloadů. Actual Warehouse změny obnovují skutečné quantity/icon rows, actual HUD hover otevře panel a leave pouze nastaví hide timer. Zdokumentované jsou compact stock rows, small/large icons, original movement/timeout i retained reload children. Celá regrese má 68 úspěšných CTest kontrol (285,20 s). Hranice hidden startup/uninitialized allocator a celý zbývající svět jsou v [WAREHOUSE_TIP.md](WAREHOUSE_TIP.md); obchodní scéna na `0065ffc8` se obnovuje dál.
