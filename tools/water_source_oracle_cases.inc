@@ -14,7 +14,8 @@ struct WaterFixture final:WaterSourceWorld {
     int money() override {return stock.money();}void setMoney(int value) override {stock.setMoney(value);}
     unsigned sprinkleCount() override {return sprinkleCountValue;}bool seedMoveActive() override {return seedMove;}bool sprinkleMoveActive() override {return sprinkleMove;}
     unsigned sprinkleCountValue=0;bool seedMove=false,sprinkleMove=false;
-    ButtonPrototype* createSprinkle(unsigned cost) override {waterSourceEffects.push_back(2);require(cost==WaterSource::instance()->sprinkleCost,"WaterSource Sprinkle cost differs");return created;}
+    std::function<ButtonPrototype*(unsigned)> actualSprinkleFactory;
+    ButtonPrototype* createSprinkle(unsigned cost) override {if(actualSprinkleFactory) return actualSprinkleFactory(cost);waterSourceEffects.push_back(2);require(cost==WaterSource::instance()->sprinkleCost,"WaterSource Sprinkle cost differs");return created;}
     Point2 characterPosition() override {return actor;}
     void animateHeldUpgrade(const Point2& from,const Point2& to,int kind,bool flag) override {digSourceEffects.push_back({0,floatBits(from[0]),floatBits(from[1]),floatBits(to[0]),floatBits(to[1]),unsigned(kind),unsigned(flag)});}
 } waterWorld(warehouseWorld);
@@ -130,6 +131,9 @@ const auto waterXmlDirectory=common/"water-reload";std::filesystem::create_direc
 for(const char* path:{"Farm/ActionAreas/WaterSource.xml","partial-water.xml","Farm/ActionAreas/WaterSource.xml"}) {
     stage=612;XmlDocument xml(files,String(path));water->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0x68750)(ns,wrap(&xml));checkWater();
     water->setLevel(0,false);function<void(__thiscall*)(void*,int,bool)>(0x174b0)(static_cast<unsigned char*>(ns)+0x508,0,false);checkWater();
+}
+if(sprinkleMode) {
+#include "sprinkle_oracle_cases.inc"
 }
 stage=603;const auto beforeWater=textureCounts();water.reset();const auto middleWater=textureCounts();call(0x68640,ns);compareReferenceDeltas(beforeWater,middleWater);
 hudUseActualWater=false;putPointer(0x25f750,oldNativeWater);putPointer(0x25ff5c,oldWaterPerson);hudInputs.character=oldWaterCharacter;
