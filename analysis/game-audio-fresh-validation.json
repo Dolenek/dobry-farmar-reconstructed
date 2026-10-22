@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-13T23:02:17.411879+00:00",
+  "recorded_at_utc": "2026-10-22T09:47:14.770162+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "369c27c56d0e94a8c5913dd414b1c44aaca61d59b87b13b1c8684a390b0b4a6d",
-  "oracle_sha256": "98d04f3a8ccad467f0cc2ff236b67fa432e4df78eb963ed77ba05e33fe12b393",
+  "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
+  "oracle_sha256": "a6a837d4777eaeebf300225e2ac05a5b7b622bd6269676527813067d30ef34a5",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37487,
-      "native_position_progress": 39251,
+      "source_position_progress": 38370,
+      "native_position_progress": 20289,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -23,7 +23,7 @@
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
       "source_position_progress": 20289,
-      "native_position_progress": 21203,
+      "native_position_progress": 20289,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -157,6 +157,14 @@
     {
       "path": "src/game/core/WString.cpp",
       "sha256": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2"
+    },
+    {
+      "path": "src/game/engine/GameAction.cpp",
+      "sha256": "2e38566152b5fb3b29681770a6f074f706014fad1995fdc403981ca91743a23e"
+    },
+    {
+      "path": "src/game/engine/GameAction.h",
+      "sha256": "bf1b31259db9d3cbad8df0fe3643b23dcb2b939bd830b126ad3a59eac6e8dac5"
     },
     {
       "path": "src/game/engine/GameConfiguration.cpp",
@@ -629,6 +637,26 @@
     {
       "path": "src/game/ui/ExtendedTextButton.h",
       "sha256": "bc8b24107d7fa9bb3f8fceba078886f1aac2d31e7f9b34546b6875ac28d53bc4"
+    },
+    {
+      "path": "src/game/ui/FarmAreas.cpp",
+      "sha256": "abd96a7a04d2609c0f2ea05f52b0be9f4ef40ed96ea1493137ee0c2c9cbd2ff4"
+    },
+    {
+      "path": "src/game/ui/FarmAreas.h",
+      "sha256": "a1efb7aa8f21c7ea93e5b82575c36ff59308531ba6d7ca3897d29d1202884ae5"
+    },
+    {
+      "path": "src/game/ui/FarmField.cpp",
+      "sha256": "caa90c735e6119fa538c85271a49eac559ebebe77bede701d26811d8f8b2e97d"
+    },
+    {
+      "path": "src/game/ui/FarmField.h",
+      "sha256": "6be392edfb0fca3115e40ad93f72a97a45d6798840706a237eff2347ddc50baa"
+    },
+    {
+      "path": "src/game/ui/FarmFieldActions.cpp",
+      "sha256": "219b6352e5eb01686acb7c99a9ebd5ee9747a23e95a76285a7096b26408e874c"
     },
     {
       "path": "src/game/ui/FieldObject.cpp",

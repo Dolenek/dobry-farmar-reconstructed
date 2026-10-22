@@ -132,8 +132,11 @@ for(const char* path:{"Farm/ActionAreas/WaterSource.xml","partial-water.xml","Fa
     stage=612;XmlDocument xml(files,String(path));water->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0x68750)(ns,wrap(&xml));checkWater();
     water->setLevel(0,false);function<void(__thiscall*)(void*,int,bool)>(0x174b0)(static_cast<unsigned char*>(ns)+0x508,0,false);checkWater();
 }
-if(sprinkleMode) {
+if(sprinkleMode && !farmFieldMode) {
 #include "sprinkle_oracle_cases.inc"
+}
+if(farmFieldMode) {
+#include "farm_field_oracle_cases.inc"
 }
 stage=603;const auto beforeWater=textureCounts();water.reset();const auto middleWater=textureCounts();call(0x68640,ns);compareReferenceDeltas(beforeWater,middleWater);
 hudUseActualWater=false;putPointer(0x25f750,oldNativeWater);putPointer(0x25ff5c,oldWaterPerson);hudInputs.character=oldWaterCharacter;

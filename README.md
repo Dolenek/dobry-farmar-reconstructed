@@ -8,6 +8,8 @@ Obnovená [výrobní scéna Manufacture](docs/MANUFACTURE.md) již propojuje sku
 
 Skutečný [Warehouse](docs/WAREHOUSE.md) nyní propojuje zásoby profilu, výrobní budovu, popisky Manufacture a HUD; výrobní callbacky odebírají/vracejí vstup a absoluteStep uloží vyrobený výstup do stejného skladu. PC53/PC24: 1 608 stavů, 1 024 transferů a 48 snímků / 23 040 000 shodných pixelů. Navazující [WareDetail tooltip](docs/WAREHOUSE_TIP.md) už přijímá skutečné notifikace Warehouse a ovládání HUD: dalších 2 100 stavů a 40 snímků / 19 200 000 shodných pixelů. Celá regrese prošla 68 CTest kontrolami. Native BGRA masky jsou porovnané přes původní D3DX loader. Obchod, Farm/Person, další systémy, celý cGame a herní EXE pokračují.
 
+[Pole a jejich akce](docs/FARM_FIELDS.md) nyní propojují růst osmi kultur, typed profil, skutečné Farm prostorové dotazy a zavlažování přes Sprinkle/WaterSource s vodními efekty. PC53/PC24: 4 460 stavů a 128 GPU snímků / 61 440 000 shodných pixelů, včetně myši a původních tutorial21/22/23 větví. Úplný Farm controller, FieldTip/SeedPackage, Person, herní EXE a obousměrné saves ještě zbývají.
+
 ## Původní programy a knihovny
 
 | Soubor | Doložená úloha | Stav |

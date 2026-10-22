@@ -59,8 +59,10 @@ void __fastcall getJng(void*,void*,const void* source,const unsigned long* size,
 int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     // Require the recorded relocations to work even when the original's
-    // preferred address is free in this diagnostic process.
-    auto* preferredReservation=VirtualAlloc(reinterpret_cast<void*>(0x400000),0x300000,MEM_RESERVE,PAGE_NOACCESS);
+    // preferred address is free in this diagnostic process. Reserve only its
+    // first allocation granule: a larger reservation can fail because an
+    // unrelated region overlaps its tail while 00400000 itself stays free.
+    auto* preferredReservation=VirtualAlloc(reinterpret_cast<void*>(0x400000),0x10000,MEM_RESERVE,PAGE_NOACCESS);
     HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES),runtime=nullptr; HWND window=nullptr; IDirect3D8* d3d=nullptr;
     if(preferredReservation) VirtualFree(preferredReservation,0,MEM_RELEASE);
     if(!reference) return 2;

@@ -1,0 +1,421 @@
+{
+  "status": "80_effective_passes_after_one_diagnostic_setup_fix",
+  "full_run_seconds": 702.63,
+  "full_run_passed": 79,
+  "full_run_failed": [
+    "original-click-masks"
+  ],
+  "rerun_seconds": 34.09,
+  "rerun_passed": [
+    "original-click-masks"
+  ],
+  "production_code_changed_after_full_run": false,
+  "diagnostic_change": "Reserve only first 64 KiB at 00400000: old 3 MiB reservation could overlap another region and fail while preferred image base stayed free",
+  "original_failure": "Mask oracle must exercise recorded relocations stage 0 trial 0",
+  "effective_passes": 80,
+  "full_run_junit_sha256": "9bf6f3707c886c462427801b09c700444f784cffa4db824aaabda13e55889d07",
+  "rerun_junit_sha256": "d9d8ccd849baa89eeb86a15c09af402d35bad15578ae6adf24ef4ecc5dcc0a6f",
+  "tests": [
+    {
+      "name": "original-squall-parameters",
+      "status": "passed",
+      "seconds": 0.699876
+    },
+    {
+      "name": "recovered-jng-export-contract",
+      "status": "passed",
+      "seconds": 0.298849
+    },
+    {
+      "name": "original-string-comparison",
+      "status": "passed",
+      "seconds": 0.457048
+    },
+    {
+      "name": "original-wstring-comparison",
+      "status": "passed",
+      "seconds": 0.450417
+    },
+    {
+      "name": "original-color-comparison",
+      "status": "passed",
+      "seconds": 0.452811
+    },
+    {
+      "name": "original-matrix-comparison",
+      "status": "passed",
+      "seconds": 0.518929
+    },
+    {
+      "name": "original-sprite-geometry",
+      "status": "passed",
+      "seconds": 1.09518
+    },
+    {
+      "name": "original-native-image-storage",
+      "status": "passed",
+      "seconds": 0.611979
+    },
+    {
+      "name": "original-font-lookups",
+      "status": "passed",
+      "seconds": 0.56162
+    },
+    {
+      "name": "original-text-layout",
+      "status": "passed",
+      "seconds": 0.64978
+    },
+    {
+      "name": "original-localization",
+      "status": "passed",
+      "seconds": 0.603358
+    },
+    {
+      "name": "original-control-sprites",
+      "status": "passed",
+      "seconds": 0.76986
+    },
+    {
+      "name": "original-progress-bar",
+      "status": "passed",
+      "seconds": 3.22782
+    },
+    {
+      "name": "original-market-histogram",
+      "status": "passed",
+      "seconds": 2.61852
+    },
+    {
+      "name": "original-loading-from-log",
+      "status": "passed",
+      "seconds": 69.4778
+    },
+    {
+      "name": "original-award-tooltip",
+      "status": "passed",
+      "seconds": 3.92655
+    },
+    {
+      "name": "original-award-effect",
+      "status": "passed",
+      "seconds": 6.68181
+    },
+    {
+      "name": "original-awards-controller",
+      "status": "passed",
+      "seconds": 13.3333
+    },
+    {
+      "name": "original-award-panel",
+      "status": "passed",
+      "seconds": 7.2831
+    },
+    {
+      "name": "original-resource-log-writer",
+      "status": "passed",
+      "seconds": 22.0497
+    },
+    {
+      "name": "original-main-menu-navigation",
+      "status": "passed",
+      "seconds": 24.3783
+    },
+    {
+      "name": "original-game-configuration",
+      "status": "passed",
+      "seconds": 2.01875
+    },
+    {
+      "name": "original-gameplay-definitions",
+      "status": "passed",
+      "seconds": 1.97737
+    },
+    {
+      "name": "original-gameplay-runtime",
+      "status": "passed",
+      "seconds": 2.43767
+    },
+    {
+      "name": "original-price-money-text",
+      "status": "passed",
+      "seconds": 7.61258
+    },
+    {
+      "name": "original-state-view",
+      "status": "passed",
+      "seconds": 3.05968
+    },
+    {
+      "name": "original-game-menu",
+      "status": "passed",
+      "seconds": 7.13998
+    },
+    {
+      "name": "original-tutorial-tips",
+      "status": "passed",
+      "seconds": 7.05795
+    },
+    {
+      "name": "original-tutorial-manager",
+      "status": "passed",
+      "seconds": 8.06903
+    },
+    {
+      "name": "original-movable-union",
+      "status": "passed",
+      "seconds": 6.09917
+    },
+    {
+      "name": "original-buy-seeds",
+      "status": "passed",
+      "seconds": 8.03792
+    },
+    {
+      "name": "original-buy-building",
+      "status": "passed",
+      "seconds": 90.88
+    },
+    {
+      "name": "original-production-houses",
+      "status": "passed",
+      "seconds": 21.5159
+    },
+    {
+      "name": "original-manufacture",
+      "status": "passed",
+      "seconds": 24.2223
+    },
+    {
+      "name": "original-field-object",
+      "status": "passed",
+      "seconds": 3.97783
+    },
+    {
+      "name": "original-action-area",
+      "status": "passed",
+      "seconds": 5.93645
+    },
+    {
+      "name": "original-warehouse",
+      "status": "passed",
+      "seconds": 7.72314
+    },
+    {
+      "name": "original-warehouse-tip",
+      "status": "passed",
+      "seconds": 9.92247
+    },
+    {
+      "name": "original-dig-building",
+      "status": "passed",
+      "seconds": 10.6106
+    },
+    {
+      "name": "original-water-source",
+      "status": "passed",
+      "seconds": 11.4183
+    },
+    {
+      "name": "original-mow-building",
+      "status": "passed",
+      "seconds": 16.7453
+    },
+    {
+      "name": "original-water-particles",
+      "status": "passed",
+      "seconds": 4.59444
+    },
+    {
+      "name": "original-water-emitters",
+      "status": "passed",
+      "seconds": 5.25206
+    },
+    {
+      "name": "original-sprinkle",
+      "status": "passed",
+      "seconds": 14.3113
+    },
+    {
+      "name": "original-farm-field",
+      "status": "passed",
+      "seconds": 13.8302
+    },
+    {
+      "name": "original-market-controller",
+      "status": "passed",
+      "seconds": 18.7344
+    },
+    {
+      "name": "original-sales-history",
+      "status": "passed",
+      "seconds": 19.1787
+    },
+    {
+      "name": "original-flying-text",
+      "status": "passed",
+      "seconds": 5.12549
+    },
+    {
+      "name": "original-flying-market",
+      "status": "passed",
+      "seconds": 19.509
+    },
+    {
+      "name": "original-game-pause",
+      "status": "passed",
+      "seconds": 14.9134
+    },
+    {
+      "name": "original-contract-provide",
+      "status": "passed",
+      "seconds": 6.91988
+    },
+    {
+      "name": "original-contract-dialogs",
+      "status": "passed",
+      "seconds": 6.15582
+    },
+    {
+      "name": "original-contract-status",
+      "status": "passed",
+      "seconds": 4.62989
+    },
+    {
+      "name": "original-upgrade-state",
+      "status": "passed",
+      "seconds": 2.30505
+    },
+    {
+      "name": "original-extended-button-tooltips",
+      "status": "passed",
+      "seconds": 12.5522
+    },
+    {
+      "name": "original-view-hierarchy",
+      "status": "passed",
+      "seconds": 0.704884
+    },
+    {
+      "name": "original-main-frame-ui",
+      "status": "passed",
+      "seconds": 0.689853
+    },
+    {
+      "name": "original-sound-files-volume",
+      "status": "passed",
+      "seconds": 18.2465
+    },
+    {
+      "name": "original-timer",
+      "status": "passed",
+      "seconds": 0.775799
+    },
+    {
+      "name": "original-cursor",
+      "status": "passed",
+      "seconds": 0.542676
+    },
+    {
+      "name": "original-profile-headers",
+      "status": "passed",
+      "seconds": 25.0911
+    },
+    {
+      "name": "original-profile-properties",
+      "status": "passed",
+      "seconds": 1.37067
+    },
+    {
+      "name": "original-profile-lifecycle",
+      "status": "passed",
+      "seconds": 38.4449
+    },
+    {
+      "name": "original-control-state",
+      "status": "passed",
+      "seconds": 0.731318
+    },
+    {
+      "name": "original-text-control-lifecycle",
+      "status": "passed",
+      "seconds": 2.69584
+    },
+    {
+      "name": "original-button-state",
+      "status": "passed",
+      "seconds": 0.824303
+    },
+    {
+      "name": "original-button-text-motion",
+      "status": "passed",
+      "seconds": 2.79547
+    },
+    {
+      "name": "original-owned-text-buttons",
+      "status": "passed",
+      "seconds": 36.8935
+    },
+    {
+      "name": "original-click-masks",
+      "status": "failed",
+      "seconds": 0.490776
+    },
+    {
+      "name": "original-input-bindings-dispatch",
+      "status": "passed",
+      "seconds": 0.709088
+    },
+    {
+      "name": "recovered-real-file",
+      "status": "passed",
+      "seconds": 0.132159
+    },
+    {
+      "name": "recovered-wstring",
+      "status": "passed",
+      "seconds": 0.105402
+    },
+    {
+      "name": "recovered-resource-pipeline",
+      "status": "passed",
+      "seconds": 1.2679
+    },
+    {
+      "name": "recovered-settings",
+      "status": "passed",
+      "seconds": 0.893494
+    },
+    {
+      "name": "recovered-resource-manager",
+      "status": "passed",
+      "seconds": 0.543496
+    },
+    {
+      "name": "recovered-window",
+      "status": "passed",
+      "seconds": 0.578138
+    },
+    {
+      "name": "recovered-string",
+      "status": "passed",
+      "seconds": 0.111702
+    },
+    {
+      "name": "recovered-path-names",
+      "status": "passed",
+      "seconds": 0.135584
+    },
+    {
+      "name": "recovered-squall-volume",
+      "status": "passed",
+      "seconds": 0.114561
+    },
+    {
+      "name": "reconstruction-tools",
+      "status": "passed",
+      "seconds": 2.49372
+    }
+  ],
+  "source_tree_sha256": "26e3a09159604cc61e6c04361243da2835f1b394e6777759135be9eed0d830de"
+}
