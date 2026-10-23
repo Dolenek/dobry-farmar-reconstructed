@@ -1,7 +1,7 @@
 stage=620;hudUseActualMow=true;write(0x47b40,mowInvestmentEntry.data(),5);redirect(0x4ee70,reinterpret_cast<void*>(&mowNativeHeldIndicator));redirect(0x2b7a0,reinterpret_cast<void*>(&digNativeAnimation));redirect(0x50f90,reinterpret_cast<void*>(&digNativeRefreshHeld));
 View heldMowIndicator(nullptr,views);auto* nativeHeldMowIndicator=allocate(44);std::memset(nativeHeldMowIndicator,0,44);function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeHeldMowIndicator,nullptr);
 struct MowFixture final:MowBuildingWorld {
-    WarehouseFixture& stock;View& indicator;Point2 actor{300,400};bool person=true;
+    WarehouseFixture& stock;View& indicator;ElasticAnimation* actualFlight=nullptr;Point2 actor{300,400};bool person=true;
     MowFixture(WarehouseFixture& s,View& v):stock(s),indicator(v) {}
     TutorialManager& tutorial() override {return stock.tutorial();}StateView& farmScene() override {return stock.farmScene();}
     void registerArea(ActionArea& a) override {stock.registerArea(a);}void queueAreaAction(ActionArea& a,const Point2& p) override {stock.queueAreaAction(a,p);}
@@ -13,7 +13,7 @@ struct MowFixture final:MowBuildingWorld {
     void updatePersonHeldIndicator(bool flag,unsigned count,unsigned capacity) override {mowSourceEffects.push_back({unsigned(flag),count,capacity});}
     int money() override {return stock.money();}void setMoney(int value) override {stock.setMoney(value);}
     Point2 characterPosition() override {return actor;}
-    void animateHeldUpgrade(const Point2& from,const Point2& to,int kind,bool flag) override {digSourceEffects.push_back({0,floatBits(from[0]),floatBits(from[1]),floatBits(to[0]),floatBits(to[1]),unsigned(kind),unsigned(flag)});}
+    void animateHeldUpgrade(const Point2& from,const Point2& to,int kind,bool flag) override {digSourceEffects.push_back({0,floatBits(from[0]),floatBits(from[1]),floatBits(to[0]),floatBits(to[1]),unsigned(kind),unsigned(flag)});if(actualFlight) {require(!flag,"Mow elastic upgrade expects null reveal");actualFlight->begin(from,to,kind,nullptr);}}
     void refreshHeldAppearance() override {digSourceEffects.push_back({1,0,0,0,0,0,0});}
 } mowWorld(warehouseWorld,heldMowIndicator);
 auto* oldNativeMow=field<void*>(image,0x25f754);auto* oldMowPerson=field<void*>(image,0x25ff5c);const bool oldMowCharacter=hudInputs.character;hudInputs.character=true;
@@ -108,6 +108,9 @@ const auto mowXmlDirectory=common/"mow-reload";std::filesystem::create_directori
 for(const char* path:{"Farm/ActionAreas/MowBuilding.xml","partial-mow.xml","Farm/ActionAreas/MowBuilding.xml"}) {
     stage=632;XmlDocument xml(files,String(path));mow->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0x474b0)(nm,wrap(&xml));checkMow();
     for(int held:{0,6}) {profile.uints["PCarry"]=nativeProfile.uints["PCarry"]=held;mow->setLevel(0,false);function<void(__thiscall*)(void*,int,bool)>(0x174b0)(static_cast<unsigned char*>(nm)+0x508,0,false);checkMow();}
+}
+if(elasticAnimationMode) {
+#include "elastic_animation_oracle_cases.inc"
 }
 stage=624;const auto beforeMow=textureCounts();mow.reset();const auto middleMow=textureCounts();call(0x473b0,nm);compareReferenceDeltas(beforeMow,middleMow);
 hudUseActualMow=false;call(0xd58a0,nativeHeldMowIndicator);putPointer(0x25f754,oldNativeMow);putPointer(0x25ff5c,oldMowPerson);hudInputs.character=oldMowCharacter;

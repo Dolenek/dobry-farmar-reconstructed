@@ -1,5 +1,7 @@
 # Rekonstrukce hlavní hry
 
+Nově obnovená [ElasticAnimation](ELASTIC_ANIMATION.md) přímo propojuje skutečné tool upgrady s původním přeletem a obnovou vzhledu Dig/Mow/WaterSource. V obou přesnostech prošlo1524 stavů /1354 akcí a168 celých snímků /80 640 000 přesně shodných RGB pixelů, včetně skutečného mouse upgrade řetězce. Person world pozorování a kind9 View jsou výslovné diagnostické hranice; celé pracovní akce postavy a celý Farm controller pokračují.
+
 Herní EXE zatím nelze sestavit. Sestavitelná knihovna `recovered_game_utilities` obsahuje základ původního `String` a UTF-16 `WString`, souborovou vrstvu, indexování balíků a XML strom. Diagnostika `resource-inspect` propojuje tyto části s JNGLoad a načítá původní data. Integrace do celé hry a původní engine výjimky nejsou hotové. Adresy, zvláštnosti a výsledky celé načítací cesty jsou v [RESOURCE_LOADING.md](RESOURCE_LOADING.md).
 
 Datová část nastavení, vytváření Windows okna a jeho message pump jsou navázané na tuto načítací cestu. Grafická a resource knihovna přidávají cache, cResource/cTexture/cShader/cFont, skutečný upload/reload textur a obnovené spritové dávky včetně letter geometrie. StringManager načítá české překlady a cView propojuje vlastnictví, viditelnost a registraci UI. Podrobnosti jsou v [SETTINGS.md](SETTINGS.md), [WINDOW_GRAPHICS.md](WINDOW_GRAPHICS.md), [SPRITE_RENDERING.md](SPRITE_RENDERING.md), [NATIVE_IMAGES.md](NATIVE_IMAGES.md), [UI_FONTS.md](UI_FONTS.md) a [UI_CONTROLS.md](UI_CONTROLS.md); celý engine a herní EXE ještě čekají.

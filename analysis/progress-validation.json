@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-23T18:09:22.774517+00:00",
+  "recorded_at_utc": "2026-10-23T19:00:52.111558+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -87,6 +87,7 @@
     "src/game/ui/Credits.h": "06dd0207a06113b31c2313c92ee654d78149dc96ce09f863ac57ce988a367a02",
     "src/game/ui/DigBuilding.h": "c2472d33787923a7875c3b307cd5c66db45d50150badc21554a6f07549334ac0",
     "src/game/ui/EditBox.h": "081f73409e4ea37b0c312a1e0f031062c6b97b4ba0efa9b8bf47ff919bf71c78",
+    "src/game/ui/ElasticAnimation.h": "541980304f74880e265e79183b9c05c868064fdd5ab6facbfd7b954a50314ec2",
     "src/game/ui/ExitDialog.h": "4c29a8a6eb24c6f62c99d5053f01ce4adf97645bcb86241bc8e5669f44fe1c14",
     "src/game/ui/ExtendedTextButton.h": "bc8b24107d7fa9bb3f8fceba078886f1aac2d31e7f9b34546b6875ac28d53bc4",
     "src/game/ui/FarmAreas.h": "2d3587802a87ff4ca173462acb4bdcb9d2a4fb56a62f160d518a824b80e8236c",
@@ -212,6 +213,7 @@
     "src/game/ui/Credits.cpp": "eba01e8dd7f064c276e812657e1312c65eeb888e84a0ea0ce0c2bfcc0e5c20d7",
     "src/game/ui/DigBuilding.cpp": "f901338f6fc7fdaefb6c077ba029da635c3cf2257a7f268324f25914351702ed",
     "src/game/ui/EditBox.cpp": "a4add1426300cae36cdbc2aa22fca2787f9e1c9bfd0a0cb3e88b5baffe9e825a",
+    "src/game/ui/ElasticAnimation.cpp": "b8a962d95d05a0c91be6a9f7c0d6cfb50894fe302d5aae198484d3c2dd051233",
     "src/game/ui/ExitDialog.cpp": "159935f2d22665ac0c081ec79e7cc8359b8427ac64af759a77a3d9b7a536a103",
     "src/game/ui/ExtendedTextButton.cpp": "e9c271fd04ada993d22ebda5bc0d4991f9c5ab5aa2347f772c3a8b831785f319",
     "src/game/ui/FarmAreas.cpp": "ca91c47aa00e5c622c135473867e390314b01310088c3d9420477f7b64ceee5b",
@@ -272,15 +274,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "d23d06211ba41e73056888536690593336a39039b4566b583f4367c9acb64f56",
+    "tools/text_buttons_reference_test.cpp": "f04c6e31c6f8cbccc7c56527211d71b23dd4e5e9e9b2a4d9568e904adc1d2482",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "d62e29d10071cdcbba7199d30ee5af1f305b11f99c8ab610a72512842f65ecdc",
+    "tools/text_buttons_oracle_fixups.inc": "a9396c88646acac3a6300d1c2f91c90eba2fe46b687ac245efe8202e2ca817b8",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "f5100a8af8c5eea40a9351d05f749d583551f7d70152f9785bd269eb32b62154"
+    "CMakeLists.txt": "e60abddda66aa9e7af7bc106190f59ab8a18e495227245c59d7ebe21a06c0bdc"
   },
   "oracle_sha256": {
-    "sprite": "2fc541741bcf9202bf154d2b863a25000e4840173afc930739de8a314fa2ade9",
-    "ui": "ec144e767c1a2ee421d3070cbc284ab7d1f487c0c78182ee18454a69ded243f3"
+    "sprite": "b80df6bcea3455a5c6d1f9be7d974890da0e47bd85753c3470500b00188ac334",
+    "ui": "8070a25ba849a587d6a3d82a9677fee8ba1830d2a0b633b9ea3adc032d5aa0b3"
   },
   "precision_contexts": [
     {
@@ -562,6 +564,10 @@
         "mow_building_actions": 0,
         "mow_building_frames": 0,
         "mow_building_pixels": 0,
+        "elastic_states": 0,
+        "elastic_actions": 0,
+        "elastic_frames": 0,
+        "elastic_pixels": 0,
         "person_vehicle_states": 0,
         "person_vehicle_actions": 0,
         "person_vehicle_frames": 0,
@@ -930,6 +936,10 @@
         "mow_building_actions": 0,
         "mow_building_frames": 0,
         "mow_building_pixels": 0,
+        "elastic_states": 0,
+        "elastic_actions": 0,
+        "elastic_frames": 0,
+        "elastic_pixels": 0,
         "person_vehicle_states": 0,
         "person_vehicle_actions": 0,
         "person_vehicle_frames": 0,

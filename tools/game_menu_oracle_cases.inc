@@ -1,3 +1,4 @@
+std::array<unsigned char,5> elasticOriginalBegin{};if(elasticAnimationMode) std::memcpy(elasticOriginalBegin.data(),image+0x2b7a0,5);
 std::array<unsigned char,5> mowInvestmentEntry{};if(mowBuildingMode) std::memcpy(mowInvestmentEntry.data(),image+0x47b40,5);
 std::array<unsigned char,5> sprinkleFactoryEntry{};if(sprinkleMode) std::memcpy(sprinkleFactoryEntry.data(),image+0x33980,5);
 std::array<unsigned char,5> waterInvestmentEntry{};if(waterSourceMode) std::memcpy(waterInvestmentEntry.data(),image+0x69400,5);

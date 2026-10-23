@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+ElasticAnimation je porovnaná v PC53/PC24:1524 stavů /1354 akcí,168 celých D3D8 snímků /80 640 000 shodných RGB pixelů. Skutečné tool upgrady vykonají platbu a profilovou změnu, původní let a appearance completion. Skutečné Mow mouse press/release spouští stejný controller. Deset kinds, Euler/x87 arithmetic, zero-acceleration unordered větev, XML reload a teardown resource deltas jsou evidované v [ELASTIC_ANIMATION.md](ELASTIC_ANIMATION.md) a `analysis/elastic-animation-validation.json`. Úplná hra se tím nevykazuje jako hotová.
+
 ## Referenční běhy
 
 Používat vlastní pracovní kopii původní instalace a oddělenou složku rekonstruované verze. Před každým scénářem zaznamenat verzi/hash binárních souborů, data, nastavení, profil, výchozí uloženou hru a posloupnost vstupů. Původní uživatelský profil se pro testování nepřepisuje.

@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T18:24:57.968987+00:00",
+  "recorded_at_utc": "2026-10-23T19:08:42.472589+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "c5fa02d87f4d8ec5ee35d10e58db3ae2f06d9c1a8adfe0a18622268d3c3be0cd",
+  "oracle_sha256": "ef1b6bf863e09764c19bb9e72410310d555a2c2de7b245581b5b8eddce50308b",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19881,
-      "native_position_progress": 37079,
+      "source_position_progress": 54718,
+      "native_position_progress": 20762,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37520,
-      "native_position_progress": 38369,
+      "source_position_progress": 37928,
+      "native_position_progress": 20321,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -621,6 +621,14 @@
     {
       "path": "src/game/ui/EditBox.h",
       "sha256": "081f73409e4ea37b0c312a1e0f031062c6b97b4ba0efa9b8bf47ff919bf71c78"
+    },
+    {
+      "path": "src/game/ui/ElasticAnimation.cpp",
+      "sha256": "b8a962d95d05a0c91be6a9f7c0d6cfb50894fe302d5aae198484d3c2dd051233"
+    },
+    {
+      "path": "src/game/ui/ElasticAnimation.h",
+      "sha256": "541980304f74880e265e79183b9c05c868064fdd5ab6facbfd7b954a50314ec2"
     },
     {
       "path": "src/game/ui/ExitDialog.cpp",
