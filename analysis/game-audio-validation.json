@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T16:58:32.928267+00:00",
+  "recorded_at_utc": "2026-10-23T17:16:25.461801+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "772db76d089c5f678d71ac7255c6585778e652ad9d905dbeec085975f7f55f49",
@@ -10,7 +10,7 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 55126,
+      "source_position_progress": 19880,
       "native_position_progress": 37928,
       "playback_tested": true,
       "silent_playback": true,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20289,
-      "native_position_progress": 56008,
+      "source_position_progress": 38810,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -827,12 +827,20 @@
       "sha256": "0d5e72c28340e9d0f88f9231b0708cb030dfbb4d6ea39137a766fb9e57b69abb"
     },
     {
+      "path": "src/game/ui/PersonVehicleWalk.cpp",
+      "sha256": "e1f4d3dd4ddc384039ddf8cbc35aa971238e028fafd6510a4a9a15b7535c30db"
+    },
+    {
+      "path": "src/game/ui/PersonVehicleWalk.h",
+      "sha256": "1a51455a95f2d1f316da52deb18075b0289f304a6703eaf4429525c5e13117ca"
+    },
+    {
       "path": "src/game/ui/PersonVisuals.cpp",
-      "sha256": "76bb3a7f11d2377cca428b51ce77f83a5da3864886bb5e405aeeb60a9e2effa7"
+      "sha256": "c7ec489adc63f12ef380b9245a3680d8052dfe968750bea9fe1f28da81c33855"
     },
     {
       "path": "src/game/ui/PersonVisuals.h",
-      "sha256": "986b5cfc810e415deb889e0fcd3668f205ba2f8a81108a0e0560d9c42ddb18e1"
+      "sha256": "f244f2e90ed0988bf50cd00dc9ef1436708c186e08074eef1e71a392b406ee55"
     },
     {
       "path": "src/game/ui/PersonWalk.cpp",

@@ -26,6 +26,7 @@ public:
     void playIdle(); // 00450a30
     void playJob(unsigned); // 00449ea0
     void playWalk(const Point2& delta); // 0044fe20, selects motion appearance
+    void playAxisWalk(const Point2& delta); // 004504d0, axis/vehicle appearance
     void playHose(const Point2& target); // 0044a330
     void showDiscrete(unsigned char enabled,unsigned current,unsigned maximum); // 0044ee70
     unsigned carriedProducts(); // 0044ed10, unsigned PCC0..7 sum

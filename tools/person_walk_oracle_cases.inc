@@ -36,6 +36,9 @@ for(unsigned held:{0U,1U,2U,6U,10U}) for(unsigned level=0;level<4;++level) for(u
         done=w.step();const bool nativeDone=bool(function<unsigned char(__thiscall*)(void*)>(0x52630)(nativeWalk));require(done==nativeDone,"Person walk completion differs");++personWalkActions;checkWalk(w);
     }require(done,"Person walk failed to arrive at actual Field");
 }
+if(personVehicleMode) {
+#include "person_vehicle_oracle_cases.inc"
+}
 // The original C0/C3 comparison treats unordered coordinates as close.
 for(unsigned axes:{1U,2U,3U}) {
     stage=834;useVisualAdapters();profile.uints["PCarry"]=nativeProfile.uints["PCarry"]=0;walkCancel=false;field<unsigned char>(nativeActor,0x284c)=0;
@@ -82,6 +85,7 @@ useActualScene();walkSeed->setStatus(0);function<void(__thiscall*)(void*,unsigne
 useActualScene();walkSeedWorld.setSeedMoveActive(false);walkSeedWorld.selected=nullptr;field<unsigned char>(image,0x25f721)=0;putPointer(0x25f724,nullptr);redirect(0x32c20,reinterpret_cast<void*>(&nativeDiscard));walkSeedWorld.removeSeed(*walkSeed);function<void(__thiscall*)(void*,void*)>(0x33420)(nativeScenes[0],nws);
 require(views.discarded().size()==1 && nativeDiscards.size()==1 && views.discarded().at(walkSeed.get()).view()==nativeDiscards.at(nws),"Person walk seed cleanup origin differs");walkSeed.release();const auto beforeWalkSeed=textureCounts();views.deleteDiscarded();const auto middleWalkSeed=textureCounts();call(0x5ce00,nws);compareReferenceDeltas(beforeWalkSeed,middleWalkSeed);nativeDiscards.clear();redirect(0x32c20,reinterpret_cast<void*>(&waterNativeDiscardTask));
 const auto beforeSeedGate=textureCounts();seedGate.reset();const auto middleSeedGate=textureCounts();mainMenuDeleteNative(nativeSeedGate);compareReferenceDeltas(beforeSeedGate,middleSeedGate);field<void*>(nativeScenes[0],0x9c)=savedWalkSeedGate;
+if(!personVehicleMode) {
 // Actual mouse release creates the actual PersonTasks marker and FIFO entry.
 // This consumes that entry with recovered motion; arrival work dispatch remains
 // explicitly outside this comparison until its individual actions are restored.
@@ -110,6 +114,7 @@ const auto deleteWalkMarkers=[&] {require(views.discarded().size()==nativeDiscar
 }
 walkTasks.clear();call(0x4f870,nativeActor);++personWalkActions;checkWalkTasks();deleteWalkMarkers();fieldWorld.tasks=nullptr;fieldWorld.held=false;field<unsigned char>(nativeScenes[0],0x108)=0;
 fieldTip->hideFor(walkPlot.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,nwf);redirect(0x4d2f0,reinterpret_cast<void*>(&actionAreaQueue));redirect(0x32c20,reinterpret_cast<void*>(&waterNativeDiscardTask));
+}
 useActualScene();fieldWorld.tracePersonGoalLevels=false;walkCancel=false;field<unsigned char>(nativeActor,0x284c)=0;
 const auto beforeWalkPlot=textureCounts();walkPlot.reset();const auto middleWalkPlot=textureCounts();call(0x36340,nwf);compareReferenceDeltas(beforeWalkPlot,middleWalkPlot);
 for(unsigned i=0;i<3;++i) {const char* keys[]={"Upgrade31","Upgrade33","Upgrade34"};profile.ints[keys[i]]=nativeProfile.ints[keys[i]]=savedWalkUpgradeLevels[i];}

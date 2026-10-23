@@ -118,6 +118,14 @@ void PersonVisuals::playWalk(const Point2& delta) {
     const auto& offset=seedTips.at(facing);sign_->setPosition({float(originalAdd(owner_.geometry().x,offset[0])),float(originalAdd(owner_.geometry().y,offset[1]))});
     activity=12;applyHeight(carryHeight.at(carry));
 }
+void PersonVisuals::playAxisWalk(const Point2& delta) {
+    hoseAnimation=false;const auto carry=carryIndex();
+    if(delta[1]==0) {if(delta[0]!=0) {owner_.setInvertX(delta[0]>0);direction=2;}}
+    else direction=!(delta[1]<0) ? 4:0;
+    copyIfTextureChanged(moving.at(carry*6+direction));const auto& offset=productTips.at(direction);
+    sign_->setPosition({float(owner_.geometry().invertX ? originalSubtract(owner_.geometry().x,offset[0]):originalAdd(owner_.geometry().x,offset[0])),float(originalAdd(owner_.geometry().y,offset[1]))});
+    activity=12;applyHeight(carryHeight.at(carry));
+}
 void PersonVisuals::playHose(const Point2& target) {
     hoseAnimation=true;owner_.setInvertX(false);
     const float dy=float(originalSubtract(target[1],owner_.geometry().y));const auto dx=originalAdd(originalSubtract(target[0],owner_.geometry().x),15);

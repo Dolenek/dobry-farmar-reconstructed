@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-23T17:18:30.783946+00:00",
+  "ctest_passed": 85,
+  "ctest_total": 85,
+  "ctest_seconds": 359.55,
+  "full_suite_without_rerun": true,
+  "junit_path": ".local/ctest-person-vehicle-full.xml",
+  "junit_sha256": "ef4bf478f2d38c2acd881ee99ff4f982833d4b15b001b82eeb04ee985999bae6",
+  "source_tree_sha256": "208beb3d9012364e39c74d92f652cac64b17c86123d2373df8a43179ce53006e",
+  "build_log": ".local/person-vehicle-full-build.log",
+  "test_log": ".local/person-vehicle-full-tests.log",
+  "strict_record_log": ".local/person-vehicle-record.log",
+  "person_vehicle_states": 8660,
+  "person_vehicle_actions": 8532,
+  "gpu_frames": 128,
+  "gpu_rgb_pixels": 61440000,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}
