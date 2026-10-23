@@ -13,9 +13,6 @@ struct FarmFieldWorld:ActionAreaWorld {
     virtual ActionArea* firstAreaAt(const Point2&,unsigned mask)=0; // 0042e3a0
     virtual void indicateField(FarmField&)=0; // 0042c9e0
     virtual void clearFieldIndication(FarmField&)=0; // 0042c800, current owner only
-    virtual void openFieldTip(FarmField&)=0; // FieldTip 004402a0, singleton 0065f774
-    virtual bool fieldTipPresent()=0;
-    virtual void hideFieldTip(FarmField&)=0; // 004402d0, only the current selected owner
     virtual std::vector<ActionArea*> seedPackages()=0; // 00432260, ActionArea type32
 };
 struct FarmFieldContext {ActionAreaContext area;ProfileProperties& profile;GameConfiguration& configuration;GameRandom& random;FarmFieldWorld& world;};

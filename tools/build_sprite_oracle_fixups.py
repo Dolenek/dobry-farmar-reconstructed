@@ -177,7 +177,8 @@ def main():
             0x436180,0x4361b0,0x4361e0,0x436210,0x451730,0x43cc80,0x43f6a0,0x43d0b0,0x43d5c0,0x43fd80,0x43da40,0x43dee0,0x43c440,0x43f180,0x43c830,0x43e550,0x43e960,0x43ed60,
             0x43c120,0x436340,0x436490,0x4388e0,0x43ac90,0x43b0d0,0x436280,0x4362c0,0x438740,0x4387f0,0x438620,0x4386d0,0x4371d0,0x436d90,0x436dc0,0x4375b0,0x437990,0x437d90,0x437dc0,0x438090,0x4380c0,0x451680,0x43b5f0,0x438200,0x43ba70,0x436880,0x4364b0,0x436240,0x436260,0x43c3e0,0x438840,0x438880,0x4388c0,0x4362f0,0x436310,0x403700,0x436c90,0x436d10,0x4381c0,0x42caa0]
         todo += [0x440350,0x432260]
-        boundaries |= {0x4402a0,0x4402d0,0x42c9e0,0x42c800}
+        todo += [0x441360,0x4415e0,0x4415c0,0x4408d0,0x4405e0,0x440380,0x4402a0,0x4402d0,0x40c750]
+        boundaries |= {0x42c9e0,0x42c800}
         todo += [0x433980,0x460180,0x45e9d0,0x45ea90,0x45eb40,0x45f340,0x45f3d0,0x45f580,0x45fb40,0x45f230,0x460450]
         boundaries |= {0x4326c0,0x42fa90,0x42c7e0,0x42c7f0,0x42df60,0x42e3a0,0x431950,0x42d290,0x436880,0x451680,0x433de0}
         boundaries |= {0x443ca0,0x462af0}
@@ -284,7 +285,7 @@ def main():
                 if (args.button_state or args.progress_sprite or args.click_mask) and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.click_mask or args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520)) else ('mov','push')):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.click_mask or args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520,0x40c750)) else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -341,7 +342,7 @@ def main():
             if args.text_buttons: tables += [(0x1f47e0,91),(0x1f47d8,2),(0x1f47c8,3),(0x1f47c4,1),(0x1f47d4,1)]
             if args.text_buttons: tables += [(0x1f2988,91),(0x1f297c,2),(0x1f296c,3),(0x1f2968,1),(0x1f2978,1)]
             if args.text_buttons: tables += [(0x1ef3a8,4),(0x1f1870,95),(0x1f1864,2),(0x1f1824,4),(0x1f1834,4),(0x1f1844,4),(0x1f1854,4)]
-            if args.text_buttons: tables += [(0x1f3c68,91),(0x1f3c60,2)]
+            if args.text_buttons: tables += [(0x1f3c68,91),(0x1f3c60,2),(0x1f2168,65),(0x1f215c,2),(0x1f2158,1)]
             if args.text_buttons: tables += [(0x1f2278,71),(0x1f226c,2),(0x1f3ec0,69),(0x1f3eb8,2)]
             if args.text_buttons: tables += [(0x1f2758,62),(0x1f274c,2),(0x1f24b8,62),(0x1f24ac,2),(0x1f41f8,62),(0x1f41f0,2),(0x1f40b0,62),(0x1f40a4,2)]
             if args.text_buttons: tables += [(0x1f4b80,15),(0x1f4b78,1),(0x1f4b7c,1),(0x1f4c0c,2)]

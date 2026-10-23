@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-22T09:47:14.770162+00:00",
+  "recorded_at_utc": "2026-10-22T11:41:45.246905+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "a6a837d4777eaeebf300225e2ac05a5b7b622bd6269676527813067d30ef34a5",
+  "oracle_sha256": "90276753f621e887e9bc277f9dc0d19f1636d4c314dd6c877512f29639984a6b",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38370,
-      "native_position_progress": 20289,
+      "source_position_progress": 20731,
+      "native_position_progress": 21612,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20289,
-      "native_position_progress": 20289,
+      "source_position_progress": 39693,
+      "native_position_progress": 21172,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -648,11 +648,11 @@
     },
     {
       "path": "src/game/ui/FarmField.cpp",
-      "sha256": "caa90c735e6119fa538c85271a49eac559ebebe77bede701d26811d8f8b2e97d"
+      "sha256": "b325fa92669dfc7d32ce7e6e50d1c2e7f0c9ee686d77c0f461a37f4b30d3fcc6"
     },
     {
       "path": "src/game/ui/FarmField.h",
-      "sha256": "6be392edfb0fca3115e40ad93f72a97a45d6798840706a237eff2347ddc50baa"
+      "sha256": "a79052dfb52b937cc7af4de11ce25a819c67074d4c45dc46d24743a24add8478"
     },
     {
       "path": "src/game/ui/FarmFieldActions.cpp",
@@ -665,6 +665,14 @@
     {
       "path": "src/game/ui/FieldObject.h",
       "sha256": "171d04fd649beff8dbc3c2f1946556a091b08db73a4cea7d4b6d84d459e9e790"
+    },
+    {
+      "path": "src/game/ui/FieldTip.cpp",
+      "sha256": "1bf4a493abd5ae982959e5a5128010f2f5d43ae165be20d5a19880b492b612bf"
+    },
+    {
+      "path": "src/game/ui/FieldTip.h",
+      "sha256": "21deacf680d1fdcf0ca574daf039d828497b7f35884102b8313751d2824f6bdc"
     },
     {
       "path": "src/game/ui/FlyingText.cpp",

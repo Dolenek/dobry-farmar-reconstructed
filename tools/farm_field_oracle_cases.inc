@@ -1,10 +1,11 @@
 stage=700;loadingFiles=&files;managerTable[6]=reinterpret_cast<void*>(&loadingXML);xmlTable[0]=reinterpret_cast<void*>(&loadingDeleteXML);xmlTable[34]=reinterpret_cast<void*>(&sectionCount);redirect(0x185a13,reinterpret_cast<void*>(&gameplayGetThreadData));
 const auto discardFieldParticle=+[](void* p,const String* origin) {nativeDiscards[p]=std::string(origin->view());};redirect(0x62af0,reinterpret_cast<void*>(discardFieldParticle));
-redirect(0x402a0,reinterpret_cast<void*>(&fieldTipOpen));redirect(0x402d0,reinterpret_cast<void*>(&fieldTipHide));redirect(0x2c9e0,reinterpret_cast<void*>(&fieldIndicate));redirect(0x2c800,reinterpret_cast<void*>(&fieldClearIndication));
+redirect(0x2c9e0,reinterpret_cast<void*>(&fieldIndicate));redirect(0x2c800,reinterpret_cast<void*>(&fieldClearIndication));
 // Numeric configuration is adapted data, using the previously native-verified
 // XML configuration. The original two product getters execute their real body.
 for(unsigned i=0;i<19;++i) {field<float>(nativeGame,0x30+i*100)=configuration.products[i].dieTime;field<float>(nativeGame,0x30+i*100+96)=configuration.products[i].creationTime;}
-void* priorNativeFieldTip=field<void*>(image,0x25f774);std::array<unsigned char,700> nativeFieldTip{};putPointer(0x25f774,nativeFieldTip.data());
+void* priorNativeFieldTip=field<void*>(image,0x25f774);putPointer(0x25f774,nullptr);
+FieldTipContext fieldTipContext{manager,settings,strings,configuration,views,controls};auto fieldTip=std::make_unique<FieldTip>(nullptr,fieldTipContext);auto* nativeFieldTip=allocate(1012);std::memset(nativeFieldTip,0,1012);function<void*(__thiscall*)(void*,void*)>(0x41360)(nativeFieldTip,nullptr);
 // Keep the proven StateView scene dispatch, with the four actual Farm flag
 // accessors used by Field input. Complete Farm UI composition is still pending.
 auto* priorFieldFarmVtable=field<void**>(nativeScenes[0],0);std::array<void*,19> fieldFarmVtable{};std::copy_n(priorFieldFarmVtable,15,fieldFarmVtable.begin());
@@ -20,14 +21,26 @@ struct FieldFixture final:FarmFieldWorld {
     bool areaGate(unsigned type) override {return water.cursorOverAreaType(type,nullptr);}
     ActionArea* firstAreaAt(const Point2& p,unsigned mask) override {return graph.firstAt(p,mask);}
     void indicateField(FarmField& f) override {fieldSourceEvents.push_back({4,f.id,0});}void clearFieldIndication(FarmField& f) override {fieldSourceEvents.push_back({5,f.id,0});}
-    void openFieldTip(FarmField& f) override {fieldSourceEvents.push_back({1,f.id,0});}bool fieldTipPresent() override {return true;}
-    void hideFieldTip(FarmField& f) override {fieldSourceEvents.push_back({2,f.id,0});}
     std::vector<ActionArea*> seedPackages() override {return graph.seedPackages();}
 } fieldWorld(waterWorld);
 std::memcpy(static_cast<unsigned char*>(nativeScenes[0])+0xb0,fieldWorld.graph.bounds.data(),16);
 GameRandom fieldRandom(0x436120);field<unsigned>(gameplayThreadData.data(),0x14)=fieldRandom.state();
 FarmFieldContext fieldContext{{manager,settings,strings,input,interaction,fieldWorld,views,controls},profile,configuration,fieldRandom,fieldWorld};
 for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;
+const auto checkFieldTip=[&] {
+    stage=730;auto& t=*fieldTip;auto* nt=nativeFieldTip;mainMenuCompareView(t,nt);compareControl(t,nt);compareControl(t.origin(),field<void*>(nt,0x26c));
+    require(t.movement==field<unsigned>(nt,0x248),"FieldTip movement differs");compareFloat(t.moveSpeed,field<float>(nt,0x254),"FieldTip move speed");compareFloat(t.remaining,field<float>(nt,0x258),"FieldTip movement timer");
+    for(unsigned d=0;d<2;++d) {compareFloat(t.hiddenPlace[d],field<float>(nt,0x25c+d*4),"FieldTip hidden place");compareFloat(t.originalPosition[d],field<float>(nt,0x264+d*4),"FieldTip original position");}
+    auto* selected=field<void*>(nt,0x2a4);require(bool(t.selected)==bool(selected),"FieldTip selection presence differs");if(selected) require(t.selected->id==fieldNativeIds.at(selected),"FieldTip selected owner differs");
+    require(t.showPending==bool(field<unsigned char>(nt,0x2ac)),"FieldTip pending flag differs");compareFloat(t.hideRemaining,field<float>(nt,0x2a8),"FieldTip hide timer");if(t.showPending) compareFloat(t.showRemaining,field<float>(nt,0x2b0),"FieldTip show timer");
+    for(auto row:std::initializer_list<std::pair<ProgressBar*,unsigned>>{{&t.waterBar(),0x280},{&t.fertilBar(),0x284},{&t.readyBar(),0x288}}) {
+        auto* bar=field<void*>(nt,row.second);compareControl(*row.first,bar);mainMenuCompareView(*row.first,bar);compareFloat(row.first->maximum,field<float>(bar,0x238),"FieldTip bar maximum");compareFloat(row.first->current,field<float>(bar,0x23c),"FieldTip bar current");require(row.first->side==field<unsigned>(bar,0x240),"FieldTip bar side differs");
+    }
+    compare(t.cultureText(),field<void*>(nt,0x28c));compareControl(t.cultureIcon(),field<void*>(nt,0x290));mainMenuCompareView(t.cultureIcon(),field<void*>(nt,0x290));
+    auto** first=field<void**>(nt,0x298);auto** last=field<void**>(nt,0x29c);require(t.labels().size()==std::size_t(last-first),"FieldTip labels count differs");for(unsigned i=0;i<t.labels().size();++i) compare(*t.labels()[i],first[i]);
+    for(unsigned i=0;i<8;++i) appearanceCheck(t.icons[i],static_cast<unsigned char*>(nt)+0x2b4+i*40);++fieldTipStates;
+};
+checkFieldTip();
 const auto checkField=[&](FarmField& f,void* n) {
     stage=701;mainMenuCompareView(f,n);compareControl(f,n);require(f.id==field<unsigned>(n,0x508) && f.upgradeIndex==field<int>(n,0x50c) && f.active==bool(field<unsigned char>(n,0x510)),"FarmField identity/activation differs");
     for(auto pair:std::initializer_list<std::pair<float,unsigned>>{{f.waterCapacity,0x8a8},{f.fertilCapacity,0x8ac},{f.waterSignLevel,0x8b0},{f.fertilSignLevel,0x8b4},{f.waterAbsorption,0x8b8},{f.fertilAbsorption,0x8bc},{f.ploughedToGrass,0x8c0}}) compareFloat(pair.first,field<float>(n,pair.second),"FarmField numeric properties");
@@ -44,12 +57,17 @@ const auto checkField=[&](FarmField& f,void* n) {
     auto* task=field<void*>(n,0x504);require(bool(f.actions().current())==bool(task),"FarmField current action presence differs");if(task) require(f.actions().current()->owner==&f && field<void*>(task,8)==n && f.actions().current()->type==field<unsigned>(task,4),"FarmField action ownership/type differs");
     require(fieldSourceEvents==fieldNativeEvents,"FarmField remaining Farm/tip boundary order differs");fieldSourceEvents.clear();fieldNativeEvents.clear();require(actualSounds==expectedSounds,"FarmField sounds differ");actualSounds.clear();expectedSounds.clear();
     require(actionAreaSourceTasks==actionAreaNativeTasks,"FarmField Person queue differs");actionAreaSourceTasks.clear();actionAreaNativeTasks.clear();
-    require(fieldWorld.held==bool(field<unsigned char>(nativeScenes[0],0x108)),"FarmField actual Farm held flag differs");++farmFieldStates;
+    require(fieldWorld.held==bool(field<unsigned char>(nativeScenes[0],0x108)),"FarmField actual Farm held flag differs");++farmFieldStates;checkFieldTip();
 };
 for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
     stage=702;trial=farmFieldObjects;cursorPosition={790,590};fieldWorld.fields.clear();fieldWorld.graph.areas.clear();for(unsigned offset:{0x68U,0x6cU,0x70U,0x74U,0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;
     profile.ints["fcu"]=nativeProfile.ints["fcu"]=0;profile.ints["fua"]=nativeProfile.ints["fua"]=0;profile.uints["FFC0"]=nativeProfile.uints["FFC0"]=kind;profile.uints["FFS0"]=nativeProfile.uints["FFS0"]=state;profile.floats["FFP0"]=nativeProfile.floats["FFP0"]=configuration.products[kind].creationTime;profile.floats["FFW0"]=nativeProfile.floats["FFW0"]=100;profile.floats["FFF0"]=nativeProfile.floats["FFF0"]=100;
     auto f=std::make_unique<FarmField>(nullptr,0,0,0,fieldContext);auto* n=allocate(2384);std::memset(n,0,2384);fieldNativeIds[n]=0;function<void*(__thiscall*)(void*,void*,unsigned,unsigned,int)>(0x3c120)(n,nullptr,0,0,0);checkField(*f,n);
+    fieldTip->select(f.get());function<void(__thiscall*)(void*,void*)>(0x402a0)(nativeFieldTip,n);checkFieldTip();
+    for(float dt:{0.f,.25f,.25f,.2f}) {elapsed=dt;fieldTip->absoluteStep();call(0x405e0,nativeFieldTip);checkFieldTip();}
+    fieldTip->hideFor(nullptr);function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,nullptr);checkFieldTip();
+    fieldTip->select(nullptr);function<void(__thiscall*)(void*,void*)>(0x402a0)(nativeFieldTip,nullptr);checkFieldTip();
+    fieldTip->hideFor(nullptr);function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,nullptr);checkFieldTip();
     fieldWorld.fields={f.get()};std::array<void*,1> fields{n};field<void*>(nativeScenes[0],0x7c)=fields.data();field<void*>(nativeScenes[0],0x80)=field<void*>(nativeScenes[0],0x84)=fields.data()+1;
     for(unsigned sample=0;sample<32;++sample) {
         stage=706;Point2 point{float(int(sample%8)-4)*13.125f,float(int(sample/8)-2)*17.5f};const unsigned mask=sample%2 ? 1:127;
@@ -63,21 +81,28 @@ for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
     // Long steps exercise actual processor completion, replacement actions,
     // water/fertil exhaustion, grass fallback and repeated ready/dead cycles.
     for(float dt:{5.f,30.f,60.f,120.f,180.f,.017f,0.f,60.f}) {stage=704;elapsed=dt;f->absoluteStep();call(0x3b0d0,n);++farmFieldActions;checkField(*f,n);}
-    if(kind<2 && state==0) {
+    if(state==0) {
         const Point2 pos{300,250};f->setPosition(pos);function<void(__thiscall*)(void*,const Point2*)>(0x192a0)(n,&pos);
         const auto savedHover=interaction.playHover;interaction.playHover=[&](cResource* sound,bool loop,unsigned start) {audio.playSound(static_cast<cSound*>(sound),loop,bool(start));};
         menuMilliseconds=0;GameTimer fieldTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor fieldCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&fieldCursor;
         std::array<unsigned char,24> cursorFrame{};field<void*>(cursorFrame.data(),0)=cursorTable.data();nativeCursorFrame=cursorFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
-        for(unsigned frame=0;frame<24;++frame) {stage=705;action=frame;menuMilliseconds+=50;
+        for(unsigned frame=0;frame<(kind<2 ? 24U:1U);++frame) {stage=705;action=frame;menuMilliseconds+=50;
             menuPoint=kind==0 && frame<4 ? pos:Point2{790,590};menuMouseDelta=kind==0 && (frame==0 || frame==4) ? std::array<int,3>{1,0,0}:std::array<int,3>{};
             menuInputEvents=kind==0 && frame==1 ? std::vector<unsigned>{0x208}:kind==0 && frame==3 ? std::vector<unsigned>{0x200}:std::vector<unsigned>{};
-            farmFieldPixels+=compareMenuFrame(d3d,device,window,views,controls,input,0);++farmFieldFrames;checkField(*f,n);
+            const auto framePixels=compareMenuFrame(d3d,device,window,views,controls,input,0);farmFieldPixels+=framePixels;fieldTipPixels+=framePixels;++farmFieldFrames;++fieldTipFrames;checkField(*f,n);
         }
         fieldWorld.held=false;field<unsigned char>(nativeScenes[0],0x108)=0;
         interaction.playHover=savedHover;menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
     }
     if(kind==0 && state==0) {
 #include "field_sprinkle_oracle_cases.inc"
+        const auto tipReloadDirectory=common/"field-tip-reload";std::filesystem::create_directories(tipReloadDirectory);
+        std::ofstream(tipReloadDirectory/"partial.xml")<<"<Tip MoveSpeed='2175' HiddenPlace='-211 275'/>";files.mountCommon(String(tipReloadDirectory.generic_string()));
+        for(const char* path:{"partial.xml","UI/gameUI/FarmFieldTip.xml"}) {
+            stage=731;XmlDocument definition(files,String(path));fieldTip->loadXML(definition);function<void(__thiscall*)(void*,void*)>(0x408d0)(nativeFieldTip,wrap(&definition));checkFieldTip();
+            fieldTip->select(f.get());function<void(__thiscall*)(void*,void*)>(0x402a0)(nativeFieldTip,n);elapsed=.6f;fieldTip->absoluteStep();call(0x405e0,nativeFieldTip);checkFieldTip();
+            fieldTip->hideFor(f.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,n);checkFieldTip();
+        }
     }
     if(kind==0 && state==3) {
         // 00440350 destroys the temporary vector on the stack. It is not a
@@ -103,6 +128,7 @@ for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
         productionTutorial->tutorialEnabled=false;field<unsigned char>(nativeProductionTutorial,0xc09)=0;
         if(!shown) {scene.hide();call(0xd3720,nativeScenes[0]);}scene.setParent(previousParent);function<void(__thiscall*)(void*,void*)>(0xd2e50)(nativeScenes[0],nativeParent);
     }
+    fieldTip->hideFor(f.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,n);
     const auto before=textureCounts();f.reset();const auto middle=textureCounts();call(0x36340,n);compareReferenceDeltas(before,middle);require(GameAction::count()==field<unsigned>(image,0x25ff58),"FarmField action destructor count differs");++farmFieldObjects;
 }
 for(int current:{-1,0,1,2}) for(int available:{1,3}) {
@@ -112,6 +138,9 @@ for(int current:{-1,0,1,2}) for(int available:{1,3}) {
     auto f=std::make_unique<FarmField>(nullptr,0,0,2,fieldContext);auto* n=allocate(2384);std::memset(n,0,2384);fieldNativeIds[n]=0;function<void*(__thiscall*)(void*,void*,unsigned,unsigned,int)>(0x3c120)(n,nullptr,0,0,2);checkField(*f,n);
     require(f->active==(current>=2),"FarmField locked/purchase/active initialization differs");
     for(float dt:{0.f,.05f,1.f}) {elapsed=dt;f->absoluteStep();call(0x3b0d0,n);checkField(*f,n);++farmFieldActions;}
+    fieldTip->hideFor(f.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,n);
     const auto before=textureCounts();f.reset();const auto middle=textureCounts();call(0x36340,n);compareReferenceDeltas(before,middle);++farmFieldObjects;
 }
-fieldWorld.fields.clear();for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;putPointer(0x25f774,priorNativeFieldTip);field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;fieldNativeIds.clear();
+fieldWorld.fields.clear();for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;fieldNativeIds.clear();
+
+const auto tipBefore=textureCounts();fieldTip.reset();const auto tipMiddle=textureCounts();call(0x415e0,nativeFieldTip);compareReferenceDeltas(tipBefore,tipMiddle);putPointer(0x25f774,priorNativeFieldTip);

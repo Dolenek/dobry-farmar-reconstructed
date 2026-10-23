@@ -44,6 +44,7 @@
 #include "MowBuilding.h"
 #include "FarmAreas.h"
 #include "FarmField.h"
+#include "FieldTip.h"
 #include "Sprinkle.h"
 #include "WaterParticles.h"
 #include "WaterEmitters.h"
@@ -685,6 +686,7 @@ int wmain(int argc,wchar_t** argv) {
         unsigned waterEmitterStates=0,waterEmitterObjects=0,waterEmitterCreations=0,waterEmitterFrames=0;unsigned long long waterEmitterPixels=0;
         unsigned waterParticleStates=0,waterParticleObjects=0,waterParticleCopies=0,waterParticleFrames=0;unsigned long long waterParticlePixels=0;
         unsigned mowBuildingStates=0,mowBuildingActions=0,mowBuildingFrames=0;unsigned long long mowBuildingPixels=0;
+        unsigned fieldTipStates=0,fieldTipFrames=0;unsigned long long fieldTipPixels=0;
         unsigned farmFieldStates=0,farmFieldObjects=0,farmFieldActions=0,farmFieldFrames=0;unsigned long long farmFieldPixels=0;
         unsigned sprinkleStates=0,sprinkleObjects=0,sprinkleActions=0,sprinkleFrames=0;unsigned long long sprinklePixels=0;
         unsigned waterSourceStates=0,waterSourceActions=0,waterSourceFrames=0;unsigned long long waterSourcePixels=0;
@@ -1186,6 +1188,7 @@ Third</Text></Text></BackMultitext>
             <<",\"water_emitter_states\":"<<waterEmitterStates<<",\"water_emitter_objects\":"<<waterEmitterObjects<<",\"water_emitter_creations\":"<<waterEmitterCreations<<",\"water_emitter_frames\":"<<waterEmitterFrames<<",\"water_emitter_pixels\":"<<waterEmitterPixels
             <<",\"water_particle_states\":"<<waterParticleStates<<",\"water_particle_objects\":"<<waterParticleObjects<<",\"water_particle_copies\":"<<waterParticleCopies<<",\"water_particle_frames\":"<<waterParticleFrames<<",\"water_particle_pixels\":"<<waterParticlePixels
             <<",\"mow_building_states\":"<<mowBuildingStates<<",\"mow_building_actions\":"<<mowBuildingActions<<",\"mow_building_frames\":"<<mowBuildingFrames<<",\"mow_building_pixels\":"<<mowBuildingPixels
+            <<",\"field_tip_states\":"<<fieldTipStates<<",\"field_tip_frames\":"<<fieldTipFrames<<",\"field_tip_pixels\":"<<fieldTipPixels
             <<",\"farm_field_states\":"<<farmFieldStates<<",\"farm_field_objects\":"<<farmFieldObjects<<",\"farm_field_actions\":"<<farmFieldActions<<",\"farm_field_frames\":"<<farmFieldFrames<<",\"farm_field_pixels\":"<<farmFieldPixels
             <<",\"sprinkle_states\":"<<sprinkleStates<<",\"sprinkle_objects\":"<<sprinkleObjects<<",\"sprinkle_actions\":"<<sprinkleActions<<",\"sprinkle_frames\":"<<sprinkleFrames<<",\"sprinkle_pixels\":"<<sprinklePixels
             <<",\"water_source_states\":"<<waterSourceStates<<",\"water_source_actions\":"<<waterSourceActions<<",\"water_source_frames\":"<<waterSourceFrames<<",\"water_source_pixels\":"<<waterSourcePixels

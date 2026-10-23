@@ -1,4 +1,5 @@
 #include "FarmField.h"
+#include "FieldTip.h"
 #include "GameConfiguration.h"
 #include "GameRandom.h"
 #include "StateView.h"
@@ -123,7 +124,7 @@ void FarmField::absoluteStep() {
     }
 }
 void FarmField::onEnabled() {ButtonPrototype::onEnabled();if(pointInRect(fieldContext_.area.interaction.cursor())) hovered();else unhovered();}
-void FarmField::onDisabled() {ButtonPrototype::onDisabled();ButtonPrototype::unhovered();if(fieldContext_.world.fieldTipPresent()) fieldContext_.world.hideFieldTip(*this);}
+void FarmField::onDisabled() {ButtonPrototype::onDisabled();ButtonPrototype::unhovered();if(auto* tip=FieldTip::instance()) tip->hideFor(this);}
 void FarmField::clicked() {
     auto& c=fieldContext_;if(c.profile.ints["fcu"]<upgradeIndex) {ButtonPrototype::clicked();return;}
     c.world.setFarmClickHeld(true);const float time=animation_.time;tipsDirection=1;
@@ -133,13 +134,13 @@ void FarmField::clicked() {
 void FarmField::unclicked() {if(fieldContext_.profile.ints["fcu"]<upgradeIndex) {ButtonPrototype::unclicked();return;}const float time=animation_.time;ButtonPrototype::unclicked();tipsDirection=1;setTime(time);}
 void FarmField::hovered() {
     auto& c=fieldContext_;if(c.profile.ints["fcu"]<upgradeIndex) {ButtonPrototype::hovered();return;}
-    if(c.world.farmClickHeld()) enqueueClick();c.world.openFieldTip(*this);c.world.indicateField(*this);const float time=animation_.time;
+    if(c.world.farmClickHeld()) enqueueClick();FieldTip::instance()->select(this);c.world.indicateField(*this);const float time=animation_.time;
     // Actual original constructs both query coordinates from animation time.
     if(auto* area=c.world.firstAreaAt({time,time},64)) area->tipsDirection=1;
     ExtendedFieldButton::hovered();tipsDirection=1;setTime(time);
 }
 void FarmField::unhovered() {
     auto& c=fieldContext_;if(c.profile.ints["fcu"]<upgradeIndex) {ButtonPrototype::unhovered();return;}
-    c.world.hideFieldTip(*this);const float time=animation_.time;tipsDisabled=false;c.world.clearFieldIndication(*this);ExtendedFieldButton::unhovered();setTime(time);
+    FieldTip::instance()->hideFor(this);const float time=animation_.time;tipsDisabled=false;c.world.clearFieldIndication(*this);ExtendedFieldButton::unhovered();setTime(time);
 }
 }
