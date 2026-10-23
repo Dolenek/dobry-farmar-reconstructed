@@ -135,4 +135,7 @@ fieldWorld.graph.areas.clear();for(unsigned offset:{0x68U,0x6cU,0x70U,0x74U}) fi
     const auto before=textureCounts();views.deleteDiscarded();const auto middle=textureCounts();call(0x5ce00,nativeCreated);compareReferenceDeltas(before,middle);nativeDiscards.clear();++seedPackageObjects;redirect(0x32c20,reinterpret_cast<void*>(&waterNativeDiscardTask));
     if(!shown) {farm.hide();call(0xd3720,nativeScenes[0]);}farm.setParent(parent);function<void(__thiscall*)(void*,void*)>(0xd2e50)(nativeScenes[0],nativeParent);
 }
+if(personTasksMode) {
+#include "person_tasks_oracle_cases.inc"
+}
 const auto beforeSeedBuy=textureCounts();seedBuy.reset();const auto middleSeedBuy=textureCounts();mainMenuDeleteNative(nativeSeedBuy);compareReferenceDeltas(beforeSeedBuy,middleSeedBuy);field<void*>(nativeScenes[0],0x9c)=previousSeedBuy;

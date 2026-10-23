@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T06:58:40.924362+00:00",
+  "recorded_at_utc": "2026-10-23T07:16:15.394771+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
   "oracle_sha256": "772db76d089c5f678d71ac7255c6585778e652ad9d905dbeec085975f7f55f49",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 38401,
+      "source_position_progress": 19880,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 19880,
+      "source_position_progress": 55159,
+      "native_position_progress": 55600,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -817,6 +817,14 @@
     {
       "path": "src/game/ui/Options.h",
       "sha256": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa"
+    },
+    {
+      "path": "src/game/ui/PersonTasks.cpp",
+      "sha256": "8152beced684c28cb6404d769781cfbced7ec7ce4fd89199e8178b6e1901bc62"
+    },
+    {
+      "path": "src/game/ui/PersonTasks.h",
+      "sha256": "0d5e72c28340e9d0f88f9231b0708cb030dfbb4d6ea39137a766fb9e57b69abb"
     },
     {
       "path": "src/game/ui/PictureButton.cpp",
