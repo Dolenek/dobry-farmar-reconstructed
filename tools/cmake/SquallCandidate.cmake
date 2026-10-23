@@ -85,3 +85,10 @@ target_compile_options(game-audio-reference-test PRIVATE /utf-8)
 target_link_libraries(game-audio-reference-test PRIVATE recovered_game_audio)
 add_custom_command(TARGET game-audio-reference-test POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:game-audio-reference-test>/Squall.dll")
+
+add_executable(person-sounds-reference-test EXCLUDE_FROM_ALL "${CMAKE_CURRENT_SOURCE_DIR}/tools/person_sounds_reference_test.cpp")
+target_compile_definitions(person-sounds-reference-test PRIVATE _USRDLL)
+target_compile_options(person-sounds-reference-test PRIVATE /utf-8)
+target_link_libraries(person-sounds-reference-test PRIVATE recovered_game_audio)
+add_custom_command(TARGET person-sounds-reference-test POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:person-sounds-reference-test>/Squall.dll")

@@ -34,6 +34,7 @@ def main():
     parser.add_argument('--profile-lifecycle',action='store_true',help='Record profile constructors, full load/save/create/destructor')
     parser.add_argument('--sound-manager',action='store_true',help='Record SoundManager files, native lifetime and volume operands')
     parser.add_argument('--progress-sprite',action='store_true',help='Record native ProgressBar sprite and switch table operands')
+    parser.add_argument('--person-sounds',action='store_true',help='Record Person channel-selection and ownership normal paths')
     args=parser.parse_args()
     if args.profile_lifecycle: args.profile_properties=True
     if args.text_buttons: args.button_text=True; args.button_state=True
@@ -263,6 +264,8 @@ def main():
             if address in rows and address not in boundaries:
                 todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000]
         addresses=sorted(seen)
+    if args.person_sounds:
+        prefix='person-sounds';addresses=[0x44a820,0x44ad50,0x449820,0x449840,0x449860,0x449880,0x5809b3]
     scratch=ROOT/'.local/function-inspection'; scratch.mkdir(parents=True,exist_ok=True)
     fixups=[]
     with tempfile.TemporaryDirectory(dir=scratch) as directory:
@@ -289,10 +292,10 @@ def main():
                 if not match: continue
                 instruction,encoded,text=int(match[1],16),bytes.fromhex(match[2]),match[3]
                 memory=re.search(r'ds:0x([0-9a-f]+)',text)
-                if (args.button_state or args.progress_sprite or args.click_mask) and not memory and text.startswith('jmp'):
+                if (args.button_state or args.progress_sprite or args.click_mask or args.person_sounds) and not memory and text.startswith('jmp'):
                     candidate=re.search(r'\[[^\]]*\+0x([0-9a-f]+)\]',text)
                     if candidate and pe.image_base<=int(candidate[1],16)<pe.image_base+0x300000: memory=candidate
-                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.click_mask or args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520,0x40c750)) else ('mov','push')):
+                if (args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask or args.person_sounds) and not memory and text.split() and text.split()[0] in (('mov','push','lea','add') if args.click_mask or args.profile_lifecycle or (args.text_buttons and address in (0x40ab50,0x496520,0x40c750)) else ('mov','push')):
                     # A member displacement can precede an immediate pointer,
                     # e.g. mov [esi+0xc],0x536550. Inspect every operand token.
                     candidates=[candidate for candidate in re.finditer(r'0x([0-9a-f]+)\b',text)
@@ -311,7 +314,7 @@ def main():
                 if operand<0:
                     binary=pe.data[pe.offset(instruction-pe.image_base):pe.offset(instruction-pe.image_base)+15]
                     operand=binary.find(target.to_bytes(4,'little'))
-                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask else 3),line
+                    assert 0<=operand<=(7 if args.view or args.timer or args.cursor or args.profile_headers or args.profile_properties or args.sound_manager or args.click_mask or args.person_sounds else 3),line
                 fixups.append(dict(rva=instruction-pe.image_base+operand,original_address=target,function=f'{address:08x}',instruction=text))
     if args.click_mask:
         # Exact A8R8G8B8 converter table and factory switch used by original
@@ -360,6 +363,11 @@ def main():
                     rva=table+slot*4; target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
                     assert pe.image_base<=target<pe.image_base+0x200000
                     fixups.append(dict(rva=rva,original_address=target,function='cControl/Picture-vtable',instruction=f'virtual slot {slot}'))
+    if args.person_sounds:
+        for slot in range(8):
+            rva=0x4ad2c+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
+            assert 0x44a820<=target<0x44ad2c
+            fixups.append(dict(rva=rva,original_address=target,function='Person-sound-switch',instruction=f'kind {slot}'))
     if args.sound_manager:
         for table,count in [(0x60028c,11),(0x601678,7),(0x5fe0d8,7),(0x5fcf5c,1)]:
             for slot in range(count):

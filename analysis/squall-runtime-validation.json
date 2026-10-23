@@ -1,6 +1,6 @@
 {
   "status": "passed_for_recorded_sample_and_transform_scope",
-  "recorded_at_utc": "2026-10-10T19:55:37.367942+00:00",
+  "recorded_at_utc": "2026-10-23T18:24:18.933688+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "reference_files_modified": false,
   "original_entry_point_executed": true,
@@ -10,11 +10,11 @@
     "SQUALL_VORBIS_FP": "fast"
   },
   "export_contract": {
-    "recorded_at_utc": "2026-10-10T19:55:37.329364+00:00",
+    "recorded_at_utc": "2026-10-23T18:24:18.907199+00:00",
     "status": "matches_export_contract",
     "original_name": "Squall.dll",
     "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-    "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
+    "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
     "bits": 32,
     "machine": "014c",
     "exports": [
@@ -1233,17 +1233,17 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "73ab2c6320c22345c464dc5f325e5e2ed87bf1673d90620302d3e3f1ee3a6f13"
+      "sha256": "5196146e1e33fddb04f269d91ad4a7463730f97a7009e917ee047b628af52337"
     }
   ],
   "oracle_files": [
     {
       "path": "build/windows/Release/squall-runtime-reference-test.exe",
-      "sha256": "f90fd2994004b0a33b3e1164fa5575cffe7b51ef13fe5388dc7fecda6d2b7d4e"
+      "sha256": "94c22e0d3b2ae3ffbd608c6ef368dce1fa220c71d186d88c3f71b5e8e7fc3fdc"
     },
     {
       "path": "build/windows/Release/squall-vorbis-reference-test.exe",
-      "sha256": "693ca2eaf499c59143a0d6c55a31fb5af8a53f6d5d0429de28bfe540268de13d"
+      "sha256": "47ec7f1f400e057c58d6f8f8dcf5d769c200a1be3677da408506771189684f06"
     }
   ],
   "native_addresses": {

@@ -1,0 +1,126 @@
+{
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "test_only": true,
+  "fixups": [
+    {
+      "rva": 305190,
+      "original_address": 6014179,
+      "function": "0044a820",
+      "instruction": "push   0x5bc4e3"
+    },
+    {
+      "rva": 305220,
+      "original_address": 6674076,
+      "function": "0044a820",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 305251,
+      "original_address": 4500780,
+      "function": "0044a820",
+      "instruction": "jmp    DWORD PTR [eax*4+0x44ad2c]"
+    },
+    {
+      "rva": 305279,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 305356,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 305408,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 305474,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 305533,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 305592,
+      "original_address": 6682420,
+      "function": "0044a820",
+      "instruction": "mov    ecx,DWORD PTR ds:0x65f734"
+    },
+    {
+      "rva": 306518,
+      "original_address": 6014419,
+      "function": "0044ad50",
+      "instruction": "push   0x5bc5d3"
+    },
+    {
+      "rva": 306548,
+      "original_address": 6674076,
+      "function": "0044ad50",
+      "instruction": "mov    eax,ds:0x65d69c"
+    },
+    {
+      "rva": 1575349,
+      "original_address": 6674076,
+      "function": "005809b3",
+      "instruction": "cmp    ecx,DWORD PTR ds:0x65d69c"
+    },
+    {
+      "rva": 306476,
+      "original_address": 4499559,
+      "function": "Person-sound-switch",
+      "instruction": "kind 0"
+    },
+    {
+      "rva": 306480,
+      "original_address": 4499636,
+      "function": "Person-sound-switch",
+      "instruction": "kind 1"
+    },
+    {
+      "rva": 306484,
+      "original_address": 4499688,
+      "function": "Person-sound-switch",
+      "instruction": "kind 2"
+    },
+    {
+      "rva": 306488,
+      "original_address": 4499743,
+      "function": "Person-sound-switch",
+      "instruction": "kind 3"
+    },
+    {
+      "rva": 306492,
+      "original_address": 4499754,
+      "function": "Person-sound-switch",
+      "instruction": "kind 4"
+    },
+    {
+      "rva": 306496,
+      "original_address": 4499809,
+      "function": "Person-sound-switch",
+      "instruction": "kind 5"
+    },
+    {
+      "rva": 306500,
+      "original_address": 4499817,
+      "function": "Person-sound-switch",
+      "instruction": "kind 6"
+    },
+    {
+      "rva": 306504,
+      "original_address": 4499880,
+      "function": "Person-sound-switch",
+      "instruction": "kind 7"
+    }
+  ]
+}

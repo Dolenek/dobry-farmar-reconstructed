@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T17:16:49.907685+00:00",
+  "recorded_at_utc": "2026-10-23T18:16:20.700309+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "395ec88e62e0c58398a758d23a60887a8b9a252d966e547d73e042c697c8e9e6",
+  "oracle_sha256": "5fc4f9eba700301dbb8f2925a014bf321ebd4967caf574c22cdf49cf58280f0c",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20762,
-      "native_position_progress": 37928,
+      "source_position_progress": 37520,
+      "native_position_progress": 37961,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 37519,
+      "source_position_progress": 55126,
+      "native_position_progress": 37961,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -819,6 +819,14 @@
       "sha256": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa"
     },
     {
+      "path": "src/game/ui/PersonSounds.cpp",
+      "sha256": "511f8d8aebcb147880016b1b260c7061ef67a0dbb528644d4d65119d22456657"
+    },
+    {
+      "path": "src/game/ui/PersonSounds.h",
+      "sha256": "269577388dc286b4e5de4648736dd3774811a8117133c29c26c76b2fa28bc16e"
+    },
+    {
       "path": "src/game/ui/PersonTasks.cpp",
       "sha256": "8152beced684c28cb6404d769781cfbced7ec7ce4fd89199e8178b6e1901bc62"
     },
@@ -1460,7 +1468,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "73ab2c6320c22345c464dc5f325e5e2ed87bf1673d90620302d3e3f1ee3a6f13"
+      "sha256": "5196146e1e33fddb04f269d91ad4a7463730f97a7009e917ee047b628af52337"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

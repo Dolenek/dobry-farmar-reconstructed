@@ -400,6 +400,9 @@ def main():
             effect=read(effect_path.relative_to(ROOT));assert effect['status']==status
             for name,expected in effect['source_files'].items():
                 assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+            if key.startswith('person-sounds'):
+                for path_key,hash_key in [('oracle_path','oracle_sha256'),('candidate_path','candidate_sha256')]:
+                    assert hashlib.sha256((ROOT/effect[path_key]).read_bytes()).hexdigest()==effect[hash_key],effect[path_key]
             write(f'analysis/{key}-validation.json',effect);report[key]=effect
             if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
     dig_path=ROOT/'.local/dig-building-validation.json'
@@ -426,12 +429,15 @@ def main():
         write('analysis/mow-building-validation.json',mow);report['mow-building']=mow
         if 'analysis/mow-building-validation.json' not in report['reports']:report['reports'].append('analysis/mow-building-validation.json')
         write('analysis/verification.json',report)
-    for key,status in [('water-particles','passed_for_water_particles_copy_motion_and_frames'),('water-emitters','passed_for_water_emitters_creation_modes_frames_and_disposal'),('sprinkle','passed_for_sprinkle_controller_effect_factory_and_explicit_field_boundaries'),('farm-field','passed_for_field_actions_farm_geometry_and_connected_irrigation'),('seed-package','passed_for_seed_package_progress_purchase_field_and_explicit_person_boundaries'),('person-tasks','passed_for_person_queue_markers_field_seed_input_and_explicit_actor_boundaries'),('person-visuals','passed_for_person_visuals_ui_selectors_reloads_and_explicit_actor_boundaries'),('person-walk','passed_for_person_ordinary_motion_field_seed_and_mouse_queue'),('person-vehicle','passed_for_person_vehicle_motion_axis_field_seed_and_mouse_queue')]:
+    for key,status in [('water-particles','passed_for_water_particles_copy_motion_and_frames'),('water-emitters','passed_for_water_emitters_creation_modes_frames_and_disposal'),('sprinkle','passed_for_sprinkle_controller_effect_factory_and_explicit_field_boundaries'),('farm-field','passed_for_field_actions_farm_geometry_and_connected_irrigation'),('seed-package','passed_for_seed_package_progress_purchase_field_and_explicit_person_boundaries'),('person-tasks','passed_for_person_queue_markers_field_seed_input_and_explicit_actor_boundaries'),('person-visuals','passed_for_person_visuals_ui_selectors_reloads_and_explicit_actor_boundaries'),('person-walk','passed_for_person_ordinary_motion_field_seed_and_mouse_queue'),('person-vehicle','passed_for_person_vehicle_motion_axis_field_seed_and_mouse_queue'),('person-sounds','passed_for_person_sound_selection_channel_ownership_and_physical_backends'),('person-sounds-fresh','passed_for_person_sound_selection_channel_ownership_and_physical_backends')]:
         effect_path=ROOT/f'.local/{key}-validation.json'
         if effect_path.exists():
             effect=read(effect_path.relative_to(ROOT));assert effect['status']==status
             for name,expected in effect['source_files'].items():
                 assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+            if key.startswith('person-sounds'):
+                for path_key,hash_key in [('oracle_path','oracle_sha256'),('candidate_path','candidate_sha256')]:
+                    assert hashlib.sha256((ROOT/effect[path_key]).read_bytes()).hexdigest()==effect[hash_key],effect[path_key]
             write(f'analysis/{key}-validation.json',effect);report[key]=effect
             if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
     write('analysis/verification.json',report)

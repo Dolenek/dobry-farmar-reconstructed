@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T17:16:25.461801+00:00",
+  "recorded_at_utc": "2026-10-23T18:24:57.968987+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "2357a8ca3e726c32995fee2ddfcafa44271e43ecfd4274cb97fbb4633debe3f0",
-  "oracle_sha256": "772db76d089c5f678d71ac7255c6585778e652ad9d905dbeec085975f7f55f49",
+  "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
+  "oracle_sha256": "c5fa02d87f4d8ec5ee35d10e58db3ae2f06d9c1a8adfe0a18622268d3c3be0cd",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19880,
-      "native_position_progress": 37928,
+      "source_position_progress": 19881,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38810,
-      "native_position_progress": 37487,
+      "source_position_progress": 37520,
+      "native_position_progress": 38369,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -819,6 +819,14 @@
       "sha256": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa"
     },
     {
+      "path": "src/game/ui/PersonSounds.cpp",
+      "sha256": "511f8d8aebcb147880016b1b260c7061ef67a0dbb528644d4d65119d22456657"
+    },
+    {
+      "path": "src/game/ui/PersonSounds.h",
+      "sha256": "269577388dc286b4e5de4648736dd3774811a8117133c29c26c76b2fa28bc16e"
+    },
+    {
       "path": "src/game/ui/PersonTasks.cpp",
       "sha256": "8152beced684c28cb6404d769781cfbced7ec7ce4fd89199e8178b6e1901bc62"
     },
@@ -1460,7 +1468,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "73ab2c6320c22345c464dc5f325e5e2ed87bf1673d90620302d3e3f1ee3a6f13"
+      "sha256": "5196146e1e33fddb04f269d91ad4a7463730f97a7009e917ee047b628af52337"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

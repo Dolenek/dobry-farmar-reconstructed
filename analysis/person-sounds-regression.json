@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-23T18:29:24.389925+00:00",
+  "ctest_passed": 86,
+  "ctest_total": 86,
+  "ctest_seconds": 386.41,
+  "full_suite_without_rerun": true,
+  "junit_path": ".local/ctest-person-sounds-full.xml",
+  "junit_sha256": "5ffae3782f619aa42d26623930780affe8b43b7b21e03d0794b911690646ac21",
+  "source_tree_sha256": "5c2b48959cce97bb14bd77c41563e1133f95e4f6587d254dd2723a12a7586a6d",
+  "build_log": ".local/person-sounds-full-build.log",
+  "test_log": ".local/person-sounds-full-tests.log",
+  "strict_record_log": ".local/person-sounds-record.log",
+  "person_sound_states": 332,
+  "person_sound_actions": 328,
+  "api_events": 616,
+  "playback_progress_checks": 40,
+  "paused_cursor_checks": 8,
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}
