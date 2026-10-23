@@ -62,6 +62,7 @@ public:
     float alpha() const noexcept { return *alpha_; }
     void setTextureName(const String& name); // cAnimable::setPicture, 004d2260
     void copyAppearance(const AnimableAppearance&); // 004d2160, preserves play/time and dirty flag
+    Control& copyVisualProperties(const Control&); // 0048c760, no View/ownership/callback copy
     float deep() const noexcept { return deep_; }
     const ControlSpriteProperties& geometry() const noexcept { return geometry_; }
     const ControlAnimationState& animation() const noexcept { return animation_; }

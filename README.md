@@ -10,6 +10,8 @@ Skutečný [Warehouse](docs/WAREHOUSE.md) nyní propojuje zásoby profilu, výro
 
 [Pole a jejich akce](docs/FARM_FIELDS.md) nyní propojují růst osmi kultur, typed profil, skutečné Farm prostorové dotazy a zavlažování přes Sprinkle/WaterSource s vodními efekty. PC53/PC24: 4 460 stavů a 128 GPU snímků / 61 440 000 shodných pixelů, včetně myši a původních tutorial21/22/23 větví. Úplný Farm controller, FieldTip/SeedPackage, Person, herní EXE a obousměrné saves ještě zbývají.
 
+[SeedPackage a ProgressDiscrete](docs/SEED_PACKAGE.md) nyní propojují skutečný BuySeeds callback, čtyřpoužitelný sáček, platbu při umístění, myš, Farm masky a odstranění odmítnutého nákupu. Skutečné pole spouští tutorial22 s existujícím sáčkem. PC53/PC24:550 SeedPackage stavů /504 akcí a1038 ProgressDiscrete stavů,64 GPU snímků /30 720 000 shodných RGB pixelů. Úplné sestavení a81/81 CTest prošlo za338,02 s, obě game-audio sestavení a striktní source/binary hashe také; všech17 originálů zůstalo beze změny. Person queue je zatím pozorovaná hranice; tutorial20 a neurčený původní počáteční status na recyklované haldě mají výslovně evidované omezení. Celý Farm/Person, herní EXE, obousměrné saves, úplná Squall a izolovaný uninstaller nadále zbývají.
+
 ## Původní programy a knihovny
 
 | Soubor | Doložená úloha | Stav |

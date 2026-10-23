@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-22T11:41:45.246905+00:00",
+  "recorded_at_utc": "2026-10-23T06:59:07.051452+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
   "oracle_sha256": "90276753f621e887e9bc277f9dc0d19f1636d4c314dd6c877512f29639984a6b",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 20731,
-      "native_position_progress": 21612,
+      "source_position_progress": 38369,
+      "native_position_progress": 37928,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 39693,
-      "native_position_progress": 21172,
+      "source_position_progress": 22085,
+      "native_position_progress": 20730,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -576,11 +576,11 @@
     },
     {
       "path": "src/game/ui/Control.cpp",
-      "sha256": "c85f6b27b9eac02d95ad729b9587efb5114244f63087f20d96d594d8c04b1bd2"
+      "sha256": "f5d6442d2f9766480b94d2d516986141cef9194c41b66c8c6f7579864f9c3b83"
     },
     {
       "path": "src/game/ui/Control.h",
-      "sha256": "6997b11d4d875acbb715dc46ad69b4a990bc9ac1a9133f48a6742f722a69fc25"
+      "sha256": "3e21acf6b00c063c35231d8335cfe551b0ea700a4a77852df2f65dd87d31fed9"
     },
     {
       "path": "src/game/ui/ControlAnimation.cpp",
@@ -640,11 +640,11 @@
     },
     {
       "path": "src/game/ui/FarmAreas.cpp",
-      "sha256": "abd96a7a04d2609c0f2ea05f52b0be9f4ef40ed96ea1493137ee0c2c9cbd2ff4"
+      "sha256": "ca91c47aa00e5c622c135473867e390314b01310088c3d9420477f7b64ceee5b"
     },
     {
       "path": "src/game/ui/FarmAreas.h",
-      "sha256": "a1efb7aa8f21c7ea93e5b82575c36ff59308531ba6d7ca3897d29d1202884ae5"
+      "sha256": "2d3587802a87ff4ca173462acb4bdcb9d2a4fb56a62f160d518a824b80e8236c"
     },
     {
       "path": "src/game/ui/FarmField.cpp",
@@ -875,12 +875,28 @@
       "sha256": "40f08dc1d79aba39e880d25f9149a7d3d266d851b5718d7edb2ee6164b43a2c9"
     },
     {
+      "path": "src/game/ui/ProgressDiscrete.cpp",
+      "sha256": "1d9dde4d35037dc0be99720fc5f6467d03efb7e46509b763e66e2f998f606f12"
+    },
+    {
+      "path": "src/game/ui/ProgressDiscrete.h",
+      "sha256": "6b16047e3b2d39e6fec04c188c914a16f507275eb5504308b107731851e2e814"
+    },
+    {
       "path": "src/game/ui/ProgressSprite.cpp",
       "sha256": "d95281df17547defb1e5328d041b5ee401be9328e737edf59c162451fa494c9e"
     },
     {
       "path": "src/game/ui/ProgressSprite.h",
       "sha256": "9832b10833febe48d17d3516f05472d8c8580fabe8877e05039fcedcda29ea02"
+    },
+    {
+      "path": "src/game/ui/SeedPackage.cpp",
+      "sha256": "cf9bb51c22758a1ea96608d9f848caa4df7a76075052b5aa2fa68806f829479e"
+    },
+    {
+      "path": "src/game/ui/SeedPackage.h",
+      "sha256": "84b90abe3f1024a24937be992cd8b2e3fa75e5b216e64467e63f1dcc16efb7ca"
     },
     {
       "path": "src/game/ui/SelectProfile.cpp",

@@ -26,6 +26,21 @@ void Control::copyAppearance(const AnimableAppearance& value) {
     animation_.frames=value.frames;animation_.length=value.length;animation_.loop=value.loop;
     geometry_.columns=value.columns;geometry_.rows=value.rows;
 }
+Control& Control::copyVisualProperties(const Control& source) {
+    // 0048c760 copies cAnimable plus these exact visual fields. RGB, playing,
+    // DoubleAnimRender, callbacks, shaders, userData and View state stay local.
+    if(texture_!=source.texture_) {
+        if(texture_) texture_->releaseReference();texture_=source.texture_;
+        if(texture_) texture_->addReference();
+    }
+    animation_.frames=source.animation_.frames;animation_.length=source.animation_.length;animation_.loop=source.animation_.loop;
+    geometry_.columns=source.geometry_.columns;geometry_.rows=source.geometry_.rows;
+    geometry_.angle=source.geometry_.angle;*alpha_=*source.alpha_;
+    geometry_.x=source.geometry_.x;geometry_.y=source.geometry_.y;geometry_.width=source.geometry_.width;geometry_.height=source.geometry_.height;
+    flags_=source.flags_;animation_.time=source.animation_.time;
+    geometry_.invertX=source.geometry_.invertX;geometry_.invertY=source.geometry_.invertY;material_=source.material_;
+    setDeep(source.deep_);dirty_=true;return *this;
+}
 namespace {
 template<class Value> void attribute(const XmlNode& node,const wchar_t* key,Value& value) {
     const WString text=node.attribute(WString(key));

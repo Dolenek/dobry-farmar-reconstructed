@@ -81,7 +81,9 @@ for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
     // Long steps exercise actual processor completion, replacement actions,
     // water/fertil exhaustion, grass fallback and repeated ready/dead cycles.
     for(float dt:{5.f,30.f,60.f,120.f,180.f,.017f,0.f,60.f}) {stage=704;elapsed=dt;f->absoluteStep();call(0x3b0d0,n);++farmFieldActions;checkField(*f,n);}
-    if(state==0) {
+    // SeedPackage has its own connected GPU scene. Its prefix retains all
+    // CPU comparisons; the mandatory farm-field mode covers these frames.
+    if(state==0 && !seedPackageMode) {
         const Point2 pos{300,250};f->setPosition(pos);function<void(__thiscall*)(void*,const Point2*)>(0x192a0)(n,&pos);
         const auto savedHover=interaction.playHover;interaction.playHover=[&](cResource* sound,bool loop,unsigned start) {audio.playSound(static_cast<cSound*>(sound),loop,bool(start));};
         menuMilliseconds=0;GameTimer fieldTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor fieldCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&fieldCursor;
@@ -95,6 +97,7 @@ for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
         interaction.playHover=savedHover;menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
     }
     if(kind==0 && state==0) {
+        if(seedPackageMode) {const Point2 plotPosition{300,250};f->setPosition(plotPosition);function<void(__thiscall*)(void*,const Point2*)>(0x192a0)(n,&plotPosition);}
 #include "field_sprinkle_oracle_cases.inc"
         const auto tipReloadDirectory=common/"field-tip-reload";std::filesystem::create_directories(tipReloadDirectory);
         std::ofstream(tipReloadDirectory/"partial.xml")<<"<Tip MoveSpeed='2175' HiddenPlace='-211 275'/>";files.mountCommon(String(tipReloadDirectory.generic_string()));
@@ -143,4 +146,7 @@ for(int current:{-1,0,1,2}) for(int available:{1,3}) {
 }
 fieldWorld.fields.clear();for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;fieldNativeIds.clear();
 
+if(seedPackageMode) {
+#include "seed_package_oracle_cases.inc"
+}
 const auto tipBefore=textureCounts();fieldTip.reset();const auto tipMiddle=textureCounts();call(0x415e0,nativeFieldTip);compareReferenceDeltas(tipBefore,tipMiddle);putPointer(0x25f774,priorNativeFieldTip);

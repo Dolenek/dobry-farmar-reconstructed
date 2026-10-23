@@ -39,7 +39,7 @@ fieldWorld.graph.registerArea(*warehouse);function<void(__thiscall*)(void*,void*
 for(unsigned i=0;i<16;++i) {
     stage=715;const Point2 point{warehouse->geometry().x+float(int(i%4)-2)*20,warehouse->geometry().y+float(int(i/4)-2)*20};
     sprinkler->setPosition(point);function<void(__thiscall*)(void*,const Point2*)>(0x192a0)(nspr,&point);
-    const bool actual=fieldWorld.graph.canPlaceSprinkle(sprinkler.get(),point),expected=function<unsigned(__thiscall*)(void*,void*,const Point2*)>(0x2d290)(nativeScenes[0],nspr,&point)!=0;
+    const bool actual=fieldWorld.graph.canPlaceSprinkle(sprinkler.get(),point),expected=function<unsigned char(__thiscall*)(void*,void*,const Point2*)>(0x2d290)(nativeScenes[0],nspr,&point)!=0;
     require(actual==expected,"Actual Farm Warehouse/Sprinkle placement masks differ");if(!actual) ++blocked;++farmFieldActions;checkConnected();
 }require(blocked,"Farm placement did not test a rejected Warehouse overlap");
 fieldWorld.graph.areas.pop_back();field<unsigned>(nativeScenes[0],0x70)-=4;
@@ -50,7 +50,7 @@ sprinkler->setStatus(0);function<void(__thiscall*)(void*,unsigned)>(0x5f3d0)(nsp
     const auto savedHover=interaction.playHover;interaction.playHover=[&](cResource* sound,bool loop,unsigned start) {audio.playSound(static_cast<cSound*>(sound),loop,bool(start));};
     menuMilliseconds=0;GameTimer coupledTimer(settings,TimerServices{&menuClock,&menuSleep,&menuPeriod,&menuPeriod});GameCursor coupledCursor(window,CursorServices{&GetWindowInfo,&menuCursorPosition});menuCursor=&coupledCursor;
     std::array<unsigned char,24> cursorFrame{};field<void*>(cursorFrame.data(),0)=cursorTable.data();nativeCursorFrame=cursorFrame.data();putPointer(0x25ff60,nativeCursorFrame);inputTable[11]=reinterpret_cast<void*>(&menuNativeInput);
-    for(unsigned frame=0;frame<16;++frame) {stage=712;action=frame;menuMilliseconds+=50;menuPoint={790,590};menuMouseDelta={};menuInputEvents.clear();const auto framePixels=compareMenuFrame(d3d,device,window,views,controls,input,0);farmFieldPixels+=framePixels;fieldTipPixels+=framePixels;++farmFieldFrames;++fieldTipFrames;checkConnected();}
+    for(unsigned frame=0;frame<16 && !seedPackageMode;++frame) {stage=712;action=frame;menuMilliseconds+=50;menuPoint={790,590};menuMouseDelta={};menuInputEvents.clear();const auto framePixels=compareMenuFrame(d3d,device,window,views,controls,input,0);farmFieldPixels+=framePixels;fieldTipPixels+=framePixels;++farmFieldFrames;++fieldTipFrames;checkConnected();}
     interaction.playHover=savedHover;menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
 }
 const auto before=textureCounts();sprinkler.reset();buy.reset();views.deleteDiscarded();const auto middle=textureCounts();call(0x5e9d0,nspr);mainMenuDeleteNative(nb);compareReferenceDeltas(before,middle);nativeDiscards.clear();field<void*>(nativeScenes[0],0x9c)=priorBuy;

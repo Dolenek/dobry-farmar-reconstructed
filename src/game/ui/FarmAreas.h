@@ -16,6 +16,8 @@ public:
     bool hasDryField(); // 0042caa0 / 004381c0
     void clearWaterPreview(); // 0042fa90
     bool canPlaceSprinkle(ActionArea*,const Point2&); // 0042d290
+    bool canPlaceSeed(ActionArea*,const Point2&); // 0042ce30
+    FarmField* fieldForSeedTutorial(); // 0042e7c0, first active fallback
     void remove(ActionArea&,ViewRegistry&); // 00433420
     std::vector<ActionArea*> areas;std::vector<FarmField*> fields;
     ProductionRectangle bounds{40,80,760,500}; // actual ctor 00435c40

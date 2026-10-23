@@ -26,4 +26,15 @@ bool FarmAreas::canPlaceSprinkle(ActionArea* candidate,const Point2& p) {
     }return true;
 }
 void FarmAreas::remove(ActionArea& a,ViewRegistry& views) {const auto found=std::find(areas.begin(),areas.end(),&a);if(found!=areas.end()) {areas.erase(found);views.requestDiscard(&a,String(".\\Game\\Farm\\Farm.cpp382"));}}
+bool FarmAreas::canPlaceSeed(ActionArea* candidate,const Point2& p) {
+    if(!candidate || !productionPointInside(bounds,p)) return false;
+    for(auto* a:areas) {const auto& s=a->state();if(a!=candidate && s.shown && s.parentShown && a->areaType!=32 && a->areaType!=64)
+        if(productionRectangleTouches(rectangle(*a),candidate) && productionMasksOverlap(*a,*candidate,&a->clickMask(),&candidate->clickMask())) return false;
+    }return true;
+}
+FarmField* FarmAreas::fieldForSeedTutorial() {
+    FarmField* first=nullptr;for(auto* a:areas) if(a->areaType==1) {auto* f=static_cast<FarmField*>(a);if(!f->active) continue;
+        if(!first) first=f;if(f->culture()==0 && f->water()==0) return f;
+    }return first;
+}
 }
