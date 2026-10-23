@@ -1,6 +1,6 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T07:16:41.644899+00:00",
+  "recorded_at_utc": "2026-10-23T15:50:54.020755+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
   "oracle_sha256": "90276753f621e887e9bc277f9dc0d19f1636d4c314dd6c877512f29639984a6b",
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 20321,
+      "source_position_progress": 19880,
+      "native_position_progress": 37519,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 55126,
-      "native_position_progress": 37960,
+      "source_position_progress": 37960,
+      "native_position_progress": 55159,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -164,7 +164,7 @@
     },
     {
       "path": "src/game/engine/GameAction.h",
-      "sha256": "bf1b31259db9d3cbad8df0fe3643b23dcb2b939bd830b126ad3a59eac6e8dac5"
+      "sha256": "81197506d2e2a1209c5ed6d88715278fa1bc86b9210e7f24d045ded6aed920b8"
     },
     {
       "path": "src/game/engine/GameConfiguration.cpp",
@@ -825,6 +825,14 @@
     {
       "path": "src/game/ui/PersonTasks.h",
       "sha256": "0d5e72c28340e9d0f88f9231b0708cb030dfbb4d6ea39137a766fb9e57b69abb"
+    },
+    {
+      "path": "src/game/ui/PersonVisuals.cpp",
+      "sha256": "76bb3a7f11d2377cca428b51ce77f83a5da3864886bb5e405aeeb60a9e2effa7"
+    },
+    {
+      "path": "src/game/ui/PersonVisuals.h",
+      "sha256": "986b5cfc810e415deb889e0fcd3668f205ba2f8a81108a0e0560d9c42ddb18e1"
     },
     {
       "path": "src/game/ui/PictureButton.cpp",

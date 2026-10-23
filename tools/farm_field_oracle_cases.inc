@@ -146,7 +146,10 @@ for(int current:{-1,0,1,2}) for(int available:{1,3}) {
 }
 fieldWorld.fields.clear();for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;fieldNativeIds.clear();
 
-if(seedPackageMode) {
+if(seedPackageMode && !personVisualsMode) {
 #include "seed_package_oracle_cases.inc"
+}
+if(personVisualsMode) {
+#include "person_visuals_oracle_cases.inc"
 }
 const auto tipBefore=textureCounts();fieldTip.reset();const auto tipMiddle=textureCounts();call(0x415e0,nativeFieldTip);compareReferenceDeltas(tipBefore,tipMiddle);putPointer(0x25f774,priorNativeFieldTip);

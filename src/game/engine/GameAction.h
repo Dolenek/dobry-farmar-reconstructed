@@ -17,7 +17,7 @@ public:
     View* owner;unsigned type;
     static unsigned count() noexcept;
 };
-// Original single current-action owner at Field+504 / Person+4. Completion
+// Original single current-action owner at Field+504 / Person+284. Completion
 // detaches before finish, so finish may install another action in this owner.
 class ActionProcessor {
 public:

@@ -14,6 +14,8 @@ Skutečný [Warehouse](docs/WAREHOUSE.md) nyní propojuje zásoby profilu, výro
 
 [PersonTasks](docs/PERSON_TASKS.md) nyní obnovuje skutečnou frontu postavy a značky napojené na myší vstup Field/SeedPackage:102 stavů /84 akcí a16 dalších GPU snímků /7 680 000 shodných RGB pixelů v PC53/PC24. Dokončení přesouvá značky, zachovává uložené cíle a používá původní deferred discard; FIFO, vyřazení i unsigned hraniční indexy jsou přímo porovnané. Úplné Win32 sestavení a82/82 CTest prošlo za341,53 s, obě game-audio sestavení a striktní hashe také; všech17 originálů je beze změny. Nativní Person je v tomto porovnání explicitní adaptér příslušných dat. Celý jeho constructor, pohyb, carrying/work, animace/zvuk a úplná Farm/EXE dále zbývají.
 
+[PersonVisuals](docs/PERSON_VISUALS.md) obnovuje skutečná appearance/XML data postavy, výběr idle/work/move/hose animací, hotspoty a UI nesených věcí. PC53/PC24:9014 stavů /8928 akcí,10 XML reloadů a40 GPU snímků /19 200 000 shodných RGB pixelů včetně skutečného pole a značek fronty. Pořadí aktualizací, původní x87 přesnost i retained UI/sound reference jsou přímo porovnané. Úplné sestavení a83/83 CTest prošlo za371,54 s, oba game-audio buildy a striktní hashe také; všech17 originálů je beze změny. Drawing/input base a některé world hodnoty mají výslovné adaptéry. Celý Person constructor, přesun k úkolu, práce a actor time advancement dále zbývají; stejně jako kompletní Farm/EXE a ostatní podmínky celého cíle.
+
 ## Původní programy a knihovny
 
 | Soubor | Doložená úloha | Stav |
