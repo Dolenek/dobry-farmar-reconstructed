@@ -152,6 +152,9 @@ useVisualAdapters();visual->showDiscrete(1,2,4);function<void(__thiscall*)(void*
     menuCursor=nullptr;nativeCursorFrame=nullptr;putPointer(0x25ff60,&cursorPointer);inputTable[11]=reinterpret_cast<void*>(&frameService);
 }
 field<unsigned>(image,0x263b80)=sceneFloor;field<unsigned>(image,0x261618)=sceneMath;
+if(personWalkMode) {
+#include "person_walk_oracle_cases.inc"
+}
 putPointer(0x25ff5c,savedVisualPerson);
 // Actual appearance owners are released before the base View-owned controls.
 const auto beforeVisual=textureCounts();visual.reset();const auto middleVisual=textureCounts();

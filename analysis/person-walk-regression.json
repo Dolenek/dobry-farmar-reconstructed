@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-23T16:59:09.161407+00:00",
+  "ctest_passed": 84,
+  "ctest_total": 84,
+  "ctest_seconds": 350.78,
+  "full_suite_without_rerun": true,
+  "junit_path": ".local/ctest-person-walk-full.xml",
+  "junit_sha256": "5dfa748ebaf2da6b051d456c1e121846f5f2cd30025152f5ced909a3cb2f977c",
+  "source_tree_sha256": "b28c6d533f704887fe4c5d0933eef6d96ab4726f8ceac1866ecfc815f4b481f0",
+  "build_log": ".local/person-walk-full-build.log",
+  "test_log": ".local/person-walk-full-tests.log",
+  "strict_record_log": ".local/person-walk-record.log",
+  "person_walk_states": 1306,
+  "person_walk_actions": 1210,
+  "gpu_frames": 96,
+  "gpu_rgb_pixels": 46080000,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}

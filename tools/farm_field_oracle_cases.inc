@@ -11,11 +11,11 @@ FieldTipContext fieldTipContext{manager,settings,strings,configuration,views,con
 auto* priorFieldFarmVtable=field<void**>(nativeScenes[0],0);std::array<void*,19> fieldFarmVtable{};std::copy_n(priorFieldFarmVtable,15,fieldFarmVtable.begin());
 for(unsigned i=0;i<4;++i) fieldFarmVtable[15+i]=image+0x34c70+i*16;field<void*>(nativeScenes[0],0)=fieldFarmVtable.data();field<unsigned char>(nativeScenes[0],0x108)=0;
 struct FieldFixture final:FarmFieldWorld {
-    WaterFixture& water;PersonTasks* tasks=nullptr;FarmAreas graph;std::vector<FarmField*>& fields;bool held=false;
+    WaterFixture& water;PersonTasks* tasks=nullptr;bool tracePersonGoalLevels=false;FarmAreas graph;std::vector<FarmField*>& fields;bool held=false;
     explicit FieldFixture(WaterFixture& w):water(w),fields(graph.fields) {}
     TutorialManager& tutorial() override {return water.tutorial();}StateView& farmScene() override {return water.farmScene();}
     void registerArea(ActionArea& a) override {water.registerArea(a);graph.registerArea(a);}void queueAreaAction(ActionArea& a,const Point2& p) override {if(tasks) tasks->add(a,p);else water.queueAreaAction(a,p);}
-    int warehouseLevel() override {return water.warehouseLevel();}int digBuildingLevel() override {return water.digBuildingLevel();}int mowBuildingLevel() override {return water.mowBuildingLevel();}int waterSourceLevel() override {return water.waterSourceLevel();}
+    int warehouseLevel() override {return water.warehouseLevel();}int digBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(1);return water.digBuildingLevel();}int mowBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(2);return water.mowBuildingLevel();}int waterSourceLevel() override {return water.waterSourceLevel();}
     bool hasDryField() override {return graph.hasDryField();}
     bool farmClickHeld() override {return held;}void setFarmClickHeld(bool value) override {held=value;}
     bool areaGate(unsigned type) override {return water.cursorOverAreaType(type,nullptr);}
