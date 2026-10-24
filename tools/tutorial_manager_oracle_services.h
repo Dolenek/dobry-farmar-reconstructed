@@ -58,7 +58,7 @@ struct TutorialWorldFixture final:TutorialWorld {
     double plotWater(Control&) override {tutorialSourceQueries.push_back(10);return tutorialInputs.progress;}float plotWaterLimit(Control&) const override {return tutorialInputs.previous;}
     int plotKind(Control&) override {tutorialSourceQueries.push_back(11);return tutorialInputs.plotKind;}int plantState(Control&) override {tutorialSourceQueries.push_back(8);return tutorialInputs.plant;}
     int wareItemUpgrade(Control&) override {tutorialSourceQueries.push_back(13);return tutorialInputs.itemUpgrade;}unsigned wareItemFlags(Control&) const override {return tutorialInputs.itemFlags;}
-    int anchorState(Control&) const override {return tutorialInputs.anchorState;}unsigned parentProductCount(Control&) override {tutorialSourceQueries.push_back(14);return tutorialInputs.parentProducts;}
+    int anchorState(Control& control) const override {if(auto* letter=dynamic_cast<ContractLetterSlot*>(&control)) return int(letter->letterState);return tutorialInputs.anchorState;}unsigned parentProductCount(Control&) override {tutorialSourceQueries.push_back(14);return tutorialInputs.parentProducts;}
     int wellUpgradeLevel() override {tutorialSourceQueries.push_back(1);return tutorialInputs.wellUpgrade;}int mowerUpgradeLevel() override {tutorialSourceQueries.push_back(18);return tutorialInputs.mowerUpgrade;}
     double wellCapacity() override {tutorialSourceQueries.push_back(4);return tutorialInputs.capacity;}int characterHeldType() override {tutorialSourceQueries.push_back(2);return tutorialInputs.heldType;}
     float characterHeldWater() override {tutorialSourceQueries.push_back(3);return tutorialInputs.water;}int characterActivity() override {return tutorialActivity(false);}

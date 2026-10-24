@@ -25,6 +25,9 @@ const auto appearanceCheck=[&](const AnimableAppearance& a,void* n) {
     require(a.texture==field<cTexture*>(n,4) && a.frames==field<unsigned>(n,8) && a.columns==field<unsigned>(n,20) && a.rows==field<unsigned>(n,24),"Production level appearance differs");
     compareFloat(a.length,field<float>(n,12),"Production level duration");require(a.loop==bool(field<unsigned char>(n,16)) && a.playing==bool(field<unsigned char>(n,28)),"Production level animation flags differ");
 };
+if(contractLetterMode) {
+#include "contract_letter_oracle_cases.inc"
+} else {
 #include "production_placement_oracle_cases.inc"
 if(!manufactureMode && !actionAreaMode && !warehouseMode) for(unsigned type=0;type<11;++type) for(unsigned initialLevel=0;initialLevel<5;++initialLevel) {
     trial=type*5+initialLevel;stage=411;const unsigned slot=type;const auto key=[&](const char* prefix){return std::string(prefix)+std::to_string(slot);};
@@ -151,6 +154,7 @@ if(actionAreaMode) {
 }
 if(warehouseMode) {
 #include "warehouse_oracle_cases.inc"
+}
 }
 std::array<TutorialCommonTip*,5> keptProductionTips{&productionTutorial->common(),&productionTutorial->arrow(),&productionTutorial->disabledAnchor(),&productionTutorial->action(),&productionTutorial->repeatedAction()};std::array<void*,5> nativeKeptProductionTips{};for(unsigned i=0;i<5;++i) nativeKeptProductionTips[i]=field<void*>(nativeProductionTutorial,0xbe8+i*4);
 delete productionTutorial;world.tutorial=nullptr;call(0xd0490,nativeProductionTutorial);const auto tipBefore=textureCounts();views.deleteDiscarded();delete keptProductionTips[4];const auto tipMiddle=textureCounts();for(auto* n:nativeKeptProductionTips) call(0xcc770,n);compareReferenceDeltas(tipBefore,tipMiddle);nativeDiscards.clear();

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-24T20:15:55.970276+00:00",
+  "ctest_passed": 90,
+  "ctest_total": 90,
+  "ctest_seconds": 454.08,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-contract-letter-full.xml",
+  "junit_sha256": "6691da455a511e61df220a6e9c2e46ded106de65612af703ed4b16b0e684a643",
+  "source_tree_sha256": "947bc324ebbacddbad08d8f00b67db5e2f88ea55d7e9a280ac262b8fa85cfa22",
+  "build_log": ".local/contract-letter-full-build.log",
+  "test_log": ".local/contract-letter-full-tests.log",
+  "strict_record_log": ".local/contract-letter-record.log",
+  "states": 3404,
+  "assignments": 548,
+  "explicit_cpu_actions": 2660,
+  "gpu_frames": 160,
+  "gpu_rgb_pixels": 76800000,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}

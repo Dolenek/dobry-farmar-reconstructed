@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-24T19:39:23.381955+00:00",
+  "recorded_at_utc": "2026-10-24T20:06:35.301030+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -79,6 +79,7 @@
     "src/game/ui/BuySeeds.h": "d69853753f501aef18cf19c7111fc41342af7ac13d7cecd98295ae41eb154c08",
     "src/game/ui/CheckBox.h": "c72e54ec62c51d8ee36cefef0fbc47cda6cdf42c56b16396f48b49147d78f857",
     "src/game/ui/ContractDialogs.h": "a1c96c1034c87e5bead25824c07e4e838cd30fe943bd5b504349a1d5a2590c90",
+    "src/game/ui/ContractLetterSlot.h": "944321f108db2ef0c4016c8ae215c26eecac40c833226332b0a3965169fc841e",
     "src/game/ui/ContractProvide.h": "ff7f7aada17f8df6bd9670ba88442e9591532f2c3b162b15ebbe6d032d0584cf",
     "src/game/ui/ContractStatus.h": "110345eee20a8de54d1b408e96599779c955b76a3b0b7c78972b6886448f7a13",
     "src/game/ui/Control.h": "3e21acf6b00c063c35231d8335cfe551b0ea700a4a77852df2f65dd87d31fed9",
@@ -206,6 +207,7 @@
     "src/game/ui/BuySeeds.cpp": "43394b003304c69688d9f1ffa733a9f01d159691481e774cfebff4c34b443a1f",
     "src/game/ui/CheckBox.cpp": "3738d49016878639d40e205c74743c17943f76f3678b7eeb2b8ea394816963b1",
     "src/game/ui/ContractDialogs.cpp": "41283bfaa258aa25be87369bbb60de45d7921649591a3d5769ce747981b6ae49",
+    "src/game/ui/ContractLetterSlot.cpp": "79af5a23523c7ab9eb5776a74a8368ea487dfb4fef7d764d5f76f6361906627e",
     "src/game/ui/ContractProvide.cpp": "f4cbd605acd2a1d7ed347144feec12a1e8d069262c9fd257d73d5f7fedc8add6",
     "src/game/ui/ContractStatus.cpp": "d282db9e8e0dbc4859a25c4e42f0c0146fb80e80d7dff1dcea37210c916de648",
     "src/game/ui/Control.cpp": "f5d6442d2f9766480b94d2d516986141cef9194c41b66c8c6f7579864f9c3b83",
@@ -277,15 +279,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "d3ff74e05401e2900c3cef050107f1f229736d328030c0063d70f9053bdf27a3",
+    "tools/text_buttons_reference_test.cpp": "cc8a9402d8e429cd3fa6c4d65a2a7245fd1510f1fe43acf7a3f6d0580c745730",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "246a5705a0b08c5fde42ea7da726202b339c6ec41fc0d7ab3724a80977cdba90",
+    "tools/text_buttons_oracle_fixups.inc": "8c08715524531ba61ef6a64fe856a1712f2275f8f563ffef682c6ac1728242ea",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "08b08836b74ebe2ff8474198953984bfe7b338b73baba69c3568f2ce9138476e"
+    "CMakeLists.txt": "366384adb12a458b296490e2a4d99613c1c075acd217c33b739e919c83fdac01"
   },
   "oracle_sha256": {
-    "sprite": "b2ab05f7b97d1cb99eb17bd327dee43a5782da4e96302a3512f1f8405224b1b8",
-    "ui": "522d8db64e0de22fd042ab820c9dfc2d92f6acc893a67fb82e609ae17da15673"
+    "sprite": "b8d88b009850d92b6395be54f9ad771c92309f1d0faa42b340c226d9db43b730",
+    "ui": "6728af029dc81f9c076c4300164851e4435131825dd02d41c1a1f626d491205f"
   },
   "precision_contexts": [
     {
@@ -567,6 +569,11 @@
         "mow_building_actions": 0,
         "mow_building_frames": 0,
         "mow_building_pixels": 0,
+        "contract_letter_states": 0,
+        "contract_letter_assignments": 0,
+        "contract_letter_actions": 0,
+        "contract_letter_frames": 0,
+        "contract_letter_pixels": 0,
         "person_controller_states": 0,
         "person_controller_actions": 0,
         "person_controller_frames": 0,
@@ -943,6 +950,11 @@
         "mow_building_actions": 0,
         "mow_building_frames": 0,
         "mow_building_pixels": 0,
+        "contract_letter_states": 0,
+        "contract_letter_assignments": 0,
+        "contract_letter_actions": 0,
+        "contract_letter_frames": 0,
+        "contract_letter_pixels": 0,
         "person_controller_states": 0,
         "person_controller_actions": 0,
         "person_controller_frames": 0,

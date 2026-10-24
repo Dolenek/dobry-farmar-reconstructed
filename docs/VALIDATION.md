@@ -1,6 +1,9 @@
 # Ověření shody s originálem
 
 
+[ContractLetterSlot](CONTRACT_LETTER.md) obnovuje příchozí dopisy Farm: přílet, odpočet, blikání, profilovou obnovu a skutečný tutoriál17 → mouse → přečtení → ContractProvide. PC53/PC24:3404 stavů,548 přiřazení,2660 CPU operací a160 celých snímků /76 800 000 shodných RGB pixelů. Úplný Farm/cGame a herní EXE pokračují.
+
+
 [Skutečné seed/hose cykly](PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
 
 Person controller:462 stavů /284 výslovných CPU operací v PC53/PC24 a128 kompletních D3D8 snímků /61 440 000 shodných RGB pixelů. Plný actor sám spotřebuje úkol z reálného Field vstupu, vykoná pohyb, arrival, Dig a návrat do idle. Sedm časovaných workerů také používá skutečné Field/Warehouse/tool objekty. Přesné hranice a dosud neověřené větve uvádí [PERSON_CONTROLLER.md](PERSON_CONTROLLER.md); celá hra tím není dokončená.

@@ -1,6 +1,9 @@
 # Stav rekonstrukce
 
 
+[ContractLetterSlot](CONTRACT_LETTER.md) obnovuje příchozí dopisy Farm: přílet, odpočet, blikání, profilovou obnovu a skutečný tutoriál17 → mouse → přečtení → ContractProvide. PC53/PC24:3404 stavů,548 přiřazení,2660 CPU operací a160 celých snímků /76 800 000 shodných RGB pixelů. Úplný Farm/cGame a herní EXE pokračují.
+
+
 [Skutečné seed/hose cykly](PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
 
 [Person controller](PERSON_CONTROLLER.md): celý actor, jeho lifecycle a sedm časovaných pracovních větví jsou propojené se skutečnými Field/Warehouse/tool objekty. Automatický mouse → úkol → přesun → Dig → idle prošel v PC53/PC24:462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Seed/hose nově ověřuje navazující porovnání; ostatní arrival/tutorial větve a cancel se současnou značkou zatím zbývají. Full Farm/cGame/EXE a ostatní podmínky cíle pokračují.

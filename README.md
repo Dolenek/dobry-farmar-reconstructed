@@ -1,6 +1,9 @@
 # Dobrý farmář — rekonstrukce
 
 
+[ContractLetterSlot](docs/CONTRACT_LETTER.md) obnovuje příchozí dopisy Farm: přílet, odpočet, blikání, profilovou obnovu a skutečný tutoriál17 → mouse → přečtení → ContractProvide. PC53/PC24:3404 stavů,548 přiřazení,2660 CPU operací a160 celých snímků /76 800 000 shodných RGB pixelů. Úplný Farm/cGame a herní EXE pokračují.
+
+
 [Skutečné seed/hose cykly](docs/PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
 
 Pracovní rekonstrukce původní 32bitové hry pro Windows do upravitelného a sestavitelného projektu. Cílem je stejné chování, vzhled, pravidla a kompatibilní uložené hry. Shoda strojového kódu není požadována: různé kompilátory mohou stejné chování přeložit odlišně.
