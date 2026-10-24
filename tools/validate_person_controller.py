@@ -58,7 +58,7 @@ def main():
             'This mode keeps Field services but leaves the independent full original-farm-field matrix to its own required CTest, avoiding redundant monotonic diagnostic heap allocation',
             'Native CRT normal math and SSE2 floor settings are initialized as in earlier connected UI tests; exceptional CRT ABI remains pending',
             'Mapped original code executes only as reference and is never called by reconstructed production classes'],
-        pending=['Sow and carried-seed constructor/drop/exhaustion, full hose work/emitter chain and remaining arrival branches',
+        pending=['Seed/sow/drop/exhaustion and full hose work/emitter cycles are covered separately by person-flows; other arrival branches remain pending',
             'Actual current-marker cancellation, repeated tutorial predicates and long queued award branches',
             'The newly reconstructed but not yet compared source arrival/worker branches are not counted as verified by this report',
             'Full Farm/cGame EXE and bidirectional complete saves','Complete97-export Squall behavior and isolated source uninstaller'])

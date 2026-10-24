@@ -53,6 +53,7 @@ const auto checkController=[&](Person& actor,void* n) {
     require(fieldSourceEvents==fieldNativeEvents,"Actual Person Field indication differs");fieldSourceEvents.clear();fieldNativeEvents.clear();
     ++personControllerStates;
 };
+if(!personFlowsMode) {
 for(int carry:{0,1,2,6,11}) for(int level=0;level<4;++level) {
     stage=851;trial=carry*4+level;profile.uints["PCarry"]=nativeProfile.uints["PCarry"]=carry;profile.floats["WaterLevel"]=nativeProfile.floats["WaterLevel"]=7.25f;
     profile.floats["XPersPos"]=nativeProfile.floats["XPersPos"]=300;profile.floats["YPersPos"]=nativeProfile.floats["YPersPos"]=350;
@@ -128,6 +129,10 @@ profile.floats["XPersPos"]=nativeProfile.floats["XPersPos"]=300;profile.floats["
     fieldTip->hideFor(plot.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,np);const auto beforePlot=textureCounts();plot.reset();const auto middlePlot=textureCounts();call(0x36340,np);compareReferenceDeltas(beforePlot,middlePlot);fieldWorld.graph.fields.clear();
     fieldWorld.actualPersonGoalLevels=false;field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;
     if(!oldEnabled) {farm.disable();call(0xd3750,nativeScenes[0]);}if(!oldShown) {farm.hide();call(0xd3720,nativeScenes[0]);}farm.setParent(oldParent);function<void(__thiscall*)(void*,void*)>(0xd2e50)(nativeScenes[0],nativeOldParent);farm.movement=field<unsigned>(nativeScenes[0],0x4c)=oldMovement;root.reset();call(0xd58a0,nativeRoot);
+}
+}
+if(personFlowsMode) {
+#include "person_flows_oracle_cases.inc"
 }
 stage=852;const auto beforeControllerTools=textureCounts();controllerFlight.reset();controllerEmitter.reset();controllerMow.reset();controllerDig.reset();const auto middleControllerTools=textureCounts();call(0x2b1a0,nce);call(0x45540,nch);call(0x473b0,ncm);call(0x26470,ncd);compareReferenceDeltas(beforeControllerTools,middleControllerTools);
 fieldWorld.graph.areas.clear();fieldWorld.graph.fields.clear();for(unsigned offset:{0x68U,0x6cU,0x70U,0x74U,0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;

@@ -93,8 +93,9 @@ public:
             const auto& offset=v.waterEmitterOffsets.at(v.hoseFrame);const Point2 from{float(originalAdd(person.geometry().x,offset[0])),float(originalAdd(person.geometry().y,offset[1]))};
             auto& emitter=person.context().world.hoseEmitter();emitter.angle=v.waterAngles.at(v.hoseFrame);emitter.start(0);emitter.setPosition(from);
             emitter.startPoint={float(originalSubtract(from[0],emitter.geometry().x)),float(originalSubtract(from[1],emitter.geometry().y))};
-            // Native0042f5a0 uses from for both local points; target is unused.
-            emitter.targetPoint=emitter.startPoint;emitter.emission.generating=true;rate=float(actual(WaterSource::instance()).capacity());person.sounds().play(6);break;}
+            // 0042f5df reloads the second pointer from the stack. The
+            // decompiler aliases it with from, but instructions use target.
+            emitter.targetPoint={float(originalSubtract(target[0],emitter.geometry().x)),float(originalSubtract(target[1],emitter.geometry().y))};emitter.emission.generating=true;rate=float(actual(WaterSource::instance()).capacity());person.sounds().play(6);break;}
         default:throw std::logic_error("Invalid Person timed work kind");
         }
     }

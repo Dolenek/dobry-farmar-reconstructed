@@ -319,6 +319,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_elastic_animation.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-person-controller COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_person_controller.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-person-flows COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_person_flows.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-person-vehicle COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_person_vehicle.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-person-walk COMMAND "${Python3_EXECUTABLE}"

@@ -29,6 +29,11 @@ public:
     ~Person() override; //0044b3a0
     void loadXML(const XmlNode&) override; //0044b600
     void absoluteStep() override; //00449ad0 calls ButtonPrototype.enabledStep again
+    // Person vtable005f2d38 slots150..15c are genuine RET004bd820.
+    void clicked() override {}
+    void unclicked() override {}
+    void hovered() override {}
+    void unhovered() override {}
     void requestCancel(bool); //00433040
     int heldType();void setHeldType(int); //0044ec00 /0044ec80
     float heldWater();void setHeldWater(float); //0044f120 /0044f0a0

@@ -1,6 +1,9 @@
 # Stav rekonstrukce
 
-[Person controller](PERSON_CONTROLLER.md): celý actor, jeho lifecycle a sedm časovaných pracovních větví jsou propojené se skutečnými Field/Warehouse/tool objekty. Automatický mouse → úkol → přesun → Dig → idle prošel v PC53/PC24:462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Seed/hose, ostatní arrival/tutorial větve a cancel se současnou značkou ještě nejsou tímto porovnáním ověřené. Full Farm/cGame/EXE a ostatní podmínky cíle pokračují.
+
+[Skutečné seed/hose cykly](PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
+
+[Person controller](PERSON_CONTROLLER.md): celý actor, jeho lifecycle a sedm časovaných pracovních větví jsou propojené se skutečnými Field/Warehouse/tool objekty. Automatický mouse → úkol → přesun → Dig → idle prošel v PC53/PC24:462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Seed/hose nově ověřuje navazující porovnání; ostatní arrival/tutorial větve a cancel se současnou značkou zatím zbývají. Full Farm/cGame/EXE a ostatní podmínky cíle pokračují.
 
 [ElasticAnimation](ELASTIC_ANIMATION.md): skutečné upgrady Dig/Mow/WaterSource spouštějí obnovený let nástroje a dokončení přímo obnoví appearance skutečných budov. PC53/PC24:1524 stavů /1354 akcí,168 GPU snímků /80 640 000 přesně shodných RGB pixelů včetně skutečného mouse upgrade sekačky. Full Person/work/Farm/EXE a ostatní podmínky cíle dále zbývají; přesné hranice porovnání jsou v dokumentaci modulu.
 

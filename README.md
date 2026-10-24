@@ -1,10 +1,13 @@
 # Dobrý farmář — rekonstrukce
 
+
+[Skutečné seed/hose cykly](docs/PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
+
 Pracovní rekonstrukce původní 32bitové hry pro Windows do upravitelného a sestavitelného projektu. Cílem je stejné chování, vzhled, pravidla a kompatibilní uložené hry. Shoda strojového kódu není požadována: různé kompilátory mohou stejné chování přeložit odlišně.
 
 **Projekt zatím neobsahuje kompletní rekonstruovanou hru ani sestavené herní EXE. Export Ghidry je analytický pseudokód, nikoliv hotový zdrojový projekt.** Průběžný stav a ověření jsou v [docs/STATUS.md](docs/STATUS.md).
 
-[Person controller](docs/PERSON_CONTROLLER.md) nově propojuje celou postavu a její ActionProcessor se skutečným polem: kliknutí vytvoří úkol, postava dojede, vykoná kopání a sama přejde do čekání. PC53/PC24:462 stavů /284 výslovných CPU operací,128 GPU snímků /61 440 000 shodných RGB pixelů. Sedm pracovních větví je porovnaných se skutečným polem, nástroji a skladem. Seed/hose a zbývající arrival/tutorial větve mají výslovně neověřený stav; celý Farm/EXE a ostatní podmínky cíle pokračují.
+[Person controller](docs/PERSON_CONTROLLER.md) nově propojuje celou postavu a její ActionProcessor se skutečným polem: kliknutí vytvoří úkol, postava dojede, vykoná kopání a sama přejde do čekání. PC53/PC24:462 stavů /284 výslovných CPU operací,128 GPU snímků /61 440 000 shodných RGB pixelů. Sedm pracovních větví je porovnaných se skutečným polem, nástroji a skladem. Seed/hose nově ověřuje navazující porovnání; zbývající arrival/tutorial větve mají výslovně neověřený stav; celý Farm/EXE a ostatní podmínky cíle pokračují.
 
 [ElasticAnimation](docs/ELASTIC_ANIMATION.md) nyní propojuje skutečné upgrady všech tří nástrojových budov s pohybem, zvukovým požadavkem a finálním vzhledem budovy. PC53/PC24:1 524 stavů /1 354 akcí,168 GPU snímků /80 640 000 přesně shodných RGB pixelů. Skutečné kliknutí myší na upgrade sekačky spustí celý porovnaný let. Úplná postava a její pracovní akce, Farm/EXE a ostatní podmínky celého cíle nadále zbývají.
 

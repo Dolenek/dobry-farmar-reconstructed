@@ -1,6 +1,9 @@
 # Rekonstrukce hlavní hry
 
-[Person controller](PERSON_CONTROLLER.md) už v porovnané scéně vykonává skutečný řetězec Field mouse → PersonTasks → pohyb → arrival → Dig → změna pole → idle. Plný constructor/lifecycle a sedm časovaných pracovních větví mají v PC53/PC24 dalších462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Zbývající seed/hose, arrival a tutorial větve jsou evidované jako neověřené; vlastní Farm/cGame kompozice dále zbývá.
+
+[Skutečné seed/hose cykly](PERSON_FLOWS.md): dalších426 stavů /144 výslovných CPU operací a272 celých snímků /130 560 000 shodných RGB pixelů v PC53/PC24. Vstup sám spustí sebrání sáčku, setí, odložení při převzetí rýče i zalévání hadicí včetně živých částic. Opravený je cíl hadice podle instrukcí a vlastní původní prázdné mouse callbacky postavy. Celý Farm/cGame/EXE a ostatní podmínky cíle pokračují.
+
+[Person controller](PERSON_CONTROLLER.md) už v porovnané scéně vykonává skutečný řetězec Field mouse → PersonTasks → pohyb → arrival → Dig → změna pole → idle. Plný constructor/lifecycle a sedm časovaných pracovních větví mají v PC53/PC24 dalších462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Seed/hose nově ověřuje navazující porovnání; ostatní arrival a tutorial větve jsou evidované jako neověřené; vlastní Farm/cGame kompozice dále zbývá.
 
 Nově obnovená [ElasticAnimation](ELASTIC_ANIMATION.md) přímo propojuje skutečné tool upgrady s původním přeletem a obnovou vzhledu Dig/Mow/WaterSource. V obou přesnostech prošlo1524 stavů /1354 akcí a168 celých snímků /80 640 000 přesně shodných RGB pixelů, včetně skutečného mouse upgrade řetězce. Person world pozorování a kind9 View jsou výslovné diagnostické hranice; celé pracovní akce postavy a celý Farm controller pokračují.
 

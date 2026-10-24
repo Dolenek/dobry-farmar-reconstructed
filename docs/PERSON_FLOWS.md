@@ -1,0 +1,15 @@
+# Skutečné cykly sáčku a hadice
+
+Navazující porovnání používá celou obnovenou postavu s ActionProcessor, skutečné Field/SeedPackage/tool objekty, ElasticAnimation a HoseEmitter. V PC53 i PC24 prošlo celkem426 stavů,144 výslovných CPU operací a272 kompletních D3D8 snímků /130 560 000 přesně shodných RGB pixelů. Automatické akce v renderovaných scénách se do CPU počtu znovu nepřičítají.
+
+Constructor0044f340 skutečně vyhledá nesený sáček status3 a obnoví carry10. Čtyři skutečné Sow akce00456470/00456c50 spotřebují jeho obsah, nastaví culture/auxiliary pole a při vyčerpání odstraní sáček přes skutečný deferred discard. Další scéna začíná viditelným sáčkem: myš jej sebere, postava dojde k poli a zaseje. Kliknutí na Dig potom odloží sáček a skutečný kind9 přelet jej při dokončení znovu ukáže. Fronta, značky, profily, resource reference a jejich zánik se porovnávají po každém snímku.
+
+Hose worker00459a20/0045c9c0/00459eb0 prošel s úrovněmi studny1/2 a s prázdným, téměř plným i plným polem. Kroky zahrnují nulový a záporný čas. Cancel bez současné značky se původním způsobem vymaže a zalévání pokračuje. Úplný mouse řetězec z hose idle sám vytvoří práci, naplní pole, zastaví emise a vrátí idle. Skutečné částice dokončí pohyb a zaniknou. Porovnávají se RNG, pozice, rychlost, gravitace, měřítko, čas, seznam a původ deferred discard.
+
+Porovnání odhalilo dvě opravené odchylky. První vznikla chybným aliasem v dekompilaci0042f5a0: instrukce0042f5df znovu načte druhý ukazatel ze zásobníku a target musí být cíl pole, nikoli počátek hadice. Druhá byla převzatá obsluha hover z běžného tlačítka. Person vtable005f2d38 má na slotech150–15c původní skutečné RET004bd820, takže clicked/unclicked/hovered/unhovered mají prázdná těla. Jinak přejetí postavy měnilo animační UV a pixely.
+
+Reprodukce: `python tools/validate_person_flows.py`, případně CTest `original-person-flows`. Diagnostické módy `person-seed-flows[-device]` a `person-hose-flows[-device]` běží samostatně kvůli omezené monotónní diagnostické haldě a zachování pořadí pointerů. Setí používá72 snímků, hadice64 v každé přesnosti; přechody první scény řídí skutečný stav postavy, nikoli ruční instalace pracovních akcí. Produkční hra toto dělení ani diagnostický allocator nepoužívá.
+
+Hranice zůstávají výslovné: místo celého Farm/cGame zatím existuje skutečný StateView/FarmAreas s obnovenými objekty a zaznamenanými Money/HUD/indication službami. UI porovnání používá skutečný SoundManager s vypnutým diagnostickým backendem; fyzický zvuk ověřují samostatné audity. Původní instrukce se spouštějí pouze v diagnostice. Zbývají jiné arrival větve, cancel se současnou značkou, opakované tutorial predikáty, dlouhá award fronta, celá herní kompozice a EXE, obousměrné saves, úplná ekvivalence97 exportů Squallu a izolované účinky odinstalátoru. Celý původní cíl není splněný.
+
+Úplné Win32 sestavení a89/89 CTest prošly za462.48 s. Oba aktuální game-audio a oba PersonSounds buildy prošly; striktní zápis ověřil source/binary hashe a17 nezměněných originálů. Výsledky evidují `analysis/person-flows-validation.json` a `analysis/person-flows-regression.json`.
