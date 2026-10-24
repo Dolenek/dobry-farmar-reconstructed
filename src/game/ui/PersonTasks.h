@@ -18,6 +18,7 @@ class PersonTasks final {
 public:
     explicit PersonTasks(PersonTasksContext& c):context_(c) {}
     void add(ActionArea&,const Point2&); // 0044d2f0
+    void abandonCurrent(); //00433040, retain current marker pointer after requesting discard
     void finishCurrent(); // 0044d790
     void removeQueued(ActionArea&); // 0044dd80; leaves current and clickIndex alone
     PersonTask* next(); // 0044e300; finishes previous even when the queue is empty

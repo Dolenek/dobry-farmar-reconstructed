@@ -1,5 +1,7 @@
 # Rekonstrukce hlavní hry
 
+[Person controller](PERSON_CONTROLLER.md) už v porovnané scéně vykonává skutečný řetězec Field mouse → PersonTasks → pohyb → arrival → Dig → změna pole → idle. Plný constructor/lifecycle a sedm časovaných pracovních větví mají v PC53/PC24 dalších462 stavů /284 výslovných CPU operací a128 GPU snímků /61 440 000 shodných RGB pixelů. Zbývající seed/hose, arrival a tutorial větve jsou evidované jako neověřené; vlastní Farm/cGame kompozice dále zbývá.
+
 Nově obnovená [ElasticAnimation](ELASTIC_ANIMATION.md) přímo propojuje skutečné tool upgrady s původním přeletem a obnovou vzhledu Dig/Mow/WaterSource. V obou přesnostech prošlo1524 stavů /1354 akcí a168 celých snímků /80 640 000 přesně shodných RGB pixelů, včetně skutečného mouse upgrade řetězce. Person world pozorování a kind9 View jsou výslovné diagnostické hranice; celé pracovní akce postavy a celý Farm controller pokračují.
 
 Herní EXE zatím nelze sestavit. Sestavitelná knihovna `recovered_game_utilities` obsahuje základ původního `String` a UTF-16 `WString`, souborovou vrstvu, indexování balíků a XML strom. Diagnostika `resource-inspect` propojuje tyto části s JNGLoad a načítá původní data. Integrace do celé hry a původní engine výjimky nejsou hotové. Adresy, zvláštnosti a výsledky celé načítací cesty jsou v [RESOURCE_LOADING.md](RESOURCE_LOADING.md).

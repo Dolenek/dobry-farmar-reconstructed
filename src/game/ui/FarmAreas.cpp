@@ -17,6 +17,7 @@ std::vector<ActionArea*> FarmAreas::wateredFields(const Point2& p,float radius) 
     }return out;
 }
 std::vector<ActionArea*> FarmAreas::seedPackages() {std::vector<ActionArea*> out;for(auto* a:areas) if(a->areaType==32) out.push_back(a);return out;}
+bool FarmAreas::hasReadyCulture(unsigned kind) {for(auto* field:fields) if(field->culture()==kind && field->actionState()==1) return true;return false;}
 bool FarmAreas::hasDryField() {for(auto* f:fields) if(f->water()<=f->waterSignLevel) return true;return false;}
 void FarmAreas::clearWaterPreview() {for(auto* a:areas) if(a->areaType==1) static_cast<FarmField*>(a)->preview(false);}
 bool FarmAreas::canPlaceSprinkle(ActionArea* candidate,const Point2& p) {

@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-23T19:08:42.472589+00:00",
+  "recorded_at_utc": "2026-10-23T19:52:14.176762+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "ef1b6bf863e09764c19bb9e72410310d555a2c2de7b245581b5b8eddce50308b",
+  "oracle_sha256": "363b9207dec43a4943fae7e5430756de5c54497591e05f0c0985e617e8d167ce",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 54718,
-      "native_position_progress": 20762,
+      "source_position_progress": 37928,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 20321,
+      "source_position_progress": 39724,
+      "native_position_progress": 56008,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -648,11 +648,11 @@
     },
     {
       "path": "src/game/ui/FarmAreas.cpp",
-      "sha256": "ca91c47aa00e5c622c135473867e390314b01310088c3d9420477f7b64ceee5b"
+      "sha256": "0a95b1c33e1d8a18ca6a392dff0c149f52e4d32c859dd9a8c1bea21773a219e2"
     },
     {
       "path": "src/game/ui/FarmAreas.h",
-      "sha256": "2d3587802a87ff4ca173462acb4bdcb9d2a4fb56a62f160d518a824b80e8236c"
+      "sha256": "0fe63a5bc6bd8854adcd906cf32f90a11f63182cb5766e983707daf5f35b25c6"
     },
     {
       "path": "src/game/ui/FarmField.cpp",
@@ -827,6 +827,18 @@
       "sha256": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa"
     },
     {
+      "path": "src/game/ui/Person.cpp",
+      "sha256": "22f200c75659c5ebd1641e254a85b7e51c641ee0991ff617bfb06c34b4bfce44"
+    },
+    {
+      "path": "src/game/ui/Person.h",
+      "sha256": "1ad39c2c3b723f88fff96794d5810d119e3e46ab7dadd684f77bb4aae406b92f"
+    },
+    {
+      "path": "src/game/ui/PersonActions.cpp",
+      "sha256": "edac2a66a6b65ef116edc4c69035e6de7e4c05527ae32dda7132b4313fa64080"
+    },
+    {
       "path": "src/game/ui/PersonSounds.cpp",
       "sha256": "511f8d8aebcb147880016b1b260c7061ef67a0dbb528644d4d65119d22456657"
     },
@@ -836,11 +848,11 @@
     },
     {
       "path": "src/game/ui/PersonTasks.cpp",
-      "sha256": "8152beced684c28cb6404d769781cfbced7ec7ce4fd89199e8178b6e1901bc62"
+      "sha256": "d11ffff2156b2e2688911ecc94309d15fb7e5142c262dce511ef5a8af9e83bae"
     },
     {
       "path": "src/game/ui/PersonTasks.h",
-      "sha256": "0d5e72c28340e9d0f88f9231b0708cb030dfbb4d6ea39137a766fb9e57b69abb"
+      "sha256": "7968b0ce3359c592010aa128a6c17d824b7a7b0a23627ba608f229ee2534a116"
     },
     {
       "path": "src/game/ui/PersonVehicleWalk.cpp",
@@ -852,11 +864,11 @@
     },
     {
       "path": "src/game/ui/PersonVisuals.cpp",
-      "sha256": "c7ec489adc63f12ef380b9245a3680d8052dfe968750bea9fe1f28da81c33855"
+      "sha256": "7fd9ad4c68235c7db8259c59af9eca7b465fbfa07e332acb23071d07e77b045b"
     },
     {
       "path": "src/game/ui/PersonVisuals.h",
-      "sha256": "f244f2e90ed0988bf50cd00dc9ef1436708c186e08074eef1e71a392b406ee55"
+      "sha256": "73bac5c211e47bdc1e7bff91f7c83621dc63d638d1dd77e357dc8ad9673fd9a2"
     },
     {
       "path": "src/game/ui/PersonWalk.cpp",
@@ -1012,11 +1024,11 @@
     },
     {
       "path": "src/game/ui/TutorialManager.cpp",
-      "sha256": "bf0dee9dd10ea502f9d45a4974d280c1aade0c92cb16e7e187621df8e713cd2a"
+      "sha256": "6617fc0fb836670cf376dff697180e55fd18f6dd92e9ee6d17096b3ab4c6a851"
     },
     {
       "path": "src/game/ui/TutorialManager.h",
-      "sha256": "90ce555938f812f7dd783882d4b89cdbb07eb2ff75d42669e1092d4f5fb998de"
+      "sha256": "43396093b04a4a96b187977e99247f03da43824371e22d055221f2c4b7bd94d6"
     },
     {
       "path": "src/game/ui/TutorialTips.cpp",

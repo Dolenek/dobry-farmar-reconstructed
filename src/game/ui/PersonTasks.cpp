@@ -19,6 +19,9 @@ void PersonTasks::add(ActionArea& area,const Point2& target) {
     marker->setSize(context_.markerSize);marker->setDeep(markerDepth(area,area.clickIndex));marker->show();
     queued_.push_back(PersonTask{&area,marker,target});
 }
+void PersonTasks::abandonCurrent() {
+    current_.area=nullptr;if(current_.marker) context_.views.requestDiscard(current_.marker,String("d:\\work\\farmer\\src\\farmer\\game\\farm\\Person.h157"));
+}
 void PersonTasks::finishCurrent() {
     auto* area=current_.area;if(!area) return;
     --area->clickIndex;unsigned index=0;

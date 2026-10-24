@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-24T19:06:08.837487+00:00",
+  "ctest_passed": 88,
+  "ctest_total": 88,
+  "ctest_seconds": 380.35,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-person-controller-full.xml",
+  "junit_sha256": "acc383666ff9c55376ba6824940ff3e4515b3471ce12df4b6557def1b05fafde",
+  "source_tree_sha256": "dd34611cdb689c036afb7bf0dcee30740a2dcf1dc4fca977dfd7f1b7d6116c0b",
+  "build_log": ".local/person-controller-final-full-build.log",
+  "test_log": ".local/person-controller-final-full-tests.log",
+  "strict_record_log": ".local/person-controller-record.log",
+  "person_controller_states": 462,
+  "person_controller_explicit_cpu_actions": 284,
+  "gpu_frames": 128,
+  "gpu_rgb_pixels": 61440000,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false,
+  "earlier_run": {
+    "status": "one_test_failed",
+    "cause": "Accidental UTF8-to-cp1250 conversion of existing Russian test literal changed multiline letter count; restored original literal and original expected counts",
+    "junit_path": ".local/ctest-person-controller-before-text-encoding.xml",
+    "junit_sha256": "5f9f4ccb198f12e2c501b6e3a2f8a849d15b7a653f3cd794491044eee366511b"
+  }
+}

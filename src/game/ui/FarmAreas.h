@@ -13,6 +13,7 @@ public:
     void appendAt(const Point2&,unsigned mask,std::vector<ActionArea*>&); // 00431950, does not clear
     std::vector<ActionArea*> wateredFields(const Point2&,float radius); // 004326c0, clears output
     std::vector<ActionArea*> seedPackages(); // 00432260, type32
+    bool hasReadyCulture(unsigned); //0042f630, includes inactive fields
     bool hasDryField(); // 0042caa0 / 004381c0
     void clearWaterPreview(); // 0042fa90
     bool canPlaceSprinkle(ActionArea*,const Point2&); // 0042d290

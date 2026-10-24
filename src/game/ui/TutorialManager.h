@@ -68,6 +68,8 @@ public:
     ~TutorialManager() override; // 004d0490, discard only four; repeated tip retained
     void loadXML(const XmlNode&) override; // 004ce160
     void enabledStep() override; // 004d1160
+    bool repeatedCapacityAttempt(); //00451420
+    bool repeatedMixedAttempt(); //00451490, original compares C14 instead of C1c
     bool active() const noexcept {return currentStep!=-1;} // 004cdee0
     bool activeStep(int value) const noexcept {return currentStep==value;} // 004cdef0
     void requestCancel() noexcept {cancelRequested=true;} // 004cdf10
@@ -94,7 +96,7 @@ public:
     int currentStep=-1,justProcessed=-1; // justProcessed native unspecified until complete
     bool resumeSelection=false,resumeOverlay=false,resumeHUD=false,resumeHUDabsolute=false;
     bool cancelRequested=false,tutorialEnabled=true;
-    float elapsed=0,valueC10=-1,valueC18=-1;unsigned valueC14=100;
+    float elapsed=0,valueC10=-1,valueC18=-1;unsigned valueC14=100;unsigned valueC1c; // native ctor leaves C1c unspecified; not used by the comparison predicate
 private:
     TutorialManagerContext& context_;TutorialTipContext tipContext_;
     TutorialCommonTip* common_;TutorialArrowTip* arrow_;TutorialDisabledAnchorTip* disabled_;

@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+Person controller:462 stavů /284 výslovných CPU operací v PC53/PC24 a128 kompletních D3D8 snímků /61 440 000 shodných RGB pixelů. Plný actor sám spotřebuje úkol z reálného Field vstupu, vykoná pohyb, arrival, Dig a návrat do idle. Sedm časovaných workerů také používá skutečné Field/Warehouse/tool objekty. Přesné hranice a dosud neověřené větve uvádí [PERSON_CONTROLLER.md](PERSON_CONTROLLER.md); celá hra tím není dokončená.
+
 ElasticAnimation je porovnaná v PC53/PC24:1524 stavů /1354 akcí,168 celých D3D8 snímků /80 640 000 shodných RGB pixelů. Skutečné tool upgrady vykonají platbu a profilovou změnu, původní let a appearance completion. Skutečné Mow mouse press/release spouští stejný controller. Deset kinds, Euler/x87 arithmetic, zero-acceleration unordered větev, XML reload a teardown resource deltas jsou evidované v [ELASTIC_ANIMATION.md](ELASTIC_ANIMATION.md) a `analysis/elastic-animation-validation.json`. Úplná hra se tím nevykazuje jako hotová.
 
 ## Referenční běhy

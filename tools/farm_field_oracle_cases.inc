@@ -11,11 +11,11 @@ FieldTipContext fieldTipContext{manager,settings,strings,configuration,views,con
 auto* priorFieldFarmVtable=field<void**>(nativeScenes[0],0);std::array<void*,19> fieldFarmVtable{};std::copy_n(priorFieldFarmVtable,15,fieldFarmVtable.begin());
 for(unsigned i=0;i<4;++i) fieldFarmVtable[15+i]=image+0x34c70+i*16;field<void*>(nativeScenes[0],0)=fieldFarmVtable.data();field<unsigned char>(nativeScenes[0],0x108)=0;
 struct FieldFixture final:FarmFieldWorld {
-    WaterFixture& water;PersonTasks* tasks=nullptr;bool tracePersonGoalLevels=false;FarmAreas graph;std::vector<FarmField*>& fields;bool held=false;
+    WaterFixture& water;PersonTasks* tasks=nullptr;bool tracePersonGoalLevels=false,actualPersonGoalLevels=false;FarmAreas graph;std::vector<FarmField*>& fields;bool held=false;
     explicit FieldFixture(WaterFixture& w):water(w),fields(graph.fields) {}
     TutorialManager& tutorial() override {return water.tutorial();}StateView& farmScene() override {return water.farmScene();}
     void registerArea(ActionArea& a) override {water.registerArea(a);graph.registerArea(a);}void queueAreaAction(ActionArea& a,const Point2& p) override {if(tasks) tasks->add(a,p);else water.queueAreaAction(a,p);}
-    int warehouseLevel() override {return water.warehouseLevel();}int digBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(1);return water.digBuildingLevel();}int mowBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(2);return water.mowBuildingLevel();}int waterSourceLevel() override {return water.waterSourceLevel();}
+    int warehouseLevel() override {return water.warehouseLevel();}int digBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(1);if(actualPersonGoalLevels) return DigBuilding::instance()->level();return water.digBuildingLevel();}int mowBuildingLevel() override {if(tracePersonGoalLevels) actionAreaSourceQueries.push_back(2);if(actualPersonGoalLevels) return MowBuilding::instance()->level();return water.mowBuildingLevel();}int waterSourceLevel() override {return water.waterSourceLevel();}
     bool hasDryField() override {return graph.hasDryField();}
     bool farmClickHeld() override {return held;}void setFarmClickHeld(bool value) override {held=value;}
     bool areaGate(unsigned type) override {return water.cursorOverAreaType(type,nullptr);}
@@ -59,6 +59,9 @@ const auto checkField=[&](FarmField& f,void* n) {
     require(actionAreaSourceTasks==actionAreaNativeTasks,"FarmField Person queue differs");actionAreaSourceTasks.clear();actionAreaNativeTasks.clear();
     require(fieldWorld.held==bool(field<unsigned char>(nativeScenes[0],0x108)),"FarmField actual Farm held flag differs");++farmFieldStates;checkFieldTip();
 };
+// Full Person mode keeps the actual Field services but runs its own connected
+// actor/work scenarios; original-farm-field independently covers this matrix.
+if(!personControllerMode) {
 for(unsigned kind=0;kind<8;++kind) for(unsigned state=0;state<4;++state) {
     stage=702;trial=farmFieldObjects;cursorPosition={790,590};fieldWorld.fields.clear();fieldWorld.graph.areas.clear();for(unsigned offset:{0x68U,0x6cU,0x70U,0x74U,0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;
     profile.ints["fcu"]=nativeProfile.ints["fcu"]=0;profile.ints["fua"]=nativeProfile.ints["fua"]=0;profile.uints["FFC0"]=nativeProfile.uints["FFC0"]=kind;profile.uints["FFS0"]=nativeProfile.uints["FFS0"]=state;profile.floats["FFP0"]=nativeProfile.floats["FFP0"]=configuration.products[kind].creationTime;profile.floats["FFW0"]=nativeProfile.floats["FFW0"]=100;profile.floats["FFF0"]=nativeProfile.floats["FFF0"]=100;
@@ -144,6 +147,7 @@ for(int current:{-1,0,1,2}) for(int available:{1,3}) {
     fieldTip->hideFor(f.get());function<void(__thiscall*)(void*,void*)>(0x402d0)(nativeFieldTip,n);
     const auto before=textureCounts();f.reset();const auto middle=textureCounts();call(0x36340,n);compareReferenceDeltas(before,middle);++farmFieldObjects;
 }
+}
 fieldWorld.fields.clear();for(unsigned offset:{0x78U,0x7cU,0x80U,0x84U}) field<unsigned>(nativeScenes[0],offset)=0;field<void*>(nativeScenes[0],0)=priorFieldFarmVtable;fieldNativeIds.clear();
 
 if(seedPackageMode && !personVisualsMode) {
@@ -151,5 +155,8 @@ if(seedPackageMode && !personVisualsMode) {
 }
 if(personVisualsMode) {
 #include "person_visuals_oracle_cases.inc"
+}
+if(personControllerMode) {
+#include "person_controller_oracle_cases.inc"
 }
 const auto tipBefore=textureCounts();fieldTip.reset();const auto tipMiddle=textureCounts();call(0x415e0,nativeFieldTip);compareReferenceDeltas(tipBefore,tipMiddle);putPointer(0x25f774,priorNativeFieldTip);

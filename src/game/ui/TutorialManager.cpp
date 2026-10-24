@@ -2,6 +2,7 @@
 #include "GameMenu.h"
 #include "ResourceManager.h"
 #include "XmlDocument.h"
+#include "OriginalArithmetic.h"
 #include <algorithm>
 #include <sstream>
 #include <stdexcept>
@@ -119,4 +120,13 @@ void TutorialManager::enabledStep() {
     if(justProcessed==4 && canShow(5) && w.farm().movement==0 && visible(w.farm())) showAction(5,&w.warehouse());
     if(context_.profile.booleans["TProdCompl"] && w.farm().movement==0 && w.wareDetails().movement==0 && w.manufacture().movement==0 && canShow(43)) showCommon(43);
 }
+bool TutorialManager::repeatedCapacityAttempt() {
+    if(valueC10!=-1 && originalSubtract(elapsed,valueC10)<3) {++valueC14;if(static_cast<int>(valueC14)>1) {valueC14=0;valueC10=elapsed;return true;}}
+    valueC10=elapsed;return false;
+}
+bool TutorialManager::repeatedMixedAttempt() {
+    if(valueC18!=-1 && originalSubtract(elapsed,valueC18)<3) {++valueC1c;if(static_cast<int>(valueC14)>1) {valueC1c=0;valueC18=elapsed;return true;}}
+    valueC18=elapsed;return false;
+}
+
 }

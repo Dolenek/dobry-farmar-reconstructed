@@ -23,6 +23,8 @@ public:
     PersonVisuals(FieldObject&,PersonVisualContext&);
     ~PersonVisuals();
     void loadXML(const XmlNode&); // 0044b600
+    void releaseSounds(); // actor interleaves resource release and channel teardown
+    void refreshHeldAppearance(); //00450f90, preserves activity and indicator positions
     void playIdle(); // 00450a30
     void playJob(unsigned); // 00449ea0
     void playWalk(const Point2& delta); // 0044fe20, selects motion appearance

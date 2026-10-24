@@ -54,7 +54,8 @@ PersonVisuals::PersonVisuals(FieldObject& owner,PersonVisualContext& c):owner_(o
     discreteUse_=new ProgressDiscrete(&owner,c.resources,c.views,c.controls);
     sign_=new Picture(&owner,c.resources,c.views,c.controls);substrate_=new Picture(sign_,c.resources,c.views,c.controls);
 }
-PersonVisuals::~PersonVisuals() {for(auto* sound:sounds) if(sound) sound->releaseReference();}
+PersonVisuals::~PersonVisuals() {releaseSounds();}
+void PersonVisuals::releaseSounds() {for(auto*& sound:sounds) if(sound) {sound->releaseReference();sound=nullptr;}}
 void PersonVisuals::loadXML(const XmlNode& node) {
     owner_.FieldObject::loadXML(node);attribute(node,L"Speed",speed);point(node,L"MarkSize",markerSize);
     child(*waterUse_,node,"Use");child(*discreteUse_,node,"DiscrUse");child(*sign_,node,"WotInScythSign");child(*substrate_,node,"WotSubstrate");
@@ -92,6 +93,10 @@ unsigned PersonVisuals::carryIndex() {
 }
 void PersonVisuals::copyIfTextureChanged(const AnimableAppearance& a) {if(owner_.texture()!=a.texture) {owner_.copyAppearance(a);owner_.markTransformDirty();}}
 void PersonVisuals::applyHeight(float value) {owner_.heightOffset=value;owner_.setPosition({owner_.geometry().x,owner_.geometry().y});}
+void PersonVisuals::refreshHeldAppearance() {
+    if(activity!=12) {playJob(activity);return;}const auto carry=carryIndex();
+    copyIfTextureChanged((hoseAnimation ? idle:moving).at(carry*6+direction));applyHeight(carryHeight.at(carry));
+}
 void PersonVisuals::playIdle() {
     hoseAnimation=true;const auto carry=carryIndex();
     if(carry==11) {owner_.copyAppearance(hose);owner_.setFrame(hoseFrame);owner_.markTransformDirty();}
