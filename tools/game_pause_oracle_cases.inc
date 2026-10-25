@@ -23,8 +23,12 @@ void* quitFunction=reinterpret_cast<void*>(&PostQuitMessage);write(0x1ee268,&qui
 ViewRegistry views;ControlRegistry controls;unsigned resets=0;
 MainMenuContext context(files,manager,settings,strings,audio,music,profiles,input,interaction,[] {return tooltipDimensions;},
     [&](bool) {++resets;},&mainMenuSourceComplete,views,controls);
-View game(nullptr,views),help(nullptr,views);auto* nativeGame=allocate(44);auto* nativeHelp=allocate(44);
-function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeGame,nullptr);function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeHelp,nullptr);putPointer(0x25f6ec,nativeGame);putPointer(0x25f778,nativeHelp);
+View game(nullptr,views),placeholderHelp(nullptr,views);auto* nativeGame=allocate(44);auto* nativeHelp=allocate(helpMode ? 92:44);
+function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeGame,nullptr);putPointer(0x25f6ec,nativeGame);
+HelpViewContext helpContext{manager,settings,strings,input,interaction,views,controls};std::unique_ptr<HelpView> actualHelp;
+if(helpMode) {actualHelp=std::make_unique<HelpView>(nullptr,helpContext);std::memset(nativeHelp,0,92);function<void*(__thiscall*)(void*,void*)>(0x7fa60)(nativeHelp,nullptr);}
+else {function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeHelp,nullptr);putPointer(0x25f778,nativeHelp);}
+View& help=helpMode ? static_cast<View&>(*actualHelp):placeholderHelp;
 game.show();game.enable();game.absoluteEnable();call(0xd37d0,nativeGame);call(0xd3bb0,nativeGame);call(0xd3fb0,nativeGame);
 redirect(0x86970,reinterpret_cast<void*>(&pauseNativeGameDiscard));pauseNativeGameDiscards.clear();pauseSourceGameDiscards.clear();
 GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,help,context,[] {return tooltipDimensions;},[&](bool){++resets;},[&](const String& origin){pauseSourceGameDiscards.emplace_back(origin.view());},views,controls};
@@ -71,8 +75,12 @@ finishTransitions();click(options->okButton());finishTransitions();deleteDiscard
 click(pause->awardsButton());auto* awards=Awards::instance();auto* nativeAwards=field<void*>(image,0x25ffcc);require(awards && nativeAwards,"Pause did not construct Awards");mainMenuCompareView(*awards,static_cast<unsigned char*>(nativeAwards)+4);check();
 require(!pause->openAwards(),"Pause duplicate Awards guard differs");function<void(__cdecl*)()>(0x86550)();++pauseActions;check();
 finishTransitions();click(awards->returnButton());finishTransitions();deleteDiscarded();check();require(game.state().shown && !game.state().enabled,"Pause Awards return resumed gameplay");
-// Help's controller remains a required world dependency, but its real View calls execute.
+if(helpMode) {
+#include "help_view_oracle_cases.inc"
+} else {
+// The older pause-only comparison retains its explicit Help boundary.
 click(pause->helpButton());finishTransitions();check();help.hide();help.disable();call(0xd3720,nativeHelp);call(0xd3750,nativeHelp);open();
+}
 const auto findDialog=[&]() -> YesNoDialog* {for(auto* view:views.enabled()) if(auto* dialog=dynamic_cast<YesNoDialog*>(view)) return dialog;return nullptr;};
 click(pause->mainMenuButton());auto* dialog=findDialog();auto* nativeDialog=pauseLastNativeDialog;require(dialog && nativeDialog,"Pause did not construct YesNo dialog");
 mainMenuCompareView(*dialog,nativeDialog);require(dialog->text().string().view()==field<WString>(field<void*>(nativeDialog,0x240),0x23c).view(),"Pause confirmation raw Russian text differs");check();
@@ -95,7 +103,7 @@ finishTransitions();check();delete menu;mainMenuDeleteNative(nativeMain);
 pause->disable();call(0xd3750,nativeView);const auto before=textureCounts();delete pause;const auto middle=textureCounts();call(0x87980,original);compareReferenceDeltas(before,middle);
 require(!GamePauseMenu::instance() && !field<void*>(image,0x25ffd8),"Pause destruction retains singleton");
 for(unsigned n=0;n<overwrittenSoundCount;++n) {require(sounds[n]->referenceCount()==1,"Pause native/source XML sound overwrite retention differs");sounds[n]->releaseReference();++pauseSoundResidues;}
-call(0xd58a0,nativeGame);call(0xd58a0,nativeHelp);putPointer(0x25f6ec,nullptr);putPointer(0x25f778,nullptr);
+call(0xd58a0,nativeGame);if(helpMode) {const auto hb=textureCounts();actualHelp.reset();const auto hm=textureCounts();call(0x7dde0,nativeHelp);compareReferenceDeltas(hb,hm);require(!HelpView::instance() && !field<void*>(image,0x25f778),"Help singleton survived destruction");} else call(0xd58a0,nativeHelp);putPointer(0x25f6ec,nullptr);putPointer(0x25f778,nullptr);
 music.clear();if(auto* resource=field<cSound*>(image,0x25ffe0)) resource->releaseReference();putPointer(0x25ffe0,nullptr);putPointer(0x25ffdc,nullptr);
 profiles.close();selectorProfileDestroy(field<void*>(image,0x25f738),nullptr,1);settings.set(String("game"),String("profiles"),previousProfiles);
 require(controls.visible().empty() && input.controls(1).empty() && nativeInput.controls(1).empty(),"Pause retained controls/input");

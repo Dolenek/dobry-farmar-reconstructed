@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-25T07:01:37.945469+00:00",
+  "recorded_at_utc": "2026-10-25T07:15:50.998182+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -99,6 +99,7 @@
     "src/game/ui/FlyingText.h": "a82c0faebe9cd1f25467446e4f646c5f35bb8d7eda860041f07577b5fb3166d7",
     "src/game/ui/GameMenu.h": "b19baf1e537c2d5902f73de158b62e58805fdb0a0c6f2e78554a3bd51414d108",
     "src/game/ui/GamePauseMenu.h": "3b499a643a4939d05fdc9d9ccd49653c9fc5b7e6043429fdafb2939175ca28b0",
+    "src/game/ui/HelpView.h": "1e18e39f7233f8c8fc8207055a7022477a96b4f71883feda0a3a601b9a46df9d",
     "src/game/ui/Histogram.h": "741fdbf541dc64778f3ea548d605d07f949ef521747719f080178d0924c9e55b",
     "src/game/ui/InputBindings.h": "728c4fa29c2cbe073e8bdf7ebe7b25d57fa2d0a64481fbc71217d77f77ca7f1c",
     "src/game/ui/InputDevices.h": "a1599f191895b418014c9381081e46af76a54721fd51a5b89cfc07c3fb7a114a",
@@ -229,6 +230,7 @@
     "src/game/ui/FlyingText.cpp": "0078e2e1d8b249e0a01ad386db1cb9c20369a2b7a2164a34ff2fd586d8d4c932",
     "src/game/ui/GameMenu.cpp": "7e1063820cb757cd616bd160f397751e99eca45d8994fc72b4828482ab7449de",
     "src/game/ui/GamePauseMenu.cpp": "e4167dbf17d0840665b5b1103d870e8d325806f2a800763807e4327fbdd62537",
+    "src/game/ui/HelpView.cpp": "25b009695f712958b518ee67774fe8a6167225a53c489de59bcb7a803fc503dc",
     "src/game/ui/Histogram.cpp": "584dbd5282b09fe46ed51d301915c75c9205599e83326f21ec4b8ad2a509432e",
     "src/game/ui/InputBindings.cpp": "d84010bacee95cc6c9de508bb6b4ade7ca391d5a5911d01b4c5ed2f0c1d5f968",
     "src/game/ui/InputDevices.cpp": "839f380d8d9d73b54031baecaf3f4ceaaa96cca2dd9a6ab5bb02279da4f1feb9",
@@ -281,15 +283,15 @@
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
     "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
-    "tools/text_buttons_reference_test.cpp": "88f648e166bd13f54da4581b3ffae6b6314a0c1b28882603dbde071e46a26c23",
+    "tools/text_buttons_reference_test.cpp": "b860e79cd4174c5b243b511fa139778c29022f41c21487458d549522c4582860",
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
-    "tools/text_buttons_oracle_fixups.inc": "429b485747ff703f50936d1c67cef010bbe96d517028323b8b2ee813312c90de",
+    "tools/text_buttons_oracle_fixups.inc": "4699da3abad24a42bc48f83e5562e047020288d4add0114b1097ede4f5c4f56e",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "d3cab42dc2d16a80461284a5327c6ed73571bd658d78839e4bd0329001a9edad"
+    "CMakeLists.txt": "c82887d71c5e67d726146ddbb01052e4d3ffc1075808737233d5bd0e74142fcf"
   },
   "oracle_sha256": {
-    "sprite": "969d4bd6d4be328c260a66935717c1d3b280ede15c9486d48b537459f697c5de",
-    "ui": "bb26ae7c6f96e4f1fac021a31ba3dbad8f9baea90afaedd9312553aa942fff46"
+    "sprite": "442d4e07dfb7ce4274d04fd775ace31fdcb013fb414c72a7943775fab8285073",
+    "ui": "940ba88c258b34f2ac0d709141d7e084d77d8f46a175c0d59bc91c5a25e91d32"
   },
   "precision_contexts": [
     {
@@ -527,6 +529,8 @@
         "panel_reloads": 0,
         "panel_sound_residues": 0,
         "panel_callbacks": 0,
+        "help_states": 0,
+        "help_actions": 0,
         "awards_states": 0,
         "awards_objects": 0,
         "awards_frames": 0,
@@ -912,6 +916,8 @@
         "panel_reloads": 0,
         "panel_sound_residues": 0,
         "panel_callbacks": 0,
+        "help_states": 0,
+        "help_actions": 0,
         "awards_states": 0,
         "awards_objects": 0,
         "awards_frames": 0,
