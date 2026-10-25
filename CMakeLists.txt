@@ -98,7 +98,7 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Gameplay.cpp src/game/engine/SalesHistory.cpp src/game/engine/GameEffects.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp src/game/ui/ContractProvide.cpp src/game/ui/ContractLetterSlot.cpp src/game/ui/GamePauseMenu.cpp src/game/ui/HelpView.cpp src/game/ui/Journal.cpp src/game/ui/StateView.cpp src/game/ui/GameMenu.cpp src/game/ui/TutorialTips.cpp src/game/ui/TutorialManager.cpp src/game/ui/MovableUnion.cpp src/game/ui/BuySeeds.cpp src/game/ui/PictureButton.cpp src/game/ui/BuyBuilding.cpp src/game/ui/ProductionControls.cpp src/game/engine/ProductionLevel.cpp src/game/ui/ProductionPlacement.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp src/game/ui/ContractProvide.cpp src/game/ui/ContractLetterSlot.cpp src/game/ui/GamePauseMenu.cpp src/game/ui/HelpView.cpp src/game/ui/Journal.cpp src/game/ui/GameAwardManager.cpp src/game/ui/StateView.cpp src/game/ui/GameMenu.cpp src/game/ui/TutorialTips.cpp src/game/ui/TutorialManager.cpp src/game/ui/MovableUnion.cpp src/game/ui/BuySeeds.cpp src/game/ui/PictureButton.cpp src/game/ui/BuyBuilding.cpp src/game/ui/ProductionControls.cpp src/game/engine/ProductionLevel.cpp src/game/ui/ProductionPlacement.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/ui/ProductionBuilding.cpp src/game/ui/Manufacture.cpp src/game/ui/FieldObject.cpp src/game/ui/ActionArea.cpp src/game/ui/Warehouse.cpp src/game/ui/WarehouseTip.cpp src/game/ui/Market.cpp src/game/ui/FlyingText.cpp src/game/ui/DigBuilding.cpp src/game/ui/WaterSource.cpp src/game/ui/MowBuilding.cpp src/game/ui/WaterParticles.cpp src/game/ui/WaterEmitters.cpp src/game/ui/Sprinkle.cpp)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
@@ -323,6 +323,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_person_flows.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-contract-letter COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_contract_letter.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-game-award-manager COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_game_award_manager.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-journal COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_journal.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-help-view COMMAND "${Python3_EXECUTABLE}"

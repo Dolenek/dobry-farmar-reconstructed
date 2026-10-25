@@ -19,7 +19,9 @@ private:
     std::vector<Picture*> pictures_;std::vector<MultilineText*> texts_;
 };
 // Native cHelpView (92 bytes), singleton0065f778 and MenuView base at0.
-class HelpView final:public MenuView {
+class HelpView;
+class HelpViewLifetime {protected:explicit HelpViewLifetime(HelpView*);~HelpViewLifetime();};
+class HelpView final:public MenuView,private HelpViewLifetime {
 public:
     HelpView(View*,HelpViewContext&); //0047fa60
     ~HelpView() override; //0047dde0

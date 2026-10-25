@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-25T07:46:14.366271+00:00",
+  "recorded_at_utc": "2026-10-25T08:32:02.772175+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "f150fa21b21a3cb1b68779a70e135f481da67905f74e038cc4c74c58a9f693d4",
+  "oracle_sha256": "c3f8e40b92e0fc5635e1e340c55b8a02c2f870f2990704c200c2bcbee973008d",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56449,
-      "native_position_progress": 20321,
+      "source_position_progress": 55160,
+      "native_position_progress": 20730,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 38810,
-      "native_position_progress": 20321,
+      "source_position_progress": 19880,
+      "native_position_progress": 38810,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -707,6 +707,14 @@
       "sha256": "a82c0faebe9cd1f25467446e4f646c5f35bb8d7eda860041f07577b5fb3166d7"
     },
     {
+      "path": "src/game/ui/GameAwardManager.cpp",
+      "sha256": "7d4cbb3282f741fc852bd028bfc4894a0e3e42e164c5da9d2594f88497307443"
+    },
+    {
+      "path": "src/game/ui/GameAwardManager.h",
+      "sha256": "8133807c54c67a8a73751a4e2339b9253d61dc9137971fa786105ff144057e7d"
+    },
+    {
       "path": "src/game/ui/GameMenu.cpp",
       "sha256": "68408f603395873d38beff51f9e9219bfb0ec4324e004dd67f7a9a241d6828ee"
     },
@@ -724,11 +732,11 @@
     },
     {
       "path": "src/game/ui/HelpView.cpp",
-      "sha256": "25b009695f712958b518ee67774fe8a6167225a53c489de59bcb7a803fc503dc"
+      "sha256": "c4ee8b63b87727b0543e325e1f5ae8f9901f01aa2691b03c5717983239e43a3b"
     },
     {
       "path": "src/game/ui/HelpView.h",
-      "sha256": "1e18e39f7233f8c8fc8207055a7022477a96b4f71883feda0a3a601b9a46df9d"
+      "sha256": "c4d5a4861e9813ea42ce96ecbbbe3339266416ed8d756e2ac947bb904d336d49"
     },
     {
       "path": "src/game/ui/Histogram.cpp",
@@ -756,11 +764,11 @@
     },
     {
       "path": "src/game/ui/Journal.cpp",
-      "sha256": "a0bf8272021eaf34bed80c32e2034e4e4802b36363f320d5d4bcec82d45e4669"
+      "sha256": "15ca1601742d5f547a31150c4580aef74ab407742ce87e76083af5bad4d8f3b2"
     },
     {
       "path": "src/game/ui/Journal.h",
-      "sha256": "ab10235d6b6b4b756e4b910d7705b1d410817ac0afcdc1909bfad3f1228e0864"
+      "sha256": "94ea43f448cdb811ee79c63595552d4f1754014f538d28311574a400e93c4190"
     },
     {
       "path": "src/game/ui/LetterSprite.cpp",

@@ -7,9 +7,10 @@
 #include <utility>
 namespace farmar::recovered {
 namespace {Journal* currentJournal=nullptr;}
+JournalLifetime::JournalLifetime(Journal* value) {if(currentJournal) throw "Object already exist.";currentJournal=value;}
+JournalLifetime::~JournalLifetime() {currentJournal=nullptr;}
 Journal* Journal::instance() noexcept {return currentJournal;}
-Journal::Journal(View* parent,JournalContext& c):MenuView(parent,c.resources,c.settings,c.strings,c.views,c.controls),context_(c) {
-    if(currentJournal) throw "Object already exist.";currentJournal=this;
+Journal::Journal(View* parent,JournalContext& c):MenuView(parent,c.resources,c.settings,c.strings,c.views,c.controls),JournalLifetime(this),context_(c) {
     up_=new AnimationButton(this,c.resources,c.input,c.interaction,c.views,c.controls);
     down_=new AnimationButton(this,c.resources,c.input,c.interaction,c.views,c.controls);
     ok_=new TextAnimationButton(this,c.resources,c.settings,c.strings,c.input,c.interaction,c.views,c.controls);
@@ -17,7 +18,7 @@ Journal::Journal(View* parent,JournalContext& c):MenuView(parent,c.resources,c.s
     loadXML(*c.resources.loadSettingsXML(String("UI/gameUI/Journal.xml")));
     up_->clickEvent=&upClicked;down_->clickEvent=&downClicked;ok_->clickEvent=&okClicked;
 }
-Journal::~Journal() {currentJournal=nullptr;} // Owned text controls are deleted by View.
+Journal::~Journal()=default; // Owned text controls are deleted by View.
 void Journal::loadXML(const XmlNode& node) {
     MenuView::loadXML(node);XmlNode* child=nullptr;
     for(const auto& entry:{std::pair<const char*,View*>{"UpButton",up_},{"DownButton",down_},{"OkButton",ok_},{"MultiProto",prototype_}})

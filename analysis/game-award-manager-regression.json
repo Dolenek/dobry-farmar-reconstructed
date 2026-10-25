@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-25T08:33:56.411947+00:00",
+  "ctest_passed": 94,
+  "ctest_total": 94,
+  "ctest_seconds": 451.46,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-game-award-manager-full.xml",
+  "junit_sha256": "2d990d3151c24010642fa6fd82d051cbc924d97622d3a4c526d0e6708a4f334a",
+  "source_tree_sha256": "ddd894dbd588c4cf9c8de4b6499f0cc11bbd4ba7f823c673bb7fa35ced026d15",
+  "build_log": ".local/game-award-manager-full-build.log",
+  "test_log": ".local/game-award-manager-full-tests.log",
+  "strict_record_log": ".local/game-award-manager-record.log",
+  "states": 2144,
+  "explicit_cpu_actions": 120,
+  "gpu_frames": 2012,
+  "gpu_rgb_pixels": 965760000,
+  "source_constructor_failure_checks": 8,
+  "unverified_predicates": [
+    {
+      "index": 7,
+      "reason": "Actual Warehouse/Water/Dig/Mow level composition"
+    },
+    {
+      "index": 9,
+      "reason": "Exactly seven actual built Manufacture slot flags, not upgrade levels"
+    },
+    {
+      "index": 18,
+      "reason": "Actual Market stock0..18 world composition"
+    }
+  ],
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}

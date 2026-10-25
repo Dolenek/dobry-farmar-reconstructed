@@ -9,7 +9,9 @@ struct JournalContext {
     InputBindings& input;ButtonInteraction& interaction;ViewRegistry& views;ControlRegistry& controls;
 };
 // Actual cJournal (156 native bytes), singleton0065f764, MenuView base at0.
-class Journal final:public MenuView {
+class Journal;
+class JournalLifetime {protected:explicit JournalLifetime(Journal*);~JournalLifetime();};
+class Journal final:public MenuView,private JournalLifetime {
 public:
     Journal(View*,JournalContext&); //00446aa0
     ~Journal() override; //00446d10

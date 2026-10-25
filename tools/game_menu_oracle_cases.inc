@@ -63,6 +63,8 @@ const auto check=[&] {
 };
 if(productionHouses) {
 #include "production_house_oracle_cases.inc"
+} else if(awardManagerMode) {
+#include "game_award_manager_oracle_cases.inc"
 } else if(journalMode) {
 #include "journal_oracle_cases.inc"
 } else {

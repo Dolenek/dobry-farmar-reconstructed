@@ -5,16 +5,17 @@
 #include <utility>
 namespace farmar::recovered {
 namespace {HelpView* currentHelp=nullptr;}
+HelpViewLifetime::HelpViewLifetime(HelpView* value) {if(currentHelp) throw "Object already exist.";currentHelp=value;}
+HelpViewLifetime::~HelpViewLifetime() {currentHelp=nullptr;}
 HelpView* HelpView::instance() noexcept {return currentHelp;}
-HelpView::HelpView(View* parent,HelpViewContext& c):MenuView(parent,c.resources,c.settings,c.strings,c.views,c.controls),context_(c) {
-    if(currentHelp) throw "Object already exist.";currentHelp=this;
+HelpView::HelpView(View* parent,HelpViewContext& c):MenuView(parent,c.resources,c.settings,c.strings,c.views,c.controls),HelpViewLifetime(this),context_(c) {
     const auto button=[&] {return new TextAnimationButton(this,c.resources,c.settings,c.strings,c.input,c.interaction,c.views,c.controls);};
     ok_=button();next_=button();previous_=button();
     auto xml=c.resources.loadSettingsXML(String("UI/HelpView.xml"));loadXML(*xml);
     ok_->clickEvent=&okClicked;next_->clickEvent=&nextClicked;previous_->clickEvent=&previousClicked;
     previous_->hide(); //0047fc5d: receiver is the PrevButton, not the HelpView
 }
-HelpView::~HelpView() {currentHelp=nullptr;}
+HelpView::~HelpView()=default;
 void HelpPage::readContent(const XmlNode& node,HelpViewContext& c) {
     XmlNode* list=nullptr;
     if(node.section(String("Pictures"),list)) for(unsigned i=0;i<list->children().size();++i) {

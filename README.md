@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Řídicí objekt herních ocenění](docs/GAME_AWARD_MANAGER.md) propojuje automatické vyhodnocení se skutečným efektem, obrazovkou, panelem a návratem. PC53/PC24: 18 podmínek, 36 celých cyklů a 2012 snímků / 965 760 000 shodných RGB pixelů. Tři podmínky nad úplným světem a celý cGame/EXE zůstávají neověřené; source cleanup Help/Journal při chybě konstrukce prošel osmi kontrolami.
+
 [Skutečný Journal](docs/JOURNAL.md) už otevírá a zavírá skutečný HUD, rozvrhuje zprávy a označuje je za přečtené. PC53/PC24: 430 stavů / 102 operací a 362 celých snímků / 173 760 000 shodných RGB pixelů, včetně obou směrů, indexových hranic a XML reloadu. Obnovené jsou i potřebné textové copy/measure metody; celý cGame/EXE dále pokračuje.
 
 [Skutečná nápověda](docs/HELP_VIEW.md) je propojená s pauzovacím menu: otevření, stránky, návrat i XML reload probíhají skutečnou myší. PC53/PC24: 30 stavů / 24 operací a 376 celých snímků / 180 480 000 shodných RGB pixelů včetně ostatních pauzovacích obrazovek. Pokračují Journal, award manager a celý cGame/EXE.
