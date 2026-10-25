@@ -109,6 +109,7 @@ double Farm::addWater(ActionArea& a,float v) {return dynamic_cast<FarmField&>(a)
 void Farm::removeSprinkle(Sprinkle& s) {graph.remove(s,context_.views);--sprinklers;}
 Sprinkle* Farm::createSprinkle(unsigned cost) {return createFarmSprinkle(&movingPicture(),cost,sprinklers,sprinkleContext_);}
 SeedPackage* Farm::createSeed(unsigned kind) {return createFarmSeed(kind,seedContext_);}
+SeedPackage* Farm::restoreSeed(unsigned kind,unsigned count,const Point2& position,unsigned status,bool unpaid) {return new SeedPackage(&movingPicture(),kind,count,position,status,unpaid,seedContext_);}
 void Farm::addLetter(GameplayEvent& e) {for(auto* slot:letters_) if(slot->letterState==2) {slot->assign(e,0,false);++letterCount;if(letterSound_) context_.sound.clickSound(letterSound_);return;}}
 void Farm::removeLetter(ContractLetterSlot& slot) {for(auto* s:letters_) if(s==&slot) {--letterCount;slot.letterState=2;context_.profile.ints["letter"+std::to_string(slot.id)]=-1;slot.hideTips();return;}}
 int Farm::heldType() {return int(context_.profile.uints["PCarry"]);}void Farm::setHeldType(int v) {context_.profile.uints["PCarry"]=unsigned(v);}
@@ -132,7 +133,7 @@ void Farm::refreshUpgradeButton() {
 }
 void Farm::setAvailableUpgrade(int value) {const int current=context_.profile.ints["fcu"],previous=context_.profile.ints["fua"];if(int(unsigned(previous)+1)!=value) throw "upgrade_avail+1!=_upgrade";context_.profile.ints["fua"]=value;for(auto* f:graph.fields) f->refreshPurchase(current,value);refreshUpgradeButton();}
 void Farm::setCurrentUpgrade(int value) {context_.profile.ints["fcu"]=value;const int available=context_.profile.ints["fua"];for(auto* f:graph.fields) f->refreshPurchase(value,available);refreshUpgradeButton();for(auto* area:graph.areas) if(area->areaType==64) {auto& sprinkle=dynamic_cast<Sprinkle&>(*area);if(sprinkle.status()==0) sprinkle.setStatus(0);}}
-void Farm::buyFields() {const int have=money(),current=context_.profile.ints["fcu"];const int cost=int(upgradeCost(unsigned(current+1)));if(cost<=have) {setMoney(int(unsigned(have)-unsigned(cost)));setCurrentUpgrade(int(unsigned(current)+1));context_.game.refreshUpgrades();}}
+void Farm::buyFields() {const int have=money(),current=context_.profile.ints["fcu"];const int cost=int(upgradeCost(unsigned(current+1)));if(cost<=have) {setMoney(int(unsigned(have)-unsigned(cost)));setCurrentUpgrade(int(unsigned(current)+1));context_.game.playUpgradeSound();}}
 void Farm::absoluteStep() {
     StateView::absoluteStep();auto& p=context_.profile;if(p.booleans["awNoDry"]) {const float before=p.floats["awNoDryTime"],dt=uiElapsedTime()();p.floats["awNoDryTime"]=float(originalAdd(dt,before));}
     const bool visible=state().shown && state().parentShown;

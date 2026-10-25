@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Skutečný cGame a binární save/load](GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a hlavní interaktivní EXE dál čekají.
+
 [Řídicí objekt herních ocenění](GAME_AWARD_MANAGER.md) propojuje automatické vyhodnocení se skutečným efektem, obrazovkou, panelem a návratem. PC53/PC24: 18 podmínek, 36 celých cyklů a 2012 snímků / 965 760 000 shodných RGB pixelů. Tři podmínky nad úplným světem a celý cGame/EXE zůstávají neověřené; source cleanup Help/Journal při chybě konstrukce prošel osmi kontrolami.
 
 [Skutečný Journal](JOURNAL.md) už otevírá a zavírá skutečný HUD, rozvrhuje zprávy a označuje je za přečtené. PC53/PC24: 430 stavů / 102 operací a 362 celých snímků / 173 760 000 shodných RGB pixelů, včetně obou směrů, indexových hranic a XML reloadu. Obnovené jsou i potřebné textové copy/measure metody; celý cGame/EXE dále pokračuje.

@@ -15,7 +15,7 @@ struct GamePauseContext {
     std::function<View&()> help;
     MainMenuContext& mainMenu;TooltipFrame::ScreenSize screenSize;
     std::function<void(bool)> resetGraphics;
-    // Required recovered 00486970 / 00432b20 save-and-discard operation.
+    // Required engine deferred discard; cGame destruction writes binary .save.
     std::function<void(const String&)> discardGame;
     ViewRegistry& views;ControlRegistry& controls;
 };

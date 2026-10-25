@@ -37,6 +37,7 @@ public:
     std::array<std::array<std::uint32_t,4>,15> costs;
     std::array<WString,5> upgradeStrings;
     cResource* upgradeSound() const noexcept { return upgradeSound_; }
+    void releaseUpgradeSound(); //00410830, before external game screens are destroyed
 private:
     ResourceManager& resources_;
     cResource* upgradeSound_=nullptr; // cGame +a08

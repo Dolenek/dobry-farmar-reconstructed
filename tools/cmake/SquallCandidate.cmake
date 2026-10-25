@@ -76,6 +76,14 @@ target_include_directories(squall-dll-reference-test PRIVATE "${SQUALL_RUNTIME_D
 target_link_libraries(squall-dll-reference-test PRIVATE recovered_game_utilities)
 add_dependencies(squall-dll-reference-test SquallCandidate)
 add_library(recovered_game_audio STATIC EXCLUDE_FROM_ALL "${CMAKE_CURRENT_SOURCE_DIR}/src/game/audio/SquallSoundApi.cpp")
+add_executable(game-source-runtime-test "${CMAKE_CURRENT_SOURCE_DIR}/tools/game_source_runtime_test.cpp" "${CMAKE_CURRENT_BINARY_DIR}/window-artwork.rc")
+target_link_libraries(game-source-runtime-test PRIVATE recovered_game_audio)
+target_compile_options(game-source-runtime-test PRIVATE /utf-8)
+target_link_options(game-source-runtime-test PRIVATE "/MAP:$<TARGET_FILE_DIR:game-source-runtime-test>/game-source-runtime-test.map" /DYNAMICBASE:NO)
+add_custom_command(TARGET game-source-runtime-test POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:game-source-runtime-test>/Squall.dll")
+add_test(NAME recovered-game-source-world COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_game_source_world.py" --test "$<TARGET_FILE:game-source-runtime-test>")
 target_compile_definitions(recovered_game_audio PRIVATE _USRDLL)
 target_compile_options(recovered_game_audio PRIVATE /utf-8)
 target_link_libraries(recovered_game_audio PUBLIC recovered_resource_utilities SquallCandidate)

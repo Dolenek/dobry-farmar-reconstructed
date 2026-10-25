@@ -32,7 +32,8 @@ void SeedInfo::loadXML(const XmlNode& node,ResourceManager& resources) {
     attribute(node,L"Price",price);XmlNode* child=nullptr;
     if(node.section(String("Icon"),child)) icon.loadXML(*child,resources);
 }
-GameConfiguration::~GameConfiguration() { if(upgradeSound_) upgradeSound_->releaseReference(); }
+GameConfiguration::~GameConfiguration() {releaseUpgradeSound();}
+void GameConfiguration::releaseUpgradeSound() {if(upgradeSound_) {upgradeSound_->releaseReference();upgradeSound_=nullptr;}}
 void GameConfiguration::loadXML(const XmlNode& node) {
     XmlNode *section=nullptr,*child=nullptr;
     if(node.section(String("ProductionInfo"),section)) {

@@ -14,6 +14,7 @@ public:
     const std::list<SaleRecord>& records() const noexcept {return records_;}
     std::uint32_t total() const noexcept {return total_;}
     float cutoff() const noexcept {return cutoff_;}
+    void restoreCutoff(float value) noexcept {cutoff_=value;} //00412bc9, after replaying records
 private:
     ProfileProperties& profile_;
     std::list<SaleRecord> records_;

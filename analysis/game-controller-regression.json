@@ -1,0 +1,29 @@
+{
+  "status": "passed_for_source_composition_and_regression_only",
+  "recorded_at_utc": "2026-10-25T21:12:13.575264+00:00",
+  "ctest_passed": 95,
+  "ctest_total": 95,
+  "ctest_seconds": 472.04,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-game-controller-full.xml",
+  "junit_sha256": "c0b85a296285dd11449c2d3592b1a05643e25b2b962f917848f43d32a007ba7e",
+  "source_tree_sha256": "cc485a5ca23c5161b21caf59786d467562b9e8e741ef452580ec528855559f86",
+  "build_log": ".local/game-controller-full-build.log",
+  "test_log": ".local/game-controller-full-tests.log",
+  "strict_record_log": ".local/game-controller-record.log",
+  "source_game_lifetimes": 4,
+  "source_mouse_clicks": 16,
+  "source_frames": 1102,
+  "source_save_restore_save_compared_with_native_seed_x_quirk": true,
+  "native_whole_game_comparison": false,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}

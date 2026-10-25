@@ -16,7 +16,7 @@ struct FarmGameServices {
     virtual ~FarmGameServices()=default;
     virtual int money()=0;virtual void setMoney(int)=0;
     virtual GameplayEvent& savedContract(int)=0; //0042cde0, Gameplay indexed list
-    virtual void refreshUpgrades()=0; //00404170
+    virtual void playUpgradeSound()=0; //00404170
 };
 struct FarmContext {
     ResourceManager& resources;Settings& settings;StringManager& strings;
@@ -81,6 +81,7 @@ public:
     unsigned sprinkleCount() override {return sprinklers;}
     Sprinkle* createSprinkle(unsigned) override;
     SeedPackage* createSeed(unsigned);
+    SeedPackage* restoreSeed(unsigned kind,unsigned count,const Point2&,unsigned status,bool unpaid); //00412afe
     void configureHose(const Point2&,const Point2&,float); //0042f5a0
     void stopHose(); //0042ca30
     void refreshSeedButton(); //00434b30

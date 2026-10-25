@@ -10,7 +10,7 @@ struct FarmServices final:FarmGameServices {
     int money() override {return hud.money();}
     void setMoney(int value) override {productionSourceCalls.push_back({13,unsigned(value),0,0,0});profile.ints["Money"]=value;}
     GameplayEvent& savedContract(int index) override {return hud.savedContract(index);}
-    void refreshUpgrades() override {hudSourceCalls.push_back({26,0,0});}
+    void playUpgradeSound() override {hudSourceCalls.push_back({26,0,0});}
 } farmServices(world,profile);
 FarmContext farmContext{manager,settings,strings,input,interaction,profile,configuration,random,audio,*productionTutorial,farmServices,views,controls};
 const auto priorSourceFarm=world.scenes[0];auto* priorNativeFarm=field<void*>(image,0x25f744);const auto priorNativeScene=nativeScenes[0];
