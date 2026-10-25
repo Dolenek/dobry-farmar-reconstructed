@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Skutečný Farm controller](docs/FARM_SCENE.md) propojuje šedesát polí, dopisy, rozšíření a profilovou obnovu zavlažovačů. PC53/PC24: 188 stavů, 132 CPU operací a 64 celých snímků / 30 720 000 shodných RGB pixelů, včetně skutečného přijetí zakázky a odstranění dopisu. Celý cGame, pracovní vstup nad touto farmou a herní EXE pokračují; přesné hranice jsou v dokumentaci.
+
 
 [ContractLetterSlot](docs/CONTRACT_LETTER.md) obnovuje příchozí dopisy Farm: přílet, odpočet, blikání, profilovou obnovu a skutečný tutoriál17 → mouse → přečtení → ContractProvide. PC53/PC24:3404 stavů,548 přiřazení,2660 CPU operací a160 celých snímků /76 800 000 shodných RGB pixelů. Úplný Farm/cGame a herní EXE pokračují.
 

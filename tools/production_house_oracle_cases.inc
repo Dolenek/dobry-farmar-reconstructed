@@ -27,6 +27,8 @@ const auto appearanceCheck=[&](const AnimableAppearance& a,void* n) {
 };
 if(contractLetterMode) {
 #include "contract_letter_oracle_cases.inc"
+} else if(farmSceneMode) {
+#include "farm_scene_oracle_cases.inc"
 } else {
 #include "production_placement_oracle_cases.inc"
 if(!manufactureMode && !actionAreaMode && !warehouseMode) for(unsigned type=0;type<11;++type) for(unsigned initialLevel=0;initialLevel<5;++initialLevel) {

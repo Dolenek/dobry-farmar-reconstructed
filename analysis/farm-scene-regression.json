@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-10-25T07:10:32.523939+00:00",
+  "ctest_passed": 91,
+  "ctest_total": 91,
+  "ctest_seconds": 417.72,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-farm-scene-full.xml",
+  "junit_sha256": "cf86ef32e43597c5c84555958dd6317d9de6740b5aeb587fa5aa71aef066ae78",
+  "source_tree_sha256": "11c78994913e006a5c9d0f52bdf3bb15af5948cb3e5f5b76f82c10da0a80c04d",
+  "build_log": ".local/farm-scene-full-build.log",
+  "test_log": ".local/farm-scene-full-tests.log",
+  "strict_record_log": ".local/farm-scene-record.log",
+  "states": 188,
+  "explicit_cpu_actions": 132,
+  "gpu_frames": 64,
+  "gpu_rgb_pixels": 30720000,
+  "game_audio_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "person_sound_builds": [
+    "build/windows",
+    "build/squall-source-repro-vs20261010"
+  ],
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false
+}

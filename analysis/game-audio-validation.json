@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-24T20:14:52.022698+00:00",
+  "recorded_at_utc": "2026-10-25T07:09:15.190082+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "67c1c536d7525f4a505b4be615bf5f308d13124be0202f4c6d17aea9deb16c2b",
+  "oracle_sha256": "18bb9dc6348510f26810cba684734ae4d8ab7f6374e7c2311db6304c02ac0629",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37961,
-      "native_position_progress": 3123,
+      "source_position_progress": 37960,
+      "native_position_progress": 21203,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37520,
-      "native_position_progress": 55159,
+      "source_position_progress": 20321,
+      "native_position_progress": 20321,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -653,6 +653,14 @@
     {
       "path": "src/game/ui/ExtendedTextButton.h",
       "sha256": "bc8b24107d7fa9bb3f8fceba078886f1aac2d31e7f9b34546b6875ac28d53bc4"
+    },
+    {
+      "path": "src/game/ui/Farm.cpp",
+      "sha256": "06ed394e934a58efd3285f9b2387081f5f4f03fedd6f050712ce205a3083e338"
+    },
+    {
+      "path": "src/game/ui/Farm.h",
+      "sha256": "1bdec63bbcd13ee734b0aa1c7195ac1d7aeef34c34663019b013f5c42307f8c6"
     },
     {
       "path": "src/game/ui/FarmAreas.cpp",
