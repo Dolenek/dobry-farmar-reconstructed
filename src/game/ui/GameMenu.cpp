@@ -158,6 +158,7 @@ void GameMenu::requestPause() {
     if(context_.world.inputBlocked()) return;context_.pause.game.disable();context_.pause.game.absoluteDisable();pause_->showTransparently();pause_->enable();
 }
 void GameMenu::escape() {if(!transitioning()) requestPause();}
+void GameMenu::setMessagesRead(bool value) {for(auto& message:messages_) message.read=value;hasUnread=!value;if(value) journal_->setColor(normalColor);}
 void GameMenu::showMessages() {
     if(context_.contracts.tutorialActive() && !context_.contracts.tutorialStepActive(0x27)) return;
     context_.world.completeTutorial(0x27);context_.world.openMessages();

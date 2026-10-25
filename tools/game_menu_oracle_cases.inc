@@ -1,3 +1,4 @@
+std::array<unsigned char,5> journalOriginalOpen{};if(journalMode) std::memcpy(journalOriginalOpen.data(),image+0x46d50,5);
 std::array<unsigned char,5> elasticOriginalBegin{};if(elasticAnimationMode) std::memcpy(elasticOriginalBegin.data(),image+0x2b7a0,5);
 std::array<unsigned char,5> mowInvestmentEntry{};if(mowBuildingMode) std::memcpy(mowInvestmentEntry.data(),image+0x47b40,5);
 std::array<unsigned char,5> sprinkleFactoryEntry{};if(sprinkleMode) std::memcpy(sprinkleFactoryEntry.data(),image+0x33980,5);
@@ -41,7 +42,7 @@ std::array<std::unique_ptr<StateView>,3> scenes;std::array<void*,3> nativeScenes
 const unsigned sceneGlobals[]={0x25f744,0x25f758,0x25ffc8};const char* sceneFiles[]={"UI/gameUI/Farm.xml","UI/gameUI/WareDetail.xml","UI/gameUI/Manufacture.xml"};
 for(unsigned n=0;n<3;++n) {scenes[n]=std::make_unique<StateView>(&game,manager,settings,strings,views,controls);nativeScenes[n]=allocate(farmFieldMode ? 268:productionHouses ? 256:100);std::memset(nativeScenes[n],0,100);function<void*(__thiscall*)(void*,void*)>(0xc48e0)(nativeScenes[n],nativeGame);putPointer(sceneGlobals[n],nativeScenes[n]);XmlDocument xml(files,String(sceneFiles[n]));scenes[n]->loadXML(xml);function<void(__thiscall*)(void*,void*)>(0xc4a80)(nativeScenes[n],wrap(&xml));}
 MainMenuContext mainContext(files,manager,settings,strings,audio,music,profiles,input,interaction,[] {return tooltipDimensions;},[](bool){},&mainMenuSourceComplete,views,controls);
-GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,help,mainContext,[] {return tooltipDimensions;},[](bool){},[](const String&){},views,controls};
+GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,[&]() -> View& {return help;},mainContext,[] {return tooltipDimensions;},[](bool){},[](const String&){},views,controls};
 HudWorld world(profile,{scenes[0].get(),scenes[1].get(),scenes[2].get()},{&overlay,&selection,&tip});
 GameMenuContext context{manager,settings,strings,input,interaction,profile,configuration,audio,world,pauseContext,world,views,controls};
 // Exact money formatter is the original general unsigned stream primitive.
@@ -62,6 +63,8 @@ const auto check=[&] {
 };
 if(productionHouses) {
 #include "production_house_oracle_cases.inc"
+} else if(journalMode) {
+#include "journal_oracle_cases.inc"
 } else {
 check();
 // Whole native absolute-step body, wealth/level trigger gates and flash state.

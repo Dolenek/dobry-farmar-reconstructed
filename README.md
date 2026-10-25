@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Skutečný Journal](docs/JOURNAL.md) už otevírá a zavírá skutečný HUD, rozvrhuje zprávy a označuje je za přečtené. PC53/PC24: 430 stavů / 102 operací a 362 celých snímků / 173 760 000 shodných RGB pixelů, včetně obou směrů, indexových hranic a XML reloadu. Obnovené jsou i potřebné textové copy/measure metody; celý cGame/EXE dále pokračuje.
+
 [Skutečná nápověda](docs/HELP_VIEW.md) je propojená s pauzovacím menu: otevření, stránky, návrat i XML reload probíhají skutečnou myší. PC53/PC24: 30 stavů / 24 operací a 376 celých snímků / 180 480 000 shodných RGB pixelů včetně ostatních pauzovacích obrazovek. Pokračují Journal, award manager a celý cGame/EXE.
 
 [Skutečný Farm controller](docs/FARM_SCENE.md) propojuje šedesát polí, dopisy, rozšíření a profilovou obnovu zavlažovačů. PC53/PC24: 188 stavů, 132 CPU operací a 64 celých snímků / 30 720 000 shodných RGB pixelů, včetně skutečného přijetí zakázky a odstranění dopisu. Celý cGame, pracovní vstup nad touto farmou a herní EXE pokračují; přesné hranice jsou v dokumentaci.

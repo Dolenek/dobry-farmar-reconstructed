@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-25T07:23:47.777432+00:00",
+  "recorded_at_utc": "2026-10-25T07:46:38.958134+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "aa884429c1ee522f26d3fbcdbf1b65ccb227a454d432ff5b41909ada1b292418",
+  "oracle_sha256": "f52773af0e6893e4b8edc791ef3cdcb2bacbd27e728c206994a87aae503bc44a",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 55567,
-      "native_position_progress": 55126,
+      "source_position_progress": 54686,
+      "native_position_progress": 37928,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,7 +22,7 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
+      "source_position_progress": 55126,
       "native_position_progress": 37928,
       "playback_tested": true,
       "silent_playback": true,
@@ -708,19 +708,19 @@
     },
     {
       "path": "src/game/ui/GameMenu.cpp",
-      "sha256": "7e1063820cb757cd616bd160f397751e99eca45d8994fc72b4828482ab7449de"
+      "sha256": "68408f603395873d38beff51f9e9219bfb0ec4324e004dd67f7a9a241d6828ee"
     },
     {
       "path": "src/game/ui/GameMenu.h",
-      "sha256": "b19baf1e537c2d5902f73de158b62e58805fdb0a0c6f2e78554a3bd51414d108"
+      "sha256": "888550b4938d132a25229d541b0dadddb145ffcc8d38d3cb1f526b0550dcd4da"
     },
     {
       "path": "src/game/ui/GamePauseMenu.cpp",
-      "sha256": "e4167dbf17d0840665b5b1103d870e8d325806f2a800763807e4327fbdd62537"
+      "sha256": "b3de790f30b36549b5e9b64cfc676c164eaaedb9e9cfe35fd14ba97d42345787"
     },
     {
       "path": "src/game/ui/GamePauseMenu.h",
-      "sha256": "3b499a643a4939d05fdc9d9ccd49653c9fc5b7e6043429fdafb2939175ca28b0"
+      "sha256": "5db1da8f97bb0854dc67b91f42a9659d41b192fb084fa0792ffc03f0b1a07940"
     },
     {
       "path": "src/game/ui/HelpView.cpp",
@@ -753,6 +753,14 @@
     {
       "path": "src/game/ui/InputDevices.h",
       "sha256": "a1599f191895b418014c9381081e46af76a54721fd51a5b89cfc07c3fb7a114a"
+    },
+    {
+      "path": "src/game/ui/Journal.cpp",
+      "sha256": "a0bf8272021eaf34bed80c32e2034e4e4802b36363f320d5d4bcec82d45e4669"
+    },
+    {
+      "path": "src/game/ui/Journal.h",
+      "sha256": "ab10235d6b6b4b756e4b910d7705b1d410817ac0afcdc1909bfad3f1228e0864"
     },
     {
       "path": "src/game/ui/LetterSprite.cpp",
@@ -836,11 +844,11 @@
     },
     {
       "path": "src/game/ui/MultilineText.cpp",
-      "sha256": "7c4e5a97afebe59c8d770d668555a9f6ed7bc82fa68e68c3ef7a6cd4d50d20db"
+      "sha256": "6ac371e88d5bba79c4fd5aa0e09d3fce9e47b1fd58991c595ac48fc690824ca2"
     },
     {
       "path": "src/game/ui/MultilineText.h",
-      "sha256": "3243def710790560855a606f40686e9c3acca4e380cb146806f4d5b67d8d2eb8"
+      "sha256": "69526ee28001765ad3ea5756fe96cc9049accc368b3141a4ff4e1410d6853011"
     },
     {
       "path": "src/game/ui/Options.cpp",

@@ -31,7 +31,7 @@ else {function<void*(__thiscall*)(void*,void*)>(0xd55b0)(nativeHelp,nullptr);put
 View& help=helpMode ? static_cast<View&>(*actualHelp):placeholderHelp;
 game.show();game.enable();game.absoluteEnable();call(0xd37d0,nativeGame);call(0xd3bb0,nativeGame);call(0xd3fb0,nativeGame);
 redirect(0x86970,reinterpret_cast<void*>(&pauseNativeGameDiscard));pauseNativeGameDiscards.clear();pauseSourceGameDiscards.clear();
-GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,help,context,[] {return tooltipDimensions;},[&](bool){++resets;},[&](const String& origin){pauseSourceGameDiscards.emplace_back(origin.view());},views,controls};
+GamePauseContext pauseContext{files,manager,settings,strings,audio,music,input,interaction,game,[&]() -> View& {return help;},context,[] {return tooltipDimensions;},[&](bool){++resets;},[&](const String& origin){pauseSourceGameDiscards.emplace_back(origin.view());},views,controls};
 auto* pause=new GamePauseMenu(nullptr,pauseContext);auto* original=allocate(80);function<void*(__thiscall*)(void*,void*)>(0x87330)(original,nullptr);auto* nativeView=static_cast<unsigned char*>(original)+4;
 const auto check=[&] {
     stage=291;require(GamePauseMenu::instance()==pause && field<void*>(image,0x25ffd8)==original,"Pause singleton differs");

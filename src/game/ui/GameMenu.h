@@ -59,6 +59,7 @@ public:
     void onAbsoluteDisabled() override; // 004c3130
     void activateContract(GameplayEvent&); // 004c02c0
     void removeContract(ContractStatus&); // 004c06b0
+    void setMessagesRead(bool); //00445780
     void assignMessages(const std::vector<GameMessage>&); // 004c4390
     void notify(const WString&,bool read); // 004c44a0
     const std::vector<GameMessage>& messages() const noexcept {return messages_;} // 004c0710

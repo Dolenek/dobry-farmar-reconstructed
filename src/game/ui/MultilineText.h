@@ -6,6 +6,9 @@ class MultilineText final : public Control {
 public:
     MultilineText(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,
         ViewRegistry& views=globalViewRegistry(),ControlRegistry& controls=globalControlRegistry()); // 004f5e70
+    MultilineText(const MultilineText&); //004f6000, fresh empty text and owned prototype copy
+    Point2 measuredSize(); //004f5db0
+    void setPackedColor(unsigned value) {textColor_=Color::fromARGB(value);} //004f5cb0, no dirty/recolor
     void loadXML(const XmlNode& node) override; // 004f8580
     void setString(const WString& value,bool immediate=false); // 004f8ce0, /n -> LF
     void makeLines(); // 004f7e10

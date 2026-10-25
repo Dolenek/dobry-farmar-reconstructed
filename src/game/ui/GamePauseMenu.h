@@ -9,7 +9,11 @@ class FileIndex;class SoundManager;class MusicPlayback;class MainMenuContext;cla
 struct GamePauseContext {
     FileIndex& files;ResourceManager& resources;Settings& settings;StringManager& strings;
     SoundManager& sound;MusicPlayback& music;InputBindings& input;ButtonInteraction& interaction;
-    View& game;View& help;MainMenuContext& mainMenu;TooltipFrame::ScreenSize screenSize;
+    View& game;
+    //00413210 constructs GameMenu/its pause menu before HelpView. Resolve the
+    // actual late-created object only when00485630 opens it.
+    std::function<View&()> help;
+    MainMenuContext& mainMenu;TooltipFrame::ScreenSize screenSize;
     std::function<void(bool)> resetGraphics;
     // Required recovered 00486970 / 00432b20 save-and-discard operation.
     std::function<void(const String&)> discardGame;

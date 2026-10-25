@@ -14,7 +14,7 @@ GamePauseLifetime::~GamePauseLifetime() {currentPause=nullptr;}
 GamePauseMenu* GamePauseMenu::instance() noexcept {return currentPause;}
 GamePauseMenu::GamePauseMenu(View* parent,GamePauseContext& context)
     :GamePauseLifetime(this),MenuView(parent,context.resources,context.settings,context.strings,context.views,context.controls),context_(context) {
-    if(!context.discardGame || !context.resetGraphics || !context.screenSize) throw std::invalid_argument("GamePauseMenu requires engine services");
+    if(!context.discardGame || !context.resetGraphics || !context.screenSize || !context.help) throw std::invalid_argument("GamePauseMenu requires engine services");
     const auto button=[&] {return new TextAnimationButton(this,context.resources,context.settings,context.strings,context.input,context.interaction,context.views,context.controls);};
     continue_=button();awards_=button();options_=button();main_=button();help_=button();
     auto xml=context.resources.loadSettingsXML(String("UI/Menu.xml"));loadXML(*xml);
@@ -46,7 +46,7 @@ Awards* GamePauseMenu::openAwards() {
     awards->returnEvent=&awardsReturned;awards->hide();awards->showTransparently();return awards;
 }
 void GamePauseMenu::awardsReturned() {auto* self=instance();self->showTransparently();self->context_.game.showTransparently();}
-void GamePauseMenu::openHelp() {hideTransparently();context_.help.showTransparently();context_.help.enable();}
+void GamePauseMenu::openHelp() {hideTransparently();context_.help().showTransparently();context_.help().enable();}
 YesNoDialog* GamePauseMenu::requestMainMenu() {
     disable();hide();auto& c=context_;
     auto* dialog=new YesNoDialog(nullptr,c.resources,c.settings,c.strings,c.input,c.interaction,c.views,c.controls);

@@ -11,6 +11,15 @@ template<class T> void read(const XmlNode& node,const wchar_t* name,T& output) {
 }
 MultilineText::MultilineText(View* parent,ResourceManager& resources,Settings& settings,StringManager& strings,ViewRegistry& views,ControlRegistry& controls)
     :Control(parent,resources,views,controls),strings_(strings),prototype_(new TextLine(this,resources,settings,strings,views,controls)) {} // 004f5e70
+MultilineText::MultilineText(const MultilineText& source):Control(source),strings_(source.strings_),prototype_(new TextLine(*source.prototype_)),
+    localized_(source.localized_),wrap_(source.wrap_),interlinear_(source.interlinear_),verticalAlignment_(source.verticalAlignment_) {
+    textColor_=Color::fromARGB(prototype_->packedColor());prototype_->setParent(this);
+}
+Point2 MultilineText::measuredSize() {
+    Point2 result{0,0};for(auto* line:lines_) if(!(line->textWidth()<result[0])) result[0]=line->textWidth();
+    if(!lines_.empty()) {const auto height=lines_.front()->textHeight();result[1]=float(originalAdd(originalMultiply(originalUnsigned(unsigned(lines_.size())-1),interlinear_),height));}
+    return result;
+}
 WString MultilineText::normalize(const WString& value) {
     std::wstring result(value.view());std::size_t position=0;
     while((position=result.find(L"/n",position))!=std::wstring::npos) result.replace(position,2,L"\n");
