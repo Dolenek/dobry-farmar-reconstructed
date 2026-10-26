@@ -429,15 +429,15 @@ def main():
         write('analysis/mow-building-validation.json',mow);report['mow-building']=mow
         if 'analysis/mow-building-validation.json' not in report['reports']:report['reports'].append('analysis/mow-building-validation.json')
         write('analysis/verification.json',report)
-    for key,status in [('jpeg','passed_for_all_shipped_jpeg_storage_all_mmx_color_triples_and_whole_gpu_textures'),('new-user','passed_for_new_user_font_filter_profile_creation_menu_transition_and_frames'),('game-source-world','passed_for_source_game_factory_input_tutorial_and_binary_roundtrip_only'),('game-award-manager','passed_for_eighteen_award_predicates_actual_effect_panel_return_and_source_constructor_cleanup'),('journal','passed_for_actual_journal_hud_messages_multiline_copy_layout_reload_and_input'),('help-view','passed_for_actual_help_pages_pause_navigation_reload_input_and_frames'),('farm-scene','passed_for_actual_farm_scene_ownership_upgrades_crop_selection_contracts_restore_and_frames'),('contract-letter','passed_for_contract_letter_lifetime_deadlines_reload_tutorial_and_input'),('person-flows','passed_for_person_seed_sow_drop_and_hose_particle_input_cycles'),('person-controller','passed_for_person_actor_lifetime_timed_work_and_rendered_field_input'),('elastic-animation','passed_for_elastic_instrument_motion_actual_tool_upgrades_reveal_and_frames'),('water-particles','passed_for_water_particles_copy_motion_and_frames'),('water-emitters','passed_for_water_emitters_creation_modes_frames_and_disposal'),('sprinkle','passed_for_sprinkle_controller_effect_factory_and_explicit_field_boundaries'),('farm-field','passed_for_field_actions_farm_geometry_and_connected_irrigation'),('seed-package','passed_for_seed_package_progress_purchase_field_and_explicit_person_boundaries'),('person-tasks','passed_for_person_queue_markers_field_seed_input_and_explicit_actor_boundaries'),('person-visuals','passed_for_person_visuals_ui_selectors_reloads_and_explicit_actor_boundaries'),('person-walk','passed_for_person_ordinary_motion_field_seed_and_mouse_queue'),('person-vehicle','passed_for_person_vehicle_motion_axis_field_seed_and_mouse_queue'),('person-sounds','passed_for_person_sound_selection_channel_ownership_and_physical_backends'),('person-sounds-fresh','passed_for_person_sound_selection_channel_ownership_and_physical_backends')]:
+    for key,status in [('startup','passed_for_startup_logos_timing_input_and_actual_profile_menu_transitions'),('file-system-bootstrap','passed_for_source_bootstrap_names_overlay_order_and_folder_api_boundary'),('jpeg','passed_for_all_shipped_jpeg_storage_all_mmx_color_triples_and_whole_gpu_textures'),('new-user','passed_for_new_user_font_filter_profile_creation_menu_transition_and_frames'),('game-source-world','passed_for_source_game_factory_input_tutorial_and_binary_roundtrip_only'),('game-award-manager','passed_for_eighteen_award_predicates_actual_effect_panel_return_and_source_constructor_cleanup'),('journal','passed_for_actual_journal_hud_messages_multiline_copy_layout_reload_and_input'),('help-view','passed_for_actual_help_pages_pause_navigation_reload_input_and_frames'),('farm-scene','passed_for_actual_farm_scene_ownership_upgrades_crop_selection_contracts_restore_and_frames'),('contract-letter','passed_for_contract_letter_lifetime_deadlines_reload_tutorial_and_input'),('person-flows','passed_for_person_seed_sow_drop_and_hose_particle_input_cycles'),('person-controller','passed_for_person_actor_lifetime_timed_work_and_rendered_field_input'),('elastic-animation','passed_for_elastic_instrument_motion_actual_tool_upgrades_reveal_and_frames'),('water-particles','passed_for_water_particles_copy_motion_and_frames'),('water-emitters','passed_for_water_emitters_creation_modes_frames_and_disposal'),('sprinkle','passed_for_sprinkle_controller_effect_factory_and_explicit_field_boundaries'),('farm-field','passed_for_field_actions_farm_geometry_and_connected_irrigation'),('seed-package','passed_for_seed_package_progress_purchase_field_and_explicit_person_boundaries'),('person-tasks','passed_for_person_queue_markers_field_seed_input_and_explicit_actor_boundaries'),('person-visuals','passed_for_person_visuals_ui_selectors_reloads_and_explicit_actor_boundaries'),('person-walk','passed_for_person_ordinary_motion_field_seed_and_mouse_queue'),('person-vehicle','passed_for_person_vehicle_motion_axis_field_seed_and_mouse_queue'),('person-sounds','passed_for_person_sound_selection_channel_ownership_and_physical_backends'),('person-sounds-fresh','passed_for_person_sound_selection_channel_ownership_and_physical_backends')]:
         effect_path=ROOT/f'.local/{key}-validation.json'
         if effect_path.exists():
             effect=read(effect_path.relative_to(ROOT));assert effect['status']==status
             for name,expected in effect['source_files'].items():
                 assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
-            if key=='game-source-world':
+            if key in ('game-source-world','file-system-bootstrap'):
                 assert hashlib.sha256((ROOT/effect['test_path']).read_bytes()).hexdigest()==effect['test_sha256']
-                for name,expected in effect['dll_files'].items():
+                for name,expected in effect.get('dll_files',{}).items():
                     assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
             if key.startswith('person-sounds'):
                 for path_key,hash_key in [('oracle_path','oracle_sha256'),('candidate_path','candidate_sha256')]:
@@ -445,6 +445,21 @@ def main():
             write(f'analysis/{key}-validation.json',effect);report[key]=effect
             if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
     write('analysis/verification.json',report)
+    application_path=ROOT/'.local/application-runtime-validation.json'
+    if application_path.exists():
+        application=read(application_path.relative_to(ROOT))
+        assert application['status']=='passed_for_source_application_fresh_profile_restart_save_restore_pause_help_and_journal'
+        for name,expected in application['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        for name,expected in application['implementation_files'].items():
+            assert hashlib.sha256((ROOT/application['work_directory']/name).read_bytes()).hexdigest()==expected,name
+            built='Dobrý farmář.exe' if name=='FarmarSourceRuntime.exe' else name
+            assert hashlib.sha256((ROOT/'build/windows/Release'/built).read_bytes()).hexdigest()==expected,built
+        write('analysis/application-runtime-validation.json',application);report['application-runtime']=application
+        if 'analysis/application-runtime-validation.json' not in report['reports']:report['reports'].append('analysis/application-runtime-validation.json')
+        for name in ['Dobrý farmář.exe','file-system-bootstrap-test.exe']:
+            if name not in report['build']['targets']:report['build']['targets'].append(name)
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

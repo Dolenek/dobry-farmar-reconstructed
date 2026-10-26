@@ -1,9 +1,9 @@
 {
   "status": "passed_for_loaded_DLL_samples_and_prepared_DirectSound_scope",
-  "recorded_at_utc": "2026-10-26T07:07:56.205646+00:00",
+  "recorded_at_utc": "2026-10-26T08:25:54.611111+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "c429a9cd5304000ef0b332aa443d790dbcdbb84065d81d1c75a0e0696162cff9",
+  "oracle_sha256": "17c6a7ea13819734c8ed54404eed2ddac49fb9798ed7707c46e5a467eefa4c2a",
   "linker_map_sha256": "eb6ac2ff625e05d7baac0a272b8fd2257c1c28ed47d537b7f551e987d9346e10",
   "candidate_path": "build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll",
   "oracle_path": "build/squall-source-repro-vs20261010/Release/squall-dll-reference-test.exe",
@@ -395,7 +395,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "22b8acfd029b1cbdcb3d27529c622a5957920d552ab3ea0367dc7f5be430a531"
+      "sha256": "68268578eae6ffe8b8d4011168050c0e263191b6262b9f9c6fc7e626ab39623e"
     },
     {
       "path": "tools/squall_dll_reference_test.cpp",
@@ -443,7 +443,7 @@
       "dll_pcm_bytes": 61263876,
       "dll_pcm_frames": 20421292,
       "stop_pending_source": 2,
-      "stop_pending_native": 2,
+      "stop_pending_native": 1,
       "playback_tested": false,
       "precision": "x87-pc24"
     }

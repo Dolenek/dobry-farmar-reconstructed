@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-26T07:06:33.518105+00:00",
+  "recorded_at_utc": "2026-10-26T08:24:30.893104+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "2cd5a9fac44b85c01635691bc0122b209c8c1bdab9e1ae3c6761f76fc06c96f9",
+  "oracle_sha256": "a279ad3678dfa9259c07d987ae6a5c9076c7b3b3455ccde031f2f51601e01dab",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 55126,
-      "native_position_progress": 74088,
+      "source_position_progress": 38810,
+      "native_position_progress": 55567,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 3564,
-      "native_position_progress": 38369,
+      "source_position_progress": 2682,
+      "native_position_progress": 20289,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -175,6 +175,14 @@
       "sha256": "81197506d2e2a1209c5ed6d88715278fa1bc86b9210e7f24d045ded6aed920b8"
     },
     {
+      "path": "src/game/engine/GameApplication.cpp",
+      "sha256": "8b96b4942fbb5df95fa5e2416d92ad041d00d4b8aa5124ace25a01db006ee124"
+    },
+    {
+      "path": "src/game/engine/GameApplication.h",
+      "sha256": "3e523fc4ec77bbce426ee4466751789ead87ade51b73d56c9216d0d4370ca9a9"
+    },
+    {
       "path": "src/game/engine/GameConfiguration.cpp",
       "sha256": "658bdeab27ecfb87fa532b6deb6252b0a9453e719566773cc89f6bbbd81974a3"
     },
@@ -197,6 +205,14 @@
     {
       "path": "src/game/engine/GameEffects.h",
       "sha256": "75060fba42d36d3ef9215449cbc974421c3bc9714784c2b3133a6b6b6b4e22e4"
+    },
+    {
+      "path": "src/game/engine/GameFileSystem.cpp",
+      "sha256": "13693a4509c3428fda4293bf754acab5ef58f0cbe211c5b16d0fd94da96a4d0e"
+    },
+    {
+      "path": "src/game/engine/GameFileSystem.h",
+      "sha256": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b"
     },
     {
       "path": "src/game/engine/GamePersistence.cpp",
@@ -405,6 +421,10 @@
     {
       "path": "src/game/graphics/SpriteGeometry.h",
       "sha256": "b04fd5b97977f084d1d6cf3c008a44f6fa430988291ffa3b523f2699bf21c5a7"
+    },
+    {
+      "path": "src/game/main.cpp",
+      "sha256": "0c47c4bff02fd32c2e2ec5b652aef674e4439f50c1f4a5c1f61b0b6640481e05"
     },
     {
       "path": "src/game/profiles/GameProfileDefaults.cpp",
@@ -1059,6 +1079,14 @@
       "sha256": "66ec0d28ac8006d8dbe7b212cd097672ef864c83be382964a653642d8c757799"
     },
     {
+      "path": "src/game/ui/StartupView.cpp",
+      "sha256": "ecc689f9a48433027a237cc71d2ab20e33f0ec23c29b87ae21f7971d6bf1d200"
+    },
+    {
+      "path": "src/game/ui/StartupView.h",
+      "sha256": "21407e4acd8f56383cb3a0b92a497eb13c86cb6e4ab12aa3aa1fe57f0d6dd26d"
+    },
+    {
       "path": "src/game/ui/StateView.cpp",
       "sha256": "ce03be71a0a8736ba57d46c503c1209c224c0550b79386d5308dbb7567daf5e4"
     },
@@ -1564,7 +1592,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "22b8acfd029b1cbdcb3d27529c622a5957920d552ab3ea0367dc7f5be430a531"
+      "sha256": "68268578eae6ffe8b8d4011168050c0e263191b6262b9f9c6fc7e626ab39623e"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

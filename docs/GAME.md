@@ -1,10 +1,12 @@
 # Rekonstrukce hlavní hry
 
+Hlavní [zdrojové herní EXE](APP_RUNTIME.md) se nyní sestaví a spustí s původními daty: nový profil → menu → skutečná farma, normální ukončení, opětovné načtení save, pauza, nápověda i deník. Obě načtené herní DLL pocházejí z našeho sestavení. [Startup](STARTUP.md) navíc přímo souhlasí s originálem ve čtyřech cyklech / 786 snímcích / 377 280 000 RGB pixelech (PC53/PC24). Úplný nativní runtime, obousměrné saves, všechny systémy, úplná Squall a izolovaný odinstalátor stále pokračují.
+
 [Původní JPEG loga](JPEG.md) mají obnovený reader a MMX barevnou aritmetiku: všechna3 loga souhlasí v každém dekódovaném bajtu i celé GPU textuře, PC53/PC24; vyčerpávající porovnání16777216 barevných trojic také prošlo. Celé spuštění a hlavní herní EXE dál pokračují.
 
 [První profil NewUser](NEW_USER.md) je obnovený a porovnaný s přechodem do skutečného menu: PC53/PC24, čtyři životní cykly, 88 stavů a 56 snímků / 26 880 000 shodných RGB pixelů. Zdrojové profily se skutečně ukládají; nativní Profile služba má výslovný testovací adaptér. Celé spuštění a herní EXE pokračují.
 
-[Skutečný cGame a binární save/load](GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a hlavní interaktivní EXE dál čekají.
+[Skutečný cGame a binární save/load](GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a úplné porovnání hlavního interaktivního EXE dál čekají.
 
 [Řídicí objekt herních ocenění](GAME_AWARD_MANAGER.md) propojuje automatické vyhodnocení se skutečným efektem, obrazovkou, panelem a návratem. PC53/PC24: 18 podmínek, 36 celých cyklů a 2012 snímků / 965 760 000 shodných RGB pixelů. Tři podmínky nad úplným světem a celý cGame/EXE zůstávají neověřené; source cleanup Help/Journal při chybě konstrukce prošel osmi kontrolami.
 
@@ -24,7 +26,7 @@
 
 Nově obnovená [ElasticAnimation](ELASTIC_ANIMATION.md) přímo propojuje skutečné tool upgrady s původním přeletem a obnovou vzhledu Dig/Mow/WaterSource. V obou přesnostech prošlo1524 stavů /1354 akcí a168 celých snímků /80 640 000 přesně shodných RGB pixelů, včetně skutečného mouse upgrade řetězce. Person world pozorování a kind9 View jsou výslovné diagnostické hranice; celé pracovní akce postavy a celý Farm controller pokračují.
 
-Herní EXE zatím nelze sestavit. Sestavitelná knihovna `recovered_game_utilities` obsahuje základ původního `String` a UTF-16 `WString`, souborovou vrstvu, indexování balíků a XML strom. Diagnostika `resource-inspect` propojuje tyto části s JNGLoad a načítá původní data. Integrace do celé hry a původní engine výjimky nejsou hotové. Adresy, zvláštnosti a výsledky celé načítací cesty jsou v [RESOURCE_LOADING.md](RESOURCE_LOADING.md).
+Herní EXE už lze sestavit; dosavadní stav základních knihoven a jejich hranice jsou popsané níže. Sestavitelná knihovna `recovered_game_utilities` obsahuje základ původního `String` a UTF-16 `WString`, souborovou vrstvu, indexování balíků a XML strom. Diagnostika `resource-inspect` propojuje tyto části s JNGLoad a načítá původní data. Integrace do celé hry a původní engine výjimky nejsou hotové. Adresy, zvláštnosti a výsledky celé načítací cesty jsou v [RESOURCE_LOADING.md](RESOURCE_LOADING.md).
 
 Datová část nastavení, vytváření Windows okna a jeho message pump jsou navázané na tuto načítací cestu. Grafická a resource knihovna přidávají cache, cResource/cTexture/cShader/cFont, skutečný upload/reload textur a obnovené spritové dávky včetně letter geometrie. StringManager načítá české překlady a cView propojuje vlastnictví, viditelnost a registraci UI. Podrobnosti jsou v [SETTINGS.md](SETTINGS.md), [WINDOW_GRAPHICS.md](WINDOW_GRAPHICS.md), [SPRITE_RENDERING.md](SPRITE_RENDERING.md), [NATIVE_IMAGES.md](NATIVE_IMAGES.md), [UI_FONTS.md](UI_FONTS.md) a [UI_CONTROLS.md](UI_CONTROLS.md); celý engine a herní EXE ještě čekají.
 

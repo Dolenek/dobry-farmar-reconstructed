@@ -1,10 +1,12 @@
 # Dobrý farmář — rekonstrukce
 
+Hlavní [zdrojové herní EXE](docs/APP_RUNTIME.md) se nyní sestaví a spustí s původními daty: nový profil → menu → skutečná farma, normální ukončení, opětovné načtení save, pauza, nápověda i deník. Obě načtené herní DLL pocházejí z našeho sestavení. [Startup](docs/STARTUP.md) navíc přímo souhlasí s originálem ve čtyřech cyklech / 786 snímcích / 377 280 000 RGB pixelech (PC53/PC24). Úplný nativní runtime, obousměrné saves, všechny systémy, úplná Squall a izolovaný odinstalátor stále pokračují.
+
 [Původní JPEG loga](docs/JPEG.md) mají obnovený reader a MMX barevnou aritmetiku: všechna3 loga souhlasí v každém dekódovaném bajtu i celé GPU textuře, PC53/PC24; vyčerpávající porovnání16777216 barevných trojic také prošlo. Celé spuštění a hlavní herní EXE dál pokračují.
 
 [První profil NewUser](docs/NEW_USER.md) je obnovený a porovnaný s přechodem do skutečného menu: PC53/PC24, čtyři životní cykly, 88 stavů a 56 snímků / 26 880 000 shodných RGB pixelů. Zdrojové profily se skutečně ukládají; nativní Profile služba má výslovný testovací adaptér. Celé spuštění a herní EXE pokračují.
 
-[Skutečný cGame a binární save/load](docs/GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a hlavní interaktivní EXE dál čekají.
+[Skutečný cGame a binární save/load](docs/GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a úplné porovnání hlavního interaktivního EXE dál čekají.
 
 [Řídicí objekt herních ocenění](docs/GAME_AWARD_MANAGER.md) propojuje automatické vyhodnocení se skutečným efektem, obrazovkou, panelem a návratem. PC53/PC24: 18 podmínek, 36 celých cyklů a 2012 snímků / 965 760 000 shodných RGB pixelů. Tři podmínky nad úplným světem a celý cGame/EXE zůstávají neověřené; source cleanup Help/Journal při chybě konstrukce prošel osmi kontrolami.
 
@@ -22,7 +24,7 @@
 
 Pracovní rekonstrukce původní 32bitové hry pro Windows do upravitelného a sestavitelného projektu. Cílem je stejné chování, vzhled, pravidla a kompatibilní uložené hry. Shoda strojového kódu není požadována: různé kompilátory mohou stejné chování přeložit odlišně.
 
-**Projekt zatím neobsahuje kompletní rekonstruovanou hru ani sestavené herní EXE. Export Ghidry je analytický pseudokód, nikoliv hotový zdrojový projekt.** Průběžný stav a ověření jsou v [docs/STATUS.md](docs/STATUS.md).
+**Projekt má sestavitelné hlavní zdrojové EXE; úplná rekonstrukce a všechna požadovaná porovnání ještě nejsou dokončené. Export Ghidry zůstává analytickým pseudokódem.** Průběžný stav a ověření jsou v [docs/STATUS.md](docs/STATUS.md).
 
 [Person controller](docs/PERSON_CONTROLLER.md) nově propojuje celou postavu a její ActionProcessor se skutečným polem: kliknutí vytvoří úkol, postava dojede, vykoná kopání a sama přejde do čekání. PC53/PC24:462 stavů /284 výslovných CPU operací,128 GPU snímků /61 440 000 shodných RGB pixelů. Sedm pracovních větví je porovnaných se skutečným polem, nástroji a skladem. Seed/hose nově ověřuje navazující porovnání; zbývající arrival/tutorial větve mají výslovně neověřený stav; celý Farm/EXE a ostatní podmínky cíle pokračují.
 

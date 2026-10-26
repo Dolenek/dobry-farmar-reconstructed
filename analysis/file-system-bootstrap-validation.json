@@ -1,0 +1,29 @@
+{
+  "status": "passed_for_source_bootstrap_names_overlay_order_and_folder_api_boundary",
+  "recorded_at_utc": "2026-10-26T08:17:20.148873+00:00",
+  "result": {
+    "bootstrap_cases": 6,
+    "mounted_overlays": 3,
+    "rejected_cases": 3,
+    "native_constructor_executed": false
+  },
+  "test_path": "build/windows/Release/file-system-bootstrap-test.exe",
+  "test_sha256": "75edbf4c2bbc2c1213d9aa34f6fdc0172e889e6586ecc5c3250831b5b2f29704",
+  "source_files": {
+    "CMakeLists.txt": "c4760c4658612b6410f42e55bbe3a9fff1a5551464794cce9795136d6aaeef95",
+    "tools/validate_file_system_bootstrap.py": "fd77f86e007160feeb89c2c82220bbdba43dfc59674400b9843fccb456324443",
+    "tools/file_system_bootstrap_test.cpp": "24f9c3622538cf220a3f545de019485f2480b0f0de8557c4c28161d7996ed946",
+    "src/game/engine/GameFileSystem.h": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b",
+    "src/game/engine/GameFileSystem.cpp": "13693a4509c3428fda4293bf754acab5ef58f0cbe211c5b16d0fd94da96a4d0e"
+  },
+  "original_function": "0054d720",
+  "native_constructor_executed": false,
+  "coverage": [
+    "Configured app_directory and window_title fallback; empty names and missing game rejected",
+    "Exact SHGetFolderPathA(null,0x8023,null,0,out) request; failed folder API rejected",
+    "Mount precedes Settings and common settings overlay is read; explicit isolated path bypasses bootstrap settings"
+  ],
+  "pending": [
+    "Full native FileManager constructor lifecycle and default real ProgramData branch; tests deliberately isolate writes"
+  ]
+}

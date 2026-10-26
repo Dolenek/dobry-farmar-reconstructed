@@ -100,3 +100,12 @@ target_compile_options(person-sounds-reference-test PRIVATE /utf-8)
 target_link_libraries(person-sounds-reference-test PRIVATE recovered_game_audio)
 add_custom_command(TARGET person-sounds-reference-test POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:person-sounds-reference-test>/Squall.dll")
+
+# Actual source application. Missing runtime behavior remains explicitly audited
+# in docs; this target never loads the original game EXE or original DLLs.
+add_executable(DobryFarmar WIN32 "${CMAKE_CURRENT_SOURCE_DIR}/src/game/main.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/game/engine/GameApplication.cpp" "${CMAKE_CURRENT_BINARY_DIR}/window-artwork.rc")
+set_target_properties(DobryFarmar PROPERTIES OUTPUT_NAME "Dobrý farmář")
+target_link_libraries(DobryFarmar PRIVATE recovered_game_audio shlwapi shell32)
+target_compile_options(DobryFarmar PRIVATE /utf-8)
+add_custom_command(TARGET DobryFarmar POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:DobryFarmar>/Squall.dll")

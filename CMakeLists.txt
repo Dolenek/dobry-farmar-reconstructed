@@ -4,7 +4,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# There is deliberately no game target until the game is reconstructed.
+# The source game target DobryFarmar is available with BUILD_SQUALL_CANDIDATE;
+# its complete behavior remains under reconstruction and comparison.
 if(WIN32 AND NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
     message(FATAL_ERROR "The original game and DLL ABI require an x86 (Win32) build.")
 endif()
@@ -46,7 +47,7 @@ target_include_directories(recovered_game_utilities PUBLIC src/game/core src/gam
 if(WIN32)
     target_sources(recovered_game_utilities PRIVATE src/game/core/WString.cpp src/game/file_manager/RealFile.cpp
         src/game/file_manager/FileIndex.cpp src/game/xml/XmlDocument.cpp
-        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
+        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameFileSystem.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
     target_sources(recovered_game_utilities PRIVATE src/game/audio/SoundFiles.cpp src/game/audio/SoundVolume.cpp)
     target_include_directories(recovered_game_utilities PUBLIC src/game/audio)
     target_include_directories(recovered_game_utilities PUBLIC src/game/xml src/game/settings src/game/engine src/game/profiles)
@@ -93,7 +94,7 @@ if(WIN32)
         src/game/ui/InputBindings.cpp src/game/ui/InputDevices.cpp src/game/ui/Button.cpp src/game/ui/ButtonText.cpp src/game/ui/ExtendedTextButton.cpp src/game/ui/MenuView.cpp src/game/ui/MainMenuContent.cpp src/game/ui/YesNoDialog.cpp
         src/game/ui/ProfileSession.cpp src/game/ui/SelectProfile.cpp src/game/ui/Credits.cpp src/game/ui/ExitDialog.cpp src/game/ui/CheckBox.cpp src/game/ui/Slider.cpp src/game/ui/Options.cpp src/game/graphics/ClickMask.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/audio/SoundManager.cpp src/game/audio/Sound.cpp src/game/audio/Channel.cpp src/game/audio/UiSound.cpp src/game/audio/MusicPlayback.cpp src/game/ui/ProgressBar.cpp src/game/ui/Histogram.cpp src/game/ui/ProgressSprite.cpp src/game/ui/LoadingFromLog.cpp src/game/ui/TooltipFrame.cpp src/game/ui/AwardEffect.cpp src/game/ui/AwardButton.cpp src/game/ui/Awards.cpp src/game/ui/AwardPanel.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/ui/MainMenu.cpp src/game/ui/NewUser.cpp src/game/ui/ProgressDiscrete.cpp src/game/ui/SeedPackage.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/ui/MainMenu.cpp src/game/ui/NewUser.cpp src/game/ui/StartupView.cpp src/game/ui/ProgressDiscrete.cpp src/game/ui/SeedPackage.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/resources/AnimableAppearance.cpp src/game/engine/GameConfiguration.cpp src/game/engine/GameAction.cpp src/game/ui/FarmField.cpp src/game/ui/FarmFieldActions.cpp src/game/ui/FarmAreas.cpp src/game/ui/Farm.cpp src/game/ui/PersonTasks.cpp src/game/ui/PersonVisuals.cpp src/game/ui/PersonWalk.cpp src/game/ui/PersonVehicleWalk.cpp src/game/ui/PersonSounds.cpp src/game/ui/Person.cpp src/game/ui/PersonActions.cpp src/game/ui/ElasticAnimation.cpp src/game/ui/FieldTip.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
@@ -137,6 +138,8 @@ if(WIN32)
     target_link_libraries(sprite-geometry-reference-test PRIVATE recovered_graphics_utilities)
     add_executable(sprite-draw-reference-test tools/sprite_draw_reference_test.cpp)
     target_link_libraries(sprite-draw-reference-test PRIVATE recovered_resource_utilities)
+    add_executable(file-system-bootstrap-test tools/file_system_bootstrap_test.cpp)
+    target_link_libraries(file-system-bootstrap-test PRIVATE recovered_game_utilities shell32)
     add_executable(native-image-reference-test tools/native_image_reference_test.cpp)
     target_link_libraries(native-image-reference-test PRIVATE recovered_graphics_utilities)
     add_executable(font-reference-test tools/font_reference_test.cpp)
@@ -262,6 +265,10 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_award_panel.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-resource-log-writer COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_resource_log.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-startup COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_startup.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME source-file-system-bootstrap COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_file_system_bootstrap.py" --test "$<TARGET_FILE:file-system-bootstrap-test>")
             add_test(NAME original-new-user COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_new_user.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-main-menu-navigation COMMAND "${Python3_EXECUTABLE}"

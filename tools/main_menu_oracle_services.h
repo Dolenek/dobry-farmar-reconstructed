@@ -36,3 +36,13 @@ unsigned newUserSourceCompletions=0,newUserNativeCompletions=0;
 void newUserSourceComplete() {++newUserSourceCompletions;newUserMainContext->restore(true);}
 void newUserNativeComplete() {++newUserNativeCompletions;function<void(__cdecl*)()>(0x8a680)();}
 }
+
+namespace {
+Settings* startupSettings=nullptr;
+bool __cdecl startupNativeHeadersExist() {return Profile::headersExist(*loadingFiles,*startupSettings);}
+WString* __cdecl startupNativeStoredName(WString* output) {return new(output) WString(Profile::storedName(*loadingFiles,*startupSettings,[](const String& name){return resources->loadSettingsXML(name);}));}
+cResource* __fastcall startupSoundResource(void* self,void* unused,const String* name) {
+    String key(*name);key.lowercase();if(key.view()=="sounds/menu_click.wav" || key.view()=="sounds/menu_move.wav") return getSound(self,unused,name);
+    return loadingSoundResource(self,unused,name);
+}
+}

@@ -117,6 +117,7 @@ def main():
         addresses=sorted(seen)
     if args.text_buttons:
         prefix='text-buttons'
+        addresses += [0x48b4a0,0x489ef0,0x48ab10,0x48b030,0x48b920,0x48bd10,0x48aa90,0x489e80]
         addresses += [0x506780,0x506920,0x5069b0,0x505bf0,0x5053a0,0x504fc0,0x5062d0,0x5066f0,0x506720,0x506750,0x5057a0,0x5057f0,0x505830,0x48a680,0x481750]
         addresses += [0x51fe90,0x41e8d0,0x51f5a0,0x41ed10,0x51f9b0,0x41f120,
             0x51dbf0,0x41f5f0,0x4dd980,0x4d43a0,0x4eded0,0x4d22a0,
@@ -376,6 +377,7 @@ def main():
             if args.text_buttons: tables += [(0x1f2278,71),(0x1f226c,2),(0x1f3ec0,69),(0x1f3eb8,2)]
             if args.text_buttons: tables += [(0x1f2758,62),(0x1f274c,2),(0x1f24b8,62),(0x1f24ac,2),(0x1f41f8,62),(0x1f41f0,2),(0x1f40b0,62),(0x1f40a4,2)]
             if args.text_buttons: tables += [(0x1f4b80,15),(0x1f4b78,1),(0x1f4b7c,1),(0x1f4c0c,2)]
+            if args.text_buttons: tables += [(0x1f6584,14),(0x08b48c,4)] #actual Startup View and frame-stage switch
             if args.text_buttons: tables += [(0x1fdb5c,14),(0x1fdb94,1),(0x1fdaa4,1)] #actual first-profile NewUser
             if args.text_buttons: tables += [(2043192, 94), (2043184, 2), (2043180, 1), (2042932, 4), (2042948, 4), (2045088, 4), (2045104, 4), (2042964, 1), (2044944, 4), (2044960, 4), (2044976, 4), (2044992, 4), (2045008, 4), (2045024, 4), (2045040, 4), (2045056, 4), (2045072, 4)] # actual Person and work-action vtables
             if args.text_buttons: tables += [(0x1fad38,14),(0x1fad34,1)] # actual gameplay award manager
