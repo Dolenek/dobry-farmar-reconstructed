@@ -29,3 +29,10 @@ void mainMenuNativeDiscardTree(void* node,std::map<void*,std::string>& output) {
     mainMenuNativeDiscardTree(field<void*>(node,8),output);
 }
 }
+
+namespace {
+MainMenuContext* newUserMainContext=nullptr;
+unsigned newUserSourceCompletions=0,newUserNativeCompletions=0;
+void newUserSourceComplete() {++newUserSourceCompletions;newUserMainContext->restore(true);}
+void newUserNativeComplete() {++newUserNativeCompletions;function<void(__cdecl*)()>(0x8a680)();}
+}

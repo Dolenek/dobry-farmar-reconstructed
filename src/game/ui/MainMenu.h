@@ -20,6 +20,7 @@ public:
     MainMenuContext& operator=(const MainMenuContext&)=delete;
     MainMenu& restore(bool updateName); // 00481860 / 00485490
     MenuView* fixedBack() const noexcept { return fixedBack_; }
+    void ensureFixedBack(); //00481990, also used before first NewUser
 private:
     friend class MainMenu;
     FileIndex& files_;ResourceManager& resources_;Settings& settings_;StringManager& strings_;

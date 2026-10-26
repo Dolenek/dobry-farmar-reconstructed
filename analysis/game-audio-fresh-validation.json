@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-25T21:08:22.775252+00:00",
+  "recorded_at_utc": "2026-10-26T06:37:02.474328+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "c5a9615f1d9a0d72ad19c27a16246c8b809c8ca1ffb2e2a3cd5968436c40e5ae",
+  "oracle_sha256": "82c62e6156fd1b61583d39c1753e87f5fbd5a42524de08390acf645e4219ae41",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 21203,
-      "native_position_progress": 38369,
+      "source_position_progress": 37928,
+      "native_position_progress": 37079,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 5328,
-      "native_position_progress": 20289,
+      "source_position_progress": 37079,
+      "native_position_progress": 37487,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -812,11 +812,11 @@
     },
     {
       "path": "src/game/ui/MainMenu.cpp",
-      "sha256": "ea8229eeee4b5963dacf46f12cf7ded8f9b09d81693b216bb3be3131a256adce"
+      "sha256": "df2d92eaf325851f6e9ade8ecb56dcc2165a02af5d28cbe1d0f5814f773b74e4"
     },
     {
       "path": "src/game/ui/MainMenu.h",
-      "sha256": "bedeef7d4a7556d7af5b593536cf133013ea6beda74f5287bd7b80726cc8b496"
+      "sha256": "95fb74bff12172ed5ce50fe45dea7ce0a1f5aca2386657a7ba7f5c6bcb0d81ba"
     },
     {
       "path": "src/game/ui/MainMenuContent.cpp",
@@ -873,6 +873,14 @@
     {
       "path": "src/game/ui/MultilineText.h",
       "sha256": "69526ee28001765ad3ea5756fe96cc9049accc368b3141a4ff4e1410d6853011"
+    },
+    {
+      "path": "src/game/ui/NewUser.cpp",
+      "sha256": "4f19d83c14293d84e1cea3c42c1d950a7816ccae00888947a64e8efca328e6c6"
+    },
+    {
+      "path": "src/game/ui/NewUser.h",
+      "sha256": "2d34e1e50046e16fcdd53a25f2ce3d153d5da6f87ebed9a86317d5e8450509f1"
     },
     {
       "path": "src/game/ui/Options.cpp",

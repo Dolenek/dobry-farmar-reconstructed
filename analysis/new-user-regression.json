@@ -1,0 +1,28 @@
+{
+  "status": "passed_for_first_profile_and_regression_only",
+  "recorded_at_utc": "2026-10-26T06:38:45.720791+00:00",
+  "ctest_passed": 96,
+  "ctest_total": 96,
+  "ctest_seconds": 492.92,
+  "full_suite_without_selective_rerun": true,
+  "junit_path": ".local/ctest-new-user-full.xml",
+  "junit_sha256": "63ef4d7a36b5a6093d319347ad35dbd2f16e1b52cab87049931e42f3dc43d6a3",
+  "source_tree_sha256": "5dd4e1f4536d52d84aa38c16d3be989bdab444eecd2fb2b91a78d4fb2eb21127",
+  "build_log": ".local/new-user-full-build.log",
+  "test_log": ".local/new-user-full-tests.log",
+  "strict_record_log": ".local/new-user-record.log",
+  "new_user_lifetimes": 4,
+  "gpu_frames": 56,
+  "gpu_rgb_pixels": 26880000,
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false,
+  "audio_audits": {
+    "canonical_game_audio": "passed",
+    "fresh_game_audio": "passed",
+    "canonical_person_sounds": "passed",
+    "fresh_person_sounds": "passed_on_identical_retry",
+    "fresh_person_sounds_first_failure": "Original Squall PC53 physical loop cursor did not advance within 2000ms; source/test conditions unchanged",
+    "first_failure_log": ".local/new-user-person-sounds-fresh.log",
+    "retry_log": ".local/new-user-person-sounds-fresh-retry.log"
+  }
+}

@@ -44,12 +44,12 @@ MainMenu::MainMenu(MainMenuContext& context)
     content_.awards->clickEvent=&creditsClick;content_.credits->clickEvent=&awardsClick;
 }
 MainMenu::~MainMenu() { onDisabled();delete context_.fixedBack_;context_.fixedBack_=nullptr; }
-void MainMenu::ensureFixedBack() {
-    if(context_.fixedBack_) return;
-    auto* back=new MenuView(nullptr,context_.resources_,context_.settings_,context_.strings_,context_.views_,context_.controls_);
-    context_.fixedBack_=back;
-    const auto xml=context_.resources_.loadSettingsXML(String("Ui/FixedBack.xml"));back->loadXML(*xml);back->show();
+void MainMenuContext::ensureFixedBack() {
+    if(fixedBack_) return;
+    auto* back=new MenuView(nullptr,resources_,settings_,strings_,views_,controls_);fixedBack_=back;
+    const auto xml=resources_.loadSettingsXML(String("Ui/FixedBack.xml"));back->loadXML(*xml);back->show();
 }
+void MainMenu::ensureFixedBack() {context_.ensureFixedBack();}
 void MainMenu::loadXML(const XmlNode& node) {
     const auto* profile=context_.profiles_.current();
     content_.loadXML(node,[this] { ensureFixedBack(); },profile ? &profile->headers().currentName():nullptr);
