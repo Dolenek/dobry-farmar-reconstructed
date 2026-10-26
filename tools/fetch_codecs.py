@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch and verify original JPEG 6b / zlib 1.2.3 source into local-only storage."""
+"""Fetch and verify original JPEG 6a, JPEG 6b / zlib 1.2.3 source into local-only storage."""
 import argparse
 import hashlib
 import json

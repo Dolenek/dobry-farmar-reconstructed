@@ -747,6 +747,18 @@
       "instruction": "mov    ds:0x65f63c,al"
     },
     {
+      "rva": 1695443,
+      "original_address": 6338728,
+      "function": "0059ddcb",
+      "instruction": "mov    DWORD PTR [ebp-0x14],0x60b8a8"
+    },
+    {
+      "rva": 1695599,
+      "original_address": 6338984,
+      "function": "0059ddcb",
+      "instruction": "cmp    DWORD PTR [ebp-0x14],0x60b9a8"
+    },
+    {
       "rva": 1697441,
       "original_address": 5891680,
       "function": "0059e68a",
@@ -1287,6 +1299,12 @@
       "instruction": "mov    ecx,DWORD PTR [eax+0x60ba24]"
     },
     {
+      "rva": 1718745,
+      "original_address": 6339080,
+      "function": "005a398d",
+      "instruction": "sub    edx,DWORD PTR [eax+0x60ba08]"
+    },
+    {
       "rva": 1719185,
       "original_address": 6339256,
       "function": "005a3b29",
@@ -1569,10 +1587,22 @@
       "instruction": "push   0x60bec0"
     },
     {
+      "rva": 1721179,
+      "original_address": 6339080,
+      "function": "005a42f1",
+      "instruction": "sub    eax,DWORD PTR [ecx+0x60ba08]"
+    },
+    {
       "rva": 1721185,
       "original_address": 6339108,
       "function": "005a42f1",
       "instruction": "mov    edi,DWORD PTR [ecx+0x60ba24]"
+    },
+    {
+      "rva": 1721238,
+      "original_address": 6339136,
+      "function": "005a42f1",
+      "instruction": "sub    eax,DWORD PTR [ecx+0x60ba40]"
     },
     {
       "rva": 1721244,
@@ -1615,6 +1645,24 @@
       "original_address": 6340312,
       "function": "005a42f1",
       "instruction": "push   0x60bed8"
+    },
+    {
+      "rva": 1722954,
+      "original_address": 5917176,
+      "function": "005a49f8",
+      "instruction": "mov    DWORD PTR [esi+0x4],0x5a49f8"
+    },
+    {
+      "rva": 1722974,
+      "original_address": 5916912,
+      "function": "005a49f8",
+      "instruction": "mov    DWORD PTR [esi+0x4],0x5a48f0"
+    },
+    {
+      "rva": 1722997,
+      "original_address": 5916808,
+      "function": "005a49f8",
+      "instruction": "mov    DWORD PTR [esi+0x4],0x5a4888"
     },
     {
       "rva": 1723047,
@@ -1671,10 +1719,22 @@
       "instruction": "mov    DWORD PTR [ebx+0xc],0x5a4ba5"
     },
     {
+      "rva": 1727732,
+      "original_address": 6340360,
+      "function": "005a5b83",
+      "instruction": "cmp    ecx,DWORD PTR [esi+0x60bf08]"
+    },
+    {
       "rva": 1727743,
       "original_address": 6340424,
       "function": "005a5b83",
       "instruction": "mov    esi,DWORD PTR [esi+0x60bf48]"
+    },
+    {
+      "rva": 1727992,
+      "original_address": 6340360,
+      "function": "005a5b83",
+      "instruction": "cmp    esi,DWORD PTR [ecx+0x60bf08]"
     },
     {
       "rva": 1728000,
@@ -1701,10 +1761,22 @@
       "instruction": "mov    DWORD PTR [eax+0x4],0x5a5b83"
     },
     {
+      "rva": 1729175,
+      "original_address": 6340592,
+      "function": "005a6114",
+      "instruction": "cmp    ecx,DWORD PTR [esi+0x60bff0]"
+    },
+    {
       "rva": 1729183,
       "original_address": 6340656,
       "function": "005a6114",
       "instruction": "mov    esi,DWORD PTR [esi+0x60c030]"
+    },
+    {
+      "rva": 1729662,
+      "original_address": 6340592,
+      "function": "005a6311",
+      "instruction": "cmp    edx,DWORD PTR [ecx+0x60bff0]"
     },
     {
       "rva": 1729670,
@@ -3231,6 +3303,24 @@
       "instruction": "movlpd xmm2,QWORD PTR ds:0x611e30"
     },
     {
+      "rva": 1766300,
+      "original_address": 6350224,
+      "function": "005af359",
+      "instruction": "mulsd  xmm7,QWORD PTR [eax*4+0x60e590]"
+    },
+    {
+      "rva": 1766309,
+      "original_address": 6350224,
+      "function": "005af359",
+      "instruction": "movlpd xmm5,QWORD PTR [eax*4+0x60e590]"
+    },
+    {
+      "rva": 1766320,
+      "original_address": 6351264,
+      "function": "005af359",
+      "instruction": "movapd xmm6,XMMWORD PTR [eax*4+0x60e9a0]"
+    },
+    {
       "rva": 1766379,
       "original_address": 6364792,
       "function": "005af359",
@@ -3241,6 +3331,24 @@
       "original_address": 6364704,
       "function": "005af359",
       "instruction": "andpd  xmm4,XMMWORD PTR ds:0x611e20"
+    },
+    {
+      "rva": 1766423,
+      "original_address": 6353328,
+      "function": "005af359",
+      "instruction": "mulsd  xmm3,QWORD PTR [eax*4+0x60f1b0]"
+    },
+    {
+      "rva": 1766432,
+      "original_address": 6353328,
+      "function": "005af359",
+      "instruction": "mulsd  xmm5,QWORD PTR [eax*4+0x60f1b0]"
+    },
+    {
+      "rva": 1766443,
+      "original_address": 6354368,
+      "function": "005af359",
+      "instruction": "addpd  xmm6,XMMWORD PTR [eax*4+0x60f5c0]"
     },
     {
       "rva": 1766451,
@@ -3259,6 +3367,24 @@
       "original_address": 6364800,
       "function": "005af359",
       "instruction": "movlpd xmm7,QWORD PTR ds:0x611e80"
+    },
+    {
+      "rva": 1766515,
+      "original_address": 6356432,
+      "function": "005af359",
+      "instruction": "mulsd  xmm5,QWORD PTR [eax*4+0x60fdd0]"
+    },
+    {
+      "rva": 1766524,
+      "original_address": 6356432,
+      "function": "005af359",
+      "instruction": "mulsd  xmm2,QWORD PTR [eax*4+0x60fdd0]"
+    },
+    {
+      "rva": 1766533,
+      "original_address": 6358496,
+      "function": "005af359",
+      "instruction": "addpd  xmm6,XMMWORD PTR [eax*8+0x6105e0]"
     },
     {
       "rva": 1766608,
@@ -3295,6 +3421,12 @@
       "original_address": 6364688,
       "function": "005af359",
       "instruction": "subsd  xmm3,QWORD PTR ds:0x611e10"
+    },
+    {
+      "rva": 1766893,
+      "original_address": 6362640,
+      "function": "005af359",
+      "instruction": "movapd xmm3,XMMWORD PTR [eax+0x611610]"
     },
     {
       "rva": 1766901,
@@ -3361,6 +3493,24 @@
       "original_address": 6364736,
       "function": "005af359",
       "instruction": "andpd  xmm0,XMMWORD PTR ds:0x611e40"
+    },
+    {
+      "rva": 1767512,
+      "original_address": 6350224,
+      "function": "005af359",
+      "instruction": "mulsd  xmm7,QWORD PTR [eax*4+0x60e590]"
+    },
+    {
+      "rva": 1767521,
+      "original_address": 6350224,
+      "function": "005af359",
+      "instruction": "movlpd xmm5,QWORD PTR [eax*4+0x60e590]"
+    },
+    {
+      "rva": 1767532,
+      "original_address": 6351264,
+      "function": "005af359",
+      "instruction": "movapd xmm6,XMMWORD PTR [eax*4+0x60e9a0]"
     },
     {
       "rva": 1767599,
@@ -3447,6 +3597,12 @@
       "instruction": "subsd  xmm3,QWORD PTR ds:0x611e10"
     },
     {
+      "rva": 1768476,
+      "original_address": 6362640,
+      "function": "005af359",
+      "instruction": "movapd xmm3,XMMWORD PTR [eax+0x611610]"
+    },
+    {
       "rva": 1768484,
       "original_address": 6364752,
       "function": "005af359",
@@ -3499,6 +3655,24 @@
       "original_address": 5871982,
       "function": "native-mask-D3DX-data",
       "instruction": "table 209fc4 slot 2"
+    },
+    {
+      "rva": 2138064,
+      "original_address": 5882537,
+      "function": "native-mask-D3DX-data",
+      "instruction": "table 209fd0 slot 0"
+    },
+    {
+      "rva": 2138068,
+      "original_address": 5876794,
+      "function": "native-mask-D3DX-data",
+      "instruction": "table 209fd0 slot 1"
+    },
+    {
+      "rva": 2138072,
+      "original_address": 5872231,
+      "function": "native-mask-D3DX-data",
+      "instruction": "table 209fd0 slot 2"
     },
     {
       "rva": 1689927,

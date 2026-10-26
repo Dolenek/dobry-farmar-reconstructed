@@ -83,7 +83,7 @@ int wmain(int argc,wchar_t** argv) {
         for(const auto& item:files.files()) {
             if(item.first.size()<4) continue;
             const auto suffix=item.first.substr(item.first.size()-4);
-            if(suffix!=".jng" && suffix!=".dds" && suffix!=".tga" && suffix!=".bmp") continue;
+            if(suffix!=".jng" && suffix!=".dds" && suffix!=".tga" && suffix!=".bmp" && suffix!=".jpg") continue;
             auto file=files.open(String(item.first));
             std::vector<unsigned char> bytes(file->size());
             require(file->read(bytes.data(),static_cast<unsigned>(bytes.size()))==bytes.size(),"Short JNG read");

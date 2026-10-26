@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-26T06:36:37.654538+00:00",
+  "recorded_at_utc": "2026-10-26T07:06:33.518105+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "5dd7c4cdb7792846c0c2cebe145d97d6fe500584fef68780396b1391f6807dea",
+  "oracle_sha256": "2cd5a9fac44b85c01635691bc0122b209c8c1bdab9e1ae3c6761f76fc06c96f9",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37079,
-      "native_position_progress": 37079,
+      "source_position_progress": 55126,
+      "native_position_progress": 74088,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 55159,
+      "source_position_progress": 3564,
+      "native_position_progress": 38369,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -359,16 +359,28 @@
       "sha256": "6f72a178202f9924009ed14bc006dbdd41b8efc3acd0d5cecb50b61a71f6b9da"
     },
     {
+      "path": "src/game/graphics/JpegColor.cpp",
+      "sha256": "642c229a0ceed1955dd8485e7c67273e0c40e5e8ffe91868c13a37b956b488a6"
+    },
+    {
+      "path": "src/game/graphics/JpegColor.h",
+      "sha256": "8d640103414882faf63b97d1bd0f5d431d9e22574f57b8d2cf582cbd24c258e2"
+    },
+    {
       "path": "src/game/graphics/Matrix.cpp",
       "sha256": "daf474a2f001fd017d1554fd77db804599da6be03da3e1cf8843e72bde64d9b2"
     },
     {
       "path": "src/game/graphics/NativeImage.cpp",
-      "sha256": "25e9c261fae44164efccc7b413e730f498ef107d546ed1600017967cdfaa3fa7"
+      "sha256": "02e0f5edba5b9410b8760e51d5f9229713f790deebf5f3667901fce9f82bae8e"
     },
     {
       "path": "src/game/graphics/NativeImage.h",
-      "sha256": "cdb29c6fdc3b7f5fbe62ce35a43461fb3284755515cf3e1d1dda539e8693a3f9"
+      "sha256": "996fce04cb177756d4fef1de646fe86257d4d139dcdab189037acae79bfc5907"
+    },
+    {
+      "path": "src/game/graphics/NativeJpeg.cpp",
+      "sha256": "0ab26d2f4af33fc4853c715e7bab929053ff4daa1212dd5473018caca9d97e83"
     },
     {
       "path": "src/game/graphics/SpriteBatches.cpp",
@@ -1548,7 +1560,7 @@
     },
     {
       "path": "tools/cmake/OriginalCodecs.cmake",
-      "sha256": "9eb1346a640721d50a8d2b83a23ae76763a73c04e2aa5d08afce21427af2ddfd"
+      "sha256": "5cb87a3ee7b157e1b6c80cc71c1b8725d43adc1e666094a1e11d4f40df2a5420"
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",

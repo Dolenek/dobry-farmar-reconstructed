@@ -1,5 +1,7 @@
 # Rekonstrukce hlavní hry
 
+[Původní JPEG loga](JPEG.md) mají obnovený reader a MMX barevnou aritmetiku: všechna3 loga souhlasí v každém dekódovaném bajtu i celé GPU textuře, PC53/PC24; vyčerpávající porovnání16777216 barevných trojic také prošlo. Celé spuštění a hlavní herní EXE dál pokračují.
+
 [První profil NewUser](NEW_USER.md) je obnovený a porovnaný s přechodem do skutečného menu: PC53/PC24, čtyři životní cykly, 88 stavů a 56 snímků / 26 880 000 shodných RGB pixelů. Zdrojové profily se skutečně ukládají; nativní Profile služba má výslovný testovací adaptér. Celé spuštění a herní EXE pokračují.
 
 [Skutečný cGame a binární save/load](GAME_CONTROLLER.md) už propojuje všechny hlavní obnovené objekty. Zdrojové porovnání save/restore/save a skutečné mouse/tutoriálové cykly ověřuje nový integrační běh v PC53/PC24; nativní úplný svět, obousměrné saves mezi programy a hlavní interaktivní EXE dál čekají.

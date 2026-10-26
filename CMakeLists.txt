@@ -83,9 +83,9 @@ if(WIN32)
     endif()
     add_library(recovered_graphics_utilities STATIC src/game/graphics/JngTexture.cpp src/game/graphics/GraphicsPresentation.cpp
         src/game/graphics/SpriteBuffers.cpp src/game/graphics/Matrix.cpp src/game/graphics/GraphicsRenderState.cpp
-        src/game/graphics/SpriteGeometry.cpp src/game/graphics/NativeImage.cpp src/game/graphics/ImageTexture.cpp src/game/engine/GameCursor.cpp)
+        src/game/graphics/SpriteGeometry.cpp src/game/graphics/NativeImage.cpp src/game/graphics/NativeJpeg.cpp src/game/graphics/JpegColor.cpp src/game/graphics/ImageTexture.cpp src/game/engine/GameCursor.cpp)
     target_include_directories(recovered_graphics_utilities PUBLIC src/game/graphics "${CMAKE_CURRENT_SOURCE_DIR}/.local/direct3d8-headers")
-    target_link_libraries(recovered_graphics_utilities PUBLIC JNGLoad recovered_game_utilities)
+    target_link_libraries(recovered_graphics_utilities PUBLIC JNGLoad recovered_game_utilities PRIVATE recovered_game_jpeg)
     add_library(recovered_resource_utilities STATIC src/game/resources/Resource.cpp src/game/resources/Texture.cpp
         src/game/resources/ResourceManager.cpp src/game/resources/Shader.cpp src/game/resources/Font.cpp src/game/graphics/SpriteBatches.cpp
         src/game/ui/TextLineLayout.cpp src/game/ui/LetterSprite.cpp src/game/ui/StringManager.cpp src/game/ui/ControlSprite.cpp
@@ -182,6 +182,8 @@ if(WIN32)
         # the host environment. This changes no production target.
         target_link_options(text-buttons-reference-test PRIVATE /BASE:0x20000000 /DYNAMICBASE:NO)
     endif()
+    add_executable(jpeg-reference-test tools/jpeg_reference_test.cpp)
+    target_link_libraries(jpeg-reference-test PRIVATE recovered_resource_utilities)
     add_executable(click-mask-reference-test tools/click_mask_reference_test.cpp)
     target_link_libraries(click-mask-reference-test PRIVATE recovered_resource_utilities)
     add_executable(input-bindings-reference-test tools/input_bindings_reference_test.cpp)
@@ -232,6 +234,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_matrix.py" --oracle "$<TARGET_FILE:matrix-reference-test>")
             add_test(NAME original-sprite-geometry COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_sprite_geometry.py" --oracle "$<TARGET_FILE:sprite-geometry-reference-test>")
+            add_test(NAME original-jpeg COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_jpeg.py" --oracle "$<TARGET_FILE:jpeg-reference-test>")
             add_test(NAME original-native-image-storage COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_native_images.py" --oracle "$<TARGET_FILE:native-image-reference-test>")
             add_test(NAME original-font-lookups COMMAND "${Python3_EXECUTABLE}"

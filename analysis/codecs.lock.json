@@ -541,6 +541,543 @@
         "inftrees.c",
         "inffast.c"
       ]
+    },
+    {
+      "name": "jpeg-6a",
+      "url": "https://www.ijg.org/files/jpegsrc.v6a.tar.gz",
+      "archive": "jpegsrc.v6a.tar.gz",
+      "archive_root": "jpeg-6a",
+      "sha256": "0e963fdd29d5049f61f3dc137bdc9437473a0ad505dbcfc8925f0fcad46c5929",
+      "files": [
+        {
+          "path": "README",
+          "sha256": "fc0a9acfdabcddad7e5a9b156da2df8f0dd0295658332faa047d63b5c771f36e"
+        },
+        {
+          "path": "ansi2knr.1",
+          "sha256": "649f829c474138b9b6bd23d9d6e273b141d305d9bebc4d244148abd388f08fd5"
+        },
+        {
+          "path": "ansi2knr.c",
+          "sha256": "cec2a7df258a10884a9a3e6190ad9394058b05d14686d852f942ed36f88219c4"
+        },
+        {
+          "path": "cderror.h",
+          "sha256": "d2fc2293d13faf15255a68e282b3fe03039deb6e66c05e3e441685b31497122e"
+        },
+        {
+          "path": "cdjpeg.c",
+          "sha256": "8a714b1176b2d5d3367710b45fcc5fc8d3505b3d77c41e74ea23fc2d0edca641"
+        },
+        {
+          "path": "cdjpeg.h",
+          "sha256": "61d87fb921941b2b4aa45425cb82672085e4679f12f678b8e05cea503f531f7c"
+        },
+        {
+          "path": "change.log",
+          "sha256": "f203f85877477d643259542acce5a93b887dc02ec2b07f968a7ff35f46413308"
+        },
+        {
+          "path": "cjpeg.1",
+          "sha256": "24362ebd572df02305e830d8b3287868fdd45206650aa6b9563a0ce0880436a1"
+        },
+        {
+          "path": "cjpeg.c",
+          "sha256": "38968ee492854777d560b774a1c65c425704c451d3825bf64aba719636b63a78"
+        },
+        {
+          "path": "ckconfig.c",
+          "sha256": "db5e167c0c22b2dd01be7593a6d4933a1bc3e80f9e59bcace41975859aef9041"
+        },
+        {
+          "path": "coderules.doc",
+          "sha256": "bd6f1d32e1a758afeaa54036d2b6371636addbd678d31651c82477da0c3b3f3b"
+        },
+        {
+          "path": "configure",
+          "sha256": "6fcd09ace828e8f1c896d70e196e9cc4c097dbd7a68ac03cd999d921200ec8a1"
+        },
+        {
+          "path": "djpeg.1",
+          "sha256": "47658d95debfdedadb3f8f835a3f4587382c2248bad21d3f157e7ec210bef1d2"
+        },
+        {
+          "path": "djpeg.c",
+          "sha256": "d9d7ba96ef7aa0d2ffeba8a4901f9e4f264d6b0170b1f68be835062ac72692f8"
+        },
+        {
+          "path": "example.c",
+          "sha256": "6cf46f1ab60fadfcb13284ab0ec5f1cb89fa50182842588f36d8f72c87965ea7"
+        },
+        {
+          "path": "filelist.doc",
+          "sha256": "139c71d291922d2d833c71c499176c81ed66b583fd905bf36f9663e754de6ebb"
+        },
+        {
+          "path": "install.doc",
+          "sha256": "290bc0dc66a0f000cb369d662992a963c5f0738d60d1e9798d7ac7acd2a040b4"
+        },
+        {
+          "path": "jcapimin.c",
+          "sha256": "d8161e68959f526a3ed9cd95f5f9bb573dbab1d4e2c48f0073a79ef810497788"
+        },
+        {
+          "path": "jcapistd.c",
+          "sha256": "371517d8285ca47d286be53a6c1bf8f1a0372e12e6e7f7c84b324d7f441b6581"
+        },
+        {
+          "path": "jccoefct.c",
+          "sha256": "2aae0111c0781ffe20083fd3a4af47e54b64058bed66b00d71feb0a01021ef4e"
+        },
+        {
+          "path": "jccolor.c",
+          "sha256": "2c2b7417c2da845e5dcd959b4fb6264b8848c0de689d95dcc2a5b407ecaba5b5"
+        },
+        {
+          "path": "jcdctmgr.c",
+          "sha256": "58adbdb02c125057964569e56fad59df8dc7d61e751a476006c34e24c030d1dd"
+        },
+        {
+          "path": "jchuff.c",
+          "sha256": "b395c11ce9d6f6d2b5bd2d56ef02c378e6042e9b2816b079843e477bfff0b3eb"
+        },
+        {
+          "path": "jchuff.h",
+          "sha256": "e6bb9728134f763924dd98740c73bba76ccc2f680b95f6095116be62d0358c6e"
+        },
+        {
+          "path": "jcinit.c",
+          "sha256": "cec1019caa782850e721ac0df6a550754e78026d905feb4444b43bfca861e6de"
+        },
+        {
+          "path": "jcmainct.c",
+          "sha256": "a51f469b02429189ad0c5a52fb2d789d7025c1802b87168a9fe9180fc135c07e"
+        },
+        {
+          "path": "jcmarker.c",
+          "sha256": "d8b0b1ce2f46baaae3188faabdbb8669dcf66d2b3de8314c6f3326098d43acf7"
+        },
+        {
+          "path": "jcmaster.c",
+          "sha256": "f803cff5a392c88acc07c2f2c7a67aa216ee9f38f06234b3304af96469b57bc7"
+        },
+        {
+          "path": "jcomapi.c",
+          "sha256": "cfa950a2cd4361d4e68b76f2cc5bdddbf4733905b9c58270cef3f82b01e47546"
+        },
+        {
+          "path": "jconfig.bcc",
+          "sha256": "48e5170d81f8096764ca6cf2430ce980f3d9d4b38bbb0f950126f0442c5b1eb2"
+        },
+        {
+          "path": "jconfig.cfg",
+          "sha256": "814aa03b9769665afccb04cbf7b7389b9a7195601a2925e0d6f78444974397da"
+        },
+        {
+          "path": "jconfig.dj",
+          "sha256": "97883aa4a18ea2425f9859703e7e4bb136bab8bbb536394733469ea7c210e2ab"
+        },
+        {
+          "path": "jconfig.doc",
+          "sha256": "d4ca4825b8362c64b56f9c09af87078daa668470e2ac3c32df6c0ce01a91882d"
+        },
+        {
+          "path": "jconfig.manx",
+          "sha256": "c1978673b72e78184f92828696575a0e1c548fc1d262c76c57607e181cecf317"
+        },
+        {
+          "path": "jconfig.mc6",
+          "sha256": "e129fc91b74de608786db0a8ccae2c71210b90594d7563307036823469a8d3cf"
+        },
+        {
+          "path": "jconfig.sas",
+          "sha256": "d42a7012e97faf00e7476aae748ae1c6a24ce2b58fbaddb12fa3a7166f73c4a4"
+        },
+        {
+          "path": "jconfig.st",
+          "sha256": "7798a3675da979d04131411121cb48f18a77e08be0b71288fc14a492f3bbe4a6"
+        },
+        {
+          "path": "jconfig.vms",
+          "sha256": "3e5787090625dc0da0d80de2fbc5243dcb6631f941ef8f3e4ec9525643442c52"
+        },
+        {
+          "path": "jconfig.wat",
+          "sha256": "5d55e2af069e9efa0be786509bcf92b576e93ad6637fa921fab4192dcfb260d7"
+        },
+        {
+          "path": "jcparam.c",
+          "sha256": "623e2a616eb63e61e022c62dd9fc4fd17c2d4de18bac4c01fe198dd1b50d8da1"
+        },
+        {
+          "path": "jcphuff.c",
+          "sha256": "771e9e82271377a6f7a28d4ae8a7c2ab4c6aaee3376b84191db0bc4fa810fc64"
+        },
+        {
+          "path": "jcprepct.c",
+          "sha256": "4713a51fd7ecb9cc7c7162b30bc26243342361a4e083f43f2afbd10e977a92fc"
+        },
+        {
+          "path": "jcsample.c",
+          "sha256": "8e0b73f54bafcd87f7117795de04987eb1a5a3ac74fb8d256833ceb59f8b31d4"
+        },
+        {
+          "path": "jctrans.c",
+          "sha256": "74304caab3cb21df1516fcaad94a93e449cc0dcf4ea34adcedc98938f8cb5647"
+        },
+        {
+          "path": "jdapimin.c",
+          "sha256": "3be80d91b6bfe9b64813d6243eddfd4b009b899d793e0c13e52b61704fb8d6f0"
+        },
+        {
+          "path": "jdapistd.c",
+          "sha256": "1b062e70e891819f4603f83baf49462ea737255a0c39df3ef941ef543f94fbab"
+        },
+        {
+          "path": "jdatadst.c",
+          "sha256": "733388bac2d58328f8918d23ddfc9f1fc3d60b8a97ad90eb057920005c23cfc7"
+        },
+        {
+          "path": "jdatasrc.c",
+          "sha256": "4de71c25304b1c3a2f19f62ba176122db78c4ac7147c2fc3fdf92532dce8f80d"
+        },
+        {
+          "path": "jdcoefct.c",
+          "sha256": "7c18cf3eb231e6998c5d743b3708798f4a7c5007380c366178826a64def85ddb"
+        },
+        {
+          "path": "jdcolor.c",
+          "sha256": "92dcb25895bd1725159893baa39dc8a0870ef0e7d26d6f7c7a31d65c35af2166"
+        },
+        {
+          "path": "jdct.h",
+          "sha256": "4cde9d7c12ffc920e1dd525c6b7f41f88a3ea573af8c66a4b6d0d6ed3d7fd770"
+        },
+        {
+          "path": "jddctmgr.c",
+          "sha256": "f50d9b1414b44782d4ef46761a53f930b06764468b4cbbf0bf0761ac0751defd"
+        },
+        {
+          "path": "jdhuff.c",
+          "sha256": "fd4268d83ec2102f01f4c45ad93ccf939c8b2ce7f054af3feb073a516c951754"
+        },
+        {
+          "path": "jdhuff.h",
+          "sha256": "9a465efa3cd690036c3e9ed649663ab9c5e5f5e18da8527c6ddd109f582d1824"
+        },
+        {
+          "path": "jdinput.c",
+          "sha256": "a945a258e19ca01fbfe2159ce7f3aace89ec04c082c71e8cbc2be3d83aa884bb"
+        },
+        {
+          "path": "jdmainct.c",
+          "sha256": "f9a8331d0a58f6ae74bbfc27e9640d66afb067793586358e0bb47bdb7cb754df"
+        },
+        {
+          "path": "jdmarker.c",
+          "sha256": "85dc333850a72dff9eb1ecfa9613dea87a18a5fe3b27989e29b9a8b3816379d6"
+        },
+        {
+          "path": "jdmaster.c",
+          "sha256": "c88155f021e403ddadfbd986a27df6d922d62ad39febd22afbbcd98a2d83d4b4"
+        },
+        {
+          "path": "jdmerge.c",
+          "sha256": "a47ca108ebf955104abbe3f9a64383532be2c70c6f956b5844b412f151f50453"
+        },
+        {
+          "path": "jdphuff.c",
+          "sha256": "04f101a77251edc8c8106c3e329dd44c39311123f33d61aa86d7ede33a4fe06a"
+        },
+        {
+          "path": "jdpostct.c",
+          "sha256": "f873dd3a08eedee9a32c1e343cfbdc3380d2e245e1eab2c416d4e1a62cc9586e"
+        },
+        {
+          "path": "jdsample.c",
+          "sha256": "acca64d28c61b87e77993dd0bd51d089ecd68f8989f93e7d17156314ca58670d"
+        },
+        {
+          "path": "jdtrans.c",
+          "sha256": "9934b11b25a7629b7ee7c30905753fcc8f4fef2b2b2968fe58368fceeb70ae22"
+        },
+        {
+          "path": "jerror.c",
+          "sha256": "5b7998534ff15e8ee99296f8fde1459d429ec0b636efd33a1578adcb73e07a67"
+        },
+        {
+          "path": "jerror.h",
+          "sha256": "641fd75fc7d5a0d61c63c86fde46b4d76369a4311aabade55b2326d5094c2636"
+        },
+        {
+          "path": "jfdctflt.c",
+          "sha256": "07c7ec15785f5709515424da1b45deacfa822197b761e319f45fbaa45e17caf9"
+        },
+        {
+          "path": "jfdctfst.c",
+          "sha256": "1c28ec690d4a69bdc285eac01bef668e31866ad0018fe9b4f68bcdce8a9ec044"
+        },
+        {
+          "path": "jfdctint.c",
+          "sha256": "807dd95d59692db94d2fa23557d8a16e2a20cb4d851ba5a82f26fa1a674b52c8"
+        },
+        {
+          "path": "jidctflt.c",
+          "sha256": "cd29042cf33e126ff99bae8e4304ee8d83e96fb226e0df635e053e4449a65e73"
+        },
+        {
+          "path": "jidctfst.c",
+          "sha256": "5eac120a649ee5996aae76cdbf8e6464a4d2093d944701e30e5ef46ca36ec85a"
+        },
+        {
+          "path": "jidctint.c",
+          "sha256": "2d13f6db2a55602e9a6a602c43644d1479eb23c508086e6f54abdff36956d7a1"
+        },
+        {
+          "path": "jidctred.c",
+          "sha256": "1b830678d15255131558240ed0565859513b85431cf2d6fb2c999997355798df"
+        },
+        {
+          "path": "jinclude.h",
+          "sha256": "a6433e5ea0030f4bffd41bcc2f064008afd79de4270cf28494bd43d2fbc5da06"
+        },
+        {
+          "path": "jmemansi.c",
+          "sha256": "fbcb3e54fa6e4b014321f29bf671ccae87072d5bb5ae8e5d31ab9f85e2383c4e"
+        },
+        {
+          "path": "jmemdos.c",
+          "sha256": "6ee41ed8d28aa21cff33b620a99b3343dc11d4fe643dad38ae1ff44ec0ea8030"
+        },
+        {
+          "path": "jmemdosa.asm",
+          "sha256": "18c24de9cd757c3790ddd24cc3bf77f0efe68a80bc6b7d9c962e02207916dd0d"
+        },
+        {
+          "path": "jmemmac.c",
+          "sha256": "9a5d8e7217e9f14f6e97e869f378becc3b5ccd4e8cd77d853252228febc26966"
+        },
+        {
+          "path": "jmemmgr.c",
+          "sha256": "daf660c78c28f21ad2fd9bb1c6e9d2e9ec172b08eaaa203766ee3b7fd6ead953"
+        },
+        {
+          "path": "jmemname.c",
+          "sha256": "5d632eac156d9bb2a36bdd3fedd12d0db61284279467843dd0796cd5ebad47d5"
+        },
+        {
+          "path": "jmemnobs.c",
+          "sha256": "0605c64556d298071473fc245fa9d83cf10b60022d5c5d2821a846b94aa1a9fb"
+        },
+        {
+          "path": "jmemsys.h",
+          "sha256": "079586edfbbb27fe214f96ffb2fe72b2715de95c607ed9d02657e8c64d45e345"
+        },
+        {
+          "path": "jmorecfg.h",
+          "sha256": "30b9ea709a75a95340ce824cb53e7d05ab2518fc4b4c03926a4239b9de2abf82"
+        },
+        {
+          "path": "jpegint.h",
+          "sha256": "089ad98da28cdcabb4cf252607cff2e0ca73268818793d0795caaa9032c2da57"
+        },
+        {
+          "path": "jpeglib.h",
+          "sha256": "8d12532e685e58429e8e973f3e7d3604673750e79f5bc23598afbb8030175eae"
+        },
+        {
+          "path": "jpegtran.1",
+          "sha256": "934e3caa2a5b5cbb69d90d81e6efae94fcbe6638b111e3fbc8dd7651e0ab8f6c"
+        },
+        {
+          "path": "jpegtran.c",
+          "sha256": "a16a191c1a249680c7f97d348fd02cab4bcd4f2f583dedaa019542b6e126f423"
+        },
+        {
+          "path": "jquant1.c",
+          "sha256": "556df5715cf5d915e5190066ff4e542a9911b651e45b34d322a6f6c2b0098fbc"
+        },
+        {
+          "path": "jquant2.c",
+          "sha256": "9b6844e18480d7003618e8f473a0900743d15fc8516aee7229a77adce470eb0b"
+        },
+        {
+          "path": "jutils.c",
+          "sha256": "2cab735c6ea1bca55f4c94a72c73035a0a161378403a6bd849b350df71db92d6"
+        },
+        {
+          "path": "jversion.h",
+          "sha256": "627a154dab9aa74de01d4b8a34b1ac2102fe865eb24f34f77c0590332c389f1f"
+        },
+        {
+          "path": "libjpeg.doc",
+          "sha256": "8efc71c30d8b4f15eef5a84cb6222721a79d27504864065f8da7e559cfbcc071"
+        },
+        {
+          "path": "makcjpeg.st",
+          "sha256": "66a32f1320aa9c833bdbe2252e305eec4bc2a59bf1f23423e012835845774bad"
+        },
+        {
+          "path": "makdjpeg.st",
+          "sha256": "04c2c4600c502bacc7ca41de58bf62a8704f7d28abcfee596ec0d4b0712d7f92"
+        },
+        {
+          "path": "makefile.ansi",
+          "sha256": "8d9b019ac01e81c9baf23f0695f0e43923d3d1f3278b2e016c48dc7b30b0dd90"
+        },
+        {
+          "path": "makefile.bcc",
+          "sha256": "d1703c386c92f5cce1274911293029753aaf61cc14a70f01c5686f97213d0e5d"
+        },
+        {
+          "path": "makefile.cfg",
+          "sha256": "17ab1b0f370f75fc39cf403e2cfc936e3a226eca58c5fce44a6129a1294b3d34"
+        },
+        {
+          "path": "makefile.dj",
+          "sha256": "9cc39fb5c64dc5960c961698e1912e6d777315a8a8ac6d99ccb16ae8043871fd"
+        },
+        {
+          "path": "makefile.manx",
+          "sha256": "57412099019cd182b3edd46f3d85424c17d6b953a6a854536eead3e19a4a6e20"
+        },
+        {
+          "path": "makefile.mc6",
+          "sha256": "e1c2650414f76e138751948170f7a4bb39370e888018237d202095096b5a5c62"
+        },
+        {
+          "path": "makefile.mms",
+          "sha256": "8acd37c19f80d1fadf83eaefd885afd3913276b2c5c96e6defe61be30e5557fe"
+        },
+        {
+          "path": "makefile.sas",
+          "sha256": "b91c8de17ce4aeb4d66e460f3df7a85542c799c984d176b56b81e7f002703f2e"
+        },
+        {
+          "path": "makefile.unix",
+          "sha256": "ce78ef69d12f228249e0285d79a081116b319e01f5d754f752da2ef45b233bcc"
+        },
+        {
+          "path": "makefile.vms",
+          "sha256": "f80ac3d930b8804af5c77c27fa241d182a40b12f4ca7446e618f6f9adca7f842"
+        },
+        {
+          "path": "makefile.wat",
+          "sha256": "fc76a0558c2b82b06d234f823c05dacf4d94efb33ea66da7acf83a9834fba9d3"
+        },
+        {
+          "path": "makljpeg.st",
+          "sha256": "20ed3e3ae13114e1a382821ae81780b2f98387457a4a9a8177dd92733fad59da"
+        },
+        {
+          "path": "maktjpeg.st",
+          "sha256": "3f0b200e5260ecd5ea0a53e3cb642d58297107ebd54913cf1588917c2642df89"
+        },
+        {
+          "path": "makvms.opt",
+          "sha256": "9631f2d966ac30fd10ff609b29ba3c8a235be2d02f307168bc8747385d966fd5"
+        },
+        {
+          "path": "rdbmp.c",
+          "sha256": "a059c7271be741d6a494d1196bfe78584524b9f56267ca238e24ba040a3886b7"
+        },
+        {
+          "path": "rdcolmap.c",
+          "sha256": "dafeb823587b492b0db21bb2eb6e0627a13dd8b2d41fba4ebb1241967d986a39"
+        },
+        {
+          "path": "rdgif.c",
+          "sha256": "31d6bf744f7dc3e186b46c5d68e2acd7de638acadc0ea64f8b54ece8950181f5"
+        },
+        {
+          "path": "rdjpgcom.1",
+          "sha256": "a8a137083ec3ebac6194cf0794a8ebdfe7296abcc5899588b3cf17f21d56f669"
+        },
+        {
+          "path": "rdjpgcom.c",
+          "sha256": "6ad50c411f2c8de4f1d172e07489ae10373b5ddfeb2c0b17f08a8fe100d78fe3"
+        },
+        {
+          "path": "rdppm.c",
+          "sha256": "96a77c275ea22d05f0cbe8024c070ab2ca88bddcb8f2f4a17d171b01ac4790d1"
+        },
+        {
+          "path": "rdrle.c",
+          "sha256": "b6393aa4bc0eee2c52a31c67882ac1042db28616b81050ee762991e28560b3d4"
+        },
+        {
+          "path": "rdswitch.c",
+          "sha256": "e20d1272e6146d89cd30e89646d1a8c2f08dfacb3a1705661b9896b99bca3e4f"
+        },
+        {
+          "path": "rdtarga.c",
+          "sha256": "6cc6528ca9cff3dfe6b1a3897d09a9f9f86733dd3b7c65810e0d4966b5ad3e14"
+        },
+        {
+          "path": "structure.doc",
+          "sha256": "01be133939dbc4f2d7dd22d459139fb2e9bc37219351c3042285f58a1e510567"
+        },
+        {
+          "path": "testimg.gif",
+          "sha256": "37dfda2d2321b899a05dd93f293f458aa4a04296fe2fbdb2bdc386b5a4480790"
+        },
+        {
+          "path": "testimg.jpg",
+          "sha256": "ff6133bb58d3dae4f13ecbe05256dc4aaa05b17786b2c67f172cc3e934a00331"
+        },
+        {
+          "path": "testimg.ppm",
+          "sha256": "b64a47d529e289e5570648db9f0385d9b240448724cdde7716fa0139b121d491"
+        },
+        {
+          "path": "testimgp.jpg",
+          "sha256": "e9486e697b7082a324fe2812310303e13b0ddf67b073eacb4b9d8a53e50b7ea7"
+        },
+        {
+          "path": "testorig.jpg",
+          "sha256": "acc6ec555d41d15b368320edaa3b20958ee6fa97cb6e4a18d1213d5ae8bec73b"
+        },
+        {
+          "path": "testprog.jpg",
+          "sha256": "24770f706b81b40a71944af3b39aad8a3f7ffb21c4f2725447022e518222d823"
+        },
+        {
+          "path": "usage.doc",
+          "sha256": "c50a6aedb24448a53cc1a203a17f3aadb90f8479ee4f1a168655cc7f4ef316ec"
+        },
+        {
+          "path": "wizard.doc",
+          "sha256": "a8d435226add320a7217e457e87bf44c0760687481fcfa9803b3b46c9da78f0d"
+        },
+        {
+          "path": "wrbmp.c",
+          "sha256": "ee77a227a0d1ce3d856b5da651308f7c438b3c803ab7f89dca8fb61df420e5f1"
+        },
+        {
+          "path": "wrgif.c",
+          "sha256": "ae4ae4c634fd837735b5220e379ebd2f4a07e10efcc6949f3735a9deae150d85"
+        },
+        {
+          "path": "wrjpgcom.1",
+          "sha256": "bfa468f3a09be9b6ec7421d4daccf7e9776e0783636a9381937d2c0317f7d614"
+        },
+        {
+          "path": "wrjpgcom.c",
+          "sha256": "463f69372d1ce7ec6f9919aac0a994cd496652a2480b4f2a413593718ddd35f5"
+        },
+        {
+          "path": "wrppm.c",
+          "sha256": "5ddd59bbd783775bd3e153e5013e26cb784ee2232b725b12d00acf08af272ea0"
+        },
+        {
+          "path": "wrrle.c",
+          "sha256": "c8847511c86d816a7728f019c0a4da2e62d84acec1fe2fbb467dfe4f22249220"
+        },
+        {
+          "path": "wrtarga.c",
+          "sha256": "8988e10a7d5f2dc7770f70e883a149cdac551111de16724b248b2be22d45045d"
+        }
+      ]
     }
   ]
 }

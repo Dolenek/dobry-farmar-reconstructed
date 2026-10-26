@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <stdexcept>
 namespace farmar::recovered {
+NativeImage decodeJpegImage(const void*,std::size_t);
 namespace {
 struct Reader {
     const unsigned char* data; std::size_t size;
@@ -103,6 +104,7 @@ NativeImage bmp(const Reader& input) { // 0059878d -> 00596f2d, non-indexed BI_R
 }
 NativeImage decodeNativeImage(const void* data,std::size_t size) {
     const Reader input{static_cast<const unsigned char*>(data),size};
+    if(size>=3 && input.half(0)==0xd8ff && input.byte(2)==0xff) return decodeJpegImage(data,size);
     if(size>=4 && input.word(0)==0x20534444U) return dds(input);
     if(size>=2 && input.half(0)==0x4d42) return bmp(input);
     return tga(input);

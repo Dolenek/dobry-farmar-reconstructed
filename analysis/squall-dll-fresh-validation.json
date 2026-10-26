@@ -1,6 +1,6 @@
 {
   "status": "passed_for_loaded_DLL_samples_and_prepared_DirectSound_scope",
-  "recorded_at_utc": "2026-10-25T21:11:02.806573+00:00",
+  "recorded_at_utc": "2026-10-26T07:07:56.205646+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
   "oracle_sha256": "c429a9cd5304000ef0b332aa443d790dbcdbb84065d81d1c75a0e0696162cff9",
@@ -391,7 +391,7 @@
     },
     {
       "path": "tools/cmake/OriginalCodecs.cmake",
-      "sha256": "9eb1346a640721d50a8d2b83a23ae76763a73c04e2aa5d08afce21427af2ddfd"
+      "sha256": "5cb87a3ee7b157e1b6c80cc71c1b8725d43adc1e666094a1e11d4f40df2a5420"
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
@@ -424,8 +424,8 @@
       "dll_pcm_calls": 5034,
       "dll_pcm_bytes": 61263876,
       "dll_pcm_frames": 20421292,
-      "stop_pending_source": 2,
-      "stop_pending_native": 2,
+      "stop_pending_source": 1,
+      "stop_pending_native": 1,
       "playback_tested": false,
       "precision": "process-default"
     },
@@ -442,8 +442,8 @@
       "dll_pcm_calls": 5034,
       "dll_pcm_bytes": 61263876,
       "dll_pcm_frames": 20421292,
-      "stop_pending_source": 0,
-      "stop_pending_native": 0,
+      "stop_pending_source": 2,
+      "stop_pending_native": 2,
       "playback_tested": false,
       "precision": "x87-pc24"
     }

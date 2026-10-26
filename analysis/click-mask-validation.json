@@ -27,9 +27,9 @@
     }
   ],
   "status": "passed",
-  "recorded_at_utc": "2026-10-26T06:35:48.589395+00:00",
+  "recorded_at_utc": "2026-10-26T07:05:42.952948+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
-  "oracle_sha256": "decbb76cec63f07eac2fb6c9fa85f6154beac92bf928cce0e72d946fe203dd8a",
+  "oracle_sha256": "eb30c8bd0a2692f7ecf0c0176ca26066b3c2f4e983c2dc0161df47a6866cb61a",
   "original_entry_point_executed": false,
   "reference_files_modified": false,
   "original_functions": [
@@ -63,13 +63,13 @@
   "source_files": {
     "src/game/graphics/ClickMask.cpp": "1d747ff0d68a0f0dd02950019263343015b6edf4351e8b6d4592aa7e68f8d554",
     "src/game/graphics/ClickMask.h": "ed22aadfb1a922fe1d060904fbde17b3dc165f3c1d734b67cdf321d9025eb220",
-    "src/game/graphics/NativeImage.cpp": "25e9c261fae44164efccc7b413e730f498ef107d546ed1600017967cdfaa3fa7",
-    "src/game/graphics/NativeImage.h": "cdb29c6fdc3b7f5fbe62ce35a43461fb3284755515cf3e1d1dda539e8693a3f9",
+    "src/game/graphics/NativeImage.cpp": "02e0f5edba5b9410b8760e51d5f9229713f790deebf5f3667901fce9f82bae8e",
+    "src/game/graphics/NativeImage.h": "996fce04cb177756d4fef1de646fe86257d4d139dcdab189037acae79bfc5907",
     "src/game/graphics/ImageTexture.cpp": "2347c290ea59ffd332afcbe3df7e28b1e735e28654ef27cd892db48bb3a46caa",
     "src/game/graphics/ImageTexture.h": "34815089466fa272b4e42ec9a185d033e76d0e77914b685025aed7e96c03cf28",
     "tools/click_mask_reference_test.cpp": "c5f699576c723de8f4b7a0f274720962434009b106cc8cd0511498f59b422466",
-    "tools/click_mask_oracle_fixups.inc": "998877f35d54ad350161f2e35a867df0e3c8f2b5db35e7443b9a36ed55db5304",
-    "tools/build_sprite_oracle_fixups.py": "7b717a912d317d0219e340e1be83c1a5226935e15e535ab6f4f59c6cce499df9",
+    "tools/click_mask_oracle_fixups.inc": "9b524175b56c01354b08b34ea59910ccfa8225956423dc78de1ecba8698b8981",
+    "tools/build_sprite_oracle_fixups.py": "5c60552bda1bdc142fda3710cc9d7cbd0daf9b9cfffcd8db79b08cc97a548ed7",
     "tools/validate_click_masks.py": "29135fec943831de7a2c908053ebef0b557bf078a519b2c75e12e2999814b443"
   }
 }
