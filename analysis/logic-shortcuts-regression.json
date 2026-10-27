@@ -1,0 +1,28 @@
+{
+  "status": "passed_for_logic_shortcuts_deferred_reset_and_documented_runtime_scope",
+  "recorded_at_utc": "2026-10-27T21:26:41.553351+00:00",
+  "prior_commit": "4928fab",
+  "source_tree_sha256": "db0efb8e35be7fc0d244ba02d74dbfbf8ce11157a3e8d16a0af4362ab4343b08",
+  "ctest_passed": 100,
+  "ctest_seconds": 474.15,
+  "full_win32_build": true,
+  "audio_builds_validated": 2,
+  "person_sound_builds_validated": 2,
+  "squall_loaded_dll_builds_validated": 2,
+  "source_gui_lifetimes": 2,
+  "first_save_interop_lifetimes": 5,
+  "rich_save_interop_lifetimes": 4,
+  "logic_states": 3661,
+  "logic_service_events": 2477,
+  "exact_reset_rgb_pixels": 2553600,
+  "strict_record_log": ".local/logic-record.log",
+  "reference_files_unchanged": 17,
+  "production_original_code_dependency": false,
+  "whole_game_complete": false,
+  "source_uninstaller_complete": false,
+  "pending": [
+    "Remaining Logic process/debug overlays, device loss/reset failures/lifecycle and GameInput",
+    "All connected gameplay/tutorial scenarios, expanded farms/contracts/saves",
+    "All97 Squall behavior and isolated source uninstaller"
+  ]
+}

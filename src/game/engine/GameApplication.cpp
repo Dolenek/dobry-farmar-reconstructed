@@ -1,5 +1,7 @@
 #include "GameApplication.h"
 #include "GameFileSystem.h"
+#include "LogicShortcuts.h"
+#include "GraphicsScreenshot.h"
 #include "GameWindow.h"
 #include "GameTimer.h"
 #include "GameCursor.h"
@@ -49,13 +51,14 @@ struct GameApplication::Runtime {
     std::unique_ptr<Settings> settings;
     HWND window=nullptr;Com<IDirect3D8> d3d;Com<IDirect3DDevice8> device;
     PrimaryGraphicsSettings graphics;std::unique_ptr<GraphicsPresentation> presentation;
+    std::unique_ptr<GraphicsScreenshot> screenshot;std::unique_ptr<LogicShortcuts> shortcuts;
     std::unique_ptr<GraphicsRenderState> render;std::unique_ptr<SpriteBuffers> buffers;std::unique_ptr<SpriteBatches> batches;
     std::unique_ptr<InputDevices> devices;std::unique_ptr<GameTimer> timer;SquallSoundApi api;
     std::unique_ptr<SoundManager> sound;MusicPlayback music;std::unique_ptr<GameCursor> cursor;
     std::unique_ptr<StringManager> strings;ViewRegistry views;ControlRegistry controls;ButtonInteraction interaction;
     std::unique_ptr<ProfileSession> profiles;std::unique_ptr<MainMenuContext> mainMenu;std::unique_ptr<StartupContext> startup;
     GameRandom random;std::unique_ptr<GameContext> gameContext;std::unique_ptr<GamePauseContext> pauseContext;
-    bool paused=false,minimized=false,finished=false;
+    bool paused=false,minimized=false,finished=false,resetPending=false,hasFrame=false,suppressTextures=false;
     Runtime(HINSTANCE instance,const GameApplicationOptions& options) {
         if(active) throw "Object already exist.";
         files=std::make_unique<FileIndex>(options.dataDirectory,String("pack"));mountGameCommonFiles(*files,options.commonDirectory);
@@ -70,7 +73,7 @@ struct GameApplication::Runtime {
         ShowWindow(window,SW_SHOW);UpdateWindow(window);SetActiveWindow(window);
         auto parameters=presentation->parameters();
         if(FAILED(d3d.value->CreateDevice(0,D3DDEVTYPE_HAL,window,D3DCREATE_SOFTWARE_VERTEXPROCESSING,&parameters,&device.value))) throw std::runtime_error("Cannot create original Direct3D8 device");
-        createBuffers();
+        screenshot=std::make_unique<GraphicsScreenshot>(device.value);createBuffers();
         textureEnvironment().files=files.get();textureEnvironment().load=[this](const void* data,const unsigned long& size,IDirect3DTexture8*& texture,TextureImageSize& image){getImageTexture(device.value,data,size,texture,image);};
         fontFiles()=files.get();shaderEnvironment().files=files.get();
         shaderEnvironment().create=[this](const DWORD* code,const unsigned long&,DWORD& handle){createSpriteVertexShader(device.value,code,handle);};
@@ -82,6 +85,10 @@ struct GameApplication::Runtime {
         // subsequent real backend pause/resume calls. Heap-byte ABI is pending.
         sound=std::make_unique<SoundManager>(*files,*settings,api,0);
         cursor=std::make_unique<GameCursor>(window);
+        shortcuts=std::make_unique<LogicShortcuts>(devices->bindings(),*settings,*timer,LogicShortcutServices{
+            [this](bool value){paused=value;},[this](bool value){requestGraphicsReset(value);},
+            [this](bool value){DWORD fill=0;device.value->GetRenderState(D3DRS_FILLMODE,&fill);const DWORD wanted=value ? D3DFILL_WIREFRAME:D3DFILL_SOLID;if(fill!=wanted) device.value->SetRenderState(D3DRS_FILLMODE,wanted);suppressTextures=value;},
+            [this]{resources->refresh();},[this]{screenshot->prepare();}});
         windowTargets().pauseMain=[this](bool value){paused=value;};windowTargets().minimizeMain=[this](bool value){minimized=value;};
         windowTargets().pauseSound=[this](bool value){sound->setPause(static_cast<unsigned char>(value));};
         strings=std::make_unique<StringManager>(*files,*settings,*resources);
@@ -90,29 +97,38 @@ struct GameApplication::Runtime {
         interaction.playHover=[this](cResource* resource,bool loop,unsigned start){delete sound->playSound(static_cast<cSound*>(resource),loop,start!=0);};
         profiles=std::make_unique<ProfileSession>(*files,*settings,*resources);
         const auto screen=[this]{return std::array<unsigned,2>{unsigned(graphics.width),unsigned(graphics.height)};};
-        const auto reset=[this](bool reload){resetGraphics(reload);};
+        const auto reset=[this](bool reload){requestGraphicsReset(reload);};
         mainMenu=std::make_unique<MainMenuContext>(*files,*resources,*settings,*strings,*sound,music,*profiles,devices->bindings(),interaction,screen,reset,&constructGame,views,controls);
         startup=std::make_unique<StartupContext>(*files,*resources,*settings,*strings,*sound,music,*profiles,devices->bindings(),interaction,*mainMenu,views,controls);
         active=this;auto* screenView=new StartupView(*startup);screenView->hide();screenView->showTransparently();
     }
     void createBuffers() {
-        buffers=std::make_unique<SpriteBuffers>(device.value);buffers->resize(graphics.reservedSprites);
         render=std::make_unique<GraphicsRenderState>(device.value);render->setup(graphics,*presentation);
+        buffers=std::make_unique<SpriteBuffers>(device.value);buffers->resize(graphics.reservedSprites);
         batches=std::make_unique<SpriteBatches>(*buffers);
     }
-    void resetGraphics(bool reload) {
-        if(reload) graphics.load(*settings);
-        resources->preResetGraphics();batches.reset();render.reset();buffers.reset();
-        presentation->prepare(graphics);auto parameters=presentation->parameters();
-        const auto result=device.value->Reset(&parameters);
-        if(FAILED(result)) throw std::runtime_error("Direct3D8 reset failed");
-        createBuffers();resources->restoreGraphics();
+    void requestGraphicsReset(bool value) {resetPending=value;} //00519ed0
+    void performGraphicsReset() {
+        //0051ce50 releases border/screenshot/vertex/index handles before the
+        // resource pre-reset callbacks; preparation and Reset retry as a pair.
+        batches.reset();render.reset();if(screenshot) screenshot->release();buffers.reset();
+        resources->preResetGraphics();
+        for(;;) {
+            graphics.load(*settings);presentation->prepare(graphics);auto parameters=presentation->parameters();
+            if(SUCCEEDED(device.value->Reset(&parameters))) break;
+            Sleep(100);
+        }
+        render=std::make_unique<GraphicsRenderState>(device.value);render->setup(graphics,*presentation);
+        resources->restoreGraphics();
+        buffers=std::make_unique<SpriteBuffers>(device.value);buffers->resize(graphics.reservedSprites);
+        batches=std::make_unique<SpriteBatches>(*buffers);resetPending=false;
+        ShowWindow(window,SW_RESTORE);UpdateWindow(window);SetActiveWindow(window);
     }
     static void constructGame() {
         auto& r=*active;if(Game::instance()) throw "Object already exist.";
         auto* profile=r.profiles->current();if(!profile) throw std::logic_error("Actual game construction requires the selected profile");
         const auto screen=[&r]{return std::array<unsigned,2>{unsigned(r.graphics.width),unsigned(r.graphics.height)};};
-        const auto reset=[&r](bool reload){r.resetGraphics(reload);};
+        const auto reset=[&r](bool reload){r.requestGraphicsReset(reload);};
         r.gameContext=std::make_unique<GameContext>(GameContext{*r.files,*r.resources,*r.settings,*r.strings,*r.sound,*profile,r.random,r.devices->bindings(),r.interaction,screen,
             [&r,screen,reset](Game& game)->GamePauseContext& {
                 r.pauseContext=std::make_unique<GamePauseContext>(GamePauseContext{*r.files,*r.resources,*r.settings,*r.strings,*r.sound,r.music,r.devices->bindings(),r.interaction,game,
@@ -125,27 +141,30 @@ struct GameApplication::Runtime {
         if(minimized) {views.deleteDiscarded();return;}
         cursor->update(graphics.fullscreen,presentation->imagePlacement());timer->process();devices->process();
         if(!paused) {views.dispatchSteps();views.updateTransitions([this]{return timer->elapsed();});}
-        const auto presented=device.value->Present(nullptr,nullptr,nullptr,nullptr);
+        // Native starts with its frame already marked presented, so the first
+        // scene has no preceding Present. Subsequent scenes present first.
+        const auto presented=hasFrame ? device.value->Present(nullptr,nullptr,nullptr,nullptr):S_OK;
         if(presented==D3DERR_DEVICELOST) {
             const auto state=device.value->TestCooperativeLevel();
-            if(state==D3DERR_DEVICENOTRESET) resetGraphics(false);else Sleep(10);
-            views.deleteDiscarded();return;
+            if(state==D3DERR_DEVICENOTRESET) performGraphicsReset();
+            else {Sleep(10);views.deleteDiscarded();return;}
         }
+        if(resetPending) performGraphicsReset();
         batches->begin();controls.forEachVisible([this](Control& control){control.submitSprites(*batches,graphics.fullscreen,presentation->imagePlacement());});batches->finish();
         device.value->Clear(0,nullptr,D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL,graphics.showTriangles ? 0xff000000U:graphics.background,0,0);
         if(FAILED(device.value->BeginScene())) throw std::runtime_error("Direct3D8 BeginScene failed");
-        drawSpriteBatches(device.value,*buffers,batches->batches(),render->transposedViewProjection(),graphics.fullscreen);
+        drawSpriteBatches(device.value,*buffers,batches->batches(),render->transposedViewProjection(),graphics.fullscreen,suppressTextures);
         DWORD lighting=0;device.value->GetRenderState(D3DRS_LIGHTING,&lighting);if(lighting) device.value->SetRenderState(D3DRS_LIGHTING,0);
         if(graphics.fullscreen) {device.value->SetTexture(0,nullptr);device.value->SetStreamSource(0,render->borderVertices(),24);device.value->DrawPrimitive(D3DPT_TRIANGLELIST,0,4);}
-        device.value->EndScene();views.deleteDiscarded();
+        device.value->EndScene();hasFrame=true;views.deleteDiscarded();
     }
     void shutdown() {
         if(finished) return;finished=true;
         if(Game::instance()) delete Game::instance();views.deleteDiscarded();
         if(profiles) profiles->close();
         windowTargets()={};startup.reset();mainMenu.reset();pauseContext.reset();gameContext.reset();profiles.reset();
-        strings.reset();music.clear();sound.reset();timer.reset();uiElapsedTime()={};devices.reset();cursor.reset();
-        batches.reset();render.reset();buffers.reset();device.reset();d3d.reset();presentation.reset();
+        shortcuts.reset();strings.reset();music.clear();sound.reset();timer.reset();uiElapsedTime()={};devices.reset();cursor.reset();
+        batches.reset();render.reset();screenshot.reset();buffers.reset();device.reset();d3d.reset();presentation.reset();
         if(settings) settings->save();settings.reset();resources.reset();
         textureEnvironment()={};shaderEnvironment()={};fontFiles()=nullptr;files.reset();
         if(window) {DestroyWindow(window);window=nullptr;}active=nullptr;

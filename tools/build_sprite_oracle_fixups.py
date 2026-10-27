@@ -26,6 +26,7 @@ def main():
     parser.add_argument('--text-buttons',action='store_true',help='Record owned text button constructors and menu XML loading operands')
     parser.add_argument('--click-mask',action='store_true',help='Record original GPU JNG click-mask oracle operands')
     parser.add_argument('--input-bindings',action='store_true',help='Record original Input binding mutation operands')
+    parser.add_argument('--logic-shortcuts',action='store_true',help='Record original Logic construction, modifier bindings and callbacks')
     parser.add_argument('--ui-frame',action='store_true',help='Record original main-frame UI traversal with explicit service fixtures')
     parser.add_argument('--timer',action='store_true',help='Record native timer construction, processing and scalar methods')
     parser.add_argument('--cursor',action='store_true',help='Record native cursor/window coordinate operands')
@@ -42,6 +43,7 @@ def main():
     if args.click_mask: args.view=True
     if args.input_bindings: args.view=True
     if args.ui_frame: args.view=True
+    if args.logic_shortcuts: args.view=True
     if args.text_state: args.control_state=True
     if args.button_state: args.control_state=True
     if args.control_state: args.view=True
@@ -221,6 +223,14 @@ def main():
             seen.add(address)
             if address in rows: todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000 and int(c,16)!=0x552e20]
         addresses=sorted(seen)
+    if args.logic_shortcuts:
+        prefix='logic-shortcuts';seen=set();todo=[0x5315b0,0x531a70,0x5314b0,0x531530,0x530700,0x531010,0x52fa00,0x52f9a0,0x52fa40,0x52fa80,0x530c50,0x531a20,0x5809b3]
+        while todo:
+            address=todo.pop()
+            if address in seen:continue
+            seen.add(address)
+            if address in rows:todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000]
+        addresses=sorted(seen)
     if args.ui_frame:
         prefix='ui-frame';seen=set(addresses);todo=[0x531b20,0x4fb180]
         while todo:
@@ -281,6 +291,7 @@ def main():
         reference=Path(directory)/'reference.exe'; shutil.copyfile(original,reference)
         for address in addresses:
             end=int(rows[address]['body_max'],16)+1 if address in rows else {
+                0x5314b0:0x531522,0x531530:0x5315a2,0x52f9a0:0x52f9c4,0x52fa00:0x52fa3a,0x52fa40:0x52fa7a,0x52fa80:0x52fa8b,0x531a20:0x531a28,
                 0x426260:0x426312,0x468420:0x4684bb,0x4471a0:0x447255,0x460a70:0x460a75,0x4416b0:0x4416bb,0x460a80:0x460a8b,
                 0x4713c0:0x47141d,0x471420:0x47147d,0x471480:0x4714d3,
                 0x59ddcb:0x59e015,0x5a49f8:0x5a4a83,0x5a1f75:0x5a2008,0x5a203f:0x5a2050,0x465ee0:0x465f3f,0x45f210:0x45f215,0x417e10:0x417f40,0x417f60:0x417f7d,0x493dd0:0x493fc8,0x493c60:0x493ca2,0x499630:0x499729,0x496440:0x496513,0x493bb0:0x493bcb,0x49a050:0x49a080,0x499ea0:0x499f00,0x49a080:0x49a0b0,0x49f8c0:0x49fc22,0x49fc30:0x49fdaf,0x4a0000:0x4a0224,0x4a0230:0x4a02c0,0x4a02c0:0x4a0330,0x413a00:0x413a0c,0x48e980:0x48e9d6,0x41d610:0x41d666,0x41d5e0:0x41d601,0x4c9fc0:0x4c9fd0,0x4c9fd0:0x4c9fe0,0x4c9fe0:0x4c9ff0,0x4c9ff0:0x4ca050,0x4ca050:0x4ca080,0x4ca080:0x4ca0b0,0x4ca0b0:0x4ca0d0,0x4ca0d0:0x4ca0f0,0x4ca0f0:0x4ca110,0x4ca110:0x4ca140,0x4ca140:0x4ca160,0x4ca160:0x4ca190,0x4ca190:0x4ca1b0,0x4ca1b0:0x4ca1e0,0x4ca1e0:0x4ca1f0,0x4ca1f0:0x4ca210,0x4ca210:0x4ca230,0x4ca230:0x4ca260,0x4ca260:0x4ca290,0x4ca290:0x4ca2b0,0x4ca2b0:0x4ca310,0x4ca310:0x4ca330,0x4ca330:0x4ca350,0x4ca350:0x4ca44d,0x4cdf10:0x4cdf19,
@@ -397,6 +408,11 @@ def main():
             rva=0x4ad2c+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
             assert 0x44a820<=target<0x44ad2c
             fixups.append(dict(rva=rva,original_address=target,function='Person-sound-switch',instruction=f'kind {slot}'))
+    if args.logic_shortcuts:
+        for slot in range(8):
+            rva=0x1fff5c+slot*4;target=int.from_bytes(pe.data[pe.offset(rva):pe.offset(rva)+4],'little')
+            assert pe.image_base<=target<pe.image_base+0x200000
+            fixups.append(dict(rva=rva,original_address=target,function='cLogic-vtable',instruction=f'virtual slot {slot}'))
     if args.sound_manager:
         for table,count in [(0x60028c,11),(0x601678,7),(0x5fe0d8,7),(0x5fcf5c,1)]:
             for slot in range(count):

@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Zkratky cLogic a grafický reset](docs/LOGIC_SHORTCUTS.md) jsou nově zapojené do hlavního EXE:3661 nativně porovnaných stavů a skutečné přepnutí okno/fullscreen. Dva resetové snímky mají2553600 přesně shodných RGB pixelů; původní texture-suppression zvláštnost i DPI hranice jsou evidované. Úplný runtime a ostatní podmínky projektu pokračují.
+
 [Porovnání celých procesů a saves](docs/SAVE_INTEROP.md) nyní ověřuje úvodní profily v obou směrech a připravený bohatší stav se sáčkem, prodejem, zprávami a383 koeficienty. Původní EXE běží pouze jako reference s izolovanou systémovou datovou složkou; produkce používá vlastní zdroje. Rozsah a neověřené stavy jsou výslovně evidované.
 
 Hlavní [zdrojové herní EXE](docs/APP_RUNTIME.md) se nyní sestaví a spustí s původními daty: nový profil → menu → skutečná farma, normální ukončení, opětovné načtení save, pauza, nápověda i deník. Obě načtené herní DLL pocházejí z našeho sestavení. [Startup](docs/STARTUP.md) navíc přímo souhlasí s originálem ve čtyřech cyklech / 786 snímcích / 377 280 000 RGB pixelech (PC53/PC24). Úplný nativní runtime, obousměrné saves, všechny systémy, úplná Squall a izolovaný odinstalátor stále pokračují.

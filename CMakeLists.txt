@@ -82,7 +82,7 @@ if(WIN32)
     if(NOT D3D8_VERIFY_RESULT EQUAL 0)
         message(FATAL_ERROR "Run python tools/fetch_direct3d_headers.py before configuring")
     endif()
-    add_library(recovered_graphics_utilities STATIC src/game/graphics/JngTexture.cpp src/game/graphics/GraphicsPresentation.cpp
+    add_library(recovered_graphics_utilities STATIC src/game/graphics/JngTexture.cpp src/game/graphics/GraphicsScreenshot.cpp src/game/graphics/GraphicsPresentation.cpp
         src/game/graphics/SpriteBuffers.cpp src/game/graphics/Matrix.cpp src/game/graphics/GraphicsRenderState.cpp
         src/game/graphics/SpriteGeometry.cpp src/game/graphics/NativeImage.cpp src/game/graphics/NativeJpeg.cpp src/game/graphics/JpegColor.cpp src/game/graphics/ImageTexture.cpp src/game/engine/GameCursor.cpp)
     target_include_directories(recovered_graphics_utilities PUBLIC src/game/graphics "${CMAKE_CURRENT_SOURCE_DIR}/.local/direct3d8-headers")
@@ -99,9 +99,12 @@ if(WIN32)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayTime.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/GameplayEvents.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Gameplay.cpp src/game/engine/SalesHistory.cpp src/game/engine/GameEffects.cpp)
-    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Game.cpp src/game/engine/GamePersistence.cpp)
+    target_sources(recovered_resource_utilities PRIVATE src/game/engine/Game.cpp src/game/engine/GamePersistence.cpp src/game/engine/LogicShortcuts.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/engine/Upgrade.cpp src/game/ui/ContractStatus.cpp src/game/ui/PriceText.cpp src/game/ui/ContractDialogs.cpp src/game/ui/ContractProvide.cpp src/game/ui/ContractLetterSlot.cpp src/game/ui/GamePauseMenu.cpp src/game/ui/HelpView.cpp src/game/ui/Journal.cpp src/game/ui/GameAwardManager.cpp src/game/ui/StateView.cpp src/game/ui/GameMenu.cpp src/game/ui/TutorialTips.cpp src/game/ui/TutorialManager.cpp src/game/ui/MovableUnion.cpp src/game/ui/BuySeeds.cpp src/game/ui/PictureButton.cpp src/game/ui/BuyBuilding.cpp src/game/ui/ProductionControls.cpp src/game/engine/ProductionLevel.cpp src/game/ui/ProductionPlacement.cpp)
     target_sources(recovered_resource_utilities PRIVATE src/game/ui/ProductionBuilding.cpp src/game/ui/Manufacture.cpp src/game/ui/FieldObject.cpp src/game/ui/ActionArea.cpp src/game/ui/Warehouse.cpp src/game/ui/WarehouseTip.cpp src/game/ui/Market.cpp src/game/ui/FlyingText.cpp src/game/ui/DigBuilding.cpp src/game/ui/WaterSource.cpp src/game/ui/MowBuilding.cpp src/game/ui/WaterParticles.cpp src/game/ui/WaterEmitters.cpp src/game/ui/Sprinkle.cpp)
+    add_executable(logic-shortcuts-reference-test tools/logic_shortcuts_reference_test.cpp)
+    target_link_libraries(logic-shortcuts-reference-test PRIVATE recovered_resource_utilities)
+    target_compile_options(logic-shortcuts-reference-test PRIVATE /utf-8)
     add_executable(progress-sprite-reference-test tools/progress_sprite_reference_test.cpp)
     target_link_libraries(progress-sprite-reference-test PRIVATE recovered_resource_utilities)
     target_include_directories(recovered_resource_utilities PUBLIC src/game/resources src/game/ui)
@@ -265,6 +268,8 @@ if(BUILD_TESTING)
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_award_panel.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME original-resource-log-writer COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_resource_log.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
+            add_test(NAME original-logic-shortcuts COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_logic_shortcuts.py" --oracle "$<TARGET_FILE:logic-shortcuts-reference-test>")
             add_test(NAME original-startup COMMAND "${Python3_EXECUTABLE}"
                 "${CMAKE_CURRENT_SOURCE_DIR}/tools/validate_startup.py" --oracle "$<TARGET_FILE:text-buttons-reference-test>")
             add_test(NAME source-file-system-bootstrap COMMAND "${Python3_EXECUTABLE}"

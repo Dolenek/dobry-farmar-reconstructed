@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "recorded_at_utc": "2026-10-26T08:16:15.409751+00:00",
+  "recorded_at_utc": "2026-10-27T21:05:47.803846+00:00",
   "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "reference_files_modified": false,
   "original_entry_point_executed": false,
@@ -41,6 +41,7 @@
     "src/game/engine/GameRandom.h": "dfff1ec2887dcb2d8d3d9c97a21aa7c20055eb0ed91d3cc0cd56715a49d52ffe",
     "src/game/engine/GameTimer.h": "0eba231ea7db0b105d44d17948faf0b9ca4a1b6ee0bebff2acfa93871748968d",
     "src/game/engine/GameWindow.h": "abb8382fc1fbf9a0d986c45d1c8b9def35bb020df93905466a71505ebb4dd2a6",
+    "src/game/engine/LogicShortcuts.h": "eb0317eb9dc071a30dea71f0d32cb98bd59e4e2e66c4a0c03216bce34eccb767",
     "src/game/engine/ProductionKinds.h": "c57bb42b773dbefbc2c26e2d30d2310d470f6c2778f4fe948ec4f5cfb08ef61b",
     "src/game/engine/ProductionLevel.h": "bc7424cc3548f7c9f068778bee3894f1f67d9159ab1eae3a8200066aa3bf004d",
     "src/game/engine/SalesHistory.h": "17a980b903f4e707ee76a99bfddc66f540523f9cc0bb6f288196ed2c8e68ce4c",
@@ -54,6 +55,7 @@
     "src/game/graphics/GameMatrix.h": "6fc1d462ce5ceef74d97204ed08a4e7e26ac81b9c17fcf3e69aa84e5d810227b",
     "src/game/graphics/GraphicsPresentation.h": "f9dc7910919a90a10105ddf4623756238401d99ba21af6f3fd3eaeb877da07c4",
     "src/game/graphics/GraphicsRenderState.h": "8789351a78b63a362ca7f2f4e1db1490d7c1134ed2c5ff006a4ecc65458c3083",
+    "src/game/graphics/GraphicsScreenshot.h": "80555da58bd817501fcfe366041526775d6187a48dd5fdc0fc475fb8b00d39cf",
     "src/game/graphics/ImageTexture.h": "34815089466fa272b4e42ec9a185d033e76d0e77914b685025aed7e96c03cf28",
     "src/game/graphics/JngTexture.h": "6f72a178202f9924009ed14bc006dbdd41b8efc3acd0d5cecb50b61a71f6b9da",
     "src/game/graphics/JpegColor.h": "8d640103414882faf63b97d1bd0f5d431d9e22574f57b8d2cf582cbd24c258e2",
@@ -172,7 +174,7 @@
     "src/game/core/WString.cpp": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2",
     "src/game/engine/Game.cpp": "6d36e48abe8a1a605a3d40ea51842ab627e2b1e845ee1ad0ea37863cb7ee66ee",
     "src/game/engine/GameAction.cpp": "2e38566152b5fb3b29681770a6f074f706014fad1995fdc403981ca91743a23e",
-    "src/game/engine/GameApplication.cpp": "8b96b4942fbb5df95fa5e2416d92ad041d00d4b8aa5124ace25a01db006ee124",
+    "src/game/engine/GameApplication.cpp": "35fee48a0dd6a63a2d654f362e515854874f954d6d19409a97842f40631bf2b3",
     "src/game/engine/GameConfiguration.cpp": "658bdeab27ecfb87fa532b6deb6252b0a9453e719566773cc89f6bbbd81974a3",
     "src/game/engine/GameCursor.cpp": "fcdb4c554a961a74a66aadcef3b458d5b5e962fde7fae980cad823e034880ed4",
     "src/game/engine/GameEffects.cpp": "76778af23be20be5af448f63b97a18035448e1b2c684cebb3b8389bd05353b2e",
@@ -183,6 +185,7 @@
     "src/game/engine/GameplayTime.cpp": "2eed82d4d420d58703c09a397369f449e507cd571472a976cd5825cece890973",
     "src/game/engine/GameTimer.cpp": "b1504f4fa6fc934687d152ed085b16a5fe147395a1c1dde720b2cdb8d40eb3da",
     "src/game/engine/GameWindow.cpp": "013c420a1bb12d198c99838bed178489044ec528855a0e877684a5b977fc71fc",
+    "src/game/engine/LogicShortcuts.cpp": "dd16ea9e4b432f363232c2689eae78b4c4a183df3a83f4ba025098cf023c6444",
     "src/game/engine/ProductionLevel.cpp": "cce8e93bcb3b03980e8e5bbfade4363e610ef1e9348d0aba15da2f1e7589531b",
     "src/game/engine/SalesHistory.cpp": "5fad47074a619750e30ae3550dc38c3f3ee4f0749276eadf6c8fc1e062d9c0e1",
     "src/game/engine/Upgrade.cpp": "638c2d23441525531827c7a18bbbf9af9b0f84a609de8863be6ca73f8d739374",
@@ -193,6 +196,7 @@
     "src/game/graphics/ClickMask.cpp": "1d747ff0d68a0f0dd02950019263343015b6edf4351e8b6d4592aa7e68f8d554",
     "src/game/graphics/GraphicsPresentation.cpp": "5de009773ae909fd73b7315c7b0e8f7b606eef704e2c238d695f4deed01af142",
     "src/game/graphics/GraphicsRenderState.cpp": "b114b1e224ef7f2656374346fd83d1da7aa19e6c7c75820fc65e7d95cc1b8f69",
+    "src/game/graphics/GraphicsScreenshot.cpp": "c2f838ced29c4d4963e99467b2552150dedeebb857fb511d46b2ec35931ce257",
     "src/game/graphics/ImageTexture.cpp": "2347c290ea59ffd332afcbe3df7e28b1e735e28654ef27cd892db48bb3a46caa",
     "src/game/graphics/JngTexture.cpp": "46795d1aeffae681ca679dcb5ddbb925028cbb9d93f2acda9dc69faf45dba36e",
     "src/game/graphics/JpegColor.cpp": "642c229a0ceed1955dd8485e7c67273e0c40e5e8ffe91868c13a37b956b488a6",
@@ -307,11 +311,11 @@
     "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
     "tools/text_buttons_oracle_fixups.inc": "af62deb8bcb686b9ab5b2937bd2d2b97072be7ba451e066d22d667b50e685cee",
     "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
-    "CMakeLists.txt": "c4760c4658612b6410f42e55bbe3a9fff1a5551464794cce9795136d6aaeef95"
+    "CMakeLists.txt": "4b7146d8e31f6aa0965be36f78bc00cb62ce982270fc140ad6b409dfae0daef6"
   },
   "oracle_sha256": {
-    "sprite": "c942c868caa385733d6f5bb5d221913e04dbc77c25a35216565b0448125bf42b",
-    "ui": "2b13e863b584604ff961954ee4c9f97020ac0688fb4b6ed7c8513a622b6b409f"
+    "sprite": "1661ce4b8df3e3b634f0f86b814b6c7d8002bf22b97a731ea6cadf51a58d1e25",
+    "ui": "3cbbd967c2af8a3391024c9d88684a29720c4dfe52e50ef930d2a7650ac7ec9b"
   },
   "precision_contexts": [
     {

@@ -46,6 +46,10 @@ u.SendInput.argtypes = [W.UINT, C.POINTER(INPUT), C.c_int]
 u.GetForegroundWindow.restype = W.HWND
 u.SetWindowPos.argtypes = [W.HWND, W.HWND, C.c_int, C.c_int, C.c_int, C.c_int, W.UINT]
 
+u.GetWindowDpiAwarenessContext.argtypes=[W.HWND]
+u.GetWindowDpiAwarenessContext.restype=C.c_void_p
+u.SetThreadDpiAwarenessContext.argtypes=[C.c_void_p]
+u.SetThreadDpiAwarenessContext.restype=C.c_void_p
 class GameGui:
 
     def __init__(self, work, data_root):
@@ -113,6 +117,7 @@ class GameGui:
         return output
 
     def screenshot(self, hwnd, name):
+        self.adopt_window_dpi(hwnd)
         from PIL import Image
         rect = W.RECT()
         assert u.GetClientRect(hwnd, C.byref(rect))
@@ -136,7 +141,17 @@ class GameGui:
         u.ReleaseDC(hwnd, dc)
         return image
 
+    def adopt_window_dpi(self, hwnd=None):
+        # Match the target's own coordinate system. D3D8 fullscreen compatibility
+        # can change its awareness after startup; the Python probe's original
+        # unaware coordinates would otherwise shrink800x600 to640x480 at125%.
+        window=self.hwnd if hwnd is None else hwnd
+        context=u.GetWindowDpiAwarenessContext(window)
+        if context:
+            assert u.SetThreadDpiAwarenessContext(context), 'Cannot adopt owned window DPI context'
+
     def focus(self):
+        self.adopt_window_dpi()
         if u.GetForegroundWindow() != self.hwnd.value:
             u.SetForegroundWindow(self.hwnd)
             time.sleep(0.1)
