@@ -460,6 +460,24 @@ def main():
         for name in ['Dobrý farmář.exe','file-system-bootstrap-test.exe']:
             if name not in report['build']['targets']:report['build']['targets'].append(name)
         write('analysis/verification.json',report)
+    for key,status in [('native-application-interop','passed_for_native_source_interchange_of_first_farm_profiles_only'),('rich-save-interop','passed_for_rich_source_native_source_native_save_fields_and_seed_x_drift')]:
+        path=ROOT/f'.local/{key}-validation.json'
+        if not path.exists():continue
+        result=read(path.relative_to(ROOT));assert result['status']==status
+        for name,expected in result['source_files'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        assert hashlib.sha256((ROOT/result['launcher_path']).read_bytes()).hexdigest()==result['launcher_sha256']
+        for name,expected in result['implementation_files'].items():
+            assert hashlib.sha256((ROOT/result['work_directory']/'runtime'/name).read_bytes()).hexdigest()==expected,name
+            built='Dobrý farmář.exe' if name=='FarmarSourceInterop.exe' else name
+            assert hashlib.sha256((ROOT/'build/windows/Release'/built).read_bytes()).hexdigest()==expected,built
+        for name,expected in result['screenshots'].items():
+            assert hashlib.sha256((ROOT/result['work_directory']/name).read_bytes()).hexdigest()==expected,name
+        if 'fixture_generator' in result:
+            fixture=result['fixture_generator'];assert hashlib.sha256((ROOT/fixture['path']).read_bytes()).hexdigest()==fixture['sha256']
+        write(f'analysis/{key}-validation.json',result);report[key]=result
+        if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

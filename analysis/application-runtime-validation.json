@@ -1,7 +1,7 @@
 {
   "status": "passed_for_source_application_fresh_profile_restart_save_restore_pause_help_and_journal",
-  "recorded_at_utc": "2026-10-26T08:14:51.937510+00:00",
-  "work_directory": ".local/application-runtime/20261026T081451890349Z",
+  "recorded_at_utc": "2026-10-27T20:19:56.170487+00:00",
+  "work_directory": ".local/application-runtime/20261027T201955871681Z",
   "original_program_code_used": false,
   "original_comparison": false,
   "source_files": {
@@ -293,7 +293,8 @@
     "src/game/ui/YesNoDialog.h": "7439c7fe76f162e95af29c17306b321c7e11c03e96adbe4b8d0020816f6e1f40",
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "src/game/xml/XmlDocument.h": "7fe6f74034f67a8fc4d8ba2099a81c319f7d3bc28f1a5cc705800c4db6394fb0",
-    "tools/validate_application_runtime.py": "01d121eac5763349f55dbc80618995a3b218ded589890ff290accaf09f06efb6",
+    "tools/validate_application_runtime.py": "26f7cde782012ba6e77552651f5efb26bf2e82bd54188c9001461d5926f6638b",
+    "tools/windows_game_gui.py": "b1300c6760a3fbc3ac4377d611256c8ae2ef1d6392afc629d756fce2b60ae09b",
     "CMakeLists.txt": "c4760c4658612b6410f42e55bbe3a9fff1a5551464794cce9795136d6aaeef95",
     "tools/cmake/SquallCandidate.cmake": "68268578eae6ffe8b8d4011168050c0e263191b6262b9f9c6fc7e626ab39623e"
   },
@@ -321,15 +322,15 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": ".local/application-runtime/20261026T081451890349Z/JNGLoad.dll",
+          "path": ".local/application-runtime/20261027T201955871681Z/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": ".local/application-runtime/20261026T081451890349Z/Squall.dll",
+          "path": ".local/application-runtime/20261027T201955871681Z/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
-      "loading_seconds": 4.280999999959022,
+      "loading_seconds": 4.296999999904074,
       "status": "passed",
       "save_files": {
         "common/profiles/00000001.save": {
@@ -356,15 +357,15 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": ".local/application-runtime/20261026T081451890349Z/JNGLoad.dll",
+          "path": ".local/application-runtime/20261027T201955871681Z/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": ".local/application-runtime/20261026T081451890349Z/Squall.dll",
+          "path": ".local/application-runtime/20261027T201955871681Z/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
-      "loading_seconds": 3.344000000040978,
+      "loading_seconds": 3.327999999979511,
       "status": "passed",
       "save_files": {
         "common/profiles/00000001.save": {
@@ -377,26 +378,26 @@
   ],
   "reference_files_unchanged": 17,
   "screenshots": {
-    "0-01-logo.png": "81c6f016c9301dc3a203494402bf7f8994adb7a34cd8e66b935330a120b8fe8f",
+    "0-01-logo.png": "dd1720d61deabd98bb6a0952ed42798a45e84fbb135f90dd476870ff63943125",
     "0-02-startup.png": "586b1ab3f96d86d1fcc408f59976299aab9bc069111ce4ee29c9d4c7b3acd1d3",
-    "0-03-menu.png": "844d4bd05b5970b57a4c6e4d04f0a0910f37e4a9ccc8091aaf94ca3bc9134d86",
-    "0-04-game.png": "d90cdc379a9ed64fe3098213a1eafe0f63415b075f7337c99b113a7aaf4896b9",
-    "0-05-pause.png": "ef26ff247d34818df0294707859b14d9eaf5ad6740d6e9a792165b3486f64268",
+    "0-03-menu.png": "4d35427d69548b8a3c53ead9cdca8c911c531b3dd660d9c931856c98c4864ed6",
+    "0-04-game.png": "d88acee429426d8a0bec78699865e780183c4f633263868dcd7c864270a93833",
+    "0-05-pause.png": "fa1ed2206598d4e5e34b5f148b79f0abf79bf23413186e7ccf9b0b1264a06754",
     "0-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "0-07-help-return.png": "ef26ff247d34818df0294707859b14d9eaf5ad6740d6e9a792165b3486f64268",
-    "0-08-continued.png": "5758c5af4de06a00b99f63239fbe73e97c90c5487d008e25e42aab40f02e60d1",
-    "0-09-journal.png": "1a89c73a644b9f8f6fd46b85f6b48ba0de09bb313679c761724dfc862c245978",
-    "0-10-journal-return.png": "d5dc308de2ea0f3b47386af59c3eef7d414a1cb72782a5243585466a7ffd848d",
-    "1-01-logo.png": "819ebfef9bb3f87bb22e6b8246d1ce0c3660c61b76e9b33374aca1d5082239ca",
+    "0-07-help-return.png": "fa1ed2206598d4e5e34b5f148b79f0abf79bf23413186e7ccf9b0b1264a06754",
+    "0-08-continued.png": "013f6459d5cc55809a50620d8da7056dd64cc62986e54dbac10fc96e771e4df6",
+    "0-09-journal.png": "a2a3f227a459b42882bdacf8cd6460145a5becd023aebd075a83e422c5795a14",
+    "0-10-journal-return.png": "c9bfdd10749f6fde4b680125572a7c2cfbf91cbb762bd62356421272469c6e24",
+    "1-01-logo.png": "99575202e42611bb29773ca8b69e972f1af73231005230f4ee6385a28fcf0bb6",
     "1-02-startup.png": "9586aa70d70dbb09f01abf8c87ef41194062a3243230e969e1638e08ab7e31bc",
     "1-03-menu.png": "9586aa70d70dbb09f01abf8c87ef41194062a3243230e969e1638e08ab7e31bc",
-    "1-04-game.png": "8525db3d9377c8bf40fffaeb80a617c41aa85863166f16221184836e29f4abf9",
-    "1-05-pause.png": "6be741f6a94ddfedf301f0a3ffa9cd4b1a6d0ec37b82475285c21683560252c8",
+    "1-04-game.png": "4030630e210ff2039d7f5e9da6463a960ff5558a55a888afa3f43751df66953c",
+    "1-05-pause.png": "716483f65d8f0244bbfa49652380b7ed8d7f280775e89de9dd080085240923f2",
     "1-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "1-07-help-return.png": "6be741f6a94ddfedf301f0a3ffa9cd4b1a6d0ec37b82475285c21683560252c8",
-    "1-08-continued.png": "51f9bd2007e0b621f7ac79de1538dd3e25e46164d29f4f8c1ecd736ccdb942ca",
-    "1-09-journal.png": "610a7f98aaa1a9ef7d98d2af3fb4e5248e1cde6897e23e151e174b83fbfb4316",
-    "1-10-journal-return.png": "8525db3d9377c8bf40fffaeb80a617c41aa85863166f16221184836e29f4abf9"
+    "1-07-help-return.png": "716483f65d8f0244bbfa49652380b7ed8d7f280775e89de9dd080085240923f2",
+    "1-08-continued.png": "4b2111273dd140be9c6cf1885e7b79dfb6cdb76db992d3ab11bfc90a43bceefe",
+    "1-09-journal.png": "a8df14ca324177975cce2d7b8575ec7c681b9952d57416e12ff7c5cb9cd57514",
+    "1-10-journal-return.png": "4030630e210ff2039d7f5e9da6463a960ff5558a55a888afa3f43751df66953c"
   },
   "pending": [
     "Full original-process comparison and bidirectional whole-game saves",

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(NativeProcessLauncher LANGUAGES CXX)
+add_executable(native-process-launcher launcher.cpp)
+target_compile_features(native-process-launcher PRIVATE cxx_std_17)
+target_compile_options(native-process-launcher PRIVATE /utf-8)
+target_link_libraries(native-process-launcher PRIVATE user32)

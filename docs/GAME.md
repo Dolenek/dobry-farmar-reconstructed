@@ -1,5 +1,7 @@
 # Rekonstrukce hlavní hry
 
+[Porovnání celých procesů a saves](SAVE_INTEROP.md) nyní ověřuje úvodní profily v obou směrech a připravený bohatší stav se sáčkem, prodejem, zprávami a383 koeficienty. Původní EXE běží pouze jako reference s izolovanou systémovou datovou složkou; produkce používá vlastní zdroje. Rozsah a neověřené stavy jsou výslovně evidované.
+
 Hlavní [zdrojové herní EXE](APP_RUNTIME.md) se nyní sestaví a spustí s původními daty: nový profil → menu → skutečná farma, normální ukončení, opětovné načtení save, pauza, nápověda i deník. Obě načtené herní DLL pocházejí z našeho sestavení. [Startup](STARTUP.md) navíc přímo souhlasí s originálem ve čtyřech cyklech / 786 snímcích / 377 280 000 RGB pixelech (PC53/PC24). Úplný nativní runtime, obousměrné saves, všechny systémy, úplná Squall a izolovaný odinstalátor stále pokračují.
 
 [Původní JPEG loga](JPEG.md) mají obnovený reader a MMX barevnou aritmetiku: všechna3 loga souhlasí v každém dekódovaném bajtu i celé GPU textuře, PC53/PC24; vyčerpávající porovnání16777216 barevných trojic také prošlo. Celé spuštění a hlavní herní EXE dál pokračují.

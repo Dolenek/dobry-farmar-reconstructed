@@ -1,0 +1,32 @@
+{
+  "status": "passed_for_documented_full_process_save_interchange_cases",
+  "recorded_at_utc": "2026-10-27T20:32:00.410882+00:00",
+  "production_source_commit": "5a96a30",
+  "production_source_changed": false,
+  "prior_full_ctest_report": "analysis/application-regression.json",
+  "prior_full_ctest_passed": 99,
+  "source_tree_sha256": "9c947000e6e96f9e68fe82048bbc5bf8e4ceec5e3c57c26ece439067e32ff73c",
+  "source_gui_lifetimes": 2,
+  "first_farm_process_lifetimes": 5,
+  "rich_process_lifetimes": 4,
+  "first_farm_binary_bytes": 1981,
+  "first_farm_profile_properties": 790,
+  "rich_binary_bytes": 2072,
+  "rich_coefficients": 383,
+  "rich_nonzero_coefficients": 22,
+  "strict_record_log": ".local/save-interop-record.log",
+  "reference_files_unchanged": 17,
+  "source_uninstaller_complete": false,
+  "whole_game_complete": false,
+  "scope": [
+    "Whole original native EXE and original DLLs run only as reference; only OS common-folder IAT boundary isolated",
+    "Source implementation uses own EXE/DLL; exact loaded module paths and hashes recorded",
+    "First profiles:three transfers retain every byte and790 properties except runtime clocks",
+    "Rich state:three transfers retain every meaningful/raw bit except original seed relative X drift and ignored padding; all383 coefficient floats compared"
+  ],
+  "limitations": [
+    "No controlled whole-world frame-clock/pixel comparison; screenshots contain naturally different times/animation phases",
+    "Expanded farms, many seed variants, large histories, buildings/contracts and entire-game compatibility remain unverified",
+    "Complete Logic/GameInput/frame/reset/lifecycle, remaining Squall97 behaviors and isolated source uninstaller pending"
+  ]
+}

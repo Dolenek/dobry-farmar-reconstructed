@@ -16,125 +16,41 @@ def originals_unchanged():
  for row in inventory['files']:assert digest(data.parent/row['path'])==row['sha256'],row['path']
 originals_unchanged()
 for name,target in [('Dobrý farmář.exe','FarmarSourceRuntime.exe'),('JNGLoad.dll','JNGLoad.dll'),('Squall.dll','Squall.dll')]:shutil.copy2(build/name,work/target)
-u=C.WinDLL('user32',use_last_error=True);k=C.WinDLL('kernel32',use_last_error=True);g=C.WinDLL('gdi32',use_last_error=True)
-k.SetErrorMode(3)
-CALLBACK=C.WINFUNCTYPE(W.BOOL,W.HWND,W.LPARAM)
-u.GetWindowThreadProcessId.argtypes=[W.HWND,C.POINTER(W.DWORD)];u.GetClassNameW.argtypes=[W.HWND,W.LPWSTR,C.c_int];u.GetWindowTextW.argtypes=[W.HWND,W.LPWSTR,C.c_int]
-u.PostMessageW.argtypes=[W.HWND,W.UINT,W.WPARAM,W.LPARAM];u.SendMessageW.argtypes=[W.HWND,W.UINT,W.WPARAM,W.LPARAM];u.SendMessageW.restype=W.LPARAM
-u.SetForegroundWindow.argtypes=[W.HWND];u.GetClientRect.argtypes=[W.HWND,C.POINTER(W.RECT)];u.ClientToScreen.argtypes=[W.HWND,C.POINTER(W.POINT)]
-u.GetDC.argtypes=[W.HWND];u.GetDC.restype=W.HDC;u.ReleaseDC.argtypes=[W.HWND,W.HDC]
-g.CreateCompatibleDC.argtypes=[W.HDC];g.CreateCompatibleDC.restype=W.HDC;g.CreateCompatibleBitmap.argtypes=[W.HDC,C.c_int,C.c_int];g.CreateCompatibleBitmap.restype=W.HBITMAP
-g.SelectObject.argtypes=[W.HDC,W.HGDIOBJ];g.SelectObject.restype=W.HGDIOBJ;g.BitBlt.argtypes=[W.HDC,C.c_int,C.c_int,C.c_int,C.c_int,W.HDC,C.c_int,C.c_int,W.DWORD]
-g.DeleteObject.argtypes=[W.HGDIOBJ];g.DeleteDC.argtypes=[W.HDC];g.GetDIBits.argtypes=[W.HDC,W.HBITMAP,W.UINT,W.UINT,C.c_void_p,C.c_void_p,W.UINT]
-class KEY(C.Structure):_fields_=[('vk',W.WORD),('scan',W.WORD),('flags',W.DWORD),('time',W.DWORD),('extra',C.c_size_t)]
-class MOUSE(C.Structure):_fields_=[('dx',W.LONG),('dy',W.LONG),('mouseData',W.DWORD),('flags',W.DWORD),('time',W.DWORD),('extra',C.c_size_t)]
-class UNION(C.Union):_fields_=[('keyboard',KEY),('mouse',MOUSE)]
-class INPUT(C.Structure):_anonymous_=['data'];_fields_=[('type',W.DWORD),('data',UNION)]
-u.SendInput.argtypes=[W.UINT,C.POINTER(INPUT),C.c_int]
-def scan(code):
- focus()
- for flags in [8,10]:
-  item=INPUT();item.type=1;item.keyboard=KEY(0,code,flags,0,0);assert u.SendInput(1,C.byref(item),C.sizeof(item))==1;time.sleep(.08)
-def click(hwnd,x,y):
- focus()
- pt=W.POINT(x,y);assert u.ClientToScreen(hwnd,C.byref(pt));assert u.SetCursorPos(pt.x,pt.y);time.sleep(.1)
- for flags in [2,4]:
-  item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,flags,0,0);assert u.SendInput(1,C.byref(item),C.sizeof(item))==1;time.sleep(.1)
-def windows(pid):
- found=[]
- @CALLBACK
- def each(hwnd,_):
-  owner=W.DWORD();u.GetWindowThreadProcessId(hwnd,C.byref(owner))
-  if owner.value==pid:
-   title=C.create_unicode_buffer(512);name=C.create_unicode_buffer(256);u.GetWindowTextW(hwnd,title,512);u.GetClassNameW(hwnd,name,256);found.append((int(hwnd),title.value,name.value))
-  return True
- u.EnumWindows(each,0);return found
-def errors(pid):
- output=[]
- for hwnd,title,name in windows(pid):
-  if name!='#32770':continue
-  texts=[]
-  @CALLBACK
-  def child(window,_):
-   value=C.create_unicode_buffer(2048);u.GetWindowTextW(window,value,2048)
-   if value.value:texts.append(value.value)
-   return True
-  u.EnumChildWindows(W.HWND(hwnd),child,0);output.append(dict(title=title,text=texts));u.PostMessageW(W.HWND(hwnd),0x10,0,0)
- return output
-def screenshot(hwnd,name):
- from PIL import Image
- rect=W.RECT();assert u.GetClientRect(hwnd,C.byref(rect));width,height=rect.right,rect.bottom
- dc=u.GetDC(hwnd);copy=g.CreateCompatibleDC(dc);bitmap=g.CreateCompatibleBitmap(dc,width,height);old=g.SelectObject(copy,bitmap)
- assert g.BitBlt(copy,0,0,width,height,dc,0,0,0x00cc0020);g.SelectObject(copy,old)
- class HEADER(C.Structure):_fields_=[('size',W.DWORD),('width',W.LONG),('height',W.LONG),('planes',W.WORD),('bits',W.WORD),('compression',W.DWORD),('imageSize',W.DWORD),('x',W.LONG),('y',W.LONG),('used',W.DWORD),('important',W.DWORD)]
- header=HEADER(40,width,-height,1,32,0,width*height*4,0,0,0,0);pixels=C.create_string_buffer(width*height*4)
- assert g.GetDIBits(dc,bitmap,0,height,pixels,C.byref(header),0)==height
- image=Image.frombytes('RGB',(width,height),pixels.raw,'raw','BGRX');image.save(work/name);g.DeleteObject(bitmap);g.DeleteDC(copy);u.ReleaseDC(hwnd,dc)
- return image
-
-u.GetForegroundWindow.restype=W.HWND
-u.SetWindowPos.argtypes=[W.HWND,W.HWND,C.c_int,C.c_int,C.c_int,C.c_int,W.UINT]
-def focus():
- if u.GetForegroundWindow()!=hwnd.value:u.SetForegroundWindow(hwnd);time.sleep(.1)
- assert u.GetForegroundWindow()==hwnd.value,'Source application lost foreground; no global input was injected'
-def resource(name):
- import zipfile
- data=None
- for packed in ['Data.pack','cz.pack']:
-  with zipfile.ZipFile(dataRoot/packed) as z:
-   for item in z.infolist():
-    if item.filename.lower()==name.lower():data=z.read(item)
- assert data is not None,name
- return ET.fromstring(data)
-def button(file,name):
- row=resource(file).find(name);return [int(value) for value in row.get('position').split()]
-
-def modules(pid):
- ps=C.WinDLL('psapi',use_last_error=True)
- k.OpenProcess.argtypes=[W.DWORD,W.BOOL,W.DWORD];k.OpenProcess.restype=W.HANDLE;k.CloseHandle.argtypes=[W.HANDLE]
- ps.EnumProcessModulesEx.argtypes=[W.HANDLE,C.c_void_p,W.DWORD,C.POINTER(W.DWORD),W.DWORD]
- ps.GetModuleFileNameExW.argtypes=[W.HANDLE,W.HMODULE,W.LPWSTR,W.DWORD]
- handle=k.OpenProcess(0x410,False,pid);assert handle
- try:
-  handles=(W.HMODULE*2048)();size=W.DWORD();assert ps.EnumProcessModulesEx(handle,handles,C.sizeof(handles),C.byref(size),3)
-  result={}
-  for module in handles[:size.value//C.sizeof(W.HMODULE)]:
-   path=C.create_unicode_buffer(32768)
-   if ps.GetModuleFileNameExW(handle,module,path,len(path)):result[Path(path.value).name.lower()]=path.value
-  return result
- finally:k.CloseHandle(handle)
-def check_process():
- problem=errors(p.pid)
- if problem:raise RuntimeError(str(problem))
- if p.poll() is not None:raise RuntimeError('Application exited unexpectedly: '+str(p.returncode))
-def capture(name):check_process();return screenshot(hwnd,name)
-def settle(name):time.sleep(.8);return capture(name)
-def roi(image,rect):return image.crop(rect).tobytes()
-def wait_match(name,rect,expected,timeout=60):
- deadline=time.monotonic()+timeout
- while time.monotonic()<deadline:
-  frame=capture(name)
-  if roi(frame,rect)==expected:return frame
-  time.sleep(.2)
- raise RuntimeError('Expected screen region did not return: '+name)
+from windows_game_gui import GameGui,u,k
+probe=GameGui(work,data)
+button=probe.button
+capture=probe.capture
+check_process=probe.check_process
+click=probe.click
+errors=probe.errors
+focus=probe.focus
+modules=probe.modules
+resource=probe.resource
+roi=probe.roi
+scan=probe.scan
+screenshot=probe.screenshot
+settle=probe.settle
+wait_match=probe.wait_match
+windows=probe.windows
 # Only graphics window mode is changed; all game data is read in place.
 settings=resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0')
 common=work/'common';(common/'sys').mkdir(parents=True);ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
 report=dict(status='running',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),work_directory=work.relative_to(r).as_posix(),original_program_code_used=False,original_comparison=False,source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(work/n) for n in ['FarmarSourceRuntime.exe','JNGLoad.dll','Squall.dll']},sessions=[])
-for name in ['tools/validate_application_runtime.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake']:
+for name in ['tools/validate_application_runtime.py','tools/windows_game_gui.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake']:
  report['source_files'][name]=digest(r/name)
 try:
  expected_hud=None
  for cycle in range(2):
   session=dict(existing_profile=bool(cycle),actions=[]);report['sessions'].append(session)
   p=subprocess.Popen([str(work/'FarmarSourceRuntime.exe'),'--data',str(data),'--common-dir',str(common)],cwd=work,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+  probe.process=p
   try:
    deadline=time.monotonic()+20;hwnd=None
    while time.monotonic()<deadline:
     check_process();found=[row for row in windows(p.pid) if row[2].startswith('melesta_')]
     if found:hwnd=W.HWND(found[0][0]);break
     time.sleep(.1)
-   assert hwnd,'No source game window';focus();time.sleep(1)
+   assert hwnd,'No source game window';probe.hwnd=hwnd;focus();time.sleep(1)
    origin=W.POINT(0,0);assert u.ClientToScreen(hwnd,C.byref(origin));bounds=W.RECT();assert u.GetWindowRect(hwnd,C.byref(bounds));client=W.RECT();assert u.GetClientRect(hwnd,C.byref(client))
    session['desktop']=[u.GetSystemMetrics(0),u.GetSystemMetrics(1)];session['initial_client_origin']=[origin.x,origin.y]
    assert session['desktop'][0]>=client.right and session['desktop'][1]>=client.bottom,'Desktop smaller than client; physical input cannot reach all buttons'

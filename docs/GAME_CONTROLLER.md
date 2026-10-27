@@ -15,7 +15,7 @@ Přímé vazby propojují příkazy Farm s postavou, nástroje se skladem a pen�
 3. uint32 počet zpráv, byte read, uint32 počet UTF16 jednotek a jejich bajty bez terminátoru.
 4. uint32 počet koeficientů a raw float pole pro skutečný Gameplay.restoreCoefficients.
 
-Chybějící soubor se před čtením vytvoří stejnou zápisovou cestou. Sáčky vznikají před Person. Instrukce nevracejí relativní X do světa: StateView konstruktor `004c48e0` nastaví pozadí na -1, zápis tento počátek odečte a obnova předává výsledek beze změny do `0045e130` / `004192a0`. Zdroj zachovává posun X o +1 při načtení; pro testované X123 vznikne zápis124, načtení124 a další zápis125. Celý původní program ještě musí tuto instrukční stopu potvrdit. Zdroj zapisuje tři ignorované bajty výplně jako nuly; originál je nechával nespecifikované. Krátké/chybné soubory a výjimky nejsou prohlášené za ověřené.
+Chybějící soubor se před čtením vytvoří stejnou zápisovou cestou. Sáčky vznikají před Person. Instrukce nevracejí relativní X do světa: StateView konstruktor `004c48e0` nastaví pozadí na -1, zápis tento počátek odečte a obnova předává výsledek beze změny do `0045e130` / `004192a0`. Zdroj zachovává posun X o +1 při načtení; pro testované X123 vznikne zápis124, načtení124 a další zápis125. Celý původní program tuto stopu nově potvrdil v obousměrném porovnání: [SAVE_INTEROP.md](SAVE_INTEROP.md). Zdroj zapisuje tři ignorované bajty výplně jako nuly; originál je nechával nespecifikované. Krátké/chybné soubory a výjimky nejsou prohlášené za ověřené.
 
 ## Ověření a hranice
 
