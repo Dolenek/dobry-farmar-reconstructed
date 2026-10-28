@@ -1,7 +1,7 @@
 ; Recovered original removal function, instructions 47..74 of NSIS 2.28.
 ; Evidence: analysis/uninstall-program.json; see docs/UNINSTALL.md.
-; This is the original application's logic, NOT the new distribution's uninstaller.
-; It is intentionally not included by a build target or executed by a test.
+; Included by the source Uninstall.exe build. Its destructive effects may run
+; only inside the separately verified native test sandbox during reconstruction.
 
 Var OriginalRegStartMenu
 Var OriginalMenuPath

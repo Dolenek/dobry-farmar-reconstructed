@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Zdrojový odinstalátor](docs/UNINSTALL.md) je nyní sestavitelný přes FarmarUninstall z přesného NSIS2.28; nezávislé sestavení má shodných všech sedm ověřovaných binárek. Všech27 aplikačních mazacích instrukcí a tři stránky mají statické porovnání. Nativní účinky v izolovaném prostředí nadále pokračují.
+
 [Obsluha textových příkazů GameInput](docs/GAME_INPUT.md) je propojená se skutečným herním světem. Native callback porovnání pokrývá33333 znaků; celé procesy ověřily peníze včetně wrap32,15 upgrade hodnot,8 osiv a kapacitně omezený sklad. Úplné herní chování a ostatní podmínky projektu pokračují.
 
 [Zkratky cLogic a grafický reset](docs/LOGIC_SHORTCUTS.md) jsou nově zapojené do hlavního EXE:3661 nativně porovnaných stavů a skutečné přepnutí okno/fullscreen. Dva resetové snímky mají2553600 přesně shodných RGB pixelů; původní texture-suppression zvláštnost i DPI hranice jsou evidované. Úplný runtime a ostatní podmínky projektu pokračují.
@@ -59,7 +61,7 @@ Skutečný [Warehouse](docs/WAREHOUSE.md) nyní propojuje zásoby profilu, výro
 | Soubor | Doložená úloha | Stav |
 | --- | --- | --- |
 | `Dobrý farmář.exe` | Hlavní hra; nativní C++ program, Direct3D 8, DirectInput 8, přibalené zvukové a obrazové knihovny. | Obnoveny načítací/resource cesta, Direct3D8 sprity, bitmapové fonty, lokalizace a hierarchie UI, cControl/cPicture a vlastněné TextLine/Letter s animovanou geometrií. Dále jsou obnovené Button/AnimationButton a vlastněné textové varianty, klikací JNG masky a DirectInput binding/polling cesta. Herní EXE a kompletní engine/systémy ještě nejsou obnovené. |
-| `Uninstall.exe` | NSIS 2.28 odinstalátor. Maže instalaci, zástupce a vybrané klíče registru. | Dekódováno 137 instrukcí, obnoveno mazací jádro do NSIS skriptu; celé EXE se ještě nesestavuje. |
+| `Uninstall.exe` | NSIS 2.28 odinstalátor. Maže instalaci, zástupce a vybrané klíče registru. | Vlastní sestavitelný NSIS2.28 program, sedm shodných binárek z nezávislých buildů a27 shodných aplikačních instrukcí; izolované účinky a UI runtime pokračují. |
 | `Squall.dll` | Zvuková knihovna; importuje DirectSound, WinMM a exportuje 97 pojmenovaných funkcí `SQUALL_*`. | Zdrojový kandidát má všech 97 exportních názvů/ordinálů. Native parametry, forward/inverse volume, celé PCM 45 zvuků přes skutečně načtenou DLL a 564 480 bajtů fyzických DirectSound bufferů jsou porovnané v obou přesnostech, také z čistého sestavení. Úplné API, playback a celý herní audio lifecycle čekají. Postup a hranice: [SQUALL.md](docs/SQUALL.md). |
 | `JNGLoad.dll` | Dekódování obrazových dat pomocí LIBMNG; exportuje `readMNG` a `freeData`. | Sestavena MSVC Win32 DLL; všechny pixely 416 JNG a PE exportní kontrakt shodné s originálem. Další chybové/animované vstupy zatím neověřené. |
 
@@ -100,7 +102,7 @@ Exportuje se pseudokód, seznam funkcí, graf volání, symboly, řetězce s odk
 
 ## Sestavení a spuštění
 
-Cílové prostředí je Windows x86, MSVC 2022 a CMake, se zachováním Direct3D 8. Sestavitelné cíle jsou `JNGLoad`, diagnostika `jng-decode`, `resource-inspect`, `pack-decode`, `recovered_game_utilities` a `recovered_squall_utilities`. Postup, závislosti a Windows porovnání jsou v [docs/JNGLOAD.md](docs/JNGLOAD.md) a [docs/RESOURCE_LOADING.md](docs/RESOURCE_LOADING.md). Před konfigurací herních utilit je nutné také `python tools/fetch_minizip.py` a `python tools/fetch_expat.py`. Cíl hlavní hry ještě není k dispozici. Obnovené herní metody popisuje [docs/GAME.md](docs/GAME.md), zvuk [docs/SQUALL.md](docs/SQUALL.md) a odinstalátor [docs/UNINSTALL.md](docs/UNINSTALL.md).
+Cílové prostředí je Windows x86, MSVC 2022 a CMake, se zachováním Direct3D 8. Sestavitelné cíle jsou `JNGLoad`, diagnostika `jng-decode`, `resource-inspect`, `pack-decode`, `recovered_game_utilities` a `recovered_squall_utilities`. Postup, závislosti a Windows porovnání jsou v [docs/JNGLOAD.md](docs/JNGLOAD.md) a [docs/RESOURCE_LOADING.md](docs/RESOURCE_LOADING.md). Před konfigurací herních utilit je nutné také `python tools/fetch_minizip.py` a `python tools/fetch_expat.py`. Hlavní EXE je cílem `DobryFarmar` při `BUILD_SQUALL_CANDIDATE=ON`; `FarmarUninstall` vytváří zdrojový odinstalátor. Nově je potřeba také `python tools/fetch_nsis.py`. Úplné herní chování a nativní odinstalační účinky se dál ověřují. Obnovené herní metody popisuje [docs/GAME.md](docs/GAME.md), zvuk [docs/SQUALL.md](docs/SQUALL.md) a odinstalátor [docs/UNINSTALL.md](docs/UNINSTALL.md).
 
 Explicitní `recovered_game_audio` nyní propojuje SoundManager/cSound/cChannel a zvukové služby MainMenu/Options s vlastní zdrojovou Squall.dll. `game-audio-reference-test` ověřuje skutečný playback cursor, pauzu a 378 stavů v obou x87 přesnostech, také ze samostatného sestavení. Jde o propojený diagnostický scénář; celý herní EXE a audible/full-game porovnání ještě čekají. Postup a rozsah v [SOUND_MANAGER.md](docs/SOUND_MANAGER.md).
 
@@ -120,7 +122,9 @@ Projekt zatím nebyl publikován na GitHub. Automaticky mu nebyla přidělena li
 
 Další aktuálně sestavitelné části: datový správce nastavení, Windows okno/message pump, cResource/cTexture a Direct3D8 JNG textury. Postup a omezení jsou v [docs/SETTINGS.md](docs/SETTINGS.md) a [docs/WINDOW_GRAPHICS.md](docs/WINDOW_GRAPHICS.md). Pro jejich sestavení doplnit `python tools/fetch_direct3d_headers.py`; pro okenní diagnostiku také `python tools/extract_game_icon.py`. Ikona je původní výtvarné médium pouze v ignorovaném lokálním adresáři, ne kopie herního kódu.
 
-## Ověření
+## Dřívější dílčí protokoly
+
+Následující záznamy zachovávají rozsah své etapy. Aktuální stav hlavního EXE/DLL a nového odinstalátoru je výše a v [STATUS.md](docs/STATUS.md).
 
 Obnovený ProgressBar ze skutečného `UI/Load.xml` je porovnaný s originálem: 200 000 transformací, 7 368 stavů a 96 Direct3D8 snímků s 46 080 000 shodnými RGB pixely. Včetně víčka, opakovaného XML a uvolnění referencí; rozsah a další práce jsou v [docs/PROGRESS_BAR.md](docs/PROGRESS_BAR.md). Přednačítání a vytvoření skutečného herního světa pokračují.
 

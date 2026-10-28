@@ -1,0 +1,2949 @@
+{
+  "project": "NSIS",
+  "version": "2.28",
+  "tag": "v228",
+  "commit": "2473ff63ba8dce55dfc14c48e1fe68112c30a05d",
+  "source_url": "https://github.com/nsis-dev/nsis/tree/2473ff63ba8dce55dfc14c48e1fe68112c30a05d",
+  "archive_url": "https://codeload.github.com/nsis-dev/nsis/zip/2473ff63ba8dce55dfc14c48e1fe68112c30a05d",
+  "archive_sha256": "d098aa0ec1730a498f85b89c51df6309603083e6f96d242bb9eb2a54fb8186ec",
+  "archive_root": "nsis-2473ff63ba8dce55dfc14c48e1fe68112c30a05d",
+  "license": "COPYING",
+  "files": [
+    {
+      "path": "Contrib/AdvSplash/advsplash.c",
+      "sha256": "382769005115a97a4049e04c097bce8f5f4b70c3299d4f538faea9f7b90a48f4"
+    },
+    {
+      "path": "Contrib/AdvSplash/advsplash.txt",
+      "sha256": "fd4875428ac8fe98eae97a80caa7a805a315351f3f7ee3e0004e14a1b56d775d"
+    },
+    {
+      "path": "Contrib/AdvSplash/Example.nsi",
+      "sha256": "44a73c016ea1c4ad0b53241c92587d8cd6c7a9d57277da32bed1fd5f017ef1ec"
+    },
+    {
+      "path": "Contrib/AdvSplash/SConscript",
+      "sha256": "ac80313e9e3ef80f8be6f8fe252aa726cc5bc6d7446c31850f9e0abbf5ab324f"
+    },
+    {
+      "path": "Contrib/Banner/Banner.c",
+      "sha256": "315dd3d6e1dd63a1a231972f0b1f272f4d5a65cd0ef210a6b96afd3d8fb93634"
+    },
+    {
+      "path": "Contrib/Banner/Example.nsi",
+      "sha256": "50adb2a8b2072683efe374bb8d9fffce6b17b756aedd477f2a2243be6b780152"
+    },
+    {
+      "path": "Contrib/Banner/Readme.txt",
+      "sha256": "db2159d69b9cf4b86ffa5c377d0aec3ad15713339736be7cd640f9160b7c927f"
+    },
+    {
+      "path": "Contrib/Banner/SConscript",
+      "sha256": "b3a31894c3c6a7f9917173e6c7f72c53242c4e39802246347760cc2a7f4809d9"
+    },
+    {
+      "path": "Contrib/BgImage/BgImage.cpp",
+      "sha256": "704fb52d6abe275a84e539a3b3d918173485b2a1cfecd743853d9017d3075533"
+    },
+    {
+      "path": "Contrib/BgImage/BgImage.txt",
+      "sha256": "5f3ef408415e39fae9e57185b4604e5814967fc4c9d1358a358fb04f91234639"
+    },
+    {
+      "path": "Contrib/BgImage/Example.nsi",
+      "sha256": "bfc38cc5ed47ed651a01881d9c02591e1c63ecabc91435bebd4f70c694754559"
+    },
+    {
+      "path": "Contrib/BgImage/SConscript",
+      "sha256": "920d049a836fe907d4fac07b181181ab389b1b450f1188df8148d5408bb66198"
+    },
+    {
+      "path": "Contrib/Dialer/dialer.c",
+      "sha256": "5ed10bb88f02cfe134fc908deaf867fe3addf63f8b25fc3e5952c50fd3027ea7"
+    },
+    {
+      "path": "Contrib/Dialer/Dialer.txt",
+      "sha256": "5a695b1fae8ad13a0f5004c1d393ddb8c1dd00ea0bc7ea091b74a5a81fcc3677"
+    },
+    {
+      "path": "Contrib/Dialer/SConscript",
+      "sha256": "04b06c1df74093c99b5db1ce5174b6e9333ef2f69f411da94f2ee8d58ee147b9"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll.c",
+      "sha256": "c865e4b0ac956d87318fde41b242c572b8098de58145562ecc8b84bc23b2f8cc"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll.dpr",
+      "sha256": "3cfad5f65b6b77a1156cd3c4817f6ccf3e515d010f542abc46d20c5d22a2fc91"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll.dsp",
+      "sha256": "030a4631101f9387227e5b60e2b08ffa0acd6014603b48c875ed430312dffc67"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll.dsw",
+      "sha256": "94a44eb3dd5d7bca8dc7bf07928a6acf81385c974230c364887c9387683251fd"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll.h",
+      "sha256": "727a3c996bfa4350b3694e65339b723a677891234c5c7d7eecc4e2723f054a50"
+    },
+    {
+      "path": "Contrib/ExDLL/exdll_with_unit.dpr",
+      "sha256": "06679bfb12d4fb84225cbf89da20ffa843d214b4db3f774332716bf7bcccfa9a"
+    },
+    {
+      "path": "Contrib/ExDLL/extdll.inc",
+      "sha256": "4832a6c0b1462991a7498b03b7f82ee694ccac30788ad36eeab0e95d3009520b"
+    },
+    {
+      "path": "Contrib/ExDLL/nsis.pas",
+      "sha256": "9f44d083ef746f2127cd897dcf693cb631214372c42c109e937e2afa45f38cd4"
+    },
+    {
+      "path": "Contrib/ExDLL/SConscript",
+      "sha256": "1fa5059177eb93cce06c626a66b260fcb56bdec99d525c33d56d5ecc2bad1647"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/big.bmp",
+      "sha256": "c22b2ada7263ec33431ff251f1484c7a554c36f34ec30beb25e34861f9e1dfc9"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/classic-cross.bmp",
+      "sha256": "438a514508b56db7c188d9826662fe39639f470e877ef2f659edae7139e4e32c"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/classic.bmp",
+      "sha256": "c0a5e0e33a8c8af0ddc313126a7767632890373444f58a4f20c7fee75eeca65c"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/colorful.bmp",
+      "sha256": "4318c3d4f25b1fcfabe3a1b44d56957da06224f64534944aedd4b7d1c55a8a84"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/grey-cross.bmp",
+      "sha256": "ca1c42c656e4f687ed4ee54321d8f23ff4e80242b104388c1d275ad921e0e011"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/grey.bmp",
+      "sha256": "1d5ffd9b69b50071b44603fa517230456af743b4a8abe117ceeb64104769c2ac"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/modern.bmp",
+      "sha256": "5ac685bb79e6fe75e6e54b9fd4e9524d8da6bc8acb269f50c42bf372af671570"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/red-round.bmp",
+      "sha256": "4b74ffb1131596fa3059c3f025e28720b41b4fceb512b7388cd1e19894908fe9"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/red.bmp",
+      "sha256": "e12080d15e31fc428116a72c32245e9c7c3b222cae4e4608a8433f16cc56f7bf"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/simple-round.bmp",
+      "sha256": "2e84996353100d025920cd81a0f21b81b3849c20fc4e4a547692d5d0afc6e17a"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/simple-round2.bmp",
+      "sha256": "dfcd7729376479d5df262fedcc7f5a6b3fffc4f8d6b9d5fc2cba304f944f7710"
+    },
+    {
+      "path": "Contrib/Graphics/Checks/simple.bmp",
+      "sha256": "b22aca4a5b82422a009b91a046176df6cd7265050b7c9d4950c71b1b93f4c78f"
+    },
+    {
+      "path": "Contrib/Graphics/Header/nsis-r.bmp",
+      "sha256": "2a54f3e88dc3176c97f104546c8aa913172f0bfbb826d0e8aea9abcfdc3979f0"
+    },
+    {
+      "path": "Contrib/Graphics/Header/nsis.bmp",
+      "sha256": "766a893fe962aefd27c574cb05f25cf895d3fc70a00db5a6fa73d573f571aefc"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-nsis.bmp",
+      "sha256": "552f10c2b0a34eaea274ed8ccbc9d754eeae5826a10a3ef224685bf1d8eac2cf"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-r-nsis.bmp",
+      "sha256": "6cfebb59f0ba1b9f1e8d7aa6387f223a468eb2ff74a9ed3c3f4bb688c2b6455e"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-r.bmp",
+      "sha256": "bd146e39af28cec251d63da453cb8f04b74904a643f4c3dab52ef2b5bcb4bb3a"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-uninstall-nsis.bmp",
+      "sha256": "87d1eed1ee12e91bc38a58108139fa8d3a220382069ff8c0eb9261ea52f35326"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-uninstall-r-nsis.bmp",
+      "sha256": "bd6cde334e9a70979efad038bc1ddc62191974e99b662c3f264b2e95e966c052"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-uninstall-r.bmp",
+      "sha256": "7e3e16598f8fed5a42f4597dac5c1773e7e471797872accff0042affabeb0b4f"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange-uninstall.bmp",
+      "sha256": "b9f6b1effac717dcb899f45b99f5755a5b12825a1b61d7d6bf23efffb3ac36e7"
+    },
+    {
+      "path": "Contrib/Graphics/Header/orange.bmp",
+      "sha256": "4c9e804ce1a391f8e603b7b9c732a6529c1e81be4d12f125c8562ea9d49095c2"
+    },
+    {
+      "path": "Contrib/Graphics/Header/win.bmp",
+      "sha256": "8e58b3e6e3896a4bae05fa2f6adc238d391aa80bc51c138f851f373c6c23e518"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/arrow-install.ico",
+      "sha256": "ad8e1efce449a4c6658305f979f2826153fa97d48579259cd09180ba2010b995"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/arrow-uninstall.ico",
+      "sha256": "cd58c15fb0848994cb3f1bcc179e53a9db7d962778ee036b560b8fedd07792d8"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/arrow2-install.ico",
+      "sha256": "7446a65155c7d71816bf6321796a3e2c004eb4a2f50717035cd96f7b21b14f1f"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/arrow2-uninstall.ico",
+      "sha256": "e725e4c212b71d426cd85cb44741fb0e5fd50406c0cdca447663d3fd4003fceb"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/box-install.ico",
+      "sha256": "6a2ca9ce7cea0ba7215dd257920790156933f1a50054ea051419c00f37477456"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/box-uninstall.ico",
+      "sha256": "797f66b21534d429f052180423fc22b730311a9c97bdf98d632948f9f859c04c"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/classic-install.ico",
+      "sha256": "a09769e39fa641ae88851ed5b64173a8abe0d494dc937a0c78e0255df9d2fed1"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/classic-uninstall.ico",
+      "sha256": "d9673909834dcedf34932d59a80eb6ae19210afdfa054241959ac226bf504a27"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/llama-blue.ico",
+      "sha256": "87df44f81ac4ff83e4dce0b5d819afa7fa65288f515a5219cf54d7317be8b295"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/llama-grey.ico",
+      "sha256": "7f17ec9f401f9e91c88c5cd4d216397d714c05c549340acccd3221abf9c92b0c"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-install-blue-full.ico",
+      "sha256": "5a2bd76e8d1e601f93c667ae6319cf4aeed24ee30508dca7f1b845789033e3ed"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-install-blue.ico",
+      "sha256": "666d7f1da2d3aa65a638be9818e4bb24e9632eabab4d642f7d9dbf8cf3bffc01"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-install-colorful.ico",
+      "sha256": "f5681d2ed2efef52faf7fbcecc9da2e07ba6f8eefde7dc89cb33abecccfc1d3f"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-install-full.ico",
+      "sha256": "13a9fc72823ead4f0065b032b81adecda1ed0f1789c23b15e52df531912db1d0"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-install.ico",
+      "sha256": "95c36884a12b4bde8db9a3587f7bdb05e7232a4e9a095202ace4eba693412e05"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-uninstall-blue-full.ico",
+      "sha256": "ff5435163d7d1e79ca1cfda01ba929dcd4dbf29cf69ed60f5448d822f0e26d03"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-uninstall-blue.ico",
+      "sha256": "2a766a15db31e4fec07226cceea64ab411854d751354a35dec2aa305fc8849f3"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-uninstall-colorful.ico",
+      "sha256": "fb365bd8f0ca0b17d7a94e67b0b6aad3ed7aced6fad233907a492e796ff3c337"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-uninstall-full.ico",
+      "sha256": "47bd1830e3e05311ad5c4c6abdcb6f7cfe8f13c79a51fc48669729a28ac8a181"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/modern-uninstall.ico",
+      "sha256": "5037c877cb134c1cd303367cfcc2afecb0517522ff8ad98544d4eb158ddc6bda"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/nsis1-install.ico",
+      "sha256": "dd1a02e00f70f5e8a90568a06e9953af6688d7083851f3d14453b4a2030fec73"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/nsis1-uninstall.ico",
+      "sha256": "04fa9188e475bf1698d4a6953c4ad6f4bfc25677d7cf149a605fd91e3f12100c"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/orange-install-nsis.ico",
+      "sha256": "af57f376d93c091c7deff84082c0b8267962a70c9a018f3981300ece8be165e9"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/orange-install.ico",
+      "sha256": "20f5116dd02ab3004ce701135f7d09211b6be3aadfb4c1559d7620ca05f11bf8"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/orange-uninstall-nsis.ico",
+      "sha256": "9f45b9a6aaa741ab473ed4e53811cf0b40eeab7c4477d4bc47f06c94b443e99a"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/orange-uninstall.ico",
+      "sha256": "48498bf6cee860bc17e00a4426a0b7a9633b264a74e89fa288668a8e69c02ade"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/pixel-install.ico",
+      "sha256": "e8080918da76cbc0a9df627c59eccaea1b6142008a67f9affd1a688fcfb66c0e"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/pixel-uninstall.ico",
+      "sha256": "652f01a3a81456cc1cd1aabc7e14e9506db3c1298139e82da3b522563e933b4e"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/win-install.ico",
+      "sha256": "1a3ec42f393635307ae2e369ef50a8eb0fbbe02cd2f82c4c6d3486d294ddcceb"
+    },
+    {
+      "path": "Contrib/Graphics/Icons/win-uninstall.ico",
+      "sha256": "5f5bae653fd5a00b6baf38a4eab2b2a0412c1932fa533570cd233d01437bf7bf"
+    },
+    {
+      "path": "Contrib/Graphics/SConscript",
+      "sha256": "81b0cc1152696416d0ec06f9e45cf1a77304426e6ad4f1d4dab7e72748d8305f"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/arrow.bmp",
+      "sha256": "f1dfb50efbd9dc69818175eadd0ca8c8f975ae6916f83523505e488d48f21e6a"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/llama.bmp",
+      "sha256": "c9af52dc2c1444a2ae53f3cca9282bb433af4ef4ed850c1133447b7ba731174c"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/nsis.bmp",
+      "sha256": "c1cd4e5a3d2ebfdc477ca00b5b8c127df149df80cf089e851369db75c61cef4b"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/nullsoft.bmp",
+      "sha256": "b7a5b209189b77423be7e213444e30f2d6f79ba688fcf9c063b5618ebb625a51"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/orange-nsis.bmp",
+      "sha256": "076221b4527ff13c3e1557abbbd48b0cb8e5f7d724c6b9171c6aadadb80561dd"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/orange-uninstall-nsis.bmp",
+      "sha256": "b0278ae60eddd3e03cdb37a873221df0656eeb4541b0190898de1ce8f0427a5e"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/orange-uninstall.bmp",
+      "sha256": "498d402163d5d4578d8e76a22c97ab927cf31bf16f7125938cf03cc200c7a290"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/orange.bmp",
+      "sha256": "a7b2f12e01cbea88d4f645f797f2ca6107d76ae13cd1be6dc532b759bfe0d925"
+    },
+    {
+      "path": "Contrib/Graphics/Wizard/win.bmp",
+      "sha256": "3ad2dc318056d0a2024af1804ea741146cfc18cc404649a44610cbf8b2056cf2"
+    },
+    {
+      "path": "Contrib/InstallOptions/Changelog.txt",
+      "sha256": "f87f1b3c92fd232f276dea1f8b45282a375464716563032db37c370d582571f8"
+    },
+    {
+      "path": "Contrib/InstallOptions/InstallerOptions.cpp",
+      "sha256": "cb41d3aee47428c531acc14232be3c81a0119c804f94d317e52c2ace34d19a56"
+    },
+    {
+      "path": "Contrib/InstallOptions/ioptdll.rc",
+      "sha256": "f38e49936afb726594779bdabb45dff6e7d4de07b68d16429cdde152e11064e5"
+    },
+    {
+      "path": "Contrib/InstallOptions/Readme.html",
+      "sha256": "f5f96a3584616d1bb622d4561806422ec16bb005e09bf27c0f2149c22a045277"
+    },
+    {
+      "path": "Contrib/InstallOptions/resource.h",
+      "sha256": "535ab63c80de1287a29b528c9a654e1ea218859211a31138a6c657a3917db7ca"
+    },
+    {
+      "path": "Contrib/InstallOptions/SConscript",
+      "sha256": "3a8a1b3701cc8749a9ac96cfb44c422a4a028beb1406876b3c31aab8306ec697"
+    },
+    {
+      "path": "Contrib/InstallOptions/test.ini",
+      "sha256": "b1cef8e1fee1f1f13df5813ec920c85a297e239546726c8456a70975df2cca40"
+    },
+    {
+      "path": "Contrib/InstallOptions/test.nsi",
+      "sha256": "4b29c31c5d8187f739c36b27cd9adedcda8f2e7f2bcd31d8be721d749fa628be"
+    },
+    {
+      "path": "Contrib/InstallOptions/testimgs.ini",
+      "sha256": "4f89571ffec3b368b65470e182c33f3543d97cc90e37e6037637ee5bc5b70f05"
+    },
+    {
+      "path": "Contrib/InstallOptions/testimgs.nsi",
+      "sha256": "0d499283462f19822483a2e76d3e71ea2a17579cc21b25aad6392a28a0a2d7ad"
+    },
+    {
+      "path": "Contrib/InstallOptions/testlink.ini",
+      "sha256": "bc8638abae874ee31d15ba6e690b422223fde7f08d7050ebf2cb6358510de830"
+    },
+    {
+      "path": "Contrib/InstallOptions/testlink.nsi",
+      "sha256": "aca42d8a7e66b93c7178fa1b36508bb6597e532e3a28d043f45fa6a9a4bb73d9"
+    },
+    {
+      "path": "Contrib/InstallOptions/testnotify.ini",
+      "sha256": "bef14d09d362e3608717f97c22ad79c8a6b0171be9121bc5721b5b740dc89b72"
+    },
+    {
+      "path": "Contrib/InstallOptions/testnotify.nsi",
+      "sha256": "6133f532b1cb71a1fb64557c7d1321537e9ef3248764df2882bd6b3e845574a8"
+    },
+    {
+      "path": "Contrib/LangDLL/LangDLL.c",
+      "sha256": "fef9822c56a4c6ff70d2ce1b3057b0aac3986a79f9a02b010238d1a2a41953a2"
+    },
+    {
+      "path": "Contrib/LangDLL/resource.h",
+      "sha256": "133918cf2930b01d99b2270c966644af0df52fdb2721945e916c39eb08cd026b"
+    },
+    {
+      "path": "Contrib/LangDLL/resource.rc",
+      "sha256": "a6faf2eb29a5aa92a33496d25baa4b5844608f840a260d7451e5f630b9ed6f0d"
+    },
+    {
+      "path": "Contrib/LangDLL/SConscript",
+      "sha256": "5f3de92c059154a59191879146f3aef171db42875193eeb4db80835de75ee424"
+    },
+    {
+      "path": "Contrib/Language files/Afrikaans.nlf",
+      "sha256": "1c6b82b00f62658e5fd66e68f3f9a710e222a8cddef61e274d677bd74ce6e75b"
+    },
+    {
+      "path": "Contrib/Language files/Albanian.nlf",
+      "sha256": "f611f8f67a5f572a3904fc68bce21c39fac366d169de0cd481bf47f46cc608d0"
+    },
+    {
+      "path": "Contrib/Language files/Arabic.nlf",
+      "sha256": "c5eaf774c47d3c024c2428549a1ce3e813dfc9c3fe1254ba4dcca8b2eac99e34"
+    },
+    {
+      "path": "Contrib/Language files/Basque.nlf",
+      "sha256": "6576215b58752a47718285bf15c3aeed19cdb38b296b5ef935bf020f07de682c"
+    },
+    {
+      "path": "Contrib/Language files/Belarusian.nlf",
+      "sha256": "4b87ce0215f61d55dfe58a52da89d7c3adbc617d0839fb854c62abc565162602"
+    },
+    {
+      "path": "Contrib/Language files/Bosnian.nlf",
+      "sha256": "ce324f46519d6017bf2201ed7c7610b4d494e8fad04832fab9087af2136ba3a3"
+    },
+    {
+      "path": "Contrib/Language files/Breton.nlf",
+      "sha256": "f95aa31bdad55f782eb200ff590c0e0c6348ec681172f9f3bc0cd6e2222e850a"
+    },
+    {
+      "path": "Contrib/Language files/Bulgarian.nlf",
+      "sha256": "879bdc71fcb239c1411e52c5bebf69ec7f43a5d358f5e36471df5dccbc07eb85"
+    },
+    {
+      "path": "Contrib/Language files/Catalan.nlf",
+      "sha256": "86e09583e8d5f15d622004825e4263ba42c3a391de0170f79b740dd8726c3c2f"
+    },
+    {
+      "path": "Contrib/Language files/Croatian.nlf",
+      "sha256": "ed67082eed8312a807259e833ee8ab5fc58278ea4a5c7733c0f413a76b7318df"
+    },
+    {
+      "path": "Contrib/Language files/Czech.nlf",
+      "sha256": "4c38433acf0441d4359d4f0645c3bcfb5fe2091adfbc37e1781955b788f83408"
+    },
+    {
+      "path": "Contrib/Language files/Danish.nlf",
+      "sha256": "7567512d5d30433a70e95e235a1e7a75d474dab00a769a872931e31213cd5725"
+    },
+    {
+      "path": "Contrib/Language files/Dutch.nlf",
+      "sha256": "c9adb7bb96598a90efd4e82d30f74cd6ec037e33b861d1c98702a2918dc7e86a"
+    },
+    {
+      "path": "Contrib/Language files/English.nlf",
+      "sha256": "0230b29e4212ba16738c4715683039c97940e1132daa2aefe8b066144ce82f5d"
+    },
+    {
+      "path": "Contrib/Language files/Estonian.nlf",
+      "sha256": "a6b35b26f427f67e01e1068f15a76cd65ab4f131c5bf652c2e2e10fc26413f0b"
+    },
+    {
+      "path": "Contrib/Language files/Farsi.nlf",
+      "sha256": "2516748ffef2f785e9a6d7f1aa6f37e8f5b0bc6e5241433be3ae51f18fbc8254"
+    },
+    {
+      "path": "Contrib/Language files/Finnish.nlf",
+      "sha256": "32021e610e68cf4a28950f71759f6b9a34a19fb27ca042c7f6806c1fb962ac8b"
+    },
+    {
+      "path": "Contrib/Language files/French.nlf",
+      "sha256": "8ec91a13c11981db91169f5ad1c0f4f7aaf686dd30427c1482b0b422213dfe1e"
+    },
+    {
+      "path": "Contrib/Language files/Galician.nlf",
+      "sha256": "f12a7b14eb025c6d84608a220ee5a917c1cecef80fcbb9ec28526016857d1fed"
+    },
+    {
+      "path": "Contrib/Language files/German.nlf",
+      "sha256": "74df80b9f57743fa8a117918f2265e870b28eadbfa3a32459adc97e5d3ab5c53"
+    },
+    {
+      "path": "Contrib/Language files/Greek.nlf",
+      "sha256": "10641884a1942fe564600af8a8b02125b10be6810500f026fa670bd2da493ddf"
+    },
+    {
+      "path": "Contrib/Language files/Hebrew.nlf",
+      "sha256": "6df007fba2b4234e961a5f8a3210d19004ac85a80e06944d0d19005378965c23"
+    },
+    {
+      "path": "Contrib/Language files/Hungarian.nlf",
+      "sha256": "0c27e1553b4159641576dca6c5d95e329666909c452a04ec54efc1cfa2297d06"
+    },
+    {
+      "path": "Contrib/Language files/Icelandic.nlf",
+      "sha256": "2a9c70bfba9ba20a6227b175b21376ffebe489d228f2b7be286f9726fe9385da"
+    },
+    {
+      "path": "Contrib/Language files/Indonesian.nlf",
+      "sha256": "3a8b1ed314c9c6b979f00e9487da0e9b67e5575ff9ce85b7f02fed7928c718ad"
+    },
+    {
+      "path": "Contrib/Language files/Irish.nlf",
+      "sha256": "46418496d7039dfe05bcc5412b6acb16fbfd4657cf28df073c01a09968ae55a8"
+    },
+    {
+      "path": "Contrib/Language files/Italian.nlf",
+      "sha256": "f21930245619cf4577fe31317ecf8dd81beb897391ae5942702a5a2911ae6085"
+    },
+    {
+      "path": "Contrib/Language files/Japanese.nlf",
+      "sha256": "8e3410a2f398cd48be6483961f9b84de65d6ea35032a1897df9c0790cf53c220"
+    },
+    {
+      "path": "Contrib/Language files/Korean.nlf",
+      "sha256": "ee32eddab659cd355bda23abe508202b7ba68b7fb37cb4d93a31c86be2f9d19b"
+    },
+    {
+      "path": "Contrib/Language files/Kurdish.nlf",
+      "sha256": "16d31fb614397a8e539d0aa29b96e8cbfb14dba6b889631e3ac17b442cd974ee"
+    },
+    {
+      "path": "Contrib/Language files/Latvian.nlf",
+      "sha256": "ae871445dc6ea50ada5eaa74251f30ad04fa96904d5c2be7f040ad03be6266d6"
+    },
+    {
+      "path": "Contrib/Language files/Lithuanian.nlf",
+      "sha256": "83beb654b4546a5508fb3c31aa09a659518f469e4d6b55047e337c8d6e003d7c"
+    },
+    {
+      "path": "Contrib/Language files/Luxembourgish.nlf",
+      "sha256": "4cc0ac957bb7e8d1ce526734fef302746f88a64941c6323a3ef911debdeaed98"
+    },
+    {
+      "path": "Contrib/Language files/Macedonian.nlf",
+      "sha256": "431cefd4eaaea3ec4bbbc9a9a4089fd664276b2c689f87d9c10250abbf0d02aa"
+    },
+    {
+      "path": "Contrib/Language files/Malay.nlf",
+      "sha256": "5900f527ac796bf1d8b4b298dc3cc005571796496dff37aa5ae294b7176a6fe7"
+    },
+    {
+      "path": "Contrib/Language files/Mongolian.nlf",
+      "sha256": "dce1797fa598b422abcfc4dd8ba14a0ce86d6b4efee11003ba929c4b6f14e094"
+    },
+    {
+      "path": "Contrib/Language files/Norwegian.nlf",
+      "sha256": "8203fda0d62c4aadaeabf594b050ee992b6b58201ed1cf87131271a6235b0747"
+    },
+    {
+      "path": "Contrib/Language files/NorwegianNynorsk.nlf",
+      "sha256": "699765bf021dfaf30b49cce939838ca7b38f8052eb05a81734bb95b11eef29f8"
+    },
+    {
+      "path": "Contrib/Language files/Polish.nlf",
+      "sha256": "82f9ebdac9d369ff8c4542f38af323741e5fe70d9b2c212aed569b1f44a73326"
+    },
+    {
+      "path": "Contrib/Language files/Portuguese.nlf",
+      "sha256": "212224d8f6948b187a5198eb19690953a7b421a0b2714dfd40d6d385a4048712"
+    },
+    {
+      "path": "Contrib/Language files/PortugueseBR.nlf",
+      "sha256": "61a910457cab19270a34c330f338dc1c50a6b204896b54ca3f21df17a9696fc4"
+    },
+    {
+      "path": "Contrib/Language files/Romanian.nlf",
+      "sha256": "98415fccc343722bac55a0ad3bbe5fa1ab59032502863f7f4812fa86795b5afd"
+    },
+    {
+      "path": "Contrib/Language files/Russian.nlf",
+      "sha256": "5c63e988b226e1eb470249d8eda4b8fb89c17ee840e85891fb30b4471edcc0d4"
+    },
+    {
+      "path": "Contrib/Language files/SConscript",
+      "sha256": "6672c1a542e73ea9a4aca4ac997061b7dcb0cc04762f3b59fc11c39faf27d3f6"
+    },
+    {
+      "path": "Contrib/Language files/Serbian.nlf",
+      "sha256": "0008891beb69cc9700be75b0f71e26e42d5ad9c4849d371b97dbd42ce2aefe9c"
+    },
+    {
+      "path": "Contrib/Language files/SerbianLatin.nlf",
+      "sha256": "afe3a41d9adf04373a6870b444e770f0e5ce4e6328ca04a89e26c443252b68fd"
+    },
+    {
+      "path": "Contrib/Language files/SimpChinese.nlf",
+      "sha256": "3edbdf7b73b727e1b2a5f3e246eb8c6f42d66f754b0bab9797a6eb470659a7e5"
+    },
+    {
+      "path": "Contrib/Language files/Slovak.nlf",
+      "sha256": "75744200a7af5304d5fe6a479a7c291ffe172ce5072f334cd18463077cdc9056"
+    },
+    {
+      "path": "Contrib/Language files/Slovenian.nlf",
+      "sha256": "da08d944f02372e5e641daf8b045702e857d00288d89118bf40186f95834b5e1"
+    },
+    {
+      "path": "Contrib/Language files/Spanish.nlf",
+      "sha256": "b4f7308fed5a53a489eab40aaceb541a8cd8c06605bc81ad4ef105b25726fa91"
+    },
+    {
+      "path": "Contrib/Language files/Swedish.nlf",
+      "sha256": "a85e39e3233ce6f0978d537fbcf05338de8a8c801851e8b81fa70d3955c2840f"
+    },
+    {
+      "path": "Contrib/Language files/Thai.nlf",
+      "sha256": "ab08b666d663e22bbc216b2f0dffc405c1d0830b965873de9af97e1bf1b23d4b"
+    },
+    {
+      "path": "Contrib/Language files/TradChinese.nlf",
+      "sha256": "1670858b639e7ae7cd1726583c4e416ebd96e95e23740f76c418f94d0355822d"
+    },
+    {
+      "path": "Contrib/Language files/Turkish.nlf",
+      "sha256": "4e458c30c73d1bdff0e08e819a6a2454bae1e5488ff6560145f7b0fac6b9cc7d"
+    },
+    {
+      "path": "Contrib/Language files/Ukrainian.nlf",
+      "sha256": "f61d00097ae563dfc633129ea0b5aa50930eea67d7468292fb414ec33d100497"
+    },
+    {
+      "path": "Contrib/Language files/Uzbek.nlf",
+      "sha256": "b765bacaf31a5bc29534a7e116c0c75a47dc11618d91ad4295cc844bafe29ecd"
+    },
+    {
+      "path": "Contrib/Language files/Valencian.nlf",
+      "sha256": "5237de65fd58831d416bff9f081508204fabd6feac248264211b7ff484cbb939"
+    },
+    {
+      "path": "Contrib/Language files/Welsh.nlf",
+      "sha256": "bec20d19294abe03ac8ac15073b5030e4788b125f0dccb4e644283a236b2f909"
+    },
+    {
+      "path": "Contrib/Library/LibraryLocal/LibraryLocal.cpp",
+      "sha256": "e2ce89a2f7317cdd3ce5280102d7d32f4aa8b877c1d0804745c643c1ba6a86a6"
+    },
+    {
+      "path": "Contrib/Library/LibraryLocal/SConscript",
+      "sha256": "3b3c70d5bf5a6ea562f990bf2946fe5168b21c3e5b412054326555fe2c2dbd86"
+    },
+    {
+      "path": "Contrib/Library/RegTool/RegTool.c",
+      "sha256": "c2ff974c62e6235bedeac42c2cfebfe5e308829116b682b55c5382407753db43"
+    },
+    {
+      "path": "Contrib/Library/RegTool/SConscript",
+      "sha256": "763dbf516d8757eb2da98531076fd59826a2058e28be3085429def670e48d3ab"
+    },
+    {
+      "path": "Contrib/Library/TypeLib/SConscript",
+      "sha256": "a2dabcbe017673e4bbe5fd869f01efb0b62b3ffc243833f6d62b7596a8040fdc"
+    },
+    {
+      "path": "Contrib/Library/TypeLib/TypeLib.cpp",
+      "sha256": "214dd064db12d3d1d326db6f5477000072a3122ab8d8db6e5fc290f1418eef8c"
+    },
+    {
+      "path": "Contrib/MakeLangId/MakeLangId.cpp",
+      "sha256": "ce29c76e87da6a68d906cf7320b9cb87f32ee0094a7aed4b2df536449d2700b0"
+    },
+    {
+      "path": "Contrib/MakeLangId/MakeLangId.xml",
+      "sha256": "b400a29d3c6edc997d2e9022a47fb6f02a5f9c8e574a72f801969ad1d897bc4b"
+    },
+    {
+      "path": "Contrib/MakeLangId/resource.h",
+      "sha256": "b02643b8d7faf3ac600c3f13abc395257cdd73f2f4e897aa58ddacc153a5fd6c"
+    },
+    {
+      "path": "Contrib/MakeLangId/resource.rc",
+      "sha256": "695d06c2b3b04b9de3312c449b28e84cdc4f31b8223ecc13753083c07546fe97"
+    },
+    {
+      "path": "Contrib/MakeLangId/SConscript",
+      "sha256": "55e350857367dab8343ee97b8260b2d4a54236e3882ae6c56d3f636dddb27655"
+    },
+    {
+      "path": "Contrib/Makensisw/afxres.h",
+      "sha256": "c44d36a503f3fa4ee86b85dbdd9bfbea1a40dc5a808ffab4dd23d36291384d3d"
+    },
+    {
+      "path": "Contrib/Makensisw/icon.ico",
+      "sha256": "5a2bd76e8d1e601f93c667ae6319cf4aeed24ee30508dca7f1b845789033e3ed"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/asyncdns.cpp",
+      "sha256": "fdc04af6d43ef186dd1bc623402a45e179ae6a5416d51c8b24e6084d1fc41b89"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/asyncdns.h",
+      "sha256": "9a04157313c20a5c7e3a06c4d95f503ac90bfe226b2da97410f33ec8c58220ab"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/connection.cpp",
+      "sha256": "9026979ec21c3626d2bc92c33062fec14374f5f89ddb9c8555978ad54fb77258"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/connection.h",
+      "sha256": "f42f8a810ce3e46e7cdce9add9abb6a8eb7778c7e001815fa93e03d47719501a"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/httpget.cpp",
+      "sha256": "61797b1679ebd1e514abfc6d0dc8f6e5078496655bbd97d1be8d12892d14ea27"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/httpget.h",
+      "sha256": "4ac9bbb81e41825c2df54c9ed5b42a9b3aa5bd716f452e6e76f6d95e34398701"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/netinc.h",
+      "sha256": "a967d9f4741ef79f4fbc5947240af87002d796bd82ed4b0a6b3d48a729cb0aab"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/util.cpp",
+      "sha256": "04074e8b9e3a2eb7f57fb9d0103c87f3a8850f8645dcb2469e2d9cf4c2fef5e7"
+    },
+    {
+      "path": "Contrib/Makensisw/jnetlib/util.h",
+      "sha256": "7e98ba733c09db8f91196f69f04695dc107ce54e89b8abe8c645802d35f9c0d0"
+    },
+    {
+      "path": "Contrib/Makensisw/License.txt",
+      "sha256": "45a364e0b59ad6602da5d84fc896caf3f1a29f58cf759d9ba6579346f26c2882"
+    },
+    {
+      "path": "Contrib/Makensisw/logo.bmp",
+      "sha256": "4f2b8c83bb05710a2ac03547b1a40c2392b3ca83ef658234ad794731d9c54b60"
+    },
+    {
+      "path": "Contrib/Makensisw/logo.psp",
+      "sha256": "dce97db142f2562b4912857855232297d4e9ddf0c0adc398f0222612f8ed1d24"
+    },
+    {
+      "path": "Contrib/Makensisw/makensisw.cpp",
+      "sha256": "b655d337f1a55f62809dcce10492f423e7b525868758877f1962d9edec6695ce"
+    },
+    {
+      "path": "Contrib/Makensisw/makensisw.h",
+      "sha256": "9d2fcbd40a8cb6c36c36b609f3f5a74a450f991e44f6a22ee223990cc124b90a"
+    },
+    {
+      "path": "Contrib/Makensisw/makensisw.xml",
+      "sha256": "f891c3f7ff4d4471866ec6e91eb63008b5f4a7ab6423d6d9a952e46b0485226c"
+    },
+    {
+      "path": "Contrib/Makensisw/noclib.cpp",
+      "sha256": "f6863863bb9a2e630cc064b5f00d9b7013df195e38f4f3df1cfb619283154fb0"
+    },
+    {
+      "path": "Contrib/Makensisw/noclib.h",
+      "sha256": "4461f37813a1222db649cc25d8cffb42b406cc3474f911e7f0773806b2e643b5"
+    },
+    {
+      "path": "Contrib/Makensisw/Readme.txt",
+      "sha256": "5cf8a7136912bca4f025b1aefaf9502d1daceea2d7eb45a368d0784d2e5dd7de"
+    },
+    {
+      "path": "Contrib/Makensisw/resource.h",
+      "sha256": "edd5ee801cd55de14aad6f70a524885b08c96288871c838f3417435eee620025"
+    },
+    {
+      "path": "Contrib/Makensisw/resource.rc",
+      "sha256": "de1f7a05dd1b1ff83fda9d03ae5a3dada891a0ba4ad86d3cd04268db364ebb8b"
+    },
+    {
+      "path": "Contrib/Makensisw/SConscript",
+      "sha256": "89022856de2f13be02405163fc78639e95710aad7bb7ac2f4f28f2e9696a598e"
+    },
+    {
+      "path": "Contrib/Makensisw/shell.ico",
+      "sha256": "666ac2f5535613b8dd6230966fb9fa3264351e64b34a1a352a9c184068dc660d"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar.bmp",
+      "sha256": "5a284772616b8c2e3b76c8024db01598d0b6cf63911366757de1833a49d51874"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar.cpp",
+      "sha256": "df1ec03fac0ab09a70bb25ad2f0ccc80360946a919013748d81bc795c28b8375"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar.h",
+      "sha256": "e8dfff5662af04cc1ef39c5548f4d3a8eca782177234eff949be5ee40c7e27fe"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar24.bmp",
+      "sha256": "3928feb5d8dcad4dffe82e4355bf9ae40bfd826ce7470a05607cbd5f6ad5177d"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar24d.bmp",
+      "sha256": "777533c651e35fdabcac35a1d8a819826563d2cd4b9e85a42b48609c849c1540"
+    },
+    {
+      "path": "Contrib/Makensisw/toolbar24h.bmp",
+      "sha256": "a046ca50568c5e78eba6d769eea8047626cb2648f81f1bc9d3c1dc9640aaa072"
+    },
+    {
+      "path": "Contrib/Makensisw/update.cpp",
+      "sha256": "889471c2f9f540efebd5450273dfa7199e70fceee1ea1ecb282f2886902eab2c"
+    },
+    {
+      "path": "Contrib/Makensisw/update.h",
+      "sha256": "dbeb193b2cefac486127aaa9b99bf0c9cd3a583fc45f0ae024d8fc8d232d9f26"
+    },
+    {
+      "path": "Contrib/Makensisw/utils.cpp",
+      "sha256": "06169ea5e6a0f38bd640785b08e9365bbf6dd7f1ed9813a0b1c5c40bfe5ea66b"
+    },
+    {
+      "path": "Contrib/Makensisw/utils.h",
+      "sha256": "48e55280d23e61c9477627c3b4670cffca110e0f25a069eaf1e31d2107c181d6"
+    },
+    {
+      "path": "Contrib/Makensisw/version.cpp",
+      "sha256": "4a5ecf02ac015419e61a374999a9906aa9f8fa0d6e68f4fa4339e306e0a098de"
+    },
+    {
+      "path": "Contrib/Math/math.nsi",
+      "sha256": "54faf063b0396e9cc22691ab930e7518c266a67bf56d19227611dab7c367de33"
+    },
+    {
+      "path": "Contrib/Math/Math.txt",
+      "sha256": "6dc38f2745dd7926d6e615a2e2ec92d5a07ff6f28765422283b8cc17516e4aae"
+    },
+    {
+      "path": "Contrib/Math/mathtest.ini",
+      "sha256": "d574891eff1aaf6415013457f57cfcc9e1c666a6e5f358d86ce10a5a93d853a9"
+    },
+    {
+      "path": "Contrib/Math/mathtest.nsi",
+      "sha256": "69e43d0a0ec204ecb687ca6221950d033cb0b1d337dd64bd0e722e986ba97434"
+    },
+    {
+      "path": "Contrib/Math/mathtest.txt",
+      "sha256": "9953a6d326abbceb9c884c593b0b5d4a0a34f5194f107653be04e9ee6e992029"
+    },
+    {
+      "path": "Contrib/Math/SConscript",
+      "sha256": "68ac0562b3e4d5ae21a46056f7b832c207a9c1ba618953c425f0273842ecd148"
+    },
+    {
+      "path": "Contrib/Math/Source/Math.c",
+      "sha256": "7f4272904aa35d8f0424db826044bb04f1fff7f4edb128aaf52049c5799e135e"
+    },
+    {
+      "path": "Contrib/Math/Source/Math.h",
+      "sha256": "6cb0acafedfa1f14619bddec1b229e305f888ec3bdf45e764f179ae7d8030a76"
+    },
+    {
+      "path": "Contrib/Math/Source/MyMath.c",
+      "sha256": "b271c68bea0bf6c49ded2f77f9bf332ac643f90b4ccb19e52a24106d4ea9c76b"
+    },
+    {
+      "path": "Contrib/Math/Source/MyMath.h",
+      "sha256": "f9fc805108b2a50631f739528b64220c19f0f43ce8d8cd2a3f712b0d5c913aa3"
+    },
+    {
+      "path": "Contrib/Math/Source/plugin.c",
+      "sha256": "844620a74b0bd18b6c519695fa19b99b69c806c2f6f804f6c4c1efceda7d33bb"
+    },
+    {
+      "path": "Contrib/Modern UI/Changelog.txt",
+      "sha256": "e45fcd517204c9795f642ec1cfdb23a17f56b30e1d3c7b66b5dc1bedf34c8256"
+    },
+    {
+      "path": "Contrib/Modern UI/images/closed.gif",
+      "sha256": "b601482dd9f13043f50fe3e85158a52833f697feb5bd490f76f7b017070d184a"
+    },
+    {
+      "path": "Contrib/Modern UI/images/header.gif",
+      "sha256": "7ab302133999a9443abafe3db3aca16112247b225949a63de800f72738c1b1ff"
+    },
+    {
+      "path": "Contrib/Modern UI/images/open.gif",
+      "sha256": "dbf447ca33cd86e0b4424d111eb4337247bcddff5a89205d4a128b1a44bb5c1a"
+    },
+    {
+      "path": "Contrib/Modern UI/images/screen1.png",
+      "sha256": "2b24d171b68922e95d2335bd021812f53e96780c2a7ae576de3783ac3b585b8f"
+    },
+    {
+      "path": "Contrib/Modern UI/images/screen2.png",
+      "sha256": "f211103afc4c797665fef17ba35ca87909f8219a9fe8c71eca243ea8a9f1b640"
+    },
+    {
+      "path": "Contrib/Modern UI/ioSpecial.ini",
+      "sha256": "4868ee046975b35282e7a613526d3c9d7b3e0b1122794238d286aa464b0b5bd1"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Afrikaans.nsh",
+      "sha256": "ba87412fa234fbe9d1b9ca3edd20c821dbaa9665b5265ef228a55b3ee8524706"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Albanian.nsh",
+      "sha256": "1eb8c5ad5315a2dec4d145af8ad6f1e0bdcb055fff0429c3e1449010a2ef52dd"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Arabic.nsh",
+      "sha256": "6032bc3d4a2fbcae554ec290ce1ce5c81cc294bcaa4ea68349e66ef4957738ea"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Basque.nsh",
+      "sha256": "f0b5ee65c462e647344524926915ac8970046fe1150e804d32a47e2e28a73798"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Belarusian.nsh",
+      "sha256": "20fcf5a207252c4a783765c28b5b00d6a1d49bb5986dce4c862d39fbceabad5f"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Bosnian.nsh",
+      "sha256": "c71cfdc96f6c9cc28084ebbab04bbe054a29cbef009d1d707cee7d6e2b62f15c"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Breton.nsh",
+      "sha256": "1243ad3fa5051b9b7408f35ddb78c4bb60305817a671e3706c4750f5d51b86f9"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Bulgarian.nsh",
+      "sha256": "faaefcaf67978bbff6efd293a4f2d15b31b1e64dbe9bfac723eefef52b67b4fd"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Catalan.nsh",
+      "sha256": "16c4f4d502d2c2e4cabb03bd6f86a0605eadb86a08cda7ff4c3969c4d973eb4e"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Croatian.nsh",
+      "sha256": "a82fac7f90876cc89d498144f4c4996c92388853a0d40088a335a2a4232ed1fd"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Czech.nsh",
+      "sha256": "35a3252907f0030ee2fc937c01b11bce0e5446c5fe69fc6cb8f895a2ddbb8474"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Danish.nsh",
+      "sha256": "50a29ef8cdc787d5fccf0b08e5816f5088e507c71f58a5a709a2d14651619997"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Default.nsh",
+      "sha256": "e51e50698f90d64a056e0f1ec6512dbfd595ca0510878af335c33e86aec3d568"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Dutch.nsh",
+      "sha256": "27395419de4ba3fb4a28027f2b95e4a1224180b808c70de07369d22516e09bff"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/English.nsh",
+      "sha256": "3286ff58996381dd42915ca6c4cb82c81500fd82542112e6012c0fafefc9f355"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Estonian.nsh",
+      "sha256": "d289a08992e649b03691d8497b16f53a24c4ced5acc7470e29d8a5f60b23bd2f"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Farsi.nsh",
+      "sha256": "bf7c62c2ba88bbfd074840c3543c4b4b1e40a712895e7b6278e08f3477870cb7"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Finnish.nsh",
+      "sha256": "f5be72008528d618de311a33b72ca34a0042fddf00e670c5d16386468b751759"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/French.nsh",
+      "sha256": "4e0084947219ada3ce9beb80269735973e60a9a373acf054822bc9b36744b31a"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Galician.nsh",
+      "sha256": "bdc3212128cd3fc404b358cb05c91b7af303960fad51e51a5a8aa5c2785fed56"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/German.nsh",
+      "sha256": "5a25ce2f118c0db7ad6da61ae05115309c46c7aff59d8183967646ad02a17dc8"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Greek.nsh",
+      "sha256": "73a3b93713d0640be39def8888a185c13b7e89015c701dbd0e171a51a8320701"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Hebrew.nsh",
+      "sha256": "bb32de1ed5a162878954b6193cd5e843cdb0a2e184bedb14594d458c1e38002c"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Hungarian.nsh",
+      "sha256": "8ad11969265ca25223ccd7283064635d4dbc81b503671ff0311eef6709baeff9"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Icelandic.nsh",
+      "sha256": "f4bb92b945cd97fdbf51392c499febbd49a9463f4c023de5fdbf73f1d1a1a6a8"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Indonesian.nsh",
+      "sha256": "bba2a5cdb42fbc74eecd812cad1cd5525bdb0e5b953b7ee69c7530c4ccabca11"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Irish.nsh",
+      "sha256": "39e8ebb5be8fa01627b444fa41676be0be5ddf3eaa9419bb39662e2818e18494"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Italian.nsh",
+      "sha256": "af14eb0218af3ade68874ce3398e6292c689d9c3a67fa539a9167328711d4ced"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Japanese.nsh",
+      "sha256": "03515c80324e416fb5a27fd8b3b8f097c6aa2b69c450d5e86f915d8742fd6c39"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Korean.nsh",
+      "sha256": "8d32f3184a314e6e60453dd1d557d71aa633e14463444a907c77aa9791f12ec3"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Kurdish.nsh",
+      "sha256": "25f69aa5a50d900fe028ae8d6e400522f39286f91c7f9071f9abf20645a4ad1a"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Latvian.nsh",
+      "sha256": "726b1f5365f85044aeefc8aa190ef6a74ad1b571b69ae92fd1d7cf49d4db3776"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Lithuanian.nsh",
+      "sha256": "ff80468d3c839bdc4a5407746b6cf263bb1afc69f330ffca1a13c7fed76d4b7e"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Luxembourgish.nsh",
+      "sha256": "0e02b8f519f5a6f219d764c1e4cde8a0fa8929f8976163073046c17508775054"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Macedonian.nsh",
+      "sha256": "fa88921db23ff774123e576660473ce58f2e2c5dfc4484f501a697a43023d182"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Malay.nsh",
+      "sha256": "4121d3b177646f5bacda0e9800c4decd9c22f4413f817c506915b2566b5ddd49"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Mongolian.nsh",
+      "sha256": "a52f23503c9db3f3fa49caad9afb779c17fd682973cabb9069f955197e5a0321"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Norwegian.nsh",
+      "sha256": "f73c4531f6b6dd77306fd42268027e45ecba41c0e4cfbbe072c7543ae54754e7"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/NorwegianNynorsk.nsh",
+      "sha256": "8538718b47d62d6082e26a38ccb2d98c3bb83d2519de097b3891a899c44ccace"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Polish.nsh",
+      "sha256": "99b402b19e141b1e9482437e37b353c35623ce531f59176678dc7d3405185e7e"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Portuguese.nsh",
+      "sha256": "fd57574a32bdc6b6dc409c69f518f61f180208b205a8c3441549a11dd0e2a5bd"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/PortugueseBR.nsh",
+      "sha256": "9c37c65eb3bbd961f22b7be0a0a73652f3896ad239e96beaa410209da810b444"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Romanian.nsh",
+      "sha256": "c52d94b3810fbf9bc7ed408f8e77985e3c318ccba2bd0a6c199333dbf5119bbb"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Russian.nsh",
+      "sha256": "a8ea296354d70d3c71c11baed4ad37209c5864ea89cf142afab6f1b650420d3c"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Serbian.nsh",
+      "sha256": "a3d7c50b27b8ec7e84d04d5d0147184c16ce5bf1632732e6cc8ce9dc4fcc208a"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/SerbianLatin.nsh",
+      "sha256": "c80d9924cdce7781275ee29e0351b89ebdc8c9e20ce453f58478a0595b0cc864"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/SimpChinese.nsh",
+      "sha256": "19549376c4f00aaa82374e3673248a53cf540e67a865c3fe9b5e8d2537af3e43"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Slovak.nsh",
+      "sha256": "454774c23acbf4047f1e5f92f9b7345b794dd184cfc530435b192a0ba8a65696"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Slovenian.nsh",
+      "sha256": "95926a7a54cffc1d072011d7fe02ead551fb98e7379c343c47c4b999bb00ca4b"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Spanish.nsh",
+      "sha256": "b7ed6132bf9e4d984cf305f4d24512d74b8e752abd0f0df057aabd089195dd5b"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Swedish.nsh",
+      "sha256": "5f1d3bd8434659dced11fe41fe5d0ae9e1f869119d92f8a4e6885b6c2b9add29"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Thai.nsh",
+      "sha256": "a85c5eb9da376b8e7dd6d8772a12d24a51d90f10f882be5e20025ec80a58f604"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/TradChinese.nsh",
+      "sha256": "2d35165ce64d688347f1ee048da86f5762617160de6fe4e227b29e40ecafc4e5"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Turkish.nsh",
+      "sha256": "6fe71defedf6eae35154d1855b286629c1d83337a724e290ec8bf1ff82976552"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Ukrainian.nsh",
+      "sha256": "46b466532d19ecf5f26af7ecdf223b6599f801bbeb7d4b3c6be5b25067b40c65"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Uzbek.nsh",
+      "sha256": "1b721f28b7417622cfeda26f80c08f79e910b747c6d938c13d91476b62a83667"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Valencian.nsh",
+      "sha256": "ac6cf12570c3500a7fe83619823343887f5797e14698f4910958db1a0fdcb681"
+    },
+    {
+      "path": "Contrib/Modern UI/Language files/Welsh.nsh",
+      "sha256": "5ce33f0c681a6c6305db5c0a8ac5fe713fc4c6912c44d9742539c0aaaf31b309"
+    },
+    {
+      "path": "Contrib/Modern UI/License.txt",
+      "sha256": "4aa9238f1269a67ed8cd460a7334e255d4ac229f89f3863a60a4975f4903a1bd"
+    },
+    {
+      "path": "Contrib/Modern UI/Readme.html",
+      "sha256": "d499bfd8c5c310565562686d4fa467f0ee8686fc108eb1b5c758bb9cbceb5833"
+    },
+    {
+      "path": "Contrib/Modern UI/SConscript",
+      "sha256": "3b91d7da81af6f9df2dd5a0eeb9919d229195bbda36a1b813a107595daa8bf5e"
+    },
+    {
+      "path": "Contrib/Modern UI/System.nsh",
+      "sha256": "bf762fd94e18d507c8184f9ea82676d41d9afeb6adda693a054c3bb53bed85cd"
+    },
+    {
+      "path": "Contrib/nsExec/nsexec.c",
+      "sha256": "7f460514ac168608d39175edce112aa7aebce0e7cb68871447815d3fa21b2bcd"
+    },
+    {
+      "path": "Contrib/nsExec/nsExec.txt",
+      "sha256": "245dad587c3da7b8373bed19f155dca4fca17fb343e5671deb148be4f198e188"
+    },
+    {
+      "path": "Contrib/nsExec/SConscript",
+      "sha256": "500fc6e94610735ad43798e50d0dfff5d69333aa7b90e7a27af02e84068c8e0d"
+    },
+    {
+      "path": "Contrib/nsExec/test.nsi",
+      "sha256": "86337496adbe2ee6f3e0bd623805bdefc1cb5c9bec224076868de5ccfc4c7011"
+    },
+    {
+      "path": "Contrib/NSIS Menu/nsismenu/nsisicon.ico",
+      "sha256": "13a9fc72823ead4f0065b032b81adecda1ed0f1789c23b15e52df531912db1d0"
+    },
+    {
+      "path": "Contrib/NSIS Menu/nsismenu/nsismenu.cpp",
+      "sha256": "8276abc5be012ddb054d68a9f4b81da1cf288fad51cebda445b93fa249e56b97"
+    },
+    {
+      "path": "Contrib/NSIS Menu/nsismenu/nsismenu.rc",
+      "sha256": "fa77caf47aa248cca9a2096141dd7e46051a7561038a214a986f4a9048f17198"
+    },
+    {
+      "path": "Contrib/NSIS Menu/nsismenu/nslinks.cpp",
+      "sha256": "e1c4de94bc787e46fd7b055996bd85675abf3d44b2744983c130fa59f75f508b"
+    },
+    {
+      "path": "Contrib/NSIS Menu/nsismenu/resource.h",
+      "sha256": "7057a5845e43a2b49f1ce55fe08af131916b4c7de9bb5b51953e3ac80ce56b21"
+    },
+    {
+      "path": "Contrib/NSIS Menu/SConscript",
+      "sha256": "0f7012d60a8aff14cd49789da66de7227a66bab63a8bac7bead18af3c359184f"
+    },
+    {
+      "path": "Contrib/NSIS Menu/wx/build.txt",
+      "sha256": "0f617e4e365ea2dde7a61c6c8dfcd4b873f75c6b9581e94c6b26a2591068d36c"
+    },
+    {
+      "path": "Contrib/NSIS Menu/wx/setup.h",
+      "sha256": "2f1b4c9d8f25f3938c183b5b45f37a52168ee97295b288e7357c642504079f1f"
+    },
+    {
+      "path": "Contrib/NSIS Menu/wx/wxbuild.bat",
+      "sha256": "022a477c42bbf6c85961eb96e8266d750424901b7a97283c6523c8c62673535b"
+    },
+    {
+      "path": "Contrib/NSISdl/asyncdns.cpp",
+      "sha256": "b8f2e9e47bdbb31a8e9e15125dee561cf73f1584fd4999c8ff4277749f9edffa"
+    },
+    {
+      "path": "Contrib/NSISdl/asyncdns.h",
+      "sha256": "7650d59f37c003fa604069c48f0238e7486ee9d21f4c3b9ee568532777568f6a"
+    },
+    {
+      "path": "Contrib/NSISdl/connection.cpp",
+      "sha256": "99a7c32f84209f2c74273a150a8a3fac389f81974bf64430a3d0c4b54a041eeb"
+    },
+    {
+      "path": "Contrib/NSISdl/connection.h",
+      "sha256": "f42f8a810ce3e46e7cdce9add9abb6a8eb7778c7e001815fa93e03d47719501a"
+    },
+    {
+      "path": "Contrib/NSISdl/httpget.cpp",
+      "sha256": "3423c8afae1f9b9b31529bb5b28550577854d4fa31e8435eba1923d81b7215c9"
+    },
+    {
+      "path": "Contrib/NSISdl/httpget.h",
+      "sha256": "ad741b61aac3653d8cf4fead4dad61f4e6598583929f1c74576cf2ae8b33f617"
+    },
+    {
+      "path": "Contrib/NSISdl/License.txt",
+      "sha256": "daab4a8b00759c9a0712d9d15583ff947d2b6aa0db72e5292711c20986e4a0d2"
+    },
+    {
+      "path": "Contrib/NSISdl/netinc.h",
+      "sha256": "71c793013002f23c12ba54d411b534c67eefe4aa306a4ded6291983a25a1e705"
+    },
+    {
+      "path": "Contrib/NSISdl/nsisdl.cpp",
+      "sha256": "0ac92727c6553debbd6bb29bd4096b86ef30445c9634104bc509c800f667e41c"
+    },
+    {
+      "path": "Contrib/NSISdl/ReadMe.txt",
+      "sha256": "7b7cf1a8edcb535f8803875657ca3bdae9eb5acb5bb7e048f29c5050f4e4fbdf"
+    },
+    {
+      "path": "Contrib/NSISdl/SConscript",
+      "sha256": "4891eca83cdd26de8993c5be6e8dfe2107e7310b904de641f80ddfa96d3cc525"
+    },
+    {
+      "path": "Contrib/NSISdl/util.cpp",
+      "sha256": "5811ad189e36d66110ac3a19198f5e492610072dcaa4e299e1b550b11f31eddf"
+    },
+    {
+      "path": "Contrib/NSISdl/util.h",
+      "sha256": "5b98624efb4ffe432ad57893cbe79118f9911495b254995e186752ec64b602a9"
+    },
+    {
+      "path": "Contrib/Splash/Example.nsi",
+      "sha256": "fd8dd6d2e6a4aaa1dc19122a4d7b8579817eb90539ff8867a117bd8cbda7e70b"
+    },
+    {
+      "path": "Contrib/Splash/SConscript",
+      "sha256": "0b533649b23d85b667bdaca9f66109a5cccb89931fed19e83fb94d4ce2805a3e"
+    },
+    {
+      "path": "Contrib/Splash/splash.c",
+      "sha256": "9acca7dd80edb12d68698735403fbc96a4992513a27a1af5cbe003c7b8ee8147"
+    },
+    {
+      "path": "Contrib/Splash/splash.txt",
+      "sha256": "802ccef4132156da4a186d665515a3159ddf5695a27a8f6138fcd31dc452c1e7"
+    },
+    {
+      "path": "Contrib/StartMenu/Example.nsi",
+      "sha256": "1e8ae5295b1507fa12bc04f44b8c553178ad5b0f4ecda07eca36c273ca707cd4"
+    },
+    {
+      "path": "Contrib/StartMenu/Readme.txt",
+      "sha256": "2c105b16d9b191adf673acff1dc8fde93964b4da87b692a9009003a4780d095a"
+    },
+    {
+      "path": "Contrib/StartMenu/resource.h",
+      "sha256": "924a58122299835e86e8c58a129df08b01a038b5a4f74920fbf267422597553b"
+    },
+    {
+      "path": "Contrib/StartMenu/SConscript",
+      "sha256": "9371d262468b11d7580591f4c76b628f17377dbab48177ddc264da40671d97ab"
+    },
+    {
+      "path": "Contrib/StartMenu/StartMenu.c",
+      "sha256": "aff18f651090911b5bf415d32110dfc103ac460b91f627271e3c8af633357b71"
+    },
+    {
+      "path": "Contrib/StartMenu/StartMenu.rc",
+      "sha256": "5353e42153a215d9b18e716817407fdb1b25238a572021f256880ff28f78e9e6"
+    },
+    {
+      "path": "Contrib/System/Resource.dll",
+      "sha256": "3044f8ce72370c322668f5d17fc1e29af46ac882574054ec3ff87c88b3980f8b"
+    },
+    {
+      "path": "Contrib/System/SConscript",
+      "sha256": "c63a418fcc7380221acb0436c305f53bcde2e848a9f37b1ebfd7260651e160bc"
+    },
+    {
+      "path": "Contrib/System/Source/Buffers.c",
+      "sha256": "2b9c0c93f71bd0c0c40aedfff21632d2917fb94c15313384810c2af5309ceb4e"
+    },
+    {
+      "path": "Contrib/System/Source/Buffers.h",
+      "sha256": "36e9230ecfd5ad50be0570ed21e161390170ced61b0bd53cd140b3afe2868408"
+    },
+    {
+      "path": "Contrib/System/Source/Plugin.c",
+      "sha256": "18c3e651446af9f427c39c59a254bb389b694ebf9999c0cb96acda14fb7ea80a"
+    },
+    {
+      "path": "Contrib/System/Source/Plugin.h",
+      "sha256": "ab8f2eeb687f7c279c7267c01e3843fe4d324c7aec93c34d57c12dd76170d1d9"
+    },
+    {
+      "path": "Contrib/System/Source/stdafx.c",
+      "sha256": "8d718eb84691c7015e6405b3202b0dab9e32991415807849a2aeb7330d2111d5"
+    },
+    {
+      "path": "Contrib/System/Source/stdafx.h",
+      "sha256": "1c03e16b76ee8571b41a248038673c0b766df89a7b1664d2e5e899c14cfc7655"
+    },
+    {
+      "path": "Contrib/System/Source/System.c",
+      "sha256": "d594de81a870ff3754c2cf5ebe0c95b0d09d8e16b1910f27931fc9059c0c1620"
+    },
+    {
+      "path": "Contrib/System/Source/System.h",
+      "sha256": "e9256723c06fa99eed8f365dcf8c53ccf6dff3312df3d6bbeaed0144e335a5ad"
+    },
+    {
+      "path": "Contrib/System/SysFunc.nsh",
+      "sha256": "c0f941dc7ef423caec2154a0b99f83d39a4631e31f20c8ac09e0ca96d15e99c4"
+    },
+    {
+      "path": "Contrib/System/System.html",
+      "sha256": "3eddebe9b337aa16552dcb8b4efe808665eefb244726f0d0bb871e4160636f9b"
+    },
+    {
+      "path": "Contrib/System/System.nsh",
+      "sha256": "9179811e55b38108f8386b89495892e349566b61e094221d8679880c68de5088"
+    },
+    {
+      "path": "Contrib/System/System.nsi",
+      "sha256": "f3ce90918b4f4f93d48db796c74b766348145f2ea95fff5c82f69d78249ef638"
+    },
+    {
+      "path": "Contrib/System/WhatsNew.txt",
+      "sha256": "a7ae6694ab8a958fa9e2c34214a711c633ea2d65a0c1264ae87b9965fba4781f"
+    },
+    {
+      "path": "Contrib/UIs/default.rc",
+      "sha256": "1d1de597a34d21f2b94f10715171cd90c878ec1dac20a1317da616d062db1a97"
+    },
+    {
+      "path": "Contrib/UIs/modern.rc",
+      "sha256": "f517e939352b128551e7c5a34511068dd02d858354438d7d0bb7410d43ee73f4"
+    },
+    {
+      "path": "Contrib/UIs/modern_headerbmp.rc",
+      "sha256": "aa6e8fd69839b0b6bd27d2f2e8f2c165957ce83b23a1f4b634d805c763ed2fce"
+    },
+    {
+      "path": "Contrib/UIs/modern_headerbmpr.rc",
+      "sha256": "3b448b81f10c15128f6f0f57c0c85ee2e595e6237af15d1d8935a2097b7a08e5"
+    },
+    {
+      "path": "Contrib/UIs/modern_nodesc.rc",
+      "sha256": "6007332fa9e4bda8ce861244017b3a547d70242df226883f122ad35e5f5d6988"
+    },
+    {
+      "path": "Contrib/UIs/modern_smalldesc.rc",
+      "sha256": "1c42ca5991c712b554a574f696ac201c3419b1e449857da5ca58144c37d3f30a"
+    },
+    {
+      "path": "Contrib/UIs/resource.h",
+      "sha256": "36da7dcecbb143f59a3630bd85e159a74a8ab4d424506cc2431d93aa1bdc2bb7"
+    },
+    {
+      "path": "Contrib/UIs/SConscript",
+      "sha256": "01f418606c7044175165ef98d124eab9fd9d034786080ef79defead4d9005fe3"
+    },
+    {
+      "path": "Contrib/UIs/sdbarker_tiny.rc",
+      "sha256": "0ce2b97acf0064838f9998a764caff996869d12c38b00ce7bcddcbe5f8bdf671"
+    },
+    {
+      "path": "Contrib/UIs/ui.c",
+      "sha256": "c906dd30c2efb5d316ca251993d70b4965f79b42b9bf65c32bd64cf07d0d02b9"
+    },
+    {
+      "path": "Contrib/UserInfo/SConscript",
+      "sha256": "56526b05664293eb6c37e87d6c8aee8f911c57d3cb534d6cb8c7a41656fdcfc8"
+    },
+    {
+      "path": "Contrib/UserInfo/UserInfo.c",
+      "sha256": "b1f4d37edc271d471024541ae55f700ee99d3a44c33436bac399cd89815d4eea"
+    },
+    {
+      "path": "Contrib/UserInfo/UserInfo.nsi",
+      "sha256": "f69bd67ef277887627eafeb8dfaa7284d459b3b4030f3731f156017e513334d9"
+    },
+    {
+      "path": "Contrib/VPatch/example.nsi",
+      "sha256": "1cf15fac45d8cb1837975dd1089921dda76617fe6a74d120019122285c6bb16e"
+    },
+    {
+      "path": "Contrib/VPatch/newfile.txt",
+      "sha256": "fdea8d771a4bb6ff89a41efc6c8377e603cc60a9135673e08c493b905034df61"
+    },
+    {
+      "path": "Contrib/VPatch/oldfile.txt",
+      "sha256": "d0b9718141accafaf1deeb5bbe4257a72c748bd29e3d8b02081d6d6842c0910f"
+    },
+    {
+      "path": "Contrib/VPatch/patch.pat",
+      "sha256": "31fcf403adb523c74714cb11a21575b06164ec4e90f312a57bcd1ed290c40f66"
+    },
+    {
+      "path": "Contrib/VPatch/Readme.html",
+      "sha256": "8988fa8a9bd5d633bd1bb41d80d8f2c6d52dbb45f85548493571464a316155f5"
+    },
+    {
+      "path": "Contrib/VPatch/SConscript",
+      "sha256": "ab61a7312af08f01d81de8999a6eaabc143bc4159d157065d5b2ceec43825b7b"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/adler32.cpp",
+      "sha256": "a527a5aa2fdb956fdd924184b7b916b769a64728eefaa4546e5628f9734a98aa"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/adler32.h",
+      "sha256": "36ee127094d35c65362238efdea69056a7e18e6fb0c1d9f7e97962054d01e611"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/Checksums.cpp",
+      "sha256": "9ac4d3cf19b689fe4dc4570805a2b6a819a27b774da7584a2dedb9b3eb1d9f94"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/Checksums.h",
+      "sha256": "3f153d3e9b4a85f3d98a7c13e31923e4d3a691c6d2e7e17b3dc3fc42f8d1f98c"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/ChunkedFile.cpp",
+      "sha256": "79fc780405d4ec4bbfc7c81c24d6317451337ce4d1e19a36c2a001749328b731"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/ChunkedFile.h",
+      "sha256": "1e4b872844ca3ddd06512dbefbe8b750df62782d343ec67ccfcfca6399b344ec"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/FileFormat1.cpp",
+      "sha256": "28fb1d89ec40145f4ee88c5ef85c6c96b3ce8e3d7d78f7e6055ae7dbb9851a00"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/FileFormat1.h",
+      "sha256": "8cfc83c033a52f1852efc90cd2e9609be58a185ac4c9512b86881aa038970930"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/GlobalTypes.cpp",
+      "sha256": "a0b5974d198bf133aa665a77c4717efe51da11f8db61d0d905860f3a94bdfa48"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/GlobalTypes.h",
+      "sha256": "815e5cedf2ae30d4bda697be29ed3739ea05f582aa9a60ffcf927998b42e8c8f"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/main.cpp",
+      "sha256": "eaac3a72d11da755c48d31df9cd922444fc763929ba96a7719d48133fea74d1e"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/md5.c",
+      "sha256": "f87ab1b360cb1d2eccaa0c5aaecb5372a51fa08478ee6dedd9b9bc747c6af0b9"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/md5.h",
+      "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/PatchGenerator.cpp",
+      "sha256": "aa3842d67e976e1d7795e62ea73c61cd5615bbff648205bc4b56d00df6c8944c"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/PatchGenerator.h",
+      "sha256": "c4bd7c89231f9f854de650042cf23a375944348cf2e4cc259f5504a7e03c07b4"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/POSIXUtil.cpp",
+      "sha256": "0afcf701a8cd889c2b821710b4a90df6ea7249ce8372c257eb6f4671d2f1ce09"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/POSIXUtil.h",
+      "sha256": "9ae4cb36947f82b10d4f182b12436222b4e47f0ac0ef833b4ebd920c10c7b597"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GenPat/SConscript",
+      "sha256": "70ead9adcff3e447942481b5d86e2f7618b7e0277991364222ed6758d1e78e5b"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/AboutForm.dfm",
+      "sha256": "3cc9b51ab2637ab686eef4bf78f3004fd3e98ebf3fb61012a3d691e91d3e4304"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/AboutForm.pas",
+      "sha256": "25d48e37a7947bf3bd340ea9b05f6c2e7f76c9b3e308a802491dfb8a5f52a263"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/clean.bat",
+      "sha256": "f55e855f1df4d5afe3f350b66d8dda3e4115d6652d25d319966ef283eeed31bc"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/DLLWrapper.pas",
+      "sha256": "ed55a1e2c3be07865668a300e5575808ec2a6b73ccba2392c0a458432a5cbadd"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/MainForm.dfm",
+      "sha256": "36536f14bd1b3ac7cbe308be45b360f58e1521df18f7fafc736ad7d46ce4951b"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/MainForm.pas",
+      "sha256": "6b3132fff48d60b8ab50f114dfeb6d7419d96b6f6d765a4e23c95fcc4c14d6f3"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/OSUtil.pas",
+      "sha256": "5532eedce073c1a5d1976ee0b88777fda625d48e88b15f015120d387bb5c0fb1"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/PatchClasses.pas",
+      "sha256": "25aea151572982c913cffaf7dcbd8add742830ada404a3879d3838d0d92c1bee"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/ProgressForm.dfm",
+      "sha256": "d53272532d50d4366f7033335932f881cfa337a3ecc2ffafac8c41e1756756a2"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/ProgressForm.pas",
+      "sha256": "d7be6f89bfaeb4d7d417b6355f4463b8f1c442775cd1369a0ba5fe354d5df601"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/vdsp_crc.pas",
+      "sha256": "524794e6a4fe3ab449a705b55d782769216e676ae5550915420fa3a783bbc4c5"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/VPatch.ico",
+      "sha256": "1b5387f3c6400aa01307e3ba9eddf2d3d459a550c051d07ab495219118b3207c"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/VPatchGUI.bdsproj",
+      "sha256": "55607305c74af1d226083832bd0b33ef5daea23c615c3ba866a437b5f1b692db"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/VPatchGUI.cfg",
+      "sha256": "872dc9801f57f3457f40c32c13a91ae235a2a8bcc97b8c20143fa3f2a9913170"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/VPatchGUI.dpr",
+      "sha256": "87b30ddce8ce616b7ac1c9aeb8ae547ae0bba49a1f63da57d4ad3cca893cc6c5"
+    },
+    {
+      "path": "Contrib/VPatch/Source/GUI/VPatchGUI.res",
+      "sha256": "8c23d69851c22725dc851d344550856a1fc10e7ca0efa3054618fcf4804452e7"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/apply_patch.c",
+      "sha256": "cee15dd8dad6ff6809b3929610efcedc859aead8f3681eb8c9ea7f0a282cbda0"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/apply_patch.h",
+      "sha256": "cf05b429814909be98b30fcdb9fe257a9ae492aa01cd7d488a351e754fdb8fa4"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/checksum.c",
+      "sha256": "3f94dbbc820f6e2cd8c43d8b510d245975b3d249f2b74b9c87479096b9c4e375"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/checksum.h",
+      "sha256": "a572743fe526ce2147917fca36506b0bada0a0308a9fb16857f80cc31c613d3e"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/md5.c",
+      "sha256": "0033e4d7d119f3d30089225fd678cec98a0f6a8cc8034d65f077654eda13572f"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/md5.h",
+      "sha256": "8341e2a307d7cfaeb816b261d92ce87a07be62e3eb58c98d2c769e75a6e2b959"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/SConscript",
+      "sha256": "08389e99e04c12e090efbc52304bf28cab64f382ff37793811b2032c86208388"
+    },
+    {
+      "path": "Contrib/VPatch/Source/Plugin/vpatchdll.c",
+      "sha256": "7d204192881711c20486cfec80787b5ac1b223d57c1611a7d5c3ad1d40d49d8b"
+    },
+    {
+      "path": "Contrib/VPatch/VPatchLib.nsh",
+      "sha256": "3353e66affc88f8429d223493f12ac7b9cdcd02a80400e83ea9cf5311d6177bc"
+    },
+    {
+      "path": "Contrib/zip2exe/Base.nsh",
+      "sha256": "e527fa194d9ce3581b299ec3f04ca49e0139cef73b4e2f5946b2afc1a207ce99"
+    },
+    {
+      "path": "Contrib/zip2exe/Classic.nsh",
+      "sha256": "96a49d7b55d69c09abb074a76dcff7eb0966b7af2b0a69ce5e5fd6d0354a98b9"
+    },
+    {
+      "path": "Contrib/zip2exe/icon.ico",
+      "sha256": "dbca06e4966ff7d0439e285fe34a25a8e448c8977d387d52ad79622b96d07f96"
+    },
+    {
+      "path": "Contrib/zip2exe/main.cpp",
+      "sha256": "80ad966cc6ea1a4b94905622dc4c68dcae4d1dcfa86028991fd6965457a67260"
+    },
+    {
+      "path": "Contrib/zip2exe/Modern.nsh",
+      "sha256": "7faa8e0fcd58bed52a464479f5639592ed1bba2f1cd4071bf108b54ee2235b6f"
+    },
+    {
+      "path": "Contrib/zip2exe/res.rc",
+      "sha256": "03b06f7551c8f52eebabddc620c0b421aea8c5c3629c9e9412682cdb2908865e"
+    },
+    {
+      "path": "Contrib/zip2exe/resource.h",
+      "sha256": "f2cc35e597c6ac4c906485b25ac56f02a9b420513015c21f437d4b00f494569f"
+    },
+    {
+      "path": "Contrib/zip2exe/SConscript",
+      "sha256": "c77dac0151a08bdf794fdd45c71af1f3510d6bf59efb6d343e47d6d0fd554309"
+    },
+    {
+      "path": "Contrib/zip2exe/zip2exe.xml",
+      "sha256": "b901aecd17facc0366ba736fa10845588c7c635de1d89aa56f3d1be7f7aaf0e3"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/adler32.c",
+      "sha256": "00c99977ac0c230d4a4e7a8e6ceea805a177d2c152f96d65b9120606ba568e59"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/crc32.c",
+      "sha256": "72fed7e11dbcbc2523a643f40dfb076360128f819455378d65492cc2f31855c9"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/crc32.h",
+      "sha256": "b8252ca25db989e06910c09b031a328a18ab9c32fb3ab6e6f5c98c0e2b0089cb"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/crypt.h",
+      "sha256": "194cde690b4171e236e680fd9e77c538cb08ed5a3b5cc6b3d3216c3505dc087b"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inffast.c",
+      "sha256": "42466c76b7c4c330167c7e7e5758b1444140c7adcb4f41d6c6b9f082a8f0f617"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inffast.h",
+      "sha256": "b338cc7381a11473014404298bc89c5c3d6d4f3f5bd4e5c7ca3a8c1c1216ad6a"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inffixed.h",
+      "sha256": "88a340c8e628d56682a99c3a9a38e44fafeb8b4c609e0df85ea17c66011e0f42"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inflate.c",
+      "sha256": "ea0f06889e0e479379b4e7b14df5771825f3d95355c31487076d1d9955c37b33"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inflate.h",
+      "sha256": "664cd98c729e0201f801aa4534f7797bde53190867a33b5336e23025e4271c5d"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inftrees.c",
+      "sha256": "f256499c66a70ca0f63fa575112efaf313d44f69447bea544e4d85a54f289dde"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/inftrees.h",
+      "sha256": "f29ebb99a776d4500446d6926155df48dcac9fa7d396ac7fabe31e5bd60cebbe"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/ioapi.c",
+      "sha256": "9938411830837cd4fb2f728a5dbe5c11e7feff224d7549fd59bb64d16658a6f0"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/ioapi.h",
+      "sha256": "29a7577979218e952bb10ea179a90bd59d70805b334161f9ef34598fc0636142"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/unzip.c",
+      "sha256": "eca7a12387bc1818da46d1f90711a97118126105269b6f7fc6a062ec157ea60b"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/unzip.h",
+      "sha256": "da609a654cfa0b9e90de247459854d021e7a0cd41ac30ad3e844cbfa55bd24e2"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/zconf.h",
+      "sha256": "dd6fc06ec36207bd5af7aa31557553665cc5d294e881a80052a108cff5dd303e"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/zlib.h",
+      "sha256": "ebceab9efa0d906fcc28dabb864ae63d99da8e5efe56e030cb9cb96578622245"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/zutil.c",
+      "sha256": "e779dcf163308a4565e53d6d462ae19e4896b6f1c759312105bce758404ae075"
+    },
+    {
+      "path": "Contrib/zip2exe/zlib/zutil.h",
+      "sha256": "5b3ffa91e57686861114a1da30a5ef8327acf2926535241f18de050249af9ac3"
+    },
+    {
+      "path": "COPYING",
+      "sha256": "998499f0ae40d6a70277194e0eedf3f12cd56eb6d86c96670a202c17e1923459"
+    },
+    {
+      "path": "Docs/src/attributes.but",
+      "sha256": "0e5b151d574a6443a8a3030f3b6a5fd1c88f7e64a50126a4a4b6af62e385193b"
+    },
+    {
+      "path": "Docs/src/basic.but",
+      "sha256": "21d1f07c3afd455a390fae300bc0f50b320626ca736333460221c1f40e8fac9d"
+    },
+    {
+      "path": "Docs/src/bin/halibut/biblio.c",
+      "sha256": "d52269aa9d4f5fe1ecf446ee38594a26f4a5ead1f9c0827a336b9a5ef8c1beb4"
+    },
+    {
+      "path": "Docs/src/bin/halibut/bk_xhtml.c",
+      "sha256": "8fce7809f38b94151b4e4bb3b192a9a8ead2ca3aace90f2622d5cfea93448080"
+    },
+    {
+      "path": "Docs/src/bin/halibut/contents.c",
+      "sha256": "5e2843b1cbba0a8276a418e0686b1682843c80a8bbd74c6c730080d1ab6e593f"
+    },
+    {
+      "path": "Docs/src/bin/halibut/error.c",
+      "sha256": "9d51bf36c119b51a1d5ed9f3cefce03a8ebe79e3f15366267170adc3d6f6746d"
+    },
+    {
+      "path": "Docs/src/bin/halibut/halibut.h",
+      "sha256": "94b091c4eae1ee6703cda76c55ab347254079db811975f2c4b178c308ea86704"
+    },
+    {
+      "path": "Docs/src/bin/halibut/help.c",
+      "sha256": "df91011ac8aba2d4bbce795fb969b7e9624a01f725b4a89ba20aeaa535123597"
+    },
+    {
+      "path": "Docs/src/bin/halibut/index.c",
+      "sha256": "1f7c8dd01067123df9606c9495df202aca12b6e147ad9e3a767b6810b6286df2"
+    },
+    {
+      "path": "Docs/src/bin/halibut/input.c",
+      "sha256": "a7790b0b0b1f122455153d8c11816ab4ec829486f04a5c0913a60fa403adaedf"
+    },
+    {
+      "path": "Docs/src/bin/halibut/keywords.c",
+      "sha256": "4758d1c3aac23f5fbb38dc91c4f9b8d7f5a7fed84c25ae1ebecc76ddc1e56b45"
+    },
+    {
+      "path": "Docs/src/bin/halibut/licence.c",
+      "sha256": "67649ea2edbecd2b18fa9b639af125fc7702a602f91bb403c6686e55f0aae25f"
+    },
+    {
+      "path": "Docs/src/bin/halibut/LICENSE",
+      "sha256": "9923094967612d55c7a301c75c586203e89cc71b38aeb828395b8c5bcd75be03"
+    },
+    {
+      "path": "Docs/src/bin/halibut/main.c",
+      "sha256": "da6738a875fa4eac6852d1662caa6ac47720f52edbbdf7edfdec82c39f00b505"
+    },
+    {
+      "path": "Docs/src/bin/halibut/malloc.c",
+      "sha256": "43816dcc1e1985eaf44e9ad2b13fca46891eecf457238b39bff498d9dd727aea"
+    },
+    {
+      "path": "Docs/src/bin/halibut/misc.c",
+      "sha256": "388cebbe289b42efc053cbe94137d9788252ba16f9e2e962c857e91ba6610bf7"
+    },
+    {
+      "path": "Docs/src/bin/halibut/SConscript",
+      "sha256": "48c1648f59408658d2974fd1831032aaac3c2a28749d48f76d88468c8461aead"
+    },
+    {
+      "path": "Docs/src/bin/halibut/style.c",
+      "sha256": "e0975c6dec0b3aef34cbfb2c0e5229bc7758f11ea400cc8b2e6fd8edfeb5b8b9"
+    },
+    {
+      "path": "Docs/src/bin/halibut/tree234.c",
+      "sha256": "acd32b9401efc6c39f8e2a27145cb4ebcf3177758d7db1ab7368ae3035f30684"
+    },
+    {
+      "path": "Docs/src/bin/halibut/tree234.h",
+      "sha256": "29dc7b1234cd5b4897e7389e9e3a80bf56b0eb798476d48824b023eb7a3ca8f8"
+    },
+    {
+      "path": "Docs/src/bin/halibut/ustring.c",
+      "sha256": "331d1d08d649ba6deb3eb6a4f7a47be3acd280fcff49bd1da8eba8fd223cd707"
+    },
+    {
+      "path": "Docs/src/bin/halibut/version.c",
+      "sha256": "a41f3804b7ef3d66f9952760860f59323c2bc27aafb02620a458027dc8f4af50"
+    },
+    {
+      "path": "Docs/src/build.but",
+      "sha256": "21b8a475b00eb9926e3bbb95e12bd4dbaf9744a4aa2694881273069b9b484d49"
+    },
+    {
+      "path": "Docs/src/callback.but",
+      "sha256": "97616e8e4aca2a11b32eceaf461d24937983ccf69344f18a43c5483185127ea6"
+    },
+    {
+      "path": "Docs/src/chm_config.but",
+      "sha256": "bfd7a11e25db42a651a19afefd011fef54d9b8e7a1b3e6e62adfb57e5efd95ec"
+    },
+    {
+      "path": "Docs/src/chmlink.js",
+      "sha256": "8a03022b42bda21c47997e36618802d3b28b6fb9e84c1c6b191870e790efd62a"
+    },
+    {
+      "path": "Docs/src/compiler.but",
+      "sha256": "09be2ff9548797e8565a4910473d86e8dffe7b155ef8e72cd76a9bfab3871ca8"
+    },
+    {
+      "path": "Docs/src/compilerflags.but",
+      "sha256": "8a911512ce69f470a1539b1d76bde3a8f01a38b1d100684eb5b3a8adf37eb41e"
+    },
+    {
+      "path": "Docs/src/config.but",
+      "sha256": "08259feffe802c2bb7b3768a79713e4d36ebe690e40c8983e7c1714b9c8eac68"
+    },
+    {
+      "path": "Docs/src/credits.but",
+      "sha256": "e3573789a76b46488f3c1904a62208f296201d2541b8a2d851b19950786c7b71"
+    },
+    {
+      "path": "Docs/src/defines.but",
+      "sha256": "22f3fcef21d1ab2c4827f1196425de13b6fcb11639353a0cd1f0d758ced9399d"
+    },
+    {
+      "path": "Docs/src/file.but",
+      "sha256": "b104085f38a871269e722198001fb69b0e6c122465e2add725dd497d7c957531"
+    },
+    {
+      "path": "Docs/src/flowcontrol.but",
+      "sha256": "7d0a4c4b3dee892525531e127ee34a7fc97a65020f9077e97c51e0b67bfb88d2"
+    },
+    {
+      "path": "Docs/src/functions.but",
+      "sha256": "b0e924d83baea98ad4b1a8ebf36c64ca53d0aed81d3a12c8a78707c02c6d7d8e"
+    },
+    {
+      "path": "Docs/src/generalpurpose.but",
+      "sha256": "a7706b756ca6e0ba0c049ebd48a6bf155a10c3081956d0af7b5d557e31734aea"
+    },
+    {
+      "path": "Docs/src/headers.but",
+      "sha256": "e0b8b7f5bec0066289f21e01926a115fbf9e0fc33212a4e6823caf3b08bf9918"
+    },
+    {
+      "path": "Docs/src/history.but",
+      "sha256": "9e63981972654376d320e512ee123049487dcfc2d1d1912c4166e9a38de0db69"
+    },
+    {
+      "path": "Docs/src/int.but",
+      "sha256": "5224faa155ac020567e94274a0808ffec38b6e012bf5e964a25d5600ccb13fdc"
+    },
+    {
+      "path": "Docs/src/intro.but",
+      "sha256": "6ae8832461296fecd134d4d87a1e9a4a8f330019a74affb46a71e8320061ff78"
+    },
+    {
+      "path": "Docs/src/jumps.but",
+      "sha256": "b847d385ff29c187d20f57971f1596dc9bc3cc0dac168afe239a4276c3979f1b"
+    },
+    {
+      "path": "Docs/src/labels.but",
+      "sha256": "6950c646121f981317ea5d87ad8d29dc425ecfd35de61f35e8d934bb00832fc0"
+    },
+    {
+      "path": "Docs/src/langs.but",
+      "sha256": "84c24de5a8b60e46573c0a64d3ebdb97c3efecf36dd271daeb16b5b54f0c0409"
+    },
+    {
+      "path": "Docs/src/library.but",
+      "sha256": "dda596699fab12f88ba53503e79c95424390d68307b7cd5f7bbe726fe0a0794c"
+    },
+    {
+      "path": "Docs/src/license.but",
+      "sha256": "d0114446fd3d39a8b14a53fa0dda018575712d41b517c67df96fa7d4ee782af4"
+    },
+    {
+      "path": "Docs/src/log.but",
+      "sha256": "6f1c868435c9b5bb4a0a3f22ad7e041818c0078d8823cd426eda60f57099bc9d"
+    },
+    {
+      "path": "Docs/src/misc.but",
+      "sha256": "6e1c6df340de66d69e90b929dc30ae8877e71386edd0150bcb24c7935e9014b1"
+    },
+    {
+      "path": "Docs/src/modernui.but",
+      "sha256": "1865f0a6f762d4b5dc6640b1448f44d04d2cbf0c4503a050c273a3a2071eed08"
+    },
+    {
+      "path": "Docs/src/nsis.hhp",
+      "sha256": "5626d861c31f2ffe500cae8c09f894552b0342a42b85729e0c934973254ae591"
+    },
+    {
+      "path": "Docs/src/pages.but",
+      "sha256": "2681bbbd728ce07728d0d34ce43af5a2382ae87eaf7c0a5d385f3365ceee77d0"
+    },
+    {
+      "path": "Docs/src/plugin.but",
+      "sha256": "7b216f5a5be1028ac1d191199d93cc79da54946d7b5a8d036966451dd2e6639f"
+    },
+    {
+      "path": "Docs/src/reboot.but",
+      "sha256": "1de1f1dbe91026c6d437c2111b99a7e1d6b8b24cb01db6a747e5f6297d4c7e05"
+    },
+    {
+      "path": "Docs/src/registry.but",
+      "sha256": "98cbbbd0340420e845ad574b725b3a59098506fec232eed1c385485583dc4ec0"
+    },
+    {
+      "path": "Docs/src/SConscript",
+      "sha256": "146522a9f75a2e259e80e0f6517ab87656bdebad2891110449976a9953414aec"
+    },
+    {
+      "path": "Docs/src/script.but",
+      "sha256": "5c79dec16db5e0ae2eedc99a907a68a5a8a03afbf739e47ecfe284d3e91068c4"
+    },
+    {
+      "path": "Docs/src/sec.but",
+      "sha256": "d65522dbece9cf98950dd5f4c13ec6b79253232315f4cfa129f99986e7ef4162"
+    },
+    {
+      "path": "Docs/src/sections.but",
+      "sha256": "f300623aeeee7e4de42e196553afb569718daca467f52d771e72ef7cb7ae49ee"
+    },
+    {
+      "path": "Docs/src/silent.but",
+      "sha256": "2edbd2e30e11843e4197c8ed3fb86dad1652bba2072f9103cd80a802f2cff14a"
+    },
+    {
+      "path": "Docs/src/stack.but",
+      "sha256": "3bb29f9f848363bc3efef680fdc3a4475c28bfefc01ac1ef0450f32cb855c96c"
+    },
+    {
+      "path": "Docs/src/string.but",
+      "sha256": "b884d3a948e5eb911a73c78f9dab403cf6c87d81ad2ae7e1d36f0a25eec52a66"
+    },
+    {
+      "path": "Docs/src/tutorial.but",
+      "sha256": "f8336ad1aa78f61850b90b1354b7c98cb2e01e9526a8ca1c469803b30f4d145e"
+    },
+    {
+      "path": "Docs/src/ui.but",
+      "sha256": "e52f7fe4fc53ecccb29312add06451082604eec4357e3a5d83118ab1b74e9481"
+    },
+    {
+      "path": "Docs/src/uninstall.but",
+      "sha256": "91ea93dd9f78c3eb8f0c8607b7a5ce49f955628af59ac3d6a5a223560b176dcc"
+    },
+    {
+      "path": "Docs/src/usage.but",
+      "sha256": "d953e19239be8cf8e3503bbbb892bbec24ec9fd7c60fbb2e3a3782568c4f1e20"
+    },
+    {
+      "path": "Docs/src/usection.but",
+      "sha256": "f690b8a80d41e48accc258d6cef6b2bda9d95b9803ecc3f33225cebb7f8f8883"
+    },
+    {
+      "path": "Docs/src/usefulfunc.but",
+      "sha256": "799cf3d8754eb449b78b098b9c1b7ebbabe693564ad53bde85cd26fdd4fd43f1"
+    },
+    {
+      "path": "Docs/src/usefulinfos.but",
+      "sha256": "49b35fa525b7f5d932508e9515ee9b89af02385a923d31c9f398e8ac7c26a6e6"
+    },
+    {
+      "path": "Docs/src/var.but",
+      "sha256": "d59557a34902d598f4690f67454fb8f2c823f4c7838e300e9030d7504c9c912c"
+    },
+    {
+      "path": "Docs/style.css",
+      "sha256": "5c32f94a071194ffbaba3f0f363957933e00a1b69678d55252d9107e651c86b9"
+    },
+    {
+      "path": "Examples/bigtest.nsi",
+      "sha256": "0ea17c12000e5bc2d53db0ea26822dcfbac97831b2b6e5da74a6cc316e4045df"
+    },
+    {
+      "path": "Examples/example1.nsi",
+      "sha256": "189dcb946385a981990d03abd5b2fecf79c2ce204164845619bce7222cbd35e3"
+    },
+    {
+      "path": "Examples/example2.nsi",
+      "sha256": "8cc5b740dc128c3dd8d305b27c60f1ad81f04cc31b0c02a28e611502986fbdb7"
+    },
+    {
+      "path": "Examples/FileFunc.ini",
+      "sha256": "519728ed7e91857be34c766bd24533001d7412b80cbfa8c6e0ad8567c6224916"
+    },
+    {
+      "path": "Examples/FileFunc.nsi",
+      "sha256": "a9c664009c77199c7cec18c3db3c9929f1b2087acac17fbb36d01e93eacb0fe6"
+    },
+    {
+      "path": "Examples/FileFuncTest.nsi",
+      "sha256": "4a1786d52bf894a4379fc9b9cc51c70fb54e3db5a7e3d7eba89a45472960dc22"
+    },
+    {
+      "path": "Examples/gfx.nsi",
+      "sha256": "e34028b34d6c421dfbae5afb27b63cb2401956bf6c1c35d50068427c52a0f649"
+    },
+    {
+      "path": "Examples/languages.nsi",
+      "sha256": "f0bf22c8613b9f95353324478da7ba081ddbfa1bc407fea3c7a3157584160ac1"
+    },
+    {
+      "path": "Examples/Library.nsi",
+      "sha256": "1d3f0d844385bd622b61be0ad22108d65842908af3a362ac27dfc9942260b660"
+    },
+    {
+      "path": "Examples/LogicLib.nsi",
+      "sha256": "db3397bc3e92c45bc02836a6acac4386d2f42fc867d9f2ec37b98899dbbdcd27"
+    },
+    {
+      "path": "Examples/makensis.ini",
+      "sha256": "51746f86bfa86a71130513f99893a7e3ff7e3e8fa98aea47ebd578c1eae8ab4e"
+    },
+    {
+      "path": "Examples/makensis.nsi",
+      "sha256": "0008a9c3020f5bb01af99b3a90dc8dd64800fbe8515bfc8d5edc899364001487"
+    },
+    {
+      "path": "Examples/Memento.nsi",
+      "sha256": "989697dab3a630deac162ef9256f2ba6ca59011422821a8da7f9e5ee05b43792"
+    },
+    {
+      "path": "Examples/Modern UI/Basic.nsi",
+      "sha256": "0cac50a4755fa0d9034d7cfb3e0527fa0d84081bae5fd70ca9cff679d90b33ca"
+    },
+    {
+      "path": "Examples/Modern UI/HeaderBitmap.nsi",
+      "sha256": "e18c3df98b09da382f43f1ed4d5f898645ca2798e80848cb3e91e61905a2b616"
+    },
+    {
+      "path": "Examples/Modern UI/InstallOptions.nsi",
+      "sha256": "1d6a590b44339017b139348a5de3dce14d74549390cdb881f75c2069ec279ce7"
+    },
+    {
+      "path": "Examples/Modern UI/ioA.ini",
+      "sha256": "033d240b4fecd27a68f41fd5701207d4fea9cd45f8f67c1451cd56511db04077"
+    },
+    {
+      "path": "Examples/Modern UI/ioB.ini",
+      "sha256": "ebf7cfadf7638bd4f69b43cc64ff4c183cac3e5dc10b0bc6f0646ad1747e3da7"
+    },
+    {
+      "path": "Examples/Modern UI/ioC.ini",
+      "sha256": "2084021e95e34d3bb5f36d0d8aa7079397d6675569614691a96f7593b007088e"
+    },
+    {
+      "path": "Examples/Modern UI/MultiLanguage.nsi",
+      "sha256": "1e2a980a9d2f10cb2be14f0544532a42f7de785cc4c34a2a01b40e175e1eb218"
+    },
+    {
+      "path": "Examples/Modern UI/StartMenu.nsi",
+      "sha256": "d3ee8179b462ae503796bcde6c264514446397433489f3165fddcdae26a449dd"
+    },
+    {
+      "path": "Examples/Modern UI/WelcomeFinish.nsi",
+      "sha256": "c28f191f5b909fe04f093a3f97dfcfa972028119bec4dc906160cb0c6369aa92"
+    },
+    {
+      "path": "Examples/one-section.nsi",
+      "sha256": "7feddf78821fb9a68fb6e0570add7d6160496db3cab9a110e04b69629cff81e6"
+    },
+    {
+      "path": "Examples/primes.nsi",
+      "sha256": "73631736e80d70f8cd234a0a443767e2232f07f7fdbaef077870aa1f6375c8dd"
+    },
+    {
+      "path": "Examples/rtest.nsi",
+      "sha256": "255d1f75ae194cb799f8f777ac308ef2eb832d49e3c7a40ed0c26430d325f72f"
+    },
+    {
+      "path": "Examples/SConscript",
+      "sha256": "7bc226dc501d74227b7afe2474fa25d5c2dffd2e3b37570dfaf3ed125f1e229c"
+    },
+    {
+      "path": "Examples/silent.nsi",
+      "sha256": "cd63a160c5fd41c622ca41b59527221e3769fdd03ffa0f1773f1b39a9ac2dc76"
+    },
+    {
+      "path": "Examples/StrFunc.nsi",
+      "sha256": "05e62ec8e93b530468031eb0880ab2f42e5a2fd1995d0a46157fcfad3bae8e46"
+    },
+    {
+      "path": "Examples/TextFunc.ini",
+      "sha256": "fecdf4964fb94b1295e6b25e9ee30a8ca389c3943ccdb72cf6e0003e2790036b"
+    },
+    {
+      "path": "Examples/TextFunc.nsi",
+      "sha256": "353577c652c92d2f9fafd9851ebd03b43424fee649251eb1de7a1fb58fbd4af7"
+    },
+    {
+      "path": "Examples/TextFuncTest.nsi",
+      "sha256": "66f74b18815eaf6d1c465c01b0ac58e5b68ee124431b27ce6bd4bab2c582dd78"
+    },
+    {
+      "path": "Examples/UserVars.nsi",
+      "sha256": "7255c57db575082a4afbf860a9ded0dd67281b087d6dc4c043dd5200d24f4b7f"
+    },
+    {
+      "path": "Examples/VersionInfo.nsi",
+      "sha256": "36e01d6a7fad1b2f8c81b0c6344acd611d6abb3cb02a156f48b81dff059e0320"
+    },
+    {
+      "path": "Examples/viewhtml.nsi",
+      "sha256": "9481f438e3b324c7ec2c9219137ec0ed6a922b835e89f0e813e640fca985b98e"
+    },
+    {
+      "path": "Examples/waplugin.nsi",
+      "sha256": "18d269c3a4abc4f0dd579569a6b6ba130cb4cddf7233f234dec6049d9967a139"
+    },
+    {
+      "path": "Examples/WordFunc.ini",
+      "sha256": "5e8c6deea76321ee5f5facb4f7404e5c317f95a8bbe9d6c87dae94dcdac80fd5"
+    },
+    {
+      "path": "Examples/WordFunc.nsi",
+      "sha256": "06cd29227620646e4cd54c16d2ca1ed1cd3e19c8b2932a8bdc2b22994df4aac2"
+    },
+    {
+      "path": "Examples/WordFuncTest.nsi",
+      "sha256": "53a471393be0d07db78f55a98780066ff18d4586cbc6e460ec8b2fe5d4937adb"
+    },
+    {
+      "path": "Include/Colors.nsh",
+      "sha256": "f9f08980af4a0c2a881be3a1bde2cd91dd3bbc4b29e20b7c8264bd1912e0ad03"
+    },
+    {
+      "path": "Include/FileFunc.nsh",
+      "sha256": "227ba276599be3edd34316f1a4c88f4f09db00fff91149a82353fa80ecdd084a"
+    },
+    {
+      "path": "Include/Library.nsh",
+      "sha256": "dd0583f19b3df9cc7b675d5cc14d0ca2c2e5352b7bc114e80e54b5a6b2ffd96f"
+    },
+    {
+      "path": "Include/LogicLib.nsh",
+      "sha256": "257fc150df479af41575f423520a99c82b645cba4493a91eaaa4db2c0dd02e00"
+    },
+    {
+      "path": "Include/Memento.nsh",
+      "sha256": "f4719a266dcb25135ccee5e33724607e77fd9c6d7ed1de693a05e74315106c2e"
+    },
+    {
+      "path": "Include/MUI.nsh",
+      "sha256": "a8a897943521449db447c23d98609c4688e15cbfca631bddebda8c3729c7fc87"
+    },
+    {
+      "path": "Include/SConscript",
+      "sha256": "c218e1a129944d718ae85b0e43503721c961874eeb65ac04f094b1ec8ac8c621"
+    },
+    {
+      "path": "Include/Sections.nsh",
+      "sha256": "293e5c0013ab6d2db0075fd228a368b6baeabcde8c749ae8b0ac1617c01791da"
+    },
+    {
+      "path": "Include/StrFunc.nsh",
+      "sha256": "93192b47ba2ac12688f3cafc816ac141d320ded45ef95816e2b9fd96822fd6a8"
+    },
+    {
+      "path": "Include/StrFunc.txt",
+      "sha256": "72c485d5550128cfcc3816c7c36f90468766da29af95224101ab41b0b986dc8b"
+    },
+    {
+      "path": "Include/TextFunc.nsh",
+      "sha256": "326e1cc1f49d6ed9fe0f657b70cc616419b4a5faf028e53d17b7f62204fa2c0d"
+    },
+    {
+      "path": "Include/UpgradeDLL.nsh",
+      "sha256": "07865d7d4d5b625434fa1ad39ea5eca7a9e55886c72a19cce7491969bf539501"
+    },
+    {
+      "path": "Include/WinMessages.nsh",
+      "sha256": "f6cba4b103f500037c10a09e26ad50acce667e1de247322c0099514bc923d108"
+    },
+    {
+      "path": "Include/WinVer.nsh",
+      "sha256": "0f130c94910b04848ed876dec05f3b18859960eb50e3e4081dab6aef51f04eb9"
+    },
+    {
+      "path": "Include/WordFunc.nsh",
+      "sha256": "f111c20cf8e466c232d8b7bfbc84dcc242517e48daf9da0ddd1790c48431ae5c"
+    },
+    {
+      "path": "Include/x64.nsh",
+      "sha256": "9ecc682a771ffceae4f4b7ec463ea70b0b5fdbdbd478be6b1747765d4be2d8f2"
+    },
+    {
+      "path": "INSTALL",
+      "sha256": "30261fbb0dce0fda78c4f59caa19bdba6d7c9ab98a12a6f5b1b99b2f4a1e8d7b"
+    },
+    {
+      "path": "Menu/compiler.html",
+      "sha256": "39ce0cf8e0fa4314dfda3452390a171dd42dd7cd5a91fe8d663a53cfe09ce961"
+    },
+    {
+      "path": "Menu/docs.html",
+      "sha256": "5dae6c4b2d9c37881f1512671295345cadeb1e7337fd851fef696d2067b68447"
+    },
+    {
+      "path": "Menu/images/clear.gif",
+      "sha256": "4e0705327480ad2323cb03d9c450ffcae4a98bf3a5382fa0c7882145ed620e49"
+    },
+    {
+      "path": "Menu/images/header-notext.gif",
+      "sha256": "04ce1c575da98e63fd094422d1686761b8e2bd96a220c38b17ad483285af56fb"
+    },
+    {
+      "path": "Menu/images/header.gif",
+      "sha256": "b9d43f8f0d60bdc22eb9fa38abf5e1a5ae523922cd521a3ac6a189cb6ab8d394"
+    },
+    {
+      "path": "Menu/images/line.gif",
+      "sha256": "20f63b6ed7f1321a3eef5de991a8b1f48703dc527ca6b71fd366988cd2dcbef9"
+    },
+    {
+      "path": "Menu/images/menu.gif",
+      "sha256": "8f7e5f919f8d72aae9b9e8ec6ead610860206368bbb6e01d17faa6f7f6e21a27"
+    },
+    {
+      "path": "Menu/images/menud.gif",
+      "sha256": "a4d2488023e34d275da7df5e369a6fb5339d234043548794f9816cd082572aa7"
+    },
+    {
+      "path": "Menu/images/site.gif",
+      "sha256": "99bed3f7de8d79a275af12bc069c66188b42a2049daacfe9c9ea0ff7771e3d1a"
+    },
+    {
+      "path": "Menu/index.html",
+      "sha256": "90220cb6e3b86ccc42f993a7cafc6446a70e9dd93de36049d0be113c1529ad0c"
+    },
+    {
+      "path": "Menu/intro.html",
+      "sha256": "84b655808a080d7e93ac56d1c37921e53e9c63f7b055d267d3c5b55c44e33126"
+    },
+    {
+      "path": "Menu/notinstalled.html",
+      "sha256": "751fdd782542038982eb6c21a9d836a11725d73ef7e0899ce624564fa193cd54"
+    },
+    {
+      "path": "Menu/update.html",
+      "sha256": "c4e401587633ab59f8a16efc9533bc327e1927ecee786419c1ed57ee038fcf67"
+    },
+    {
+      "path": "Menu/websites.html",
+      "sha256": "53efc24b9f39df2f6aa12f26b213e9af0d43e746fd77e04df9337ff357c3151c"
+    },
+    {
+      "path": "nsisconf.nsh",
+      "sha256": "8273545fbb4f930f08af281edba7a1821447b85891a947790e7d6d89709e85a5"
+    },
+    {
+      "path": "SCons/Config/default",
+      "sha256": "e3b6eea438f22dfdd23f4cee78fddf1171d48bb15d420fa1b7c0a628503edd57"
+    },
+    {
+      "path": "SCons/Config/gnu",
+      "sha256": "a7a12df1836b7b459239ead6501a3b4ba7f4e79fe696a0012821a3744e25ffdf"
+    },
+    {
+      "path": "SCons/Config/linker_script",
+      "sha256": "6cd939e1f69469153073bca89c2ca49ace59d969017f7d5dd366f55c82f778ce"
+    },
+    {
+      "path": "SCons/Config/memcpy.c",
+      "sha256": "b994175a9abc757ebaf42de0fdc8f929b5302803862fce8557afe55d4d02be3f"
+    },
+    {
+      "path": "SCons/Config/memset.c",
+      "sha256": "d848d319253ecdbad3e0b5c090fbb6596104721fdec17d172fe85a86fb924314"
+    },
+    {
+      "path": "SCons/Config/ms",
+      "sha256": "e7a38a82f38fe8dba56730c40dd92fa799b8e00255b00c6c0e75bc146bc2f573"
+    },
+    {
+      "path": "SCons/config.py",
+      "sha256": "5de22b641e569c62eb85f7fbab9cf955c628ed089f39593cabab38811d3c61dc"
+    },
+    {
+      "path": "SCons/Tools/crossmingw.py",
+      "sha256": "b8a0a802b26441589827ae0bc0ff390757b378a3641dfc3c187dff9a22549df1"
+    },
+    {
+      "path": "SCons/Tools/mstoolkit.py",
+      "sha256": "1ff2e5386d21b9e70e5e0e6f279af93ca0461862af671596990444f80ef88cc5"
+    },
+    {
+      "path": "SCons/utils.py",
+      "sha256": "f0dd20dece2a3c01499ad6757a532e0c8d6846df9d17c8954fbfda89820b0cd1"
+    },
+    {
+      "path": "SConstruct",
+      "sha256": "6f9b6dfd1f402aeeea40f83c3c8ff597f58175da2a07b07e64c398d67d4e0f58"
+    },
+    {
+      "path": "Scripts/release.py",
+      "sha256": "74fdbfc825b4999b8e4551e57af827885406f67172a06df437df7601b2f7d93c"
+    },
+    {
+      "path": "Source/7zip/7zGuids.cpp",
+      "sha256": "bd7897de0b7cec21badba980f4d02b5c817c4b0c7a1890f2cded1c98c9b7f6e3"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/InBuffer.cpp",
+      "sha256": "7cfc254f339547ef29e859bd1e5d7fcaddb5ff0f49f61e9f30d0630da6df19d0"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/InBuffer.h",
+      "sha256": "545beea4abecca25d05edf48524337bc8d1039a98152433a1246e7300509245d"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/OutBuffer.cpp",
+      "sha256": "0670f99166148e0d9efa10d7538c3cbd80d05df85b8d12ca1c724ea98a1a938f"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/OutBuffer.h",
+      "sha256": "fdb180fc0bd0a5066bb0112bfb358f8ea3cf540c66f9b94cb14f9c5317ac64c2"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/StdAfx.h",
+      "sha256": "27719aa3cc597aaa0cc8ec4b31dd6792e30e0b5158098d3c6dedaffb198820d4"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/StreamUtils.cpp",
+      "sha256": "caa4d71a7ab39feff43e2e2e5321f35a7a3e6804c774207c75acaa07242ff245"
+    },
+    {
+      "path": "Source/7zip/7zip/Common/StreamUtils.h",
+      "sha256": "a5a5b086819ab8f0c3e2144b90bcc8521fd6584d93c4e85a4ca2ee1b2ca0b5e0"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree.h",
+      "sha256": "2faec21b45e4fd0f529f8a37218f910ca3cbb8ee9d20e625c8cf792968d53cca"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree2.h",
+      "sha256": "52ed3412259c41c86f971b1820760c4cbfb4530fc1fa8c23c06f2baac8993f46"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree3.h",
+      "sha256": "52653c453467e2588c3b5b846d7f372c5334d6da7a0256d5c8b883ba2d698502"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree3Z.h",
+      "sha256": "c9b8449b1474636bbecb5ab19518fc1411a0b870264c1566e6d8f94f1a0e59b5"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree3ZMain.h",
+      "sha256": "da9a094dcbf9917b22faa938d0d0fea79b91ffe1ada0eebac7e48af41bb2de61"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree4.h",
+      "sha256": "710ea1c93b66d7e7f9e26dd76372b2fb9d66ab7695bc84f6425c32626d92dbf6"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTree4b.h",
+      "sha256": "de5de597f7e9b0ad8f6e2ce27ae397d415aca9dd8a2185a47de1580962d6a71c"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTreeMain.h",
+      "sha256": "6743c19370b8efd0dcd48992df55b6f352d135580cdba577f532b38bb5b7d619"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTreeMF.h",
+      "sha256": "f9b18a8bcc1204bab3d84316eac5f1630205e3dfa626a3dca1a08e5b232be3d4"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/BinTree/BinTreeMFMain.h",
+      "sha256": "26c02b4bf39abee80ca88cf07daa9b8ed368861d55f9542e0ce03faf7643a03a"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/IMatchFinder.h",
+      "sha256": "b5dd3b889d23bbe78c943048336dbd54083ddd55b815346d99cf7be519d1a0e1"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/LZInWindow.cpp",
+      "sha256": "f1de33ec7a470841f122ef61c0c9263818d7bc5f256626ca74a8df96feda4fda"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/LZInWindow.h",
+      "sha256": "2f9fd4235830fc380e7a9262a6e730035f10ffcbab073be55eb28edec59ab196"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/LZOutWindow.cpp",
+      "sha256": "277d91dcf5c55062d50c89698b6975fb27d7cb1e055d8461d6df101a58262205"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/LZOutWindow.h",
+      "sha256": "577937cc96706edf400fce3ddb7319b0841d7690cb0c9df8062d43146cf1d24f"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZ/StdAfx.h",
+      "sha256": "0e18e37fc113aa62ee3ffbc5bd35421788a990f2e165238fa09b06c21d1717ed"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZMA/LZMA.h",
+      "sha256": "0b54ae36aa54216e60f66cf5c0d09909461ab1b0551c5e9c26c0142693711446"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZMA/LZMAEncoder.cpp",
+      "sha256": "50b22e964f9c83a2358f729e3a49161555c0531335a5ae824259c0b5796e5ab9"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZMA/LZMAEncoder.h",
+      "sha256": "eb986be903b72d1a946b4fc40f6a0ce147a4374525551491e84267c87c8ca191"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/LZMA/StdAfx.h",
+      "sha256": "c68042cc9f9a8866fa6f002359354b1b3efae2aec18b04588e201ab1c7f7a498"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/RangeCoder.h",
+      "sha256": "74e06b989d255615302bf6841f6c82c575453f2ac4b81996c27c1a4704adeb4f"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/RangeCoderBit.cpp",
+      "sha256": "7fde753f13ce6babe545dedcdd321c765b9f66b8e9095f1b1a8e21b229c96959"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/RangeCoderBit.h",
+      "sha256": "0868c48e9f2796ba7cf27dfde00ba18193f7b5140be5db5e90054ef0f36a6d16"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/RangeCoderBitTree.h",
+      "sha256": "febeb0788f8fa29ca0e33b2d656fe7e11c8bf584790d133e6a887711c0c57feb"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/RangeCoderOpt.h",
+      "sha256": "3b70a7a72bb2b1d24039cb609f6494b532de517ce286ea0bdce9630e8fcaa014"
+    },
+    {
+      "path": "Source/7zip/7zip/Compress/RangeCoder/StdAfx.h",
+      "sha256": "a3df70bcb5c6205240d022ff6822151dbd66e3262e46b0b4b065431800015fcf"
+    },
+    {
+      "path": "Source/7zip/7zip/ICoder.h",
+      "sha256": "848aa47f0ee2848b0f715253364b3c16569994d1dd9d6950d1162c3129ec5ee3"
+    },
+    {
+      "path": "Source/7zip/7zip/IStream.h",
+      "sha256": "b3ae7721c16681a848ebd05d094c7c984de7878ebded342157ade4de1f088154"
+    },
+    {
+      "path": "Source/7zip/Common/Alloc.cpp",
+      "sha256": "7ea1fa9fda60389112f6c21e1966ab4e8f2ff7548aaed4185cfb82dae2e1821a"
+    },
+    {
+      "path": "Source/7zip/Common/Alloc.h",
+      "sha256": "66beffd28c03825b5e2921f456bdb778720ff3bccad11c7c23cc996c528ba2ed"
+    },
+    {
+      "path": "Source/7zip/Common/CRC.cpp",
+      "sha256": "6933c21f1986e7b8f7563f9421c69fd13ba5a6e49c541279b7d2456b1ccea34d"
+    },
+    {
+      "path": "Source/7zip/Common/CRC.h",
+      "sha256": "9ffd53f4a632630627206f53da3f063c9c5b3e8cb16782f099f922e01e45205e"
+    },
+    {
+      "path": "Source/7zip/Common/Defs.h",
+      "sha256": "36e68729824fab313ef79d57b2752457095e56c2049ce4e8472167d56c02a900"
+    },
+    {
+      "path": "Source/7zip/Common/MyCom.h",
+      "sha256": "6dddac1614d61ac4f2fb3fe9ad138f3d66c4d0df51d56278c343460b4b1d643a"
+    },
+    {
+      "path": "Source/7zip/Common/MyGuidDef.h",
+      "sha256": "8241668a0a059166a0e2d2638605ced4c68c05ec304258bcc773b4d42801a99f"
+    },
+    {
+      "path": "Source/7zip/Common/MyUnknown.h",
+      "sha256": "8ecefa327006aebf6f7330f5d3d1bcaf300f703e2eaa3a53b707171b230b1b4e"
+    },
+    {
+      "path": "Source/7zip/Common/MyWindows.h",
+      "sha256": "2dc5aca0f61e25bb5e222c67ec22e0d17b46ce33dc1ddcc396a8f19c12e58a0a"
+    },
+    {
+      "path": "Source/7zip/Common/StdAfx.h",
+      "sha256": "e097ce9ba59de2ecfb61f3ccf6c3e8e4927250976ee90b98cc1c91b0b684e9cb"
+    },
+    {
+      "path": "Source/7zip/Common/Types.h",
+      "sha256": "97a070d3767d8a3a054b3149f44f89f9ef8247c1329505b41d266306056bca97"
+    },
+    {
+      "path": "Source/7zip/LZMADecode.c",
+      "sha256": "a0d59ef2971a031e6c69bc3efc3fdaefdda90a4ec1a52a2b22449579e25038b6"
+    },
+    {
+      "path": "Source/7zip/LZMADecode.h",
+      "sha256": "dde4e713b53ee07f3f1a1e5a276499c3cb9c18e66a564f5c38b1d8d7e32bdfe3"
+    },
+    {
+      "path": "Source/7zip/sdk.diff",
+      "sha256": "01b4a3008f1f814072af7e761e7b2bd7b88b8e33d8f79b90b606f2c6dc2d99ce"
+    },
+    {
+      "path": "Source/afxres.h",
+      "sha256": "793ff1b5ff7b5701d7d798084ced175052a0a3a8df809941ca19f63bedd5ec18"
+    },
+    {
+      "path": "Source/boost/checked_delete.hpp",
+      "sha256": "6c05b3de8ad2cbf273c6904279fb14763b0e84d44c3d74858cbafb0931762c62"
+    },
+    {
+      "path": "Source/boost/detail/workaround.hpp",
+      "sha256": "a985dbf7b8dfb55255171f99c9ddc99c2696034c0a7803dffbaa40d359a9f021"
+    },
+    {
+      "path": "Source/boost/scoped_array.hpp",
+      "sha256": "8f01da1cf6f9ef4a95c5b2483793422befac3576acc18276bc6828403c17142e"
+    },
+    {
+      "path": "Source/boost/scoped_ptr.hpp",
+      "sha256": "66deda0be70b150001d251e5559d2bc7055864d19a68cdf1da860d54af0327cb"
+    },
+    {
+      "path": "Source/build.cpp",
+      "sha256": "5e2c7f72d1453ba43b0bb2dce302c336b9eed6459f2c349fae467ec78f7d3024"
+    },
+    {
+      "path": "Source/build.h",
+      "sha256": "50f71272fb9203a881d34ed3fbec2787f64ec28ca8c2c144b4c8e637fd8fb0c6"
+    },
+    {
+      "path": "Source/bzip2/blocksort.c",
+      "sha256": "26ab9b1c78e442d7d0be55409631bb8ec1d6c67ef8bd10f3af72b3617d9bce56"
+    },
+    {
+      "path": "Source/bzip2/bzlib.c",
+      "sha256": "05d42fe9b0b9c28ef6d1db3b7c474746b56f484479736defe0c52627de2d2794"
+    },
+    {
+      "path": "Source/bzip2/bzlib.h",
+      "sha256": "4e7598b36562cb3a73eff3eb9571940a199ac4cfb12c3646ca8cbfdf618e6288"
+    },
+    {
+      "path": "Source/bzip2/compress.c",
+      "sha256": "7673fee02c13a4bbb1803dc40b84b8d66a26c75b222ccca9a62c2e5d0ee01546"
+    },
+    {
+      "path": "Source/bzip2/decompress.c",
+      "sha256": "c00994a561dc1ed73e7c90b43c7b94a4caf027c18a16f5525a3a90e050fc6d44"
+    },
+    {
+      "path": "Source/bzip2/huffman.c",
+      "sha256": "78c76d38662148cdfdcc207c64943d102a0efeb3da69fffb6a5ba2db36533726"
+    },
+    {
+      "path": "Source/cbzip2.h",
+      "sha256": "3e9efaed0645d384cba06de69ca808069e3db63de1d2683c8d1cb990b0e123da"
+    },
+    {
+      "path": "Source/clzma.cpp",
+      "sha256": "fd3ebe86f36c5033ac823905bf73a469ea4ffc2e841ec41eb4e56f4d75dee5fb"
+    },
+    {
+      "path": "Source/clzma.h",
+      "sha256": "d4f5b22917a6c66e740c487217816430dd82a0f443357215b9f8e8aa79748593"
+    },
+    {
+      "path": "Source/compressor.h",
+      "sha256": "61003b34ccafdf24b20bed5a7d006c05367bbe4ccf776179bc437ea42f679ad4"
+    },
+    {
+      "path": "Source/crc32.c",
+      "sha256": "c2da925837b32094c41b1cdf646da81eb5502c31521555bdf915b441a3d836e6"
+    },
+    {
+      "path": "Source/crc32.h",
+      "sha256": "d8f877dd6ca72d09d98c450addcf323079ab907f5bc47e3e503ab23e4673dffe"
+    },
+    {
+      "path": "Source/czlib.h",
+      "sha256": "d49409857799d76d703ef049e5b729ca333f8b9ab7af20793d990c8c3765d93e"
+    },
+    {
+      "path": "Source/DialogTemplate.cpp",
+      "sha256": "03450677acfd405999cbfc424a25719157a944d081ebc189c6d4e598b5f3423d"
+    },
+    {
+      "path": "Source/DialogTemplate.h",
+      "sha256": "7ea083b9197f9cd54b1f9132824a3c11fe28b5fdbd2cf843b7e3b6e0c103861b"
+    },
+    {
+      "path": "Source/dirreader.cpp",
+      "sha256": "0cbc0587f13c7bd2461cf2b6174b1f0c76f5ea1ad1505121675a0fe044b3b226"
+    },
+    {
+      "path": "Source/dirreader.h",
+      "sha256": "7789c0925509b24320fec1e79efe6f5088043cb8c219aaa591b4ae358c7fe7ec"
+    },
+    {
+      "path": "Source/exehead/afxres.h",
+      "sha256": "18a9ffb8912652eb4b06d9385756708241df67812b71c4a9be6c7478c0ee1b9e"
+    },
+    {
+      "path": "Source/exehead/bgbg.c",
+      "sha256": "e9646e31fdba495a0bda7278f9d6d5f29645a956b7e482b26e1a429a3f9402d5"
+    },
+    {
+      "path": "Source/exehead/bitmap1.bmp",
+      "sha256": "c0a5e0e33a8c8af0ddc313126a7767632890373444f58a4f20c7fee75eeca65c"
+    },
+    {
+      "path": "Source/exehead/components.c",
+      "sha256": "5b3532649c1565d707f88361346edf168b244bb63c5c01b17890dbff297e6c51"
+    },
+    {
+      "path": "Source/exehead/components.h",
+      "sha256": "60247b10db0191cc6e977905c06fd6a21f1797cf9e153ca1d908cc46a04ad0f5"
+    },
+    {
+      "path": "Source/exehead/config.h",
+      "sha256": "bdba07806702e674c380a0f2e93df09d95e65bae821a43a85528add31a7eccbd"
+    },
+    {
+      "path": "Source/exehead/exec.c",
+      "sha256": "16d32c6207f4ac38404e25f25018ee2d15b042a16696ca049f4e07245884f0fc"
+    },
+    {
+      "path": "Source/exehead/exec.h",
+      "sha256": "9b04cea287091182586e5575d1a154f1f14e6fb5271d8d5c74c3809226d90262"
+    },
+    {
+      "path": "Source/exehead/fileform.c",
+      "sha256": "ddb60ba22c97e271bf97e80a2388df404cdf8b489af4d27310dcc5f959c14f74"
+    },
+    {
+      "path": "Source/exehead/fileform.h",
+      "sha256": "a3b85610bc16beb8b421b9418780df07760e474af03fe8403c1a0ed9704ef363"
+    },
+    {
+      "path": "Source/exehead/lang.h",
+      "sha256": "df9e048dd36e787e45a2b4eeabdda33f297aa79cbaa4b86975f8c9070ef285a5"
+    },
+    {
+      "path": "Source/exehead/Main.c",
+      "sha256": "bcd31896524f75558ad87d83e0416b240fc91fa309c5ebd944004ed4b7b78521"
+    },
+    {
+      "path": "Source/exehead/nsis.ico",
+      "sha256": "dbca06e4966ff7d0439e285fe34a25a8e448c8977d387d52ad79622b96d07f96"
+    },
+    {
+      "path": "Source/exehead/resource.h",
+      "sha256": "212dc6cbd78c4dadd980b985208e6544efc21b91f3ddc29f900b997a0aa4c75f"
+    },
+    {
+      "path": "Source/exehead/resource.rc",
+      "sha256": "d8cc1422cd5018c1767db78b9236a0a1069fa924aeaf0d062882e0ea327fbb61"
+    },
+    {
+      "path": "Source/exehead/SConscript",
+      "sha256": "263edef9bc021caab8674011c7cf640439d7683cd64900164651b503285d7f1e"
+    },
+    {
+      "path": "Source/exehead/state.h",
+      "sha256": "b17518bf4be00f1268314e182a08f1ba321b455a98d3505a2c864ad651abbef8"
+    },
+    {
+      "path": "Source/exehead/Ui.c",
+      "sha256": "b74d8472450c70e1338af5574edd14a99f9f8650cdd332f9bff02a7402bb4c87"
+    },
+    {
+      "path": "Source/exehead/ui.h",
+      "sha256": "989a629339704556acff80c33d5495e6898464020dee2981ab7b7b3f3c53afb3"
+    },
+    {
+      "path": "Source/exehead/uninst.ico",
+      "sha256": "ba82bb5d90262417a18cec6631bbd8b880020eb159b45f264a9145196dfb8f3a"
+    },
+    {
+      "path": "Source/exehead/util.c",
+      "sha256": "afc287b158be4de8fc2bd2e49a8a7ec1f068d8513626229319aab358c6da8e2e"
+    },
+    {
+      "path": "Source/exehead/util.h",
+      "sha256": "e70c45286d49b8d0d6ae608dfbc94e9207ae3aa53f1dfe73333c97148ffe6cfe"
+    },
+    {
+      "path": "Source/fileform.cpp",
+      "sha256": "802d20279a9d5cc3ae0e1e5b8cc5087ffe80ff6fec7469b9a8d22c08bdcc3aaf"
+    },
+    {
+      "path": "Source/fileform.h",
+      "sha256": "128125c525fbc4eda182150d325353401b0b0761ecca9bdb2271c082873802b3"
+    },
+    {
+      "path": "Source/growbuf.cpp",
+      "sha256": "9d5d43a1f36f0563a975dc2b6d23e35d303118901d2ecff991ca1105d5e94daa"
+    },
+    {
+      "path": "Source/growbuf.h",
+      "sha256": "0abf7045a30823378a977b9c832ff90bd09455286f945ccf149f420a7a061a48"
+    },
+    {
+      "path": "Source/lang.cpp",
+      "sha256": "8491aa38d072ebc9b6aafe758c9b4b35d1315c3d0bee6f0218e6782be9a06e01"
+    },
+    {
+      "path": "Source/lang.h",
+      "sha256": "e09a5e7f1ecfe772f077462191398cffb6d6866fa14e1e9528b8b56000fdd325"
+    },
+    {
+      "path": "Source/lineparse.cpp",
+      "sha256": "db6939ce5cc064bf8bdc2690c46ce275becc49ea50e1ef11b5d52158702c6860"
+    },
+    {
+      "path": "Source/lineparse.h",
+      "sha256": "09ed7e50fc849058cf2516d9413327e6eb04d6060c37d6b6efedb78eb8e48a60"
+    },
+    {
+      "path": "Source/makenssi.cpp",
+      "sha256": "eaea4aa287bb66f6e5eec88e822a1e16b4da4f647bc893b4fed32de451cb301c"
+    },
+    {
+      "path": "Source/manifest.cpp",
+      "sha256": "9767bfdc6883140cb142f8ebf8d2f465a45f1f6883dca068d0c4f29e49190f80"
+    },
+    {
+      "path": "Source/manifest.h",
+      "sha256": "b696ed94b219b604a9f7f862c70117d0e72a3e41d55e6c52825ab7aeeddc3d81"
+    },
+    {
+      "path": "Source/mmap.cpp",
+      "sha256": "4861e204f1380892e3d2b4fd79a48ba299b013093fecc797770a7df3571fa491"
+    },
+    {
+      "path": "Source/mmap.h",
+      "sha256": "5545b72e88166277757802792fe90b7c3d2ab225ed5a9c73872d9f9a53c6575c"
+    },
+    {
+      "path": "Source/Platform.h",
+      "sha256": "f10cbce5e115fcfd7d4e00c2c6b72aa1fb3cbeef98c8fed5eeb1b61d27ede8d7"
+    },
+    {
+      "path": "Source/Plugins.cpp",
+      "sha256": "3d614a883a96bd871ba4f0ae9513744dde11705fbacfa8bc1d25cba0fe271776"
+    },
+    {
+      "path": "Source/Plugins.h",
+      "sha256": "1976862c874e35290db7d1e691cfed18539d1c82899dc0539f706cfd41c1a347"
+    },
+    {
+      "path": "Source/ResourceEditor.cpp",
+      "sha256": "13354738ec0c9517987b65f93905778888f6a23db71a8d2e3ff5831d8071e6d5"
+    },
+    {
+      "path": "Source/ResourceEditor.h",
+      "sha256": "a61ee86a1546ba22989f3696c29c13451949c5e1bd94b7969c2f6e43cb65226f"
+    },
+    {
+      "path": "Source/ResourceVersionInfo.cpp",
+      "sha256": "bc65ace0cf01ea41b714edd5250ba3f5c30b3816c289c27721b843d1c620edd9"
+    },
+    {
+      "path": "Source/ResourceVersionInfo.h",
+      "sha256": "6da89d3c5975f1b90f72fac69f3ce7d51554d43b0c3369a3277606519e8b699b"
+    },
+    {
+      "path": "Source/SConscript",
+      "sha256": "d301600aef91e343857892a2f2eef038fa1f019138d031e62104ab94399b9eb1"
+    },
+    {
+      "path": "Source/script.cpp",
+      "sha256": "c0e43904a9ce1f39657751af2cae01b882b6a9a8fe5f45d5033f16a4c06fcf01"
+    },
+    {
+      "path": "Source/ShConstants.cpp",
+      "sha256": "040e5fa8ba71e445616b5fb206c9e1f840cb5844b2a494c4e23d0c9f57d40e9e"
+    },
+    {
+      "path": "Source/ShConstants.h",
+      "sha256": "fdaa3b6a4b2245bd9c0a30b56e34ea3074ce7a0c4015eff64b3428cf73772ca9"
+    },
+    {
+      "path": "Source/strlist.cpp",
+      "sha256": "5880cfc8ecc06ad7de21cd99165e32774da0a4558cad96b47257051e5dd10800"
+    },
+    {
+      "path": "Source/strlist.h",
+      "sha256": "66dd514febfc3cc447a1752082c76723a50f13917e751dc79de43574c8afad3e"
+    },
+    {
+      "path": "Source/Tests/compression.cpp",
+      "sha256": "41ef0270ed83246e90e816386f03ed3edb5ff0f3796a5cca6a259d4f8f60ebc8"
+    },
+    {
+      "path": "Source/Tests/decompress.cpp",
+      "sha256": "6eac4a276bae58f8718c9bffe718b6d3d09b3dacfc0363e72a1cf7ab70b23312"
+    },
+    {
+      "path": "Source/Tests/decompress.h",
+      "sha256": "a285c081bf359b7d2040f4abb966aa8c345c62146eedca16bdaa6ea1fba36376"
+    },
+    {
+      "path": "Source/Tests/DialogTemplate.cpp",
+      "sha256": "0105c8dcc4971e9b71c020b9199202cd5328f3a331041702e19b163f5d4d5b9a"
+    },
+    {
+      "path": "Source/Tests/endian.cpp",
+      "sha256": "ad4fda77d72fa417799c90ecc6bf136274c79eb3af889d8e6cac1afd6ed11c7a"
+    },
+    {
+      "path": "Source/Tests/memcpy.c",
+      "sha256": "5c13da4c296e08d90106809ff25ce69f16907ed5eeeeb6697d7a1313067008bb"
+    },
+    {
+      "path": "Source/Tests/mmap.cpp",
+      "sha256": "7401fa2f15a6506278890dcdf3019f0d7dcf7ad7c746d72d792a4a0601d0ad23"
+    },
+    {
+      "path": "Source/Tests/preprocessor.nsi",
+      "sha256": "d7c6eb5e5a2fedac38861c44e78244e80e5c7fafd0b62f55d5b3d10c634fd8ce"
+    },
+    {
+      "path": "Source/Tests/ResourceEditor.cpp",
+      "sha256": "b8050ff3039973e2d4ed465a839cbac2682e10986df73528ef59e9f5f8961c6a"
+    },
+    {
+      "path": "Source/Tests/root.txt",
+      "sha256": "84bb865c588268ebef2389f99a4c667bb21eadbbe234d9aa6b498b7e39ba4986"
+    },
+    {
+      "path": "Source/Tests/SConscript",
+      "sha256": "86b040914a4568d1cf15d4d42aa1e0347666e35f15ede5bc814bf2101477ccea"
+    },
+    {
+      "path": "Source/Tests/specmatch.cpp",
+      "sha256": "8b33d35e058b5cfeff461e7ee765bf7d90ff82963ca41f1fd7c4aa7e818ecd76"
+    },
+    {
+      "path": "Source/Tests/textrunner.cpp",
+      "sha256": "a322253a22b733c69863f1f1f751724defee183a24ea6f2372ff10bbb50247f2"
+    },
+    {
+      "path": "Source/Tests/winchar.cpp",
+      "sha256": "5f62b19b9ab14ec00db9c6890945263dc3190974ce6076d74333d0d7aef76835"
+    },
+    {
+      "path": "Source/tokens.cpp",
+      "sha256": "4d4737bde2d53eb96ce8835dcb6bcf6d3ad17c9651e8a93c5bc9f971ab270677"
+    },
+    {
+      "path": "Source/tokens.h",
+      "sha256": "c23e63c72529d302de472a97456a8f5aaeb8bc5e05535b1f79735b04bd9e4903"
+    },
+    {
+      "path": "Source/uservars.h",
+      "sha256": "e85f14421c74bc25dc67cc842ee322be5b92d19c8a4b87551491245a52eef9a9"
+    },
+    {
+      "path": "Source/util.cpp",
+      "sha256": "7e6dabb43355c340bdc0fbc369efb104a201dc869b217e383a89ba40fb4bb3ae"
+    },
+    {
+      "path": "Source/util.h",
+      "sha256": "1e1b0fcadbed70fbb3a7bac10a952de590c24975122cbf17abbf9ae8448fbb0c"
+    },
+    {
+      "path": "Source/winchar.cpp",
+      "sha256": "9b70a4cec7c07f8ff19b5dfb1d944d1c583f5f09b78684533e3d92f7147ff2fb"
+    },
+    {
+      "path": "Source/winchar.h",
+      "sha256": "28894b404553347119b363613e366fe7e8b7fd96fdd53626fbc37d5302fd7135"
+    },
+    {
+      "path": "Source/writer.cpp",
+      "sha256": "c507baf9c4dd87fe3cedbff473d4164aeb556b6ff620c77a90ffbfaf069120dc"
+    },
+    {
+      "path": "Source/writer.h",
+      "sha256": "d7ece1acd0585a6592649989e6f5e76b61affdead966a20465c8012fbfeea6b3"
+    },
+    {
+      "path": "Source/zlib/deflate.c",
+      "sha256": "1ee37c2702e4136cc17afafd2c476b52d23657d00475136cc094edd7167f398e"
+    },
+    {
+      "path": "Source/zlib/DEFLATE.H",
+      "sha256": "f7a85d08e5a5140c0f23f43dc8c4a51c47ebe591743199d57ee3acf126e3784f"
+    },
+    {
+      "path": "Source/zlib/INFBLOCK.C",
+      "sha256": "82b5f42406a546a9cf529c4c49a505077db72d6b09234653595468163bb11fa5"
+    },
+    {
+      "path": "Source/zlib/trees.c",
+      "sha256": "1bf675d79199bac399be7655e3cb75b4e1a1fda6b8c20a6b33e9ad29eea451e2"
+    },
+    {
+      "path": "Source/zlib/ZCONF.H",
+      "sha256": "f1d9d32a336479fab3ee48574afb43c74b2d25d5a927728d16a8b92930d0fc6a"
+    },
+    {
+      "path": "Source/zlib/ZLIB.H",
+      "sha256": "083862d32ee9337124998fd2cb8fbe693432360e49eaaff3fca77bad99c040e0"
+    },
+    {
+      "path": "Source/zlib/ZUTIL.H",
+      "sha256": "defa114a67199bcca4c168abba557443525b0c52cf8b9f25f4c224cbef3d0c80"
+    },
+    {
+      "path": "TODO.txt",
+      "sha256": "ad13c8f7c82f63e61b1aa2e3d19a6acca87bc3c54e6dbac4b37bac93e9683f1c"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "status": "passed_for_source_build_reproducibility_static_callbacks_and_impersonation_precondition_only",
+  "recorded_at_utc": "2026-10-28T08:39:03.114893+00:00",
+  "prior_full_game_commit": "ca41d34",
+  "game_cpp_sources_changed": false,
+  "prior_full_game_ctest_count": 101,
+  "current_focused_ctest_passed": 2,
+  "current_total_registered_ctest": 102,
+  "full_game_regression_on_new_cmake_not_yet_rerun": true,
+  "complete_win32_build_passed": true,
+  "current_uninstaller_build_sha256": "4dcaa48d4c063c9e28f5052b6b9890a1c451340f80a929b014961c270ad28261",
+  "uninstaller_bytes": 65748,
+  "independently_identical_binaries": 7,
+  "exact_removal_ir_instructions": 27,
+  "exact_reachable_callback_graphs": [
+    "onInit",
+    "onUserAbort",
+    "onGUIInit",
+    "page0.pre_code",
+    "page0.show_code",
+    "page0.leave_code",
+    "page1.pre_code",
+    "page1.show_code",
+    "page1.leave_code"
+  ],
+  "nsis_source_files_verified": 734,
+  "containment": {
+    "status": "passed_for_fully_restricted_impersonation_only",
+    "inside_file_write": true,
+    "outside_file_write_denied": true,
+    "outside_file_delete_denied": true,
+    "outside_dacl_owner_mutations_denied": true,
+    "system_runtime_read": true,
+    "inside_registry_write": true,
+    "outside_registry_write_denied": true,
+    "outside_markers_unchanged": true,
+    "private_registry_keys_removed": true,
+    "uninstaller_executed": false
+  },
+  "containment_source_files": {
+    "tools/uninstall_sandbox/CMakeLists.txt": "635a1800f4a6d91b78c7d9990764d5c53a426c9d2983ba34a93fbc8d2e64a2ba",
+    "tools/uninstall_sandbox/containment_probe.cpp": "fbc1a32b295e48687381bc82d7ba1a33173a39508ed3cc70e0c99c4ce9108683"
+  },
+  "containment_probe_path": "build/uninstall-sandbox/Release/containment-probe.exe",
+  "containment_probe_sha256": "29c9472736975b06535f72601637c85722ebcfbeff1439a708ad5873ed53f12b",
+  "containment_mechanism": "Full restricted token; unique test SID plus TrustedInstaller SID in restricting list only, admin SID deny-only and privileges removed; normal and restricting access checks both required",
+  "failed_approaches_rejected": [
+    "WRITE_RESTRICTED allowed deletion of owned outside guard; no uninstaller run",
+    "AnyPackage restricting SID rejected with87",
+    "Only unique restricting SID prevented required system DLL read",
+    "Users restricting SID allowed deletion through existing workspace Users Modify ACL"
+  ],
+  "system_acls_changed": false,
+  "original_uninstall_keys_touched": false,
+  "reference_files_unchanged": 17,
+  "uninstaller_effects_verified": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Real restricted child process/private Windows station/desktop/Job and process-local hive overrides",
+    "Native source/reference removal effects, UI and bootstrap/self-copy/delayed-delete boundaries",
+    "Full102 regression after isolation work, remaining engine/all gameplay/expanded saves/Squall97"
+  ]
+}

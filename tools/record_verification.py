@@ -480,6 +480,16 @@ def main():
         write(f'analysis/{key}-validation.json',result);report[key]=result
         if f'analysis/{key}-validation.json' not in report['reports']:report['reports'].append(f'analysis/{key}-validation.json')
         write('analysis/verification.json',report)
+    uninstaller_path=ROOT/'.local/uninstaller-source-build-validation.json'
+    if uninstaller_path.exists():
+        uninstaller=read(uninstaller_path.relative_to(ROOT));assert uninstaller['status']=='passed_for_source_uninstaller_build_pages_assets_and_exact_removal_ir'
+        for name,expected in uninstaller['source_files'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+        assert hashlib.sha256((ROOT/uninstaller['candidate_path']).read_bytes()).hexdigest()==uninstaller['candidate_sha256']
+        write('analysis/uninstaller-source-build-validation.json',uninstaller);report['uninstaller-source-build']=uninstaller
+        if 'analysis/uninstaller-source-build-validation.json' not in report['reports']:report['reports'].append('analysis/uninstaller-source-build-validation.json')
+        if 'Uninstall.exe' not in report['build']['targets']:report['build']['targets'].append('Uninstall.exe')
+        report['build']['uninstaller_effects_verified']=False
+        write('analysis/verification.json',report)
     print(f"Recorded {len(completed)} CTest passes; {len(inventory['files'])} originals unchanged; full game remains incomplete")
 
 if __name__=='__main__': main()

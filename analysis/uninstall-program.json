@@ -561,7 +561,12 @@
         -37,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalovat program Dobrý farmář"
+      }
     },
     {
       "instruction": 3,
@@ -592,7 +597,12 @@
         -38,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odebrat program Dobrý farmář z Vašeho počítače."
+      }
     },
     {
       "instruction": 5,
@@ -679,7 +689,12 @@
         -39,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalace"
+      }
     },
     {
       "instruction": 11,
@@ -710,7 +725,12 @@
         -40,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Vyčkejte, prosím, na dokončení odinstalace programu Dobrý farmář."
+      }
     },
     {
       "instruction": 13,
@@ -783,7 +803,12 @@
         -41,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalace dokončena"
+      }
     },
     {
       "instruction": 18,
@@ -814,7 +839,12 @@
         -42,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalace proběhla v pořádku."
+      }
     },
     {
       "instruction": 20,
@@ -859,7 +889,12 @@
         -43,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalace přerušena"
+      }
     },
     {
       "instruction": 23,
@@ -890,7 +925,12 @@
         -44,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "Odinstalace nebyla dokončena."
+      }
     },
     {
       "instruction": 25,
@@ -949,7 +989,8 @@
         -45
       ],
       "strings": {
-        "1": "$PLUGINSDIR\\modern-header.bmp"
+        "1": "$PLUGINSDIR\\modern-header.bmp",
+        "5": "Nelze otevřít soubor pro zápis: \r\n\t\"$0\"\r\nStiskněte 'Přerušit' pro ukončení instalace\r\nnebo 'Znovu' pro další pokus nebo\r\n'Ignorovat' pro přeskočení souboru"
       }
     },
     {
@@ -1015,7 +1056,12 @@
         77,
         0
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x0030",
+        "3": "$var33",
+        "4": "0"
+      }
     },
     {
       "instruction": 33,
@@ -1029,7 +1075,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 34,
@@ -1060,7 +1108,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 36,
@@ -1091,7 +1141,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 38,
@@ -1122,7 +1174,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 40,
@@ -1153,7 +1207,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 42,
@@ -1184,7 +1240,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$var32"
+      }
     },
     {
       "instruction": 44,
@@ -1198,7 +1256,12 @@
         152,
         2
       ],
-      "strings": {}
+      "strings": {
+        "1": "$var32",
+        "2": "0x000C",
+        "3": "0",
+        "4": "  "
+      }
     },
     {
       "instruction": 45,
@@ -1432,7 +1495,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "1": "0"
+      }
     },
     {
       "instruction": 60,
@@ -1463,7 +1528,7 @@
         0
       ],
       "strings": {
-        "1": "CommonFilesDir"
+        "0": "$var34\\.."
       }
     },
     {
@@ -1509,7 +1574,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "1": "0"
+      }
     },
     {
       "instruction": 65,
@@ -1617,7 +1684,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "1": "0"
+      }
     },
     {
       "instruction": 72,
@@ -1722,7 +1791,8 @@
         -45
       ],
       "strings": {
-        "1": "$PLUGINSDIR\\special_offer_page.ini"
+        "1": "$PLUGINSDIR\\special_offer_page.ini",
+        "5": "Nelze otevřít soubor pro zápis: \r\n\t\"$0\"\r\nStiskněte 'Přerušit' pro ukončení instalace\r\nnebo 'Znovu' pro další pokus nebo\r\n'Ignorovat' pro přeskočení souboru"
       }
     },
     {
@@ -1883,7 +1953,8 @@
         -45
       ],
       "strings": {
-        "1": "$PLUGINSDIR\\LangDLL.dll"
+        "1": "$PLUGINSDIR\\LangDLL.dll",
+        "5": "Nelze otevřít soubor pro zápis: \r\n\t\"$0\"\r\nStiskněte 'Přerušit' pro ukončení instalace\r\nnebo 'Znovu' pro další pokus nebo\r\n'Ignorovat' pro přeskočení souboru"
       }
     },
     {
@@ -2182,7 +2253,10 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "0": "$R0",
+        "1": "0"
+      }
     },
     {
       "instruction": 108,
@@ -2469,7 +2543,9 @@
         0,
         0
       ],
-      "strings": {}
+      "strings": {
+        "1": ""
+      }
     },
     {
       "instruction": 128,
@@ -2622,5 +2698,91 @@
       "strings": {}
     }
   ],
+  "pages": [
+    {
+      "dialog_id": 107,
+      "window_proc": 4,
+      "pre_code": 0,
+      "show_code": 5,
+      "leave_code": 7,
+      "flags": 6,
+      "caption": " ",
+      "back": "",
+      "next": "&Odinstalovat",
+      "click_next": "Klikněte na 'Odinstalovat' pro zahájení odinstalace.",
+      "cancel": "Storno",
+      "parameters": [
+        -54,
+        -55,
+        0,
+        0,
+        21
+      ],
+      "parameter_text": {
+        "0": "Tento průvodce z Vašeho počítače odinstaluje Dobrý farmář. $var30",
+        "1": "Odinstalovat z:"
+      }
+    },
+    {
+      "dialog_id": 106,
+      "window_proc": 3,
+      "pre_code": 8,
+      "show_code": 13,
+      "leave_code": 14,
+      "flags": 8,
+      "caption": " ",
+      "back": "< &Zpět",
+      "next": "&Zavřít",
+      "click_next": "Pro pokračování klikněte na 'Další'.",
+      "cancel": "Storno",
+      "parameters": [
+        0,
+        -59,
+        -60,
+        0,
+        0
+      ],
+      "parameter_text": {
+        "1": "Zobrazit &detaily",
+        "2": "Dokončeno"
+      }
+    },
+    {
+      "dialog_id": -1,
+      "window_proc": 5,
+      "pre_code": -1,
+      "show_code": -1,
+      "leave_code": -1,
+      "flags": 10,
+      "caption": " ",
+      "back": "< &Zpět",
+      "next": "&Zavřít",
+      "click_next": "",
+      "cancel": "Storno",
+      "parameters": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameter_text": {}
+    }
+  ],
+  "runtime_header": {
+    "flags": 128,
+    "callbacks": {
+      "onInit": 74,
+      "onInstSuccess": -1,
+      "onInstFailed": -1,
+      "onUserAbort": 45,
+      "onGUIInit": 25,
+      "onGUIEnd": -1,
+      "onMouseOverSection": -1,
+      "onVerifyInstDir": -1,
+      "onSelChange": -1,
+      "onRebootFailed": -1
+    }
+  },
   "status": "decoded_not_runtime_verified"
 }
