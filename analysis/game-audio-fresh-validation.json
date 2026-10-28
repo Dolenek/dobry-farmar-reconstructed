@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-27T21:14:38.838971+00:00",
+  "recorded_at_utc": "2026-10-27T21:54:21.372481+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "rebuilt_sha256": "a403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64",
-  "oracle_sha256": "cf9e39b6612fe47f46d244d8ba29b2d8f293a76b89062f37bae91cd7c9817801",
+  "oracle_sha256": "f4ddd8f19afc50a0f96a539ca630512450a4bee2a3099dc4ee860f3bd34567d3",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56449,
-      "native_position_progress": 20762,
+      "source_position_progress": 73206,
+      "native_position_progress": 56449,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37519,
-      "native_position_progress": 55126,
+      "source_position_progress": 73208,
+      "native_position_progress": 54686,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -160,11 +160,11 @@
     },
     {
       "path": "src/game/engine/Game.cpp",
-      "sha256": "6d36e48abe8a1a605a3d40ea51842ab627e2b1e845ee1ad0ea37863cb7ee66ee"
+      "sha256": "9fb05574fdd16db9cdc7c0f9f5607f7307cb68e41791948e282e289714e846f7"
     },
     {
       "path": "src/game/engine/Game.h",
-      "sha256": "8556e272486aff1bffbff271141f6227329a2eaebbc6eca5f49b40de7d1e9664"
+      "sha256": "273d56dc726fdfae230dab31e76fd29441475fe4e57b89704d48490290ce132d"
     },
     {
       "path": "src/game/engine/GameAction.cpp",
@@ -176,7 +176,7 @@
     },
     {
       "path": "src/game/engine/GameApplication.cpp",
-      "sha256": "35fee48a0dd6a63a2d654f362e515854874f954d6d19409a97842f40631bf2b3"
+      "sha256": "59f43b63e07bd6804281aabb309bdec377c28884c322abca7155a5959150b6c7"
     },
     {
       "path": "src/game/engine/GameApplication.h",
@@ -213,6 +213,14 @@
     {
       "path": "src/game/engine/GameFileSystem.h",
       "sha256": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b"
+    },
+    {
+      "path": "src/game/engine/GameInput.cpp",
+      "sha256": "b8342503963c20abe97f95d8fe0f67cc0bb3b7ad1854aae1d312ecd77d6364d6"
+    },
+    {
+      "path": "src/game/engine/GameInput.h",
+      "sha256": "426e93197cc3489ebd511ea5881bfa4d5febc5f746d8b1fae78098fbb8408f5a"
     },
     {
       "path": "src/game/engine/GamePersistence.cpp",

@@ -1,11 +1,11 @@
 {
   "status": "passed_for_rich_source_native_source_native_save_fields_and_seed_x_drift",
-  "work_directory": ".local/rich-save-interop/20261027T211733388325Z",
+  "work_directory": ".local/rich-save-interop/20261027T215714819952Z",
   "sessions": [
     {
       "kind": "source",
       "created_profile": null,
-      "common_directory": ".local/rich-save-interop/20261027T211733388325Z/shared/VirtualFarm",
+      "common_directory": ".local/rich-save-interop/20261027T215714819952Z/shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Whole rich save loaded through real menu; normal close invokes actual game persistence"
@@ -16,11 +16,11 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T211733388325Z/runtime/JNGLoad.dll",
+          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T215714819952Z/runtime/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T211733388325Z/runtime/Squall.dll",
+          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T215714819952Z/runtime/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
@@ -34,7 +34,7 @@
         },
         "Profiles/00000001.xml": {
           "bytes": 70798,
-          "sha256": "f319bec9baffa25744f5bf3af5762824119ecb1c8106c59d8eba998f115b3de7"
+          "sha256": "981f8045a0146cfe6e3c4d9459d4ba32c00449b56eaf26f49fcf6c318a60fb1b"
         },
         "Profiles/profiles.xml": {
           "bytes": 304,
@@ -49,14 +49,14 @@
     {
       "kind": "native",
       "created_profile": null,
-      "common_directory": ".local/rich-save-interop/20261027T211733388325Z/shared/VirtualFarm",
+      "common_directory": ".local/rich-save-interop/20261027T215714819952Z/shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Whole rich save loaded through real menu; normal close invokes actual game persistence"
       ],
       "launcher": {
         "event": "ready",
-        "pid": 12240,
+        "pid": 31484,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -76,17 +76,17 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 5.73499999998603,
+      "loading_seconds": 5.702999999979511,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
         "Profiles/00000001.save": {
           "bytes": 2072,
-          "sha256": "a9c87519626fde6fb5fc001fe8ba2cd86e1cd45d2160bab13c873b34d5662b3e"
+          "sha256": "311acbbdc2bec70047555af5e7e04ed44b3af4daad85b79873b318bfe1a371a6"
         },
         "Profiles/00000001.xml": {
-          "bytes": 70794,
-          "sha256": "ecb6aa1788da4d62c56e1c9bbc160850e9da64f38915af145cb2d7c258f8fe53"
+          "bytes": 70798,
+          "sha256": "52b85eaf5595300800970d4c26c97fd002198ec013b47a2864814634ee0d8457"
         },
         "Profiles/profiles.xml": {
           "bytes": 304,
@@ -102,7 +102,7 @@
     {
       "kind": "source",
       "created_profile": null,
-      "common_directory": ".local/rich-save-interop/20261027T211733388325Z/shared/VirtualFarm",
+      "common_directory": ".local/rich-save-interop/20261027T215714819952Z/shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Whole rich save loaded through real menu; normal close invokes actual game persistence"
@@ -113,15 +113,15 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T211733388325Z/runtime/JNGLoad.dll",
+          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T215714819952Z/runtime/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T211733388325Z/runtime/Squall.dll",
+          "path": "dobry-farmar-reconstructed/.local/rich-save-interop/20261027T215714819952Z/runtime/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
-      "loading_seconds": 3.375,
+      "loading_seconds": 3.35999999998603,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
@@ -131,7 +131,7 @@
         },
         "Profiles/00000001.xml": {
           "bytes": 70794,
-          "sha256": "7ac6e721e278e3927cb4abfec24d93ed593910bfb9ce80c62902053ce2717424"
+          "sha256": "980d8f1790e5ea112bf81a57267db9ae400e7503f0d221cd1fc3f1defc3e7da6"
         },
         "Profiles/profiles.xml": {
           "bytes": 304,
@@ -146,14 +146,14 @@
     {
       "kind": "native",
       "created_profile": null,
-      "common_directory": ".local/rich-save-interop/20261027T211733388325Z/shared/VirtualFarm",
+      "common_directory": ".local/rich-save-interop/20261027T215714819952Z/shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Whole rich save loaded through real menu; normal close invokes actual game persistence"
       ],
       "launcher": {
         "event": "ready",
-        "pid": 20772,
+        "pid": 4904,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -173,17 +173,17 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 5.73499999998603,
+      "loading_seconds": 5.5,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
         "Profiles/00000001.save": {
           "bytes": 2072,
-          "sha256": "3c90ea55ad6776a09bb86b797e5d88a903ee712b3cf2f60f1738d87ceca3884e"
+          "sha256": "93fe80e4af0c74757af8251333a8150a297a2368d6e4790667f7f02d0cdb25d1"
         },
         "Profiles/00000001.xml": {
           "bytes": 70798,
-          "sha256": "c22287864a0c374fe17bda242742b8dbc46cc1f35ea99cae75549fbd3735d0d3"
+          "sha256": "6d8561c36aeec4691e3c2ac6d1db1441ef6fe183f850b6e2a9a162aab8bd2233"
         },
         "Profiles/profiles.xml": {
           "bytes": 304,
@@ -199,7 +199,7 @@
   ],
   "reference_executable_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "os_boundary_only": true,
-  "recorded_at_utc": "2026-10-27T21:17:33.472256+00:00",
+  "recorded_at_utc": "2026-10-27T21:57:14.880972+00:00",
   "launcher_path": "build/native-process/Release/native-process-launcher.exe",
   "launcher_sha256": "fff597f3f6cc1c1bbdc241a2a91f9aa879e40918e6bb5cc49a179a21c068301a",
   "source_files": {
@@ -229,11 +229,11 @@
     "src/game/core/StringConversion.cpp": "2b41b8e34b9205881b4dae3cac961a52db4f3c99da96e6a5ec969d25f8ee430d",
     "src/game/core/StringConversion.h": "c96cf4d4bb54001fa3ebf7c48e8c6acb21a5962765c98328a64b71fa0dedf738",
     "src/game/core/WString.cpp": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2",
-    "src/game/engine/Game.cpp": "6d36e48abe8a1a605a3d40ea51842ab627e2b1e845ee1ad0ea37863cb7ee66ee",
-    "src/game/engine/Game.h": "8556e272486aff1bffbff271141f6227329a2eaebbc6eca5f49b40de7d1e9664",
+    "src/game/engine/Game.cpp": "9fb05574fdd16db9cdc7c0f9f5607f7307cb68e41791948e282e289714e846f7",
+    "src/game/engine/Game.h": "273d56dc726fdfae230dab31e76fd29441475fe4e57b89704d48490290ce132d",
     "src/game/engine/GameAction.cpp": "2e38566152b5fb3b29681770a6f074f706014fad1995fdc403981ca91743a23e",
     "src/game/engine/GameAction.h": "81197506d2e2a1209c5ed6d88715278fa1bc86b9210e7f24d045ded6aed920b8",
-    "src/game/engine/GameApplication.cpp": "35fee48a0dd6a63a2d654f362e515854874f954d6d19409a97842f40631bf2b3",
+    "src/game/engine/GameApplication.cpp": "59f43b63e07bd6804281aabb309bdec377c28884c322abca7155a5959150b6c7",
     "src/game/engine/GameApplication.h": "3e523fc4ec77bbce426ee4466751789ead87ade51b73d56c9216d0d4370ca9a9",
     "src/game/engine/GameConfiguration.cpp": "658bdeab27ecfb87fa532b6deb6252b0a9453e719566773cc89f6bbbd81974a3",
     "src/game/engine/GameConfiguration.h": "3aab2d571a7a562f9449fb38864a40b39f1db8cc45721e8aed374779233151d4",
@@ -243,6 +243,8 @@
     "src/game/engine/GameEffects.h": "75060fba42d36d3ef9215449cbc974421c3bc9714784c2b3133a6b6b6b4e22e4",
     "src/game/engine/GameFileSystem.cpp": "13693a4509c3428fda4293bf754acab5ef58f0cbe211c5b16d0fd94da96a4d0e",
     "src/game/engine/GameFileSystem.h": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b",
+    "src/game/engine/GameInput.cpp": "b8342503963c20abe97f95d8fe0f67cc0bb3b7ad1854aae1d312ecd77d6364d6",
+    "src/game/engine/GameInput.h": "426e93197cc3489ebd511ea5881bfa4d5febc5f746d8b1fae78098fbb8408f5a",
     "src/game/engine/GamePersistence.cpp": "01c4f5f7fc52502d28715bc28f33bb010622ec44b1d2b88849363762a96a9036",
     "src/game/engine/GamePersistence.h": "4a82071375119dd196cef8fd3b9d54c98f1743f2ca717aa6c631cd1475b1c7a8",
     "src/game/engine/Gameplay.cpp": "747502f32eb81d8797012c984733c333b0d3075f4c172a8dcf4bd58957b307e3",
@@ -503,27 +505,27 @@
     "tools/cmake/SquallCandidate.cmake": "68268578eae6ffe8b8d4011168050c0e263191b6262b9f9c6fc7e626ab39623e"
   },
   "implementation_files": {
-    "FarmarSourceInterop.exe": "e427a0d8ceb35a96cba45245c464d9d535e8a65bdc4e27e35f9b998a3addb94d",
+    "FarmarSourceInterop.exe": "a0a97f7156984136d871100fa58f3f9f4452cdd7c28fcac5e10e88940bbbedba",
     "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
     "Squall.dll": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
   },
   "fixture_generator": {
     "path": "build/windows/Release/game-source-runtime-test.exe",
-    "sha256": "7235cc3cf81aef5d78e029f0fdd2f6fabe4868bea75c394b57ecd63002324784",
+    "sha256": "7b043411b602e93043c1d2461a2d5315963e713e4794f32d7a19c835e29379d8",
     "result": {
       "source_game_lifetimes": 2,
       "device_flags": 32,
       "input_clicks": 8,
       "frames": 551,
-      "submitted_controls": 155544,
-      "triangles": 311314,
+      "submitted_controls": 144897,
+      "triangles": 290020,
       "save_bytes": 1643,
       "native_comparison": false
     }
   },
   "hud_template": {
     "report_path": ".local/application-runtime-validation.json",
-    "report_sha256": "3712d06cdd8f0ee0c095181ab4130153b3e6955b229229948755022d40149cff"
+    "report_sha256": "f0e28fe7f30afde9d0ae0df04b7cc0fbc50edfb600dc6129b5db084ef4b0936d"
   },
   "comparisons": [
     {
@@ -575,21 +577,21 @@
         "GameTime": [
           [
             "Float",
-            "1.21407"
+            "1.27127"
           ],
           [
             "Float",
-            "2.09601"
+            "2.32513"
           ]
         ],
         "RunTime": [
           [
             "Float",
-            "3.84407"
+            "3.90126"
           ],
           [
             "Float",
-            "4.726"
+            "4.95513"
           ]
         ]
       },
@@ -645,21 +647,21 @@
         "GameTime": [
           [
             "Float",
-            "2.09601"
+            "2.32513"
           ],
           [
             "Float",
-            "3.33101"
+            "3.25399"
           ]
         ],
         "RunTime": [
           [
             "Float",
-            "4.726"
+            "4.95513"
           ],
           [
             "Float",
-            "5.961"
+            "5.884"
           ]
         ]
       },
@@ -715,21 +717,21 @@
         "GameTime": [
           [
             "Float",
-            "3.33101"
+            "3.25399"
           ],
           [
             "Float",
-            "4.44327"
+            "4.54332"
           ]
         ],
         "RunTime": [
           [
             "Float",
-            "5.961"
+            "5.884"
           ],
           [
             "Float",
-            "7.07326"
+            "7.17333"
           ]
         ]
       },
@@ -739,21 +741,21 @@
   ],
   "reference_files_unchanged": 17,
   "screenshots": {
-    "1-01-logo.png": "051fdbbb9b787f5efd4681cff59c7140064bf041c6ba69fee2fcca025056c83c",
-    "1-02-startup.png": "e16f21490496bae3980bb892ee869db7df8edd33c8f555c3ef18a5030d44013f",
-    "1-03-menu.png": "e16f21490496bae3980bb892ee869db7df8edd33c8f555c3ef18a5030d44013f",
-    "1-04-game.png": "12eb65ee5d30da91e115de8942f4fb896919426960c71bed795a9b40b921ae05",
-    "2-01-logo.png": "0a8ec11702988105d833af4245707b9b08d7e43e485129a650824396c836e03d",
-    "2-02-startup.png": "fc4cb609e6172a507222272eaed03dc07f039f961a982727ef8d658808897a75",
-    "2-03-menu.png": "fc4cb609e6172a507222272eaed03dc07f039f961a982727ef8d658808897a75",
-    "2-04-game.png": "7ebbeac6c2d8c09e3117689921b178d4595e1fefa0bf25b647950dd224b85fa4",
+    "1-01-logo.png": "cd8262c16a7ca3ee2f8b320d944d737ad4609820bc6560a551e6272bc225ca56",
+    "1-02-startup.png": "37907438e3262c0aff640553cf68d2016184ede5d4a7e09991f99045f4403e58",
+    "1-03-menu.png": "37907438e3262c0aff640553cf68d2016184ede5d4a7e09991f99045f4403e58",
+    "1-04-game.png": "799848ae568b22265f022e6cb56293adf4e5ed4f1960606f3fb58451d65cab7e",
+    "2-01-logo.png": "be04c8608efc0a74096536505ad1e5fb9b75d52ea9cdb0918e5c8f17f9be939e",
+    "2-02-startup.png": "f18336713ba5e5c6b15ea3770c53a7810595590b2d1465cd0a0906209a25e80b",
+    "2-03-menu.png": "f18336713ba5e5c6b15ea3770c53a7810595590b2d1465cd0a0906209a25e80b",
+    "2-04-game.png": "31cb2bbe9eb7c18cf0e3e12a080d065e86452a4bea8fb186bf02ee5e5890b364",
     "3-01-logo.png": "5c001962a65f3899b8368274cf6bcdc61e9bc6f57e8546539758385f58b957ba",
     "3-02-startup.png": "e16f21490496bae3980bb892ee869db7df8edd33c8f555c3ef18a5030d44013f",
     "3-03-menu.png": "e16f21490496bae3980bb892ee869db7df8edd33c8f555c3ef18a5030d44013f",
-    "3-04-game.png": "698669caecb69ad1d1f85c4523c1741709d10ab085c257b85f0aafb4ca565c4b",
-    "4-01-logo.png": "735b3200042c23c98c4a071ebf508369a8a317e3d02a71eb39628bf1736447a3",
-    "4-02-startup.png": "dccf62809a8386a30c5d9686f803c0f065de0d4fd412482ce23042bcebebc47a",
-    "4-03-menu.png": "dccf62809a8386a30c5d9686f803c0f065de0d4fd412482ce23042bcebebc47a",
+    "3-04-game.png": "4ef7fe43bdca671f49862baff4a89b920c08cdce100731a18dab1b5d50819994",
+    "4-01-logo.png": "1a04df86a343b75a25422aa0db1ba114aabcdd23f7ba581f530dca6138870b45",
+    "4-02-startup.png": "9f4722c522a3cee92c0ed8f1db6f6877cb91d4025aeee0d3abb024942a55b77c",
+    "4-03-menu.png": "9f4722c522a3cee92c0ed8f1db6f6877cb91d4025aeee0d3abb024942a55b77c",
     "4-04-game.png": "b49e5753617cad8e4e46ad2d7e5ee509699e16ade63a03bd6f5d84abcb5cc363"
   },
   "pending": [

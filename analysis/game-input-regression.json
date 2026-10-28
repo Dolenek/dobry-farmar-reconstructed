@@ -1,0 +1,38 @@
+{
+  "status": "passed_for_game_input_actual_game_commands_and_all_award_panel_cycles",
+  "recorded_at_utc": "2026-10-28T07:15:40.557492+00:00",
+  "prior_commit": "76f4578",
+  "source_tree_sha256": "c9e966d7a2f378693e850a8eee69973684c9f3165d633733fe3b46822d31e1f7",
+  "full_win32_build": true,
+  "ctest_passed": 101,
+  "ctest_seconds": 471.82,
+  "game_input_characters": 33333,
+  "game_input_states": 33345,
+  "game_action_events": 1038,
+  "all_utf16_c_locale_folds": 65536,
+  "command_process_lifetimes": 4,
+  "award_process_lifetimes": 2,
+  "award_panels_per_process": 21,
+  "forced_awards_per_process": 20,
+  "automatic_collect_all_per_process": 1,
+  "exact_panel_roi_rgb_pixels": 598500,
+  "binary_save_equal_bytes": 1981,
+  "profile_properties_compared": 790,
+  "profile_clock_normalizations": [
+    "GameTime",
+    "RunTime"
+  ],
+  "strict_record_log": ".local/game-input-record.log",
+  "audio_builds_validated": 2,
+  "person_sounds_builds_validated": 2,
+  "squall_loaded_dll_builds_validated": 2,
+  "reference_files_unchanged": 17,
+  "original_program_code_in_production": false,
+  "whole_game_complete": false,
+  "source_uninstaller_complete": false,
+  "pending": [
+    "Remaining engine Logic/device-loss/debug/lifecycle branches",
+    "Full natural gameplay/tutorial progress and expanded farms/contracts/save scenarios",
+    "All97 Squall behavior and isolated source uninstaller"
+  ]
+}

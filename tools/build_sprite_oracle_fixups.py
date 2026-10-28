@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--click-mask',action='store_true',help='Record original GPU JNG click-mask oracle operands')
     parser.add_argument('--input-bindings',action='store_true',help='Record original Input binding mutation operands')
     parser.add_argument('--logic-shortcuts',action='store_true',help='Record original Logic construction, modifier bindings and callbacks')
+    parser.add_argument('--game-input',action='store_true',help='Record cGameInput lifetime, UTF16 suffix callback and original string helpers')
     parser.add_argument('--ui-frame',action='store_true',help='Record original main-frame UI traversal with explicit service fixtures')
     parser.add_argument('--timer',action='store_true',help='Record native timer construction, processing and scalar methods')
     parser.add_argument('--cursor',action='store_true',help='Record native cursor/window coordinate operands')
@@ -43,7 +44,7 @@ def main():
     if args.click_mask: args.view=True
     if args.input_bindings: args.view=True
     if args.ui_frame: args.view=True
-    if args.logic_shortcuts: args.view=True
+    if args.logic_shortcuts or args.game_input: args.view=True
     if args.text_state: args.control_state=True
     if args.button_state: args.control_state=True
     if args.control_state: args.view=True
@@ -231,6 +232,15 @@ def main():
             seen.add(address)
             if address in rows:todo += [int(c,16) for c in rows[address]['callees'] if int(c,16)<0x558000]
         addresses=sorted(seen)
+    if args.game_input:
+        prefix='game-input';seen=set();todo=[0x4030e0,0x401de0,0x402240,0x402400,0x580415,0x5809b3]
+        boundaries={0x412630,0x412650,0x4126b0,0x40c360}
+        while todo:
+            address=todo.pop()
+            if address in seen or address in boundaries:continue
+            seen.add(address)
+            if address in rows:todo += [int(c,16) for c in rows[address]['callees'] if not c.startswith('EXTERNAL:') and int(c,16)<0x558000]
+        addresses=sorted(seen)
     if args.ui_frame:
         prefix='ui-frame';seen=set(addresses);todo=[0x531b20,0x4fb180]
         while todo:
@@ -304,6 +314,7 @@ def main():
                 0x536480:0x536498,0x5364a0:0x5364a7,0x536500:0x536519,0x50d260:0x50d2ad,0x531a40:0x531a44,0x521500:0x52181f,
                 0x521020:0x521057,0x521060:0x52107e,0x4fe9a0:0x4fe9a8,0x4fe9b0:0x4fea9c,0x478ef0:0x478ef8,
                 0x479c80:0x479c89,0x479cb0:0x479cd1,0x479ce0:0x479d01,0x479d10:0x479d3b,0x532e00:0x532e20,0x50ae20:0x50ae2d,0x50ae30:0x50ae4b,0x50ae50:0x50ae57}[address]
+            if args.game_input and address==0x402400: end=max(end,0x402d7a) # disjoint award suffix tail
             # The exported constructor range stops before its allocation tail.
             # Preserve the original contiguous normal path through RET 8.
             if args.text_buttons and address==0x4fffb0: end=max(end,0x5002e4)

@@ -1,5 +1,7 @@
 # Rekonstrukce hlavní hry
 
+[Obsluha textových příkazů GameInput](GAME_INPUT.md) je propojená se skutečným herním světem. Native callback porovnání pokrývá33333 znaků; celé procesy ověřily peníze včetně wrap32,15 upgrade hodnot,8 osiv a kapacitně omezený sklad. Úplné herní chování a ostatní podmínky projektu pokračují.
+
 [Zkratky cLogic a grafický reset](LOGIC_SHORTCUTS.md) jsou nově zapojené do hlavního EXE:3661 nativně porovnaných stavů a skutečné přepnutí okno/fullscreen. Dva resetové snímky mají2553600 přesně shodných RGB pixelů; původní texture-suppression zvláštnost i DPI hranice jsou evidované. Úplný runtime a ostatní podmínky projektu pokračují.
 
 [Porovnání celých procesů a saves](SAVE_INTEROP.md) nyní ověřuje úvodní profily v obou směrech a připravený bohatší stav se sáčkem, prodejem, zprávami a383 koeficienty. Původní EXE běží pouze jako reference s izolovanou systémovou datovou složkou; produkce používá vlastní zdroje. Rozsah a neověřené stavy jsou výslovně evidované.

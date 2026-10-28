@@ -26,6 +26,7 @@ public:
     static Game* instance() noexcept;
     int money() const;void setMoney(int); //00410ce0 /00410d60
     void refreshUpgrades(); //0040be10
+    void cheatMoney();void cheatUpgrades();void cheatSeeds();void cheatProducts(); //00412630/50/b0,0040c360
     void save(); //0040fbb0
     Farm& farm();Market& market();Manufacture& manufacture();GameMenu& hud();Person& person();
     Gameplay& gameplay();SalesHistory& sales();GameConfiguration& configuration();TutorialManager& tutorial();

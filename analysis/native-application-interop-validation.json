@@ -1,18 +1,18 @@
 {
   "status": "passed_for_native_source_interchange_of_first_farm_profiles_only",
-  "work_directory": ".local/native-interop/20261027T211610990146Z",
+  "work_directory": ".local/native-interop/20261027T215552885607Z",
   "sessions": [
     {
       "kind": "native",
       "created_profile": "NativeAudit",
-      "common_directory": ".local/native-interop/20261027T211610990146Z/native-shared/VirtualFarm",
+      "common_directory": ".local/native-interop/20261027T215552885607Z/native-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Pause/Help/return/Continue completed; Journal is outside this interchange scenario"
       ],
       "launcher": {
         "event": "ready",
-        "pid": 33900,
+        "pid": 18688,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -32,7 +32,7 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 6.5,
+      "loading_seconds": 6.312999999965541,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
@@ -42,7 +42,7 @@
         },
         "profiles/00000001.xml": {
           "bytes": 70798,
-          "sha256": "3ae726287f40531253ce53c130d5b4c6622f1205e9b0a74c19ea02f16cc7e7b1"
+          "sha256": "52d705c27a1bfe9f19c43f58965c407e747c4ec55b17d5b28acf80d9e1d0883b"
         },
         "profiles/profiles.xml": {
           "bytes": 308,
@@ -58,7 +58,7 @@
     {
       "kind": "source",
       "created_profile": null,
-      "common_directory": ".local/native-interop/20261027T211610990146Z/native-shared/VirtualFarm",
+      "common_directory": ".local/native-interop/20261027T215552885607Z/native-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Pause/Help/return/Continue completed; Journal is outside this interchange scenario"
@@ -69,11 +69,11 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T211610990146Z/runtime/JNGLoad.dll",
+          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T215552885607Z/runtime/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T211610990146Z/runtime/Squall.dll",
+          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T215552885607Z/runtime/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
@@ -87,7 +87,7 @@
         },
         "profiles/00000001.xml": {
           "bytes": 70794,
-          "sha256": "2abbb5f70adf519d16801d3aafbbcf3ed9731fd286d08cf1c59debeaa08d4493"
+          "sha256": "ea0896227e217d82201a726544f8bfd56dfc064027def7bbba280ff9f4ece619"
         },
         "profiles/profiles.xml": {
           "bytes": 308,
@@ -102,14 +102,14 @@
     {
       "kind": "native",
       "created_profile": null,
-      "common_directory": ".local/native-interop/20261027T211610990146Z/native-shared/VirtualFarm",
+      "common_directory": ".local/native-interop/20261027T215552885607Z/native-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Pause/Help/return/Continue completed; Journal is outside this interchange scenario"
       ],
       "launcher": {
         "event": "ready",
-        "pid": 20532,
+        "pid": 27820,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -129,7 +129,7 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 5.5,
+      "loading_seconds": 5.48499999998603,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
@@ -138,8 +138,8 @@
           "sha256": "b4af3be7774bc60a869f4571b1d4d5ed0eaf0897f5c4562ec84f4364b3566306"
         },
         "profiles/00000001.xml": {
-          "bytes": 70796,
-          "sha256": "dddcc78156b91c12cfdff7c8a89409f35ec003963a04ff856cb4eabc586cd411"
+          "bytes": 70798,
+          "sha256": "33a31684970181e047ee456478a98c197b8097487814f7379e6be5dd2758992b"
         },
         "profiles/profiles.xml": {
           "bytes": 308,
@@ -155,7 +155,7 @@
     {
       "kind": "source",
       "created_profile": "SourceOther",
-      "common_directory": ".local/native-interop/20261027T211610990146Z/source-shared/VirtualFarm",
+      "common_directory": ".local/native-interop/20261027T215552885607Z/source-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Pause/Help/return/Continue completed; Journal is outside this interchange scenario"
@@ -166,15 +166,15 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T211610990146Z/runtime/JNGLoad.dll",
+          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T215552885607Z/runtime/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T211610990146Z/runtime/Squall.dll",
+          "path": "dobry-farmar-reconstructed/.local/native-interop/20261027T215552885607Z/runtime/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
-      "loading_seconds": 3.359000000054948,
+      "loading_seconds": 3.327999999979511,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
@@ -184,7 +184,7 @@
         },
         "profiles/00000001.xml": {
           "bytes": 70798,
-          "sha256": "731915dce1a0229f72f1dcab44463e47786457f5495fa455ea3e6423a428c278"
+          "sha256": "ff9598d502a716627653aebc8ea2601bbbe9d484adbb9565ac6ead74f7d51a09"
         },
         "profiles/profiles.xml": {
           "bytes": 308,
@@ -199,14 +199,14 @@
     {
       "kind": "native",
       "created_profile": null,
-      "common_directory": ".local/native-interop/20261027T211610990146Z/source-shared/VirtualFarm",
+      "common_directory": ".local/native-interop/20261027T215552885607Z/source-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         "Pause/Help/return/Continue completed; Journal is outside this interchange scenario"
       ],
       "launcher": {
         "event": "ready",
-        "pid": 36992,
+        "pid": 17624,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -226,7 +226,7 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 5.718999999924563,
+      "loading_seconds": 5.702999999979511,
       "exit_code": 0,
       "status": "passed",
       "persisted_files": {
@@ -236,7 +236,7 @@
         },
         "profiles/00000001.xml": {
           "bytes": 70798,
-          "sha256": "adbdf718d8a44c28909b18f415e01711ea5ad0453ebe7b5923701c6ede3db200"
+          "sha256": "584871a9d7438b187a5676338115fd6f6e61e989a227b5388f713e598108c2f7"
         },
         "profiles/profiles.xml": {
           "bytes": 308,
@@ -252,7 +252,7 @@
   ],
   "reference_executable_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "os_boundary_only": true,
-  "recorded_at_utc": "2026-10-27T21:16:11.050225+00:00",
+  "recorded_at_utc": "2026-10-27T21:55:52.936885+00:00",
   "launcher_path": "build/native-process/Release/native-process-launcher.exe",
   "launcher_sha256": "fff597f3f6cc1c1bbdc241a2a91f9aa879e40918e6bb5cc49a179a21c068301a",
   "source_files": {
@@ -282,11 +282,11 @@
     "src/game/core/StringConversion.cpp": "2b41b8e34b9205881b4dae3cac961a52db4f3c99da96e6a5ec969d25f8ee430d",
     "src/game/core/StringConversion.h": "c96cf4d4bb54001fa3ebf7c48e8c6acb21a5962765c98328a64b71fa0dedf738",
     "src/game/core/WString.cpp": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2",
-    "src/game/engine/Game.cpp": "6d36e48abe8a1a605a3d40ea51842ab627e2b1e845ee1ad0ea37863cb7ee66ee",
-    "src/game/engine/Game.h": "8556e272486aff1bffbff271141f6227329a2eaebbc6eca5f49b40de7d1e9664",
+    "src/game/engine/Game.cpp": "9fb05574fdd16db9cdc7c0f9f5607f7307cb68e41791948e282e289714e846f7",
+    "src/game/engine/Game.h": "273d56dc726fdfae230dab31e76fd29441475fe4e57b89704d48490290ce132d",
     "src/game/engine/GameAction.cpp": "2e38566152b5fb3b29681770a6f074f706014fad1995fdc403981ca91743a23e",
     "src/game/engine/GameAction.h": "81197506d2e2a1209c5ed6d88715278fa1bc86b9210e7f24d045ded6aed920b8",
-    "src/game/engine/GameApplication.cpp": "35fee48a0dd6a63a2d654f362e515854874f954d6d19409a97842f40631bf2b3",
+    "src/game/engine/GameApplication.cpp": "59f43b63e07bd6804281aabb309bdec377c28884c322abca7155a5959150b6c7",
     "src/game/engine/GameApplication.h": "3e523fc4ec77bbce426ee4466751789ead87ade51b73d56c9216d0d4370ca9a9",
     "src/game/engine/GameConfiguration.cpp": "658bdeab27ecfb87fa532b6deb6252b0a9453e719566773cc89f6bbbd81974a3",
     "src/game/engine/GameConfiguration.h": "3aab2d571a7a562f9449fb38864a40b39f1db8cc45721e8aed374779233151d4",
@@ -296,6 +296,8 @@
     "src/game/engine/GameEffects.h": "75060fba42d36d3ef9215449cbc974421c3bc9714784c2b3133a6b6b6b4e22e4",
     "src/game/engine/GameFileSystem.cpp": "13693a4509c3428fda4293bf754acab5ef58f0cbe211c5b16d0fd94da96a4d0e",
     "src/game/engine/GameFileSystem.h": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b",
+    "src/game/engine/GameInput.cpp": "b8342503963c20abe97f95d8fe0f67cc0bb3b7ad1854aae1d312ecd77d6364d6",
+    "src/game/engine/GameInput.h": "426e93197cc3489ebd511ea5881bfa4d5febc5f746d8b1fae78098fbb8408f5a",
     "src/game/engine/GamePersistence.cpp": "01c4f5f7fc52502d28715bc28f33bb010622ec44b1d2b88849363762a96a9036",
     "src/game/engine/GamePersistence.h": "4a82071375119dd196cef8fd3b9d54c98f1743f2ca717aa6c631cd1475b1c7a8",
     "src/game/engine/Gameplay.cpp": "747502f32eb81d8797012c984733c333b0d3075f4c172a8dcf4bd58957b307e3",
@@ -554,7 +556,7 @@
     "tools/native_process/CMakeLists.txt": "10b1bdc2a64a0f87c3089e53b354a4550db2b4482c72d590998bf4180edecc7a"
   },
   "implementation_files": {
-    "FarmarSourceInterop.exe": "e427a0d8ceb35a96cba45245c464d9d535e8a65bdc4e27e35f9b998a3addb94d",
+    "FarmarSourceInterop.exe": "a0a97f7156984136d871100fa58f3f9f4452cdd7c28fcac5e10e88940bbbedba",
     "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
     "Squall.dll": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
   },
@@ -568,21 +570,21 @@
         "GameTime": [
           [
             "Float",
-            "3.60097"
+            "3.39519"
           ],
           [
             "Float",
-            "6.0013"
+            "5.9484"
           ]
         ],
         "RunTime": [
           [
             "Float",
-            "3.60097"
+            "3.39519"
           ],
           [
             "Float",
-            "6.2343"
+            "5.9484"
           ]
         ]
       }
@@ -593,14 +595,24 @@
       "binary_save_identical_bytes": 1981,
       "profile_properties": 790,
       "changed_properties": {
-        "RunTime": [
+        "GameTime": [
           [
             "Float",
-            "6.2343"
+            "5.9484"
           ],
           [
             "Float",
-            "8.62894"
+            "6.01507"
+          ]
+        ],
+        "RunTime": [
+          [
+            "Float",
+            "5.9484"
+          ],
+          [
+            "Float",
+            "8.48169"
           ]
         ]
       }
@@ -614,21 +626,21 @@
         "GameTime": [
           [
             "Float",
-            "2.42346"
+            "2.81519"
           ],
           [
             "Float",
-            "5.18169"
+            "5.69145"
           ]
         ],
         "RunTime": [
           [
             "Float",
-            "2.42346"
+            "2.81519"
           ],
           [
             "Float",
-            "5.18169"
+            "5.69145"
           ]
         ]
       }
@@ -636,51 +648,51 @@
   ],
   "reference_files_unchanged": 17,
   "screenshots": {
-    "0-01-logo.png": "cfeb00fb608827d4db868968114d9b2577e4278887fe7f1a1d42311a5b8fc68e",
+    "0-01-logo.png": "980b316f794c281675818b88850e2f614954e2baf1ac8be3f8361aab8e0fefab",
     "0-02-startup.png": "f0b5cac1d99076287be98a19772181ea0ddd8bcb8523f62969fb75e2fa444512",
     "0-03-menu.png": "7a6bbc149b568ea51d997e49c75a86e6dd3eaf3727e8c1bc67087d30658f56ef",
-    "0-04-game.png": "6c2c6e7a53b8539270cb4994bc869c106ce9f86e72654d3cf9f517fb6b22eb89",
-    "0-05-pause.png": "3c4e39c1de164b9af1593b4c0d031940aa80a92a713f1b79511ff11289727445",
+    "0-04-game.png": "abe65256281025f2e6ebd108e190633270f964303b59dddfbe63dab2320ddd07",
+    "0-05-pause.png": "198b124040c060441f3be043010f735d6d42b97de557c63c3833dfb12c335334",
     "0-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "0-07-help-return.png": "3c4e39c1de164b9af1593b4c0d031940aa80a92a713f1b79511ff11289727445",
-    "0-08-continued.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837",
-    "0-09-restored-continuation.png": "5d12157e9753219137241cabe53b1a9c349c9fc0b5a4b07b47990a034b612c81",
+    "0-07-help-return.png": "198b124040c060441f3be043010f735d6d42b97de557c63c3833dfb12c335334",
+    "0-08-continued.png": "5d12157e9753219137241cabe53b1a9c349c9fc0b5a4b07b47990a034b612c81",
+    "0-09-restored-continuation.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837",
     "1-01-logo.png": "cd8262c16a7ca3ee2f8b320d944d737ad4609820bc6560a551e6272bc225ca56",
     "1-02-startup.png": "115d0cf63cc4364968447f79af65ec8d5befc6098d6b92df8f93b822dbd3cf1a",
     "1-03-menu.png": "115d0cf63cc4364968447f79af65ec8d5befc6098d6b92df8f93b822dbd3cf1a",
-    "1-04-game.png": "fb288c90ada2fde1a8977dbf08da846a2138e74f67ce453887b086f6b9b2029a",
-    "1-05-pause.png": "49b524e207e5462bcca29b1ad96fdbf3b2286015a63d10e2343c94c2fc7007e7",
+    "1-04-game.png": "2449761de40826ca1ed95c5c16388ccac5e4d1a4423a603c05431b8d9b4d2f69",
+    "1-05-pause.png": "8743b4ee940ca20f4ab8ec94af717f51054609d3ffa20e2a2c8add8aaaee27a4",
     "1-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "1-07-help-return.png": "49b524e207e5462bcca29b1ad96fdbf3b2286015a63d10e2343c94c2fc7007e7",
-    "1-08-continued.png": "fb288c90ada2fde1a8977dbf08da846a2138e74f67ce453887b086f6b9b2029a",
-    "1-09-restored-continuation.png": "ed676b8492299dd8bde1adcafe8e58df276803d6055da253b1f9d0f3ecbb14c9",
-    "2-01-logo.png": "bf41b6e84635d992cdfc752d6b12c2504cf74559d9f711a90a4dcc552934e3c6",
-    "2-02-startup.png": "7c458353305092da223f3f4527f8d6b6beb128e2b0f7afc72aca57b51321a8bf",
-    "2-03-menu.png": "7c458353305092da223f3f4527f8d6b6beb128e2b0f7afc72aca57b51321a8bf",
-    "2-04-game.png": "ae2b4c39a0ae96b85c823b7e9d09288ebb569f08d0dabc543f34c561e89c5fcb",
-    "2-05-pause.png": "c8ee94ca641894b139e9879f6e369edebcb978b56b5c832b0f1b516785fe9513",
+    "1-07-help-return.png": "8743b4ee940ca20f4ab8ec94af717f51054609d3ffa20e2a2c8add8aaaee27a4",
+    "1-08-continued.png": "cc8dd35df28f254b872181cd9b450e9edf3d05355dddc174a45621808ac3d067",
+    "1-09-restored-continuation.png": "2449761de40826ca1ed95c5c16388ccac5e4d1a4423a603c05431b8d9b4d2f69",
+    "2-01-logo.png": "1a04df86a343b75a25422aa0db1ba114aabcdd23f7ba581f530dca6138870b45",
+    "2-02-startup.png": "7fd9458b144cccb2f35dda435297ca50ad9615fcddf14e0d76089b60ad96fa3e",
+    "2-03-menu.png": "7fd9458b144cccb2f35dda435297ca50ad9615fcddf14e0d76089b60ad96fa3e",
+    "2-04-game.png": "2d6135175129f0a3826452ab349cb9bb1722ae486fdba7f35a839f45415a6db5",
+    "2-05-pause.png": "8a9f3b34d0848a10c7c18ea6ea0fec586eabc67635d458d0d51db995b15cbb1f",
     "2-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "2-07-help-return.png": "e10bc9651311ed82945f634a5232959cde0eb7fa03d90cacf6676d94a2890b96",
-    "2-08-continued.png": "e47e1519fe2368e84bf020bc09cbc9c1b6c7f5ee6606824a7d3ae04d6740a51f",
-    "2-09-restored-continuation.png": "72f72236960849997e913183fed3cfe68acde13b7de3c627b88cfe8f31248457",
-    "3-01-logo.png": "99575202e42611bb29773ca8b69e972f1af73231005230f4ee6385a28fcf0bb6",
+    "2-07-help-return.png": "3733e35e7f8004998f5092bbc22393ce0ef3378307d8c2acfd400a934fe55275",
+    "2-08-continued.png": "ae2b4c39a0ae96b85c823b7e9d09288ebb569f08d0dabc543f34c561e89c5fcb",
+    "2-09-restored-continuation.png": "889b72a0ea0889cfea76f60ee05fafac27a752ba3c062e80cd8c0ac50a8885d8",
+    "3-01-logo.png": "6e8148fb7eb7cd3eb24899912c05387bae7762cb5713f24b2b9be92a3031ffc5",
     "3-02-startup.png": "586b1ab3f96d86d1fcc408f59976299aab9bc069111ce4ee29c9d4c7b3acd1d3",
     "3-03-menu.png": "1d4d3ba4a4038f3c143ddb1d301877187f9b18b013baf35c899fb64fcbfecf85",
-    "3-04-game.png": "f40b6a065cb365d924ca8381360ec967369ac271a5b461e24f871b4b69a26988",
-    "3-05-pause.png": "2eea087951cbd981966a69dbde418e36f72d10c393407dcd5f516ae935874917",
+    "3-04-game.png": "e8bbf945c2af5b64636db8cdf6a84df32653e904f93520b3d2999a8d539c1ca3",
+    "3-05-pause.png": "365bc1a8e27052d2fa85a71b0e173744dc9abcd8894b9fe1fe0f9b833987ec6d",
     "3-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "3-07-help-return.png": "2eea087951cbd981966a69dbde418e36f72d10c393407dcd5f516ae935874917",
-    "3-08-continued.png": "23fb200de44d22935b14118246c36850a6bf625141e02d10cd5e1116668e41ec",
-    "3-09-restored-continuation.png": "daa960fa02c4c152e65b30ef9b638bcbc263799f2e2457b994b533e32dbfc306",
-    "4-01-logo.png": "81c6f016c9301dc3a203494402bf7f8994adb7a34cd8e66b935330a120b8fe8f",
+    "3-07-help-return.png": "365bc1a8e27052d2fa85a71b0e173744dc9abcd8894b9fe1fe0f9b833987ec6d",
+    "3-08-continued.png": "dd6767061c72db4411ba17e44678dcf2b34b57fa361808826448709d4b426034",
+    "3-09-restored-continuation.png": "dd6767061c72db4411ba17e44678dcf2b34b57fa361808826448709d4b426034",
+    "4-01-logo.png": "f591c018d552411cfcab9e5f0221879fb555cbe113e9200c7b164b46705377b1",
     "4-02-startup.png": "fd73cdabf00ba6da756cbc0770c67400a4eb334f4e8f53832bbde666c4e546e3",
     "4-03-menu.png": "fd73cdabf00ba6da756cbc0770c67400a4eb334f4e8f53832bbde666c4e546e3",
     "4-04-game.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837",
-    "4-05-pause.png": "3c4e39c1de164b9af1593b4c0d031940aa80a92a713f1b79511ff11289727445",
+    "4-05-pause.png": "6228ce338a65b49641f0a9ef8dfcb45b9d7a4fab26c4658d9785b3c67f83b737",
     "4-06-help.png": "248131ce4b034394729eab59764c88f0ed0d0a6095a969fc2dc4c1f8605b29d4",
-    "4-07-help-return.png": "3c4e39c1de164b9af1593b4c0d031940aa80a92a713f1b79511ff11289727445",
-    "4-08-continued.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837",
-    "4-09-restored-continuation.png": "5d12157e9753219137241cabe53b1a9c349c9fc0b5a4b07b47990a034b612c81"
+    "4-07-help-return.png": "6228ce338a65b49641f0a9ef8dfcb45b9d7a4fab26c4658d9785b3c67f83b737",
+    "4-08-continued.png": "5d12157e9753219137241cabe53b1a9c349c9fc0b5a4b07b47990a034b612c81",
+    "4-09-restored-continuation.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837"
   },
   "pending": [
     "Richer seed packages, sales history, nonzero coefficients, expanded farms and entire-game save compatibility",

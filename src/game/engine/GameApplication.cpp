@@ -1,6 +1,7 @@
 #include "GameApplication.h"
 #include "GameFileSystem.h"
 #include "LogicShortcuts.h"
+#include "GameInput.h"
 #include "GraphicsScreenshot.h"
 #include "GameWindow.h"
 #include "GameTimer.h"
@@ -51,7 +52,7 @@ struct GameApplication::Runtime {
     std::unique_ptr<Settings> settings;
     HWND window=nullptr;Com<IDirect3D8> d3d;Com<IDirect3DDevice8> device;
     PrimaryGraphicsSettings graphics;std::unique_ptr<GraphicsPresentation> presentation;
-    std::unique_ptr<GraphicsScreenshot> screenshot;std::unique_ptr<LogicShortcuts> shortcuts;
+    std::unique_ptr<GraphicsScreenshot> screenshot;std::unique_ptr<LogicShortcuts> shortcuts;std::unique_ptr<GameInput> gameInput;
     std::unique_ptr<GraphicsRenderState> render;std::unique_ptr<SpriteBuffers> buffers;std::unique_ptr<SpriteBatches> batches;
     std::unique_ptr<InputDevices> devices;std::unique_ptr<GameTimer> timer;SquallSoundApi api;
     std::unique_ptr<SoundManager> sound;MusicPlayback music;std::unique_ptr<GameCursor> cursor;
@@ -100,6 +101,7 @@ struct GameApplication::Runtime {
         const auto reset=[this](bool reload){requestGraphicsReset(reload);};
         mainMenu=std::make_unique<MainMenuContext>(*files,*resources,*settings,*strings,*sound,music,*profiles,devices->bindings(),interaction,screen,reset,&constructGame,views,controls);
         startup=std::make_unique<StartupContext>(*files,*resources,*settings,*strings,*sound,music,*profiles,devices->bindings(),interaction,*mainMenu,views,controls);
+        gameInput=std::make_unique<GameInput>(devices->bindings());
         active=this;auto* screenView=new StartupView(*startup);screenView->hide();screenView->showTransparently();
     }
     void createBuffers() {
@@ -163,7 +165,7 @@ struct GameApplication::Runtime {
         if(Game::instance()) delete Game::instance();views.deleteDiscarded();
         if(profiles) profiles->close();
         windowTargets()={};startup.reset();mainMenu.reset();pauseContext.reset();gameContext.reset();profiles.reset();
-        shortcuts.reset();strings.reset();music.clear();sound.reset();timer.reset();uiElapsedTime()={};devices.reset();cursor.reset();
+        gameInput.reset();shortcuts.reset();strings.reset();music.clear();sound.reset();timer.reset();uiElapsedTime()={};devices.reset();cursor.reset();
         batches.reset();render.reset();screenshot.reset();buffers.reset();device.reset();d3d.reset();presentation.reset();
         if(settings) settings->save();settings.reset();resources.reset();
         textureEnvironment()={};shaderEnvironment()={};fontFiles()=nullptr;files.reset();
