@@ -1,6 +1,6 @@
 # Ověření shody s originálem
 
-[Zdrojový odinstalátor](UNINSTALL.md) je nyní sestavitelný přes FarmarUninstall z přesného NSIS2.28; nezávislé sestavení má shodných všech sedm ověřovaných binárek. Všech27 aplikačních mazacích instrukcí a tři stránky mají statické porovnání. Nativní účinky v izolovaném prostředí nadále pokračují.
+[Zdrojový odinstalátor](UNINSTALL.md) je nyní sestavitelný přes FarmarUninstall z přesného NSIS2.28; nezávislé sestavení má shodných všech sedm ověřovaných binárek. Všech27 aplikačních mazacích instrukcí a tři stránky mají statické porovnání. Nově20 skutečných silent odinstalačních procesů ověřilo deset source/reference párů, souborové/registry účinky a504 shodných aplikačních operací; UI a bootstrap pokračují. Interaktivní UI a úplný self-copy/bootstrap nadále pokračují.
 
 [Obsluha textových příkazů GameInput](GAME_INPUT.md) je propojená se skutečným herním světem. Native callback porovnání pokrývá33333 znaků; celé procesy ověřily peníze včetně wrap32,15 upgrade hodnot,8 osiv a kapacitně omezený sklad. Úplné herní chování a ostatní podmínky projektu pokračují.
 

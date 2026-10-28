@@ -44,7 +44,8 @@ original_player_menu:
   RMDir "$SMPROGRAMS\$OriginalPlayerMenu\Games"
   ClearErrors
 original_remove_registry:
-  ; 72: /ifempty; 73: unconditional deletion of the HKLM uninstall registration.
+  ; 72: NSIS2.28 /ifempty tests subkeys only; values alone are deleted.
+  ; 73: unconditional deletion of the HKLM uninstall registration.
   DeleteRegKey /ifempty HKCU "Software\Alawar\VirtualFarm"
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Dobrý farmář"
   Return

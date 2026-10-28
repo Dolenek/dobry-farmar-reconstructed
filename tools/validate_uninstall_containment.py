@@ -63,9 +63,9 @@ def main() -> None:
     originals = ROOT.parent/'farmář/Dobrý farmář'
     for entry in inventory['files']:
         assert sha(originals/entry['path']) == entry['sha256'], entry['path']
-    sources = ('tools/uninstall_sandbox/containment_probe.cpp',
-               'tools/uninstall_sandbox/CMakeLists.txt',
-               'tools/validate_uninstall_containment.py')
+    sources = sorted(path.relative_to(ROOT).as_posix()
+                     for path in (ROOT/'tools/uninstall_sandbox').iterdir() if path.is_file())
+    sources.append('tools/validate_uninstall_containment.py')
     report = dict(
         status='passed_for_owned_restricted_primary_marker_hive_and_desktop_probes_only',
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

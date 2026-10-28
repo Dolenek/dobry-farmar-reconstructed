@@ -19,13 +19,13 @@ Oddíl začíná instrukcí 47. Rekonstruovaná aplikační logika je v `src/uni
 3. Odstraní zástupce této složky a zástupce hry, Špidly, her a pohádek na ploše.
 4. Odstraňuje prázdné nadřazené složky nabídky Start až k `$SMPROGRAMS`, který samotný nemaže.
 5. Pokud jsou nalezeny údaje PlayerName a jeho nabídky Start, odstraní i příslušný hráčský zástupce v podadresáři Games.
-6. Odstraní klíč `HKCU\Software\Alawar\VirtualFarm` pouze pokud je prázdný; odstraní odinstalační registraci hry v HKLM.
+6. Odstraní klíč `HKCU\Software\Alawar\VirtualFarm` pokud nemá podklíče; samotné hodnoty jej před smazáním nechrání. Odstraní odinstalační registraci hry v HKLM.
 
 Další instrukce obsahují nastavení UI, inicializaci plug-in adresáře a jazykového výběru. Řetězce obsahují také nabídku TrialPay. Samotná přítomnost těchto řetězců neprokazuje, že se tato nabídka skutečně zobrazí nebo že program otevírá síťové spojení.
 
 ## Zdrojové sestavení
 
-`FarmarUninstall` nyní sestaví `build/windows/Release/Uninstall.exe`. Aplikační kód je upravitelný v `src/uninstall/reconstructed_uninstall.nsi` a `original_removal.nsh`; INI je samostatný textový prostředek. Udržujeme původní názvy/klíče a pořadí operací pro věrnou rekonstrukci. Účinky zatím nejsou nativně ověřené a program se nespouští proti původní instalaci.
+`FarmarUninstall` nyní sestaví `build/windows/Release/Uninstall.exe`. Aplikační kód je upravitelný v `src/uninstall/reconstructed_uninstall.nsi` a `original_removal.nsh`; INI je samostatný textový prostředek. Udržujeme původní názvy/klíče a pořadí operací pro věrnou rekonstrukci. Deset silent scénářů má nativně porovnané účinky v omezených testovacích procesech; původní instalace se nepoužívá jako cíl. Interaktivní UI a self-copy/bootstrap pokračují.
 
 Sestavení používá přesné oficiální zdroje [NSIS2.28](https://github.com/nsis-dev/nsis/tree/2473ff63ba8dce55dfc14c48e1fe68112c30a05d): commit2473ff63ba8dce55dfc14c48e1fe68112c30a05d, archiv SHA256d098aa0ec1730a498f85b89c51df6309603083e6f96d242bb9eb2a54fb8186ec a734 jednotlivě ověřovaných souborů v `analysis/nsis-source.lock.json`. Makensis, LZMA/Zlib runtime, základní a header-bitmap Modern UI i LangDLL se skutečně kompilují v MSVC Win32; původní programová binárka se nekopíruje jako implementace. Upstream COPYRIGHT/COPYING zůstávají u připnutých zdrojů. Config odpovídá výchozím Win32 přepínačům2.28; kompatibilitní MFC resource include obsahuje pouze standardní Windows definice. Původní ikona je výtvarný ICO prostředek se šesti bitmapami, žádný strojový kód; původ je v `analysis/uninstall-icon.json`. Header `win.bmp` je bajtově shodný s upstream výtvarným prostředkem.
 
@@ -68,4 +68,25 @@ cmake --build build/uninstall-sandbox --config Release --parallel 2
 python tools/validate_uninstall_containment.py
 ```
 
-Výsledky a hashe: `analysis/uninstaller-containment-validation.json`. Na nové hlavní konfiguraci také prošlo všech102 CTest (580,88s). To není porovnání odinstalačních účinků ani důkaz obecné izolace libovolného programu. Následuje nastavení privátních hive před první instrukcí odinstalátoru a další fail-closed hranice pro aplikační cesty, special folders a delayed-delete. Pak je třeba porovnat skutečné soubory, zástupce, prázdné/neprázdné registry, PlayerName, fallback menu, UI/cancel/completion a bootstrap/self-copy/delayed-delete. Odinstalátor zatím nebyl spuštěný; celková odinstalace ani celý projekt nejsou dokončené.
+Výsledky a hashe tohoto předpokladu: `analysis/uninstaller-containment-validation.json`. Na hlavní konfiguraci prošlo všech102 CTest (580,88s). Samotné markerové testy nebyly vydávané za odinstalační porovnání; následné skutečné běhy jsou popsány níže.
+
+## Skutečné silent odinstalace: deset párů
+
+`tools/validate_uninstaller_runtime.py` nyní spustil20 úplných odinstalačních procesů: deset scénářů se zdrojovým EXE a stejných deset s nezměněným originálem, pokaždé nad novými vlastními soubory a soukromými registry. Originál je pouze diagnostická reference; naše distribuce jej nekopíruje ani nevolá jako implementaci. Všechny běhy mají stejný ověřený omezený primární token a oddělený desktop. Vlastní DLL nastaví procesově lokální HKCU/HKLM a IAT hranice při zastaveném PE entry pointu; teprve potom se původní vstupní instrukce uvolní. Registrované produkční registry se vůbec nepoužívají. Každý běh má uložený entry proof, úplný raw OS trace a soukromý registry snapshot.
+
+Aplikační ANSI importy pro soubory, registry, load/export, special folders, spuštění procesů, shell/COM a systémové nastavení mají výslovné hranice. Zápisy dovolují jen vlastní root, odmítají parent traversal, alternativní streamy a reparse cesty; WriteFile a SetFileTime kontrolují i skutečnou cestu již otevřeného handle. Special-folder PIDL mají privátní cíle pro user/common Programs a Desktop. Shell/COM spuštění a další procesy jsou pro tyto silent případy zakázané. MoveFileEx s DELAY_UNTIL_REBOOT pouze zaznamená soukromý záměr, nikdy nezapisuje systémovou frontu po restartu.
+
+Tři vlastní guard klienty ověřily také odmítnutí zápisu do zvláštního **Untrusted souboru mimo root**: samotná integrita jej nechrání, takže test ověřuje skutečnou aplikační hranici. Test záměrně získal vnější handle přes vlastní diagnostický W import a následné ANSI WriteFile/SetFileTime jej odmítly. Tento W import původní NSIS nemá; import audit ověřuje pokrytí známé aplikace. Nejde o univerzální sandbox pro libovolný cizí program.
+
+```powershell
+cmake --build build/uninstall-sandbox --config Release --parallel 2
+python tools/validate_uninstaller_runtime.py
+```
+
+Scénáře: chybějící registrace; chybějící i prázdná menu hodnota; výchozí i vlastní český vnořený menu název; odstranění více prázdných předků a zachování neprázdného menu; PlayerName s prázdnou/neprázdnou Games složkou nebo chybějícím menu; VirtualFarm jen s hodnotami a VirtualFarm s podklíčem. Každý payload obsahuje rekurzivní Data strom i hidden/read-only soubor. Všechny ověřují čtyři skutečně odstraněné desktop soubory, zachované nesouvisející soubory/registry, odstranění či nepřítomnost HKLM stromu a správné HKCU chování. Pojem `/ifempty` byl zpřesněný podle `Source/exehead/exec.c::myRegDeleteKeyEx`: smyčka testuje RegEnumKey, nikoli hodnoty. Testy potvrzují smazání values-only klíče i zachování klíče s dítětem; rekonstruovaný runtime už používal tentýž zdrojový NSIS algoritmus, změnila se vysvětlující dokumentace.
+
+Ve všech deseti párech souhlasí konečný souborový strom a obsah soukromých registrů po výslovně evidované normalizaci tří hodnot Windows inicializace: `ZonesSecurityUpgrade` FILETIME a dva dočasné `InstallINFFile` názvy. Ostatní hodnoty zůstávají porovnané bajtově, raw snímky a původní normalizované hodnoty jsou uchované. Souhlasí i všech504 sledovaných aplikačních mazacích/registry/shell operací v pořadí, po nahrazení samotného testovacího rootu. Přípravné zápisy dekomprimovaného NSIS streamu mají rozdílné členění do WriteFile bloků, které se nevydává za shodu; konečný prázdný temp strom souhlasí. Žádná skutečná odinstalace nenarazila na zamítnutou aplikační operaci ani nepotřebovala delayed-delete.
+
+Windows u historického EXE bez moderního elevation manifestu nejprve odmítly CreateProcessAsUser chybou740. Pouze prostředí testovaného dítěte proto obsahuje `__COMPAT_LAYER=RunAsInvoker`; oba programy běží bez elevation pod stejnými omezeními. Běhy mají `/S _?=<vlastní payload>`, čímž vědomě obcházejí bootstrap copy fázi a umožní samostatné porovnání mazací logiky. Nejde o test zvýšení oprávnění, běhu proti Program Files ani přístupů do skutečného HKLM.
+
+Výsledky: `analysis/uninstaller-runtime-validation.json`. Všech17 původních souborů zůstalo bajtově beze změny. Interaktivní potvrzení/zrušení/dokončení, LangDLL při nesilent inicializaci a úplná bootstrap/self-copy/delayed-delete posloupnost dále pokračují. Celý projekt není dokončený.
