@@ -40,7 +40,7 @@ Makensis vytvoří pouze generovací PE s `WriteUninstaller`. Nástroj `emit_nsi
 
 ## Porovnání sestavení
 
-Finální EXE má65748 bajtů, Win32 PE a pouze systémové importy. Stejný zdroj v nezávislé konfiguraci `build/nsis228-repro` vytvořil všech sedm sledovaných binárek bajtově shodných, včetně `Uninstall.exe` se SHA2564dcaa48d4c063c9e28f5052b6b9890a1c451340f80a929b014961c270ad28261. Postup:
+Finální EXE má65748 bajtů, Win32 PE a pouze systémové importy. Stejný zdroj v nezávislé konfiguraci `build/nsis228-repro` vytvořil všech sedm sledovaných binárek bajtově shodných, včetně `Uninstall.exe` se SHA2562deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1. Postup:
 
 ```powershell
 cmake -S . -B build/nsis228-repro -G 'Visual Studio 17 2022' -A Win32 -DBUILD_SQUALL_CANDIDATE=ON
@@ -90,3 +90,19 @@ Ve všech deseti párech souhlasí konečný souborový strom a obsah soukromýc
 Windows u historického EXE bez moderního elevation manifestu nejprve odmítly CreateProcessAsUser chybou740. Pouze prostředí testovaného dítěte proto obsahuje `__COMPAT_LAYER=RunAsInvoker`; oba programy běží bez elevation pod stejnými omezeními. Běhy mají `/S _?=<vlastní payload>`, čímž vědomě obcházejí bootstrap copy fázi a umožní samostatné porovnání mazací logiky. Nejde o test zvýšení oprávnění, běhu proti Program Files ani přístupů do skutečného HKLM.
 
 Výsledky: `analysis/uninstaller-runtime-validation.json`. Všech17 původních souborů zůstalo bajtově beze změny. Interaktivní potvrzení/zrušení/dokončení, LangDLL při nesilent inicializaci a úplná bootstrap/self-copy/delayed-delete posloupnost dále pokračují. Celý projekt není dokončený.
+
+## Interaktivní porovnání a PE platformní pole
+
+Dalších16 skutečných procesů ověřuje osm source/reference párů: zrušení v LangDLL dialogu, zrušení v potvrzení, úplné dokončení, uložený jazyk1029 a neplatný uložený jazyk65535, vlastní neprázdné menu a neprázdné hráčské Games. Jazykový dialog se skutečně načítá z příslušné vlastní/referenční LangDLL; při uloženém jazyce se přeskočí. Návratové kódy souhlasí: language cancel2, confirmation cancel1, completion0. Zrušení ponechá všechny fixture soubory včetně atributů a všechny aplikační registry beze změny. Dokončení má totožné mazací účinky, soukromé registry a pořadí aplikačních operací.
+
+Všech268 párově sledovaných záznamů ovládacích prvků souhlasí přesně: třída, ID, text (s normalizací testovacího rootu), style, enabled/visible hodnoty a relativní geometrie včetně rozměru celého okna. Observer běží na vlastním vlákně připojeném ke konkrétnímu privátnímu desktopu; posílá běžné WM_COMMAND pouze ověřenému HWND téhož procesu. Desktop se nikdy nepřepíná do uživatelova zobrazení. IsWindowVisible na této neinteraktivní station zahrnuje neviditelného desktop předka, proto readiness používá vlastní WS_VISIBLE dialogu. PrintWindow i WM_PRINT vracejí jednobarevné snímky. Tyto snímky nejsou vydávané za pixelové porovnání; to zůstává výslovně neověřené. Texty, řídicí tok, skutečné prvky a účinky jsou nativně porovnané.
+
+První UI měření zachytilo rozdíl12 pixelů v rozměru okna a6 pixelů v posunech potomků. Moderní LINK vytvořil OS/subsystem verzi6.0 a příznak Terminal Server Aware, zatímco originál má4.0/4.0 a DLL characteristics0. Diagnostická změna právě těchto tří bajtů ve vlastním zdrojovém EXE obnovila přesnou nativní geometrii všech tří dialogů. Sestavení nyní tyto explicitní platformní hodnoty zapisuje pouze do vlastních zdrojově linkovaných LZMA/Zlib stubů před makensis. Vlastní generátor i offline EW_WRITEUNINSTALLER tak dál používají svůj vlastní PE header bez výjimky. Všechny ostatní bajty kódu, prostředků a NSIS payloadu zůstaly totožné. Výsledek má stále65748 bajtů a SHA2562deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1; všech sedm binárek v nezávislé konfiguraci je znovu shodných. Pole linker version nadále pravdivě uvádí náš MSVC; původní strojový kód ani hlavička se nekopírují.
+
+Příprava pluginů NSIS zkouší CreateDirectory i pro již existující rodiče. Hranice pro známé existující předky vlastního nově vytvořeného rootu vrací normální ERROR_ALREADY_EXISTS bez jakéhokoli vnějšího mutujícího API volání. Skutečné vytvoření mimo root zůstává odmítnuté. RichEd20/RichEd32 jsou dovolené systémové komponenty, načítané explicitně ze systémové složky. IAT patchování vychází ze skutečné cesty načteného modulu a týká se jen aplikačních modulů uvnitř rootu, nikoli systémových DLL.
+
+```powershell
+python tools/validate_uninstaller_ui.py
+```
+
+Doklady: `analysis/uninstaller-ui-validation.json`, `analysis/uninstaller-platform-validation.json`. Plný bootstrap bez `_?=` (vlastní copy, další proces a jejich bezpečné delayed-delete záměry) nadále pokračuje. Celkový projekt zůstává nedokončený.

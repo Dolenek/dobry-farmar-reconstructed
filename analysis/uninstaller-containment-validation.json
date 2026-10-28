@@ -1,25 +1,27 @@
 {
   "status": "passed_for_owned_restricted_primary_marker_hive_and_desktop_probes_only",
-  "recorded_at_utc": "2026-10-28T21:11:41.029169+00:00",
+  "recorded_at_utc": "2026-10-28T21:35:49.166759+00:00",
   "source_files": {
-    "tools/uninstall_sandbox/CMakeLists.txt": "797cbbaa98bf1f7b36b48b252713454ece3289373c37358ea50c5316ffcdd04f",
-    "tools/uninstall_sandbox/application_guard.cpp": "d571528de721ca06ed8c0ec7c15ae0dece98e08fba59a9da24b89781be9756cd",
+    "tools/uninstall_sandbox/CMakeLists.txt": "dae6631f3b5ac98f5760fa2714d0685428a40817e5e27c9b7f90f314b5db0428",
+    "tools/uninstall_sandbox/application_guard.cpp": "e817f89bd71d19539dcaf3e31d9cc0999cffa7f3df674cda3df5548dcf92745e",
     "tools/uninstall_sandbox/application_guard.def": "0036450229030d53789789bc588bb80ca1c45da4fa5017ad4fefb1520b2dbd5c",
-    "tools/uninstall_sandbox/containment_probe.cpp": "d45a2e0066f88b2e2e744c680d518161527a43f52a45665973267e4812746434",
-    "tools/uninstall_sandbox/entry_injection.cpp": "aa01d39ac8294bc521a4a19982c949639a4f6f03afd65e97add861817cc41886",
-    "tools/uninstall_sandbox/entry_injection.h": "5e3ead19f20afe801b4d76bf50c713596ae257b87f36114f5a0c127b858e6333",
+    "tools/uninstall_sandbox/containment_probe.cpp": "fdd98833c1d53f1cde6fce892a127ce76961ab3814135a8820e8ad6cf00b11bf",
+    "tools/uninstall_sandbox/entry_injection.cpp": "eddf7bc4166f2af0104c2e590fad25cbad7e426c0889cf660d7757a62b13d359",
+    "tools/uninstall_sandbox/entry_injection.h": "cb36e83094d3c44d6a71b7b9b1adbdaf6f6e75b658a4ab9536b25514aabe134d",
     "tools/uninstall_sandbox/guard_client.cpp": "2e57e4e019903e93126031482e7635b92208a9a9bf3faae030508c4467139900",
     "tools/uninstall_sandbox/guard_protocol.h": "9faec936deff4983dec68d108dcd62d3d311d33bade5bd1205ae31ac5a2d4879",
-    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "65f94af0066eddfa8f7ad1992a8a064067a3a0c62ddbe787115e408f1b4edea8",
-    "tools/uninstall_sandbox/uninstall_fixtures.h": "15d83b41dc20261542211dc984cbde1d090206709ec51c6943ba3f91716a9c71",
+    "tools/uninstall_sandbox/ui_driver.cpp": "8c030313f3ddae5cc83f4f5e55fe3c15fc759aee380652e33b0f462e5ec95d6c",
+    "tools/uninstall_sandbox/ui_driver.h": "d1c6ca15ae5b9d01c41265ff6baedb193058e9dca5cf47cc1504ea1d894c25fd",
+    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "96fc35176db4462c0978e946a8be67d0ab16ca10c60b471b47704e3a599db381",
+    "tools/uninstall_sandbox/uninstall_fixtures.h": "10bb8903cf5c24d0ed2b8f9d1cf8a3cbe9271c136b680879a05b8cc6f4aafff6",
     "tools/validate_uninstall_containment.py": "7233a2c18166f91c54a0926bf570f8bc200b154310e4a61cb7d2077ba127f036"
   },
   "probe_path": "build/uninstall-sandbox/Release/containment-probe.exe",
-  "probe_sha256": "351a147e824b8abc6bfbc1323105beb26b6bcf1564a654c0d5311cfe45ed3148",
+  "probe_sha256": "a57c9bb6706b60bab897e62d99c089fd09381af48a7d281d1f8d138e65321139",
   "repeated_lifetimes": 3,
   "runs": [
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-147e15c8-670f-450f-8a62-e815c0871093",
+      "work_directory": ".local/uninstall-isolation/primary-validation-0d1d82e7-d1f8-4dee-93b9-8c34e2eb8c1f",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,
@@ -46,7 +48,7 @@
       }
     },
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-c49ae7f7-2b21-47d3-8458-fefc1609d378",
+      "work_directory": ".local/uninstall-isolation/primary-validation-2db0ff21-d78d-46b2-bbd8-7cbe5842afef",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,
@@ -73,7 +75,7 @@
       }
     },
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-194bd738-db5d-4834-a0b9-0e198fc92ebe",
+      "work_directory": ".local/uninstall-isolation/primary-validation-d9ad3359-1c4f-4b1a-ab6a-0afe2c4545bc",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,

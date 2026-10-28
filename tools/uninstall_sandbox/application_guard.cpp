@@ -81,7 +81,20 @@ BOOL WINAPI guardedWriteFile(HANDLE file,LPCVOID data,DWORD length,LPDWORD writt
 BOOL WINAPI guardedSetFileTime(HANDLE file,const FILETIME* a,const FILETIME* b,const FILETIME* c) {
     if(!fileHandle("SetFileTime",file))return FALSE;return SetFileTime(file,a,b,c);
 }
-BOOL WINAPI guardedCreateDirectoryA(LPCSTR path,LPSECURITY_ATTRIBUTES sa) {return permit("CreateDirectoryA",path)&&CreateDirectoryA(path,sa);}
+BOOL WINAPI guardedCreateDirectoryA(LPCSTR path,LPSECURITY_ATTRIBUTES sa) {
+    char full[32768]{};const auto length=path?GetFullPathNameA(path,sizeof(full),full,nullptr):0;
+    if(length&&length<sizeof(full)) {
+        std::string value(full);while(value.size()>3&&value.back()=='\\')value.pop_back();
+        for(const auto* candidate:{&root,&shortRoot})if(!value.empty()&&candidate->size()>=value.size()&&
+            !_strnicmp(candidate->c_str(),value.c_str(),value.size())&&
+            (candidate->size()==value.size()||(*candidate)[value.size()]=='\\')) {
+            // A known existing ancestor of our newly created root: return the
+            // ordinary no-op result without calling any outside mutator.
+            event("CreateDirectoryA.existing-ancestor-noop",path,true,ERROR_ALREADY_EXISTS);SetLastError(ERROR_ALREADY_EXISTS);return FALSE;
+        }
+    }
+    return permit("CreateDirectoryA",path)&&CreateDirectoryA(path,sa);
+}
 BOOL WINAPI guardedRemoveDirectoryA(LPCSTR path) {return permit("RemoveDirectoryA",path)&&RemoveDirectoryA(path);}
 BOOL WINAPI guardedDeleteFileA(LPCSTR path) {return permit("DeleteFileA",path)&&DeleteFileA(path);}
 BOOL WINAPI guardedSetCurrentDirectoryA(LPCSTR path) {return permit("SetCurrentDirectoryA",path)&&SetCurrentDirectoryA(path);}
@@ -170,18 +183,23 @@ bool allowedLibrary(const char* name) {
     if(!name||!*name)return false;
     if(std::strpbrk(name,"\\/:"))return inside(name);
     auto text=std::string(name);std::transform(text.begin(),text.end(),text.begin(),[](char c){return char(c>='A'&&c<='Z'?c+32:c);});if(text.size()>4&&text.substr(text.size()-4)==".dll")text.resize(text.size()-4);
-    return text=="kernel32"||text=="user32"||text=="advapi32"||text=="shlwapi"||text=="comctl32"||text=="ole32";
+    return text=="kernel32"||text=="user32"||text=="advapi32"||text=="shlwapi"||text=="comctl32"||text=="ole32"||text=="riched20"||text=="riched32";
 }
 HMODULE WINAPI guardedLoadLibraryExA(LPCSTR name,HANDLE file,DWORD flags) {
     if(!allowedLibrary(name)){event("LoadLibraryExA",name,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return nullptr;}
-    auto module=LoadLibraryExA(name,file,flags);if(module&&inside(name)&&!patch(module)){event("LoadLibraryExA.patch-failed",name,false);ExitProcess(0xe2);}return module;
+    std::string resolved=name;if(!std::strpbrk(name,"\\/:")){char system[MAX_PATH]{};if(!GetSystemDirectoryA(system,MAX_PATH))return nullptr;resolved=std::string(system)+"\\"+name;if(resolved.size()<4||_stricmp(resolved.c_str()+resolved.size()-4,".dll"))resolved+=".dll";}
+    event("LoadLibraryExA.begin",name,true,flags);auto module=LoadLibraryExA(resolved.c_str(),file,flags);const auto error=module?ERROR_SUCCESS:GetLastError();event("LoadLibraryExA.result",name,module!=nullptr,error);
+    // Determine ownership from the loaded image, never from a bare DLL name
+    // resolved against the current (private) working directory.
+    char actual[32768]{};if(module){const auto length=GetModuleFileNameA(module,actual,sizeof(actual));if(!length||length>=sizeof(actual))ExitProcess(0xe2);if(inside(actual)&&!patch(module)){event("LoadLibraryExA.patch-failed",actual,false);ExitProcess(0xe2);}}return module;
 }
 HMODULE WINAPI guardedLoadLibraryA(LPCSTR name) {return guardedLoadLibraryExA(name,nullptr,0);}
+BOOL WINAPI guardedFreeLibrary(HMODULE module) {EnterCriticalSection(&lock);patched.erase(module);LeaveCriticalSection(&lock);return FreeLibrary(module);}
 FARPROC WINAPI guardedGetProcAddress(HMODULE module,LPCSTR name) {
     if(reinterpret_cast<uintptr_t>(name)<65536){event("GetProcAddress.ordinal",nullptr,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_PROC_NOT_FOUND);return nullptr;}
     if(const auto hook=replacement(name))return hook;
     for(const auto* allowed:{"GetDiskFreeSpaceExA","GetUserDefaultUILanguage","SHAutoComplete","LangDialog"})
-        if(!std::strcmp(name,allowed))return GetProcAddress(module,name);
+        if(!std::strcmp(name,allowed)){const auto function=GetProcAddress(module,name);event("GetProcAddress.allowed",name,function!=nullptr,function?0:GetLastError());return function;}
     event("GetProcAddress.unknown",name,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_PROC_NOT_FOUND);return nullptr;
 }
 FARPROC replacement(const char* name) {
@@ -192,7 +210,7 @@ FARPROC replacement(const char* name) {
     HOOK(CoCreateInstance);HOOK(SystemParametersInfoA);
     HOOK(SHGetSpecialFolderLocation);HOOK(SHGetPathFromIDListA);HOOK(RegOpenKeyExA);HOOK(RegCreateKeyExA);HOOK(RegDeleteKeyA);
     HOOK(RegDeleteKeyExA);HOOK(RegDeleteValueA);HOOK(RegSetValueExA);HOOK(RegQueryValueExA);HOOK(RegEnumKeyA);HOOK(RegEnumValueA);
-    HOOK(RegCloseKey);HOOK(LoadLibraryA);HOOK(LoadLibraryExA);HOOK(GetProcAddress);
+    HOOK(RegCloseKey);HOOK(LoadLibraryA);HOOK(LoadLibraryExA);HOOK(FreeLibrary);HOOK(GetProcAddress);
 #undef HOOK
     return nullptr;
 }

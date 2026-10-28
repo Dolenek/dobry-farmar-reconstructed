@@ -1,8 +1,8 @@
 {
   "status": "passed_for_source_uninstaller_build_pages_assets_and_exact_removal_ir",
-  "recorded_at_utc": "2026-10-28T21:12:00.022204+00:00",
+  "recorded_at_utc": "2026-10-28T21:36:20.234941+00:00",
   "source_files": {
-    "analysis/nsis-build-config.json": "bdd96cb1698e8dc9172c33563e799cf5578c8969b8bc11963bf00ae731d5eec4",
+    "analysis/nsis-build-config.json": "86992aca125847550fae2d33631c37b285454a359fed77ca40c48cf2fbd09cc8",
     "analysis/nsis-source.lock.json": "6758ccb93111d2d4d2228319b5fef3b7309c9a7164479a7d2cf3361211d87847",
     "CMakeLists.txt": "bcb14e26bfc2749f66f8104850fbbcd0fe33497348eb28eab52201ca7a9922fc",
     "src/uninstall/NSIS-COPYING": "998499f0ae40d6a70277194e0eedf3f12cd56eb6d86c96670a202c17e1923459",
@@ -15,13 +15,37 @@
     "tools/fetch_nsis.py": "6dce596d608422c4d1c03c7cf504eaeaae65bf7b538f0cdc3d7c5c59160e9b0e",
     "tools/nsis_extract.py": "aaae5772e84c1ebea59901dbe2be41fac6ff0f62fc176c484729017c625441c5",
     "tools/nsis_solid.py": "54fda7782fb291b1df7b963802eaabbf4bfda4a5fd5efb6b66a22c5d6e507275",
-    "tools/prepare_nsis_toolchain.py": "bda4ba21dd3c761ecaeb6285486821c626221feb7bbac1bb97bcaf69164007be",
-    "tools/validate_uninstaller_build.py": "fd0d50eadea1e6b34fcd09a27091eb30fd0faf6d2440cc4c32099ca3b9e9e466"
+    "tools/prepare_nsis_toolchain.py": "d326842454b0b5b201f2be11b98d2aebd3b3c398d7dc07ccb6bbdb1c27586598",
+    "tools/validate_uninstaller_build.py": "85a91efdcc60d54277aaee1fb328c46161dd998170b6ae7bda90537bc70c9940"
   },
   "candidate_path": "build/windows/Release/Uninstall.exe",
-  "candidate_sha256": "4dcaa48d4c063c9e28f5052b6b9890a1c451340f80a929b014961c270ad28261",
+  "candidate_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
   "candidate_bytes": 65748,
   "bits": 32,
+  "exact_runtime_pe_platform": {
+    "source": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    },
+    "reference": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    }
+  },
   "system_imports": [
     "advapi32.dll",
     "comctl32.dll",
@@ -453,7 +477,7 @@
   "independent_reproducible_binaries": [
     {
       "file": "Uninstall.exe",
-      "sha256": "4dcaa48d4c063c9e28f5052b6b9890a1c451340f80a929b014961c270ad28261"
+      "sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
     },
     {
       "file": "nsis228-lzma-solid.exe",

@@ -41,7 +41,7 @@ DWORD setupRva(const fs::path& path) {
     throw std::runtime_error("Missing own FarmarSandboxSetup export");
 }
 }
-DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HANDLE privateCu,HANDLE privateLm) {
+DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HANDLE privateCu,HANDLE privateLm,const std::function<void()>& onStarted) {
     bool debug=true;uintptr_t entry=0;BYTE original=0;bool stopped=false;
     try {
         need(ResumeThread(process.hThread)!=DWORD(-1),"Resume own child loader");const auto deadline=GetTickCount64()+20000;
@@ -71,6 +71,8 @@ DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HA
         const auto result=runThread(process,uintptr_t(module)+setupRva(dll),remoteConfig);need(result==farmarGuardReady,(std::string("Own setup failed: ")+std::to_string(result)).c_str());
         need(VirtualFreeEx(process.hProcess,remote,0,MEM_RELEASE),"Free own setup data");
         std::ofstream(root/L"entry-boundary.json")<<"{\"entry_held_until_guard_setup\":true,\"primary_token_unchanged\":true,\"guard_ready\":"<<result<<",\"entry\":"<<entry<<"}\n";
-        need(ResumeThread(process.hThread)==1,"Release exactly one primary suspend after setup");need(WaitForSingleObject(process.hProcess,20000)==WAIT_OBJECT_0,"Own guarded application timeout");DWORD code=0;need(GetExitCodeProcess(process.hProcess,&code),"Own guarded application exit");return code;
+        need(ResumeThread(process.hThread)==1,"Release exactly one primary suspend after setup");
+        if(onStarted)onStarted();
+        need(WaitForSingleObject(process.hProcess,20000)==WAIT_OBJECT_0,"Own guarded application timeout");DWORD code=0;need(GetExitCodeProcess(process.hProcess,&code),"Own guarded application exit");return code;
     } catch(...) {TerminateProcess(process.hProcess,0xe3);if(debug)DebugActiveProcessStop(process.dwProcessId);WaitForSingleObject(process.hProcess,5000);throw;}
 }

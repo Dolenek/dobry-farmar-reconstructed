@@ -1,0 +1,68 @@
+{
+  "status": "passed_for_source_only_runtime_platform_header_and_native_dialog_geometry",
+  "recorded_at_utc": "2026-10-28T21:36:59.949423+00:00",
+  "prior_own_source_sha256": "4dcaa48d4c063c9e28f5052b6b9890a1c451340f80a929b014961c270ad28261",
+  "source_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
+  "source_bytes": 65748,
+  "changed_byte_offsets": [
+    280,
+    288,
+    311
+  ],
+  "changed_bytes": [
+    {
+      "offset": 280,
+      "before": 6,
+      "after": 4
+    },
+    {
+      "offset": 288,
+      "before": 6,
+      "after": 4
+    },
+    {
+      "offset": 311,
+      "before": 128,
+      "after": 0
+    }
+  ],
+  "all_other_code_and_resource_bytes_identical": true,
+  "runtime_platform": {
+    "source": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    },
+    "reference": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    }
+  },
+  "platform_values_from_original_metadata_only": true,
+  "no_original_code_copied": true,
+  "build_method": "Prepare only own linked LZMA/Zlib stub platform fields before makensis; offline EW_WRITEUNINSTALLER emission remains exact",
+  "source_configuration": "analysis/nsis-build-config.json",
+  "source_tool": "tools/prepare_nsis_toolchain.py",
+  "native_ui_report": "analysis/uninstaller-ui-validation.json",
+  "native_control_records": 268,
+  "pixel_comparison_verified": false,
+  "whole_game_complete": false,
+  "source_files": {
+    "tools/prepare_nsis_toolchain.py": "d326842454b0b5b201f2be11b98d2aebd3b3c398d7dc07ccb6bbdb1c27586598",
+    "analysis/nsis-build-config.json": "86992aca125847550fae2d33631c37b285454a359fed77ca40c48cf2fbd09cc8",
+    "tools/validate_uninstaller_build.py": "85a91efdcc60d54277aaee1fb328c46161dd998170b6ae7bda90537bc70c9940"
+  }
+}
