@@ -1,0 +1,100 @@
+{
+  "status": "passed_for_owned_restricted_primary_marker_hive_and_desktop_probes_only",
+  "recorded_at_utc": "2026-10-28T09:07:40.083051+00:00",
+  "source_files": {
+    "tools/uninstall_sandbox/containment_probe.cpp": "f5acf4dc255980fd20be4d664cb34c8abee853714b5838b2e7315ce75fe945ea",
+    "tools/uninstall_sandbox/CMakeLists.txt": "b4808390ceb42842575f6046bd57d361cca91f9fd1c84e2e65736b64e4904ceb",
+    "tools/validate_uninstall_containment.py": "486a62f84e5d027c60241fb5e3098ef0e0eff8d1d0406c94aa8acadedbbfc83f"
+  },
+  "probe_path": "build/uninstall-sandbox/Release/containment-probe.exe",
+  "probe_sha256": "9e2aa4839e1f4c9117e1b7db5d91781395309568ac2e340be4cec86aaf5940f6",
+  "repeated_lifetimes": 3,
+  "runs": [
+    {
+      "work_directory": ".local/uninstall-isolation/primary-validation-dbd446b7-c4cc-4a3f-a1bb-1d3c78f02326",
+      "proof": {
+        "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
+        "inside_file_write": true,
+        "outside_file_write_denied": true,
+        "outside_file_delete_denied": true,
+        "child_outside_medium_and_low_integrity_mutations_denied": true,
+        "outside_dacl_owner_mutations_denied": true,
+        "system_runtime_read": true,
+        "inside_registry_write": true,
+        "outside_registry_write_denied": true,
+        "outside_markers_unchanged": true,
+        "private_registry_keys_removed": true,
+        "restricted_primary_child": true,
+        "untrusted_integrity_rid": 0,
+        "child_private_hkcu_hklm": true,
+        "child_original_hkcu_write_denied": true,
+        "private_window_station": false,
+        "noninteractive_station_acl_restored": true,
+        "station_dacl_byte_exact_after_restore": true,
+        "private_desktop": true,
+        "child_job_limit_one": true,
+        "uninstaller_executed": false
+      }
+    },
+    {
+      "work_directory": ".local/uninstall-isolation/primary-validation-3d02c46d-d8fb-4829-9d56-cf19e6908e6d",
+      "proof": {
+        "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
+        "inside_file_write": true,
+        "outside_file_write_denied": true,
+        "outside_file_delete_denied": true,
+        "child_outside_medium_and_low_integrity_mutations_denied": true,
+        "outside_dacl_owner_mutations_denied": true,
+        "system_runtime_read": true,
+        "inside_registry_write": true,
+        "outside_registry_write_denied": true,
+        "outside_markers_unchanged": true,
+        "private_registry_keys_removed": true,
+        "restricted_primary_child": true,
+        "untrusted_integrity_rid": 0,
+        "child_private_hkcu_hklm": true,
+        "child_original_hkcu_write_denied": true,
+        "private_window_station": false,
+        "noninteractive_station_acl_restored": true,
+        "station_dacl_byte_exact_after_restore": true,
+        "private_desktop": true,
+        "child_job_limit_one": true,
+        "uninstaller_executed": false
+      }
+    },
+    {
+      "work_directory": ".local/uninstall-isolation/primary-validation-e8426ca0-f622-4444-a74b-ddb4f262ad64",
+      "proof": {
+        "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
+        "inside_file_write": true,
+        "outside_file_write_denied": true,
+        "outside_file_delete_denied": true,
+        "child_outside_medium_and_low_integrity_mutations_denied": true,
+        "outside_dacl_owner_mutations_denied": true,
+        "system_runtime_read": true,
+        "inside_registry_write": true,
+        "outside_registry_write_denied": true,
+        "outside_markers_unchanged": true,
+        "private_registry_keys_removed": true,
+        "restricted_primary_child": true,
+        "untrusted_integrity_rid": 0,
+        "child_private_hkcu_hklm": true,
+        "child_original_hkcu_write_denied": true,
+        "private_window_station": false,
+        "noninteractive_station_acl_restored": true,
+        "station_dacl_byte_exact_after_restore": true,
+        "private_desktop": true,
+        "child_job_limit_one": true,
+        "uninstaller_executed": false
+      }
+    }
+  ],
+  "reference_files_unchanged": 17,
+  "policy": "Full restricted primary token: unique SID, Restricted Code and Builtin Users; administrators deny-only, privileges removed, Untrusted integrity RID0; private hive/root/desktop labelled Untrusted; default object ACL grants unique SID",
+  "noninteractive_station_shared": true,
+  "noninteractive_station_unique_sid_acl_temporarily_added_and_byte_exact_restored": true,
+  "application_boundary_guards_not_yet_implemented": true,
+  "uninstaller_executed": false,
+  "uninstaller_effects_verified": false,
+  "whole_game_complete": false
+}
