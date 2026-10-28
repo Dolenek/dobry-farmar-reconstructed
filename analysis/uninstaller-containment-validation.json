@@ -1,27 +1,30 @@
 {
   "status": "passed_for_owned_restricted_primary_marker_hive_and_desktop_probes_only",
-  "recorded_at_utc": "2026-10-28T21:35:49.166759+00:00",
+  "recorded_at_utc": "2026-10-28T22:15:11.560329+00:00",
   "source_files": {
-    "tools/uninstall_sandbox/CMakeLists.txt": "dae6631f3b5ac98f5760fa2714d0685428a40817e5e27c9b7f90f314b5db0428",
-    "tools/uninstall_sandbox/application_guard.cpp": "e817f89bd71d19539dcaf3e31d9cc0999cffa7f3df674cda3df5548dcf92745e",
+    "tools/uninstall_sandbox/CMakeLists.txt": "26075358264ee7338e7663c629790647a53c70b667b0819dfd670bff7964e338",
+    "tools/uninstall_sandbox/application_guard.cpp": "904d92c9e6993de5c4bfd575c42f22be30137e325bf8e278879073ac6f77b4d5",
     "tools/uninstall_sandbox/application_guard.def": "0036450229030d53789789bc588bb80ca1c45da4fa5017ad4fefb1520b2dbd5c",
-    "tools/uninstall_sandbox/containment_probe.cpp": "fdd98833c1d53f1cde6fce892a127ce76961ab3814135a8820e8ad6cf00b11bf",
-    "tools/uninstall_sandbox/entry_injection.cpp": "eddf7bc4166f2af0104c2e590fad25cbad7e426c0889cf660d7757a62b13d359",
-    "tools/uninstall_sandbox/entry_injection.h": "cb36e83094d3c44d6a71b7b9b1adbdaf6f6e75b658a4ab9536b25514aabe134d",
+    "tools/uninstall_sandbox/bootstrap_broker.cpp": "310a24ceebcf164b810500aae89f34eb86ff1c6c1626677c1af16fc9a2a2c10d",
+    "tools/uninstall_sandbox/bootstrap_broker.h": "87e23a1252b36d4c1695ad459193e55cba6a7915b29445a202c6e0beabe6c3ba",
+    "tools/uninstall_sandbox/bootstrap_client.cpp": "b930579242ac9bf5c180eeae250b36887e71460f1c8c8425b63f59fddf25cb91",
+    "tools/uninstall_sandbox/containment_probe.cpp": "770ceaa000b2bbe410cd17fdeaa1733ae04cf3cbc0534129c36f79beae33c59e",
+    "tools/uninstall_sandbox/entry_injection.cpp": "887d39506fd0054b6585c41332cd7b2e5a7f1a1d6f72e67751294d38c0df25fb",
+    "tools/uninstall_sandbox/entry_injection.h": "90143dc26653987f06e8f24c33d248e40f603dd5272368c95d91f52ee50bfcae",
     "tools/uninstall_sandbox/guard_client.cpp": "2e57e4e019903e93126031482e7635b92208a9a9bf3faae030508c4467139900",
-    "tools/uninstall_sandbox/guard_protocol.h": "9faec936deff4983dec68d108dcd62d3d311d33bade5bd1205ae31ac5a2d4879",
+    "tools/uninstall_sandbox/guard_protocol.h": "40bf96c95a87265de363a3f9280118bdee0988ac1f6601a7f9aa8b4d652da43a",
     "tools/uninstall_sandbox/ui_driver.cpp": "8c030313f3ddae5cc83f4f5e55fe3c15fc759aee380652e33b0f462e5ec95d6c",
     "tools/uninstall_sandbox/ui_driver.h": "d1c6ca15ae5b9d01c41265ff6baedb193058e9dca5cf47cc1504ea1d894c25fd",
-    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "96fc35176db4462c0978e946a8be67d0ab16ca10c60b471b47704e3a599db381",
-    "tools/uninstall_sandbox/uninstall_fixtures.h": "10bb8903cf5c24d0ed2b8f9d1cf8a3cbe9271c136b680879a05b8cc6f4aafff6",
+    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "d2f9456e66cc60beca63500b5ed98ab27b313f580bcedfd7651c40e06918caee",
+    "tools/uninstall_sandbox/uninstall_fixtures.h": "32dd575bb16c12da443a98e60b389bbe0f3dfd50eefff8a0a8d4e376522ca0fe",
     "tools/validate_uninstall_containment.py": "7233a2c18166f91c54a0926bf570f8bc200b154310e4a61cb7d2077ba127f036"
   },
   "probe_path": "build/uninstall-sandbox/Release/containment-probe.exe",
-  "probe_sha256": "a57c9bb6706b60bab897e62d99c089fd09381af48a7d281d1f8d138e65321139",
+  "probe_sha256": "5b112b204fc60410d3547b601aaba70ef1a19fa9d79994d5a88d7ff5036c3e23",
   "repeated_lifetimes": 3,
   "runs": [
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-0d1d82e7-d1f8-4dee-93b9-8c34e2eb8c1f",
+      "work_directory": ".local/uninstall-isolation/primary-validation-607c6871-ef30-4a16-86bc-f88d0efc39a9",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,
@@ -43,12 +46,15 @@
         "station_dacl_byte_exact_after_restore": true,
         "private_desktop": true,
         "child_job_limit_one": true,
+        "application_job_active_limit": 1,
         "uninstaller_executed": false,
+        "bootstrap_process_tree_verified": false,
+        "bootstrap_owned_client_verified": false,
         "guarded_entry_client_verified": false
       }
     },
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-2db0ff21-d78d-46b2-bbd8-7cbe5842afef",
+      "work_directory": ".local/uninstall-isolation/primary-validation-5d60f92a-f02e-4c87-a3a1-c31ac2580715",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,
@@ -70,12 +76,15 @@
         "station_dacl_byte_exact_after_restore": true,
         "private_desktop": true,
         "child_job_limit_one": true,
+        "application_job_active_limit": 1,
         "uninstaller_executed": false,
+        "bootstrap_process_tree_verified": false,
+        "bootstrap_owned_client_verified": false,
         "guarded_entry_client_verified": false
       }
     },
     {
-      "work_directory": ".local/uninstall-isolation/primary-validation-d9ad3359-1c4f-4b1a-ab6a-0afe2c4545bc",
+      "work_directory": ".local/uninstall-isolation/primary-validation-78ec9c99-d1ca-4cb8-a7a5-666047cbca6c",
       "proof": {
         "status": "passed_for_restricted_primary_child_private_desktop_and_impersonation",
         "inside_file_write": true,
@@ -97,7 +106,10 @@
         "station_dacl_byte_exact_after_restore": true,
         "private_desktop": true,
         "child_job_limit_one": true,
+        "application_job_active_limit": 1,
         "uninstaller_executed": false,
+        "bootstrap_process_tree_verified": false,
+        "bootstrap_owned_client_verified": false,
         "guarded_entry_client_verified": false
       }
     }

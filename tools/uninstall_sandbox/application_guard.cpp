@@ -16,6 +16,8 @@ HANDLE logFile=INVALID_HANDLE_VALUE;
 CRITICAL_SECTION lock;
 std::unordered_set<HKEY> keys;
 std::unordered_set<HMODULE> patched;
+bool bootstrapAllowed=false;
+decltype(&CreateProcessA) applicationCreateProcess=&CreateProcessA;
 
 std::string quoted(const char* value) {
     std::string out="\"";
@@ -112,8 +114,53 @@ BOOL WINAPI guardedWritePrivateProfileStringA(LPCSTR section,LPCSTR key,LPCSTR v
 UINT WINAPI guardedGetTempFileNameA(LPCSTR path,LPCSTR prefix,UINT unique,LPSTR result) {
     if(!permit("GetTempFileNameA",path))return 0;return GetTempFileNameA(path,prefix,unique,result);
 }
-BOOL WINAPI guardedCreateProcessA(LPCSTR application,LPSTR,LPSECURITY_ATTRIBUTES,LPSECURITY_ATTRIBUTES,BOOL,DWORD,LPVOID,LPCSTR,LPSTARTUPINFOA,LPPROCESS_INFORMATION) {
-    event("CreateProcessA.blocked-in-single-process-case",application,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return FALSE;
+BOOL WINAPI guardedCreateProcessA(LPCSTR application,LPSTR command,LPSECURITY_ATTRIBUTES processAttributes,LPSECURITY_ATTRIBUTES threadAttributes,BOOL inherit,DWORD flags,LPVOID environment,LPCSTR directory,LPSTARTUPINFOA startup,LPPROCESS_INFORMATION output) {
+    if(!bootstrapAllowed){event("CreateProcessA.blocked-in-single-process-case",application,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return FALSE;}
+    std::string executable;
+    if(command&&command[0]=='"'){const char* end=std::strchr(command+1,'"');if(end)executable.assign(command+1,size_t(end-command-1));}
+    const auto folder=root+"\\temp\\~nsu.tmp\\";
+    const auto suffix=std::string(" _?=")+root+"\\payload\\";
+    const std::string arguments=command?command:"";
+    const bool shape=executable.size()==folder.size()+7&&!_strnicmp(executable.c_str(),folder.c_str(),folder.size())&&inside(executable.c_str())&&
+        executable[folder.size()]>='A'&&executable[folder.size()]<='Z'&&executable.substr(folder.size()+1)=="u_.exe"&&
+        arguments.size()>=suffix.size()&&arguments.compare(arguments.size()-suffix.size(),suffix.size(),suffix)==0;
+    if(!shape||(application&&_stricmp(application,executable.c_str()))||inherit||flags||environment||directory||processAttributes||threadAttributes||!startup||startup->cb!=sizeof(STARTUPINFOA)||!output||arguments.size()>=sizeof(FarmarBootstrapLaunch::command)) {
+        event("CreateProcessA.bootstrap-invalid",command,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return FALSE;
+    }
+    const auto request=root+"\\bootstrap-launch.bin",partial=request+".partial";
+    if(GetFileAttributesA(request.c_str())!=INVALID_FILE_ATTRIBUTES){event("CreateProcessA.bootstrap-second-launch",command,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return FALSE;}
+    char station[256]{},desktop[256]{};DWORD length=0;
+    if(!GetUserObjectInformationA(GetProcessWindowStation(),UOI_NAME,station,sizeof(station),&length)||!GetUserObjectInformationA(GetThreadDesktop(GetCurrentThreadId()),UOI_NAME,desktop,sizeof(desktop),&length)||std::strncmp(desktop,"Contained-",10))return FALSE;
+    const auto selected=std::string(station)+"\\"+desktop;STARTUPINFOA childStartup=*startup;childStartup.lpDesktop=const_cast<char*>(selected.c_str());
+    char parentLayer[256]{};GetEnvironmentVariableA("__COMPAT_LAYER",parentLayer,sizeof(parentLayer));event("CreateProcessA.parent-compat-layer",parentLayer,true);
+    // Supply this known NSIS child the same explicit no-elevation test policy.
+    std::vector<std::wstring> variables;auto* inheritedEnvironment=GetEnvironmentStringsW();if(!inheritedEnvironment)return FALSE;
+    for(auto* item=inheritedEnvironment;*item;item+=wcslen(item)+1)if(_wcsnicmp(item,L"__COMPAT_LAYER=",15))variables.emplace_back(item);FreeEnvironmentStringsW(inheritedEnvironment);variables.emplace_back(L"__COMPAT_LAYER=RunAsInvoker");
+    std::sort(variables.begin(),variables.end(),[](const auto& a,const auto& b){return _wcsicmp(a.c_str(),b.c_str())<0;});std::vector<wchar_t> childEnvironment;for(const auto& item:variables){childEnvironment.insert(childEnvironment.end(),item.begin(),item.end());childEnvironment.push_back(0);}childEnvironment.push_back(0);
+    // Preserve the genuine CreateProcess API and token inheritance, but hold the
+    // new primary before any application code until the external guard is ready.
+    const auto created=applicationCreateProcess(application,command,processAttributes,threadAttributes,FALSE,flags|CREATE_SUSPENDED|CREATE_UNICODE_ENVIRONMENT,childEnvironment.data(),directory,&childStartup,output);const auto createError=created?ERROR_SUCCESS:GetLastError();
+    event("CreateProcessA.bootstrap-api-result",executable.c_str(),created!=FALSE,createError);if(!created&&createError!=ERROR_ELEVATION_REQUIRED){SetLastError(createError);return FALSE;}
+    if(!created)*output={};
+    FarmarBootstrapLaunch launch{};launch.magic=farmarBootstrapMagic;launch.parentPid=GetCurrentProcessId();launch.childPid=output->dwProcessId;launch.childThread=output->dwThreadId;launch.originalFlags=flags;launch.creationBrokered=created?0:1;
+    lstrcpynA(launch.executable,executable.c_str(),MAX_PATH);lstrcpynA(launch.command,arguments.c_str(),sizeof(launch.command));
+    if(!GetCurrentDirectoryA(MAX_PATH,launch.directory))ExitProcess(0xe4);
+    HANDLE file=CreateFileA(partial.c_str(),GENERIC_WRITE,0,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL,nullptr);DWORD written=0;bool ok=file!=INVALID_HANDLE_VALUE;
+    if(ok){ok=WriteFile(file,&launch,sizeof(launch),&written,nullptr)&&written==sizeof(launch);CloseHandle(file);}
+    if(ok)ok=MoveFileA(partial.c_str(),request.c_str())!=FALSE;
+    if(!ok){const auto error=GetLastError();if(output->hProcess){TerminateProcess(output->hProcess,0xe4);CloseHandle(output->hThread);CloseHandle(output->hProcess);}*output={};SetLastError(error);return FALSE;}
+    if(!created) {
+        // The external test owner can create the same Untrusted child without
+        // elevating either process. It returns genuine duplicated handles; no
+        // application body or process result is simulated.
+        const auto replyPath=root+"\\bootstrap-reply.bin";FarmarBootstrapReply reply{};const auto deadline=GetTickCount64()+25000;bool ready=false;
+        while(GetTickCount64()<deadline){HANDLE file=CreateFileA(replyPath.c_str(),GENERIC_READ,FILE_SHARE_READ,nullptr,OPEN_EXISTING,0,nullptr);if(file!=INVALID_HANDLE_VALUE){DWORD count=0;ready=ReadFile(file,&reply,sizeof(reply),&count,nullptr)&&count==sizeof(reply);CloseHandle(file);if(ready)break;}Sleep(10);}
+        if(!ready||reply.magic!=farmarBootstrapReplyMagic||reply.parentPid!=GetCurrentProcessId()||!reply.processHandle||!reply.threadHandle||!reply.childPid||!reply.childThread){SetLastError(ERROR_ACCESS_DENIED);return FALSE;}
+        output->hProcess=reinterpret_cast<HANDLE>(reply.processHandle);output->hThread=reinterpret_cast<HANDLE>(reply.threadHandle);output->dwProcessId=reply.childPid;output->dwThreadId=reply.childThread;
+        if(GetProcessId(output->hProcess)!=reply.childPid||GetProcessIdOfThread(output->hThread)!=reply.childPid)ExitProcess(0xe4);
+        event("CreateProcessA.bootstrap-created-by-owner-with-same-restricted-token",executable.c_str(),true);
+    }
+    event("CreateProcessA.bootstrap-suspended-for-owned-entry-setup",executable.c_str(),true);return TRUE;
 }
 BOOL WINAPI guardedExitWindowsEx(UINT,DWORD) {event("ExitWindowsEx",nullptr,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return FALSE;}
 HINSTANCE WINAPI guardedShellExecuteA(HWND,LPCSTR,LPCSTR file,LPCSTR,LPCSTR,INT) {event("ShellExecuteA",file,false,ERROR_ACCESS_DENIED);SetLastError(ERROR_ACCESS_DENIED);return reinterpret_cast<HINSTANCE>(INT_PTR(SE_ERR_ACCESSDENIED));}
@@ -174,7 +221,15 @@ bool patch(HMODULE module) {
         for(;names->u1.AddressOfData;++names,++functions) {
             if(names->u1.Ordinal&IMAGE_ORDINAL_FLAG32)continue;
             const auto* name=reinterpret_cast<IMAGE_IMPORT_BY_NAME*>(base+names->u1.AddressOfData)->Name;const auto hook=replacement(reinterpret_cast<const char*>(name));
-            if(hook){DWORD old=0,ignored=0;if(!VirtualProtect(&functions->u1.Function,sizeof(DWORD),PAGE_READWRITE,&old))return false;functions->u1.Function=DWORD(reinterpret_cast<uintptr_t>(hook));if(!VirtualProtect(&functions->u1.Function,sizeof(DWORD),old,&ignored))return false;}
+            if(hook){
+                if(bootstrapAllowed&&module==GetModuleHandleW(nullptr)&&!std::strcmp(reinterpret_cast<const char*>(name),"CreateProcessA")) {
+                    applicationCreateProcess=reinterpret_cast<decltype(applicationCreateProcess)>(functions->u1.Function);
+                    HMODULE apiModule=nullptr;char apiPath[32768]{};
+                    if(GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS|GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,reinterpret_cast<LPCSTR>(applicationCreateProcess),&apiModule))GetModuleFileNameA(apiModule,apiPath,sizeof(apiPath));
+                    event("CreateProcessA.original-binding",apiPath,true);
+                }
+                DWORD old=0,ignored=0;if(!VirtualProtect(&functions->u1.Function,sizeof(DWORD),PAGE_READWRITE,&old))return false;functions->u1.Function=DWORD(reinterpret_cast<uintptr_t>(hook));if(!VirtualProtect(&functions->u1.Function,sizeof(DWORD),old,&ignored))return false;
+            }
         }
     }
     EnterCriticalSection(&lock);patched.insert(module);LeaveCriticalSection(&lock);return true;
@@ -218,11 +273,12 @@ FARPROC replacement(const char* name) {
 
 extern "C" __declspec(dllexport) DWORD WINAPI FarmarSandboxSetup(void* parameter) {
     const auto* config=static_cast<const FarmarGuardConfig*>(parameter);
-    if(!config||config->version!=1||!config->privateCu||!config->privateLm||!std::memchr(config->root,0,MAX_PATH))return 1;
+    if(!config||config->version!=farmarGuardVersion||!config->privateCu||!config->privateLm||!std::memchr(config->root,0,MAX_PATH)||config->generation>1||config->allowBootstrap>1)return 1;
     root=config->root;while(!root.empty()&&root.back()=='\\')root.pop_back();if(root.size()<4)return 2;
     char shortPath[MAX_PATH]{};if(GetShortPathNameA(root.c_str(),shortPath,MAX_PATH))shortRoot=shortPath;
     InitializeCriticalSection(&lock);
-    logFile=CreateFileA((root+"\\guard-events.jsonl").c_str(),GENERIC_WRITE,FILE_SHARE_READ,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL,nullptr);if(logFile==INVALID_HANDLE_VALUE)return 3;
+    bootstrapAllowed=config->allowBootstrap!=0;
+    logFile=CreateFileA((root+(config->generation?"\\guard-child-events.jsonl":"\\guard-events.jsonl")).c_str(),GENERIC_WRITE,FILE_SHARE_READ,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL,nullptr);if(logFile==INVALID_HANDLE_VALUE)return 3;
     const auto cu=reinterpret_cast<HKEY>(config->privateCu),lm=reinterpret_cast<HKEY>(config->privateLm);remember(cu);remember(lm);
     if(RegOverridePredefKey(HKEY_CURRENT_USER,cu)!=ERROR_SUCCESS||RegOverridePredefKey(HKEY_LOCAL_MACHINE,lm)!=ERROR_SUCCESS)return 4;
     const auto temp=root+"\\temp";if(!CreateDirectoryA(temp.c_str(),nullptr)&&GetLastError()!=ERROR_ALREADY_EXISTS)return 5;

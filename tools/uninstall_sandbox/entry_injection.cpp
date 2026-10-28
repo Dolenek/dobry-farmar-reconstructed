@@ -41,7 +41,7 @@ DWORD setupRva(const fs::path& path) {
     throw std::runtime_error("Missing own FarmarSandboxSetup export");
 }
 }
-DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HANDLE privateCu,HANDLE privateLm,const std::function<void()>& onStarted) {
+DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HANDLE privateCu,HANDLE privateLm,const std::function<void()>& onStarted,const GuardedEntryOptions& options) {
     bool debug=true;uintptr_t entry=0;BYTE original=0;bool stopped=false;
     try {
         need(ResumeThread(process.hThread)!=DWORD(-1),"Resume own child loader");const auto deadline=GetTickCount64()+20000;
@@ -65,12 +65,12 @@ DWORD runGuardedEntry(const PROCESS_INFORMATION& process,const fs::path& root,HA
         auto* remote=VirtualAllocEx(process.hProcess,nullptr,8192,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE);need(remote!=nullptr,"Allocate own setup data");SIZE_T written=0;
         need(wide.size()*2+2<4096&&WriteProcessMemory(process.hProcess,remote,wide.c_str(),wide.size()*2+2,&written)&&written==wide.size()*2+2,"Write own setup DLL path");
         const auto module=runThread(process,remoteOsFunction(process.dwProcessId,"LoadLibraryW"),remote);need(module!=0,"Load own setup DLL in child");
-        FarmarGuardConfig config{};config.version=1;config.privateCu=DWORD(reinterpret_cast<uintptr_t>(privateCu));config.privateLm=DWORD(reinterpret_cast<uintptr_t>(privateLm));BOOL replaced=FALSE;
+        FarmarGuardConfig config{};config.version=farmarGuardVersion;config.allowBootstrap=options.bootstrapParent?1:0;config.generation=options.generation;config.privateCu=DWORD(reinterpret_cast<uintptr_t>(privateCu));config.privateLm=DWORD(reinterpret_cast<uintptr_t>(privateLm));BOOL replaced=FALSE;
         const bool utf8=GetACP()==CP_UTF8;const auto count=WideCharToMultiByte(CP_ACP,utf8?WC_ERR_INVALID_CHARS:WC_NO_BEST_FIT_CHARS,root.c_str(),-1,config.root,MAX_PATH,nullptr,utf8?nullptr:&replaced);need(count>0&&count<MAX_PATH&&!replaced,"Exact ANSI sandbox path");
         auto* remoteConfig=static_cast<BYTE*>(remote)+4096;need(WriteProcessMemory(process.hProcess,remoteConfig,&config,sizeof(config),&written)&&written==sizeof(config),"Write private setup config");
         const auto result=runThread(process,uintptr_t(module)+setupRva(dll),remoteConfig);need(result==farmarGuardReady,(std::string("Own setup failed: ")+std::to_string(result)).c_str());
         need(VirtualFreeEx(process.hProcess,remote,0,MEM_RELEASE),"Free own setup data");
-        std::ofstream(root/L"entry-boundary.json")<<"{\"entry_held_until_guard_setup\":true,\"primary_token_unchanged\":true,\"guard_ready\":"<<result<<",\"entry\":"<<entry<<"}\n";
+        std::ofstream(root/(options.generation?L"entry-boundary-child.json":L"entry-boundary.json"))<<"{\"entry_held_until_guard_setup\":true,\"primary_token_unchanged\":true,\"guard_ready\":"<<result<<",\"entry\":"<<entry<<",\"generation\":"<<options.generation<<"}\n";
         need(ResumeThread(process.hThread)==1,"Release exactly one primary suspend after setup");
         if(onStarted)onStarted();
         need(WaitForSingleObject(process.hProcess,20000)==WAIT_OBJECT_0,"Own guarded application timeout");DWORD code=0;need(GetExitCodeProcess(process.hProcess,&code),"Own guarded application exit");return code;

@@ -19,7 +19,7 @@ void string(HKEY hive,const wchar_t* path,const wchar_t* name,const std::wstring
 struct Scenario {
     bool missing=false,named=false,menuNonempty=false,player=false,playerNonempty=false,missingPlayerMenu=false,subkey=false,emptyMenuValue=false,valuesOnly=false,storedLanguage=false,invalidLanguage=false;
     explicit Scenario(const std::wstring& name) {
-        if(name==L"empty-fallback"){}
+        if(name==L"empty-fallback"||name==L"bootstrap-copy-busy-a"){}
         else if(name==L"missing-registration")missing=true;
         else if(name==L"named-empty")named=true;
         else if(name==L"named-nonempty")named=menuNonempty=true;
@@ -79,6 +79,7 @@ void seedUninstallFixture(const fs::path& root,HKEY cu,HKEY lm,const std::wstrin
     key(cu,L"Software\\UnrelatedFixture",true);key(lm,L"Software\\UnrelatedFixture",true);
     files(root,"before");registrySnapshot(root,cu,lm,"before");
 }
+void recordUninstallFixtureBefore(const fs::path& root,HKEY cu,HKEY lm) {files(root,"before");registrySnapshot(root,cu,lm,"before");}
 void verifyUninstallFixture(const fs::path& root,HKEY cu,HKEY lm,const std::wstring& name) {
     const Scenario scenario(name);
     need(!fs::exists(root/L"payload"),"Uninstall did not remove owned payload recursively");

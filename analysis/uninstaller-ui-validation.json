@@ -1,28 +1,31 @@
 {
   "status": "passed_for_private_native_uninstall_dialog_flows_controls_and_effects",
-  "recorded_at_utc": "2026-10-28T21:32:26.747950+00:00",
+  "recorded_at_utc": "2026-10-28T22:15:51.592980+00:00",
   "source_files": {
     "analysis/nsis-build-config.json": "86992aca125847550fae2d33631c37b285454a359fed77ca40c48cf2fbd09cc8",
     "tools/prepare_nsis_toolchain.py": "d326842454b0b5b201f2be11b98d2aebd3b3c398d7dc07ccb6bbdb1c27586598",
-    "tools/uninstall_sandbox/application_guard.cpp": "e817f89bd71d19539dcaf3e31d9cc0999cffa7f3df674cda3df5548dcf92745e",
+    "tools/uninstall_sandbox/application_guard.cpp": "904d92c9e6993de5c4bfd575c42f22be30137e325bf8e278879073ac6f77b4d5",
     "tools/uninstall_sandbox/application_guard.def": "0036450229030d53789789bc588bb80ca1c45da4fa5017ad4fefb1520b2dbd5c",
-    "tools/uninstall_sandbox/CMakeLists.txt": "dae6631f3b5ac98f5760fa2714d0685428a40817e5e27c9b7f90f314b5db0428",
-    "tools/uninstall_sandbox/containment_probe.cpp": "fdd98833c1d53f1cde6fce892a127ce76961ab3814135a8820e8ad6cf00b11bf",
-    "tools/uninstall_sandbox/entry_injection.cpp": "eddf7bc4166f2af0104c2e590fad25cbad7e426c0889cf660d7757a62b13d359",
-    "tools/uninstall_sandbox/entry_injection.h": "cb36e83094d3c44d6a71b7b9b1adbdaf6f6e75b658a4ab9536b25514aabe134d",
+    "tools/uninstall_sandbox/bootstrap_broker.cpp": "310a24ceebcf164b810500aae89f34eb86ff1c6c1626677c1af16fc9a2a2c10d",
+    "tools/uninstall_sandbox/bootstrap_broker.h": "87e23a1252b36d4c1695ad459193e55cba6a7915b29445a202c6e0beabe6c3ba",
+    "tools/uninstall_sandbox/bootstrap_client.cpp": "b930579242ac9bf5c180eeae250b36887e71460f1c8c8425b63f59fddf25cb91",
+    "tools/uninstall_sandbox/CMakeLists.txt": "26075358264ee7338e7663c629790647a53c70b667b0819dfd670bff7964e338",
+    "tools/uninstall_sandbox/containment_probe.cpp": "770ceaa000b2bbe410cd17fdeaa1733ae04cf3cbc0534129c36f79beae33c59e",
+    "tools/uninstall_sandbox/entry_injection.cpp": "887d39506fd0054b6585c41332cd7b2e5a7f1a1d6f72e67751294d38c0df25fb",
+    "tools/uninstall_sandbox/entry_injection.h": "90143dc26653987f06e8f24c33d248e40f603dd5272368c95d91f52ee50bfcae",
     "tools/uninstall_sandbox/guard_client.cpp": "2e57e4e019903e93126031482e7635b92208a9a9bf3faae030508c4467139900",
-    "tools/uninstall_sandbox/guard_protocol.h": "9faec936deff4983dec68d108dcd62d3d311d33bade5bd1205ae31ac5a2d4879",
+    "tools/uninstall_sandbox/guard_protocol.h": "40bf96c95a87265de363a3f9280118bdee0988ac1f6601a7f9aa8b4d652da43a",
     "tools/uninstall_sandbox/ui_driver.cpp": "8c030313f3ddae5cc83f4f5e55fe3c15fc759aee380652e33b0f462e5ec95d6c",
     "tools/uninstall_sandbox/ui_driver.h": "d1c6ca15ae5b9d01c41265ff6baedb193058e9dca5cf47cc1504ea1d894c25fd",
-    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "96fc35176db4462c0978e946a8be67d0ab16ca10c60b471b47704e3a599db381",
-    "tools/uninstall_sandbox/uninstall_fixtures.h": "10bb8903cf5c24d0ed2b8f9d1cf8a3cbe9271c136b680879a05b8cc6f4aafff6",
+    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "d2f9456e66cc60beca63500b5ed98ab27b313f580bcedfd7651c40e06918caee",
+    "tools/uninstall_sandbox/uninstall_fixtures.h": "32dd575bb16c12da443a98e60b389bbe0f3dfd50eefff8a0a8d4e376522ca0fe",
     "tools/validate_uninstaller_runtime.py": "5b792f360f05746facff4780775a869ac1b8fd495bf69d527b65d35973084667",
     "tools/validate_uninstaller_ui.py": "7ecc55372ddc1415fdf62bd9e73fc09a34c39b6ec41767df6581a6fd30f9b786"
   },
   "source_uninstaller_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
   "original_reference_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9",
-  "helper_sha256": "a57c9bb6706b60bab897e62d99c089fd09381af48a7d281d1f8d138e65321139",
-  "guard_sha256": "8b3f064140ecfa1ffa572830ae3b9f8509913919f771c1d2178a65d4cc2343ed",
+  "helper_sha256": "5b112b204fc60410d3547b601aaba70ef1a19fa9d79994d5a88d7ff5036c3e23",
+  "guard_sha256": "d3d7d86bb8e1c9d289553d10bbb0ba1a9d9b2c673aabcf8f0c618ffc5173f130",
   "fixture_pairs": 8,
   "uninstall_processes": 16,
   "exact_control_records": 268,
@@ -34,13 +37,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-language-cancel-662ccb65-dca1-44d1-ae9d-4ef0fb4966d8",
+          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-language-cancel-eb5dd701-5651-4163-abdc-02704c5f5db5",
           "exit_code": 2,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -141,7 +145,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-language-cancel-662ccb65-dca1-44d1-ae9d-4ef0fb4966d8/ui-language.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-language-cancel-eb5dd701-5651-4163-abdc-02704c5f5db5/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -564,36 +568,37 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "ead434c82367dd01"
+              "raw": "088bb8d82967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-language-cancel-662ccb65-dca1-44d1-ae9d-4ef0fb4966d8\\temp\\RGIC0DC.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-language-cancel-eb5dd701-5651-4163-abdc-02704c5f5db5\\temp\\RGI7F6C.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-language-cancel-662ccb65-dca1-44d1-ae9d-4ef0fb4966d8\\temp\\RGIC0AC.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-language-cancel-eb5dd701-5651-4163-abdc-02704c5f5db5\\temp\\RGI7F3C.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "6770893f547fb0368f9f34b70b2a126de1a90075a58f48936cd796b7125d45a5",
+          "raw_private_registry_sha256": "01f076c6f6cf33f2ea638fee52b89278f250fc9b7b9aa075a098f2deb81a65b9",
           "application_removal_trace": [],
-          "raw_trace_sha256": "fca56bbbe08f5bf6dc3e2ae26a1f420a97a01c7a5cfc6ed438ae9f02aa64264d",
+          "raw_trace_sha256": "84fdf9b4923a3a1ee84e9ed055995c58bd27d75159717297dc5fcd14ef362ab2",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-language-cancel-e0664a22-0816-4909-ae8d-510fdeecefcb",
+          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-language-cancel-bc8ab033-4fc3-4514-8fe1-bf1cc9b48ea7",
           "exit_code": 2,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -694,7 +699,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-language-cancel-e0664a22-0816-4909-ae8d-510fdeecefcb/ui-language.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-language-cancel-bc8ab033-4fc3-4514-8fe1-bf1cc9b48ea7/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -1117,26 +1122,26 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "5c18c9c82367dd01"
+              "raw": "d00448d92967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-language-cancel-e0664a22-0816-4909-ae8d-510fdeecefcb\\temp\\RGIC495.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-language-cancel-bc8ab033-4fc3-4514-8fe1-bf1cc9b48ea7\\temp\\RGI8306.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-language-cancel-e0664a22-0816-4909-ae8d-510fdeecefcb\\temp\\RGIC465.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-language-cancel-bc8ab033-4fc3-4514-8fe1-bf1cc9b48ea7\\temp\\RGI82D6.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "2976c7db69a4fda53f41d150876cc110ef85a1a78f8cc67d569bd2f69ab202d6",
+          "raw_private_registry_sha256": "0b120525313289c76fcf13ff564641c2b785c57c09a7f3fd8642f1cd32062e96",
           "application_removal_trace": [],
-          "raw_trace_sha256": "53fd5fa9069411f7278b9dd35c5d2a83182ec768dfef18b5a6f698b47b06dafe",
+          "raw_trace_sha256": "60af1fb08d93ec7c1f16cbb35c0c1ccf770204af62cbf7f18f954c0943771451",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -1148,13 +1153,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-4210eaff-6048-46de-aa2c-9a5d11f5112c",
+          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-2b370df4-beea-4a61-b810-f412be32feee",
           "exit_code": 1,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -1526,7 +1532,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-4210eaff-6048-46de-aa2c-9a5d11f5112c/ui-language.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-2b370df4-beea-4a61-b810-f412be32feee/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -1534,7 +1540,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-4210eaff-6048-46de-aa2c-9a5d11f5112c/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-cancel-2b370df4-beea-4a61-b810-f412be32feee/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -1957,36 +1963,37 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "ab7177c92367dd01"
+              "raw": "5450ebd92967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-cancel-4210eaff-6048-46de-aa2c-9a5d11f5112c\\temp\\RGIC91A.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-cancel-2b370df4-beea-4a61-b810-f412be32feee\\temp\\RGI874B.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-cancel-4210eaff-6048-46de-aa2c-9a5d11f5112c\\temp\\RGIC8EA.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-cancel-2b370df4-beea-4a61-b810-f412be32feee\\temp\\RGI871B.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "479a6a39460522e8e95b5aecdd10adc498fa576fc005bc69ee77e0e12f4803bc",
+          "raw_private_registry_sha256": "b75cdc73b84ac344b7c13450f020f24585e3dbd77f2ba47536c15566b14232b4",
           "application_removal_trace": [],
-          "raw_trace_sha256": "568a75b7075515b18a502c59e3588b3363b67cc423d5674b8971b58177e73ebd",
+          "raw_trace_sha256": "f8af9dcba6e8bff337525a6c7c7d4587c45d162d003feaa5073453346bd17727",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-c045de44-f530-44ba-9101-497795cf4fae",
+          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-7b38a9bf-5ac3-4f95-b3e7-e31bb7d383af",
           "exit_code": 1,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -2358,7 +2365,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-c045de44-f530-44ba-9101-497795cf4fae/ui-language.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-7b38a9bf-5ac3-4f95-b3e7-e31bb7d383af/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -2366,7 +2373,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-c045de44-f530-44ba-9101-497795cf4fae/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-cancel-7b38a9bf-5ac3-4f95-b3e7-e31bb7d383af/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -2789,26 +2796,26 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "ec5c20ca2367dd01"
+              "raw": "338f9dda2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-cancel-c045de44-f530-44ba-9101-497795cf4fae\\temp\\RGICD5F.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-cancel-7b38a9bf-5ac3-4f95-b3e7-e31bb7d383af\\temp\\RGI8BD0.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-cancel-c045de44-f530-44ba-9101-497795cf4fae\\temp\\RGICD3F.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-cancel-7b38a9bf-5ac3-4f95-b3e7-e31bb7d383af\\temp\\RGI8BA0.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "c81e60727d6a8ce7e39f48a01c2eb9be2f342ddf2825ecb377f92c41bbd43d41",
+          "raw_private_registry_sha256": "ca6bcbba5ac09a2ffa1b6ab60af1a5a7ec31d9ee12ca4924cb1a79a3e10f1311",
           "application_removal_trace": [],
-          "raw_trace_sha256": "b0cf434f38c05b096eff1fc0fea2aa556b2c1ab0168dc9cb7e3222fd419158fb",
+          "raw_trace_sha256": "978a2b92f10323e5a2de5672059d4494dfb40e48dec6e65b1347c9ce22266532",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -2820,13 +2827,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6",
+          "work_directory": ".local/uninstall-isolation/source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -3497,7 +3505,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6/ui-language.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -3505,7 +3513,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -3513,7 +3521,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -3845,24 +3853,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "6d1fe7ca2367dd01"
+              "raw": "4ee56ddb2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6\\temp\\RGID270.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005\\temp\\RGI911F.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-complete-80d4b0f6-8f81-4e38-b69b-f501ab5730d6\\temp\\RGID240.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-empty-fallback-complete-a59fe843-7789-4461-8365-c6b2b4b69005\\temp\\RGI90EF.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "a3533234f35584b1a405c2fa0cf6620ba09d2e74b1386b960c216114ddb411bc",
+          "raw_private_registry_sha256": "6491e6de4153056d1a240ea7fbdfc2f4cb3f5907ae6d7faccca315c47ef0e821",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -4159,17 +4167,18 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "84b37acac27f38f76e745619364d8bb7c48df54ffd720bfaabeb78b86d1b8d64",
+          "raw_trace_sha256": "e897d6b1a0b4eab4159d57a5ed5d24de1c22dfdc8a14d040509d89c9b5a974d8",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df",
+          "work_directory": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -4840,7 +4849,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df/ui-language.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -4848,7 +4857,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -4856,7 +4865,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -5188,24 +5197,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "0166b2cb2367dd01"
+              "raw": "00443ddc2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df\\temp\\RGID7B0.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da\\temp\\RGI966E.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-complete-115f8413-a23a-417d-9c5f-4502599a42df\\temp\\RGID790.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-empty-fallback-complete-22865726-283f-4fc2-b7cd-ec55ad51e1da\\temp\\RGI963E.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "dfc0dfa7a29a1122e14980fec4bc4372fb3d52d7bfef7baebcb7f96a3a03cb3b",
+          "raw_private_registry_sha256": "0dcecfc2d08f4e6af5d7b7087382f0d9e999737456207774c7e6ebe910b15166",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -5502,7 +5511,7 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "7de69bb3bdff6c9633c2e6787c9818b17b37923a46fced0b3e0d926d86ba714b",
+          "raw_trace_sha256": "0bb044e77f467f2947c9410415dbb335589751684b7b24be9dc706634cf96fe3",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -5514,13 +5523,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-stored-language-cancel-90c6587e-4fe9-4059-a302-535cb3f88d8e",
+          "work_directory": ".local/uninstall-isolation/source-ui-stored-language-cancel-83e091c1-2e22-4fa9-976d-658ca8b50c99",
           "exit_code": 1,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -5803,7 +5813,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-stored-language-cancel-90c6587e-4fe9-4059-a302-535cb3f88d8e/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-stored-language-cancel-83e091c1-2e22-4fa9-976d-658ca8b50c99/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -6238,36 +6248,37 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "dcc290cc2367dd01"
+              "raw": "b06027dd2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-cancel-90c6587e-4fe9-4059-a302-535cb3f88d8e\\temp\\RGIDD5D.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-cancel-83e091c1-2e22-4fa9-976d-658ca8b50c99\\temp\\RGI9C6A.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-cancel-90c6587e-4fe9-4059-a302-535cb3f88d8e\\temp\\RGIDD3D.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-cancel-83e091c1-2e22-4fa9-976d-658ca8b50c99\\temp\\RGI9C3A.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "fe9da9aa58b8fa9f466e397f8368fde3fddedd9ab698805e03f3bc947e49e37a",
+          "raw_private_registry_sha256": "aaa367d6cca0bdf0bd4720902ec99018beb1c099c0c0ca4a778af15aa4a3d10c",
           "application_removal_trace": [],
-          "raw_trace_sha256": "4a89790de3109fc7eaea13281ff8484169d660b8d16f647cfb4d085c0107b6ae",
+          "raw_trace_sha256": "a6aa9c196472d3ea6a0146adbddb70d911762fbc8acced52dd8542d117333e30",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-stored-language-cancel-c346b1a4-ea8e-49d7-9f6a-bdd642ff6d11",
+          "work_directory": ".local/uninstall-isolation/reference-ui-stored-language-cancel-7e2281e6-6c59-4deb-8604-cfdf65a68233",
           "exit_code": 1,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -6550,7 +6561,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-stored-language-cancel-c346b1a4-ea8e-49d7-9f6a-bdd642ff6d11/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-stored-language-cancel-7e2281e6-6c59-4deb-8604-cfdf65a68233/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -6985,26 +6996,26 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "19671acd2367dd01"
+              "raw": "321cc0dd2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-cancel-c346b1a4-ea8e-49d7-9f6a-bdd642ff6d11\\temp\\RGIE0E7.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-cancel-7e2281e6-6c59-4deb-8604-cfdf65a68233\\temp\\RGIA052.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-cancel-c346b1a4-ea8e-49d7-9f6a-bdd642ff6d11\\temp\\RGIE0C7.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-cancel-7e2281e6-6c59-4deb-8604-cfdf65a68233\\temp\\RGIA022.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "dafbe6d02ad623c12603b4b0a1ba756bc77f7fc5c4a915742f4da54f75b1072f",
+          "raw_private_registry_sha256": "b77e717fb594a4d9d14d637153a87c04ea0e6c8055e1571c01d78e7c9f9904ca",
           "application_removal_trace": [],
-          "raw_trace_sha256": "50f99d5da99da6135a8bb5e22b09fd3adc4bca634debbc1761eb6916ec493d7e",
+          "raw_trace_sha256": "9a41f95f5a4379f0f6c49e552826718a2d07f9fdc5c3b139bd9bc16d47ad0ea2",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -7016,13 +7027,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-stored-language-complete-9bab4e81-f755-4d4c-b014-6439dc6a7315",
+          "work_directory": ".local/uninstall-isolation/source-ui-stored-language-complete-a367c382-5fb2-4a54-8f81-e251c5540b5a",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -7604,7 +7616,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-stored-language-complete-9bab4e81-f755-4d4c-b014-6439dc6a7315/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-stored-language-complete-a367c382-5fb2-4a54-8f81-e251c5540b5a/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -7612,7 +7624,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/source-ui-stored-language-complete-9bab4e81-f755-4d4c-b014-6439dc6a7315/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/source-ui-stored-language-complete-a367c382-5fb2-4a54-8f81-e251c5540b5a/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -7950,24 +7962,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "a178cfcd2367dd01"
+              "raw": "d51173de2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-complete-9bab4e81-f755-4d4c-b014-6439dc6a7315\\temp\\RGIE58B.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-complete-a367c382-5fb2-4a54-8f81-e251c5540b5a\\temp\\RGIA4E5.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-complete-9bab4e81-f755-4d4c-b014-6439dc6a7315\\temp\\RGIE55B.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-stored-language-complete-a367c382-5fb2-4a54-8f81-e251c5540b5a\\temp\\RGIA4C5.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "6bb5f0e9a5802fd60867e64a95b9d782b127ecf6185a729c966d825fe2b9fda1",
+          "raw_private_registry_sha256": "289ebd74f5e00e04865a4000f4c8cf69e9891aaf1a703f0c502db8ea0c66dc8e",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -8264,17 +8276,18 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "7412be69d6f51cafb95df613d87669bc4a1f0ef82c3b79885e007606fa63505e",
+          "raw_trace_sha256": "0ca1bd1180021d55b65072975d4f7fa849a9f6826f6be267e8b23d10d7832704",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-stored-language-complete-204525d2-d5e2-46bc-a54e-77396322510b",
+          "work_directory": ".local/uninstall-isolation/reference-ui-stored-language-complete-e816450d-69d2-48c3-a95f-7b02e176cdbe",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -8856,7 +8869,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-stored-language-complete-204525d2-d5e2-46bc-a54e-77396322510b/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-stored-language-complete-e816450d-69d2-48c3-a95f-7b02e176cdbe/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -8864,7 +8877,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/reference-ui-stored-language-complete-204525d2-d5e2-46bc-a54e-77396322510b/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-stored-language-complete-e816450d-69d2-48c3-a95f-7b02e176cdbe/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -9202,24 +9215,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "cede86ce2367dd01"
+              "raw": "84ca21df2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-complete-204525d2-d5e2-46bc-a54e-77396322510b\\temp\\RGIEA2E.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-complete-e816450d-69d2-48c3-a95f-7b02e176cdbe\\temp\\RGIA96A.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-complete-204525d2-d5e2-46bc-a54e-77396322510b\\temp\\RGIE9FE.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-stored-language-complete-e816450d-69d2-48c3-a95f-7b02e176cdbe\\temp\\RGIA949.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "61f779a72ffd7667dd0221550bee4d6c7ea89fffa0276c41ce8d1e64739e7545",
+          "raw_private_registry_sha256": "3961a7acea4a88cbfb39db9fb452398fe6a4631a21e8cbcb60a5e6bcdd149a8f",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -9516,7 +9529,7 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "481f61a4fe0f3bd3e9b5cde6a44e63b63296f78bfe1cbe632a019ccdc284e8e9",
+          "raw_trace_sha256": "402599082976b3abacc9a9baca905509e71308e53695d26b6ae762c3812e851e",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -9528,13 +9541,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-67ea6c2b-a0c7-41e9-89ca-f9902eec94a7",
+          "work_directory": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-8e8c9ef4-62c0-4d67-93ba-c193eea7561f",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -10116,7 +10130,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-67ea6c2b-a0c7-41e9-89ca-f9902eec94a7/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-8e8c9ef4-62c0-4d67-93ba-c193eea7561f/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -10124,7 +10138,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-67ea6c2b-a0c7-41e9-89ca-f9902eec94a7/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/source-ui-invalid-stored-language-complete-8e8c9ef4-62c0-4d67-93ba-c193eea7561f/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -10462,24 +10476,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "c36864cf2367dd01"
+              "raw": "d776f0df2967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-invalid-stored-language-complete-67ea6c2b-a0c7-41e9-89ca-f9902eec94a7\\temp\\RGIEFEB.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-invalid-stored-language-complete-8e8c9ef4-62c0-4d67-93ba-c193eea7561f\\temp\\RGIAE9A.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-invalid-stored-language-complete-67ea6c2b-a0c7-41e9-89ca-f9902eec94a7\\temp\\RGIEFBB.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-invalid-stored-language-complete-8e8c9ef4-62c0-4d67-93ba-c193eea7561f\\temp\\RGIAE7A.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "8a42fc60dfaee9e63999dc05cad7b04deebfeec7ddad41d3d2b8eee4fe79d676",
+          "raw_private_registry_sha256": "e8f6589ca519c043e5f70d04acbe4d0b27f32539c6e225384710e25ad8f62724",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -10776,17 +10790,18 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "6447ab2fcaf2bfe3b96124ed4b5214853342dee6e766df825bfbbcc1cbe5320e",
+          "raw_trace_sha256": "2bd0bccf52e8e9447d929c81b31072b6d4989d0f0f8837eecdb6457b7f2a3ee5",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-2d3a22f0-f973-4e2f-99e4-203e763d0c5c",
+          "work_directory": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-53157c9e-1108-42c1-99f1-0bbecda9edf3",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": false,
@@ -11368,7 +11383,7 @@
           },
           "captures": {
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-2d3a22f0-f973-4e2f-99e4-203e763d0c5c/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-53157c9e-1108-42c1-99f1-0bbecda9edf3/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -11376,7 +11391,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-2d3a22f0-f973-4e2f-99e4-203e763d0c5c/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-invalid-stored-language-complete-53157c9e-1108-42c1-99f1-0bbecda9edf3/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -11714,24 +11729,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "fc4519d02367dd01"
+              "raw": "2329a4e02967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-invalid-stored-language-complete-2d3a22f0-f973-4e2f-99e4-203e763d0c5c\\temp\\RGIF47F.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-invalid-stored-language-complete-53157c9e-1108-42c1-99f1-0bbecda9edf3\\temp\\RGIB33D.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-invalid-stored-language-complete-2d3a22f0-f973-4e2f-99e4-203e763d0c5c\\temp\\RGIF45F.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-invalid-stored-language-complete-53157c9e-1108-42c1-99f1-0bbecda9edf3\\temp\\RGIB30D.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "3c442e572452efa9864c5a2181633c9bc85d3014d0fbfba670392c9f2c2c63c0",
+          "raw_private_registry_sha256": "fb314183ae17725513b648c73aa83470537aa6439603caf913a8b37edb7f61ba",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -12028,7 +12043,7 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "7a193d81101ddcdf9cc2c3eb63846b464cf89170997f544db71d45a09f34b032",
+          "raw_trace_sha256": "1988c1a1c6e2407546b1fec9b942e6563e6829519aac536621c59077832ce65f",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -12040,13 +12055,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427",
+          "work_directory": ".local/uninstall-isolation/source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -12717,7 +12733,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427/ui-language.bmp",
+              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -12725,7 +12741,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -12733,7 +12749,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -13096,24 +13112,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "6651e7d02367dd01"
+              "raw": "e65f76e12967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427\\temp\\RGIF9CE.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0\\temp\\RGIB8AC.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-named-nonempty-complete-da8ff8c5-72c0-437f-a5c0-1a318387f427\\temp\\RGIF99E.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-named-nonempty-complete-c69c9fec-db90-4f74-b49e-8b6de80443f0\\temp\\RGIB87C.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "577f1d7e19d2525b6b20c07bd8600c285d19cede7686c2306198da9064d07b09",
+          "raw_private_registry_sha256": "0f059bb36fbe55b3920ad07672908d3508a60066af06b1f2946e689779420b4c",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -13404,17 +13420,18 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "d4ba5874a033dc21de814f1007410da67a18d0fa35ebc19c9a457a4507cb00e5",
+          "raw_trace_sha256": "74867702b06c3772ccfae42673a74f27c430d97aa9817e60c817fa362f3807b4",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612",
+          "work_directory": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -14085,7 +14102,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612/ui-language.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -14093,7 +14110,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -14101,7 +14118,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -14464,24 +14481,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "0684bad12367dd01"
+              "raw": "84594ee22967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612\\temp\\RGIFF3D.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8\\temp\\RGIBE2A.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-named-nonempty-complete-edd231de-b20c-4816-bb22-ea4208c43612\\temp\\RGIFF0D.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-named-nonempty-complete-bc8e5da5-a701-4c7d-bc71-0477623e92b8\\temp\\RGIBDFA.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "7093b7f24724b1ea86a54a583242edcc43864c893092d008d582d4207a83372b",
+          "raw_private_registry_sha256": "951e227177396461244fd7dd6f6549cbe79db62bd340543384dc0a90943f5afd",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -14772,7 +14789,7 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "6ccb77e2bd3a621f05c9e5329378e3d1f8c40bfa7c378445213de65b3f710e56",
+          "raw_trace_sha256": "40b694a34b0403cc7f6e8772010e1956a57dc72a4b8ada0fbe9cabe0f8395228",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
@@ -14784,13 +14801,14 @@
       "exact_observed_flow_and_effects": true,
       "runs": {
         "source": {
-          "work_directory": ".local/uninstall-isolation/source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b",
+          "work_directory": ".local/uninstall-isolation/source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207748
+            "entry": 4207748,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -15461,7 +15479,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b/ui-language.bmp",
+              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -15469,7 +15487,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -15477,7 +15495,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -15882,24 +15900,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "9dd09fd22367dd01"
+              "raw": "ae0639e32967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b\\temp\\RGI519.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424\\temp\\RGIC435.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-player-nonempty-complete-38264f54-0c14-41d3-8c71-cb642e63692b\\temp\\RGI4E9.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\source-ui-player-nonempty-complete-3d8224e7-ab16-48f6-a542-769d9a6e2424\\temp\\RGIC405.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "29b76e4ea0131ecd104ba7bf4dc6c53f76c08389ae95d4cf9c6735386b030814",
+          "raw_private_registry_sha256": "6c852db2177f79441294087dacc750f560be89df34e24791487bd13585a96466",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -16262,17 +16280,18 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "0f316485aa8ac6616a18ec53a9cda7201f5007a1871e372ae8f3b6a630795d3f",
+          "raw_trace_sha256": "d4c101edeb4b22661e75a53d12d251610db67ca1d9f95cb7b8b26ef49a5f37fb",
           "runner_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1"
         },
         "reference": {
-          "work_directory": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b",
+          "work_directory": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014",
           "exit_code": 0,
           "entry_boundary": {
             "entry_held_until_guard_setup": true,
             "primary_token_unchanged": true,
             "guard_ready": 1178686029,
-            "entry": 4207354
+            "entry": 4207354,
+            "generation": 0
           },
           "stages": {
             "language_seen": true,
@@ -16943,7 +16962,7 @@
           },
           "captures": {
             "language": {
-              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b/ui-language.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014/ui-language.bmp",
               "sha256": "f844f4878380c15bc0fb1fe02cdacce4c9b73086bcdc3f6cb7bfb1f0bfa0f19d",
               "width": 336,
               "height": 158,
@@ -16951,7 +16970,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "confirm": {
-              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b/ui-confirm.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014/ui-confirm.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -16959,7 +16978,7 @@
               "status": "flat_noninteractive_capture_not_pixel_evidence"
             },
             "completed": {
-              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b/ui-completed.bmp",
+              "path": ".local/uninstall-isolation/reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014/ui-completed.bmp",
               "sha256": "b5d5c3f4bb5622887cfca8f20f40d8cc27a899b140aedbcf84760af3b5c42e54",
               "width": 579,
               "height": 444,
@@ -17364,24 +17383,24 @@
               "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",
               "name": "ZonesSecurityUpgrade",
               "kind": "Windows zone initialization FILETIME",
-              "raw": "ec7a73d32367dd01"
+              "raw": "ec720be42967dd01"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE.HKCUZoneInfo",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b\\temp\\RGIA88.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014\\temp\\RGIC994.tmp\u0000"
             },
             {
               "hive": "HKLM",
               "key": "Software\\Microsoft\\Advanced INF Setup\\IE40.UserAgent",
               "name": "InstallINFFile",
               "kind": "Windows temporary INF path",
-              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-player-nonempty-complete-f680ecda-527b-4b9f-b440-5dc629d3174b\\temp\\RGIA58.tmp\u0000"
+              "raw": "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\uninstall-isolation\\reference-ui-player-nonempty-complete-1c1fc4de-1457-446d-a930-903167a5c014\\temp\\RGIC964.tmp\u0000"
             }
           ],
-          "raw_private_registry_sha256": "ac1726b809d49c48a9b13793e4044de7c1d05a9cf76eccfb4e30527f36cc6e63",
+          "raw_private_registry_sha256": "87150b85e78eee7780f514baea26b951c1742698e7cc68876f222237240072c6",
           "application_removal_trace": [
             {
               "api": "SetFileAttributesA",
@@ -17744,7 +17763,7 @@
               "error": 0
             }
           ],
-          "raw_trace_sha256": "aefda82eda7599d103f48826642ea9d3ab044226ffd8739dd9beff8593f14f18",
+          "raw_trace_sha256": "37eb2d800f56e1c234422880fe95d6a9c2db017a2ea47e6bbe2ed805059f1ab5",
           "runner_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9"
         }
       }
