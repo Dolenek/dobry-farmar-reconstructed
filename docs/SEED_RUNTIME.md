@@ -70,3 +70,12 @@ python tools/validate_farm_expansion_state.py
 ```
 
 Metadata nových průchodů jsou `analysis/tomato-harvest-state-validation.json`, `analysis/seed-transition-state-validation.json`, `analysis/sown-seed-interop-validation.json` a `analysis/tomato-history-interop-validation.json`. Před/po byly kontrolované hashe všech17 originálů i skutečné cesty DLL; produkční implementace nevolá originál. Vyčerpání sáčku, další plodiny, budovy/výroba, další rozšíření, dlouhé saves, celý engine a Squall97 pokračují.
+
+
+## Skutečné vyčerpání sáčku a další časové události
+
+`tools/validate_game_seed_exhaustion.py` pokračuje z přirozeně zaplaceného rozšíření. Skutečná postava převezme lopatu, vyryje nově aktivní14/15/16, převezme sáček se třemi semeny a jednotlivě je zaseje. Při třetím setí skutečný deferred discard odstraní sáček a PCarry přejde10→0. Následuje studna480 a tři skutečná zalití; v kbelíku zůstane120. Všech třináct dokončených pracovních kroků má readonly scalar kontrolu a snímek. Původní pole34 mezitím dále roste.
+
+Oba celé procesy `.local/seed-exhaustion/20261029T123421800622Z` mají794 stejných profilových klíčů/typů a diskrétních hodnot. Zůstává Money2/fcu1; nová pole mají FFC1/FFS0 a vodu i úrodnost nad118. Přirozená událost300s změní ceny trávy/rajčat na−1/8; události312s a314s postupně zpřístupní fua2 a3. Starý dopis vyprší a přibude čtvrtá skutečná zpráva. Nejsou vložené žádné příznaky ani časové změny.
+
+Oba úplné2650bajtové saves jsou **přesně stejné bez normalizace**: nula sáčků, jeden zbývající prodej, čtyři zprávy/read flagy a383 raw koeficientů. Metadata: `analysis/seed-exhaustion-state-validation.json`; nezávislý audit je `tools/validate_seed_exhaustion_state.py`. Obousměrné načtení tohoto konkrétního prázdného-sáčku stavu a všechny další systémy pokračují.
