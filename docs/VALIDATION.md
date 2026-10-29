@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Přirozené osivo v celých EXE](SEED_RUNTIME.md) nově prošlo odemčením, druhou sklizní/prodejem, deníkem a zaplaceným sáčkem rajčat. Čtyři skutečné obousměrné2523bajtové přenosy zachovaly obsah i prodejní hodiny; původní X+1 a padding jsou doložené zvlášť. Další setí a celý projekt pokračují.
+
 [První přirozená zakázka v celých EXE](CONTRACT_RUNTIME.md) nově prošla i skutečným zaléváním/sklizní, kapacitou nákladu3, splněním za60 a dalšími třemi úplnými2186bajtovými save přenosy dokončeného kontraktu i dalšího dopisu. Následující herní systémy pokračují.
 
 [Přirozený tutoriál v celých EXE](TUTORIAL_RUNTIME.md) nově ověřil deset kroků, skutečnou sklizeň/sklad/trh a1981 shodných save bajtů. Oprava alokací překrývajících se obrázků polí nově obnovila286000 přesně shodných RGB pixelů deseti oblastí. Celý tutoriál a projekt pokračují; neúspěšné průzkumné běhy jsou odděleně evidované.

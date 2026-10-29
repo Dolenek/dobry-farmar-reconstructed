@@ -42,3 +42,8 @@ Navazující [celé procesy zakázky](CONTRACT_RUNTIME.md) ověřily přijetí p
 ## Další potřebná práce
 
 Tato evidence dokládá konkrétní celé saves v obou směrech. Nepokrývá zatím všechny farmy, rozsáhlé historie/kontrakty/budovy, všechny počty a druhy sáčků, poškozené soubory ani libovolné dlouhé rozehrané stavy. Úplný tutorial, všechny herní systémy, native frame/reset/lifecycle, celé Squall97 a izolovaný odinstalátor dále pokračují. Projekt není dokončený.
+
+
+## Přirozeně zakoupené osivo
+
+[Skutečný nákup osiva](SEED_RUNTIME.md) přidal další čtyři celé přenosy2523bajtového save v obou směrech. Všech794 profilových klíčů/typů a diskrétních hodnot souhlasí; save má přesné prodejní hodiny, tři zprávy/read flags a383 koeficientů. Jen původní X+1 při obnově a tři neurčené padding bajty se vyhodnocují zvlášť. Rozsah nevydává celý herní svět za ověřený.
