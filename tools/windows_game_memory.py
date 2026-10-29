@@ -34,6 +34,7 @@ class TutorialMemory:
                 assert len(found) == 1, (part,found)
                 return base + int(found[0][2],16) - 0x400000
             self.singleton = symbol('3PAVTutorialManager@')
+            self.property_values = symbol('       ?values@?1??profileProperties@')
             self.vtables = {name:symbol('??_7Tutorial'+name+'Tip@') for name in ['Common','Arrow','DisabledAnchor','Action','RepeatedAction']}
 
     def close(self):
@@ -147,3 +148,26 @@ class TutorialMemory:
             controls.append(dict(address=control,geometry=self.read(control+geometry_offset,'<ffff'),deep=self.read(control+deep_offset,'<f')[0],texture=name,sprite=self.read(control+sprite_offset,'<19I'),flags=self.read(control+flags_offset,'<I')[0]))
             walk(right)
         walk(self.read(head+4,'<I')[0]);return controls
+
+    def property(self, store, name):
+        # Bounded get-only lookup of the four scalar profile maps. No original
+        # accessor is called (it would insert missing properties).
+        kinds=dict(floats=('<f',0x65ff38),ints=('<i',0x65ff20),uints=('<I',0x65ff44),booleans=('<B',0x65ff2c))
+        fmt,native_base=kinds[store]
+        if self.kind=='native':
+            head=self.read(native_base+4,'<I')[0];nil_offset=45;key_offset=12;value_offset=40;string_prefix=4
+        else:
+            head=self.read(self.property_values+self.layout['profile_'+store],'<I')[0]
+            nil_offset=self.layout['profile_node_nil'];key_offset=self.layout['profile_node_key'];value_offset=self.layout['profile_node_value'];string_prefix=0
+        node=self.read(head+4,'<I')[0];wanted=name.encode('ascii');visited=set()
+        while not self.read(node+nil_offset,'<B')[0]:
+            assert node not in visited and len(visited)<64;visited.add(node)
+            key=node+key_offset+string_prefix
+            size,capacity=self.read(key+16,'<II');assert size<=1024 and size<=capacity
+            text=self.read(key,'<I')[0] if capacity>=16 else key
+            value=bytes(self.read(text,'<'+str(size)+'B')) if size else b''
+            if value==wanted:
+                result=self.read(node+value_offset,fmt)[0]
+                return bool(result) if store=='booleans' else result
+            node=self.read(node+(0 if wanted<value else 8),'<I')[0]
+        raise KeyError((store,name))

@@ -1,6 +1,6 @@
 # Stav rekonstrukce
 
-[První přirozená zakázka v celých EXE](CONTRACT_RUNTIME.md) nově prošla přijetím, zálohou, požadavky a třemi úplnými2186bajtovými save přenosy v obou směrech. Splnění zakázky a další systémy pokračují.
+[První přirozená zakázka v celých EXE](CONTRACT_RUNTIME.md) nově prošla i skutečným zaléváním/sklizní, kapacitou nákladu3, splněním za60 a dalšími třemi úplnými2186bajtovými save přenosy dokončeného kontraktu i dalšího dopisu. Následující herní systémy pokračují.
 
 [Přirozený tutoriál v celých EXE](TUTORIAL_RUNTIME.md) nově ověřil deset kroků, skutečnou sklizeň/sklad/trh a1981 shodných save bajtů. Oprava alokací překrývajících se obrázků polí nově obnovila286000 přesně shodných RGB pixelů deseti oblastí. Celý tutoriál a projekt pokračují; neúspěšné průzkumné běhy jsou odděleně evidované.
 

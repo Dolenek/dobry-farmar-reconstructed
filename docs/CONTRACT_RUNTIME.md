@@ -9,3 +9,14 @@ V nezávisle odehraném počátečním páru se ze791 vlastností liší jen FFP
 Obě skutečné tutoriálové oblasti mají57200 přesně shodných RGB pixelů. V nabídce i požadavcích se porovnává stejná oblast(210,170)–(590,405), dohromady178600 RGB pixelů; jejich SHA256 jsou shodné. Nejde o shodu celých animovaných snímků.
 
 Metadata: `analysis/contract-runtime-validation.json`; dokončený pracovní běh je `.local/contract-runtime/20261029T113047831605Z`. Všech17 originálů souhlasí s inventářem. Jde o skutečný první přijatý kontrakt a jeho save interoperabilitu, nikoli o dokončení celého kontraktového systému. Přirozené splnění/propadnutí, více zakázek, další tutoriál, všechny farmy/výroba/rozšíření, dlouhé či poškozené saves, celý engine a plná Squall97 pokračují.
+
+
+## Přirozené splnění a další dopis
+
+`tools/validate_game_contract_completion.py` nyní navazuje na přirozeně přijatou zakázku. Bez změn profilu/dat skutečně načerpá480 vody, zalije pole25/26/33, převezme sekačku a čeká na skutečný stav ready. Sklidí pole24/25/26, při kapacitě tři kusy odnese náklad do stodoly, sklidí čtvrté pole33 a odnese je také. Skutečné čtyři kusy ve skladu otevřou ContractPassConfirm. Kliknutí na jeho OK vyplatí60 a spotřebuje čtyři kusy; výsledkem je Money62, awQTask1, awQCollect5, task0=-1, prázdný sklad i náklad. Ve skutečném mezidobí přijde druhý dopis s runtime event4.
+
+Driver pouze čte existující scalar property mapy přes ReadProcessMemory: původní CRT tree má explicitní layout; source layout popisuje vlastní Win32 compiler helper. Get-only lookup nikdy nevolá původní get-or-insert accessor a žádnou hodnotu nevkládá. Polling drží vlastní okno aktivní a kontroluje skutečné dokončení každého pohybu/práce; všechny dokončené kroky mají snímky. Dřívější probe bez kontroly popředí při čekání pozastavil hodiny kvůli aktivaci a zůstal explicitně neúspěšný.
+
+Běh `.local/contract-completion/20261029T114400726281Z` má pět skutečných procesů: oba přirozené celé pracovní cykly a native→source→native/source→native přenosy dokončené zakázky a dalšího dopisu. Oba nezávislé závěrečné saves i všechny tři přenosy mají přesně shodných2186 bajtů bez normalizace. Profil obsahuje793 položek: původní metoda clearProfileTask přirozeně vložila req0_0 a req0_1. Shodují se všechny klíče, typy a diskrétní hodnoty; rozdíly hodin, růstu a vody čtyř polí jsou zaznamenané jednotlivě. Oblast potvrzení(210,170)–(590,405) souhlasí ve všech89300 RGB pixelech. Všech17 originálů je zachovaných. Metadata: `analysis/contract-completion-validation.json`.
+
+Tato kontrola dokládá první přirozené splnění a konkrétní přenosy; ostatní zakázky, ztráty/expiry, složité požadavky, dlouhé historie, následující osivo/výroba a zbytek cíle pokračují.
