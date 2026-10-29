@@ -47,3 +47,8 @@ Tato evidence dokládá konkrétní celé saves v obou směrech. Nepokrývá zat
 ## Přirozeně zakoupené osivo
 
 [Skutečný nákup osiva](SEED_RUNTIME.md) přidal další čtyři celé přenosy2523bajtového save v obou směrech. Všech794 profilových klíčů/typů a diskrétních hodnot souhlasí; save má přesné prodejní hodiny, tři zprávy/read flags a383 koeficientů. Jen původní X+1 při obnově a tři neurčené padding bajty se vyhodnocují zvlášť. Rozsah nevydává celý herní svět za ověřený.
+
+
+## Oseté pole a zestárlé prodeje
+
+[Navazující přirozené průchody](SEED_RUNTIME.md) ověřily další čtyři2523bajtové přenosy osetého stavu. Osm dalších procesů porovnalo totožné vstupy v obou programech a původní mutaci historie3→2→1→1 transakcí (2515→2507→2499→2499 bajtů). Čtyři výsledné páry mají všechny smysluplné save bajty přesné, včetně souřadnice sáčku, hodin, zpráv a koeficientů; normalizují se jen tři původní padding bajty. Samostatně je zaznamenán původní časově závislý pohyb desetinné souřadnice při přechodech scény; nesynchronizované celé snímky tím nejsou označené za shodné.

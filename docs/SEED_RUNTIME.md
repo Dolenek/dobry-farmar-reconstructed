@@ -32,3 +32,41 @@ Tyto opt-in běhy potřebují volný aktivní Windows desktop a existující př
 Běh `.local/seed-sowing/20261029T121007185167Z` dokončily oba celé procesy. Všech pět tutoriálových oblastí20–24 má přesně shodných143000 RGB pixelů. V794 profilových položkách souhlasí klíče, typy a diskrétní hodnoty: Money70, PCarry1, FFC34=1, FFS34=0 a všech pět tipů=true. Voda i úrodnost34 přesahují118; rozdíly růstu/vody/úrodnosti a hodin obou dopisů jsou jednotlivě zaznamenané. Konečný2523bajtový save má jeden zaplacený sáček rajčat se třemi zbývajícími semeny na X122/Y280. Všechny bajty obou saves souhlasí kromě tří původních neurčených padding bajtů25..27. Prodejní hodiny, cutoff, zprávy a383 koeficientů nejsou normalizované a jsou bitově shodné.
 
 Nezávislý readonly audit `tools/validate_seed_sowing_state.py` kontroluje hashe vstupního kódu, všech snímků a17 originálů; metadata jsou `analysis/seed-sowing-state-validation.json`. Přenos nově osetého stavu mezi programy a skutečný celý růst/sklizeň se ověřují dále. Tento výsledek neuzavírá celé pěstování ani projekt.
+
+
+## Přirozený celý cyklus rajčat a tržní graf
+
+`tools/validate_game_tomato_harvest.py` čeká na skutečný konec původního100sekundového pěstování. Bez zrychlení času nebo profilových změn převezme sekačku, sklidí pole34, odnese rajče do stodoly, přejde na třetí skutečný trh a potvrdí původní Arrow tutoriál12 s cenovým grafem. Přesune rajče do nabídky, nechá je skutečně prodat za2 a vrátí se na farmu. V obou celých EXE je konečné Money72, awQCollect10, prázdný náklad/sklad/nabídka rajčat a další růst stejné rostliny. Kód `SalesHistory` zachoval původní vynechávání následníka po erase0040c337: po novém prodeji zůstávají ze čtyř starých transakcí dvě, ač jsou před cutoff. Tato vlastnost není opravovaná na jiné chování.
+
+Dokončený pár `.local/tomato-harvest/20261029T121557573557Z` má794 shodných profilových klíčů/typů a diskrétních hodnot; čas, růst/voda/úrodnost a dopisové odpočty jsou zaznamenané zvlášť. Save má2515 bajtů, tři prodeje amount2, tři přečtené zprávy a383 shodných raw koeficientů. Mimo výslovně evidované X sáčku, padding a dva float32 nejnovějšího prodeje/cutoff jsou bajty přesné. Tutorial12 má227 odlišných pixelů z28600, maximum2 kanálové jednotky; oblast není označená jako přesně pixelově ověřená. První průzkum skončil před prodejem na dosud neobslouženém tutoriálu12 a je lokálně zachovaný jako neúspěšný.
+
+`tools/validate_game_seed_transition.py` dále provedl tři původní a dva zdrojové průchody farma→trh→farma ze stejného přirozeného osetého profilu. Read-only snímky skutečného depth stromu zaznamenaly světové X sáčku před/po. Originál sám ze stejného vstupního X122 skončil na122.00028991699219,121.99986267089844 a121.99896240234375; zdroj na122.00005340576172 a121.99872589111328. Save v každém případě přesně přičte původní parent origin+1. Původní004f0110 přičítá float-spilled delta ke každému potomku a StateView004c56f0 závisí na jednotlivých intervalech snímků; to vysvětluje časovou závislost jako podloženou interpretaci, nikoli důkaz identity celého světa za libovolného časování. Dřívější řízené porovnání StateView zahrnuje22242 stavů v PC53/PC24. Přesné přehrání stejných intervalů v celém světě a synchronizované animované pozadí zůstává výslovně neověřené. Není použitá tolerance vydávaná za bitovou shodu.
+
+## Osetý save a původní změny staré historie při obnově
+
+Čtyři skutečné procesy `tools/validate_game_crop_interop.py` z `.local/sown-seed-interop/20261029T122633938575Z` ověřily osetý stav ve směrech native→source→native→source a source→native. Celých2523 bajtů souhlasí mimo samostatně kontrolované X+1 a tři padding bajty. Ve všech794 profilových klíčích/typu/discrétních hodnotách je jedinou výslovnou změnou nová původní událost155s: MEffPrice0 z8 na2. Driver před pauzou nechá oba skutečné programy dospět nejméně do156s a vykonat tuto událost. Starší neúspěšný průzkum ji rozdělil mezi155.056 a154.991s a správně odhalil různé ceny; nebyla to odchylka implementace.
+
+Starší volba `--suite tomato-interop` v tomto přísném nezměnitelném-save experimentu naopak **neprojde** u přirozeně zestárlé historie: restore skutečně přehrává `record` pro jednotlivé prodeje. Nový `tools/validate_game_crop_history_interop.py` proto porovnává obě skutečné DLL/EXE implementace nad totožnými vstupy, včetně kontrolních původních načtení. Osm procesů `.local/tomato-history-interop/20261029T123204319988Z` prokázalo čtyři páry stejných výstupů:2515→2507,2515→2507,2507→2499 a2499→2499 bajtů. Počet prodejů se původním způsobem mění3→2→1→1. Každý pár se porovnává celý s jedinou normalizací padding25..27; X i všechny prodejní hodiny, cutoff, zprávy a koeficienty souhlasí bitově. Tato kontrola nevydává přirozeně mutující historii za bezeztrátový byte-copy. Další tvary a rozsáhlé historie čekají.
+
+## První zaplacené rozšíření farmy
+
+`tools/validate_game_farm_expansion.py` skutečně koupí dostupné rozšíření za70. Obě EXE v `.local/farm-expansion/20261029T123106289145Z` přejdou z Money72/fcu0 na Money2/fcu1. Původní XML má6 aktivních polí pro level0 a dalších14 pro level1: skutečný depth strom změní54 viditelných zakrytých polí na40 a počet aktivních obrázků rostlin z6 na20. Všech54/40 zakrytých polí má před/po v obou programech stejné pořadí, geometrii, deep, texturu, všech19 sprite slov a flags. Dříve opravená alokace skrytých obrázků tak souhlasí i po nákupu. Celé animované aktivní pole tím není označené za pixelově shodné.
+
+Konečných794 profilových klíčů/typů a diskrétních hodnot souhlasí; liší se pouze evidované časové/růstové float hodnoty. Obě hry obnovily stejnou přirozenou historii na2507 bajtů a všechny save bajty kromě původního paddingu jsou přesné, včetně X. Metadata: `analysis/farm-expansion-state-validation.json`.
+
+Nové reprodukční kroky po předchozích baseline bězích:
+
+```powershell
+python tools/validate_game_seed_sowing.py
+python tools/validate_seed_sowing_state.py
+python tools/validate_game_tomato_harvest.py
+python tools/validate_tomato_harvest_state.py
+python tools/validate_game_seed_transition.py
+python tools/validate_seed_transition_state.py
+python tools/validate_game_crop_interop.py
+python tools/validate_game_crop_history_interop.py
+python tools/validate_game_farm_expansion.py
+python tools/validate_farm_expansion_state.py
+```
+
+Metadata nových průchodů jsou `analysis/tomato-harvest-state-validation.json`, `analysis/seed-transition-state-validation.json`, `analysis/sown-seed-interop-validation.json` a `analysis/tomato-history-interop-validation.json`. Před/po byly kontrolované hashe všech17 originálů i skutečné cesty DLL; produkční implementace nevolá originál. Vyčerpání sáčku, další plodiny, budovy/výroba, další rozšíření, dlouhé saves, celý engine a Squall97 pokračují.
