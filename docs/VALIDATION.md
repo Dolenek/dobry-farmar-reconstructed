@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[První přirozená zakázka v celých EXE](CONTRACT_RUNTIME.md) nově prošla přijetím, zálohou, požadavky a třemi úplnými2186bajtovými save přenosy v obou směrech. Splnění zakázky a další systémy pokračují.
+
 [Přirozený tutoriál v celých EXE](TUTORIAL_RUNTIME.md) nově ověřil deset kroků, skutečnou sklizeň/sklad/trh a1981 shodných save bajtů. Oprava alokací překrývajících se obrázků polí nově obnovila286000 přesně shodných RGB pixelů deseti oblastí. Celý tutoriál a projekt pokračují; neúspěšné průzkumné běhy jsou odděleně evidované.
 
 [Zdrojový odinstalátor](UNINSTALL.md) je nyní sestavitelný přes FarmarUninstall z přesného NSIS2.28; nezávislé sestavení má shodných všech sedm ověřovaných binárek. Všech27 aplikačních mazacích instrukcí a tři stránky mají statické porovnání. Nově20 skutečných silent odinstalačních procesů ověřilo deset source/reference párů, souborové/registry účinky a504 shodných aplikačních operací. Dalších16 UI procesů souhlasí v osmi párech a268 záznamech prvků; dalších32 procesů ověřilo vlastní bootstrap, kopie A/B a odložené záměry v testovacím backendu. Skutečný reboot a pixelové snímání zůstávají neověřené. Další neověřené rozsahy a podmínky celé hry zůstávají evidované v dokumentaci.

@@ -35,6 +35,10 @@ Porovnávají se všechny skutečné2072 bajty každého dalšího save. Jediné
 
 X ve zdrojovém zahřátém save126 přejde po nativním načtení/zápisu na127, ve zdroji128 a znovu v originálu129. Celý původní program tak potvrzuje dřívější instrukční stopu0040fbb0/00412850 a parent origin-1; produkční implementace tento původní jev zachovává. Metadata: `analysis/rich-save-interop-validation.json`.
 
+## Přirozeně přijatý první kontrakt
+
+Navazující [celé procesy zakázky](CONTRACT_RUNTIME.md) ověřily přijetí prvního přirozeného dopisu, Money22→2, aktivní task0=3/time120 a tutoriál17/18. Pět procesů porovnalo tři úplné2186bajtové přenosy native→source→native a source→native bez normalizace. Nezávislý počáteční pár má očekávaně různé prodejní hodiny; přesný rozsah a všech791 vlastností jsou v reportu. Neprokazuje zatím splnění zakázky nebo všechny rozehrané stavy.
+
 ## Další potřebná práce
 
 Tato evidence dokládá konkrétní celé saves v obou směrech. Nepokrývá zatím všechny farmy, rozsáhlé historie/kontrakty/budovy, všechny počty a druhy sáčků, poškozené soubory ani libovolné dlouhé rozehrané stavy. Úplný tutorial, všechny herní systémy, native frame/reset/lifecycle, celé Squall97 a izolovaný odinstalátor dále pokračují. Projekt není dokončený.

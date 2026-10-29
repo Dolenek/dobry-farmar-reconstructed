@@ -1,0 +1,11 @@
+# První přirozená zakázka v celých procesech
+
+`tools/validate_game_contract_runtime.py` navazuje na skutečný nativní save po prvním trhu. Každému běhu dá vlastní kopii tohoto profilu; žádnou vlastnost, hodiny, dostupnost ani kontrakt do hry nevkládá. Obě EXE skutečně dospějí k události v herním čase10s, počkají na pokles120sekundové nabídky pod90s, přirozeně otevřou tutoriál17, přečtou dopis a přijmou první nabídku. Po prodeji první trávy mají22 peněz; skutečné přijetí odečte zálohu20 a zanechá2. Přirozený contract má runtime index3 a požaduje čtyři kusy trávy. Tutoriál18 otevře skutečné požadavky.
+
+Pět skutečných procesů dokončilo přirozený pár originál/zdroj a tři nezávislé přenosy: native0→source2→native4 a source1→native3. V každém přenosu se porovnává celý2186bajtový save bez jakékoli normalizace. Hlavní menu skutečně hru načte; poté skutečný Alt+Pause zastaví Logic stepping a normální WM_CLOSE provede persistenci. Původní instrukce ani profilová pole se nepřepisují. Konkrétní DLL moduly a jejich hashe jsou v reportu.
+
+V nezávisle odehraném počátečním páru se ze791 vlastností liší jen FFP24, FFW24, GameTime, RunTime a letTime0. Obě hry mají Money2, task0=3, taskTime0=120, letter0=-1, tip17/18=true a taskPassCancel0=true. Nezávislé binární saves mají stejnou jedinou tržní transakci amount2, ale mírně odlišný okamžik prodeje a cutoff. Jen pro počáteční nezávislý pár se proto z porovnání vyjímají přesně dva float32 na bajtech8..15. Všechny zbývající bajty včetně UTF16 zpráv a383 float32 koeficientů souhlasí. Tyto časové bajty se **nevyjímají** při třech následných přenosech celého save.
+
+Obě skutečné tutoriálové oblasti mají57200 přesně shodných RGB pixelů. V nabídce i požadavcích se porovnává stejná oblast(210,170)–(590,405), dohromady178600 RGB pixelů; jejich SHA256 jsou shodné. Nejde o shodu celých animovaných snímků.
+
+Metadata: `analysis/contract-runtime-validation.json`; dokončený pracovní běh je `.local/contract-runtime/20261029T113047831605Z`. Všech17 originálů souhlasí s inventářem. Jde o skutečný první přijatý kontrakt a jeho save interoperabilitu, nikoli o dokončení celého kontraktového systému. Přirozené splnění/propadnutí, více zakázek, další tutoriál, všechny farmy/výroba/rozšíření, dlouhé či poškozené saves, celý engine a plná Squall97 pokračují.
