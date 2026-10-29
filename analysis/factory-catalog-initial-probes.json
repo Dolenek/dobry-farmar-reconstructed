@@ -1,0 +1,41 @@
+{
+  "status": "recorded_failed_probes_not_counted_as_passes",
+  "probes": [
+    {
+      "work_directory": ".local/factory-catalog/20261029T212543648442Z",
+      "meaning": "Native cAwardManager error after early Return between queued natural money awards; source replay remains unverified",
+      "error": "RuntimeError(\"[{'title': 'Error', 'text': ['OK', '\\\\nvoid cAwardManager::process()\\\\nvoid cLogic::process()\\\\nvoid cEngine::process()']}]\")",
+      "runtime_report_sha256": "12ebad3d056bfabe3a1c35ca77fb531e3c0c1c37b72b2c76913dd6d7ef6c4e5c",
+      "driver_sha256": "006a942a8dd28a81c70e061b7d6d4a642ce6c40b3dc5fa5d5cf7ccd9f1a58d0f",
+      "native_only": true,
+      "native_actions": [
+        "Created/restored full game and matched native Menu HUD pixels",
+        "Actual InputDevices/GameInput WM_CHAR command: cheatupgradescheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoney"
+      ],
+      "native_award_panels": [
+        "Actual natural award panel, OK, Return"
+      ],
+      "error_log": "\n10/29/26 - 22:26:01 --------------------------------------------------------\n[22:26:1-0]\t\nvoid cAwardManager::process()\nvoid cLogic::process()\nvoid cEngine::process()\n"
+    },
+    {
+      "work_directory": ".local/factory-catalog/20261029T212717029093Z",
+      "meaning": "Diagnostic Python float click coordinates rejected before purchase; no game failure",
+      "error": "TypeError(\"'float' object cannot be interpreted as an integer\")",
+      "runtime_report_sha256": "1c07144a83dbea82fe9977f9fdc03f42435d9e23f029bfe180c9028f81c33efe",
+      "driver_sha256": "71478394e330e163808679099cde4f225a6b034f5c536fece6e6876e7227559b",
+      "native_only": true,
+      "native_actions": [
+        "Created/restored full game and matched native Menu HUD pixels",
+        "Actual InputDevices/GameInput WM_CHAR command: cheatupgradescheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoneycheatmoney",
+        "Return after both queued natural money awards completed",
+        "Actual InputDevices/GameInput WM_CHAR command: cheatproduct"
+      ],
+      "native_award_panels": [
+        "Actual natural award panel and OK; remain for queued next award",
+        "Actual natural award panel and OK; remain for queued next award"
+      ],
+      "error_log": null
+    }
+  ],
+  "whole_game_complete": false
+}

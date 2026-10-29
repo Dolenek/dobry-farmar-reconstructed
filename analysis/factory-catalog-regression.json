@@ -1,0 +1,42 @@
+{
+  "status": "passed_for_all11_actual_level0_factory_recipes_with_paid_warehouse_and_natural_money_awards",
+  "recorded_at_utc": "2026-10-29T21:39:25.925583+00:00",
+  "recorder_sha256": "ba8d376e22b5745eb5a29b3c0c244f4adf8b359ce6bc4a167acc407829649eb1",
+  "reports": {
+    "factory-catalog-group0-state-validation.json": "98acdfaf4db6e51889f69e58b6e8b218018e85d05d2ab2f064df3ff1799a7c69",
+    "factory-catalog-group1-state-validation.json": "98a0c41a1c57c5996b97aed6dcfbf814bc2032617248dc12cbfd09f2ef98fa50",
+    "factory-catalog-group2-state-validation.json": "61bc63069edd1608ce6645cfb6394ae9575083771b9b3919479a2b9bace73b27"
+  },
+  "factory_kinds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "actual_processes": 6,
+  "business_snapshots_per_executable": 62,
+  "whole_save_bytes_per_pair": [
+    4089,
+    4089,
+    4089
+  ],
+  "original_commands_only": true,
+  "original_profile_or_game_memory_modified_by_probe": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/live-production-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Higher factory levels, simultaneous factories, partial production saves and warehouse-full output blocking",
+    "Natural all-factories/seven-live-factories awards and remaining full-goal scopes",
+    "Native early-Return queued-award failure is preserved; source behavior in that failing input sequence remains unverified"
+  ]
+}

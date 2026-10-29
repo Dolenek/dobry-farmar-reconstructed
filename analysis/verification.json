@@ -25,7 +25,10 @@
       "analysis/cucumber-interop-validation.json",
       "analysis/cucumber-harvest-state-validation.json",
       "analysis/paid-production-state-validation.json",
-      "analysis/production-interop-validation.json"
+      "analysis/production-interop-validation.json",
+      "analysis/factory-catalog-group0-state-validation.json",
+      "analysis/factory-catalog-group1-state-validation.json",
+      "analysis/factory-catalog-group2-state-validation.json"
     ]
   },
   "build": {
@@ -312,7 +315,12 @@
     "analysis/live-production-regression.json",
     "analysis/squall-config-validation.json",
     "analysis/squall-config-fresh-validation.json",
-    "analysis/squall-config-regression.json"
+    "analysis/squall-config-regression.json",
+    "analysis/factory-catalog-group0-state-validation.json",
+    "analysis/factory-catalog-group1-state-validation.json",
+    "analysis/factory-catalog-group2-state-validation.json",
+    "analysis/factory-catalog-initial-probes.json",
+    "analysis/factory-catalog-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108232,8 +108240,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-config-regression.json",
-    "recorded_at_utc": "2026-10-29T21:34:19.972997+00:00",
+    "report": "analysis/factory-catalog-regression.json",
+    "recorded_at_utc": "2026-10-29T21:39:25.925583+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"
