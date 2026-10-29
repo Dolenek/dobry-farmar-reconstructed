@@ -1,8 +1,8 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-29T13:10:14.884981+00:00",
+  "recorded_at_utc": "2026-10-29T16:58:02.981203+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "e121f93c309f9f8c747f99919c198cbb6e00d7fc17408679df34a95b71d7567a",
+  "rebuilt_sha256": "311a7d7db52b31db5e16e284fbfb3f847fe587601b5d99bf7569a62faef29537",
   "oracle_sha256": "10128629b4a565c4baebc6af356549e5fe0d227f6df58504422e508b440f9d41",
   "precision_contexts": [
     {
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37961,
-      "native_position_progress": 37520,
+      "source_position_progress": 19440,
+      "native_position_progress": 37928,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 37928,
-      "native_position_progress": 37079,
+      "source_position_progress": 37520,
+      "native_position_progress": 19881,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -1336,7 +1336,7 @@
     },
     {
       "path": "src/squall/runtime/SoundEngine/Squall.cpp",
-      "sha256": "03b9033f9100ee058c2d4950fec99068278ba8767b8e6494a6fa8182d638b55d"
+      "sha256": "5639ca8a33ebacd86b1fb01f3ef4b0d051858c9888d85470417fef0058d73cd0"
     },
     {
       "path": "src/squall/runtime/SoundEngine/SquallApi.cpp",
@@ -1620,7 +1620,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "6cac149eb215b395a89df15ce9d77331041c2c9889c7cdd4115b922ce2d17ff7"
+      "sha256": "d7bb86cd718bf93c824fdf92eecac108239ca4c8235fcad19908c1154cb1c8e2"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

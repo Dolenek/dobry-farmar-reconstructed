@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Ordered kontrola faktorů listeneru
+
+Původní settery `10004600`, `10004750` a `100048a0` přijímají pouze uspořádané `0 < factor <= 10`. Veřejný zdroj1.48 používal `factor <= 0 || factor > 10`, což propouští NaN. Před inicializací tím vracel−24 místo původního−4; inicializovaný listener mohl být také změněn. Produkční podmínky nyní přesně negují původní přijímaný interval. Nejde o obecné přepsání rozsahu3D API.
+
+`tools/validate_squall_listener_factors.py` porovnává skutečně načtené obě DLL před Init, s inicializovaným DirectSound listenerem a po Free. Pro každý setter a lifecycle zkouší1040 binary32 vzorků: signed nuly/subnormály, konečné hranice včetně sousedů10, infinity a1024 signed quiet/signaling NaN payloadů. PC53/PC24 společně mají24962 porovnání výsledků,18720 vstupů,18432 NaN a6240 úspěšných skutečných getterů s přesnými bity uloženého faktoru i výstupními guardy. Shoda byla zopakována ve druhém sestavení. Stejný aktuální harness proti zachované vlastní DLL z commitu38bedf7 znovu prokazuje6144 původních NaN odchylek; tato stará DLL slouží jen jako diagnostická reference. Prvotní nález má samostatný report `analysis/squall-listener-before-validation.json`.
+
+Reprodukce po sestavení cíle `squall-listener-factors-reference-test`: `python tools/validate_squall_listener_factors.py`; druhému sestavení se předají `--candidate`, `--oracle`, `--output` jako u ostatních Squall driverů. Baseline `--before-candidate` musí být skutečná zachovaná vlastní DLL s hashem ověřeným reportem, nikoli originál. Metadata jsou `analysis/squall-listener-factors-validation.json` a `analysis/squall-listener-factors-fresh-validation.json`. Nejsou tím ověřené všechny2^32 float vzory, FP status/exception masky, libovolné výstupní adresy ani ostatní3D/callback/device větve. Úplný audit97 exportů zůstává rozpracovaný. Navazující regrese obou aktuálních DLL znovu ověřila PCM/buffery, skupiny, kanálové rozsahy, game-audio a PersonSounds; nový úplný Win32 CTest prošel102/102 za540.12s bez focused retry. Aktuální SHA jsou3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366 a311a7d7db52b31db5e16e284fbfb3f847fe587601b5d99bf7569a62faef29537. Dvě DLL mají shodné všechny bajty kromě obou přesně identifikovaných linker timestampů; skutečné soubory se nenormalizují. Podrobnosti: analysis/squall-listener-regression.json a dva aktuální export-contract reporty.
+
 Původní `Squall.dll` má 97 pojmenovaných C exportů. Ghidra export obsahuje 916 funkcí: 911 dekompilovaných, čtyři přesměrování a jednu chybu v matematické x87 rutině `1003cf82`. Úplný zdrojový kandidát DLL nyní lze sestavit; má přesně původních 97 exportních názvů a ordinálů bez forwardingů. Shoda celé implementace ještě není prokázaná.
 
 ## Zdrojový podklad

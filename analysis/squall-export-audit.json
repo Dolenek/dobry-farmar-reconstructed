@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "rebuilt_sha256": "3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -507,17 +507,19 @@
       "name": "SQUALL_Listener_GetDistanceFactor",
       "ordinal": 57,
       "original_address": "100046c0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_GetDopplerFactor",
       "ordinal": 58,
       "original_address": "10004960",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_GetParameters",
@@ -539,9 +541,10 @@
       "name": "SQUALL_Listener_GetRolloffFactor",
       "ordinal": 61,
       "original_address": "10004810",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_GetVelocity",
@@ -555,17 +558,19 @@
       "name": "SQUALL_Listener_SetDistanceFactor",
       "ordinal": 63,
       "original_address": "10004600",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_SetDopplerFactor",
       "ordinal": 64,
       "original_address": "100048a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_SetParameters",
@@ -587,9 +592,10 @@
       "name": "SQUALL_Listener_SetRolloffFactor",
       "ordinal": 67,
       "original_address": "10004750",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
     },
     {
       "name": "SQUALL_Listener_SetVelocity",
@@ -852,5 +858,9 @@
   "channel_range_reports": [
     "analysis/squall-channel-ranges-validation.json",
     "analysis/squall-channel-ranges-fresh-validation.json"
+  ],
+  "listener_factor_reports": [
+    "analysis/squall-listener-factors-validation.json",
+    "analysis/squall-listener-factors-fresh-validation.json"
   ]
 }

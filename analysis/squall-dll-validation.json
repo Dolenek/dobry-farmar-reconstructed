@@ -1,10 +1,10 @@
 {
   "status": "passed_for_loaded_DLL_samples_and_prepared_DirectSound_scope",
-  "recorded_at_utc": "2026-10-29T13:08:45.796371+00:00",
+  "recorded_at_utc": "2026-10-29T16:55:23.002789+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "rebuilt_sha256": "3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366",
   "oracle_sha256": "4542190b96c3a5d20a35c8839db3c60a8210675473739b2f7b65121d6bf7969b",
-  "linker_map_sha256": "e6bc5c4035d85beceeade7b17a4383e2901820fb56c5a9106f2cc539c21ea66d",
+  "linker_map_sha256": "bf1faa8943f57337ef940d6ac4142f1923f56fd96055d0ffee01266dfd3e65cc",
   "candidate_path": "build/windows/squall-candidate/Release/Squall.dll",
   "oracle_path": "build/windows/Release/squall-dll-reference-test.exe",
   "linker_map_path": "build/windows/squall-candidate/Release/Squall.map",
@@ -115,7 +115,7 @@
     },
     {
       "path": "src/squall/runtime/SoundEngine/Squall.cpp",
-      "sha256": "03b9033f9100ee058c2d4950fec99068278ba8767b8e6494a6fa8182d638b55d"
+      "sha256": "5639ca8a33ebacd86b1fb01f3ef4b0d051858c9888d85470417fef0058d73cd0"
     },
     {
       "path": "src/squall/runtime/SoundEngine/SquallApi.cpp",
@@ -399,7 +399,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "6cac149eb215b395a89df15ce9d77331041c2c9889c7cdd4115b922ce2d17ff7"
+      "sha256": "d7bb86cd718bf93c824fdf92eecac108239ca4c8235fcad19908c1154cb1c8e2"
     },
     {
       "path": "tools/squall_dll_reference_test.cpp",

@@ -1,5 +1,11 @@
 # Stav rekonstrukce
 
+Aktuální stav29.10.2026: hlavní herní EXE, JNGLoad.dll, zdrojový kandidát celé Squall.dll a odinstalátor jsou sestavitelné z upravitelného kódu. Celý projekt zůstává rozpracovaný: zejména úplné chování97 exportů, další přirozené herní systémy a níže výslovně evidované hranice engine/odinstalátoru nejsou dokončené. Reference17 původních souborů a původní Ghidra projekt zůstávají zachované; nic se nepublikuje.
+
+[Listener Squall](SQUALL.md) má opravené původní ordered kontroly tří faktorů: veřejný zdroj propouštěl NaN. Dvě sestavení prošla po24962 výsledcích v PC53/PC24 se skutečným DirectSound listenerem; stejný harness prokázal6144 odchylek starého kandidáta. Nový úplný běh102/102 za540.12s je evidovaný v analysis/squall-listener-regression.json; historický101/102 běh zůstává doložený v commitu38bedf7.
+
+[Čtyři skutečné sklizně rajčat](SEED_RUNTIME.md) nově ověřily kapacitu3, dva návraty do skladu, šest kliknutí ceny2→8 a prodej čtyř kusů: Money2→34 v obou celých EXE.3013bajtové saves souhlasí kromě výslovně evidovaných nezávislých prodejních hodin; všechny794 profilové typy/diskrétní hodnoty, pět zpráv a383 koeficientů jsou shodné. Další zakázka a systémy pokračují.
+
 [Pozice a další kanálové exporty Squall](SQUALL.md) mají obnovenou původní adresně závislou větev a2542 přesných porovnání v obou přesnostech, zopakovaných ve druhém sestavení. Nová zvuková regrese a čtyři celé2650bajtové save přenosy prošly; úplná sada101/102 a tři focused opakování opraveného testovacího driveru jsou evidované odděleně. Ostatní exporty a celý projekt pokračují.
 
 [Skupiny kanálů Squall](SQUALL.md) mají nové skutečné DLL porovnání840 veřejných výsledků v PC53/PC24, zopakované ve druhém sestavení. Příprava/přehrávání/pauza, skupinová hlasitost/frekvence a ukončení workerů prošly. Ostatní rozsahy97 exportů a celý projekt pokračují.
@@ -19,6 +25,10 @@
 [Porovnání celých procesů a saves](SAVE_INTEROP.md) nyní ověřuje úvodní profily v obou směrech a připravený bohatší stav se sáčkem, prodejem, zprávami a383 koeficienty. Původní EXE běží pouze jako reference s izolovanou systémovou datovou složkou; produkce používá vlastní zdroje. Rozsah a neověřené stavy jsou výslovně evidované.
 
 Hlavní [zdrojové herní EXE](APP_RUNTIME.md) se nyní sestaví a spustí s původními daty: nový profil → menu → skutečná farma, normální ukončení, opětovné načtení save, pauza, nápověda i deník. Obě načtené herní DLL pocházejí z našeho sestavení. [Startup](STARTUP.md) navíc přímo souhlasí s originálem ve čtyřech cyklech / 786 snímcích / 377 280 000 RGB pixelech (PC53/PC24). Úplný nativní runtime, obousměrné saves, všechny systémy, úplná Squall a izolovaný odinstalátor stále pokračují.
+
+## Historické záznamy jednotlivých etap
+
+Následující odstavce a tabulka zachovávají rozsah ověření v době vzniku příslušné etapy. Výroky o tehdy chybějícím EXE, počty testů či čekajících systémech nejsou aktuálním souhrnem projektu; aktuální navazující důkazy jsou výše a v odkazovaných dokumentech/metadatech.
 
 [Původní JPEG loga](JPEG.md) mají obnovený reader a MMX barevnou aritmetiku: všechna3 loga souhlasí v každém dekódovaném bajtu i celé GPU textuře, PC53/PC24; vyčerpávající porovnání16777216 barevných trojic také prošlo. Celé spuštění a hlavní herní EXE dál pokračují.
 

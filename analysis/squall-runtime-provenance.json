@@ -389,6 +389,18 @@
       "instruction_evidence": "push ecx reserves the cursor local initialized to this; PLAY and PAUSE overwrite it, other states retain pointer bits",
       "source_difference": "Public1.48 declares an uninitialized DWORD; reconstruction now explicitly seeds the channel address",
       "current_sha256": "4755cc7a8d9e4c0d14b9c6f9bf5efd3246f77e198f2c09b95f2f3f28416f6fc3"
+    },
+    {
+      "path": "SoundEngine/Squall.cpp",
+      "method": "SQUALL_Listener_SetDistanceFactor/SetRolloffFactor/SetDopplerFactor",
+      "original_addresses": [
+        "10004600",
+        "10004750",
+        "100048a0"
+      ],
+      "instruction_evidence": "Each original setter accepts only ordered0<factor<=10; unordered compares take invalid-parameter return-4 before listener access",
+      "source_difference": "Public1.48 disjunction factor<=0||factor>10 accepts NaNs; use negation of the ordered acceptance predicate",
+      "current_sha256": "5639ca8a33ebacd86b1fb01f3ef4b0d051858c9888d85470417fef0058d73cd0"
     }
   ]
 }

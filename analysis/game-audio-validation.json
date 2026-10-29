@@ -1,8 +1,8 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-29T13:09:20.206899+00:00",
+  "recorded_at_utc": "2026-10-29T16:57:37.055310+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "rebuilt_sha256": "3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366",
   "oracle_sha256": "c707ec2e42c214f99427ba3abe47aba1cbc1d39d44945b93dc7bca6a1e949174",
   "precision_contexts": [
     {
@@ -10,8 +10,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19881,
-      "native_position_progress": 19880,
+      "source_position_progress": 54718,
+      "native_position_progress": 3564,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,7 +22,7 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 19440,
+      "source_position_progress": 37079,
       "native_position_progress": 20762,
       "playback_tested": true,
       "silent_playback": true,
@@ -1336,7 +1336,7 @@
     },
     {
       "path": "src/squall/runtime/SoundEngine/Squall.cpp",
-      "sha256": "03b9033f9100ee058c2d4950fec99068278ba8767b8e6494a6fa8182d638b55d"
+      "sha256": "5639ca8a33ebacd86b1fb01f3ef4b0d051858c9888d85470417fef0058d73cd0"
     },
     {
       "path": "src/squall/runtime/SoundEngine/SquallApi.cpp",
@@ -1620,7 +1620,7 @@
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "6cac149eb215b395a89df15ce9d77331041c2c9889c7cdd4115b922ce2d17ff7"
+      "sha256": "d7bb86cd718bf93c824fdf92eecac108239ca4c8235fcad19908c1154cb1c8e2"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

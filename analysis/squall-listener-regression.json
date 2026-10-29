@@ -1,0 +1,48 @@
+{
+  "status": "passed_for_ordered_listener_factor_fix_and_current_regression_scope",
+  "recorded_at_utc": "2026-10-29T17:07:50.207705+00:00",
+  "recorder_sha256": "9a846e102baed6894c4905df714658977eb1f4af46e2154d8573e0d49237da0d",
+  "dll_sha256": [
+    "3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366",
+    "311a7d7db52b31db5e16e284fbfb3f847fe587601b5d99bf7569a62faef29537"
+  ],
+  "full_ctest_passed": 102,
+  "full_ctest_failed": 0,
+  "junit_sha256": "85641b26a60430aaeeb2bdc9081022423b1c96af0a715f0215912fc6ba2e1b49",
+  "ctest_seconds": 539.7767123,
+  "reports": {
+    "squall-listener-factors-validation.json": "8e742a3cbffdee5ee33dabca9c9c9a8d7b95edad046444a2cc351f8f1287bc91",
+    "squall-listener-factors-fresh-validation.json": "4c13d72ee67107313c877b5b9c2ee72021e3cc7b342a4ad761a9353e89cff8e2",
+    "squall-dll-validation.json": "8d1dbd9de38d9527bf31757f2bd17776a47b711163ce253657252a48ce66a50a",
+    "squall-dll-fresh-validation.json": "365cbe54ea030ba310d88ee251c1871c589c48888395604cff81b749d38e9f58",
+    "squall-groups-validation.json": "c955cf02fb0ca43f859df6299d73683c2b303c47ce05edd64a5ce633ea22a8f3",
+    "squall-groups-fresh-validation.json": "7089d2568db26875ef9b66c85dad47445a95876c0e67fd91865ff4cce23953be",
+    "squall-channel-ranges-validation.json": "f8ef5ae3dd0f110301de518a907c095c2cd5bae289e424b4e805968032319fe6",
+    "squall-channel-ranges-fresh-validation.json": "ebd31b0c69f7c9703d0d988e1c4325066ef113d56c47bcae64760ecbeb533cb7",
+    "game-audio-validation.json": "6df82593b1038f1e96dd19b38d064c1dd3c537aef236a12d22b86a8f07ce20d7",
+    "game-audio-fresh-validation.json": "b4df3c7644254505e0f6220be253fed542268b2baf320c5f9520c912ed43bf31",
+    "person-sounds-validation.json": "e7626803922abe05091f9a840cf596871438ddb0790ca1fe4588de4638c780c0",
+    "person-sounds-fresh-validation.json": "28ce1ad30174b560d9ec599080895d62f0db865bd09600eb73ebdd6412bad76b"
+  },
+  "abi_reports": {
+    "squall-listener-abi.json": "37b4ba9e5af9ca6f8d0684a0f700772507f7a7e0b4afacb8b8626319f9bbcf0c",
+    "squall-listener-fresh-abi.json": "67e48b280d916fb5ee68820d97eb98bd474b6acfef76abb0db51de7e71e2b719"
+  },
+  "fresh_build_comparison": {
+    "bytes": 400384,
+    "only_normalized_byte_ranges": [
+      [
+        288,
+        292
+      ],
+      [
+        283716,
+        283720
+      ]
+    ],
+    "normalized_sha256": "840a406120b060003a28f3eb1348a87f8a3c235a97edabb1637371d9a0dded7f",
+    "files_modified": false
+  },
+  "original_files_unchanged": 17,
+  "whole_game_complete": false
+}

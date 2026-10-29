@@ -1,0 +1,34 @@
+{
+  "status": "confirmed_unfixed_nan_listener_factor_divergence",
+  "contexts": [
+    {
+      "preinit_inputs": 3120,
+      "nan_inputs": 3072,
+      "mismatches": 3072,
+      "setter_count": 3,
+      "precision": "PC53"
+    },
+    {
+      "preinit_inputs": 3120,
+      "nan_inputs": 3072,
+      "mismatches": 3072,
+      "setter_count": 3,
+      "precision": "PC24"
+    }
+  ],
+  "initialized": false,
+  "candidate_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "runtime_source_sha256": "03b9033f9100ee058c2d4950fec99068278ba8767b8e6494a6fa8182d638b55d",
+  "oracle_sha256": "9b701adaef0b3b5917641b17a144d784fc8302b59e2fae705153e25303d73218",
+  "implementation_commit": "38bedf7",
+  "candidate_path": ".local/empty-seed-interop/20261029T131211877257Z/runtime/Squall.dll",
+  "runtime_source_path": "src/squall/runtime/SoundEngine/Squall.cpp",
+  "oracle_source_sha256": "626e14de5da2c4c4201f15d0ac3f3177b830656cc9b45671e78a886400358392",
+  "logs": {
+    "squall-listener-before-PC53.stdout.log": "92c773ae624db22c571ab07b8d60a0ff17ee791e9c417a643b378a5502f7886c",
+    "squall-listener-before-PC53.stderr.log": "4fc39cf47d661f9238a90ad39f2fc58e70c3ca7639f0fb772512d420351bdc76",
+    "squall-listener-before-PC24.stdout.log": "92c773ae624db22c571ab07b8d60a0ff17ee791e9c417a643b378a5502f7886c",
+    "squall-listener-before-PC24.stderr.log": "4fc39cf47d661f9238a90ad39f2fc58e70c3ca7639f0fb772512d420351bdc76"
+  },
+  "oracle_source_snapshot": ".local/squall-listener-baseline/squall_listener_factors_reference_test.cpp"
+}

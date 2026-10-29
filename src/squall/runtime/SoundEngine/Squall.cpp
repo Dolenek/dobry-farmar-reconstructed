@@ -2338,7 +2338,8 @@ DLL_API int SQUALL_Listener_SetDistanceFactor(float DistanceFactor)
 #endif
 
     // проверка параметров
-    if ((DistanceFactor <= 0.0f) || (DistanceFactor > 10.0f))
+    // Native10004600 accepts only ordered0<x<=10; NaNs are invalid too.
+    if (!(DistanceFactor > 0.0f && DistanceFactor <= 10.0f))
         result = SQUALL_ERROR_INVALID_PARAM;
 
     // проверка наличия слушателя
@@ -2475,7 +2476,8 @@ DLL_API int SQUALL_Listener_SetRolloffFactor(float RolloffFactor)
 #endif
 
     // проверка параметров
-    if ((RolloffFactor <= 0.0f) || (RolloffFactor > 10.0f))
+    // Native10004750 uses the same ordered predicate, including NaN rejection.
+    if (!(RolloffFactor > 0.0f && RolloffFactor <= 10.0f))
         result = SQUALL_ERROR_INVALID_PARAM;
 
     // проверка наличия слушателя
@@ -2612,7 +2614,8 @@ DLL_API int SQUALL_Listener_SetDopplerFactor(float DopplerFactor)
 #endif
 
     // проверка параметров
-    if ((DopplerFactor <= 0.0f) || (DopplerFactor > 10.0f))
+    // Native100048a0 rejects unordered inputs before touching listener state.
+    if (!(DopplerFactor > 0.0f && DopplerFactor <= 10.0f))
         result = SQUALL_ERROR_INVALID_PARAM;
 
     // проверка наличия слушателя

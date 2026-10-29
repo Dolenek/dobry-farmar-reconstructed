@@ -16,7 +16,8 @@
       "analysis/contract-completion-validation.json",
       "analysis/seed-unlock-state-validation.json",
       "analysis/seed-interop-validation.json",
-      "analysis/seed-sowing-state-validation.json"
+      "analysis/seed-sowing-state-validation.json",
+      "analysis/tomato-batch-state-validation.json"
     ]
   },
   "build": {
@@ -98,7 +99,7 @@
     "market_complete_world_equivalence": false
   },
   "tests": {
-    "ctest_passed": 101,
+    "ctest_passed": 102,
     "python_tests_passed": 7,
     "python_tests_skipped": 0,
     "volume_table_entries": 100,
@@ -109,7 +110,7 @@
     "resource_index_fixtures": 8,
     "resource_write_checks": 12,
     "ctest_current_checks_covered_across_full_and_retry": 102,
-    "ctest_focused_retry_repetitions": 3
+    "ctest_focused_retry_repetitions": 0
   },
   "images": {
     "decoded": 416,
@@ -250,7 +251,13 @@
     "analysis/squall-groups-validation.json",
     "analysis/squall-groups-fresh-validation.json",
     "analysis/squall-position-regression.json",
-    "analysis/squall-position-game-interop-validation.json"
+    "analysis/squall-position-game-interop-validation.json",
+    "analysis/squall-listener-factors-validation.json",
+    "analysis/squall-listener-factors-fresh-validation.json",
+    "analysis/squall-listener-abi.json",
+    "analysis/squall-listener-fresh-abi.json",
+    "analysis/squall-listener-regression.json",
+    "analysis/tomato-batch-state-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108168,10 +108175,11 @@
     ]
   },
   "main_game_source_build_available": true,
-  "full_game_build_available_scope": "All required behavior verified, including every Squall export and remaining full-game systems; still incomplete",
+  "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-position-regression.json",
-    "recorded_at_utc": "2026-10-29T16:36:07.858206+00:00",
+    "report": "analysis/squall-listener-regression.json",
+    "recorded_at_utc": "2026-10-29T17:07:50.207705+00:00",
     "whole_game_complete": false
-  }
+  },
+  "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"
 }
