@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <dsound.h>
+#include <cstdint>
 #include "../SoundFile/SoundFile.h"
 #include "Channels.h"
 
@@ -906,7 +907,11 @@ int SSample::SetPlayPosition(int Position)
 //-----------------------------------------------------------------------------
 int SSample::GetPlayPosition(int* Position)
 {
-    DWORD DXPosition;
+    // Native10002180 pushes ECX into the local cursor slot. PLAY overwrites
+    // it through GetCurrentPosition; PAUSE uses PausePtr. Other stages retain
+    // the channel address. Preserve this pointer-dependent original behavior
+    // explicitly instead of relying on the public1.48 uninitialized local.
+    DWORD DXPosition = static_cast<DWORD>(reinterpret_cast<std::uintptr_t>(this));
     if (DS_Buffer) {
         if (Status.STAGE == PLAY) {
             if (DS_Buffer->GetCurrentPosition(&DXPosition, NULL) != DS_OK)

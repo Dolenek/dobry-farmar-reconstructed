@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
+  "rebuilt_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -76,17 +76,19 @@
       "name": "SQUALL_Channel_GetFragment",
       "ordinal": 9,
       "original_address": "10005cf0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_GetFragmentMs",
       "ordinal": 10,
       "original_address": "10005ef0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_GetFrequency",
@@ -122,7 +124,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared looping menu music channel"
+      "loaded_DLL_verified_scope": "Prepared looping menu music channel",
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_GetMinMaxDistance",
@@ -145,17 +148,21 @@
       "name": "SQUALL_Channel_GetPlayPosition",
       "ordinal": 17,
       "original_address": "100058d0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values"
     },
     {
       "name": "SQUALL_Channel_GetPlayPositionMs",
       "ordinal": 18,
       "original_address": "10005a30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values"
     },
     {
       "name": "SQUALL_Channel_GetPriority",
@@ -164,7 +171,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared priority 7 menu music channel"
+      "loaded_DLL_verified_scope": "Prepared priority 7 menu music channel",
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_GetVelocity",
@@ -213,17 +221,19 @@
       "name": "SQUALL_Channel_SetFragment",
       "ordinal": 25,
       "original_address": "10005c30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetFragmentMs",
       "ordinal": 26,
       "original_address": "10005dd0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetFrequency",
@@ -238,9 +248,10 @@
       "name": "SQUALL_Channel_SetLoop",
       "ordinal": 28,
       "original_address": "10006280",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetMinMaxDistance",
@@ -266,23 +277,26 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Three frame positions including near-end loop wrap; full physical buffers compared"
+      "loaded_DLL_verified_scope": "Three frame positions including near-end loop wrap; full physical buffers compared",
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetPlayPositionMs",
       "ordinal": 32,
       "original_address": "10005970",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetPriority",
       "ordinal": 33,
       "original_address": "10006170",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
     },
     {
       "name": "SQUALL_Channel_SetVelocity",
@@ -834,5 +848,9 @@
   "group_operation_reports": [
     "analysis/squall-groups-validation.json",
     "analysis/squall-groups-fresh-validation.json"
+  ],
+  "channel_range_reports": [
+    "analysis/squall-channel-ranges-validation.json",
+    "analysis/squall-channel-ranges-fresh-validation.json"
   ]
 }

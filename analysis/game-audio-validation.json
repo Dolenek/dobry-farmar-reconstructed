@@ -1,17 +1,17 @@
 {
   "status": "passed_for_integrated_game_audio_and_menu_control_scope",
-  "recorded_at_utc": "2026-10-27T21:53:57.048694+00:00",
+  "recorded_at_utc": "2026-10-29T13:09:20.206899+00:00",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "rebuilt_sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab",
-  "oracle_sha256": "455bb79d1b344089d2674b4178677027e00535521245c1af625dda90a567b2a5",
+  "rebuilt_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "oracle_sha256": "c707ec2e42c214f99427ba3abe47aba1cbc1d39d44945b93dc7bca6a1e949174",
   "precision_contexts": [
     {
       "state_comparisons": 189,
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 39724,
-      "native_position_progress": 56041,
+      "source_position_progress": 19881,
+      "native_position_progress": 19880,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -22,8 +22,8 @@
       "production_imports": 15,
       "cursor_progress_checks": 18,
       "paused_cursor_checks": 8,
-      "source_position_progress": 56008,
-      "native_position_progress": 37928,
+      "source_position_progress": 19440,
+      "native_position_progress": 20762,
       "playback_tested": true,
       "silent_playback": true,
       "audible_output_verified": false,
@@ -744,11 +744,11 @@
     },
     {
       "path": "src/game/ui/FarmField.cpp",
-      "sha256": "b325fa92669dfc7d32ce7e6e50d1c2e7f0c9ee686d77c0f461a37f4b30d3fcc6"
+      "sha256": "f37fe0e8bcaab17eb1e09fadc0418fbec5f023889cafc4c420542f5075b616ab"
     },
     {
       "path": "src/game/ui/FarmField.h",
-      "sha256": "a79052dfb52b937cc7af4de11ce25a819c67074d4c45dc46d24743a24add8478"
+      "sha256": "83c0ec2d7aace3fd20bf4a7a34e20a28fbe36aafc7860b47d4a2168f6b2adc64"
     },
     {
       "path": "src/game/ui/FarmFieldActions.cpp",
@@ -1264,7 +1264,7 @@
     },
     {
       "path": "src/squall/runtime/SoundEngine/Channels.cpp",
-      "sha256": "9ede448e6c727499c5f5b94d91e78388bbe169e8f37afd9495df3838ea1892db"
+      "sha256": "4755cc7a8d9e4c0d14b9c6f9bf5efd3246f77e198f2c09b95f2f3f28416f6fc3"
     },
     {
       "path": "src/squall/runtime/SoundEngine/Channels.h",
@@ -1611,12 +1611,16 @@
       "sha256": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da"
     },
     {
+      "path": "tools/cmake/Nsis228.cmake",
+      "sha256": "d59b0f3d5f035d95bba1ab6b5512c464b31120ed7adc9f8de1ef28e6cc9d8d72"
+    },
+    {
       "path": "tools/cmake/OriginalCodecs.cmake",
       "sha256": "5cb87a3ee7b157e1b6c80cc71c1b8725d43adc1e666094a1e11d4f40df2a5420"
     },
     {
       "path": "tools/cmake/SquallCandidate.cmake",
-      "sha256": "68268578eae6ffe8b8d4011168050c0e263191b6262b9f9c6fc7e626ab39623e"
+      "sha256": "6cac149eb215b395a89df15ce9d77331041c2c9889c7cdd4115b922ce2d17ff7"
     },
     {
       "path": "tools/game_audio_reference_test.cpp",

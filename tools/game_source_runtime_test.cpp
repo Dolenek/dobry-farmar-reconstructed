@@ -51,7 +51,12 @@ int wmain(int argc,wchar_t** argv) {
     if(argc!=3 && argc!=4) return 2;
     try {
         RuntimeModule runtimeModule; // outlives the resource cache's COM objects
-        const auto common=std::filesystem::absolute(argv[2])/std::to_string(GetCurrentProcessId());std::filesystem::create_directories(common);
+        const auto commonRoot=std::filesystem::absolute(argv[2]);std::filesystem::create_directories(commonRoot);
+        std::filesystem::path common;
+        for(unsigned attempt=0;;++attempt){
+            common=commonRoot/(std::to_string(GetCurrentProcessId())+"-"+std::to_string(attempt));
+            if(std::filesystem::create_directory(common))break;
+        }
         FileIndex files(ansi(argv[1]),String("pack"));files.mountCommon(String(common.generic_string()));
         ResourceManager resources(files);Settings settings(files,[&](const String& name){return resources.loadSettingsXML(name);});
         settings.set(String("graphics"),String("fullscreen"),false);settings.set(String("game"),String("profiles"),String("GameWorldProfiles"));
@@ -105,8 +110,16 @@ int wmain(int argc,wchar_t** argv) {
         std::cerr<<"construct first cGame\n";constructGame();auto& game=*Game::instance();
         require(game.farm().graph.fields.size()==60,"actual Game must own sixty fields");require(GameAwardManager::instance(),"actual award manager missing");
         for(unsigned i=0;i<12;++i) frame();
-        game.farm().restoreSeed(2,7,{123,245},0,true);game.hud().notify(WString(L"Whole world save/load probe"),false);game.sales().record(17,5);
-        frame();require(game.tutorial().activeStep(20),"actual seed did not start tutorial20");
+        auto* diagnosticSeed=game.farm().restoreSeed(2,7,{123,245},0,true);game.hud().notify(WString(L"Whole world save/load probe"),false);game.sales().record(17,5);
+        // Native frame dispatch skips both step passes while a UI transition
+        // is registered. Finish those transitions before requiring a seed step;
+        // the previous single-frame assertion could inspect a skipped pass.
+        settle();frame();
+        if(!game.tutorial().activeStep(20)){
+            const auto& s=diagnosticSeed->state();const auto& f=game.farm().state();
+            std::cerr<<"seed tutorial diagnostic: step="<<game.tutorial().currentStep<<" seedStatus="<<diagnosticSeed->status()<<" seedShown="<<s.shown<<'/'<<s.parentShown<<" seedEnabled="<<s.enabled<<'/'<<s.parentEnabled<<" registered="<<views.enabled().count(diagnosticSeed)<<" farmShown="<<f.shown<<'/'<<f.parentShown<<" farmMovement="<<game.farm().movement<<" transitions="<<views.transitions().size()<<" held="<<game.person().heldType()<<" tip20="<<game.tutorial().isProcessed(20)<<'\n';
+        }
+        require(game.tutorial().activeStep(20),"actual seed did not start tutorial20");
         click(*DigBuilding::instance());for(unsigned i=0;i<1000 && !game.tutorial().isProcessed(20);++i) frame();
         require(game.person().heldType()==2 && game.tutorial().isProcessed(20),"actual tool pickup did not complete tutorial20");
         if(game.tutorial().activeStep(21)) {

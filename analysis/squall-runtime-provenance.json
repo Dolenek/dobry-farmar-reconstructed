@@ -380,5 +380,15 @@
       "10037dd0: generic stage"
     ]
   },
-  "verified_sample_scope": "All 45 game files are Vorbis (native vtable RVA 482a0); complete mono/stereo PCM matches in PC53 and PC24. This does not verify other decoder families or full DLL behavior."
+  "verified_sample_scope": "All 45 game files are Vorbis (native vtable RVA 482a0); complete mono/stereo PCM matches in PC53 and PC24. This does not verify other decoder families or full DLL behavior.",
+  "instruction_backed_patches": [
+    {
+      "path": "SoundEngine/Channels.cpp",
+      "method": "SSample::GetPlayPosition",
+      "original_address": "10002180",
+      "instruction_evidence": "push ecx reserves the cursor local initialized to this; PLAY and PAUSE overwrite it, other states retain pointer bits",
+      "source_difference": "Public1.48 declares an uninitialized DWORD; reconstruction now explicitly seeds the channel address",
+      "current_sha256": "4755cc7a8d9e4c0d14b9c6f9bf5efd3246f77e198f2c09b95f2f3f28416f6fc3"
+    }
+  ]
 }

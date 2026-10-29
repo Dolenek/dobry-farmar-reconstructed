@@ -107,7 +107,9 @@
     "reference_files_unchanged": 17,
     "original_wstring_comparisons": 20000,
     "resource_index_fixtures": 8,
-    "resource_write_checks": 12
+    "resource_write_checks": 12,
+    "ctest_current_checks_covered_across_full_and_retry": 102,
+    "ctest_focused_retry_repetitions": 3
   },
   "images": {
     "decoded": 416,
@@ -242,7 +244,13 @@
     "analysis/runtime-shortcut-gui-validation.json",
     "analysis/game-input-validation.json",
     "analysis/game-input-runtime-validation.json",
-    "analysis/game-awards-runtime-validation.json"
+    "analysis/game-awards-runtime-validation.json",
+    "analysis/squall-channel-ranges-validation.json",
+    "analysis/squall-channel-ranges-fresh-validation.json",
+    "analysis/squall-groups-validation.json",
+    "analysis/squall-groups-fresh-validation.json",
+    "analysis/squall-position-regression.json",
+    "analysis/squall-position-game-interop-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108160,5 +108168,10 @@
     ]
   },
   "main_game_source_build_available": true,
-  "full_game_build_available_scope": "All required behavior verified, including every Squall export and remaining full-game systems; still incomplete"
+  "full_game_build_available_scope": "All required behavior verified, including every Squall export and remaining full-game systems; still incomplete",
+  "latest_scoped_regression": {
+    "report": "analysis/squall-position-regression.json",
+    "recorded_at_utc": "2026-10-29T16:36:07.858206+00:00",
+    "whole_game_complete": false
+  }
 }

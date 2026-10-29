@@ -110,3 +110,27 @@ cmake --build build/squall-source-repro-vs20261010 --config Release --target squ
 python tools/validate_squall_groups.py --candidate build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll --oracle build/squall-source-repro-vs20261010/Release/squall-groups-reference-test.exe --output .local/squall-groups-fresh-validation.json
 python tools/record_squall_group_verification.py
 ```
+
+
+## Původní adresně závislá pozice a další veřejné kanálové operace
+
+Nový audit našel další konkrétní rozdíl oproti veřejné1.48: v `SSample::GetPlayPosition` má převzatý zdroj neinicializované DWORD, ale skutečný10002180 rezervuje lokální slot instrukcí `push ecx`. PLAY jej přepíše skutečným DirectSound kurzorem a PAUSE použije PausePtr; v ostatních stavech zůstávají bity adresy kanálu. Produkční `Channels.cpp` nyní tento původní jev vyjadřuje explicitně jako32bitovou adresu `this`. Nevrací odhadnutou nulu a nespoléhá na náhodnou optimalizaci moderního kompilátoru. Nezávisle alokované kanály proto přirozeně nemají totožnou raw připravenou pozici.
+
+`squall-channel-ranges-reference-test` porovnává metody obou skutečně načtených DLL nad kopií skutečného300bajtového kanálu **na stejné adrese**. Používá skutečný zapůjčený DirectSound buffer a timestamp-ověřenou linker mapu zdroje; originální privátní adresa je pouze diagnostický oracle. V PC53/PC24 prošlo480 případů pro stavy0..7, double buffering0/1, tři PausePtr a pět logických kurzorů. Návrat i výsledné32bitové slovo se porovnávají přesně; nejde o normalizaci dvou různých heap adres ani o náhradu COM implementace.
+
+Další veřejná část skutečně zkouší frame/ms fragmenty, prohozené meze, clamping, neplatné a stejné hranice, úplné pole návratů a výstupů. Ve dvou přesnostech prošlo1276 pointer případů: samostatné i aliasované výstupy, null, neplatná adresa, read-only stránka a přechod do nečitelné stránky; celé guard pole zůstává shodné. Před přesným seek porovnáním se skutečné buffery spustí a pozastaví, kurzor se obnoví přes původní setter. Smyčky se ověřují pro−1/0/1/2/3/255/256/INT_MAX a priority i pro65536/INT_MAX a záporné chyby; původní priorita nemá horní limit65535 uváděný v komentáři veřejného zdroje. Čtyři neplatné ChannelID mají vlastní návraty a výstupní guardy.
+
+Celkem každý ze dvou samostatných buildů prošel2542 porovnáními výsledků v PC53/PC24:1582 výsledků veřejného API a960 návratů/hodnot přímého same-address replay. Počty zahrnují48 fragment setter případů a28 frame/ms seek případů. Původní první probe porovnával připravené GetPlayPosition přes různé adresy a ukázal rozdíl; nynější ověření odděluje původní adresní sémantiku od skutečných pozastavených pozic.
+
+Hraniční seeky jsou rozdělené: po přesně zaznamenané předchozí posloupnosti se frame pozice za koncem a záporná milisekundová pozice v osmi samostatných pokusech nevrátily do čtyř sekund, shodně source/native v PC53/PC24. Každý přímý testovací proces ohraničí a ukončí `subprocess` timeout. Toto není důkaz nevracení pro každý vstup či každou historii: samostatný první seek za konec bez stejné předchozí posloupnosti se v průzkumu vrátil. Produkční chování se nepřepisuje vlastním odmítáním nebo clampem; širší malformed/overflow/liveness rozsah zůstává neověřený.
+
+Metadata jsou `analysis/squall-channel-ranges-validation.json` a `analysis/squall-channel-ranges-fresh-validation.json`; jejich pracovní logy mají hashe i označení source/native setteru. Opravený hlavní kandidát má SHAb28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7. Druhý build má SHAe121f93c309f9f8c747f99919c198cbb6e00d7fc17408679df34a95b71d7567a. Regrese PCM, skutečných bufferů, skupin, Loading/menu/Options a PersonSounds už prošly v obou sestaveních; úplné Win32 sestavení také. Navazující celé herní EXE znovu prošly čtyřmi přesnými2650bajtovými save přenosy. Úplná regrese skončila101/102 za521.94s: izolovaný recovered-game-source-world očekával tutorial20 po jediném snímku. Následný diagnostický běh obou přesností prošel; přesný spouštěč původního selhání nebyl zachycen. Driver nyní před tímto očekáváním používá existující skutečnou settle bránu, protože native frame dispatcher vynechává step průchody během UI přechodu; při dalším selhání vypíše stav sáčku/farmy/registry/tutoriálu. Každý běh také atomicky rezervuje novou složku, aby PID reuse nemohl znovu otevřít starý profil. Takto upravený samotný test prošel třikrát po sobě (PC53/PC24) za26.87s. Nejde o jediný nový102/102 běh; původní failed JUnit a tři focused výsledky eviduje `analysis/squall-position-regression.json`. Produkční herní logika se kvůli tomuto testu neměnila; celý projekt zůstává rozpracovaný.
+
+```powershell
+cmake --build build/windows --config Release --target squall-channel-ranges-reference-test --parallel 4
+python tools/validate_squall_channel_ranges.py
+cmake --build build/squall-source-repro-vs20261010 --config Release --target squall-channel-ranges-reference-test --parallel 4
+python tools/validate_squall_channel_ranges.py --candidate build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll --oracle build/squall-source-repro-vs20261010/Release/squall-channel-ranges-reference-test.exe --output .local/squall-channel-ranges-fresh-validation.json
+```
+
+Zbývají prostorové/listener operace, callbacks a souběh, ostatní dekodéry/zařízení, úplné podpisy/chování97 exportů i další herní systémy. Tento audit není úplnou náhradou veřejné verze ani dokončením rekonstrukce.

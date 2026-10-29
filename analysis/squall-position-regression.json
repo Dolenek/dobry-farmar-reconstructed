@@ -1,0 +1,63 @@
+{
+  "status": "passed_for_pointer_position_fix_and_recorded_regression_scope",
+  "recorded_at_utc": "2026-10-29T16:36:07.858206+00:00",
+  "recorder_sha256": "0eaa77298e3b26d781cb37854d77cd0e4fed18d223a6c9b1946fab2a5c8abd64",
+  "main_dll_sha256": "b28e7e071a51fece6dd726314ea1a0bde4a3e5bee0e7e16fc61a4298034e9fd7",
+  "fresh_dll_sha256": "e121f93c309f9f8c747f99919c198cbb6e00d7fc17408679df34a95b71d7567a",
+  "fresh_build_comparison": {
+    "bytes": 400384,
+    "only_normalized_byte_ranges": [
+      [
+        288,
+        292
+      ],
+      [
+        283716,
+        283720
+      ]
+    ],
+    "normalized_sha256": "219e555d79880b0ae397345b61badfac9ffb23c65da840c8121f8b264df37a7c",
+    "files_modified": false
+  },
+  "reports": {
+    "squall-channel-ranges-validation.json": "14a5ca88251749775dc27fc4d97aa3d415a775e86f1a068755ab52da88bc6f51",
+    "squall-channel-ranges-fresh-validation.json": "67f8811728cfc8d5170688fa5ed9babebcbd1b0ee81d7febdcb990f8556fba26",
+    "squall-dll-validation.json": "52b2a3aeb5a7a46fe98f72727ff5e7ce90fff8db19d69154a1380ea49b5cd812",
+    "squall-dll-fresh-validation.json": "593433c7d8ed07639a2a608c438d9f64c1c902056ae9112b2e02da46be7d4e9f",
+    "squall-groups-validation.json": "665d7d11f5ad42d80a1f8efef7c8ef905a3afeae117d79d6e23537afdcae011b",
+    "squall-groups-fresh-validation.json": "9aebb0c7d05ec1bb6f047737980ccecca2fedf463562a13a0b55d39a0238c136",
+    "game-audio-validation.json": "43693ca3ec327ce81859d377d42637fc5252fe89baef6f2d5f80ce3c6f417759",
+    "game-audio-fresh-validation.json": "7d83cc251dfd0827c74c34fd5aa77055a3139c329b4de02f4b5b3d6af8980fb3",
+    "person-sounds-validation.json": "2ca4a4a690ea6ac569183e0422c317bdb392a4f8680c17a568f628b977978984",
+    "person-sounds-fresh-validation.json": "653d479b08fbbd906b6c16082dac391ffeb491072a115347c4d9db77a0a62c6f"
+  },
+  "game_interop_report_sha256": "610c4b07d90bc65efc9bc68463ba4eee80c734abda88a2405688dff9c314a052",
+  "ctest": {
+    "current_checks_covered": 102,
+    "full_run_passed": 101,
+    "full_run_failed": 1,
+    "full_run_failed_names": [
+      "recovered-game-source-world"
+    ],
+    "focused_retry": {
+      "name": "recovered-game-source-world",
+      "repetitions": 3,
+      "junit_sha256": "9b6c615447d848754dcff75e4774b596f7d2581942818b62411ba1ce1751a53c",
+      "log_sha256": "36cdbdbea66ef9a7c40b1e4c94a02100f43c48ed19b41f4dcc10af1afd95c00d",
+      "source_world_report_sha256": "c08d41047f7a8c045e5f7ede497addee1c3ef423b5b76590d761b780fc56dab1",
+      "single_fresh_all_passed_run": false
+    },
+    "junit_sha256": "1ad9225d5d68edca136b1d94bd68a65b10d954d9302f2144b99404aaac4f611b",
+    "seconds": 521.7687162
+  },
+  "build_logs": {
+    "squall-position-full-build.log": "9c3c1280654387ddaf11694c8a82bd16dbdad4ad99cdb5de87142a48c3905a49",
+    "squall-position-audio-build.log": "68a4110f753738c8764f7b587efb41c2cf925f186dff597938c230edfcd13c53",
+    "squall-channel-ranges-fresh-build.log": "d0abd99c39674cf32d5679a3c708ccb963a79baf7915d2c52a4cc5deae2691bd"
+  },
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Other3D/listener/callback/decoder/device export behavior and all remaining full-game scopes"
+  ]
+}
