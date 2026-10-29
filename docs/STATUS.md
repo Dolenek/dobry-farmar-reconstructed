@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Placený kravín a skutečná výroba](MANUFACTURE.md) nově prošly v obou EXE: dvě zalité/sklizené trávy, nákup150 a dva skutečné12s výrobní cykly. Celé3730bajtové saves i57200 tutorial RGB pixelů jsou přesné. První obnova živé budovy odhalila nulový Warehouse receiver; služba nyní podle00467fa0 čte zásobu přímo z profilu. Čtyři následné obousměrné přenosy prošly se všemi3730 bajty přesnými; přirozená expirace dopisu a cenová událost900 jsou doložené zvlášť. Aktuální úplná regrese102/102 prošla za479,31s (`analysis/live-production-regression.json`). Pokračují další typy výroby i celý původní cíl.
+
 [Tři skutečné okurkové sklizně](SEED_RUNTIME.md) nově přinesly Money64→104→144→184 a přesně doložené zastavení/odblokování peněžní brány140. Obě EXE prošly27 pracovními kontrolami. Konečná cenová událost810 je v nezávislých časových řezech výslovně odlišná; neskrývá se jako shodná diskrétní hodnota. [Listener callback Squall](SQUALL.md) má v obou sestaveních152 nových porovnání a skutečné userdata/callback/clear kontroly. Placená stavba a výroba pokračují.
 
 [Výchozí parametry vzorků Squall](SQUALL.md) mají obnovené dvě původní NaN normalizace vzdáleností. Obě sestavení prošla po8710 API porovnáních, skutečným PCM/DirectSound, game-audio a PersonSounds. Poslední celý102/102 běh pro8599644 je před touto novou úpravou DLL; nová zvuková etapa jej nevydává za opakovaný plný běh.

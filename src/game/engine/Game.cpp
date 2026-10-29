@@ -134,7 +134,11 @@ struct Game::World final:GameMenuWorld,TutorialWorld,WarehouseWorld,MarketWorld,
     void refreshMarketStocks() override {trade->refresh();}void refreshWarehouseTip() override {stockTip->refresh();}
     void productExpense(unsigned index) override {effects.productExpense(index);}void recordSale(unsigned amount,float time) override {sales.record(amount,time);}
     BuyBuilding& purchasePanel() override {return *buyBuilding;}
-    unsigned warehouseGoods(unsigned index) override {return Warehouse::instance()->goods(index);}
+    unsigned warehouseGoods(unsigned index) override {
+        // 00467fa0 reads the profile directly. Manufacture restores its houses
+        // before the Warehouse singleton is constructed (00413210).
+        return index<19 ? profile.uints["WGoodCount"+std::to_string(index)]:0;
+    }
     void giveWarehouse(unsigned kind,unsigned count,bool refresh,bool preview) override {Warehouse::instance()->give(kind,count,refresh,preview);}
     void takeWarehouse(unsigned kind,unsigned count,bool refresh,bool preview) override {Warehouse::instance()->take(kind,count,refresh,preview);}
     void chooseSeed(unsigned kind) override {fields->createSeed(kind);}

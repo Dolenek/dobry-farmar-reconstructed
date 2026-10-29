@@ -23,7 +23,9 @@
       "analysis/manufacture-tutorial-state-validation.json",
       "analysis/cucumber-sowing-state-validation.json",
       "analysis/cucumber-interop-validation.json",
-      "analysis/cucumber-harvest-state-validation.json"
+      "analysis/cucumber-harvest-state-validation.json",
+      "analysis/paid-production-state-validation.json",
+      "analysis/production-interop-validation.json"
     ]
   },
   "build": {
@@ -117,11 +119,10 @@
     "resource_write_checks": 12,
     "ctest_current_checks_covered_across_full_and_retry": 102,
     "ctest_focused_retry_repetitions": 0,
-    "last_full_ctest_report": "analysis/focused-view-upgrade-full-regression.json",
-    "last_full_ctest_implementation_commit": "859964481a420daa3bce285136c6d0446e728aa5",
+    "last_full_ctest_report": "analysis/live-production-regression.json",
     "full_ctest_repeated_for_latest_vector_fix": false,
     "full_ctest_repeated_for_latest_game_alias_fix": true,
-    "full_ctest_repeated_for_latest_sample_fix": false
+    "full_ctest_repeated_for_latest_sample_fix": true
   },
   "images": {
     "decoded": 416,
@@ -304,7 +305,11 @@
     "analysis/cucumber-interop-validation.json",
     "analysis/squall-listener-worker-validation.json",
     "analysis/squall-listener-worker-fresh-validation.json",
-    "analysis/cucumber-harvest-state-validation.json"
+    "analysis/cucumber-harvest-state-validation.json",
+    "analysis/paid-production-state-validation.json",
+    "analysis/production-interop-validation.json",
+    "analysis/production-restore-crash.json",
+    "analysis/live-production-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108224,8 +108229,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-sample-regression.json",
-    "recorded_at_utc": "2026-10-29T20:49:26.544287+00:00",
+    "report": "analysis/live-production-regression.json",
+    "recorded_at_utc": "2026-10-29T21:25:28.607796+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

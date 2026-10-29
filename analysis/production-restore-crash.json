@@ -1,0 +1,375 @@
+{
+  "status": "source_live_house_restore_crash_reproduced_then_repaired",
+  "initial_runtime_report_sha256": "fc7a25c6bbdf2c8df0a5fd300c3b0e1f74a6fc05f049f438a06ae76f1348e9b5",
+  "diagnostic_runtime_report_sha256": "4e6f863951cb27199b33757c4146ead751d13a4e1959395c72fa406620a533e5",
+  "failed_implementation_files": {
+    "FarmarSourceInterop.exe": "a6cdee3d9b882626cee5959ff39b0b3c591706021dd0ac650247aef911c1bfbc",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "99f7b608031aea175c7b80cfbc3a87123310f060f15fa830464a3b4607ee0fb8"
+  },
+  "trace_sha256": "087c7305173309c31ea266477276c50db29e5d9c8a8fa6cf22099fadaa545636",
+  "trace": [
+    {
+      "event": "ready",
+      "pid": 37720,
+      "game_memory_written": false
+    },
+    {
+      "event": "access_violation",
+      "first_chance": 1,
+      "eip": 8742151,
+      "ecx": 0,
+      "eax": 7925528,
+      "edx": 0,
+      "esp": 7925476,
+      "ebp": 7925540,
+      "access_kind": 0,
+      "access_address": 1524,
+      "stack_words": [
+        3738062133,
+        340064944,
+        0,
+        340251536,
+        340067704,
+        0,
+        340251536,
+        1047429120,
+        1064632320,
+        1048510464,
+        1065336832,
+        1007786393,
+        3738062133,
+        7925656,
+        9244126,
+        4294967295,
+        7925668,
+        8727591,
+        0,
+        3738062261,
+        339193008,
+        339192748,
+        0,
+        0,
+        1073741824,
+        0,
+        1079574528,
+        0,
+        0,
+        0,
+        8739600,
+        0,
+        3145848,
+        8716288,
+        7925672,
+        8725513,
+        2,
+        7,
+        1685025360,
+        1853189955,
+        12404,
+        0,
+        10,
+        15,
+        3738062261,
+        7925768,
+        9242765,
+        0,
+        7925780,
+        8726693,
+        0,
+        3738063365,
+        339193008,
+        9462848,
+        2,
+        2684354560,
+        1075882666,
+        0,
+        0,
+        0,
+        1079574528,
+        0,
+        1076363264,
+        0,
+        0,
+        0,
+        7926312,
+        8583641,
+        340108512,
+        8507842,
+        2,
+        9291824,
+        3738063365,
+        7925884,
+        9242685,
+        4294967295,
+        7925896,
+        8634495,
+        3738063513,
+        339192304
+      ],
+      "frames": [
+        {
+          "address": 8742151
+        },
+        {
+          "address": 8742151
+        },
+        {
+          "address": 8727591
+        },
+        {
+          "address": 8726693
+        },
+        {
+          "address": 8634495
+        },
+        {
+          "address": 8723669
+        },
+        {
+          "address": 8713918
+        },
+        {
+          "address": 8732653
+        },
+        {
+          "address": 8731178
+        },
+        {
+          "address": 8522376
+        },
+        {
+          "address": 8514706
+        },
+        {
+          "address": 8477537
+        },
+        {
+          "address": 8774866
+        },
+        {
+          "address": 8492749
+        },
+        {
+          "address": 8477805
+        },
+        {
+          "address": 9050838
+        },
+        {
+          "address": 8479352
+        },
+        {
+          "address": 8460546
+        },
+        {
+          "address": 9215238
+        },
+        {
+          "address": 1977441609,
+          "symbol": "BaseThreadInitThunk",
+          "displacement": 25
+        },
+        {
+          "address": 2004600667,
+          "symbol": "RtlInitializeExceptionChain",
+          "displacement": 107
+        },
+        {
+          "address": 2004600545,
+          "symbol": "RtlGetAppContainerNamedObjectPath",
+          "displacement": 561
+        }
+      ]
+    },
+    {
+      "event": "access_violation",
+      "first_chance": 0,
+      "eip": 8742151,
+      "ecx": 0,
+      "eax": 7925528,
+      "edx": 0,
+      "esp": 7925476,
+      "ebp": 7925540,
+      "access_kind": 0,
+      "access_address": 1524,
+      "stack_words": [
+        3738062133,
+        340064944,
+        0,
+        340251536,
+        340067704,
+        0,
+        340251536,
+        1047429120,
+        1064632320,
+        1048510464,
+        1065336832,
+        1007786393,
+        3738062133,
+        7925656,
+        9244126,
+        4294967295,
+        7925668,
+        8727591,
+        0,
+        3738062261,
+        339193008,
+        339192748,
+        0,
+        0,
+        1073741824,
+        0,
+        1079574528,
+        0,
+        0,
+        0,
+        8739600,
+        0,
+        3145848,
+        8716288,
+        7925672,
+        8725513,
+        2,
+        7,
+        1685025360,
+        1853189955,
+        12404,
+        0,
+        10,
+        15,
+        3738062261,
+        7925768,
+        9242765,
+        0,
+        7925780,
+        8726693,
+        0,
+        3738063365,
+        339193008,
+        9462848,
+        2,
+        2684354560,
+        1075882666,
+        0,
+        0,
+        0,
+        1079574528,
+        0,
+        1076363264,
+        0,
+        0,
+        0,
+        7926312,
+        8583641,
+        340108512,
+        8507842,
+        2,
+        9291824,
+        3738063365,
+        7925884,
+        9242685,
+        4294967295,
+        7925896,
+        8634495,
+        3738063513,
+        339192304
+      ],
+      "frames": [
+        {
+          "address": 8742151
+        },
+        {
+          "address": 8742151
+        },
+        {
+          "address": 8727591
+        },
+        {
+          "address": 8726693
+        },
+        {
+          "address": 8634495
+        },
+        {
+          "address": 8723669
+        },
+        {
+          "address": 8713918
+        },
+        {
+          "address": 8732653
+        },
+        {
+          "address": 8731178
+        },
+        {
+          "address": 8522376
+        },
+        {
+          "address": 8514706
+        },
+        {
+          "address": 8477537
+        },
+        {
+          "address": 8774866
+        },
+        {
+          "address": 8492749
+        },
+        {
+          "address": 8477805
+        },
+        {
+          "address": 9050838
+        },
+        {
+          "address": 8479352
+        },
+        {
+          "address": 8460546
+        },
+        {
+          "address": 9215238
+        },
+        {
+          "address": 1977441609,
+          "symbol": "BaseThreadInitThunk",
+          "displacement": 25
+        },
+        {
+          "address": 2004600667,
+          "symbol": "RtlInitializeExceptionChain",
+          "displacement": 107
+        },
+        {
+          "address": 2004600545,
+          "symbol": "RtlGetAppContainerNamedObjectPath",
+          "displacement": 561
+        }
+      ]
+    },
+    {
+      "event": "exit",
+      "exit_code": 3221225477
+    }
+  ],
+  "resolution": {
+    "original_constructor": "00413210 restores Manufacture houses before Warehouse",
+    "original_goods": "00467fa0 indexes UInt WGoodCount directly in profile map0065ff44; no Warehouse receiver",
+    "observed_source_chain": [
+      "Warehouse::goods(null)",
+      "ProductionBuilding::setProductionCount",
+      "ProductionBuilding::refresh",
+      "Upgrade::setLevel",
+      "ProductionBuilding::loadXML",
+      "Manufacture::Manufacture",
+      "Game::World::construct"
+    ],
+    "instruction_evidence_sha256": "e89ceef733180741012557021dc6627744aac7d848b9b759f1d97f74b81e659a",
+    "change": "World::warehouseGoods reads bounded profile WGoodCount directly; original construction order retained",
+    "debuggee_memory_written": false
+  },
+  "whole_game_complete": false
+}
