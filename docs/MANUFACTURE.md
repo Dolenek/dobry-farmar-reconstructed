@@ -1,5 +1,13 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Rozpracovaná výroba přes save/load obou programů
+
+`validate_game_inflight_production.py` skutečným původním cheatproduct naplní malý sklad, vloží dvě trávy do zakoupeného kravína a při10..50% skutečným Alt+Pause zastaví Logic. Dvě nezávislá čtení potvrzují zamrzlý stav; normální WM_CLOSE uloží ProdCount0=2, nenulové ProdPct0, milk2 a awQProcess2. Nezapisují se testovací hodnoty do profilu ani paměti. `validate_inflight_production_state.py` ověřuje oba skutečné fixtures: diskrétní hodnoty jsou stejné a všech3730 binárních save bajtů je přesných. Rozdílná procenta nezávislých procesů se nepovažují za stejné float bity.
+
+`validate_game_inflight_interop.py` projde čtyři celé přenosy native0→source2→native4→source5 a source1→native3. Dva naložené vstupy zůstávají zachované, průběh zůstává nenulový a při skutečně odpracovaných snímcích roste; všechny čtyři3730bajtové saves jsou přesné. Varianta `--complete` ve dvou dalších procesech skutečně dokončí oba výrobky z profilu opačného programu: ProdCount2→0, milk2→4, awQProcess2→4, ProdPct→0. I oba celé binární saves jsou přesné. Vlastní tři source procesy současně prošly exception debuggerem bez AV.
+
+Během čekání také přirozeně dozraje již zalitá tráva24; původní FFS0→1, FFP→0 a awGrowType|1 se ověřují zvlášť. První průchod skutečně dokončil obě hry, ale původní auditor tento souběžný přechod nečekal; jeho failed záznam zůstává v `analysis/inflight-completion-initial-probe.json`. Po opravě očekávání se opakovaly všechny čtyři přenosy i obě dokončení. Souhrn: `analysis/inflight-production-regression.json`; tři dílčí reports mají příponu `inflight-*-validation.json`. Plný sklad s blokovaným výstupem, vyšší úrovně a současné výrobny pokračují.
+
 ## Všech jedenáct skutečných receptů v celých EXE
 
 `tools/validate_game_factory_catalog.py --kinds ...` ověřil tři dvojice celých procesů pro skupiny0..3,4..7,8..10. Navazuje na skutečně vyrobené mléko. Původní textové příkazy cheatupgrades, deset cheatmoney a cheatproduct projdou WM_CHAR → InputDevices → GameInput; neprovádí se zápis do herní paměti či vkládání profilových hodnot. Obě hry skutečně koupí všechny tři úrovně skladu (150+400+550), potvrdí obě přirozená peněžní ocenění a pro každý typ koupí budovu, vloží jeden kus vstupu skutečným AddDepotButton, při1x rychlosti vyrobí jeden kus a budovu zbourají. Typy pokrývají ovčín, kurník, kravín, vepřín, sýrárnu, smetanu, přízi, líheň, textilku, pekárnu a mlýn. XML časy jednotlivých receptů se přímo porovnávají s měřeným herním časem.

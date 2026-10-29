@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+Aktuální návaznost je v [docs/STATUS.md](docs/STATUS.md). Nově prošlo všech11 skutečných výrobních receptů, placené rozšíření skladu/nářadí, přirozené ocenění za kompletní nářadí a rozpracovaná výroba přes oba programy. Poslední úplná regrese má102/102 kontrol; další práce na úplné shodě hry,97 exportech Squallu a ostatních výslovně evidovaných hranicích pokračuje. Projekt se nevydává za dokončený.
+
 [Pozice a další kanálové exporty Squall](docs/SQUALL.md) mají obnovenou původní adresně závislou větev a2542 přesných porovnání v obou přesnostech, zopakovaných ve druhém sestavení. Nová zvuková regrese a čtyři celé2650bajtové save přenosy prošly; úplná sada101/102 a tři focused opakování opraveného testovacího driveru jsou evidované odděleně. Ostatní exporty a celý projekt pokračují.
 
 [Skupiny kanálů Squall](docs/SQUALL.md) mají nové skutečné DLL porovnání840 veřejných výsledků v PC53/PC24, zopakované ve druhém sestavení. Příprava/přehrávání/pauza, skupinová hlasitost/frekvence a ukončení workerů prošly. Ostatní rozsahy97 exportů a celý projekt pokračují.

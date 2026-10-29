@@ -29,7 +29,10 @@
       "analysis/factory-catalog-group0-state-validation.json",
       "analysis/factory-catalog-group1-state-validation.json",
       "analysis/factory-catalog-group2-state-validation.json",
-      "analysis/tool-upgrades-state-validation.json"
+      "analysis/tool-upgrades-state-validation.json",
+      "analysis/inflight-production-state-validation.json",
+      "analysis/inflight-interop-validation.json",
+      "analysis/inflight-completion-validation.json"
     ]
   },
   "build": {
@@ -324,7 +327,12 @@
     "analysis/factory-catalog-regression.json",
     "analysis/tool-upgrades-state-validation.json",
     "analysis/tool-upgrades-initial-probe.json",
-    "analysis/tool-upgrades-regression.json"
+    "analysis/tool-upgrades-regression.json",
+    "analysis/inflight-production-state-validation.json",
+    "analysis/inflight-interop-validation.json",
+    "analysis/inflight-completion-validation.json",
+    "analysis/inflight-completion-initial-probe.json",
+    "analysis/inflight-production-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108244,8 +108252,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/tool-upgrades-regression.json",
-    "recorded_at_utc": "2026-10-29T21:44:02.048180+00:00",
+    "report": "analysis/inflight-production-regression.json",
+    "recorded_at_utc": "2026-10-29T21:52:03.092092+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

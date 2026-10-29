@@ -1,0 +1,8 @@
+{
+  "status": "actual_processes_completed_but_auditor_omitted_natural_grass_maturity",
+  "runtime_report_sha256": "9de8555b1be19484c2e0523b94086bbf6cb405a4c170a879a1837eab6c7395dd",
+  "work_directory": ".local/inflight-completion/20261029T214600590375Z",
+  "error": "AssertionError((0, 2, {'FFF14': [('Float', '70.0906'), ('Float', '67.6926')], 'FFF15': [('Float', '69.6048'), ('Float', '67.2299')], 'FFF16': [('Float', '72.6154'), ('Float', '70.2299')], 'FFF34': [('Float', '62.02'), ('Float', '59.6296')], 'FFP24': [('Float', '17.9875'), ('Float', '0')], 'FFP25': [('Float', '22.337'), ('Float', '1.66485')], 'FFW17': [('Float', '13.9673'), ('Float', '9.18387')], 'FFW18': [('Float', '15.2566'), ('Float', '10.5711')], 'FFW23': [('Float', '15.8241'), ('Float', '11.0668')], 'FFW24': [('Float', '83.9306'), ('Float', '73.768')], 'FFW25': [('Float', '84.9622'), ('Float', '74.7665')], 'FFW27': [('Float', '16.5705'), ('Float', '11.8694')], 'GameTime': [('Float', '903.148'), ('Float', '925.844')], 'ProdPct0': [('Float', '13.425'), ('Float', '0')], 'RunTime': [('Float', '1292.65'), ('Float', '1315.38')], 'letTime1': [('Float', '86.4417'), ('Float', '63.7775')], 'awGrowType': [('Int', '10'), ('Int', '11')], 'FFS24': [('UInt', '0'), ('UInt', '1')], 'ProdCount0': [('UInt', '2'), ('UInt', '0')], 'WGoodCount10': [('UInt', '2'), ('UInt', '4')], 'awQProcess': [('UInt', '2'), ('UInt', '4')]}))",
+  "recorded_as_pass": false,
+  "resolution": "Both games naturally complete grass24 while finishing milk; require FFS24=1,FFP24=0 and awGrowType|1 explicitly, then rerun all transfers/completions"
+}

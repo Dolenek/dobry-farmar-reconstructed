@@ -1,0 +1,85 @@
+{
+  "status": "passed_actual_inflight_count_progress_four_transfers_and_two_cross_executable_completions",
+  "recorded_at_utc": "2026-10-29T21:52:03.092092+00:00",
+  "recorder_sha256": "61bd5dc4b15910cc0f4da5769c254a5094d8267f93bd310a3421bd9445fa6cda",
+  "reports": {
+    "inflight-production-state-validation.json": "b69d2c55986e9db5380c8b8dab07df2471d64c26ab7131996621c05b29cde8fe",
+    "inflight-interop-validation.json": "c1e45a221541919e130e5a90d5694d9d2fb45f9a0eda7e204860bd7ce4349de7",
+    "inflight-completion-validation.json": "ad9ebc519074637fc2f2ab492d05295783a45c67c27663d5339f31a52abd4143"
+  },
+  "actual_processes": 8,
+  "partial_progress_transfers": 4,
+  "completion_processes": 2,
+  "complete_save_bytes_per_transfer": 3730,
+  "normalizations": [],
+  "production_units_per_completion": 2,
+  "final_milk": 4,
+  "final_processed": 4,
+  "saved_progress_is_nonzero_and_monotonic_during_actual_frames": true,
+  "progress_claimed_bit_identical_across_independent_clocks": false,
+  "source_exception_traces": {
+    ".local/inflight-interop/20261029T214831404801Z/2-crash-trace.jsonl": {
+      "sha256": "ce2b29a25749434b3c26f911ea76f242e08e7ff16c6a1808c6dc408528d6d27a",
+      "events": [
+        {
+          "event": "image",
+          "base": 9633792
+        },
+        {
+          "event": "ready",
+          "pid": 25104,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    ".local/inflight-interop/20261029T214831404801Z/5-crash-trace.jsonl": {
+      "sha256": "33ffca1fae2b5b1fc3e86016f6b09cc874dcf4d15fb48b5633b45cb8745d8b59",
+      "events": [
+        {
+          "event": "image",
+          "base": 9633792
+        },
+        {
+          "event": "ready",
+          "pid": 14664,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    ".local/inflight-completion/20261029T214917983167Z/2-crash-trace.jsonl": {
+      "sha256": "af844d16dea655a9004946a49de71c65f09fcb4d26e435a160a5a4c90b76e65b",
+      "events": [
+        {
+          "event": "image",
+          "base": 2424832
+        },
+        {
+          "event": "ready",
+          "pid": 7796,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/live-production-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Warehouse-full blocking and resource release; all factory levels and simultaneous buildings",
+    "Remaining whole-game, audio, JNG and uninstaller scopes"
+  ]
+}
