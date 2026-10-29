@@ -1,0 +1,49 @@
+{
+  "status": "passed_for_listener_C3_fix_current_audio_and_four_contract_save_transfers",
+  "recorded_at_utc": "2026-10-29T17:20:03.723491+00:00",
+  "recorder_sha256": "f2f1cc07fa81809c6ffd524e585a215ecc7a5013653088f5878689f5cb5e5579",
+  "support_recorder_sha256": "9a846e102baed6894c4905df714658977eb1f4af46e2154d8573e0d49237da0d",
+  "dll_sha256": [
+    "3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9",
+    "6be1ca09e4e42270fd82e223ba34599c6c8b2455ba2cf17d091895994864b223"
+  ],
+  "reports": {
+    "squall-listener-vectors-validation.json": "e780905501151c90ae1353d857aab7de8ecdacdcaec88279023c8f6f9f2abe1b",
+    "squall-listener-vectors-fresh-validation.json": "9c7a8c116b1318bf3ad04afd8958d40fcb139068aa0dba3bb7d8ed6bb432e737",
+    "squall-vectors-factor-validation.json": "d8b87e63e4072efadd10969b3e3a36fea3a6e9c6f6319479523c5e3f8d6fb303",
+    "squall-vectors-factor-fresh-validation.json": "d39a3a8ac51939f73839dc8987006e94a81fe6e750b10e80b6d5239394a20d9d",
+    "squall-vectors-game-audio-validation.json": "1b7f3d022d05d85dbb3a421030fc8c259a60cf6bc4b797925613b44b79902c7c",
+    "squall-vectors-game-audio-fresh-validation.json": "8ba0da1a10113731d64cb24e439f13b72312995c1e785d6469af98b380a1d2be",
+    "squall-vectors-person-sounds-validation.json": "6ea37993c3566c86e262c287fd93e40c6522003249279eeaaf938a55f0b7f419",
+    "squall-vectors-person-sounds-fresh-validation.json": "6b00430afa25a3fd9825df149ab615eaf9877a7deab8a3881d1bfc08fed7994c"
+  },
+  "game_interop_report_sha256": "bd1c12ca72cdf359bd7b90f86439fba0b86a571a59c56479cc167164e448eaa0",
+  "fresh_build_comparison": {
+    "bytes": 399872,
+    "only_normalized_byte_ranges": [
+      [
+        288,
+        292
+      ],
+      [
+        283204,
+        283208
+      ]
+    ],
+    "normalized_sha256": "2d36fea2e4434251eccf396f01d005ea384a189742fdcfb465ba822a268dbbbc",
+    "files_modified": false
+  },
+  "previous_full_ctest": {
+    "report": "analysis/squall-listener-regression.json",
+    "implementation_commit": "2745060",
+    "passed": 102,
+    "repeated_for_current_vector_fix": false
+  },
+  "build_logs": {
+    "squall-vectors-main-build.log": "85f6040de475d01ff0b292aa6f0290692de63d08d6f1944e02f1b20ebf9e7c21",
+    "squall-vectors-main-audio-build.log": "034af49fc3d5b4f2b77eded792d477b0e5d9777bbb80886a67f43e66cc3fe02d",
+    "squall-vectors-fresh-audio-build.log": "5b02669af018a5fcbfd04b9d5d2c8042379cc99edf2d26369a26b14bc491c72a"
+  },
+  "original_files_unchanged": 17,
+  "whole_game_complete": false
+}

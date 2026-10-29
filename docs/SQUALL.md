@@ -1,5 +1,15 @@
 # Rekonstrukce Squall
 
+## Původní C3 porovnávání vektorů listeneru
+
+Další skutečný DLL test prokázal odchylku i ve změnových podmínkách `10003f80`/`100042d0`/`10004470`. Originál po každém FCOMP čte FNSTSW AX a pouze TEST AH,40h: C3=1 znamená shodnou i neuspořádanou hodnotu. Veřejné C++ `!=` při NaN žádalo další DirectSound update, kde originál ponechal vektor beze změny; konkrétní opakovaná quiet-NaN posloupnost vracela source−8/native1 v PC53 i PC24. Původní failed report a oba potvrzovací logy zachovává `analysis/squall-listener-vectors-before-validation.json`, kandidát je vlastní DLL commitu2745060.
+
+Šest porovnání nyní používá přímé x87 FCOMP původních paměťových slov a test pouze C3. Zachované jsou short-circuit pořadí složek i pořadí Position/Velocity/Front/Top; všechny ostatní zápisy a DirectSound volání zůstávají původní. Win32 MSVC helper nepředává signaling NaN přes mezilehlé float hodnoty. Přenositelná větev vyjadřuje stejnou ordered nerovnost; aktuální DLL je ověřená na MSVC Win32.
+
+`tools/squall_listener_vectors_reference_test.cpp` má samostatný reprodukovatelný projekt `tools/squall_vectors_probe`: `cmake -S tools/squall_vectors_probe -B build/squall-vectors-probe -G "Visual Studio 17 2022" -A Win32`, pak Release build a `python tools/validate_squall_listener_vectors.py`. Dvě produkční sestavení mají po4556 porovnáních v PC53/PC24:1776 celých guarded snapshotů,1680 setter volání a1008 getter pointer případů. Skutečně se zkouší pre-Init, immediate i deferred DirectSound listener a post-Free;11 float trojic včetně opakovaných/signed nul, subnormálů, infinity, quiet/signaling NaN a orientačních bází; všech16 přítomnostních masek čtyř vstupů, nečitelné/read-only/cross-page adresy a úplné i částečné výstupní aliasy. Porovnání ověřuje i cache po odmítnutém COM update; žádný COM mock se nepoužívá. Neověřuje prostorový waveform, všechny float vzory, vnitřní aliasy, FP status/masky ani device loss či závody workerů.
+
+Aktuální DLL hashe jsou3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9 a6be1ca09e4e42270fd82e223ba34599c6c8b2455ba2cf17d091895994864b223. Obě prošly znovu ordered factor, skutečným game-audio a PersonSounds porovnáním. Poslední úplný102/102 CTest je výslovně předchozí commit2745060; pro tuto opravu se neopakoval a nenahrazuje se tvrzením o novém úplném běhu. Aktuální scope a celkové neověřené oblasti jsou v export auditu a `analysis/squall-vectors-regression.json`.
+
 ## Ordered kontrola faktorů listeneru
 
 Původní settery `10004600`, `10004750` a `100048a0` přijímají pouze uspořádané `0 < factor <= 10`. Veřejný zdroj1.48 používal `factor <= 0 || factor > 10`, což propouští NaN. Před inicializací tím vracel−24 místo původního−4; inicializovaný listener mohl být také změněn. Produkční podmínky nyní přesně negují původní přijímaný interval. Nejde o obecné přepsání rozsahu3D API.

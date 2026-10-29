@@ -23,6 +23,34 @@
 #include "../../Parameters.h"
 #include "../../VolumeTable.h"
 
+// Native10003f80/100042d0/10004470 test only x87 C3 after FCOMP.
+// Equal and unordered components both leave the cached vector unchanged.
+// Compare the original memory words directly, including signaling NaNs.
+static bool nativeListenerComponentChanged(const float* input, const float* cached)
+{
+#if defined(_MSC_VER) && defined(_M_IX86)
+    unsigned short status;
+    __asm {
+        mov eax, input
+        fld dword ptr [eax]
+        mov eax, cached
+        fcomp dword ptr [eax]
+        fnstsw ax
+        mov status, ax
+    }
+    return (status & 0x4000) == 0;
+#else
+    return (*input < *cached) || (*input > *cached);
+#endif
+}
+
+static bool nativeListenerVectorChanged(const float* input, const D3DVECTOR* cached)
+{
+    return nativeListenerComponentChanged(input, &cached->x) ||
+        nativeListenerComponentChanged(input + 1, &cached->y) ||
+        nativeListenerComponentChanged(input + 2, &cached->z);
+}
+
 // подключаемые библиотеки
 //#pragma comment(lib, "dxguid")
 //#pragma comment(lib, "dsound")
@@ -1763,9 +1791,7 @@ DLL_API int SQUALL_Listener_SetParameters(float* Position, float* Front,
         // параметр опущен ?
         if (Position) {
             // проверка изменений
-            if ((Position[0] != context->_listenerParameters.vPosition.x) ||
-                (Position[1] != context->_listenerParameters.vPosition.y) ||
-                (Position[2] != context->_listenerParameters.vPosition.z)) {
+            if (nativeListenerVectorChanged(Position, &context->_listenerParameters.vPosition)) {
                 context->_listenerParameters.vPosition.x = Position[0];
                 context->_listenerParameters.vPosition.y = Position[1];
                 context->_listenerParameters.vPosition.z = Position[2];
@@ -1776,9 +1802,7 @@ DLL_API int SQUALL_Listener_SetParameters(float* Position, float* Front,
         // параметр опущен ?
         if (Velocity) {
             // проверка изменений
-            if ((Velocity[0] != context->_listenerParameters.vVelocity.x) ||
-                (Velocity[1] != context->_listenerParameters.vVelocity.y) ||
-                (Velocity[2] != context->_listenerParameters.vVelocity.z)) {
+            if (nativeListenerVectorChanged(Velocity, &context->_listenerParameters.vVelocity)) {
                 context->_listenerParameters.vVelocity.x = Velocity[0];
                 context->_listenerParameters.vVelocity.y = Velocity[1];
                 context->_listenerParameters.vVelocity.z = Velocity[2];
@@ -1789,9 +1813,7 @@ DLL_API int SQUALL_Listener_SetParameters(float* Position, float* Front,
         // параметр опущен ?
         if (Front) {
             // проверка изменений
-            if ((Front[0] != context->_listenerParameters.vOrientFront.x) ||
-                (Front[1] != context->_listenerParameters.vOrientFront.y) ||
-                (Front[2] != context->_listenerParameters.vOrientFront.z)) {
+            if (nativeListenerVectorChanged(Front, &context->_listenerParameters.vOrientFront)) {
                 context->_listenerParameters.vOrientFront.x = Front[0];
                 context->_listenerParameters.vOrientFront.y = Front[1];
                 context->_listenerParameters.vOrientFront.z = Front[2];
@@ -1802,9 +1824,7 @@ DLL_API int SQUALL_Listener_SetParameters(float* Position, float* Front,
         // параметр опущен ?
         if (Top) {
             // проверка изменений
-            if ((Top[0] != context->_listenerParameters.vOrientTop.x) ||
-                (Top[1] != context->_listenerParameters.vOrientTop.y) ||
-                (Top[2] != context->_listenerParameters.vOrientTop.z)) {
+            if (nativeListenerVectorChanged(Top, &context->_listenerParameters.vOrientTop)) {
                 context->_listenerParameters.vOrientTop.x = Top[0];
                 context->_listenerParameters.vOrientTop.y = Top[1];
                 context->_listenerParameters.vOrientTop.z = Top[2];
@@ -2034,9 +2054,7 @@ DLL_API int SQUALL_Listener_SetVelocity(float* Velocity)
     // установка параметров
     if (IsTrue(result)) {
         // проверка изменений
-        if ((Velocity[0] != context->_listenerParameters.vVelocity.x) ||
-            (Velocity[1] != context->_listenerParameters.vVelocity.y) ||
-            (Velocity[2] != context->_listenerParameters.vVelocity.z)) {
+        if (nativeListenerVectorChanged(Velocity, &context->_listenerParameters.vVelocity)) {
             // запишем новые параметры скорости слушателя
             context->_listenerParameters.vVelocity.x = Velocity[0];
             context->_listenerParameters.vVelocity.y = Velocity[1];
@@ -2198,9 +2216,7 @@ DLL_API int SQUALL_Listener_SetPosition(float* Position)
     // установка параметров
     if (IsTrue(result)) {
         // проверка изменений
-        if ((Position[0] != context->_listenerParameters.vPosition.x) ||
-            (Position[1] != context->_listenerParameters.vPosition.y) ||
-            (Position[2] != context->_listenerParameters.vPosition.z)) {
+        if (nativeListenerVectorChanged(Position, &context->_listenerParameters.vPosition)) {
             // запомним новые координаты слушателя
             context->_listenerParameters.vPosition.x = Position[0];
             context->_listenerParameters.vPosition.y = Position[1];

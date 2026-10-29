@@ -17,7 +17,9 @@
       "analysis/seed-unlock-state-validation.json",
       "analysis/seed-interop-validation.json",
       "analysis/seed-sowing-state-validation.json",
-      "analysis/tomato-batch-state-validation.json"
+      "analysis/tomato-batch-state-validation.json",
+      "analysis/tomato-contract-state-validation.json",
+      "analysis/tomato-contract-interop-validation.json"
     ]
   },
   "build": {
@@ -110,7 +112,10 @@
     "resource_index_fixtures": 8,
     "resource_write_checks": 12,
     "ctest_current_checks_covered_across_full_and_retry": 102,
-    "ctest_focused_retry_repetitions": 0
+    "ctest_focused_retry_repetitions": 0,
+    "last_full_ctest_report": "analysis/squall-listener-regression.json",
+    "last_full_ctest_implementation_commit": "2745060",
+    "full_ctest_repeated_for_latest_vector_fix": false
   },
   "images": {
     "decoded": 416,
@@ -257,7 +262,20 @@
     "analysis/squall-listener-abi.json",
     "analysis/squall-listener-fresh-abi.json",
     "analysis/squall-listener-regression.json",
-    "analysis/tomato-batch-state-validation.json"
+    "analysis/tomato-batch-state-validation.json",
+    "analysis/squall-listener-vectors-validation.json",
+    "analysis/squall-listener-vectors-fresh-validation.json",
+    "analysis/squall-vectors-factor-validation.json",
+    "analysis/squall-vectors-factor-fresh-validation.json",
+    "analysis/squall-vectors-game-audio-validation.json",
+    "analysis/squall-vectors-game-audio-fresh-validation.json",
+    "analysis/squall-vectors-person-sounds-validation.json",
+    "analysis/squall-vectors-person-sounds-fresh-validation.json",
+    "analysis/squall-vectors-regression.json",
+    "analysis/squall-vectors-abi.json",
+    "analysis/squall-vectors-fresh-abi.json",
+    "analysis/tomato-contract-state-validation.json",
+    "analysis/tomato-contract-interop-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108177,8 +108195,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-listener-regression.json",
-    "recorded_at_utc": "2026-10-29T17:07:50.207705+00:00",
+    "report": "analysis/squall-vectors-regression.json",
+    "recorded_at_utc": "2026-10-29T17:20:03.723491+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

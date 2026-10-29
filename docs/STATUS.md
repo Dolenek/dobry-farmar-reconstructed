@@ -1,5 +1,9 @@
 # Stav rekonstrukce
 
+[C3 porovnávání vektorů Squall](SQUALL.md) má další instrukčně doloženou opravu: šest veřejných C++ NaN změnových testů nyní zachovává původní x87 C3 větev. Obě DLL prošly po4556 vektorových výsledcích v PC53/PC24 a novou regresí faktorů/game-audio/PersonSounds. Poslední plný102/102 běh patří předchozímu commitu2745060; pro tuto novou opravu se neopakoval.
+
+[Přirozená rajčatová zakázka16](CONTRACT_RUNTIME.md) nově prošla přijetím, zálohou20, čtyřmi skutečně zalitými a znovu sklizenými plody a odměnou80: Money34→14→94. Nabídka, potvrzení a návod27 mají207200 přesně shodných RGB pixelů, úplné3278bajtové saves souhlasí bez normalizace. Další plodiny, nářadí, výroba a ostatní podmínky celého cíle pokračují.
+
 Aktuální stav29.10.2026: hlavní herní EXE, JNGLoad.dll, zdrojový kandidát celé Squall.dll a odinstalátor jsou sestavitelné z upravitelného kódu. Celý projekt zůstává rozpracovaný: zejména úplné chování97 exportů, další přirozené herní systémy a níže výslovně evidované hranice engine/odinstalátoru nejsou dokončené. Reference17 původních souborů a původní Ghidra projekt zůstávají zachované; nic se nepublikuje.
 
 [Listener Squall](SQUALL.md) má opravené původní ordered kontroly tří faktorů: veřejný zdroj propouštěl NaN. Dvě sestavení prošla po24962 výsledcích v PC53/PC24 se skutečným DirectSound listenerem; stejný harness prokázal6144 odchylek starého kandidáta. Nový úplný běh102/102 za540.12s je evidovaný v analysis/squall-listener-regression.json; historický101/102 běh zůstává doložený v commitu38bedf7.

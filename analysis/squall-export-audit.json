@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "3b0cf8d76fb55255880d74806bd68e05e890b13a886b21ae81932c72e91bb366",
+  "rebuilt_sha256": "3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -525,17 +525,19 @@
       "name": "SQUALL_Listener_GetParameters",
       "ordinal": 59,
       "original_address": "100041a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_GetPosition",
       "ordinal": 60,
       "original_address": "10004560",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_GetRolloffFactor",
@@ -550,9 +552,10 @@
       "name": "SQUALL_Listener_GetVelocity",
       "ordinal": 62,
       "original_address": "100043d0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_SetDistanceFactor",
@@ -576,17 +579,19 @@
       "name": "SQUALL_Listener_SetParameters",
       "ordinal": 65,
       "original_address": "10003f80",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_SetPosition",
       "ordinal": 66,
       "original_address": "10004470",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_SetRolloffFactor",
@@ -601,9 +606,10 @@
       "name": "SQUALL_Listener_SetVelocity",
       "ordinal": 68,
       "original_address": "100042d0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Listener_SetWorker",
@@ -617,9 +623,10 @@
       "name": "SQUALL_Listener_Update",
       "ordinal": 70,
       "original_address": "100049f0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
     },
     {
       "name": "SQUALL_Pause",
@@ -862,5 +869,9 @@
   "listener_factor_reports": [
     "analysis/squall-listener-factors-validation.json",
     "analysis/squall-listener-factors-fresh-validation.json"
+  ],
+  "listener_vector_reports": [
+    "analysis/squall-listener-vectors-validation.json",
+    "analysis/squall-listener-vectors-fresh-validation.json"
   ]
 }
