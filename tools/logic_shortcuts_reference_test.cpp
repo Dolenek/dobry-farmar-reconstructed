@@ -56,7 +56,10 @@ String ansi(const wchar_t* p){return toNarrow(WString(p));}
 }
 int wmain(int argc,wchar_t** argv){
  if(argc!=3)return 2;
- void* preferred=VirtualAlloc(reinterpret_cast<void*>(0x400000),0x300000,MEM_RESERVE,PAGE_NOACCESS);
+ // Only occupy the preferred allocation granule. A three-megabyte range
+ // can collide with an unrelated ASLR module and fail despite 00400000
+ // being free, accidentally allowing the reference back at its fixed base.
+ void* preferred=VirtualAlloc(reinterpret_cast<void*>(0x400000),0x10000,MEM_RESERVE,PAGE_NOACCESS);
  HMODULE reference=LoadLibraryExW(argv[1],nullptr,DONT_RESOLVE_DLL_REFERENCES);if(preferred)VirtualFree(preferred,0,MEM_RELEASE);if(!reference)return 2;
  try {
   image=reinterpret_cast<unsigned char*>(reference);require(reinterpret_cast<unsigned>(image)!=0x400000,"Reference must be relocated for this comparison");AddVectoredExceptionHandler(1,&diagnose);

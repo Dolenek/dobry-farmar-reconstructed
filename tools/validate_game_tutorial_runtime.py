@@ -162,8 +162,11 @@ try:
  assert binary_left==binary_right,'Natural tutorial binary saves differ'
  report['comparison']=dict(profile_properties=791,changed_properties=changed,binary_save_equal_bytes=len(binary_left),completed_steps=[1,2,3,4,5,6,7,8,9,45],natural_harvest_count=1,warehouse_after_transfer=0,market_after_transfer=1,original_profile_fields_modified_by_probe=False)
  report['status']='passed_for_opening_natural_tutorial_state_transitions_only'
- report['pixel_parity_complete']=False
- report['unresolved']=['Small pixel differences in translucent tutorial background; inspect all recorded regions', 'Remaining natural tutorial, all gameplay, full saves, engine and audio scopes']
+ pixels=[stage['pixel_comparison'] for stage in report['sessions'][1]['stages']]
+ report['compared_regions_pixel_exact']=all(row['different_pixels']==0 for row in pixels)
+ report['compared_rgb_pixels']=sum(row['pixels'] for row in pixels)
+ report['full_frames_pixel_parity_verified']=False
+ report['unresolved']=['Remaining natural tutorial, all gameplay, full saves, engine and audio scopes', 'Entire animated frames require synchronized state/time; this probe compares ten explicit regions']
 except Exception as e:
  report['status']='failed';report['error']=repr(e)
  import traceback;report['traceback']=traceback.format_exc()

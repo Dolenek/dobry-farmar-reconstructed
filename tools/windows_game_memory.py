@@ -12,6 +12,7 @@ class TutorialMemory:
         self.handle = k.OpenProcess(0x1010, False, pid)  # QUERY_LIMITED + VM_READ only
         assert self.handle
         self.kind = kind
+        self.pid = pid
         self.layout = None
         k.ReadProcessMemory.argtypes = [W.HANDLE, C.c_void_p, C.c_void_p, C.c_size_t, C.POINTER(C.c_size_t)]
         if kind == 'native':
@@ -110,6 +111,7 @@ class TutorialMemory:
         # the owned window thread while reading its tree, then always resume.
         # No game bytes or callbacks are modified or invoked.
         owner=W.DWORD();thread_id=u.GetWindowThreadProcessId(hwnd,C.byref(owner))
+        assert thread_id and owner.value==self.pid,'Snapshot window does not belong to observed game process'
         k.OpenThread.argtypes=[W.DWORD,W.BOOL,W.DWORD];k.OpenThread.restype=W.HANDLE
         k.SuspendThread.argtypes=[W.HANDLE];k.ResumeThread.argtypes=[W.HANDLE]
         thread=k.OpenThread(2,False,thread_id);assert thread

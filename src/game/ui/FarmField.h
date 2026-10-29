@@ -2,6 +2,8 @@
 #include "ActionArea.h"
 #include "GameAction.h"
 #include "ProfileProperties.h"
+#include <memory>
+#include <memory_resource>
 namespace farmar::recovered {
 class FarmField;class StateView;class GameConfiguration;class GameRandom;
 struct FarmFieldWorld:ActionAreaWorld {
@@ -15,7 +17,16 @@ struct FarmFieldWorld:ActionAreaWorld {
     virtual void clearFieldIndication(FarmField&)=0; // 0042c800, current owner only
     virtual std::vector<ActionArea*> seedPackages()=0; // 00432260, ActionArea type32
 };
-struct FarmFieldContext {ActionAreaContext area;ProfileProperties& profile;GameConfiguration& configuration;GameRandom& random;FarmFieldWorld& world;};
+struct FarmFieldContext {
+    ActionAreaContext area;ProfileProperties& profile;GameConfiguration& configuration;GameRandom& random;FarmFieldWorld& world;
+    // The original sixty field overlays are allocated in field construction
+    // order. Their equal-depth draw order uses pointer comparison. Keep this
+    // address order independently of modern CRT small-block heap reuse.
+    // Each overlay also retains the resource through its allocation header,
+    // including construction failure where the View base outlives this context.
+    std::shared_ptr<std::pmr::monotonic_buffer_resource> hiddenPictures=
+        std::make_shared<std::pmr::monotonic_buffer_resource>(64*(sizeof(Picture)+sizeof(std::shared_ptr<std::pmr::monotonic_buffer_resource>)));
+};
 struct FieldAbsorption {Point2 water{},fertil{};};
 struct FieldCultureInfo {
     unsigned firstFrames,secondFrames;float firstTime,secondTime,lastTime;

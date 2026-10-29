@@ -1,16 +1,16 @@
 {
   "status": "passed_for_opening_natural_tutorial_state_transitions_only",
-  "work_directory": ".local/tutorial-runtime/20261028T230254572835Z",
+  "work_directory": ".local/tutorial-runtime/20261029T112226946288Z",
   "sessions": [
     {
       "kind": "native",
       "variant": "normal",
       "initial_money": 20,
-      "common_directory": ".local/tutorial-runtime/20261028T230254572835Z/0-shared/VirtualFarm",
+      "common_directory": ".local/tutorial-runtime/20261029T112226946288Z/0-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         {
-          "anchor": 176199024,
+          "anchor": 176002240,
           "geometry": [
             710.0,
             90.0,
@@ -28,7 +28,7 @@
           "mask_hit": true
         },
         {
-          "anchor": 174167648,
+          "anchor": 173970872,
           "geometry": [
             375.0,
             257.0,
@@ -46,7 +46,7 @@
           "mask_hit": true
         },
         {
-          "anchor": 176275464,
+          "anchor": 176078680,
           "geometry": [
             720.0,
             420.0,
@@ -54,7 +54,7 @@
             110.0
           ],
           "button_state": 2,
-          "selected": 176275464,
+          "selected": 176078680,
           "pending": 0,
           "cursor": [
             736.0,
@@ -64,7 +64,7 @@
           "mask_hit": true
         },
         {
-          "anchor": 174167648,
+          "anchor": 173970872,
           "geometry": [
             375.0,
             257.0,
@@ -82,7 +82,7 @@
           "mask_hit": true
         },
         {
-          "anchor": 176090416,
+          "anchor": 175893640,
           "geometry": [
             120.0,
             100.0,
@@ -90,7 +90,7 @@
             160.0
           ],
           "button_state": 2,
-          "selected": 176090416,
+          "selected": 175893640,
           "pending": 0,
           "cursor": [
             120.0,
@@ -102,7 +102,7 @@
       ],
       "launcher": {
         "event": "ready",
-        "pid": 18688,
+        "pid": 3780,
         "image_base": 4194304,
         "iat_rva": 2023900,
         "original_entry_point_executed": true,
@@ -122,7 +122,7 @@
           "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
         }
       },
-      "loading_seconds": 6.35999999998603,
+      "loading_seconds": 6.562000000034459,
       "stages": [
         {
           "step": 1,
@@ -1572,13 +1572,16 @@
             }
           }
         }
-      ]
+      ],
+      "exit_code": 0,
+      "status": "completed",
+      "launcher_completion": "{\"event\":\"exit\",\"exit_code\":0}"
     },
     {
       "kind": "source",
       "variant": "normal",
       "initial_money": 20,
-      "common_directory": ".local/tutorial-runtime/20261028T230254572835Z/1-shared/VirtualFarm",
+      "common_directory": ".local/tutorial-runtime/20261029T112226946288Z/1-shared/VirtualFarm",
       "actions": [
         "Created/restored full game and matched native Menu HUD pixels",
         {},
@@ -1593,15 +1596,15 @@
       ],
       "loaded_game_dlls": {
         "jngload.dll": {
-          "path": "dobry-farmar-reconstructed/.local/tutorial-runtime/20261028T230254572835Z/runtime/JNGLoad.dll",
+          "path": "dobry-farmar-reconstructed/.local/tutorial-runtime/20261029T112226946288Z/runtime/JNGLoad.dll",
           "sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69"
         },
         "squall.dll": {
-          "path": "dobry-farmar-reconstructed/.local/tutorial-runtime/20261028T230254572835Z/runtime/Squall.dll",
+          "path": "dobry-farmar-reconstructed/.local/tutorial-runtime/20261029T112226946288Z/runtime/Squall.dll",
           "sha256": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
         }
       },
-      "loading_seconds": 4.172000000020489,
+      "loading_seconds": 4.422000000020489,
       "stages": [
         {
           "step": 1,
@@ -1753,8 +1756,8 @@
               310
             ],
             "pixels": 28600,
-            "different_pixels": 63,
-            "max_channel_difference": 1
+            "different_pixels": 0,
+            "max_channel_difference": 0
           }
         },
         {
@@ -1907,8 +1910,8 @@
               477
             ],
             "pixels": 28600,
-            "different_pixels": 68,
-            "max_channel_difference": 1
+            "different_pixels": 0,
+            "max_channel_difference": 0
           }
         },
         {
@@ -2061,8 +2064,8 @@
               310
             ],
             "pixels": 28600,
-            "different_pixels": 61,
-            "max_channel_difference": 1
+            "different_pixels": 0,
+            "max_channel_difference": 0
           }
         },
         {
@@ -2215,8 +2218,8 @@
               477
             ],
             "pixels": 28600,
-            "different_pixels": 68,
-            "max_channel_difference": 1
+            "different_pixels": 0,
+            "max_channel_difference": 0
           }
         },
         {
@@ -2369,8 +2372,8 @@
               320
             ],
             "pixels": 28600,
-            "different_pixels": 942,
-            "max_channel_difference": 22
+            "different_pixels": 622,
+            "max_channel_difference": 13
           }
         },
         {
@@ -2523,8 +2526,8 @@
               449
             ],
             "pixels": 28600,
-            "different_pixels": 22,
-            "max_channel_difference": 1
+            "different_pixels": 0,
+            "max_channel_difference": 0
           }
         },
         {
@@ -3161,12 +3164,14 @@
             "max_channel_difference": 0
           }
         }
-      ]
+      ],
+      "exit_code": 0,
+      "status": "completed"
     }
   ],
   "reference_executable_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
   "os_boundary_only": true,
-  "recorded_at_utc": "2026-10-29T11:06:45.478183+00:00",
+  "recorded_at_utc": "2026-10-29T11:30:06.892352+00:00",
   "launcher_path": "build/native-process/Release/native-process-launcher.exe",
   "launcher_sha256": "fff597f3f6cc1c1bbdc241a2a91f9aa879e40918e6bb5cc49a179a21c068301a",
   "source_files": {
@@ -3342,8 +3347,8 @@
     "src/game/ui/Farm.h": "3acc0c1c2434cd03df6a1304571aef29012d1d4f7c5e0586ba0a328b834837e6",
     "src/game/ui/FarmAreas.cpp": "0a95b1c33e1d8a18ca6a392dff0c149f52e4d32c859dd9a8c1bea21773a219e2",
     "src/game/ui/FarmAreas.h": "0fe63a5bc6bd8854adcd906cf32f90a11f63182cb5766e983707daf5f35b25c6",
-    "src/game/ui/FarmField.cpp": "b325fa92669dfc7d32ce7e6e50d1c2e7f0c9ee686d77c0f461a37f4b30d3fcc6",
-    "src/game/ui/FarmField.h": "a79052dfb52b937cc7af4de11ce25a819c67074d4c45dc46d24743a24add8478",
+    "src/game/ui/FarmField.cpp": "f37fe0e8bcaab17eb1e09fadc0418fbec5f023889cafc4c420542f5075b616ab",
+    "src/game/ui/FarmField.h": "83c0ec2d7aace3fd20bf4a7a34e20a28fbe36aafc7860b47d4a2168f6b2adc64",
     "src/game/ui/FarmFieldActions.cpp": "219b6352e5eb01686acb7c99a9ebd5ee9747a23e95a76285a7096b26408e874c",
     "src/game/ui/FieldObject.cpp": "b8feae7eb237b640720148ed8df6c9ec1228ab01f568dfa5730b21dd496fbe7b",
     "src/game/ui/FieldObject.h": "171d04fd649beff8dbc3c2f1946556a091b08db73a4cea7d4b6d84d459e9e790",
@@ -3464,80 +3469,71 @@
     "src/game/ui/YesNoDialog.h": "7439c7fe76f162e95af29c17306b321c7e11c03e96adbe4b8d0020816f6e1f40",
     "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
     "src/game/xml/XmlDocument.h": "7fe6f74034f67a8fc4d8ba2099a81c319f7d3bc28f1a5cc705800c4db6394fb0",
-    "tools/validate_game_tutorial_runtime.py": "1111d61e7ea2ecef2e1c081b59d6efe4c5403219b4c145ffdf0ae0157cbe05b6",
-    "tools/windows_game_memory.py": "544375e857b68331eb7a2eb720f32aa436f283c7c9a134a7a9e69d59f0d7add6",
-    "tools/game_runtime_layout.cpp": "7bfabc4e9a680dd38ef8add32dab38fa05d1450b6ab336ec49da9f28a03346ae",
+    "tools/validate_game_tutorial_runtime.py": "1a18621743deb6a349c6fa834e8cb8de307c25b7ca7551533bd76a6e0d0297f4",
+    "tools/windows_game_memory.py": "020abfbd6bf8a5fdfcf57b5584428cafe4a735b7d2207bd7db454cab2a918699",
+    "tools/game_runtime_layout.cpp": "e2b196a06a5d46dc14b8932013b0defa50f1e66925b9f2f2ca7edd3cf0405772",
     "CMakeLists.txt": "bcb14e26bfc2749f66f8104850fbbcd0fe33497348eb28eab52201ca7a9922fc",
     "tools/cmake/SquallCandidate.cmake": "e414ab444d886cf747e2f333849a74376de07622b05804273f78c85eee2a25e1",
-    "tools/windows_game_gui.py": "a6f333aa4e2e44452a801fca3196ab79871302a3c1891a366a0f6e6fd53f1223",
+    "tools/windows_game_gui.py": "38463528df79e075f52587c11e4fc82ac76a2f51932fc1472732271522852ea1",
     "tools/native_process/launcher.cpp": "27819d6255aebc03d803dd9ebb2ec5f7dcc5fd0cfbb71297e37358580d63afa7",
     "tools/native_process/CMakeLists.txt": "10b1bdc2a64a0f87c3089e53b354a4550db2b4482c72d590998bf4180edecc7a"
   },
   "implementation_files": {
-    "FarmarSourceInterop.exe": "273826b95df0d48ec54f1f4c6b361816c3bba3bc653f24c15b855bc8a80cfaaf",
+    "FarmarSourceInterop.exe": "2be1d472d8e2a4f1a09bd400a1c53e38a4d2b341b31351776af310a782c9db44",
     "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
     "Squall.dll": "a6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab"
   },
-  "pixel_parity_complete": false,
-  "unresolved": [
-    "Correct field decoration allocation address order and verify whole-process pixels",
-    "Repeat final driver with post-run assertions, preserve explicit external-input interruptions",
-    "Continue natural tutorial after first market return, actual seed unlocks/contracts/buildings/expanded farms and long saves",
-    "Full engine/device/lifecycle/audio scopes remain"
-  ],
-  "reference_files_unchanged": 17,
-  "whole_game_complete": false,
   "comparison": {
     "profile_properties": 791,
     "changed_properties": {
       "FFP24": [
         [
           "Float",
-          "51.4563"
+          "50.8076"
         ],
         [
           "Float",
-          "50.4008"
+          "49.9981"
         ]
       ],
       "FFW24": [
         [
           "Float",
-          "114.062"
+          "114.037"
         ],
         [
           "Float",
-          "114.017"
+          "113.948"
         ]
       ],
       "GameTime": [
         [
           "Float",
-          "9.66257"
+          "9.67979"
         ],
         [
           "Float",
-          "9.6664"
+          "9.67103"
         ]
       ],
       "MSellTime0": [
         [
           "Float",
-          "2.10094"
+          "2.06842"
         ],
         [
           "Float",
-          "2.08552"
+          "2.0407"
         ]
       ],
       "RunTime": [
         [
           "Float",
-          "35.972"
+          "36.0399"
         ],
         [
           "Float",
-          "36.3179"
+          "36.7028"
         ]
       ]
     },
@@ -3559,48 +3555,95 @@
     "market_after_transfer": 1,
     "original_profile_fields_modified_by_probe": false
   },
-  "post_run_assertions": "Applied to existing completed process artifacts; modified driver rerun pending",
-  "current_driver_files": {
-    "tools/validate_game_tutorial_runtime.py": "fdc6e7b0516dcdf1d738f328bd04dc28d9317bb960c16af5ef931803dcf857a5",
-    "tools/windows_game_memory.py": "a23c14340fdf7ad649238346d1105d640633ea3ae97d0217e9864b1e68cc78c2",
-    "tools/windows_game_gui.py": "38463528df79e075f52587c11e4fc82ac76a2f51932fc1472732271522852ea1",
-    "tools/game_runtime_layout.cpp": "e2b196a06a5d46dc14b8932013b0defa50f1e66925b9f2f2ca7edd3cf0405772",
-    "tools/cmake/SquallCandidate.cmake": "e414ab444d886cf747e2f333849a74376de07622b05804273f78c85eee2a25e1"
-  },
-  "current_driver_complete_rerun_passed": false,
-  "rerun_limits": [
-    "Several intermediate probes missed deep-processing targets; final relative multi-sample movement completed recorded pair",
-    "Later rerun encountered external foreground/cursor interference; owned foreground and target checks stopped all further global input",
-    "Source code gained post-run assertions; these were separately applied to completed pair, not reported as a fresh process run"
+  "compared_regions_pixel_exact": false,
+  "compared_rgb_pixels": 286000,
+  "full_frames_pixel_parity_verified": false,
+  "unresolved": [
+    "Nine stationary tutorial regions repeat with exact pixels; the store prompt region over animated actor/grass differs in one independent-timing repeat (622 pixels, max13). Earlier complete pair matches all ten regions; no pixel normalization is applied. Synchronized whole-frame comparison remains pending.",
+    "Other equal-depth active controls and full field allocation/step order need further world verification",
+    "Remaining tutorial, natural contracts, farming, all systems, expanded/long saves, engine and Squall97 scopes"
   ],
-  "ordering_diagnosis": {
-    "work_directory": ".local/tutorial-scene-inspect/20261029T110330447974Z",
-    "visible_controls_each": 229,
-    "native_row_208_x": [
-      210,
-      268,
-      323,
-      375,
-      433,
-      485,
-      544,
-      600,
-      655
-    ],
-    "source_row_208_x": [
-      210,
-      323,
-      433,
-      268,
-      485,
-      544,
-      375,
-      600,
-      655
-    ],
-    "same_geometry_resources_flags_except_arrow_animation": true,
-    "original_pointer_tie_order_preserved_in_source_comparator": true,
-    "source_allocator_address_order_differs": true,
-    "fix_pending": true
+  "reference_files_unchanged": 17,
+  "whole_game_complete": false,
+  "screenshots": {
+    "0-01-logo.png": "39328605b887b9853278525863acad142ba90a88dfe105a531e876a104e3d26a",
+    "0-02-startup.png": "671ff74cad960bbb004646a5974a64ea79af79f08ee153b29fcd4eaf32f6a081",
+    "0-03-menu.png": "671ff74cad960bbb004646a5974a64ea79af79f08ee153b29fcd4eaf32f6a081",
+    "0-04-game.png": "d06b8502fa5d837b035fbca7494ada73e3bfdd42274a59846d846244c3919837",
+    "0-10-well.png": "c5a58b41e880bf4749cb977eba558f6a1fdf8503f4add0bcc4e160bd837a74f6",
+    "0-11-water.png": "c6365c08864e7ac647a78f9af03cd29414945fc9b5dfc7c3b920644f12ed3443",
+    "0-12-mow-tool.png": "66d8ba12db061e882b7b1fba788c15da938f143c587453829668edc61eb0698a",
+    "0-13-mow-field.png": "415194ea52c2cb5e262ff4059639058984132cbfeae7bb6ad965ba3501e00b00",
+    "0-14-store.png": "c0d5784705923f694be487fc5b39f18b95d5520aee5247aa040008041e73f6de",
+    "0-15-market-button.png": "1fb5e1c28f9158fd96974eb06f22a3fe3dba7bde6afc19dbd07d7575b3eafab5",
+    "0-16-market-intro.png": "b587b5c781bbc1d4101bcb54cc0fb28f4b2b815caab7001703e1d62c4b9dd3a0",
+    "0-17-market-goods.png": "e6f19796dcb835aded6f9a9c6a4279184422c6b0243c5194179b3372dfc90661",
+    "0-18-market-sell.png": "847b47d83917458cf50fbf2c15a1e8c3f28caefe2a2b806e255052dddf79c86b",
+    "0-19-return-button.png": "4ba0825477b5f5f3f82ce150f513aad7548736677526dcf4d9e6df6e5befa4fd",
+    "0-20-returned-farm.png": "7775f90286bb72d05be30f03cfba3c1940a22c061f69cf41f33c2f257c0ceaa1",
+    "1-01-logo.png": "be04c8608efc0a74096536505ad1e5fb9b75d52ea9cdb0918e5c8f17f9be939e",
+    "1-02-startup.png": "d5db9bd3bdc8fd88aa5175d363af7d34fdaaaba96d470a0ab552150f4eab5395",
+    "1-03-menu.png": "d5db9bd3bdc8fd88aa5175d363af7d34fdaaaba96d470a0ab552150f4eab5395",
+    "1-04-game.png": "5d12157e9753219137241cabe53b1a9c349c9fc0b5a4b07b47990a034b612c81",
+    "1-10-well.png": "c5a58b41e880bf4749cb977eba558f6a1fdf8503f4add0bcc4e160bd837a74f6",
+    "1-11-water.png": "bd6edb67a001c8fb2a463b4e4d922b3bd3dad6e11aeee0e3204b06f77e639613",
+    "1-12-mow-tool.png": "6017bc7ca6af8ebad666624326d40aa148c25ce6828b27a2c24b84a5c869d272",
+    "1-13-mow-field.png": "47c59d59cc360062eb617051e5e10c45ee136d008077a84c73809695bd26c99c",
+    "1-14-store.png": "88dca09f897d05d61c73f751aad8197358cb738ae7941353ea4a74d83fddec0b",
+    "1-15-market-button.png": "475f8da2364c536e1fcd3e5e1316980fdbf1a75118e9c49d6079d87892535931",
+    "1-16-market-intro.png": "0ab68cb0813adad87db67fb7bdbdd9e24a06e6887532ecf1fd4ba330df84dbd5",
+    "1-17-market-goods.png": "c7fc97e36f4779639f1ccfaddb8672830375b7cae5970602cac240d83ecc82ec",
+    "1-18-market-sell.png": "7487e0f6c7e6f07fa2056c5502287dc9f5e4a7257dd0f48dbca1610dfc57bb4c",
+    "1-19-return-button.png": "d3564974021587003223f623b88865c6d277366ccc0c2fd19c34375fb3334187",
+    "1-20-returned-farm.png": "23cd60237ac82a8d09cab571e997c3dec197f127760f900ceb5e2f1a82d3cacd"
+  },
+  "additional_exact_pixel_pair": {
+    "work_directory": ".local/tutorial-runtime/20261029T111025360060Z",
+    "compared_regions": 10,
+    "exact_rgb_pixels": 286000,
+    "report_sha256": "cedb5c4c5abe4a7f3996653302c7b4da230a4ea1e5eb2b8157d1acc18a21bca2"
+  },
+  "allocation_order_validation": {
+    "work_directory": ".local/tutorial-scene-inspect/20261029T110942609316Z",
+    "report_sha256": "71fccda981c7ec5b76b0bed1a98028a5d76136deed7bb6bd152054e3c8b68368",
+    "same_visible_hidden_fields": 54,
+    "same_order_geometry_depth_texture": true,
+    "first_tip_exact_rgb_pixels": 28600,
+    "source_comparator_unchanged": true,
+    "source_comparator_sha256": "f5d6442d2f9766480b94d2d516986141cef9194c41b66c8c6f7579864f9c3b83"
+  },
+  "regression": {
+    "full_suite": {
+      "tests": 102,
+      "passed": 101,
+      "failed": [
+        "original-logic-shortcuts"
+      ],
+      "seconds": 548.4,
+      "junit_sha256": "435032ce7d51994e33f5dc6b220014aa422e75846b86b38ee1473e16891c2232"
+    },
+    "focused_field_farm_world": {
+      "tests": 3,
+      "passed": 3,
+      "seconds": 20.59,
+      "junit_sha256": "5a1b98ae92e4c8a2600a158e485b9ace570024fa7b8792013c85612947d107b9"
+    },
+    "logic_harness_retry": {
+      "tests": 1,
+      "passed": 1,
+      "seconds": 0.46,
+      "junit_sha256": "88f26b6374a86d0652eb17479ada22e64e4a1fb488837e41a67515e0de70b112"
+    },
+    "all_current_102_checks_passed_across_recorded_runs": true,
+    "single_fresh_full_run_102_of_102": false
+  },
+  "logic_harness_correction": {
+    "source_file": "tools/logic_shortcuts_reference_test.cpp",
+    "source_sha256": "c046e6ce4406038b37e5ef5a707da4d81a78132600b037a7c67ea0ebb0e8db39",
+    "old_reservation_bytes": 3145728,
+    "new_reservation_bytes": 65536,
+    "observed_failure": "Reference mapped at00400000; reservation failure OS error was not logged",
+    "reasoning": "Smaller reservation prevents avoidable overlap of the larger range with unrelated ASLR mappings; exact original conflict was not recorded",
+    "production_logic_changed": false
   }
 }

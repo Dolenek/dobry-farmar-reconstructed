@@ -15,6 +15,26 @@
 #include <stdexcept>
 namespace farmar::recovered {
 namespace {
+using HiddenPictureStorage=std::shared_ptr<std::pmr::monotonic_buffer_resource>;
+class FieldHiddenPicture final:public Picture {
+public:
+    using Picture::Picture;
+    static void* operator new(std::size_t size,const HiddenPictureStorage& storage) {
+        static_assert(sizeof(HiddenPictureStorage)%alignof(FieldHiddenPicture)==0,"Overlay allocation alignment");
+        auto* header=static_cast<HiddenPictureStorage*>(storage->allocate(sizeof(HiddenPictureStorage)+size,alignof(FieldHiddenPicture)));
+        ::new(static_cast<void*>(header)) HiddenPictureStorage(storage);
+        return header+1;
+    }
+    static void operator delete(void* pointer) noexcept {
+        auto* header=static_cast<HiddenPictureStorage*>(pointer)-1;
+        auto keepAlive=std::move(*header);
+        header->~HiddenPictureStorage();
+        // Slot memory is released with the final context/overlay reference.
+        // Keep the resource alive until after its own allocation header dies.
+    }
+    static void operator delete(void* pointer,const HiddenPictureStorage&) noexcept {operator delete(pointer);}
+};
+
 int signedWord(unsigned value) {int result;std::memcpy(&result,&value,4);return result;}
 bool shown(const View& v) {return v.state().shown && v.state().parentShown;}
 template<class T> void number(T& value,const XmlNode& node,const wchar_t* name) {const auto text=node.attribute(WString(name));if(!text.empty()) {std::wistringstream stream(text.c_str());stream>>value;}}
@@ -25,7 +45,7 @@ float elapsed() {if(!uiElapsedTime()) throw std::logic_error("FarmField requires
 std::string FarmField::key(const char* prefix) const {return std::string(prefix)+std::to_string(id);}
 FarmField::FarmField(View* parent,unsigned group,unsigned index,int upgrade,FarmFieldContext& c):ActionArea(1,parent,c.area),id(group*17+index),upgradeIndex(upgrade),fieldContext_(c) {
     auto& a=c.area;waterSign_=new Picture(this,a.resources,a.views,a.controls);readySign_=new Picture(this,a.resources,a.views,a.controls);
-    fertilSign_=new Picture(this,a.resources,a.views,a.controls);hidden_=new Picture(this,a.resources,a.views,a.controls);
+    fertilSign_=new Picture(this,a.resources,a.views,a.controls);hidden_=new(c.hiddenPictures) FieldHiddenPicture(this,a.resources,a.views,a.controls);
     loadXML(*a.resources.loadSettingsXML(String("Farm/ActionAreas/FarmField.xml")));
     const auto available=c.profile.ints["fua"],current=c.profile.ints["fcu"];refreshPurchase(current,available);
 }
