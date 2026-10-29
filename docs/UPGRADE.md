@@ -1,5 +1,15 @@
 # Společná logika vylepšení
 
+## Původní alias zaměřené výrobní budovy
+
+Skutečný výrobní tutoriál odhalil rozdíl v cGame `0040be10`: oproti nástrojům s výslovným posunem+508 předává výrobní větev přímo Manufacture.focused `+f8` v ECX do `00417050` a `004174b0`, bez převodu na Upgrade základ. Getter tak čte View `shown/parentShown/enabled/parentEnabled` na+24 jako ID a `absolute/parentAbsolute` plus dva padding bajty na+28 jako levelCount. Původní key je proto při těchto všech true příznacích `Upgrade16843009`. Hardware breakpoint potvrdil return0040bed7 a parent00410e3c během bezplatného upgradu34; klíč vzniká před demolicí33. Vtable původního objektu005f8378 má+4→0050bd60 (MOV EAX,2/RET), tedy type, nikoli skutečné obnovení Upgrade vzhledu.
+
+`refreshViewUpgradeAlias` obnovuje tuto větev nad odpovídajícími skutečnými stavovými bajty vlastního ViewState, včetně jeho vlastních dvou výplňových bajtů. Žádné pozorované číslo klíče ani BAAD hodnota nejsou do implementace vložené napevno. Typové čtení a signed clamp s wrap32 zůstávají původní; volá se View.type a pokračuje původní focus pořadí. Čtyři farmářské nástroje dál používají skutečný Upgrade základ. Ostatní event dispatch větve se tím nepřepisují bez samostatných instrukčních důkazů.
+
+Rozšířený `validate_upgrade.py` přidává6144 případů PC53/PC24 se shodnými explicitními words: všech16 kombinací prvních čtyř bool, čtyři kombinace absolutních bool, osm vzorů paddingu včetně BAAD a signed hranic, šest výchozích stavů mapy včetně chybějícího klíče. Celé profilové mapy i virtuální type callback souhlasí s původními GetLevel/SetLevel. Stejný výsledek prošel ve druhé sestavovací cache. Dosavadních131296 abstraktních Upgrade stavů se těmito dodatečnými případy nepřejmenovává.
+
+Skutečné nezávislé EXE nyní mají shodných795 klíčů/typů; jediná nestabilní integer hodnota přesně odpovídá zaznamenanému vlastnímu paddingu. Originál měl word BAAD0101 a uložil BAAD0100 (−1163067136), zdroj měl41520101 a uložil0. Tyto hodnoty nejsou normalizované jako totožné. Identická vstupní words mají výše doloženou přesnou sémantiku, nezávislé heap výplně ani celý44bajtový původní View ABI se tím nevydávají za shodné. Trace, výchozí odchylka a aktuální porovnání: `analysis/manufacture-focused-upgrade-trace.json`, `analysis/manufacture-tutorial-runtime-observation.json`, `analysis/manufacture-tutorial-state-validation.json`, `analysis/focused-view-upgrade-regression.json`.
+
 `src/game/engine/Upgrade.*` obnovuje abstraktní cUpgrade. Původní vtable 005ef5a0 má v pozicích +4/+8 skutečné `_purecall` (0058100d). Vzhled a načtení jednotlivé úrovně proto dodají obnovované odvozené herní objekty. Moderní C++ rozložení není vydáváno za původní objektové ABI.
 
 | Adresa | Obnovené chování |

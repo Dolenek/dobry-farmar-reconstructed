@@ -28,6 +28,13 @@ struct UpgradeTrace final:Upgrade {
     void loadLevel(unsigned index,const XmlNode& node) override {loads.emplace_back(index,&node);if(upgradeMutateCount) levelCount=-4;}
     void refresh() override {refreshes.emplace_back(level(),levelCount);}
 };
+unsigned upgradeAliasNativeTypes=0;
+unsigned __fastcall upgradeAliasType(void*,void*) {++upgradeAliasNativeTypes;return 128;}
+struct UpgradeAliasView final:View {
+    mutable unsigned typeCalls=0;
+    unsigned type() const noexcept override {++typeCalls;return 128;}
+    void words(unsigned id,unsigned count) {std::memcpy(&state_.shown,&id,4);std::memcpy(&state_.absoluteEnabled,&count,4);}
+};
 using UpgradeSoundCalls=std::vector<std::array<unsigned,2>>;
 UpgradeSoundCalls upgradeActualSounds,upgradeNativeSounds;
 struct UpgradeAudio final:SoundManager {

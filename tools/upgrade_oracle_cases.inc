@@ -58,3 +58,26 @@ for(trial=0;trial<16;++trial) {
     stage=235;upgradeLevelLoads+=unsigned(source->loads.size());upgradeSoundCalls+=unsigned(upgradeActualSounds.size());source.reset();call(0x16970,native.data());
     require(field<String>(native.data(),8).empty(),"Upgrade native name did not clear");++upgradeObjects;
 }
+// Same bytes as the unadjusted focused View passed by original0040be10.
+// All booleans remain valid; only the two original padding bytes vary.
+for(unsigned flags=0;flags<16;++flags) for(unsigned absolute=0;absolute<4;++absolute)
+    for(unsigned padding:{0U,1U,0x7fffU,0x8000U,0xffffU,0xbaadU,0xcdcdU,0xfeeU})
+    for(unsigned initial=0;initial<6;++initial) {
+        stage=236;unsigned id=0;
+        for(unsigned bit=0;bit<4;++bit) if(flags&(1U<<bit)) id|=1U<<(bit*8);
+        const unsigned countBits=(padding<<16)|((absolute&2U) ? 256U:0U)|(absolute&1U);
+        ProfileProperties sourceProfile,nativeProfile;upgradeNativeProfile=&nativeProfile;
+        const auto key="Upgrade"+std::to_string(id);const std::array<unsigned,5> values{0U,0xffffffffU,0x80000000U,0x7fffffffU,0xbaad0100U};
+        if(initial){int value;const unsigned bits=values[initial-1];std::memcpy(&value,&bits,4);sourceProfile.ints[key]=nativeProfile.ints[key]=value;}
+        UpgradeAliasView view;view.words(id,countBits);const auto words=viewUpgradeAliasWords(view);
+        require(words.propertyId==id && unsigned(words.levelCount)==countBits,"View alias flag/padding words differ");
+        std::array<unsigned char,44> native{};std::array<void*,3> table{image+0x169a0,reinterpret_cast<void*>(&upgradeAliasType),reinterpret_cast<void*>(&upgradeLoadLevel)};
+        field<void*>(native.data(),0)=table.data();field<unsigned>(native.data(),0x24)=id;field<unsigned>(native.data(),0x28)=countBits;
+        upgradeAliasNativeTypes=0;
+        const auto current=function<int(__thiscall*)(void*)>(0x17050)(native.data());
+        function<void(__thiscall*)(void*,int,bool)>(0x174b0)(native.data(),current,false);
+        refreshViewUpgradeAlias(sourceProfile,view);
+        require(sourceProfile.ints==nativeProfile.ints && sourceProfile.uints==nativeProfile.uints,"Focused View alias profile map differs");
+        require(view.typeCalls==1 && upgradeAliasNativeTypes==1,"Focused View alias virtual type dispatch differs");
+        ++upgradeAliasStates;
+    }

@@ -1,5 +1,13 @@
 # Přirozený nákup osiva v celých EXE
 
+## Skutečný nákup a čtyři vyseté okurky
+
+Po dokončení povinné výrobní výuky pokračuje `tools/validate_game_cucumber_sowing.py` z nativního uloženého stavu Money94, držený rýč2 a zbořený výukový kravín. Obě EXE skutečně koupí druhý dostupný sáček, typ3 za30. Staré vyryté plochy17/18/23 už mají téměř vyčerpaných původních60s do zarostení; průchod počká na skutečnou obnovu trávy, znovu vyryje17/18/23/27 a teprve poté převezme připravený sáček. Čtyři skutečná setí jej spotřebují, deferred odstranění vrátí PCarry10→0, studna naplní480 a čtyři skutečná zalití je spotřebují do0. Tato etapa nepoužívá časovou akceleraci.
+
+Sedmnáct pracovních kontrol prošlo v obou celých EXE `.local/cucumber-sowing/20261029T180721717655Z`. Money je64, čtyři nové okurky mají FFC3/FFS0 a vodu i úrodnost nad118; čtyři stávající rajčata jsou zralá. Všech795 profilových klíčů/typů a diskrétních hodnot souhlasí, včetně beze změny převzaté neobvyklé původní Upgrade vlastnosti. Rozdíly jsou výslovně pouze GameTime/RunTime a růst/voda/úrodnost polí. Celé3557bajtové saves jsou přesně stejné bez normalizace: nula sáčků, sedm zpráv/read flagů, čtyři původní prodeje s hodinami a383 raw koeficientů. Audit `python tools/validate_cucumber_sowing_state.py`, metadata `analysis/cucumber-sowing-state-validation.json`. Sklizeň/prodej okurek, obousměrné přenosy tohoto stavu s osmi pěstovanými plochami a ostatní systémy pokračují.
+
+Předchozí průzkumy jsou zachované: povinný návod30 otevřel skutečné zpracování (`analysis/cucumber-sowing-initial-probe.json`), další příliš dlouho spoléhal na starou vyrytou půdu (`analysis/cucumber-restored-till-probe.json`). Nákup se tehdy povedl, avšak pole17 zarostlo před prvním setím; tento failed driver se nevydává za splněnou etapu. Následující změna upravila pouze pořadí skutečných hráčských akcí, nikoli produkční herní data.
+
 ## Navazující čtyři sklizně a ruční cena
 
 `tools/validate_game_tomato_batch.py` pokračuje z nativního skutečně vyčerpaného sáčku a čtyř zasetých polí14/15/16/34. Pouze při čekání na růst použije fyzickou původní zkratku Alt+Insert pro15× čas; před prací obnoví1×. Toto je výslovný rozdíl proti dřívějším průchodům bez akcelerace. Není vložený žádný čas ani profilový stav. Skutečná postava sklidí první tři plody do kapacity3, uloží je, dojde pro čtvrtý a znovu jej uloží. Na trhu šest skutečných kliknutí zvýší cenu rajčat2→8, jedno tlačítko Vše přesune čtyři kusy do nabídky a skutečné prodeje zvýší Money2→34. Farmář dále drží sekačku a rostliny znovu rostou. Přirozeně se odemknou upgrady11/14 a dopis16; na farmě se zpracuje návod28.

@@ -19,7 +19,9 @@
       "analysis/seed-sowing-state-validation.json",
       "analysis/tomato-batch-state-validation.json",
       "analysis/tomato-contract-state-validation.json",
-      "analysis/tomato-contract-interop-validation.json"
+      "analysis/tomato-contract-interop-validation.json",
+      "analysis/manufacture-tutorial-state-validation.json",
+      "analysis/cucumber-sowing-state-validation.json"
     ]
   },
   "build": {
@@ -115,7 +117,8 @@
     "ctest_focused_retry_repetitions": 0,
     "last_full_ctest_report": "analysis/squall-listener-regression.json",
     "last_full_ctest_implementation_commit": "2745060",
-    "full_ctest_repeated_for_latest_vector_fix": false
+    "full_ctest_repeated_for_latest_vector_fix": false,
+    "full_ctest_repeated_for_latest_game_alias_fix": false
   },
   "images": {
     "decoded": 416,
@@ -275,7 +278,14 @@
     "analysis/squall-vectors-abi.json",
     "analysis/squall-vectors-fresh-abi.json",
     "analysis/tomato-contract-state-validation.json",
-    "analysis/tomato-contract-interop-validation.json"
+    "analysis/tomato-contract-interop-validation.json",
+    "analysis/focused-upgrade-validation.json",
+    "analysis/focused-upgrade-fresh-validation.json",
+    "analysis/focused-view-upgrade-regression.json",
+    "analysis/manufacture-tutorial-state-validation.json",
+    "analysis/manufacture-focused-upgrade-trace.json",
+    "analysis/manufacture-tutorial-runtime-observation.json",
+    "analysis/cucumber-sowing-state-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108195,8 +108205,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-vectors-regression.json",
-    "recorded_at_utc": "2026-10-29T17:20:03.723491+00:00",
+    "report": "analysis/focused-view-upgrade-regression.json",
+    "recorded_at_utc": "2026-10-29T18:08:44.050835+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

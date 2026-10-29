@@ -219,7 +219,18 @@ void Game::setMoney(int value) {
     Upgrade* tools[]={w.dig,w.mow,w.store,w.water};for(auto* tool:tools) tool->setLevel(tool->level(),false);
     w.fields->refreshUpgradeButton();if(value<before) w.effects.moneyExpense(unsigned(before)-unsigned(value));else if(before<value) w.effects.moneyIncome(unsigned(value)-unsigned(before));
 }
-void Game::refreshUpgrades() {auto& w=*world_;for(unsigned i=0;i<15;++i) if(auto* upgrade=w.selectedUpgrade(i)) {upgrade->setLevel(upgrade->level(),false);if(i<11 && !w.tips->activeStep(34)) {auto* house=dynamic_cast<ProductionBuilding*>(upgrade);w.factories->focus(nullptr,true);w.factories->focus(house,false);}}}
+void Game::refreshUpgrades() {
+    auto& w=*world_;
+    for(unsigned i=0;i<15;++i) {
+        if(i<11) {
+            // Native0040bec6 passes the unadjusted focused Picture pointer.
+            if(auto* house=w.factories->focusedBuilding()) {
+                refreshViewUpgradeAlias(w.profile,*house);
+                if(!w.tips->activeStep(34)) {w.factories->focus(nullptr,true);w.factories->focus(house,false);}
+            }
+        } else if(auto* upgrade=w.selectedUpgrade(i)) upgrade->setLevel(upgrade->level(),false);
+    }
+}
 void Game::cheatMoney() {setMoney(signedBits(unsigned(money())+1000U));}
 void Game::cheatUpgrades() {
     auto& w=*world_;for(unsigned i=0;i<15;++i) w.profile.uints["UpAvail"+std::to_string(i)]=i==13 ? 2U:3U;

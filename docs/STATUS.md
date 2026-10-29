@@ -1,5 +1,9 @@
 # Stav rekonstrukce
 
+[Čtyři skutečné okurky](SEED_RUNTIME.md) nyní navazují na dokončený výrobní tutoriál: původní60s zarostení půdy, nové rytí, nákup30, spotřeba celého sáčku a všech480 vody. Sedmnáct pracovních kontrol v obou EXE má795 stejných profilových klíčů/typů/diskrétních hodnot a přesně shodných3557 save bajtů bez normalizace. Navazující sklizeň, přenosy a další systémy pokračují.
+
+[Celý výrobní tutoriál](MANUFACTURE.md) nově běží skutečným vstupem v obou EXE: první kravín, jedno skutečné přetažení krmiva, výukový upgrade a demolice. Save3557 bajtů a200200 tutorial pixelů jsou přesné. Odhalený původní chybný View/Upgrade pointer byl obnoven a porovnán na6144 shodných byte-fixture případech v každém ze dvou sestavení; nezávislá padding hodnota je výslovně oddělená. Úplná regrese tohoto herního zásahu ještě čeká; další plodiny a reálná výroba pokračují.
+
 [C3 porovnávání vektorů Squall](SQUALL.md) má další instrukčně doloženou opravu: šest veřejných C++ NaN změnových testů nyní zachovává původní x87 C3 větev. Obě DLL prošly po4556 vektorových výsledcích v PC53/PC24 a novou regresí faktorů/game-audio/PersonSounds. Poslední plný102/102 běh patří předchozímu commitu2745060; pro tuto novou opravu se neopakoval.
 
 [Přirozená rajčatová zakázka16](CONTRACT_RUNTIME.md) nově prošla přijetím, zálohou20, čtyřmi skutečně zalitými a znovu sklizenými plody a odměnou80: Money34→14→94. Nabídka, potvrzení a návod27 mají207200 přesně shodných RGB pixelů, úplné3278bajtové saves souhlasí bez normalizace. Další plodiny, nářadí, výroba a ostatní podmínky celého cíle pokračují.

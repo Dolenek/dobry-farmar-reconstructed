@@ -1,0 +1,34 @@
+{
+  "status": "passed_for_focused_View_alias_same_words_and_recorded_actual_manufacture_scope",
+  "recorded_at_utc": "2026-10-29T18:08:44.050835+00:00",
+  "recorder_sha256": "1b1fd20cc43c47407194b9664b66a06847411f966fda9881fccea5004b2f6e3c",
+  "reports": {
+    "focused-upgrade-validation.json": "5765ec4b1006101d70bf1d6fa364170b282706af57b79108eacbd73840fb99ae",
+    "focused-upgrade-fresh-validation.json": "2d8e45164ea361f51b4e50421f7fc79b767babbf971e47240295957c64bd7c71"
+  },
+  "runtime_report_sha256": "2efd82a421892d2f9c714462c44b647a6f562cc5a08aa3182e723b85d7196a8f",
+  "native_cause_report_sha256": "e14e023aa1fd20605001b7b95b090aa72b52ef4449a1af0f4adc70e36486dd4c",
+  "implementation_files": {
+    "FarmarSourceInterop.exe": "a6cdee3d9b882626cee5959ff39b0b3c591706021dd0ac650247aef911c1bfbc",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9"
+  },
+  "build_logs": {
+    "focused-upgrade-main-build.log": "12d421c02729b2313b425c821b1fc24d219f64afa8a20a5282d7cd70798bc7c6",
+    "focused-upgrade-fresh-build.log": "a94a06128de84c0cc4d0140100e6ff13d1399523da0b72c4cb1664fe0cad22c8"
+  },
+  "current_native_alias_states_per_build": 6144,
+  "full_ctest_repeated_for_this_change": false,
+  "previous_full_ctest": {
+    "report": "analysis/squall-listener-regression.json",
+    "implementation_commit": "2745060",
+    "passed": 102
+  },
+  "allocation_padding_identical_between_actual_processes": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Fresh-process padding/object ABI remains explicit; supplied identical words compare exactly",
+    "Full regression after this game change, cucumber completion, real production and remaining full-goal scopes"
+  ]
+}

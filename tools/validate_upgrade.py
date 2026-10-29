@@ -24,6 +24,7 @@ def main():
         for key,value in dict(states=65648,queries=32768,changes=32768,costs=122880,objects=16,reloads=96,level_loads=208,sound_calls=22408).items():
             assert state['upgrade_'+key]==value,(key,state['upgrade_'+key])
         assert state['device_flags']==(0x22 if precision=='PC53' else 0x20)
+        assert state['upgrade_alias_states']==3072,state['upgrade_alias_states']
         state['precision']=precision;contexts.append(state);unchanged()
     paths=sorted([path for path in (ROOT/'src/game').rglob('*') if path.is_file()]+[
         ROOT/'CMakeLists.txt',ROOT/'tools/text_buttons_reference_test.cpp',ROOT/'tools/text_buttons_oracle_fixups.inc',
@@ -32,7 +33,7 @@ def main():
         reference_sha256=digest(original/'Dobrý farmář.exe'),reference_files_unchanged=len(inventory['files']),
         original_entry_point_executed=False,original_program_code_used_in_implementation=False,
         oracle_sha256=digest(oracle),source_files={path.relative_to(ROOT).as_posix():digest(path) for path in paths},precision_contexts=contexts,
-        states=131296,queries=65536,changes=65536,costs=245760,objects=32,reloads=192,level_loads=416,sound_calls=44816,
+        states=131296,queries=65536,changes=65536,costs=245760,objects=32,reloads=192,level_loads=416,sound_calls=44816,focused_view_alias_states=6144,
         original_functions=['004169c0','00416970','00416a30','00417050','00417430','004174b0','0040ba00','00410ce0','00404170'],
         coverage=['Constructor/destructor, original two pure virtual slots, independent real ProfileProperties maps, missing-key insertion',
             'Up0..Up3 named loading bounded by child count; missing/sparse/empty definitions, repeated loads accumulate levelCount, callback changes count before increment',

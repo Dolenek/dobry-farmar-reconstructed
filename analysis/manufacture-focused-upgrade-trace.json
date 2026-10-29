@@ -1,0 +1,186 @@
+{
+  "status": "confirmed_original_unadjusted_focused_View_passed_as_Upgrade",
+  "recorded_at_utc": "2026-10-29T18:05:23.291312+00:00",
+  "reference_executable_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "reference_files_unchanged": 17,
+  "original_program_code_used_in_implementation": false,
+  "source_files": {
+    "tools/native_upgrade_trace/trace.cpp": "63975f0c2e261291f9eef5c793d3ca9e4aec47c921b5f8d3ea70f8c52ab19102",
+    "tools/native_upgrade_trace/CMakeLists.txt": "6f92162733981759dc34c4115d0bf5b228e17baf8f83f7adafdf6bf73c5f4eec"
+  },
+  "tracer_sha256": "06a6a746969d899cc9eaf2c4a87babd4707f3a443ca000b3f1dde40a8caa8c90",
+  "work_directory": ".local/manufacture-tutorial/20261029T174711212779Z",
+  "diagnostic_driver_snapshot": ".local/manufacture-tutorial/20261029T174711212779Z/driver.py",
+  "diagnostic_driver_snapshot_sha256": "d1151b79cb41371ffd555f6c0ba5fc18410ff259ddc65a89d5755b7b5a42fd0d",
+  "trace_records": [
+    {
+      "event": "ready",
+      "pid": 10608,
+      "hardware_execution_address": 4288592,
+      "game_memory_written": false
+    },
+    {
+      "event": "abnormal_upgrade_id",
+      "thread": 12100,
+      "property_id": 16843009,
+      "ecx": 177562896,
+      "esp": 1737160,
+      "ebp": 1741604,
+      "stack": [
+        4243159,
+        94,
+        15,
+        0,
+        8,
+        148817912,
+        8,
+        53960680,
+        177562896,
+        1741696,
+        54009860,
+        0,
+        1159946883,
+        177759512,
+        177563764,
+        3505687485,
+        1732664,
+        1741684,
+        5967076,
+        4242945,
+        1,
+        177562896,
+        54009860,
+        4288696
+      ],
+      "object_words": [
+        6259576,
+        0,
+        1065353216,
+        1079194419,
+        0,
+        3131961357,
+        177559056,
+        17,
+        175937328,
+        16843009,
+        3131900161,
+        6259568,
+        172449888,
+        16,
+        1069547520,
+        3131961345
+      ],
+      "frames": [
+        4263484
+      ]
+    },
+    {
+      "event": "detached_after_abnormal",
+      "upgrade_level_calls": 325,
+      "abnormal_ids": 1
+    }
+  ],
+  "trace_logs": {
+    "0-upgrade-trace.jsonl": "e49643a3bd41bb77b7568ddbf9a8e3adb7f25ca961472600db425024f48a1b85",
+    "0-upgrade-trace.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "native_game_exit_code": 0,
+  "first_birth_report_sha256": "87cdcf1d5e071ab2cf89668c26dec5bdfa781f3902dd1f1192bcb0fa1a2642e9",
+  "first_birth_work_directory": ".local/manufacture-tutorial/20261029T174524307887Z",
+  "first_birth_states": {
+    "loaded-first-building": {
+      "extra_upgrade": null,
+      "building_level": 0,
+      "building_loaded": 1,
+      "grass_stock": 0,
+      "tutorial": 34,
+      "money": 94,
+      "held": 2,
+      "carried": 0,
+      "stock": 0,
+      "task": -1,
+      "task_remaining": 90.0,
+      "seed_available": 1,
+      "game_time": 610.0784912109375,
+      "crop": 0,
+      "field_state": 3,
+      "water": 0.0,
+      "fertility": 120.0,
+      "crop_progress": 20.604299545288086,
+      "farm_level": 1,
+      "farm_available": 3
+    },
+    "tutorial-free-upgrade": {
+      "extra_upgrade": -1163067136,
+      "building_level": 1,
+      "building_loaded": 1,
+      "grass_stock": 0,
+      "tutorial": 33,
+      "money": 94,
+      "held": 2,
+      "carried": 0,
+      "stock": 0,
+      "task": -1,
+      "task_remaining": 90.0,
+      "seed_available": 1,
+      "game_time": 610.0784912109375,
+      "crop": 0,
+      "field_state": 3,
+      "water": 0.0,
+      "fertility": 120.0,
+      "crop_progress": 18.238985061645508,
+      "farm_level": 1,
+      "farm_available": 3
+    },
+    "tutorial-demolition": {
+      "extra_upgrade": -1163067136,
+      "building_level": -1,
+      "building_loaded": 0,
+      "grass_stock": 0,
+      "tutorial": -1,
+      "money": 94,
+      "held": 2,
+      "carried": 0,
+      "stock": 0,
+      "task": -1,
+      "task_remaining": 90.0,
+      "seed_available": 1,
+      "game_time": 610.0784912109375,
+      "crop": 0,
+      "field_state": 3,
+      "water": 0.0,
+      "fertility": 120.0,
+      "crop_progress": 16.077791213989258,
+      "farm_level": 1,
+      "farm_available": 3
+    }
+  },
+  "original_functions": [
+    "0040be10",
+    "0040bed2",
+    "0040bedc",
+    "00417050",
+    "004174b0",
+    "00410d60",
+    "00495fd0",
+    "0050bd60"
+  ],
+  "findings": [
+    "0040bec6 reads Manufacture+f8, passes that unadjusted View pointer in ECX to00417050 and004174b0",
+    "Upgrade property id+24 is actually the View shown/parentShown/enabled/parentEnabled word01010101",
+    "Upgrade levelCount+28 is actually absolute/parentAbsolute flags plus two allocation padding bytes; observed BAAD0101 clamps missing-key zero toBAAD0100",
+    "The raw View vtable+4 points to0050bd60, MOV EAX,2/RET, rather than the real Upgrade refresh method",
+    "Getter return40bed7 and parent return410e3c are captured; raw stack preserved without inventing an optimized-away complete backtrace",
+    "Get-only map snapshots locate birth during free upgrade34, before demolition33"
+  ],
+  "diagnostic_scope": [
+    "Own isolated original process, exact image-path guard and expected level-entry bytes",
+    "Hardware execution breakpoint in thread debug registers; ReadProcessMemory for registers/object/stack; no game memory writes by this tracer",
+    "CPU RF resumes the unchanged instruction; all hardware slots are cleared and debugger detaches after first abnormal id",
+    "The separate existing launcher still uses its documented OS COMMON_APPDATA boundary adapter"
+  ],
+  "pending": [
+    "Fresh-process padding values differ; no fixed BAAD value is inserted into production",
+    "Reconstruction compares identical supplied state/padding words separately from actual independent heaps"
+  ]
+}

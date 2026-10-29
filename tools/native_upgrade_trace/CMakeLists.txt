@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(NativeUpgradeTrace LANGUAGES CXX)
+if(NOT MSVC OR NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
+    message(FATAL_ERROR "Use MSVC Win32 for native x86 thread contexts")
+endif()
+add_executable(native-upgrade-trace trace.cpp)
+target_compile_features(native-upgrade-trace PRIVATE cxx_std_17)
+target_compile_options(native-upgrade-trace PRIVATE /utf-8)

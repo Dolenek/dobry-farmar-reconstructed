@@ -3,7 +3,12 @@
 #include <cstdint>
 #include <memory>
 namespace farmar::recovered {
-class GameConfiguration;class ProfileProperties;class SoundManager;class cChannel;class XmlNode;
+class GameConfiguration;class ProfileProperties;class SoundManager;class cChannel;class XmlNode;class View;
+// 0040be10 passes a focused View directly to the old cUpgrade methods.
+// These words are View flags plus allocation padding, not its real Upgrade.
+struct ViewUpgradeAliasWords {std::uint32_t propertyId;std::int32_t levelCount;};
+ViewUpgradeAliasWords viewUpgradeAliasWords(const View&) noexcept;
+void refreshViewUpgradeAlias(ProfileProperties&,View&);
 // cGame's shared +a0c channel, used by every cUpgrade. The game owns the
 // configuration/sound manager and clears this channel at its native teardown.
 class UpgradeContext final {

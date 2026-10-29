@@ -4,7 +4,7 @@ Obnovený `src/game/engine/Game.cpp` skládá původní hlavní herní objekt, n
 
 Přímé vazby propojují příkazy Farm s postavou, nástroje se skladem a penězi, HUD s reálnými zvukovými kanály Person, výrobu/trh se skladem, smlouvy s profily/dialogy a Tutorial s konkrétními ovládacími prvky. Události Gameplay vykonávají původních deset dispatchů podle vtabulek `005f98d0`–`005f9914` a `005f9c60`; DestroyDepot má původní skutečný RET `004bd820`. Dostupnost UpAvail a SeedAvail patří do uint mapy, nikoli int mapy.
 
-`00410d60` nastavuje peníze s dolním omezením, provádí `0040be10`, refresh HUD, opakovaně refreshuje Dig/Mow/Warehouse/Water, obnovuje tlačítko Farm a vytvoří skutečný výdajový/příjmový efekt. `0040be10` jedenáctkrát čte tentýž aktuálně zaměřený Upgrade výroby, nikoli jednotlivé sloty; zachovává i tutoriálovou výjimku 34. Rutina `00404170` spouští zvuk upgradu, proto byla odpovídající služba Farm přejmenována na playUpgradeSound.
+`00410d60` nastavuje peníze s dolním omezením, provádí `0040be10`, refresh HUD, opakovaně refreshuje Dig/Mow/Warehouse/Water, obnovuje tlačítko Farm a vytvoří skutečný výdajový/příjmový efekt. `0040be10` jedenáctkrát čte tentýž aktuálně zaměřený View výroby, nikoli jednotlivé sloty. Původní výrobní větev nepřevádí pointer na Upgrade základ: interpretuje jeho flags/padding jako ID/levelCount a volá virtuální View.type. Nově obnovený alias a jeho heap-dependent profilový artefakt jsou doložené v [UPGRADE.md](UPGRADE.md); původní tutoriálová výjimka34 a focus pořadí zůstávají. Rutina `00404170` spouští zvuk upgradu, proto byla odpovídající služba Farm přejmenována na playUpgradeSound.
 
 ## Binární .save
 
