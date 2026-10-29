@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Globální konfigurace skutečných DLL
+
+Jedenáct exportů Get/Set3DAlgorithm, Get/SetBufferSize, Get/SetDevice, Get/SetHardwareAcceleration, GetNumDevice a Get/SetSpeakerMode nově prošlo skutečným načtením obou DLL. `tools/squall_config_probe` sestavuje `squall-config-reference-test`; `python tools/validate_squall_config.py` ověřuje PC53/PC24 před Init, s reálným DirectSound a po Free. Každé ze dvou sestavení má4634 API výsledků a1320 celých guarded output snapshotů. Zkouší signed hranice bufferu1..5000, opakované změny support tabulky algoritmů, speaker modes,36 dvojic raw hardware flags a přestavbu zařízení bez kanálů; čtyři scalar gettery po každé změně a null/bad/alias/cross-page hardware výstupy. V této etapě se neprokázala odchylka a produkční kód se neměnil. Původní zvláštnost Set3DAlgorithm10003a70, který zapisuje do support tabulky místo změny aktuálního algoritmu, zachovává už existující zdroj.
+
+Metadata jsou `analysis/squall-config-validation.json`, `analysis/squall-config-fresh-validation.json` a `analysis/squall-config-regression.json`. Aktuální výrobní/game zdroje stále odpovídají úplnému102/102 běhu z `analysis/live-production-regression.json`; nový nezávislý celý běh se nevydává za provedený. Připravené/hrající kanály přes změnu zařízení, device loss, failure rollback, všechny fyzické endpointy/algoritmy a host bez zvukové karty nejsou tímto scénářem ověřené. Celé chování97 exportů zůstává nedokončené.
+
 ## Skutečný listener worker callback
 
 `SQUALL_Listener_SetWorker`10004cf0 má další přímé porovnání bez produkční změny. Původní TEST/JA po10004d4b přijímá unsigned nenulový interval; signaturu veřejného zdroje tvoří `unsigned int`, takže jeho `<=0` už toto chování zachovává. VzoryFFFFFFFF/FFFFFFFE/80000000 se přijímají jako velké DWORD periody. Nulový handler naopak vynuluje handler/userdata/periodu bez kontroly předaného intervalu.

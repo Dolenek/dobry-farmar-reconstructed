@@ -309,7 +309,10 @@
     "analysis/paid-production-state-validation.json",
     "analysis/production-interop-validation.json",
     "analysis/production-restore-crash.json",
-    "analysis/live-production-regression.json"
+    "analysis/live-production-regression.json",
+    "analysis/squall-config-validation.json",
+    "analysis/squall-config-fresh-validation.json",
+    "analysis/squall-config-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108229,8 +108232,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/live-production-regression.json",
-    "recorded_at_utc": "2026-10-29T21:25:28.607796+00:00",
+    "report": "analysis/squall-config-regression.json",
+    "recorded_at_utc": "2026-10-29T21:34:19.972997+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

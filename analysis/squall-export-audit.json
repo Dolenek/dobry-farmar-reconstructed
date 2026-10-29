@@ -387,7 +387,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_GetBufferSize",
@@ -396,7 +397,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_GetChannelsInfo",
@@ -414,7 +416,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_GetDeviceCaps",
@@ -447,9 +450,10 @@
       "name": "SQUALL_GetHardwareAcceleration",
       "ordinal": 50,
       "original_address": "10003810",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_GetNumDevice",
@@ -458,7 +462,8 @@
       "status": "partially_compared",
       "verified_scope": "Real device count on this host; device details and switching unverified",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual device count on this host"
+      "loaded_DLL_verified_scope": "Actual device count on this host",
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_GetSpeakerMode",
@@ -467,7 +472,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_Init",
@@ -799,25 +805,28 @@
       "name": "SQUALL_Set3DAlgorithm",
       "ordinal": 90,
       "original_address": "10003a70",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_SetBufferSize",
       "ordinal": 91,
       "original_address": "10003b30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_SetDevice",
       "ordinal": 92,
       "original_address": "10003700",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_SetFileCallbacks",
@@ -832,9 +841,10 @@
       "name": "SQUALL_SetHardwareAcceleration",
       "ordinal": 94,
       "original_address": "100037b0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_SetMemoryCallbacks",
@@ -848,9 +858,10 @@
       "name": "SQUALL_SetSpeakerMode",
       "ordinal": 96,
       "original_address": "100038b0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
     },
     {
       "name": "SQUALL_Stop",
@@ -885,5 +896,9 @@
   "listener_worker_reports": [
     "analysis/squall-listener-worker-validation.json",
     "analysis/squall-listener-worker-fresh-validation.json"
+  ],
+  "configuration_reports": [
+    "analysis/squall-config-validation.json",
+    "analysis/squall-config-fresh-validation.json"
   ]
 }

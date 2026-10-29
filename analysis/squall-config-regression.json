@@ -1,0 +1,35 @@
+{
+  "status": "passed_for_actual_global_configuration_scope_both_builds",
+  "recorded_at_utc": "2026-10-29T21:34:19.972997+00:00",
+  "recorder_sha256": "aa86f89905bfaf7cefe97fe7a16f4b6b53a64270880b9abffff7584e6d734570",
+  "reports": {
+    "squall-config-validation.json": "1991053097b387415dfc88b2b38291c303d25a48d23f66df3eff07bb0f4afa1e",
+    "squall-config-fresh-validation.json": "066d0f0707c15c61f93b5de9e8afe70588cb033c6ea988f8b9250bae0304af62"
+  },
+  "original_export_addresses": {
+    "SQUALL_Get3DAlgorithm": "10003af0",
+    "SQUALL_GetBufferSize": "10003b90",
+    "SQUALL_GetDevice": "10003770",
+    "SQUALL_GetHardwareAcceleration": "10003810",
+    "SQUALL_GetNumDevice": "10003c70",
+    "SQUALL_GetSpeakerMode": "10003970",
+    "SQUALL_Set3DAlgorithm": "10003a70",
+    "SQUALL_SetBufferSize": "10003b30",
+    "SQUALL_SetDevice": "10003700",
+    "SQUALL_SetHardwareAcceleration": "100037b0",
+    "SQUALL_SetSpeakerMode": "100038b0"
+  },
+  "api_results_per_build": 4634,
+  "guarded_snapshots_per_build": 1320,
+  "implementation_changed": false,
+  "current_full_ctest_report": "analysis/live-production-regression.json",
+  "current_full_ctest_source_hashes_match": true,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Prepared/playing channels across device recreation,device loss and failure rollback",
+    "All physical endpoints/algorithms and no-device host",
+    "Remaining97-export and full-game scopes"
+  ]
+}
