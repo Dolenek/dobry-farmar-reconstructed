@@ -1,0 +1,60 @@
+{
+  "status": "confirmed_sample_distance_nan_normalization_divergence",
+  "recorded_at_utc": "2026-10-29T18:18:11.076970+00:00",
+  "work_directory": ".local/squall-sample-defaults-before/20261029T181807118987Z",
+  "implementation_commit": "8599644",
+  "candidate_sha256": "3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "oracle_sha256": "4d898958525b730f728b581986a6d1f9ba66949f7795e95fe74494351c374d56",
+  "source_files": {
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "5f30d2dfc69006e0292f0ce3c9d7580e106ce17e3e7dc5b79ecbcf4b8dc337ed",
+    "tools/squall_sample_defaults_reference_test.cpp": "269f64ab0f6f505907b23386f089eb3ad2e4831563ce7aede56096e226316916",
+    "tools/squall_sample_probe/CMakeLists.txt": "6e1daa33ff0a979623687671ad1b7cc3feff80895e01a5c4fc44827388611dde"
+  },
+  "sample_member": "Sounds/Menu_music.ogg",
+  "sample_sha256": "cfe04636d0d958f55d34b70a0fdf0abc7f52aeb5d67c1e5721217e36cb6ecf01",
+  "contexts": [
+    {
+      "precision": "PC53",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Default word=7 input_field=5 input_bits=7f800001 source=7f800001 native=3f800000\r\nNormalized sample default words differ\r\n"
+    },
+    {
+      "precision": "PC24",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Default word=7 input_field=5 input_bits=7f800001 source=7f800001 native=3f800000\r\nNormalized sample default words differ\r\n"
+    }
+  ],
+  "original_program_code_used_in_implementation": false,
+  "whole_game_complete": false,
+  "current_diagnostic_contexts": [
+    {
+      "precision": "PC53",
+      "result": {
+        "cases": 2130,
+        "result_comparisons": 4261,
+        "pointer_cases": 0,
+        "normalization_mismatches": 2048,
+        "initialized_directsound": false,
+        "export_lookups": 194
+      }
+    },
+    {
+      "precision": "PC24",
+      "result": {
+        "cases": 2130,
+        "result_comparisons": 4261,
+        "pointer_cases": 0,
+        "normalization_mismatches": 2048,
+        "initialized_directsound": false,
+        "export_lookups": 194
+      }
+    }
+  ],
+  "current_oracle_sha256": "c3246ac7f09737a8a6bad342873ecb01139187ecdcbf6d014907a0ce3a62f1f0",
+  "current_oracle_source_sha256": "54afb8e8d401ee054698b76e8415e324a832515568a6534c100999f07cd9d9a7",
+  "candidate_path": "build/windows/squall-candidate/Release/Squall.dll",
+  "preserved_candidate_path": ".local/cucumber-sowing/20261029T180721717655Z/runtime/Squall.dll"
+}

@@ -643,11 +643,13 @@ void InitSoundDefault(squall_sample_default_t* in,
             out->Pan = 50;
 
         // проверим минимальное расстояние слышимости
-        if (out->MinDist <= 0.0f)
+        // Native10007f78 tests x87 C0/C3: unordered also uses the default.
+        if (!(out->MinDist > 0.0f))
             out->MinDist = DS3D_DEFAULTMINDISTANCE;
 
         // проверим максимальное расстояние слышимости
-        if (out->MaxDist <= 0.0f)
+        // Native10007f8f has the same ordered-positive acceptance predicate.
+        if (!(out->MaxDist > 0.0f))
             out->MaxDist = DS3D_DEFAULTMAXDISTANCE;
     } else {
         // заполним поля структуры по умолчанию

@@ -29,3 +29,6 @@ Aritmetika další úrovně a horní meze zachovává wrap32, včetně INT_MIN/I
 Zvuk prochází skutečným obnoveným SoundManagerem ve vypnutém režimu: potvrzuje resource a flagy, nevytváří channel. Nenulový channel, jeho opakované rušení a kompletní pořadí cGame teardown zatím ověřené nejsou. Odvozené callbacky jsou diagnostické trace fixtures, nikoli implementace herního světa. Test nespouští původní entry point a rekonstruovaný kód původní instrukce nevolá.
 
 Další práce: skutečné odvozené budovy/farma, UI nákupu, event dispatch, plný cGame a uložení. Původní invalid-level/item výjimky jsou zkontrolované v instrukcích; jejich old C++ ABI, jiné locale a celá hra tím ověřené nejsou. Přenositelné výsledky ukládá `tools/record_verification.py` do `analysis/upgrade-validation.json`.
+
+
+Nová úplná Win32 regrese po commitu8599644 prošla102/102 bez focused opakování. Report `analysis/focused-view-upgrade-full-regression.json` váže současné zdroje/binárky a6144 alias případů na nový JUnit. Dřívější běh byl při přerušení konverzace ukončen během90. testu a nemá výsledek; jeho log je zachovaný a není započítaný jako úspěch.

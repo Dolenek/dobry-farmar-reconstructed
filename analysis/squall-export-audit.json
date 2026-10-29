@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "3dd8b00465a4314f6df330d4032102a63f5f92a46e8e206a25fcb1e47da8b1a9",
+  "rebuilt_sha256": "99f7b608031aea175c7b80cfbc3a87123310f060f15fa830464a3b4607ee0fb8",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -676,7 +676,8 @@
       "status": "partially_compared",
       "verified_scope": "All 28 default bytes for 45 valid loaded samples",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 28 default bytes for 45 valid samples"
+      "loaded_DLL_verified_scope": "All 28 default bytes for 45 valid samples",
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
     },
     {
       "name": "SQUALL_Sample_GetFileFrequency",
@@ -713,7 +714,8 @@
       "verified_scope": "All 45 original Vorbis files with memory flag 1, null defaults and real game callbacks",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music",
-      "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds"
+      "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds",
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
     },
     {
       "name": "SQUALL_Sample_Pause",
@@ -761,9 +763,10 @@
       "name": "SQUALL_Sample_SetDefault",
       "ordinal": 86,
       "original_address": "100074a0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
     },
     {
       "name": "SQUALL_Sample_Stop",
@@ -873,5 +876,9 @@
   "listener_vector_reports": [
     "analysis/squall-listener-vectors-validation.json",
     "analysis/squall-listener-vectors-fresh-validation.json"
+  ],
+  "sample_default_reports": [
+    "analysis/squall-sample-defaults-validation.json",
+    "analysis/squall-sample-defaults-fresh-validation.json"
   ]
 }

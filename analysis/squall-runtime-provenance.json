@@ -413,6 +413,18 @@
       "instruction_evidence": "FCOMP followed by FNSTSW AX and TEST AH,40h at all six vector comparisons; equal/unordered C3=1 skips a component change",
       "source_difference": "Public C++ != treats NaN as changed; new Win32 x87 helper reads input/cache memory words and tests only C3, preserving short-circuit component order",
       "current_sha256": "fd6cdada95f24db3123e63dda1e0174d146993eabed54b0aaca44e2ce212a604"
+    },
+    {
+      "path": "SoundEngine/SquallApi.cpp",
+      "method": "InitSoundDefault distance normalization",
+      "original_addresses": [
+        "10007f20",
+        "10007f78",
+        "10007f8f"
+      ],
+      "instruction_evidence": "FCOMP0, FNSTSW AX, TEST AH,41h; nonpositive/unordered MinDist becomes1 and MaxDist becomes0x4e6e6b28",
+      "source_difference": "Public1.48 <=0 retains NaNs; negate ordered>0 acceptance for both fields",
+      "current_sha256": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905"
     }
   ]
 }

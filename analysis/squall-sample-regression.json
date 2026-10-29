@@ -1,0 +1,43 @@
+{
+  "status": "passed_for_sample_distance_NaN_fix_current_audio_and_eight_crop_save_transfers",
+  "recorded_at_utc": "2026-10-29T20:49:26.544287+00:00",
+  "recorder_sha256": "98b90ffdd343f55b782399887ab6508d9b809e14e4bd4bb98522987fe9da4162",
+  "dll_sha256": [
+    "99f7b608031aea175c7b80cfbc3a87123310f060f15fa830464a3b4607ee0fb8",
+    "47b62d5d3a9d10b99f79b0fee81aadf5d78837e328d938511b6fdfbf1d7b3b4c"
+  ],
+  "reports": {
+    "squall-sample-defaults-validation.json": "fd046897b282690b60c49d5f701f6510f9651b940a79a3a3161505dabfc69f58",
+    "squall-sample-defaults-fresh-validation.json": "1a41c9831baeb91d83f7926191730926a6cb73483a8a25170cf747b271286da5",
+    "squall-sample-dll-validation.json": "903451ecca5eae06543b07a6b52971785904fc275f121122783e0eb2bc4d8f2e",
+    "squall-sample-dll-fresh-validation.json": "c0c11ed7bb9bfb04e05bf22871c436a372d0e22d3e5952d8e3ebc22309afbc76",
+    "squall-sample-game-audio-validation.json": "411dcaf0fb5644fb69e1907a9883f83b626a4a9fdf98aabffe74fd62700e19ea",
+    "squall-sample-game-audio-fresh-validation.json": "7ba21debcbcbe79408ad83a20e4ca60198f75f91e19d58b69d9bd98ce15dbaa7",
+    "squall-sample-person-sounds-validation.json": "ab20b35f7d450d16678d347655af7a85bc21a705c5b220046e85ed10c99e1c4f",
+    "squall-sample-person-sounds-fresh-validation.json": "de6a40d59a48c46c3eee154e74b39b31f00cfee44a395eb438f9f9be83f52c10"
+  },
+  "game_interop_report_sha256": "b08931f2af166e4994dcaaf1d4273fdf719610c533da7d3f2e6a18ec09cbb114",
+  "fresh_build_comparison": {
+    "bytes": 399872,
+    "only_normalized_byte_ranges": [
+      [
+        288,
+        292
+      ],
+      [
+        283204,
+        283208
+      ]
+    ],
+    "normalized_sha256": "16eebc6fc397c55f582b699dc7485005a12825ba9e5190af1bd467de806b7515",
+    "files_modified": false
+  },
+  "previous_full_ctest": {
+    "report": "analysis/focused-view-upgrade-full-regression.json",
+    "implementation_commit": "859964481a420daa3bce285136c6d0446e728aa5",
+    "passed": 102,
+    "repeated_for_current_sample_fix": false
+  },
+  "original_files_unchanged": 17,
+  "whole_game_complete": false
+}

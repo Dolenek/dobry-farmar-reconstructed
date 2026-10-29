@@ -98,3 +98,6 @@ Oba úplné2650bajtové saves jsou **přesně stejné bez normalizace**: nula s�
 
 
 Prázdný-sáčku stav následně prošel také čtyřmi celými procesy `tools/validate_game_empty_seed_interop.py`: `.local/empty-seed-interop/20261029T123856899273Z`, native0→source2→native4→source5 a source1→native3. Každý přenos má přesně shodných2650 bajtů bez normalizace a794 shodných profilových klíčů/typů/diskrétních hodnot; mění se pouze zaznamenané průběžné růstové/vodní/úrodnostní floaty a hodiny. Metadata: `analysis/empty-seed-interop-validation.json`. Hlavní herní/DLL binárky zůstávají stejné jako v předchozím ověřeném sestavení; nový samostatný cílový test Squall nemění jejich implementaci.
+
+
+Stav osmi osázených polí následně prošel čtyřmi celými procesy `tools/validate_game_cucumber_interop.py`: native0→source2→native4→source5 a source1→native3. Každý přenos zachoval3557 save bajtů bez normalizace a795 stejných profilových klíčů/typů/diskrétních hodnot. Nová vlastní Squall s opravenou normalizací vzdáleností je ověřená skutečně načtenou cestou i hashem. Metadata: `analysis/cucumber-interop-validation.json`, pracovní složka `.local/cucumber-interop/20261029T204828799793Z`.
