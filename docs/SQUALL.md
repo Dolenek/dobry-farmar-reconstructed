@@ -91,3 +91,22 @@ Při tomto ověření byla opravena chyba sestavovacího cíle: Visual Studio s 
 Reporty `analysis/squall-dll-validation.json` a `analysis/squall-dll-fresh-validation.json` obsahují hash zdrojů, kandidáta, testovacího EXE a mapy, jednotlivé přesnosti, rozsah a neověřené oblasti. Audit exportů rozlišuje vybrané porovnané vstupy od úplně ověřeného podpisu/chování všech 97 API. Žádný export zde není automaticky označen za úplně ověřený.
 
 Navazující `SquallSoundApi` skutečně propojuje obnovené herní audio objekty s vlastní DLL. V PC53/PC24 prošel null-HWND herní Init a 378 stavů včetně skutečných MainMenu/Options controls, pohybu playback cursoru, pause/resume a úklidu; podrobnosti v `SOUND_MANAGER.md`. Samostatný prepared-buffer report výše nadále neobsahuje playback. Playback důkaz je v oddělených `analysis/game-audio-validation.json` a `analysis/game-audio-fresh-validation.json`; neprokazuje audible výstup ani celý herní runtime.
+
+
+## Skupiny skutečných kanálů přes veřejné DLL API
+
+Nový `squall-groups-reference-test` načítá obě skutečné DLL s původním entrypointem a volá jen veřejné exporty, skutečné DirectSound buffery/workery a obnovené read-only souborové callbacky. PC53/PC24 prošly840 veřejnými výsledky; stejný audit prošel nad druhým samostatným sestavením. Hlavní DLL zůstáváa6241f37479d69716e15e07787529a68cd3359cc33d3d7b9c81bd1e63d5071ab; druhé sestavení máa403ddc6c0f49d6c33e186297eafd000f4ceee30852b6e6285f1678c2b5a2b64. Ve všech400384 bajtech se liší jen dvě linkerová časová pole: PE COFF288..291 a debug directory283716..283719; po jejich oddělené klasifikaci je zbytek souborů přesný. Reálné binárky nejsou upravené. Metadata: `analysis/squall-groups-build-comparison.json`.
+
+V každé přesnosti288 prázdných volání prověří čtyři group exporty před Init, po skutečném Init, po ukončení kanálů a po Free. Živá část má dva ambientní kanály ve skupině17 a třetí ve skupině−7. Skupinové volume indexy0/1/43/99/100/101/255 se porovnávají se všemi třemi skutečnými gettery; jiná skupina se nemění. Neplatné indexy mimo256slovnou tabulku jsou zkoušené pouze bez odpovídajících živých kanálů, kdy originál tabulku vůbec nečte. Frekvence−1/0/99/100/22050/44100/88200/100000/100001/INT_MAX souhlasí v návratech i skutečných getterech.
+
+Připravený buffer má veřejný status3 a skupinová pauza jej nespouští. Skutečné Channel_Start a Channel_Pause nejprve vytvoří paused status2; potom se porovnává skupinové resume/pause s0/1/−1/2 a status1/2. Původní libovolný nenulový Pause zapíná pauzu. Stop připouští jen původní přechod−24→0 do dvou sekund a kontroluje nedotčenou jinou skupinu. Scheduler okamžiky nejsou porovnávané jako současný snímek. Instrukční podklad tvoří10007100/10007190/10007220/100072c0 a vnitřní10002260/10001f40/10001f80/10001fe0.
+
+První test chybně očekával prepared status2; obě DLL měly shodně3 a test skončil před živou pauzou. Opravený scénář používá skutečný Start a ověřuje i prepared no-op. Produkční zvukový kód se neměnil. Reporty `analysis/squall-groups-validation.json` a `analysis/squall-groups-fresh-validation.json` a aktualizovaný `analysis/squall-export-audit.json` zachovávají stav částečného porovnání; žádný úplný podpis/chování97 exportů se automaticky neoznačuje za hotový. Zbývají jiné druhy kanálů, souběh worker/callback/teardown, další zařízení, slyšitelný a přesně časově korelovaný výstup, neplatné live volume indexy a ostatní API.
+
+```powershell
+cmake --build build/windows --config Release --target squall-groups-reference-test --parallel 4
+python tools/validate_squall_groups.py
+cmake --build build/squall-source-repro-vs20261010 --config Release --target squall-groups-reference-test --parallel 4
+python tools/validate_squall_groups.py --candidate build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll --oracle build/squall-source-repro-vs20261010/Release/squall-groups-reference-test.exe --output .local/squall-groups-fresh-validation.json
+python tools/record_squall_group_verification.py
+```

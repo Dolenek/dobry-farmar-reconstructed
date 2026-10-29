@@ -7,17 +7,19 @@
       "name": "SQUALL_ChannelGroup_Pause",
       "ordinal": 1,
       "original_address": "10007100",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_group_verified_scope": "Real groups17/-7; prepared no-op; actual start/pause/resume with0,1,-1,2; unrelated group preserved; empty contexts before/after Init/Free"
     },
     {
       "name": "SQUALL_ChannelGroup_SetFrequency",
       "ordinal": 2,
       "original_address": "100072c0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_group_verified_scope": "Actual groups and public getters across-1,0,99,100,22050,44100,88200,100000,100001,INT_MAX; unrelated group preserved"
     },
     {
       "name": "SQUALL_ChannelGroup_SetVolume",
@@ -26,15 +28,17 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "integrated_game_audio_verified_scope": "Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter"
+      "integrated_game_audio_verified_scope": "Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter",
+      "loaded_DLL_group_verified_scope": "Actual groups and public getters for table indices0,1,43,99,100,101,255; invalid volumes only with no live matching channels"
     },
     {
       "name": "SQUALL_ChannelGroup_Stop",
       "ordinal": 4,
       "original_address": "10007190",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_group_verified_scope": "Real groups17/-7, unrelated group preserved, bounded original-24/0 asynchronous retirement and empty contexts"
     },
     {
       "name": "SQUALL_Channel_EAX_GetProperties",
@@ -186,7 +190,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "integrated_game_audio_verified_scope": "Actual cChannel pause/resume status and frozen cursor"
+      "integrated_game_audio_verified_scope": "Actual cChannel pause/resume status and frozen cursor",
+      "loaded_DLL_group_verified_scope": "Three actual started ambient buffers per precision enter paused public status2 before group operations"
     },
     {
       "name": "SQUALL_Channel_Set3DPosition",
@@ -311,7 +316,8 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "integrated_game_audio_verified_scope": "Actual prepared and resumed music through cChannel with cursor progress"
+      "integrated_game_audio_verified_scope": "Actual prepared and resumed music through cChannel with cursor progress",
+      "loaded_DLL_group_verified_scope": "Three actual prepared ambient buffers per precision transition from public status3 into playback before individual pause"
     },
     {
       "name": "SQUALL_Channel_Status",
@@ -321,7 +327,8 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared",
-      "integrated_game_audio_verified_scope": "Real prepared/play/pause/resume/retirement observations"
+      "integrated_game_audio_verified_scope": "Real prepared/play/pause/resume/retirement observations",
+      "loaded_DLL_group_verified_scope": "Actual prepared3, live1, paused2, transient stop-24 and retired0 in group scenarios"
     },
     {
       "name": "SQUALL_Channel_Stop",
@@ -823,5 +830,9 @@
       "native_signature_fully_verified": false,
       "integrated_game_audio_verified_scope": "Actual group 1 UI clicks and group 2 music; bounded full worker retirement"
     }
+  ],
+  "group_operation_reports": [
+    "analysis/squall-groups-validation.json",
+    "analysis/squall-groups-fresh-validation.json"
   ]
 }

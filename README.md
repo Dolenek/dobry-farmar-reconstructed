@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Skupiny kanálů Squall](docs/SQUALL.md) mají nové skutečné DLL porovnání840 veřejných výsledků v PC53/PC24, zopakované ve druhém sestavení. Příprava/přehrávání/pauza, skupinová hlasitost/frekvence a ukončení workerů prošly. Ostatní rozsahy97 exportů a celý projekt pokračují.
+
 [Přirozené osivo v celých EXE](docs/SEED_RUNTIME.md) nově prošlo odemčením, druhou sklizní/prodejem, deníkem a zaplaceným sáčkem rajčat. Čtyři skutečné obousměrné2523bajtové přenosy zachovaly obsah i prodejní hodiny; původní X+1 a padding jsou doložené zvlášť. Navazující skutečné rytí/setí/zalévání má143000 přesně shodných tutorial RGB pixelů a tři zbývající semena. Skutečný celý cyklus rajčat, prodej72, obnova staré historie a první rozšíření na20 polí také prošly; další systémy a celý projekt pokračují.
 
 [První přirozená zakázka v celých EXE](docs/CONTRACT_RUNTIME.md) nově prošla i skutečným zaléváním/sklizní, kapacitou nákladu3, splněním za60 a dalšími třemi úplnými2186bajtovými save přenosy dokončeného kontraktu i dalšího dopisu. Následující herní systémy pokračují.
