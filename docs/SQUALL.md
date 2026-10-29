@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Skutečný listener worker callback
+
+`SQUALL_Listener_SetWorker`10004cf0 má další přímé porovnání bez produkční změny. Původní TEST/JA po10004d4b přijímá unsigned nenulový interval; signaturu veřejného zdroje tvoří `unsigned int`, takže jeho `<=0` už toto chování zachovává. VzoryFFFFFFFF/FFFFFFFE/80000000 se přijímají jako velké DWORD periody. Nulový handler naopak vynuluje handler/userdata/periodu bez kontroly předaného intervalu.
+
+Standalone projekt `tools/squall_worker_probe` a driver `python tools/validate_squall_listener_worker.py` ověřily v každém ze dvou sestavení152 návratů v PC53/PC24: pre-Init, skutečný DirectSound worker thread a post-Free; null/code1,0/1/10/100/INT_MAX a tři vysokobitové periody. Skutečné callbacky obou DLL mají původní userdata a pokračují s nimi i po odmítnutí bad-code a zero-period setteru. Po synchronním clear nepřibude callback během35ms pozorování. V každém sestavení proběhlo alespoň osm skutečných callbacků; jejich počty ani plánování nejsou normalizované jako shodný časový trace. Dvanáct35ms pozorování vysokých unsigned period neprokazuje dlouhodobý wraparound timer.
+
+Metadata: `analysis/squall-listener-worker-validation.json` a `analysis/squall-listener-worker-fresh-validation.json`. Nejsou ověřené všechny callback reentrancy/race/teardown větve, neobvyklé code stránky ani ztráta zařízení. API tím získává částečné pokrytí, nikoli tvrzení o úplném ověření97 exportů.
+
 ## Původní normalizace výchozích vzdáleností vzorku
 
 `InitSoundDefault` na10007f20 používají SetDefault i explicitní defaulty při Sample_LoadFile. Původní FCOMP s nulou na10007f78/10007f8f testuje AH,41h: MinDist≤0 **nebo unordered** nahrazuje1 a MaxDist≤0 **nebo unordered** nahrazuje1000000000 (raw4e6e6b28). Veřejný1.48 zdroj s `<=0` NaN ponechával. Dvě produkční podmínky nyní vyjadřují negaci původní ordered-positive přijímací podmínky; žádný další rozsah není odhadnutý.

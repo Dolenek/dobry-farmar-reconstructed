@@ -22,7 +22,8 @@
       "analysis/tomato-contract-interop-validation.json",
       "analysis/manufacture-tutorial-state-validation.json",
       "analysis/cucumber-sowing-state-validation.json",
-      "analysis/cucumber-interop-validation.json"
+      "analysis/cucumber-interop-validation.json",
+      "analysis/cucumber-harvest-state-validation.json"
     ]
   },
   "build": {
@@ -300,7 +301,10 @@
     "analysis/squall-sample-regression.json",
     "analysis/squall-sample-abi.json",
     "analysis/squall-sample-fresh-abi.json",
-    "analysis/cucumber-interop-validation.json"
+    "analysis/cucumber-interop-validation.json",
+    "analysis/squall-listener-worker-validation.json",
+    "analysis/squall-listener-worker-fresh-validation.json",
+    "analysis/cucumber-harvest-state-validation.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",

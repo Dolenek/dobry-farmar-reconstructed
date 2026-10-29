@@ -615,9 +615,10 @@
       "name": "SQUALL_Listener_SetWorker",
       "ordinal": 69,
       "original_address": "10004cf0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "listener_worker_verified_scope": "PC53/PC24 pre-Init/live DirectSound/post-Free; DWORD periods, null/bad-code, actual userdata callback, retained handler after invalid setters and clear;152 compared results per build"
     },
     {
       "name": "SQUALL_Listener_Update",
@@ -880,5 +881,9 @@
   "sample_default_reports": [
     "analysis/squall-sample-defaults-validation.json",
     "analysis/squall-sample-defaults-fresh-validation.json"
+  ],
+  "listener_worker_reports": [
+    "analysis/squall-listener-worker-validation.json",
+    "analysis/squall-listener-worker-fresh-validation.json"
   ]
 }

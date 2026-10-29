@@ -1,5 +1,13 @@
 # Přirozený nákup osiva v celých EXE
 
+## Tři skutečné sklizně okurek a peněžní brána
+
+`tools/validate_game_cucumber_harvest.py` pokračuje z Money64 a čtyř skutečně zalitých okurkových ploch. V každém ze tří cyklů originál i zdroj vyčkají na skutečné dozrání, sklidí tři plody do nákladu, uloží je, vrátí se pro čtvrtý a znovu uloží. Na trhu osm skutečných cenových kliknutí poprvé zvýší cenu2→10. Vše přenese čtyři kusy a skutečné prodeje dávají postupně Money104/144/184. Dvanáct plodů znamená120 získaných mincí. Pouze růst a prodejní odpočet používají fyzický původní Alt+Insert15×, před každou sklizní a po prodeji se vrací1×.
+
+Skutečná událost720 nastaví mTrigger140. Při první sklizni, prvním prodeji za104 i druhém dozrání se GameTime v rámci každého vlastního procesu drží na přesně téže float hodnotě, přesto pole a prodejní odpočty pokračují. Druhý prodej za144 vyčistí bránu a GameTime znovu postupuje. V obou EXE prošlo27 pracovních kontrol. Nedoplňují se peníze ani profilové/časové hodnoty.
+
+Nezávislé konce `.local/cucumber-harvest/20261029T204929619217Z` leží na opačných stranách původní popularity události810: originál816.582 má ceny−1/4/6, zdroj808.986 má předchozí791s ceny8/6/20. Auditor tyto konkrétní hodnoty odvozuje z původního Gameplay.xml a netvrdí rovnost všech diskrétních properties. Všechny795 klíče/typy a ostatní diskrétní hodnoty souhlasí. Další rozdíly jsou evidované hodiny, dopis a růst/voda/úrodnost.3557bajtové saves mají stejné čtyři poslední prodejní částky10, sedm zpráv/read flags a383 koeficientů; ostatní bajty souhlasí po oddělení pouze pěti čtyřbajtových prodejních hodin/cutoff. Původní soubory ani diagnostické saves se nenormalizují na disku. Audit `python tools/validate_cucumber_harvest_state.py`, metadata `analysis/cucumber-harvest-state-validation.json`. Přesný frame replay, další save transfery této historie a placená výroba pokračují.
+
 ## Skutečný nákup a čtyři vyseté okurky
 
 Po dokončení povinné výrobní výuky pokračuje `tools/validate_game_cucumber_sowing.py` z nativního uloženého stavu Money94, držený rýč2 a zbořený výukový kravín. Obě EXE skutečně koupí druhý dostupný sáček, typ3 za30. Staré vyryté plochy17/18/23 už mají téměř vyčerpaných původních60s do zarostení; průchod počká na skutečnou obnovu trávy, znovu vyryje17/18/23/27 a teprve poté převezme připravený sáček. Čtyři skutečná setí jej spotřebují, deferred odstranění vrátí PCarry10→0, studna naplní480 a čtyři skutečná zalití je spotřebují do0. Tato etapa nepoužívá časovou akceleraci.

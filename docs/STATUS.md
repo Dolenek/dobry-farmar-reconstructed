@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Tři skutečné okurkové sklizně](SEED_RUNTIME.md) nově přinesly Money64→104→144→184 a přesně doložené zastavení/odblokování peněžní brány140. Obě EXE prošly27 pracovními kontrolami. Konečná cenová událost810 je v nezávislých časových řezech výslovně odlišná; neskrývá se jako shodná diskrétní hodnota. [Listener callback Squall](SQUALL.md) má v obou sestaveních152 nových porovnání a skutečné userdata/callback/clear kontroly. Placená stavba a výroba pokračují.
+
 [Výchozí parametry vzorků Squall](SQUALL.md) mají obnovené dvě původní NaN normalizace vzdáleností. Obě sestavení prošla po8710 API porovnáních, skutečným PCM/DirectSound, game-audio a PersonSounds. Poslední celý102/102 běh pro8599644 je před touto novou úpravou DLL; nová zvuková etapa jej nevydává za opakovaný plný běh.
 
 [Čtyři skutečné okurky](SEED_RUNTIME.md) nyní navazují na dokončený výrobní tutoriál: původní60s zarostení půdy, nové rytí, nákup30, spotřeba celého sáčku a všech480 vody. Sedmnáct pracovních kontrol v obou EXE má795 stejných profilových klíčů/typů/diskrétních hodnot a přesně shodných3557 save bajtů bez normalizace. Navazující sklizeň, přenosy a další systémy pokračují.
