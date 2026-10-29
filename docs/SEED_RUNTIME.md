@@ -23,3 +23,12 @@ python tools/validate_game_seed_interop.py
 ```
 
 Tyto opt-in běhy potřebují volný aktivní Windows desktop a existující přirozené baseline reporty. Následují skutečné rytí, setí, růst a sklizeň zakoupené plodiny, další osiva/rozšíření/výroba, dlouhé saves, všechny kontrakty, neověřené větve enginu a úplný Squall97. Celý projekt nadále není dokončený.
+
+
+## Skutečné rytí, setí a zalévání
+
+`tools/validate_game_seed_sowing.py` navazuje na stejný nativní zaplacený sáček, nezávisle pro originál i zdroj. Skutečný krok20 převezme lopatu,21 zahájí rytí dosud suchého aktivního pole34,22 převezme sáček a23 zaseje jedno rajče. GrowingAction přirozeně otevře24 kvůli nedostatku vody; skutečná studna naplní480 a postava zalije pole. Vstupní masky lopaty i pole jsou v reportu. Žádný worker, čas, profil nebo výsledek práce se do procesu nevkládá.
+
+Běh `.local/seed-sowing/20261029T121007185167Z` dokončily oba celé procesy. Všech pět tutoriálových oblastí20–24 má přesně shodných143000 RGB pixelů. V794 profilových položkách souhlasí klíče, typy a diskrétní hodnoty: Money70, PCarry1, FFC34=1, FFS34=0 a všech pět tipů=true. Voda i úrodnost34 přesahují118; rozdíly růstu/vody/úrodnosti a hodin obou dopisů jsou jednotlivě zaznamenané. Konečný2523bajtový save má jeden zaplacený sáček rajčat se třemi zbývajícími semeny na X122/Y280. Všechny bajty obou saves souhlasí kromě tří původních neurčených padding bajtů25..27. Prodejní hodiny, cutoff, zprávy a383 koeficientů nejsou normalizované a jsou bitově shodné.
+
+Nezávislý readonly audit `tools/validate_seed_sowing_state.py` kontroluje hashe vstupního kódu, všech snímků a17 originálů; metadata jsou `analysis/seed-sowing-state-validation.json`. Přenos nově osetého stavu mezi programy a skutečný celý růst/sklizeň se ověřují dále. Tento výsledek neuzavírá celé pěstování ani projekt.

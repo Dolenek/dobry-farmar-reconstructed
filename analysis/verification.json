@@ -7,8 +7,17 @@
   "full_game_build_available": false,
   "windows_build_verified": true,
   "original_game_runtime": {
-    "menu_and_new_game": "confirmed_by_user",
-    "tested_by_agent": false
+    "menu_and_new_game": "confirmed_by_full_native_process_comparisons",
+    "tested_by_agent": true,
+    "scope_reports": [
+      "analysis/native-application-interop-validation.json",
+      "analysis/tutorial-runtime-validation.json",
+      "analysis/contract-runtime-validation.json",
+      "analysis/contract-completion-validation.json",
+      "analysis/seed-unlock-state-validation.json",
+      "analysis/seed-interop-validation.json",
+      "analysis/seed-sowing-state-validation.json"
+    ]
   },
   "build": {
     "cmake_version": "4.4.1",
@@ -108149,5 +108158,7 @@
       "Long-running cheat effect animations, all gameplay/tutorial/system scopes",
       "Remaining engine/Squall97 and isolated source uninstaller"
     ]
-  }
+  },
+  "main_game_source_build_available": true,
+  "full_game_build_available_scope": "All required behavior verified, including every Squall export and remaining full-game systems; still incomplete"
 }
