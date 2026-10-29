@@ -14,6 +14,9 @@ u.PostMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.restype = W.LPARAM
 u.SetForegroundWindow.argtypes = [W.HWND]
+u.AttachThreadInput.argtypes = [W.DWORD, W.DWORD, W.BOOL]
+u.BringWindowToTop.argtypes = [W.HWND]
+k.GetCurrentThreadId.restype = W.DWORD
 u.GetClientRect.argtypes = [W.HWND, C.POINTER(W.RECT)]
 u.ClientToScreen.argtypes = [W.HWND, C.POINTER(W.POINT)]
 u.GetDC.argtypes = [W.HWND]
@@ -67,12 +70,36 @@ class GameGui:
             assert u.SendInput(1, C.byref(item), C.sizeof(item)) == 1
             time.sleep(0.08)
 
-    def click(self, hwnd, x, y):
+    def move(self, hwnd, x, y):
         self.focus()
         pt = W.POINT(x, y)
         assert u.ClientToScreen(hwnd, C.byref(pt))
+        # A cursor warp need not produce DirectInput mouse-axis callbacks.
+        # Deliver a real absolute move, including virtual-desktop normalization.
+        left, top = u.GetSystemMetrics(76), u.GetSystemMetrics(77)
+        width, height = u.GetSystemMetrics(78), u.GetSystemMetrics(79)
+        assert width > 0 and height > 0
+        item = INPUT()
+        item.type = 0
+        item.mouse = MOUSE(int((pt.x-left+0.5)*65536/width),
+                           int((pt.y-top+0.5)*65536/height), 0, 0xc001, 0, 0)
+        assert u.SendInput(1, C.byref(item), C.sizeof(item)) == 1
+        # A short sequence keeps movement live while the game samples its
+        # cursor and DirectInput state in separate calls within a frame.
+        for dx in (1, -1, 1, -1, 1, -1):
+            self.focus()
+            item = INPUT(); item.type = 0
+            item.mouse = MOUSE(dx, 0, 0, 0x2001, 0, 0)
+            assert u.SendInput(1, C.byref(item), C.sizeof(item)) == 1
+            time.sleep(0.04)
         assert u.SetCursorPos(pt.x, pt.y)
-        time.sleep(0.1)
+        time.sleep(0.05)
+        self.focus()
+        actual = W.POINT()
+        assert u.GetCursorPos(C.byref(actual))
+        assert (actual.x, actual.y) == (pt.x, pt.y), ('Injected pointer missed owned window target', (actual.x, actual.y), (pt.x, pt.y))
+    def click(self, hwnd, x, y):
+        self.move(hwnd, x, y)
         for flags in [2, 4]:
             item = INPUT()
             item.type = 0
@@ -154,6 +181,23 @@ class GameGui:
         self.adopt_window_dpi()
         if u.GetForegroundWindow() != self.hwnd.value:
             u.SetForegroundWindow(self.hwnd)
+            time.sleep(0.1)
+        if u.GetForegroundWindow() != self.hwnd.value:
+            # Windows can deny a background caller SetForegroundWindow after
+            # another app receives input. Briefly join the foreground queue;
+            # always detach before any mouse/key event is sent.
+            foreground = u.GetForegroundWindow()
+            owner = W.DWORD()
+            thread = u.GetWindowThreadProcessId(foreground, C.byref(owner)) if foreground else 0
+            current = k.GetCurrentThreadId()
+            attached = bool(thread and thread != current and u.AttachThreadInput(current, thread, True))
+            try:
+                if attached:
+                    u.BringWindowToTop(self.hwnd)
+                    u.SetForegroundWindow(self.hwnd)
+            finally:
+                if attached:
+                    assert u.AttachThreadInput(current, thread, False)
             time.sleep(0.1)
         assert u.GetForegroundWindow() == self.hwnd.value, 'Source application lost foreground; no global input was injected'
 

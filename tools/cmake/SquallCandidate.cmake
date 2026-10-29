@@ -107,5 +107,11 @@ add_executable(DobryFarmar WIN32 "${CMAKE_CURRENT_SOURCE_DIR}/src/game/main.cpp"
 set_target_properties(DobryFarmar PROPERTIES OUTPUT_NAME "Dobrý farmář")
 target_link_libraries(DobryFarmar PRIVATE recovered_game_audio shlwapi shell32)
 target_compile_options(DobryFarmar PRIVATE /utf-8)
+# Retain private symbol addresses for read-only external runtime diagnostics.
+# The map is a build artifact; production code and ASLR remain unchanged.
+target_link_options(DobryFarmar PRIVATE "/MAP:$<TARGET_FILE_DIR:DobryFarmar>/DobryFarmar.map")
+add_executable(game-runtime-layout "${CMAKE_CURRENT_SOURCE_DIR}/tools/game_runtime_layout.cpp")
+target_link_libraries(game-runtime-layout PRIVATE recovered_game_audio)
+target_compile_options(game-runtime-layout PRIVATE /utf-8)
 add_custom_command(TARGET DobryFarmar POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:SquallCandidate>" "$<TARGET_FILE_DIR:DobryFarmar>/Squall.dll")

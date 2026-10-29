@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Přirozený tutoriál v celých EXE](docs/TUTORIAL_RUNTIME.md) nově ověřil deset kroků, skutečnou sklizeň/sklad/trh a1981 shodných save bajtů. Zjištěný rozdíl pořadí překrývajících se polí a neúspěšná opakování jsou přesně evidované; jejich oprava a celý projekt pokračují.
+
 [Zdrojový odinstalátor](docs/UNINSTALL.md) je nyní sestavitelný přes FarmarUninstall z přesného NSIS2.28; nezávislé sestavení má shodných všech sedm ověřovaných binárek. Všech27 aplikačních mazacích instrukcí a tři stránky mají statické porovnání. Nově20 skutečných silent odinstalačních procesů ověřilo deset source/reference párů, souborové/registry účinky a504 shodných aplikačních operací. Dalších16 UI procesů souhlasí v osmi párech a268 záznamech prvků; dalších32 procesů ověřilo vlastní bootstrap, kopie A/B a odložené záměry v testovacím backendu. Skutečný reboot a pixelové snímání zůstávají neověřené. Další neověřené rozsahy a podmínky celé hry zůstávají evidované v dokumentaci.
 
 [Obsluha textových příkazů GameInput](docs/GAME_INPUT.md) je propojená se skutečným herním světem. Native callback porovnání pokrývá33333 znaků; celé procesy ověřily peníze včetně wrap32,15 upgrade hodnot,8 osiv a kapacitně omezený sklad. Úplné herní chování a ostatní podmínky projektu pokračují.
