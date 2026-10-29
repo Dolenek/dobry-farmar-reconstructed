@@ -1,0 +1,9 @@
+{
+  "status": "diagnostic_unhandled_natural_arrow47_not_a_game_failure",
+  "work_directory": ".local/tool-upgrades/20261029T213929051243Z",
+  "runtime_report_sha256": "d9eff8ea8f5a8b8e0e5196996d7026cd433fe7450f765d0e37555d614326036a",
+  "driver_sha256": "59b201867adfe9a3862dbd00e65e6ddcf4cc312a8401e079d7bff4e0d03d897c",
+  "error": "RuntimeError(('Catalog timeout', 'mow-level-3', {'tutorial': 47, 'money': 6434, 'held': 6, 'carried': 0, 'stock': 1, 'milk': 5, 'building_level': -1, 'building_loaded': 0, 'building_progress': 0.0, 'processed': 6, 'task': -1, 'task_remaining': 90.0, 'seed_available': 1, 'game_time': 987.0294189453125, 'crop': 1, 'field_state': 0, 'water': 0.0, 'fertility': 53.19026565551758, 'crop_progress': 75.36720275878906, 'farm_level': 1, 'farm_available': 3}))",
+  "recorded_as_pass": false,
+  "resolution": "Read original MowBuilding.enabledStep and confirm new Arrow47 before next upgrade; also service Water arrows46/29"
+}
