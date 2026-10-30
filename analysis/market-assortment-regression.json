@@ -1,0 +1,66 @@
+{
+  "status": "passed_actual19_market_rows_natural_award18_and_all19_clock_restores",
+  "recorded_at_utc": "2026-10-30T17:49:47.159568+00:00",
+  "recorder_sha256": "8f45e94cd0178b9a79fc320d0cee2895790f11213eff70739331c05465b403ed",
+  "reports": {
+    "market-assortment-state-validation.json": "5dfcbad1d27de4c993a7605ad6b2b58085fda5ea8da83ede8b1da339963cff58",
+    "market-assortment-interop-validation.json": "4d98b85742bea373e18419ab3de33e3e89170840d2794f06d4885edabeed505d",
+    "market-assortment-initial-visual-probe.json": "454e2ad588de3a1998c9314c1f8006b5dcfa418bb4607ad501d81505f3f7cfec"
+  },
+  "business_snapshots_per_executable": 21,
+  "physical_price_clicks_per_executable": 264,
+  "actual_price_changes_equal": true,
+  "original_award_predicate_index": 18,
+  "award_requested_by_cheat": false,
+  "all19_market_clock_spellings_equal": true,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "complete_identical_save_bytes": 4089,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "a12f4741ff5ceeec0ac0d9e6d43ac959ecd8fe250468ae0a60450695e6d14f77",
+      "events": [
+        {
+          "event": "image",
+          "base": 15466496
+        },
+        {
+          "event": "ready",
+          "pid": 4244,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "a2709b03bf3f2f74fa72db48fab5bba2f552799842cf2b1e57dab01072ecd8d1",
+      "events": [
+        {
+          "event": "image",
+          "base": 15466496
+        },
+        {
+          "event": "ready",
+          "pid": 21860,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_report": "analysis/profile-floating-regression.json",
+  "current_full_ctest_source_hashes_match": true,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Other market inputs and every remaining natural award",
+    "Factory maximum capacities, simultaneous buildings and complete goal scopes"
+  ]
+}

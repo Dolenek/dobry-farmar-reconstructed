@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Celý19řádkový trh a přirozené ocenění za sortiment](docs/MARKET.md) nově souhlasí v obou EXE:264 skutečných cenových změn,21 obchodních kontrol,480000 RGB pixelů a4089 save bajtů. Další čtyři obousměrné přenosy obnovily všech19 prodejních hodin. Pokračují maximální kapacity výroben a celý původní cíl.
+
 Poslední oprava obnovuje [původní číselné profily](docs/PROFILES.md), včetně skutečně nalezeného rozdílu `inf`/`1.#INF`. Skutečné [blokování výroby plným skladem](docs/MANUFACTURE.md) a uvolnění přes trh už souhlasí v celých EXE i všech4089 save bajtech. Nový úplný běh102/102 prošel; také čtyři skutečné obousměrné4089bajtové přenosy souhlasí. Další části původního cíle pokračují.
 
 Aktuální návaznost je v [docs/STATUS.md](docs/STATUS.md). Nově prošlo všech11 skutečných výrobních receptů, placené rozšíření skladu/nářadí, přirozené ocenění za kompletní nářadí a rozpracovaná výroba přes oba programy. Poslední úplná regrese má102/102 kontrol; další práce na úplné shodě hry,97 exportech Squallu a ostatních výslovně evidovaných hranicích pokračuje. Projekt se nevydává za dokončený.

@@ -37,7 +37,9 @@
       "analysis/factory-levels-group1-state-validation.json",
       "analysis/factory-levels-group2-state-validation.json",
       "analysis/full-warehouse-state-validation.json",
-      "analysis/full-warehouse-interop-validation.json"
+      "analysis/full-warehouse-interop-validation.json",
+      "analysis/market-assortment-state-validation.json",
+      "analysis/market-assortment-interop-validation.json"
     ]
   },
   "build": {
@@ -347,7 +349,11 @@
     "analysis/full-warehouse-state-validation.json",
     "analysis/full-warehouse-interop-validation.json",
     "analysis/profile-floating-initial-probe.json",
-    "analysis/profile-floating-regression.json"
+    "analysis/profile-floating-regression.json",
+    "analysis/market-assortment-state-validation.json",
+    "analysis/market-assortment-interop-validation.json",
+    "analysis/market-assortment-initial-visual-probe.json",
+    "analysis/market-assortment-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108267,8 +108273,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/profile-floating-regression.json",
-    "recorded_at_utc": "2026-10-30T17:35:37.370388+00:00",
+    "report": "analysis/market-assortment-regression.json",
+    "recorded_at_utc": "2026-10-30T17:49:47.159568+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"
