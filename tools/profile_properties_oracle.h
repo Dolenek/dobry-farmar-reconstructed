@@ -13,6 +13,7 @@
 #include <set>
 #include <sstream>
 #include <stdexcept>
+#include <type_traits>
 using namespace farmar::recovered;
 namespace {
 unsigned char* image=nullptr;unsigned scenario=0,kind=0;std::set<void*> allocations;
@@ -43,7 +44,13 @@ int __cdecl registerExit(void(__cdecl*)()) { ++registrations;return 0; }
 std::wostringstream nativeOutput;void* expectedStream=nullptr;
 void* __cdecl writeLiteral(void* stream,const wchar_t* text) { require(stream==expectedStream,"Native serializer stream pointer differs");nativeOutput<<text;return stream; }
 void* __cdecl writeWide(void* stream,const WString* text) { require(stream==expectedStream,"Native WString serializer stream pointer differs");nativeOutput.write(text->data(),text->size());return stream; }
-template<class T> void* __fastcall writeNumeric(void* stream,void*,T value) { require(stream==expectedStream,"Native numeric serializer stream pointer differs");nativeOutput<<value;return stream; }
+template<class T> void* __fastcall writeNumeric(void* stream,void*,T value) {
+    require(stream==expectedStream,"Native numeric serializer stream pointer differs");
+    // This grammar harness replaces old CRT output. Actual-process raw-word
+    // fixtures separately prove its negative-zero spelling and special values.
+    if constexpr(std::is_floating_point_v<T>) {if(value==T(0)) {nativeOutput<<0;return stream;}}
+    nativeOutput<<value;return stream;
+}
 unsigned __fastcall packColor(Color* self,void*) { return self->toARGB(); }
 template<class T> T* __cdecl typed(T* output,const WString* text) { if(!text->empty()) { std::wistringstream stream(text->c_str());stream>>*output; }return output; }
 Color* __cdecl color(Color* output,const WString* text) { if(!text->empty()) { unsigned packed=0;std::wistringstream stream(text->c_str());stream>>std::hex>>packed;*output=Color::fromARGB(packed); }return output; }

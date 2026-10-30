@@ -53,7 +53,7 @@ target_include_directories(recovered_game_utilities PUBLIC src/game/core src/gam
 if(WIN32)
     target_sources(recovered_game_utilities PRIVATE src/game/core/WString.cpp src/game/file_manager/RealFile.cpp
         src/game/file_manager/FileIndex.cpp src/game/xml/XmlDocument.cpp
-        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameFileSystem.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
+        src/game/core/StringConversion.cpp src/game/settings/Settings.cpp src/game/engine/GameWindow.cpp src/game/engine/GameFileSystem.cpp src/game/engine/GameTimer.cpp src/game/profiles/ProfileHeaders.cpp src/game/profiles/ProfileProperties.cpp src/game/profiles/LegacyProfileFormat.cpp src/game/profiles/LegacyProfileParse.cpp src/game/profiles/Profile.cpp src/game/profiles/GameProfileDefaults.cpp)
     target_sources(recovered_game_utilities PRIVATE src/game/audio/SoundFiles.cpp src/game/audio/SoundVolume.cpp)
     target_include_directories(recovered_game_utilities PUBLIC src/game/audio)
     target_include_directories(recovered_game_utilities PUBLIC src/game/xml src/game/settings src/game/engine src/game/profiles)
@@ -178,6 +178,9 @@ if(WIN32)
     add_executable(profile-properties-reference-test tools/profile_properties_reference_test.cpp)
     target_link_libraries(profile-properties-reference-test PRIVATE recovered_game_utilities)
     target_compile_options(profile-properties-reference-test PRIVATE /utf-8)
+    add_executable(profile-floating-probe EXCLUDE_FROM_ALL tools/profile_floating_probe.cpp)
+    target_link_libraries(profile-floating-probe PRIVATE recovered_game_utilities)
+    target_compile_options(profile-floating-probe PRIVATE /utf-8)
     add_executable(profile-lifecycle-reference-test tools/profile_lifecycle_reference_test.cpp)
     target_link_libraries(profile-lifecycle-reference-test PRIVATE recovered_game_utilities)
     target_compile_options(profile-lifecycle-reference-test PRIVATE /utf-8)

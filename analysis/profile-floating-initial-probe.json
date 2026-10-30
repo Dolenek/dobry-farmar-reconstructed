@@ -1,0 +1,168 @@
+{
+  "status": "actual_original_streams_exposed_modern_conversion_and_output_differences",
+  "report_sha256": "73494df9f0c357c665b46eb6a21c09fe0cd106442f22014cb9b4c40112723245",
+  "work_directory": ".local/profile-floating/20261030T160022169812Z",
+  "initial_format_differences": 151,
+  "initial_parse_differences": 26,
+  "initial_cases": 252,
+  "original_instruction_evidence": {
+    "profile-floating-setters-native.txt": "8f9fae78d684bf516f2d90ff006a502a14fc6220d42f975efd66da1503830485",
+    "profile-floating-gather-native.txt": "a8a8df10253864f31cd40db39e7ae1f03b4b5809fa744bd74c924e389e32e720",
+    "profile-floating-scale-native.txt": "7ca0ffedbb5eac974a3545a4b9612113479cdab9c6e4d5a6cbd25e9a78faa022"
+  },
+  "additional_probes": [
+    {
+      "report": "profile-floating-parser-extended-validation.json",
+      "sha256": "5b104974d3b97d8688af7f7568b5c61753a8c7d445f04d019c8200eec97fb83b",
+      "status": "failed",
+      "work_directory": ".local/profile-floating/20261030T164840429358Z",
+      "same_seed_differences": [
+        {
+          "key": "FormatProbe_PF047",
+          "mode": "PF",
+          "native_bits": "001a92c8",
+          "source_bits": "00000000",
+          "same_seed_source_bits": "00000000",
+          "native_text": "2.44038e-039",
+          "source_text": "0",
+          "same_seed_source_text": "0",
+          "legacy_text": "0",
+          "native_failed_or_empty": true,
+          "payload": "2.2250738585072012e-308"
+        },
+        {
+          "key": "FormatProbe_PD047",
+          "mode": "PD",
+          "native_bits": "c7effffff514a7bc",
+          "source_bits": "0010000000000000",
+          "same_seed_source_bits": "0010000000000000",
+          "native_text": "-3.40282e+038",
+          "source_text": "2.22507e-308",
+          "same_seed_source_text": "2.22507e-308",
+          "legacy_text": "2.22507e-308",
+          "native_failed_or_empty": true,
+          "payload": "2.2250738585072012e-308"
+        }
+      ],
+      "recorded_as_pass": false
+    },
+    {
+      "report": "profile-floating-final-validation.json",
+      "sha256": "59ee1661c602ee054f233b0c937a919c6c3fc77a80df5927ae9af35044f6871b",
+      "status": "failed",
+      "work_directory": ".local/profile-floating/20261030T165932766460Z",
+      "same_seed_differences": [
+        {
+          "key": "FormatProbe_PD1484",
+          "mode": "PD",
+          "native_bits": "bf5d176800000000",
+          "source_bits": "bf5d1767fb91dc36",
+          "same_seed_source_bits": "bf5d1767fb91dc36",
+          "native_text": "-0.0017756",
+          "source_text": "-0.0017756",
+          "same_seed_source_text": "-0.0017756",
+          "legacy_text": "-0.0017756",
+          "native_failed_or_empty": false,
+          "payload": "-0.0017756"
+        },
+        {
+          "key": "FormatProbe_PD1485",
+          "mode": "PD",
+          "native_bits": "bf5d176ca0000000",
+          "source_bits": "bf5d176c9c81366f",
+          "same_seed_source_bits": "bf5d176c9c81366f",
+          "native_text": "-0.0017756",
+          "source_text": "-0.0017756",
+          "same_seed_source_text": "-0.0017756",
+          "legacy_text": "-0.0017756",
+          "native_failed_or_empty": false,
+          "payload": "-0.0017756043107683102"
+        },
+        {
+          "key": "FormatProbe_PD1816",
+          "mode": "PD",
+          "native_bits": "3f71f9fae0000000",
+          "source_bits": "3f71f9fad84ddf5c",
+          "same_seed_source_bits": "3f71f9fad84ddf5c",
+          "native_text": "0.00438879",
+          "source_text": "0.00438879",
+          "same_seed_source_text": "0.00438879",
+          "legacy_text": "0.00438879",
+          "native_failed_or_empty": false,
+          "payload": "0.00438879"
+        },
+        {
+          "key": "FormatProbe_PD1817",
+          "mode": "PD",
+          "native_bits": "3f71f9fa00000000",
+          "source_bits": "3f71f9fa0d4edeec",
+          "same_seed_source_bits": "3f71f9fa0d4edeec",
+          "native_text": "0.00438879",
+          "source_text": "0.00438879",
+          "same_seed_source_text": "0.00438879",
+          "legacy_text": "0.00438879",
+          "native_failed_or_empty": false,
+          "payload": "0.004388787046017955"
+        }
+      ],
+      "recorded_as_pass": false
+    }
+  ],
+  "earlier_whole_warehouse_probes": [
+    {
+      "work_directory": ".local/full-warehouse-production/20261030T154355630507Z",
+      "runtime_status": "failed",
+      "error": "AssertionError()",
+      "report_sha256": "bec7f064a2ccbac600b1658c6383ff27e66ce14341e642c6eb2886c2579320b8",
+      "reason": "Observer caught a render-tree rotation; no source game crash proved",
+      "recorded_as_current_full_audit_pass": false
+    },
+    {
+      "work_directory": ".local/full-warehouse-production/20261030T154806396593Z",
+      "runtime_status": "explored_actual_full_warehouse_output_blocking_and_resumption_only",
+      "error": null,
+      "report_sha256": "40c605829cdb9ff5efdbb09d3a5c85db49c376939f23e1c43e7bcb68e43071eb",
+      "reason": "Both games completed; audit exposed inf spelling and a945 timed event cutoff",
+      "recorded_as_current_full_audit_pass": false
+    },
+    {
+      "work_directory": ".local/full-warehouse-production/20261030T161244475412Z",
+      "runtime_status": "failed",
+      "error": "RuntimeError(('Catalog timeout', 'two-grass-loaded', {'tutorial': -1, 'money': 34, 'held': 6, 'carried': 0, 'stock': 0, 'milk': 4, 'building_level': 0, 'building_loaded': 0, 'building_progress': 0.0, 'processed': 4, 'task': -1, 'task_remaining': 90.0, 'seed_available': 1, 'game_time': 972.52587890625, 'crop': 1, 'field_state': 0, 'water': 0.0, 'fertility': 54.76578903198242, 'crop_progress': 75.36720275878906, 'farm_level': 1, 'farm_available': 3}))",
+      "report_sha256": "e87dccd99fedd3d925832d2bfaa94eb679049bf2cd9c9f6c4dc22f74cc98edf3",
+      "reason": "Transient loaded-count observation missed after a slow screenshot",
+      "recorded_as_current_full_audit_pass": false
+    },
+    {
+      "work_directory": ".local/full-warehouse-production/20261030T170621309166Z",
+      "runtime_status": "explored_actual_full_warehouse_output_blocking_and_resumption_only",
+      "error": null,
+      "report_sha256": "dcd5f9f0b21f044a63aef45ad364f2dab89660925f81adeebdc92619984bd8df",
+      "reason": "Both games completed; independent970/977 clocks straddled field18 water exhaustion",
+      "recorded_as_current_full_audit_pass": false
+    }
+  ],
+  "whole_game_complete": false,
+  "initial_interop_timeout": {
+    "report_sha256": "0c5ead35a5678b7a53d2f39345b76cd546f1936dccbac14a4ac879bfecf02072",
+    "error": "AssertionError('Main menu Start did not construct game')",
+    "trace": [
+      {
+        "event": "image",
+        "base": 12845056
+      },
+      {
+        "event": "ready",
+        "pid": 23804,
+        "game_memory_written": false
+      },
+      {
+        "event": "exit",
+        "exit_code": 0
+      }
+    ],
+    "menu_screenshot_sha256": "115d0cf63cc4364968447f79af65ec8d5befc6098d6b92df8f93b822dbd3cf1a",
+    "recorded_as_pass": false,
+    "resolution": "Visible menu and normal source exit without AV;20s readiness budget also included debugger attach. Separate60s timer after attach passes all four retries. Exact initial delay cause unproved."
+  }
+}

@@ -1,5 +1,26 @@
 # Profily
 
+## Skutečný starý číselný parser a writer
+
+Test plného skladu a neprodejné trávy odhalil skutečnou odchylku v uloženém profilu: originál zapisuje nekonečný MSellTime0 jako `1.#INF`, moderní stream psal `inf`. `LegacyProfileFormat` nyní používá šest platných číslic, původní tříciferný exponent a kompatibilní MSVC printf režim. Zachovává také původní ztrátu znaménka záporné nuly a ztišení signaling NaN. Tato změna je v hlavním herním writeru, včetně obou složek Vector2.
+
+`validate_profile_floating.py` spouští skutečný původní EXE s jeho nezměněnými CRT streamy v soukromé datové složce. Jen vlastní diagnostické klíče FormatProbe dostávají explicitně zaznamenané raw Float/Double bity; ostatní profil a herní instrukce se tímto testem nemění. Hardware tracer zaznamenává vstupní cílová slova i výsledný fail/EOF stav. Sada má4324 položek:196 raw hodnot pro formátování a4128 textových převodů včetně1000 konečných Double se šesti i sedmnácti platnými číslicemi, hranic rozsahu,36 číslic, dlouhých exponentů, nul, NaN/Inf a neplatných vstupů. Běžný originál běží v PC24. Druhý běh výslovně nastavuje pouze FP kontext diagnostických parser calls na PC53; není vydávaný za nezměněnou přesnost celé hry.
+
+`LegacyProfileParse` obnovuje sběr číslic004d8510 a škálování0057fdc3: uchová36 významných číslic, nejvýše osm významných exponentových číslic, počáteční desetinné nuly přesune do samostatného exponentu a po konverzi násobí v aktuální x87 přesnosti. Například `.00123` se převádí přes `.0123` a následné násobení0.1; přímý moderní strtod by dával jiné Double bity. Pro samotnou starší desetinnou konverzi se načítá **systémová Windows msvcrt.dll z System32**, nikoli původní EXE nebo dodaná herní DLL. Její hash a konkrétní ověřený systém jsou evidované. Rozdílná hranice podtečení proti UCRT se ověřila i na `2.2250738585072012e-308`; podnormální výsledek konverze je odmítnut před následným škálováním. Úplná nezávislost na verzi systémového CRT není prohlášená za ověřenou.
+
+Při chybě se podle004d8de0 cílové slovo nepřepisuje. Float setter004eb2e0 jako cíl omylem používá vlastní argument WString*, Double setter004eb390 vlastní neinicializovaný stack slot. Rekonstrukce zachovává vlastní skutečné adresní/stackové bity; nenahrazuje je nulou ani konstantami z referenčního procesu. Double kopie004eb403/004eb406 přes FLD/FSTP ztiší případný signaling NaN. Proto je60 numerických výsledků mezi nezávislými adresními prostory výslovně odlišných; při totožných zaznamenaných vstupních slovech je odchylek nula. Všechny skutečně přiřazené převody a všech196 raw formátů také souhlasí. Zápis `1.#INF` se při opětovném čtení původním parserem interpretuje jako1; tento původní zvláštní roundtrip se neopravuje domyšlenou podporou infinity.
+
+```powershell
+cmake --build build/windows --config Release --target profile-floating-probe
+cmake -S tools/native_profile_trace -B build/native-profile-trace -A Win32
+cmake --build build/native-profile-trace --config Release
+py -3 tools/validate_profile_floating.py --extended --random-values 1000 --trace build/native-profile-trace/Release/native-profile-trace.exe --require-match
+# Oddělený FP fixture:
+py -3 tools/validate_profile_floating.py --extended --random-values 1000 --native-precision PC53 --trace build/native-profile-trace/Release/native-profile-trace.exe --require-match
+```
+
+Toto ověření nenahrazuje herní testy. Neplatné převody ostatních numerických typů, původní locale/grouping mimo C locale, celý Vector2 parser, obecné XML výjimky a ostatní neověřené rozsahy dále pokračují. Historické oracle reporty níže nadále mají vlastní explicitní stream adaptéry; nový test je neoznačuje zpětně za nezávislé ověření starého CRT.
+
 `ProfileHeaders` obnovuje hlavičkovou část cProfile. Původní 88bajtový objekt má singleton/vptr +0, NowPlaying +4, uložené CurrentUser WString +8, právě vybrané jméno WString +24, další ID +44, names map +48/head +4c/size +50 a flags +54/+55. Konstruktor `004ecb20` přiřadí vstupní jméno do **+24**, zatímco `loadHeaders` `004ea000` přiřadí XML CurrentUser do **+8**. Vyšší `004ec310` zachová volbu volajícího: instrukce `004ec44a` přiřadí +24 do +8, pokud se jména liší. Dřívější interpretace opačné přednosti byla opravena podle instrukcí a ověřena celým loaderem.
 
 Hlavičkový loader přečte NextID, CurrentUser a NowPlaying, poté všechny indexované XML potomky bez filtru jejich tagu. Chybějící Name vytvoří prázdné jméno; chybějící ID ponechá lokální nulu. Names map se nemaže. Unique insert `004e93d0` zachová první ID duplicitního jména i při dalších loadHeaders. Na konci vynuluje dirty +54. NextID/NowPlaying při prázdném atributu ponechají dřívější hodnotu. Moderní stream konverze jsou prozatím evidovaná hranice.

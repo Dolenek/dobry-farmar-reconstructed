@@ -1,7 +1,11 @@
 #include "ProfileProperties.h"
 #include "StringConversion.h"
 #include "XmlDocument.h"
+#include "LegacyProfileFormat.h"
+#include "LegacyProfileParse.h"
+#include <cstring>
 #include <sstream>
+#include <type_traits>
 namespace farmar::recovered {
 namespace {
 template<class T> T read(const WString& text) {
@@ -15,8 +19,14 @@ void ProfileProperties::clear() {
 }
 void ProfileProperties::setProperty(const String& type,const String& name,const WString& value) {
     const auto tag=type.view();const std::string key(name.view());
-    if(tag=="Float") floats[key]=read<float>(value);
-    else if(tag=="Double") doubles[key]=read<double>(value);
+    if(tag=="Float") {
+        //004eb32e aliases the incoming WString* argument as the Float output.
+        const auto bits=parseLegacyProfileFloat(value,static_cast<std::uint32_t>(reinterpret_cast<std::uintptr_t>(&value)));
+        std::memcpy(&floats[key],&bits,4);
+    }
+    else if(tag=="Double") {
+        const auto bits=parseLegacyProfileDouble(value,captureProfileDoubleScratch());std::memcpy(&doubles[key],&bits,8);
+    }
     else if(tag=="Int") ints[key]=read<std::int32_t>(value);
     else if(tag=="UInt") uints[key]=read<std::uint32_t>(value);
     else if(tag=="Long") longs[key]=read<std::int32_t>(value);
@@ -52,7 +62,10 @@ WString ProfileProperties::dumpXML() const {
             stream<<L"\" Type=\""<<type<<ending;
         }
     };
-    const auto numeric=[](std::wostream& out,const auto& value) { out<<value; };
+    const auto numeric=[](std::wostream& out,const auto& value) {
+        if constexpr(std::is_floating_point_v<std::decay_t<decltype(value)>>) out<<legacyProfileFloatingText(value);
+        else out<<value;
+    };
     write(floats,L"Float",numeric);write(doubles,L"Double",numeric);write(ints,L"Int",numeric);
     write(uints,L"UInt",numeric);write(longs,L"Long",numeric);write(ulongs,L"ULong",numeric);
     write(longLongs,L"LongLong",numeric);
@@ -60,7 +73,7 @@ WString ProfileProperties::dumpXML() const {
     write(colors,L"DXColor",[](std::wostream& out,const Color& value) { out<<value.toARGB(); });
     write(booleans,L"Bool",numeric);write(uint16s,L"UInt16",numeric);
     // 004e30f0 writes a single space and ends with " >, not the other types' />.
-    write(vectors,L"Vector2",[](std::wostream& out,const std::array<float,2>& value) { out<<value[0]<<L' '<<value[1]; },L"\" >");
+    write(vectors,L"Vector2",[](std::wostream& out,const std::array<float,2>& value) { out<<legacyProfileFloatingText(value[0])<<L' '<<legacyProfileFloatingText(value[1]); },L"\" >");
     write(strings,L"String",[](std::wostream& out,const String& value) { const auto text=toWide(value);out.write(text.data(),text.size()); });
     write(wideStrings,L"WString",[](std::wostream& out,const WString& value) { out.write(value.data(),value.size()); });
     stream<<L"</Props>";return WString(stream.str());

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(NativeProfileTrace LANGUAGES CXX)
+if(NOT MSVC OR NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
+    message(FATAL_ERROR "Use MSVC Win32 for original thread context")
+endif()
+add_executable(native-profile-trace trace.cpp)
+target_compile_features(native-profile-trace PRIVATE cxx_std_17)
+target_compile_options(native-profile-trace PRIVATE /utf-8)

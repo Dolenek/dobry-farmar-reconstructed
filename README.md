@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+Poslední oprava obnovuje [původní číselné profily](docs/PROFILES.md), včetně skutečně nalezeného rozdílu `inf`/`1.#INF`. Skutečné [blokování výroby plným skladem](docs/MANUFACTURE.md) a uvolnění přes trh už souhlasí v celých EXE i všech4089 save bajtech. Nový úplný běh102/102 prošel; také čtyři skutečné obousměrné4089bajtové přenosy souhlasí. Další části původního cíle pokračují.
+
 Aktuální návaznost je v [docs/STATUS.md](docs/STATUS.md). Nově prošlo všech11 skutečných výrobních receptů, placené rozšíření skladu/nářadí, přirozené ocenění za kompletní nářadí a rozpracovaná výroba přes oba programy. Poslední úplná regrese má102/102 kontrol; další práce na úplné shodě hry,97 exportech Squallu a ostatních výslovně evidovaných hranicích pokračuje. Projekt se nevydává za dokončený.
 
 [Pozice a další kanálové exporty Squall](docs/SQUALL.md) mají obnovenou původní adresně závislou větev a2542 přesných porovnání v obou přesnostech, zopakovaných ve druhém sestavení. Nová zvuková regrese a čtyři celé2650bajtové save přenosy prošly; úplná sada101/102 a tři focused opakování opraveného testovacího driveru jsou evidované odděleně. Ostatní exporty a celý projekt pokračují.

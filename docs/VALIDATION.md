@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Skutečné číselné profily](PROFILES.md) nově porovnávají4324 položek s nezměněnými původními CRT streamy v PC24 a odděleném FP fixture PC53. Same-seed bity/text i všechny přiřazené převody souhlasí; skutečné adresně závislé neplatné výsledky zůstávají výslovně odlišné. Nezávislé sestavení také prošlo. [Celé EXE s plným skladem](MANUFACTURE.md) mají devět shodných pracovních kontrol, správné blokování při100 %, skutečné uvolnění dvou míst přes trh a4089 přesných save bajtů. Nový úplný CTest po produkční opravě profilů:102/102,1062,64s. Celý původní cíl pokračuje.
+
 [Pozice a další kanálové exporty Squall](SQUALL.md) mají obnovenou původní adresně závislou větev a2542 přesných porovnání v obou přesnostech, zopakovaných ve druhém sestavení. Nová zvuková regrese a čtyři celé2650bajtové save přenosy prošly; úplná sada101/102 a tři focused opakování opraveného testovacího driveru jsou evidované odděleně. Ostatní exporty a celý projekt pokračují.
 
 [Skupiny kanálů Squall](SQUALL.md) mají nové skutečné DLL porovnání840 veřejných výsledků v PC53/PC24, zopakované ve druhém sestavení. Příprava/přehrávání/pauza, skupinová hlasitost/frekvence a ukončení workerů prošly. Ostatní rozsahy97 exportů a celý projekt pokračují.

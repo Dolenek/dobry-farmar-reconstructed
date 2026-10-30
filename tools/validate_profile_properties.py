@@ -34,7 +34,7 @@ def main():
             'All thirteen original serializers, exact concatenated UTF-16 tags/order/spacing against recovered output; decimal color and non-self-closing Vector2 preserved'],
         test_adapters=['Recovered String/WString assignment/compare and diagnostic allocator',
             'Modern numeric wide streams and ACP conversion replace original old CRT parsers/conversion; conversion equivalence is not proved',
-            'Modern stream output and recovered String/WString concatenation/ACP conversion; old CRT formatting remains unverified',
+            'Modern stream output with actual-native negative-zero spelling for grammar fixtures; raw Float/Double old-CRT formatting is verified by separate actual-process probes',
             'Original type-name static getters execute; atexit registration is recorded without running process-wide teardown',
             'Empty sentinels use instruction-confirmed padding and eight-byte Double/LongLong alignment',
             'Mapped original image is copied to a distinct diagnostic address and explicit operands relocated; original entry point never runs'],
