@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Všech33 placených upgradů výroben](MANUFACTURE.md) a všech11 skutečných receptů na úrovni3 prošlo v dalších šesti procesech.95 kontrolních bodů na EXE, ceny a skladové převody souhlasí; všechny tři3730bajtové saves jsou přesné. Původní aliasová větev je ověřená66 readonly dvojicemi skutečných flags/padding slov, jejich rozdílný padding se neskrývá. Pokračuje blokování výstupu plným skladem, kapacity a současné výrobny i celý původní cíl.
+
 [Rozpracovaná výroba přes skutečné saves](MANUFACTURE.md) má další čtyři obousměrné přenosy a dvě dokončení v opačném programu. Dvě trávy a nenulové procento zůstávají zachované; oba programy následně vyrobí další dvě mléka a všechny3730bajtové saves jsou přesné. Přirozené dozrání trávy během čekání se eviduje odděleně. Pokračují placené vyšší úrovně výroben, plný sklad a další rozsahy celého cíle.
 
 [Osm placených upgradů nářadí a přirozené ocenění7](GAME_AWARD_MANAGER.md) nyní prošlo v obou celých EXE: Dig3/Mow3/Water2, cena3000 a zbývajících5134. Skutečný správce ocenění sám splnil podmínku; všechny diskrétní hodnoty i4089 save bajtů jsou stejné. Tutorial46/47 souhlasí v57200 RGB pixelech; tutorial29 zůstává výslovně nepřesný170 pixelů/max26. Pokračuje skutečná rozpracovaná výroba přes obousměrné saves a další systémy.

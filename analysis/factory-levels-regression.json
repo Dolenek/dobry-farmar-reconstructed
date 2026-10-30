@@ -1,0 +1,43 @@
+{
+  "status": "passed_all33_paid_factory_upgrades_and_all11_level3_recipes",
+  "recorded_at_utc": "2026-10-30T15:44:52.192038+00:00",
+  "recorder_sha256": "da0c3ec0b9ac78662c0b54f23b7ef3f440cfb6bf2f9e99ecc1882b6371ed4721",
+  "reports": {
+    "factory-levels-group0-state-validation.json": "815fd79c10fa2600665eb736438181890fd928854f2cd1b3fa1b17c4fba71436",
+    "factory-levels-group1-state-validation.json": "5bcd928c31b44a5008bbf6ea2a49d7c9f5c997ea4c5c2cd4edc3297946e9ee54",
+    "factory-levels-group2-state-validation.json": "bb6022a4765add7f8bf1b4019fda2b387929bef9fe0a0091bb2f28932a514379"
+  },
+  "factory_kinds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "actual_processes": 6,
+  "paid_upgrades_per_executable": 33,
+  "business_snapshots_per_executable": 95,
+  "exact_save_bytes_per_pair": [
+    3730,
+    3730,
+    3730
+  ],
+  "validated_alias_word_snapshots": 66,
+  "alias_padding_claimed_equal": false,
+  "actual_final_alias_values_equal_in_this_run": true,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/live-production-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Maximum loaded capacities, simultaneous factories and natural manufacturing awards",
+    "Remaining whole-game, Squall, JNG and uninstaller scopes"
+  ]
+}

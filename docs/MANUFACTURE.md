@@ -1,5 +1,11 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Všech33 placených upgradů a výroba na úrovni3
+
+`tools/validate_game_factory_levels.py` v dalších šesti celých procesech koupí všechny tři upgrady každého z11 výrobních typů a na úrovni3 skutečně vyrobí jeden kus. `tools/validate_factory_levels_state.py` ověřuje95 pracovních snapshotů na EXE, všechny ceny z původního Game.xml, přechody úrovní1/2/3, odpovídající flags awDepotUpg a všechny skladové převody. XML MaxProductionTime úrovně3 a nativní/source herní čas se porovnávají po každém vyrobeném kusu. Všechny tři dvojice mají celých3730 save bajtů přesných bez normalizace.
+
+Před každým upgradem se readonly zaznamená skutečný View flags/padding pár, protože setter peněz vykonává původní chybný View→Upgrade alias. Všech66 záznamů (33 na program) ověřilo předepsaný signed clamp nad právě čtenými slovy. Padding zůstává mezi procesy odlišný; existující profilová hodnota Upgrade16843009 v těchto bězích zůstala stejná. Neproběhla normalizace rozdílných čísel ani náhrada reálných slov konstantami. Souhrn `analysis/factory-levels-regression.json` a tři `analysis/factory-levels-groupN-state-validation.json` obsahují cenu, trvání, source/binary hashe a jednotlivé alias záznamy. Produkční implementace se v této etapě neměnila; maximální počet naložených kusů a více současných výroben dále pokračují.
+
 ## Rozpracovaná výroba přes save/load obou programů
 
 `validate_game_inflight_production.py` skutečným původním cheatproduct naplní malý sklad, vloží dvě trávy do zakoupeného kravína a při10..50% skutečným Alt+Pause zastaví Logic. Dvě nezávislá čtení potvrzují zamrzlý stav; normální WM_CLOSE uloží ProdCount0=2, nenulové ProdPct0, milk2 a awQProcess2. Nezapisují se testovací hodnoty do profilu ani paměti. `validate_inflight_production_state.py` ověřuje oba skutečné fixtures: diskrétní hodnoty jsou stejné a všech3730 binárních save bajtů je přesných. Rozdílná procenta nezávislých procesů se nepovažují za stejné float bity.
