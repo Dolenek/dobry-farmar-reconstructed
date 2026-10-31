@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Pět dalších skutečně koupených a zasetých plodin](SEED_RUNTIME.md) má35 pracovních kontrol na EXE, stejná diskrétní profilová data a4372bajtový save přesný mimo15 původně neurčených padding bajtů pěti sáčků. Meloun/růže/vodní meloun/ananas/pšenice skutečně rostou, zbývají3 semena každého druhu. Produkční implementace se neměnila. Obnova růstu v opačném EXE, dozrání/sklizeň, přirozené ocenění11 a celý původní cíl pokračují.
+
 [Historie všech11 typů výroben a přirozené ocenění8](MANUFACTURE.md) nyní prošly v obou celých EXE:16 pracovních stavů,98 skutečných aliasových slov,480000 přesných RGB pixelů a všech4252 save bajtů. Čtyři další obousměrné obnovy zachovaly celý stav i novou skutečnou zprávu o vodě. Časný snímek a chybná diagnostická hloubka jsou doložené odděleně; produkční implementace se neměnila. Pokračují zbývající plodiny, další přirozené systémy a celý původní cíl.
 
 [Skutečné3D kanály Squall](SQUALL.md) odhalily a opravily původní C3 porovnávání a syrové signaling-NaN kopie. Obě sestavení prošla po26 550 skutečných API porovnáních,5 272 guarded snapshotech a oddělených byte fixtures. Nový úplný CTest102/102 prošel za1019,85s; oba aktuální audio backendy i čtyři celé4089bajtové herní obnovy prošly. Zachované vlastní starší DLL znovu prokazují obě chyby. Ostatní97exportové rozsahy, pět dalších plodin, přirozená ocenění a celý původní cíl pokračují.

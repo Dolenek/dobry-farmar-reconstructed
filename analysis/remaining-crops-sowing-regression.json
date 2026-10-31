@@ -1,0 +1,76 @@
+{
+  "status": "passed_actual_five_remaining_crop_kinds_purchase_sowing_watering_and_partial_packages",
+  "recorded_at_utc": "2026-10-31T15:00:18.526814+00:00",
+  "recorder_sha256": "5a74b93edf763845d46fb70f56b5db374893d0d2f3f1f98768ed10c5839806bc",
+  "reports": {
+    "remaining-crops-sowing-state-validation.json": "bc310972896cdc2521aa219b87ad1a940c16fd5f4127f7d1f556975c496036af"
+  },
+  "crop_kinds": [
+    2,
+    4,
+    5,
+    6,
+    7
+  ],
+  "fields": [
+    24,
+    25,
+    26,
+    33,
+    35
+  ],
+  "paid_cost": 275,
+  "business_snapshots_per_executable": 35,
+  "profile_properties": 795,
+  "all_profile_discretes_equal": true,
+  "complete_save_bytes": 4372,
+  "complete_save_raw_equal": false,
+  "normalizations": [
+    {
+      "kind": "original_uninitialized_seed_padding_only",
+      "ranges": [
+        [
+          25,
+          28
+        ],
+        [
+          49,
+          52
+        ],
+        [
+          73,
+          76
+        ],
+        [
+          97,
+          100
+        ],
+        [
+          121,
+          124
+        ]
+      ]
+    }
+  ],
+  "remaining_packages": 5,
+  "remaining_seeds_per_package": 3,
+  "messages_equal": 10,
+  "coefficient_bits_equal": 383,
+  "initial_diagnostic_driver_error": {
+    "work_directory": ".local/remaining-crops-sowing/20261031T145325679783Z",
+    "report_sha256": "86ddd804e28573ed41c70650f163948f6dfa0e0db546ed738b555b7196a42b08",
+    "error": "TypeError(\"'float' object cannot be interpreted as an integer\")",
+    "resolution": "Round XML float coordinates to integer screen pixels before existing Win32 input helper",
+    "recorded_as_game_failure": false
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Cross-program resume and maturation of these crops",
+    "Natural award11, actual new-kind harvests and further saves",
+    "Remaining full-game, Squall, JNG and uninstaller scopes"
+  ]
+}

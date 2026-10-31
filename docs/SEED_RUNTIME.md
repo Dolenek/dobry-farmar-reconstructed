@@ -1,5 +1,13 @@
 # Přirozený nákup osiva v celých EXE
 
+## Pět dalších druhů koupených, zasetých a zalitých
+
+`validate_game_remaining_crops_sowing.py` navazuje na skutečný nativní save z historie11 výroben. Dostupnost sedmi osiv pochází z dřívějšího původního vstupního příkazu v tomto profilu; tato etapa netvrdí přirozené časové odemčení osiv. Normální UI koupí po jednom sáčku typů2/4/5/6/7 za70/50/40/90/25. Skutečná postava pokaždé vezme lopatu, vyryje pole24/25/26/33/35, převezme zaplacený sáček, zaseje jednu rostlinu, doplní kbelík480 a zalije120. Obě hry mají35 shodných pracovních kontrol, Money5234→4959, všechny diskrétní profilové hodnoty stejné a v každém z pěti sáčků zbývají tři semena. Čas není zrychlený a profilové hodnoty se nezapisují z testu.
+
+Úplné4372bajtové saves souhlasí po vyjmutí pouze15 původně neurčených padding bajtů v pěti záznamech sáčků. Souřadnice, počet/druh/stav/zaplacení, staré prodejní hodiny, deset zpráv/read flags a383 raw koeficientů jsou bitově shodné. Rozdíly růstu, vody, úrodnosti a normálních hodin zůstávají rozepsané. Na disku se nic nenormalizuje. První pokus skončil chybou převodu XML float souřadnice na integer v driveru ještě před rytím; není vydávaný za herní chybu.
+
+Audit a metadata: `validate_remaining_crops_sowing_state.py`, `analysis/remaining-crops-sowing-state-validation.json` a `analysis/remaining-crops-sowing-regression.json`. Produkční implementace zůstává shodná s posledním úplným102/102 během. Navazující obnova růstu v opačném programu, dozrání a sklizeň těchto pěti druhů, přirozené ocenění11 a ostatní celý cíl pokračují.
+
 ## Tři skutečné sklizně okurek a peněžní brána
 
 `tools/validate_game_cucumber_harvest.py` pokračuje z Money64 a čtyř skutečně zalitých okurkových ploch. V každém ze tří cyklů originál i zdroj vyčkají na skutečné dozrání, sklidí tři plody do nákladu, uloží je, vrátí se pro čtvrtý a znovu uloží. Na trhu osm skutečných cenových kliknutí poprvé zvýší cenu2→10. Vše přenese čtyři kusy a skutečné prodeje dávají postupně Money104/144/184. Dvanáct plodů znamená120 získaných mincí. Pouze růst a prodejní odpočet používají fyzický původní Alt+Insert15×, před každou sklizní a po prodeji se vrací1×.
