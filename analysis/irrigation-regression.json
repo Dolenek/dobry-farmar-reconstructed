@@ -1,0 +1,123 @@
+{
+  "status": "passed_actual_three_paid_sprinklers_twenty_watered_fields_and_bidirectional_restores",
+  "recorded_at_utc": "2026-10-31T15:38:10.372817+00:00",
+  "recorder_sha256": "a9917b1d8232eabe93306914ccb6d791fa8fabac4da77fe3d7d0587b1a7399e3",
+  "reports": {
+    "irrigation-state-validation.json": "d9792b730a755db35090f27f79ad97738cf29037158e3177758254ba8ad1b549",
+    "irrigation-interop-validation.json": "ece35b0c776aac65a48a7147c83403f44f868a7750ee3da5eaf94f005ee1ff04",
+    "irrigation-initial-observation.json": "99b49af0c89a1a66c60232e9b0bf5c05d62035b1471bb5da6476327d27a7ab47"
+  },
+  "business_snapshots_per_executable": 17,
+  "paid_sprinklers": 3,
+  "paid_cost": 600,
+  "active_automatically_watered_fields": 20,
+  "affected_field_ids": [
+    [
+      14,
+      15,
+      16,
+      23,
+      24,
+      25,
+      26,
+      32,
+      33,
+      34,
+      35,
+      42,
+      43
+    ],
+    [
+      17,
+      18,
+      25,
+      26,
+      27,
+      35,
+      36,
+      45
+    ],
+    [
+      33,
+      34,
+      41,
+      42,
+      43,
+      44
+    ]
+  ],
+  "actual_warehouse_rejection_argb": 4286595136,
+  "invalid_release_keeps_moving": true,
+  "empty_radius_drop": [
+    130,
+    280
+  ],
+  "movement_cost": 0,
+  "live_time_dependent_maturity": {
+    "FFS16": {
+      "values": [
+        [
+          "UInt",
+          "0"
+        ],
+        [
+          "UInt",
+          "1"
+        ]
+      ],
+      "native_remaining_seconds": "0.291364",
+      "source_remaining_seconds": "0"
+    }
+  },
+  "complete_identical_save_bytes": 4089,
+  "full_process_bidirectional_restores": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "0a3bf8cdd53cf1b8ddcc0cf982863edc4cdf59f2d35bc21f379d5e172956296d",
+      "events": [
+        {
+          "event": "image",
+          "base": 3735552
+        },
+        {
+          "event": "ready",
+          "pid": 5052,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "59dc5acdb40d33088b80760cf5aacefbd044ee05e9073294037e9e0eb2bd2798",
+      "events": [
+        {
+          "event": "image",
+          "base": 3735552
+        },
+        {
+          "event": "ready",
+          "pid": 8588,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "controlled_whole_frame_live_particle_replay_verified": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Actual contract failure/delayed acceptance, weather and remaining natural awards",
+    "Controlled whole-frame replay of live irrigation particles",
+    "Remaining Squall97, JNG and uninstaller scopes"
+  ]
+}

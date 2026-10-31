@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Skutečné tři placené postřikovače](SPRINKLE.md) nově automaticky zalévají všech20 aktivních polí v obou celých hrách.17 pracovních kontrol na EXE ověřilo cenu600, limit3, neplatný drag na stodolu, pokles vody mimo dosah a návrat bez ceny. Čtyři další obousměrné obnovy zachovaly všechny pozice/příznaky a4089 přesných save bajtů; dvě source obnovy jsou bez AV. Těsně rozdílné dozrání16 i chyba diagnostického metadata klíče jsou výslovně evidované. Pokračují další zakázky, počasí, zvukové rozsahy a celý původní cíl.
+
 [Pět dalších plodin už skutečně dozrálo a bylo sklizeno](SEED_RUNTIME.md) v opačném EXE. Obě hry měly současně zralých všech8 druhů a přirozená ocenění11/13; jejich panely souhlasí ve960000 RGB pixelech. Dvanáct dalších pracovních kontrol na EXE, všechna konečná diskrétní data a5439 save bajtů mimo původní seed padding souhlasí. Čtyři další obousměrné obnovy ověřily X+1 každého sáčku a dvě source obnovy bez AV. Časové odlišnosti a počáteční chyby driveru jsou doložené. Pokračuje skutečná závlaha a další celé rozsahy cíle.
 
 [Pět dalších skutečně koupených a zasetých plodin](SEED_RUNTIME.md) má35 pracovních kontrol na EXE, stejná diskrétní profilová data a4372bajtový save přesný mimo15 původně neurčených padding bajtů pěti sáčků. Meloun/růže/vodní meloun/ananas/pšenice skutečně rostou, zbývají3 semena každého druhu. Produkční implementace se neměnila. Obnova růstu v opačném EXE, dozrání/sklizeň, přirozené ocenění11 a celý původní cíl pokračují.
