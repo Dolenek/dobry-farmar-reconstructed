@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Skutečné3D kanály Squall](SQUALL.md) odhalily a opravily původní C3 porovnávání a syrové signaling-NaN kopie. Obě sestavení prošla po26 550 skutečných API porovnáních,5 272 guarded snapshotech a oddělených byte fixtures. Nový úplný CTest102/102 prošel za1019,85s; oba aktuální audio backendy i čtyři celé4089bajtové herní obnovy prošly. Zachované vlastní starší DLL znovu prokazují obě chyby. Ostatní97exportové rozsahy, pět dalších plodin, přirozená ocenění a celý původní cíl pokračují.
+
 [Sedm současně běžících výroben](MANUFACTURE.md) má14 skutečných vstupů,18 pracovních kontrol na EXE, čtyři obousměrné obnovy průběhů a dvě skutečná dokončení v opačném programu. Všechna dokončení dala milk20/awQProcess20/Warehouse94 a přirozený dopis37; všech4089 save bajtů zůstává přesných. Tři source procesy prošly bez AV, přípravné chyby driveru jsou evidované zvlášť. Další kapacity, plodiny, úplné DLL a ostatní podmínky cíle pokračují.
 
 [Chybové ABI JNGLoad a vybrané PNG/MNG vstupy](JNGLOAD.md) prošly 40 dvojicemi procesů v každém ze dvou nezávislých Win32 sestavení. Souhlasí zachycená `const char*` výjimka, nezměněné referenční výstupy při chybě, freeData, sedm chráněných zkrácení, vybrané MNG snímky a střídání formátů v jednom procesu. Platné pixely jsou přesné, přijímání chybných CRC i nulové šířky odpovídá originálu. Obecné MNG, vynucené alokační chyby, souběh a celý původní cíl pokračují.

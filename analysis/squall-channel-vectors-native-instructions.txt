@@ -1,0 +1,894 @@
+  10001A70: 53                 push        ebx
+  10001A71: 56                 push        esi
+  10001A72: 8B 71 0C           mov         esi,dword ptr [ecx+0Ch]
+  10001A75: 32 DB              xor         bl,bl
+  10001A77: 85 F6              test        esi,esi
+  10001A79: 75 07              jne         10001A82
+  10001A7B: 5E                 pop         esi
+  10001A7C: 33 C0              xor         eax,eax
+  10001A7E: 5B                 pop         ebx
+  10001A7F: C2 24 00           ret         24h
+  10001A82: 8B 54 24 0C        mov         edx,dword ptr [esp+0Ch]
+  10001A86: 85 D2              test        edx,edx
+  10001A88: 74 39              je          10001AC3
+  10001A8A: D9 41 58           fld         dword ptr [ecx+58h]
+  10001A8D: D8 1A              fcomp       dword ptr [edx]
+  10001A8F: DF E0              fnstsw      ax
+  10001A91: F6 C4 40           test        ah,40h
+  10001A94: 74 1A              je          10001AB0
+  10001A96: D9 41 5C           fld         dword ptr [ecx+5Ch]
+  10001A99: D8 5A 04           fcomp       dword ptr [edx+4]
+  10001A9C: DF E0              fnstsw      ax
+  10001A9E: F6 C4 40           test        ah,40h
+  10001AA1: 74 0D              je          10001AB0
+  10001AA3: D9 41 60           fld         dword ptr [ecx+60h]
+  10001AA6: D8 5A 08           fcomp       dword ptr [edx+8]
+  10001AA9: DF E0              fnstsw      ax
+  10001AAB: F6 C4 40           test        ah,40h
+  10001AAE: 75 13              jne         10001AC3
+  10001AB0: 8B 02              mov         eax,dword ptr [edx]
+  10001AB2: B3 01              mov         bl,1
+  10001AB4: 89 41 58           mov         dword ptr [ecx+58h],eax
+  10001AB7: 8B 42 04           mov         eax,dword ptr [edx+4]
+  10001ABA: 89 41 5C           mov         dword ptr [ecx+5Ch],eax
+  10001ABD: 8B 52 08           mov         edx,dword ptr [edx+8]
+  10001AC0: 89 51 60           mov         dword ptr [ecx+60h],edx
+  10001AC3: 8B 54 24 10        mov         edx,dword ptr [esp+10h]
+  10001AC7: 85 D2              test        edx,edx
+  10001AC9: 74 39              je          10001B04
+  10001ACB: D9 41 64           fld         dword ptr [ecx+64h]
+  10001ACE: D8 1A              fcomp       dword ptr [edx]
+  10001AD0: DF E0              fnstsw      ax
+  10001AD2: F6 C4 40           test        ah,40h
+  10001AD5: 74 1A              je          10001AF1
+  10001AD7: D9 41 68           fld         dword ptr [ecx+68h]
+  10001ADA: D8 5A 04           fcomp       dword ptr [edx+4]
+  10001ADD: DF E0              fnstsw      ax
+  10001ADF: F6 C4 40           test        ah,40h
+  10001AE2: 74 0D              je          10001AF1
+  10001AE4: D9 41 6C           fld         dword ptr [ecx+6Ch]
+  10001AE7: D8 5A 08           fcomp       dword ptr [edx+8]
+  10001AEA: DF E0              fnstsw      ax
+  10001AEC: F6 C4 40           test        ah,40h
+  10001AEF: 75 13              jne         10001B04
+  10001AF1: 8B 02              mov         eax,dword ptr [edx]
+  10001AF3: B3 01              mov         bl,1
+  10001AF5: 89 41 64           mov         dword ptr [ecx+64h],eax
+  10001AF8: 8B 42 04           mov         eax,dword ptr [edx+4]
+  10001AFB: 89 41 68           mov         dword ptr [ecx+68h],eax
+  10001AFE: 8B 52 08           mov         edx,dword ptr [edx+8]
+  10001B01: 89 51 6C           mov         dword ptr [ecx+6Ch],edx
+  10001B04: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  10001B08: 85 D2              test        edx,edx
+  10001B0A: 74 3F              je          10001B4B
+  10001B0C: D9 41 78           fld         dword ptr [ecx+78h]
+  10001B0F: D8 1A              fcomp       dword ptr [edx]
+  10001B11: DF E0              fnstsw      ax
+  10001B13: F6 C4 40           test        ah,40h
+  10001B16: 74 1D              je          10001B35
+  10001B18: D9 41 7C           fld         dword ptr [ecx+7Ch]
+  10001B1B: D8 5A 04           fcomp       dword ptr [edx+4]
+  10001B1E: DF E0              fnstsw      ax
+  10001B20: F6 C4 40           test        ah,40h
+  10001B23: 74 10              je          10001B35
+  10001B25: D9 81 80 00 00 00  fld         dword ptr [ecx+00000080h]
+  10001B2B: D8 5A 08           fcomp       dword ptr [edx+8]
+  10001B2E: DF E0              fnstsw      ax
+  10001B30: F6 C4 40           test        ah,40h
+  10001B33: 75 16              jne         10001B4B
+  10001B35: 8B 02              mov         eax,dword ptr [edx]
+  10001B37: B3 01              mov         bl,1
+  10001B39: 89 41 78           mov         dword ptr [ecx+78h],eax
+  10001B3C: 8B 42 04           mov         eax,dword ptr [edx+4]
+  10001B3F: 89 41 7C           mov         dword ptr [ecx+7Ch],eax
+  10001B42: 8B 52 08           mov         edx,dword ptr [edx+8]
+  10001B45: 89 91 80 00 00 00  mov         dword ptr [ecx+00000080h],edx
+  10001B4B: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  10001B4F: 85 C0              test        eax,eax
+  10001B51: 74 0A              je          10001B5D
+  10001B53: 39 41 70           cmp         dword ptr [ecx+70h],eax
+  10001B56: 74 05              je          10001B5D
+  10001B58: 89 41 70           mov         dword ptr [ecx+70h],eax
+  10001B5B: B3 01              mov         bl,1
+  10001B5D: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10001B61: 85 C0              test        eax,eax
+  10001B63: 74 0A              je          10001B6F
+  10001B65: 39 41 74           cmp         dword ptr [ecx+74h],eax
+  10001B68: 74 05              je          10001B6F
+  10001B6A: 89 41 74           mov         dword ptr [ecx+74h],eax
+  10001B6D: B3 01              mov         bl,1
+  10001B6F: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10001B73: 85 C0              test        eax,eax
+  10001B75: 74 10              je          10001B87
+  10001B77: 39 81 84 00 00 00  cmp         dword ptr [ecx+00000084h],eax
+  10001B7D: 74 08              je          10001B87
+  10001B7F: 89 81 84 00 00 00  mov         dword ptr [ecx+00000084h],eax
+  10001B85: B3 01              mov         bl,1
+  10001B87: D9 44 24 24        fld         dword ptr [esp+24h]
+  10001B8B: D8 1D 70 81 04 10  fcomp       dword ptr ds:[10048170h]
+  10001B91: DF E0              fnstsw      ax
+  10001B93: F6 C4 40           test        ah,40h
+  10001B96: 75 1D              jne         10001BB5
+  10001B98: D9 81 88 00 00 00  fld         dword ptr [ecx+00000088h]
+  10001B9E: D8 5C 24 24        fcomp       dword ptr [esp+24h]
+  10001BA2: DF E0              fnstsw      ax
+  10001BA4: F6 C4 40           test        ah,40h
+  10001BA7: 75 0C              jne         10001BB5
+  10001BA9: 8B 44 24 24        mov         eax,dword ptr [esp+24h]
+  10001BAD: B3 01              mov         bl,1
+  10001BAF: 89 81 88 00 00 00  mov         dword ptr [ecx+00000088h],eax
+  10001BB5: D9 44 24 28        fld         dword ptr [esp+28h]
+  10001BB9: D8 1D 70 81 04 10  fcomp       dword ptr ds:[10048170h]
+  10001BBF: DF E0              fnstsw      ax
+  10001BC1: F6 C4 40           test        ah,40h
+  10001BC4: 75 1D              jne         10001BE3
+  10001BC6: D9 81 8C 00 00 00  fld         dword ptr [ecx+0000008Ch]
+  10001BCC: D8 5C 24 28        fcomp       dword ptr [esp+28h]
+  10001BD0: DF E0              fnstsw      ax
+  10001BD2: F6 C4 40           test        ah,40h
+  10001BD5: 75 0C              jne         10001BE3
+  10001BD7: 8B 54 24 28        mov         edx,dword ptr [esp+28h]
+  10001BDB: 89 91 8C 00 00 00  mov         dword ptr [ecx+0000008Ch],edx
+  10001BE1: EB 04              jmp         10001BE7
+  10001BE3: 84 DB              test        bl,bl
+  10001BE5: 74 1A              je          10001C01
+  10001BE7: 8B 54 24 2C        mov         edx,dword ptr [esp+2Ch]
+  10001BEB: 8B 06              mov         eax,dword ptr [esi]
+  10001BED: 83 C1 54           add         ecx,54h
+  10001BF0: 52                 push        edx
+  10001BF1: 51                 push        ecx
+  10001BF2: 56                 push        esi
+  10001BF3: FF 50 30           call        dword ptr [eax+30h]
+  10001BF6: 85 C0              test        eax,eax
+  10001BF8: 74 07              je          10001C01
+  10001BFA: 5E                 pop         esi
+  10001BFB: 33 C0              xor         eax,eax
+  10001BFD: 5B                 pop         ebx
+  10001BFE: C2 24 00           ret         24h
+  10001C01: 5E                 pop         esi
+  10001C02: B8 01 00 00 00     mov         eax,1
+  10001C07: 5B                 pop         ebx
+  10001C08: C2 24 00           ret         24h
+  10001C0B: 90                 nop
+  10001C0C: 90                 nop
+  10001C0D: 90                 nop
+  10001C0E: 90                 nop
+  10001C0F: 90                 nop
+  10001C10: 8B 41 0C           mov         eax,dword ptr [ecx+0Ch]
+  10001C13: 85 C0              test        eax,eax
+  10001C15: 75 05              jne         10001C1C
+  10001C17: 33 C0              xor         eax,eax
+  10001C19: C2 20 00           ret         20h
+  10001C1C: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  10001C20: 85 C0              test        eax,eax
+  10001C22: 74 11              je          10001C35
+  10001C24: 8B 51 58           mov         edx,dword ptr [ecx+58h]
+  10001C27: 89 10              mov         dword ptr [eax],edx
+  10001C29: 8B 51 5C           mov         edx,dword ptr [ecx+5Ch]
+  10001C2C: 89 50 04           mov         dword ptr [eax+4],edx
+  10001C2F: 8B 51 60           mov         edx,dword ptr [ecx+60h]
+  10001C32: 89 50 08           mov         dword ptr [eax+8],edx
+  10001C35: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10001C39: 85 C0              test        eax,eax
+  10001C3B: 74 11              je          10001C4E
+  10001C3D: 8B 51 64           mov         edx,dword ptr [ecx+64h]
+  10001C40: 89 10              mov         dword ptr [eax],edx
+  10001C42: 8B 51 68           mov         edx,dword ptr [ecx+68h]
+  10001C45: 89 50 04           mov         dword ptr [eax+4],edx
+  10001C48: 8B 51 6C           mov         edx,dword ptr [ecx+6Ch]
+  10001C4B: 89 50 08           mov         dword ptr [eax+8],edx
+  10001C4E: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  10001C52: 85 C0              test        eax,eax
+  10001C54: 74 14              je          10001C6A
+  10001C56: 8B 51 78           mov         edx,dword ptr [ecx+78h]
+  10001C59: 89 10              mov         dword ptr [eax],edx
+  10001C5B: 8B 51 7C           mov         edx,dword ptr [ecx+7Ch]
+  10001C5E: 89 50 04           mov         dword ptr [eax+4],edx
+  10001C61: 8B 91 80 00 00 00  mov         edx,dword ptr [ecx+00000080h]
+  10001C67: 89 50 08           mov         dword ptr [eax+8],edx
+  10001C6A: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10001C6E: 85 C0              test        eax,eax
+  10001C70: 74 05              je          10001C77
+  10001C72: 8B 51 70           mov         edx,dword ptr [ecx+70h]
+  10001C75: 89 10              mov         dword ptr [eax],edx
+  10001C77: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10001C7B: 85 C0              test        eax,eax
+  10001C7D: 74 05              je          10001C84
+  10001C7F: 8B 51 74           mov         edx,dword ptr [ecx+74h]
+  10001C82: 89 10              mov         dword ptr [eax],edx
+  10001C84: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  10001C88: 85 C0              test        eax,eax
+  10001C8A: 74 08              je          10001C94
+  10001C8C: 8B 91 84 00 00 00  mov         edx,dword ptr [ecx+00000084h]
+  10001C92: 89 10              mov         dword ptr [eax],edx
+  10001C94: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10001C98: 85 C0              test        eax,eax
+  10001C9A: 74 08              je          10001CA4
+  10001C9C: 8B 91 88 00 00 00  mov         edx,dword ptr [ecx+00000088h]
+  10001CA2: 89 10              mov         dword ptr [eax],edx
+  10001CA4: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10001CA8: 85 C0              test        eax,eax
+  10001CAA: 74 08              je          10001CB4
+  10001CAC: 8B 89 8C 00 00 00  mov         ecx,dword ptr [ecx+0000008Ch]
+  10001CB2: 89 08              mov         dword ptr [eax],ecx
+  10001CB4: B8 01 00 00 00     mov         eax,1
+  10001CB9: C2 20 00           ret         20h
+  10001CBC: 90                 nop
+  10001CBD: 90                 nop
+  10001CBE: 90                 nop
+  10001CBF: 90                 nop
+  10006570: 56                 push        esi
+  10006571: 57                 push        edi
+  10006572: BF 01 00 00 00     mov         edi,1
+  10006577: E8 C4 18 00 00     call        10007E40
+  1000657C: 85 C0              test        eax,eax
+  1000657E: 75 03              jne         10006583
+  10006580: 83 CF FF           or          edi,0FFFFFFFFh
+  10006583: 68 34 50 07 10     push        10075034h
+  10006588: E8 93 CC FF FF     call        10003220
+  1000658D: 8B 74 24 14        mov         esi,dword ptr [esp+14h]
+  10006591: 83 C4 04           add         esp,4
+  10006594: 6A 0C              push        0Ch
+  10006596: 56                 push        esi
+  10006597: FF 15 24 80 04 10  call        dword ptr ds:[10048024h]
+  1000659D: 85 C0              test        eax,eax
+  1000659F: 74 02              je          100065A3
+  100065A1: 33 F6              xor         esi,esi
+  100065A3: 85 FF              test        edi,edi
+  100065A5: 0F 8C 9F 00 00 00  jl          1000664A
+  100065AB: 85 F6              test        esi,esi
+  100065AD: 75 17              jne         100065C6
+  100065AF: 68 34 50 07 10     push        10075034h
+  100065B4: BF FC FF FF FF     mov         edi,0FFFFFFFCh
+  100065B9: E8 92 CC FF FF     call        10003250
+  100065BE: 83 C4 04           add         esp,4
+  100065C1: 8B C7              mov         eax,edi
+  100065C3: 5F                 pop         edi
+  100065C4: 5E                 pop         esi
+  100065C5: C3                 ret
+  100065C6: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  100065CA: B9 34 50 07 10     mov         ecx,10075034h
+  100065CF: 50                 push        eax
+  100065D0: E8 AB BE FF FF     call        10002480
+  100065D5: 85 C0              test        eax,eax
+  100065D7: 7D 17              jge         100065F0
+  100065D9: 68 34 50 07 10     push        10075034h
+  100065DE: BF F4 FF FF FF     mov         edi,0FFFFFFF4h
+  100065E3: E8 68 CC FF FF     call        10003250
+  100065E8: 83 C4 04           add         esp,4
+  100065EB: 8B C7              mov         eax,edi
+  100065ED: 5F                 pop         edi
+  100065EE: 5E                 pop         esi
+  100065EF: C3                 ret
+  100065F0: 8B 15 34 51 07 10  mov         edx,dword ptr ds:[10075134h]
+  100065F6: 8D 04 40           lea         eax,[eax+eax*2]
+  100065F9: 8D 04 80           lea         eax,[eax+eax*4]
+  100065FC: 8D 0C 80           lea         ecx,[eax+eax*4]
+  100065FF: 8B 44 8A 48        mov         eax,dword ptr [edx+ecx*4+48h]
+  10006603: 25 C0 00 00 00     and         eax,0C0h
+  10006608: 8D 0C 8A           lea         ecx,[edx+ecx*4]
+  1000660B: 3C 40              cmp         al,40h
+  1000660D: 74 17              je          10006626
+  1000660F: 68 34 50 07 10     push        10075034h
+  10006614: BF F1 FF FF FF     mov         edi,0FFFFFFF1h
+  10006619: E8 32 CC FF FF     call        10003250
+  1000661E: 83 C4 04           add         esp,4
+  10006621: 8B C7              mov         eax,edi
+  10006623: 5F                 pop         edi
+  10006624: 5E                 pop         esi
+  10006625: C3                 ret
+  10006626: 8B 15 60 51 07 10  mov         edx,dword ptr ds:[10075160h]
+  1000662C: 52                 push        edx
+  1000662D: 6A 00              push        0
+  1000662F: 6A 00              push        0
+  10006631: 6A 00              push        0
+  10006633: 6A 00              push        0
+  10006635: 6A 00              push        0
+  10006637: 6A 00              push        0
+  10006639: 6A 00              push        0
+  1000663B: 56                 push        esi
+  1000663C: E8 2F B4 FF FF     call        10001A70
+  10006641: 85 C0              test        eax,eax
+  10006643: 75 05              jne         1000664A
+  10006645: BF F3 FF FF FF     mov         edi,0FFFFFFF3h
+  1000664A: 68 34 50 07 10     push        10075034h
+  1000664F: E8 FC CB FF FF     call        10003250
+  10006654: 83 C4 04           add         esp,4
+  10006657: 8B C7              mov         eax,edi
+  10006659: 5F                 pop         edi
+  1000665A: 5E                 pop         esi
+  1000665B: C3                 ret
+  1000665C: 90                 nop
+  1000665D: 90                 nop
+  1000665E: 90                 nop
+  1000665F: 90                 nop
+  10006660: 56                 push        esi
+  10006661: 57                 push        edi
+  10006662: BE 01 00 00 00     mov         esi,1
+  10006667: E8 D4 17 00 00     call        10007E40
+  1000666C: 85 C0              test        eax,eax
+  1000666E: 75 03              jne         10006673
+  10006670: 83 CE FF           or          esi,0FFFFFFFFh
+  10006673: 68 34 50 07 10     push        10075034h
+  10006678: E8 A3 CB FF FF     call        10003220
+  1000667D: 83 C4 04           add         esp,4
+  10006680: 85 F6              test        esi,esi
+  10006682: 0F 8C A5 00 00 00  jl          1000672D
+  10006688: 8B 7C 24 10        mov         edi,dword ptr [esp+10h]
+  1000668C: 6A 0C              push        0Ch
+  1000668E: 57                 push        edi
+  1000668F: FF 15 30 80 04 10  call        dword ptr ds:[10048030h]
+  10006695: 85 C0              test        eax,eax
+  10006697: 74 17              je          100066B0
+  10006699: 68 34 50 07 10     push        10075034h
+  1000669E: BE FC FF FF FF     mov         esi,0FFFFFFFCh
+  100066A3: E8 A8 CB FF FF     call        10003250
+  100066A8: 83 C4 04           add         esp,4
+  100066AB: 8B C6              mov         eax,esi
+  100066AD: 5F                 pop         edi
+  100066AE: 5E                 pop         esi
+  100066AF: C3                 ret
+  100066B0: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  100066B4: B9 34 50 07 10     mov         ecx,10075034h
+  100066B9: 50                 push        eax
+  100066BA: E8 C1 BD FF FF     call        10002480
+  100066BF: 85 C0              test        eax,eax
+  100066C1: 7D 17              jge         100066DA
+  100066C3: 68 34 50 07 10     push        10075034h
+  100066C8: BE F4 FF FF FF     mov         esi,0FFFFFFF4h
+  100066CD: E8 7E CB FF FF     call        10003250
+  100066D2: 83 C4 04           add         esp,4
+  100066D5: 8B C6              mov         eax,esi
+  100066D7: 5F                 pop         edi
+  100066D8: 5E                 pop         esi
+  100066D9: C3                 ret
+  100066DA: 8B 15 34 51 07 10  mov         edx,dword ptr ds:[10075134h]
+  100066E0: 8D 04 40           lea         eax,[eax+eax*2]
+  100066E3: 8D 04 80           lea         eax,[eax+eax*4]
+  100066E6: 8D 0C 80           lea         ecx,[eax+eax*4]
+  100066E9: 8B 44 8A 48        mov         eax,dword ptr [edx+ecx*4+48h]
+  100066ED: 25 C0 00 00 00     and         eax,0C0h
+  100066F2: 8D 0C 8A           lea         ecx,[edx+ecx*4]
+  100066F5: 3C 40              cmp         al,40h
+  100066F7: 74 17              je          10006710
+  100066F9: 68 34 50 07 10     push        10075034h
+  100066FE: BE F1 FF FF FF     mov         esi,0FFFFFFF1h
+  10006703: E8 48 CB FF FF     call        10003250
+  10006708: 83 C4 04           add         esp,4
+  1000670B: 8B C6              mov         eax,esi
+  1000670D: 5F                 pop         edi
+  1000670E: 5E                 pop         esi
+  1000670F: C3                 ret
+  10006710: 6A 00              push        0
+  10006712: 6A 00              push        0
+  10006714: 6A 00              push        0
+  10006716: 6A 00              push        0
+  10006718: 6A 00              push        0
+  1000671A: 6A 00              push        0
+  1000671C: 6A 00              push        0
+  1000671E: 57                 push        edi
+  1000671F: E8 EC B4 FF FF     call        10001C10
+  10006724: 85 C0              test        eax,eax
+  10006726: 75 05              jne         1000672D
+  10006728: BE F3 FF FF FF     mov         esi,0FFFFFFF3h
+  1000672D: 68 34 50 07 10     push        10075034h
+  10006732: E8 19 CB FF FF     call        10003250
+  10006737: 83 C4 04           add         esp,4
+  1000673A: 8B C6              mov         eax,esi
+  1000673C: 5F                 pop         edi
+  1000673D: 5E                 pop         esi
+  1000673E: C3                 ret
+  1000673F: 90                 nop
+  10006740: 56                 push        esi
+  10006741: 57                 push        edi
+  10006742: BF 01 00 00 00     mov         edi,1
+  10006747: E8 F4 16 00 00     call        10007E40
+  1000674C: 85 C0              test        eax,eax
+  1000674E: 75 03              jne         10006753
+  10006750: 83 CF FF           or          edi,0FFFFFFFFh
+  10006753: 68 34 50 07 10     push        10075034h
+  10006758: E8 C3 CA FF FF     call        10003220
+  1000675D: 8B 74 24 14        mov         esi,dword ptr [esp+14h]
+  10006761: 83 C4 04           add         esp,4
+  10006764: 6A 0C              push        0Ch
+  10006766: 56                 push        esi
+  10006767: FF 15 24 80 04 10  call        dword ptr ds:[10048024h]
+  1000676D: 85 C0              test        eax,eax
+  1000676F: 74 02              je          10006773
+  10006771: 33 F6              xor         esi,esi
+  10006773: 85 FF              test        edi,edi
+  10006775: 0F 8C 9F 00 00 00  jl          1000681A
+  1000677B: 85 F6              test        esi,esi
+  1000677D: 75 17              jne         10006796
+  1000677F: 68 34 50 07 10     push        10075034h
+  10006784: BF FC FF FF FF     mov         edi,0FFFFFFFCh
+  10006789: E8 C2 CA FF FF     call        10003250
+  1000678E: 83 C4 04           add         esp,4
+  10006791: 8B C7              mov         eax,edi
+  10006793: 5F                 pop         edi
+  10006794: 5E                 pop         esi
+  10006795: C3                 ret
+  10006796: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  1000679A: B9 34 50 07 10     mov         ecx,10075034h
+  1000679F: 50                 push        eax
+  100067A0: E8 DB BC FF FF     call        10002480
+  100067A5: 85 C0              test        eax,eax
+  100067A7: 7D 17              jge         100067C0
+  100067A9: 68 34 50 07 10     push        10075034h
+  100067AE: BF F4 FF FF FF     mov         edi,0FFFFFFF4h
+  100067B3: E8 98 CA FF FF     call        10003250
+  100067B8: 83 C4 04           add         esp,4
+  100067BB: 8B C7              mov         eax,edi
+  100067BD: 5F                 pop         edi
+  100067BE: 5E                 pop         esi
+  100067BF: C3                 ret
+  100067C0: 8B 15 34 51 07 10  mov         edx,dword ptr ds:[10075134h]
+  100067C6: 8D 04 40           lea         eax,[eax+eax*2]
+  100067C9: 8D 04 80           lea         eax,[eax+eax*4]
+  100067CC: 8D 0C 80           lea         ecx,[eax+eax*4]
+  100067CF: 8B 44 8A 48        mov         eax,dword ptr [edx+ecx*4+48h]
+  100067D3: 25 C0 00 00 00     and         eax,0C0h
+  100067D8: 8D 0C 8A           lea         ecx,[edx+ecx*4]
+  100067DB: 3C 40              cmp         al,40h
+  100067DD: 74 17              je          100067F6
+  100067DF: 68 34 50 07 10     push        10075034h
+  100067E4: BF F1 FF FF FF     mov         edi,0FFFFFFF1h
+  100067E9: E8 62 CA FF FF     call        10003250
+  100067EE: 83 C4 04           add         esp,4
+  100067F1: 8B C7              mov         eax,edi
+  100067F3: 5F                 pop         edi
+  100067F4: 5E                 pop         esi
+  100067F5: C3                 ret
+  100067F6: 8B 15 60 51 07 10  mov         edx,dword ptr ds:[10075160h]
+  100067FC: 52                 push        edx
+  100067FD: 6A 00              push        0
+  100067FF: 6A 00              push        0
+  10006801: 6A 00              push        0
+  10006803: 6A 00              push        0
+  10006805: 6A 00              push        0
+  10006807: 6A 00              push        0
+  10006809: 56                 push        esi
+  1000680A: 6A 00              push        0
+  1000680C: E8 5F B2 FF FF     call        10001A70
+  10006811: 85 C0              test        eax,eax
+  10006813: 75 05              jne         1000681A
+  10006815: BF F3 FF FF FF     mov         edi,0FFFFFFF3h
+  1000681A: 68 34 50 07 10     push        10075034h
+  1000681F: E8 2C CA FF FF     call        10003250
+  10006824: 83 C4 04           add         esp,4
+  10006827: 8B C7              mov         eax,edi
+  10006829: 5F                 pop         edi
+  1000682A: 5E                 pop         esi
+  1000682B: C3                 ret
+  1000682C: 90                 nop
+  1000682D: 90                 nop
+  1000682E: 90                 nop
+  1000682F: 90                 nop
+  10006830: 56                 push        esi
+  10006831: 57                 push        edi
+  10006832: BE 01 00 00 00     mov         esi,1
+  10006837: E8 04 16 00 00     call        10007E40
+  1000683C: 85 C0              test        eax,eax
+  1000683E: 75 03              jne         10006843
+  10006840: 83 CE FF           or          esi,0FFFFFFFFh
+  10006843: 68 34 50 07 10     push        10075034h
+  10006848: E8 D3 C9 FF FF     call        10003220
+  1000684D: 83 C4 04           add         esp,4
+  10006850: 85 F6              test        esi,esi
+  10006852: 0F 8C A5 00 00 00  jl          100068FD
+  10006858: 8B 7C 24 10        mov         edi,dword ptr [esp+10h]
+  1000685C: 6A 0C              push        0Ch
+  1000685E: 57                 push        edi
+  1000685F: FF 15 30 80 04 10  call        dword ptr ds:[10048030h]
+  10006865: 85 C0              test        eax,eax
+  10006867: 74 17              je          10006880
+  10006869: 68 34 50 07 10     push        10075034h
+  1000686E: BE FC FF FF FF     mov         esi,0FFFFFFFCh
+  10006873: E8 D8 C9 FF FF     call        10003250
+  10006878: 83 C4 04           add         esp,4
+  1000687B: 8B C6              mov         eax,esi
+  1000687D: 5F                 pop         edi
+  1000687E: 5E                 pop         esi
+  1000687F: C3                 ret
+  10006880: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  10006884: B9 34 50 07 10     mov         ecx,10075034h
+  10006889: 50                 push        eax
+  1000688A: E8 F1 BB FF FF     call        10002480
+  1000688F: 85 C0              test        eax,eax
+  10006891: 7D 17              jge         100068AA
+  10006893: 68 34 50 07 10     push        10075034h
+  10006898: BE F4 FF FF FF     mov         esi,0FFFFFFF4h
+  1000689D: E8 AE C9 FF FF     call        10003250
+  100068A2: 83 C4 04           add         esp,4
+  100068A5: 8B C6              mov         eax,esi
+  100068A7: 5F                 pop         edi
+  100068A8: 5E                 pop         esi
+  100068A9: C3                 ret
+  100068AA: 8B 15 34 51 07 10  mov         edx,dword ptr ds:[10075134h]
+  100068B0: 8D 04 40           lea         eax,[eax+eax*2]
+  100068B3: 8D 04 80           lea         eax,[eax+eax*4]
+  100068B6: 8D 0C 80           lea         ecx,[eax+eax*4]
+  100068B9: 8B 44 8A 48        mov         eax,dword ptr [edx+ecx*4+48h]
+  100068BD: 25 C0 00 00 00     and         eax,0C0h
+  100068C2: 8D 0C 8A           lea         ecx,[edx+ecx*4]
+  100068C5: 3C 40              cmp         al,40h
+  100068C7: 74 17              je          100068E0
+  100068C9: 68 34 50 07 10     push        10075034h
+  100068CE: BE F1 FF FF FF     mov         esi,0FFFFFFF1h
+  100068D3: E8 78 C9 FF FF     call        10003250
+  100068D8: 83 C4 04           add         esp,4
+  100068DB: 8B C6              mov         eax,esi
+  100068DD: 5F                 pop         edi
+  100068DE: 5E                 pop         esi
+  100068DF: C3                 ret
+  100068E0: 6A 00              push        0
+  100068E2: 6A 00              push        0
+  100068E4: 6A 00              push        0
+  100068E6: 6A 00              push        0
+  100068E8: 6A 00              push        0
+  100068EA: 6A 00              push        0
+  100068EC: 57                 push        edi
+  100068ED: 6A 00              push        0
+  100068EF: E8 1C B3 FF FF     call        10001C10
+  100068F4: 85 C0              test        eax,eax
+  100068F6: 75 05              jne         100068FD
+  100068F8: BE F2 FF FF FF     mov         esi,0FFFFFFF2h
+  100068FD: 68 34 50 07 10     push        10075034h
+  10006902: E8 49 C9 FF FF     call        10003250
+  10006907: 83 C4 04           add         esp,4
+  1000690A: 8B C6              mov         eax,esi
+  1000690C: 5F                 pop         edi
+  1000690D: 5E                 pop         esi
+  1000690E: C3                 ret
+  1000690F: 90                 nop
+  10006910: 56                 push        esi
+  10006911: BE 01 00 00 00     mov         esi,1
+  10006916: E8 25 15 00 00     call        10007E40
+  1000691B: 85 C0              test        eax,eax
+  1000691D: 75 03              jne         10006922
+  1000691F: 83 CE FF           or          esi,0FFFFFFFFh
+  10006922: 68 34 50 07 10     push        10075034h
+  10006927: E8 F4 C8 FF FF     call        10003220
+  1000692C: 83 C4 04           add         esp,4
+  1000692F: 85 F6              test        esi,esi
+  10006931: 7C 65              jl          10006998
+  10006933: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10006937: B9 34 50 07 10     mov         ecx,10075034h
+  1000693C: 50                 push        eax
+  1000693D: E8 3E BB FF FF     call        10002480
+  10006942: 85 C0              test        eax,eax
+  10006944: 7D 16              jge         1000695C
+  10006946: 68 34 50 07 10     push        10075034h
+  1000694B: BE F4 FF FF FF     mov         esi,0FFFFFFF4h
+  10006950: E8 FB C8 FF FF     call        10003250
+  10006955: 83 C4 04           add         esp,4
+  10006958: 8B C6              mov         eax,esi
+  1000695A: 5E                 pop         esi
+  1000695B: C3                 ret
+  1000695C: 8B 0D 60 51 07 10  mov         ecx,dword ptr ds:[10075160h]
+  10006962: 8B 54 24 10        mov         edx,dword ptr [esp+10h]
+  10006966: 8D 04 40           lea         eax,[eax+eax*2]
+  10006969: 51                 push        ecx
+  1000696A: 8B 4C 24 10        mov         ecx,dword ptr [esp+10h]
+  1000696E: 52                 push        edx
+  1000696F: 8D 04 80           lea         eax,[eax+eax*4]
+  10006972: 51                 push        ecx
+  10006973: 6A 00              push        0
+  10006975: 6A 00              push        0
+  10006977: 8D 14 80           lea         edx,[eax+eax*4]
+  1000697A: A1 34 51 07 10     mov         eax,dword ptr ds:[10075134h]
+  1000697F: 6A 00              push        0
+  10006981: 6A 00              push        0
+  10006983: 6A 00              push        0
+  10006985: 6A 00              push        0
+  10006987: 8D 0C 90           lea         ecx,[eax+edx*4]
+  1000698A: E8 E1 B0 FF FF     call        10001A70
+  1000698F: 85 C0              test        eax,eax
+  10006991: 75 05              jne         10006998
+  10006993: BE F3 FF FF FF     mov         esi,0FFFFFFF3h
+  10006998: 68 34 50 07 10     push        10075034h
+  1000699D: E8 AE C8 FF FF     call        10003250
+  100069A2: 83 C4 04           add         esp,4
+  100069A5: 8B C6              mov         eax,esi
+  100069A7: 5E                 pop         esi
+  100069A8: C3                 ret
+  100069A9: 90                 nop
+  100069AA: 90                 nop
+  100069AB: 90                 nop
+  100069AC: 90                 nop
+  100069AD: 90                 nop
+  100069AE: 90                 nop
+  100069AF: 90                 nop
+  100069B0: 53                 push        ebx
+  100069B1: 55                 push        ebp
+  100069B2: 56                 push        esi
+  100069B3: 57                 push        edi
+  100069B4: BD 01 00 00 00     mov         ebp,1
+  100069B9: E8 82 14 00 00     call        10007E40
+  100069BE: 85 C0              test        eax,eax
+  100069C0: 75 03              jne         100069C5
+  100069C2: 83 CD FF           or          ebp,0FFFFFFFFh
+  100069C5: 68 34 50 07 10     push        10075034h
+  100069CA: E8 51 C8 FF FF     call        10003220
+  100069CF: 8B 74 24 1C        mov         esi,dword ptr [esp+1Ch]
+  100069D3: 8B 3D 30 80 04 10  mov         edi,dword ptr ds:[10048030h]
+  100069D9: 83 C4 04           add         esp,4
+  100069DC: 6A 04              push        4
+  100069DE: 56                 push        esi
+  100069DF: FF D7              call        edi
+  100069E1: 85 C0              test        eax,eax
+  100069E3: 74 02              je          100069E7
+  100069E5: 33 F6              xor         esi,esi
+  100069E7: 8B 5C 24 1C        mov         ebx,dword ptr [esp+1Ch]
+  100069EB: 6A 04              push        4
+  100069ED: 53                 push        ebx
+  100069EE: FF D7              call        edi
+  100069F0: 85 C0              test        eax,eax
+  100069F2: 74 02              je          100069F6
+  100069F4: 33 DB              xor         ebx,ebx
+  100069F6: 85 ED              test        ebp,ebp
+  100069F8: 0F 8C 84 00 00 00  jl          10006A82
+  100069FE: 85 F6              test        esi,esi
+  10006A00: 75 1D              jne         10006A1F
+  10006A02: 85 DB              test        ebx,ebx
+  10006A04: 75 19              jne         10006A1F
+  10006A06: 68 34 50 07 10     push        10075034h
+  10006A0B: BD FC FF FF FF     mov         ebp,0FFFFFFFCh
+  10006A10: E8 3B C8 FF FF     call        10003250
+  10006A15: 83 C4 04           add         esp,4
+  10006A18: 8B C5              mov         eax,ebp
+  10006A1A: 5F                 pop         edi
+  10006A1B: 5E                 pop         esi
+  10006A1C: 5D                 pop         ebp
+  10006A1D: 5B                 pop         ebx
+  10006A1E: C3                 ret
+  10006A1F: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10006A23: B9 34 50 07 10     mov         ecx,10075034h
+  10006A28: 50                 push        eax
+  10006A29: E8 52 BA FF FF     call        10002480
+  10006A2E: 85 C0              test        eax,eax
+  10006A30: 7D 19              jge         10006A4B
+  10006A32: 68 34 50 07 10     push        10075034h
+  10006A37: BD F4 FF FF FF     mov         ebp,0FFFFFFF4h
+  10006A3C: E8 0F C8 FF FF     call        10003250
+  10006A41: 83 C4 04           add         esp,4
+  10006A44: 8B C5              mov         eax,ebp
+  10006A46: 5F                 pop         edi
+  10006A47: 5E                 pop         esi
+  10006A48: 5D                 pop         ebp
+  10006A49: 5B                 pop         ebx
+  10006A4A: C3                 ret
+  10006A4B: 85 F6              test        esi,esi
+  10006A4D: 74 18              je          10006A67
+  10006A4F: 8B 15 34 51 07 10  mov         edx,dword ptr ds:[10075134h]
+  10006A55: 8D 0C 40           lea         ecx,[eax+eax*2]
+  10006A58: 8D 0C 89           lea         ecx,[ecx+ecx*4]
+  10006A5B: 8D 0C 89           lea         ecx,[ecx+ecx*4]
+  10006A5E: 8B 8C 8A 88 00 00  mov         ecx,dword ptr [edx+ecx*4+00000088h]
+            00
+  10006A65: 89 0E              mov         dword ptr [esi],ecx
+  10006A67: 85 DB              test        ebx,ebx
+  10006A69: 74 17              je          10006A82
+  10006A6B: 8D 04 40           lea         eax,[eax+eax*2]
+  10006A6E: 8D 04 80           lea         eax,[eax+eax*4]
+  10006A71: 8D 14 80           lea         edx,[eax+eax*4]
+  10006A74: A1 34 51 07 10     mov         eax,dword ptr ds:[10075134h]
+  10006A79: 8B 8C 90 8C 00 00  mov         ecx,dword ptr [eax+edx*4+0000008Ch]
+            00
+  10006A80: 89 0B              mov         dword ptr [ebx],ecx
+  10006A82: 68 34 50 07 10     push        10075034h
+  10006A87: E8 C4 C7 FF FF     call        10003250
+  10006A8C: 83 C4 04           add         esp,4
+  10006A8F: 8B C5              mov         eax,ebp
+  10006A91: 5F                 pop         edi
+  10006A92: 5E                 pop         esi
+  10006A93: 5D                 pop         ebp
+  10006A94: 5B                 pop         ebx
+  10006A95: C3                 ret
+  10006A96: 90                 nop
+  10006A97: 90                 nop
+  10006A98: 90                 nop
+  10006A99: 90                 nop
+  10006A9A: 90                 nop
+  10006A9B: 90                 nop
+  10006A9C: 90                 nop
+  10006A9D: 90                 nop
+  10006A9E: 90                 nop
+  10006A9F: 90                 nop
+  10006AA0: 51                 push        ecx
+  10006AA1: C7 44 24 00 01 00  mov         dword ptr [esp],1
+            00 00
+  10006AA9: E8 92 13 00 00     call        10007E40
+  10006AAE: 85 C0              test        eax,eax
+  10006AB0: 75 08              jne         10006ABA
+  10006AB2: C7 44 24 00 FF FF  mov         dword ptr [esp],0FFFFFFFFh
+            FF FF
+  10006ABA: 53                 push        ebx
+  10006ABB: 55                 push        ebp
+  10006ABC: 56                 push        esi
+  10006ABD: 57                 push        edi
+  10006ABE: 68 34 50 07 10     push        10075034h
+  10006AC3: E8 58 C7 FF FF     call        10003220
+  10006AC8: 8B 5C 24 20        mov         ebx,dword ptr [esp+20h]
+  10006ACC: 83 C4 04           add         esp,4
+  10006ACF: 6A 0C              push        0Ch
+  10006AD1: 53                 push        ebx
+  10006AD2: FF 15 30 80 04 10  call        dword ptr ds:[10048030h]
+  10006AD8: 85 C0              test        eax,eax
+  10006ADA: 74 02              je          10006ADE
+  10006ADC: 33 DB              xor         ebx,ebx
+  10006ADE: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10006AE2: 85 C0              test        eax,eax
+  10006AE4: 0F 8C 95 00 00 00  jl          10006B7F
+  10006AEA: 8B 6C 24 28        mov         ebp,dword ptr [esp+28h]
+  10006AEE: 85 ED              test        ebp,ebp
+  10006AF0: 7C 29              jl          10006B1B
+  10006AF2: 83 FD 64           cmp         ebp,64h
+  10006AF5: 7F 24              jg          10006B1B
+  10006AF7: 8B 7C 24 20        mov         edi,dword ptr [esp+20h]
+  10006AFB: 85 FF              test        edi,edi
+  10006AFD: 7C 1C              jl          10006B1B
+  10006AFF: 81 FF 68 01 00 00  cmp         edi,168h
+  10006B05: 7F 14              jg          10006B1B
+  10006B07: 8B 74 24 24        mov         esi,dword ptr [esp+24h]
+  10006B0B: 85 F6              test        esi,esi
+  10006B0D: 7C 0C              jl          10006B1B
+  10006B0F: 81 FE 68 01 00 00  cmp         esi,168h
+  10006B15: 7F 04              jg          10006B1B
+  10006B17: 85 DB              test        ebx,ebx
+  10006B19: 75 0A              jne         10006B25
+  10006B1B: C7 44 24 10 FC FF  mov         dword ptr [esp+10h],0FFFFFFFCh
+            FF FF
+  10006B23: EB 5A              jmp         10006B7F
+  10006B25: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  10006B29: B9 34 50 07 10     mov         ecx,10075034h
+  10006B2E: 50                 push        eax
+  10006B2F: E8 4C B9 FF FF     call        10002480
+  10006B34: 85 C0              test        eax,eax
+  10006B36: 7D 0A              jge         10006B42
+  10006B38: C7 44 24 10 F4 FF  mov         dword ptr [esp+10h],0FFFFFFF4h
+            FF FF
+  10006B40: EB 3D              jmp         10006B7F
+  10006B42: 8B 0D 60 51 07 10  mov         ecx,dword ptr ds:[10075160h]
+  10006B48: 8B 14 AD 24 48 07  mov         edx,dword ptr [ebp*4+10074824h]
+            10
+  10006B4F: 8D 04 40           lea         eax,[eax+eax*2]
+  10006B52: 51                 push        ecx
+  10006B53: 8B 0D 34 51 07 10  mov         ecx,dword ptr ds:[10075134h]
+  10006B59: 6A 00              push        0
+  10006B5B: 6A 00              push        0
+  10006B5D: 8D 04 80           lea         eax,[eax+eax*4]
+  10006B60: 52                 push        edx
+  10006B61: 56                 push        esi
+  10006B62: 57                 push        edi
+  10006B63: 8D 04 80           lea         eax,[eax+eax*4]
+  10006B66: 53                 push        ebx
+  10006B67: 6A 00              push        0
+  10006B69: 6A 00              push        0
+  10006B6B: 8D 0C 81           lea         ecx,[ecx+eax*4]
+  10006B6E: E8 FD AE FF FF     call        10001A70
+  10006B73: 85 C0              test        eax,eax
+  10006B75: 75 08              jne         10006B7F
+  10006B77: C7 44 24 10 F3 FF  mov         dword ptr [esp+10h],0FFFFFFF3h
+            FF FF
+  10006B7F: 68 34 50 07 10     push        10075034h
+  10006B84: E8 C7 C6 FF FF     call        10003250
+  10006B89: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10006B8D: 83 C4 04           add         esp,4
+  10006B90: 5F                 pop         edi
+  10006B91: 5E                 pop         esi
+  10006B92: 5D                 pop         ebp
+  10006B93: 5B                 pop         ebx
+  10006B94: 59                 pop         ecx
+  10006B95: C3                 ret
+  10006B96: 90                 nop
+  10006B97: 90                 nop
+  10006B98: 90                 nop
+  10006B99: 90                 nop
+  10006B9A: 90                 nop
+  10006B9B: 90                 nop
+  10006B9C: 90                 nop
+  10006B9D: 90                 nop
+  10006B9E: 90                 nop
+  10006B9F: 90                 nop
+  10006BA0: 51                 push        ecx
+  10006BA1: C7 44 24 00 01 00  mov         dword ptr [esp],1
+            00 00
+  10006BA9: E8 92 12 00 00     call        10007E40
+  10006BAE: 85 C0              test        eax,eax
+  10006BB0: 75 08              jne         10006BBA
+  10006BB2: C7 44 24 00 FF FF  mov         dword ptr [esp],0FFFFFFFFh
+            FF FF
+  10006BBA: 53                 push        ebx
+  10006BBB: 55                 push        ebp
+  10006BBC: 56                 push        esi
+  10006BBD: 57                 push        edi
+  10006BBE: 68 34 50 07 10     push        10075034h
+  10006BC3: E8 58 C6 FF FF     call        10003220
+  10006BC8: 8B 6C 24 20        mov         ebp,dword ptr [esp+20h]
+  10006BCC: 8B 35 30 80 04 10  mov         esi,dword ptr ds:[10048030h]
+  10006BD2: 83 C4 04           add         esp,4
+  10006BD5: 6A 0C              push        0Ch
+  10006BD7: 55                 push        ebp
+  10006BD8: FF D6              call        esi
+  10006BDA: 85 C0              test        eax,eax
+  10006BDC: 74 02              je          10006BE0
+  10006BDE: 33 ED              xor         ebp,ebp
+  10006BE0: 8B 5C 24 20        mov         ebx,dword ptr [esp+20h]
+  10006BE4: 6A 04              push        4
+  10006BE6: 53                 push        ebx
+  10006BE7: FF D6              call        esi
+  10006BE9: 85 C0              test        eax,eax
+  10006BEB: 74 02              je          10006BEF
+  10006BED: 33 DB              xor         ebx,ebx
+  10006BEF: 8B 7C 24 24        mov         edi,dword ptr [esp+24h]
+  10006BF3: 6A 04              push        4
+  10006BF5: 57                 push        edi
+  10006BF6: FF D6              call        esi
+  10006BF8: 85 C0              test        eax,eax
+  10006BFA: 74 02              je          10006BFE
+  10006BFC: 33 FF              xor         edi,edi
+  10006BFE: 8B 44 24 28        mov         eax,dword ptr [esp+28h]
+  10006C02: 6A 04              push        4
+  10006C04: 50                 push        eax
+  10006C05: FF D6              call        esi
+  10006C07: 85 C0              test        eax,eax
+  10006C09: 74 04              je          10006C0F
+  10006C0B: 33 F6              xor         esi,esi
+  10006C0D: EB 04              jmp         10006C13
+  10006C0F: 8B 74 24 28        mov         esi,dword ptr [esp+28h]
+  10006C13: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10006C17: 85 C0              test        eax,eax
+  10006C19: 0F 8C 88 00 00 00  jl          10006CA7
+  10006C1F: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10006C23: C7 44 24 28 00 00  mov         dword ptr [esp+28h],0
+            00 00
+  10006C2B: 51                 push        ecx
+  10006C2C: B9 34 50 07 10     mov         ecx,10075034h
+  10006C31: E8 4A B8 FF FF     call        10002480
+  10006C36: 85 C0              test        eax,eax
+  10006C38: 7D 0A              jge         10006C44
+  10006C3A: C7 44 24 10 F4 FF  mov         dword ptr [esp+10h],0FFFFFFF4h
+            FF FF
+  10006C42: EB 63              jmp         10006CA7
+  10006C44: 8B 0D 34 51 07 10  mov         ecx,dword ptr ds:[10075134h]
+  10006C4A: 8D 04 40           lea         eax,[eax+eax*2]
+  10006C4D: 6A 00              push        0
+  10006C4F: 8D 54 24 2C        lea         edx,[esp+2Ch]
+  10006C53: 6A 00              push        0
+  10006C55: 8D 04 80           lea         eax,[eax+eax*4]
+  10006C58: 52                 push        edx
+  10006C59: 57                 push        edi
+  10006C5A: 53                 push        ebx
+  10006C5B: 8D 04 80           lea         eax,[eax+eax*4]
+  10006C5E: 55                 push        ebp
+  10006C5F: 6A 00              push        0
+  10006C61: 6A 00              push        0
+  10006C63: 8D 0C 81           lea         ecx,[ecx+eax*4]
+  10006C66: E8 A5 AF FF FF     call        10001C10
+  10006C6B: 85 C0              test        eax,eax
+  10006C6D: 75 0A              jne         10006C79
+  10006C6F: C7 44 24 10 F3 FF  mov         dword ptr [esp+10h],0FFFFFFF3h
+            FF FF
+  10006C77: EB 2E              jmp         10006CA7
+  10006C79: DD 05 B8 81 04 10  fld         qword ptr ds:[100481B8h]
+  10006C7F: DB 44 24 28        fild        dword ptr [esp+28h]
+  10006C83: DC 0D B0 81 04 10  fmul        qword ptr ds:[100481B0h]
+  10006C89: E8 D2 62 03 00     call        1003CF60
+  10006C8E: DC 25 A8 81 04 10  fsub        qword ptr ds:[100481A8h]
+  10006C94: DC 0D A0 81 04 10  fmul        qword ptr ds:[100481A0h]
+  10006C9A: DC 0D 98 81 04 10  fmul        qword ptr ds:[10048198h]
+  10006CA0: E8 AF 65 03 00     call        1003D254
+  10006CA5: 89 06              mov         dword ptr [esi],eax
+  10006CA7: 68 34 50 07 10     push        10075034h
+  10006CAC: E8 9F C5 FF FF     call        10003250
+  10006CB1: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10006CB5: 83 C4 04           add         esp,4
+  10006CB8: 5F                 pop         edi
+  10006CB9: 5E                 pop         esi
+  10006CBA: 5D                 pop         ebp
+  10006CBB: 5B                 pop         ebx
+  10006CBC: 59                 pop         ecx
+  10006CBD: C3                 ret
+  10006CBE: 90                 nop
+  10006CBF: 90                 nop

@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Oprava3D parametrů Squall](docs/SQUALL.md) nově obnovuje původní C3 větve a zachování signaling NaN. Obě sestavení prošla skutečnými kanály i herním zvukem, aktuální celý CTest102/102 a čtyři4089bajtové herní přenosy také prošly. Úplný audit DLL a celý původní cíl pokračují.
+
 [Sedm souběžných výrobních cyklů](docs/MANUFACTURE.md) nově prošlo skutečnými vstupy, čtyřmi obousměrnými obnovami a dvěma dokončeními všech14 kusů v opačném programu. Úplné4089bajtové saves souhlasí; celý původní cíl pokračuje.
 
 [Sedm současně postavených budov](docs/MANUFACTURE.md) nově souhlasí v obou EXE, včetně přirozeného ocenění9,480000 RGB pixelů a čtyř obousměrných4089bajtových obnov. Celý původní cíl dále pokračuje.

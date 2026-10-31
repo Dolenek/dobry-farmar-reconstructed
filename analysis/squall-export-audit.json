@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "99f7b608031aea175c7b80cfbc3a87123310f060f15fa830464a3b4607ee0fb8",
+  "rebuilt_sha256": "138a4d94ed5d3f016185e6f999456d33aa228b739cd4f37e350590d77fd2cc43",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -60,17 +60,19 @@
       "name": "SQUALL_Channel_Get3DPosition",
       "ordinal": 7,
       "original_address": "10006660",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_GetConeParameters",
       "ordinal": 8,
       "original_address": "10006ba0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_GetFragment",
@@ -131,9 +133,10 @@
       "name": "SQUALL_Channel_GetMinMaxDistance",
       "ordinal": 15,
       "original_address": "100069b0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_GetPan",
@@ -178,9 +181,10 @@
       "name": "SQUALL_Channel_GetVelocity",
       "ordinal": 20,
       "original_address": "10006830",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_GetVolume",
@@ -205,17 +209,19 @@
       "name": "SQUALL_Channel_Set3DPosition",
       "ordinal": 23,
       "original_address": "10006570",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_SetConeParameters",
       "ordinal": 24,
       "original_address": "10006aa0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_SetFragment",
@@ -257,9 +263,10 @@
       "name": "SQUALL_Channel_SetMinMaxDistance",
       "ordinal": 29,
       "original_address": "10006910",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_SetPan",
@@ -302,9 +309,10 @@
       "name": "SQUALL_Channel_SetVelocity",
       "ordinal": 34,
       "original_address": "10006740",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
     },
     {
       "name": "SQUALL_Channel_SetVolume",
@@ -900,5 +908,9 @@
   "configuration_reports": [
     "analysis/squall-config-validation.json",
     "analysis/squall-config-fresh-validation.json"
+  ],
+  "channel_vector_reports": [
+    "analysis/squall-channel-vectors-validation.json",
+    "analysis/squall-channel-vectors-fresh-validation.json"
   ]
 }

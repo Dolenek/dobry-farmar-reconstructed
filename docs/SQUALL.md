@@ -1,5 +1,25 @@
 # Rekonstrukce Squall
 
+## Skutečné 3D kanály: původní C3 větve a syrové kopie
+
+Nové porovnání skutečných exportů prokázalo dvě odchylky zveřejněného podkladu. `SSample::Set3DParameters` na `10001a70` porovnává uloženou složku s novou přes x87 FCOMP/FNSTSW a testuje pouze C3 (`TEST AH,40h`). Stejné i neuspořádané hodnoty nechává beze změny. Tři vektory i oba testy vzdáleností nyní zachovávají tuto větev a původní pořadí. `Get3DParameters` na `10001c10` kopíruje DWORD přes MOV; původní C++ při kopii float měnilo signaling NaN na quiet NaN. Vektory se nyní kopírují dopředu po jednotlivých32bitových slovech a skalární getter také zachovává syrové bity. Ověřené starší listener implementace zůstaly beze změny.
+
+`tools/squall_channel_vectors_probe` sestavuje samostatný `squall-channel-vectors-reference-test`. `validate_squall_channel_vectors.py` používá skutečné DLL a skutečné připravené mono PCM kanály se skutečným DirectSound3D, v přímém i odloženém listener režimu. Každé ze dvou nezávislých sestavení má v PC53/PC24 dohromady26 550 porovnaných návratů a5 272 celých guarded snapshotů:108 vektorových trojic na kontext, opakované signed quiet/signaling NaN payloady v každé složce,361 dvojic vzdáleností,512 trojic celočíselných hranic kužele a chráněné vstupy/výstupy. Cone setter původně požaduje zapisovatelný vstup, ostatní vektory jen čitelný; tato zvláštnost se zachovává.
+
+Samostatné byte fixtures bez audio Init porovnávají tytéž dvě původní metody a vlastní metody na stejné adrese objektu. Na každé sestavení a obě přesnosti připadá4 096 setter a32 768 getter případů, včetně vybraných překryvů výstupů s uloženými parametry. Diagnostická COM hranice zaznamenává přesně předaný buffer, Deferred a úspěch/chybu. Jde o doplněk skutečných kanálů, nikoli náhradu zvukového backendu v implementaci. Zachované vlastní DLL před opravou znovu prokázaly rozdíl cone source−13/native1 i změnu `7f800001`→`7fc00001` v obou přesnostech.
+
+Obě sestavení znovu prošla všech45 herních zvuků /122 527 752 přesných PCM bajtů, osm fyzických DirectSound bufferů /564 480 bajtů, herní Loading/Options/playback/pause i PersonSounds. Úplný aktuální Win32 CTest prošel102/102 za1019,85s. Čtyři další celé obousměrné obnovy sedmi budov zachovaly4089 save bajtů; dvě source obnovy jsou bez AV. Dvě aktuální DLL mají shodných všech400 384 bajtů kromě přesně dvou linkerových DWORD časových razítek; soubory se neupravují. Souhrn, source/binary hashe a všechny původní instrukce jsou v `analysis/squall-channel-vectors-regression.json` a navazujících reportech.
+
+Algoritmus1 zde vytvoří reálné3D buffery; algoritmus3 v počátečním pokusu obě DLL odmítly s−11, přesný backend HRESULT není zachycený. Samostatný původní PCM oracle prošel i při změně počtu zařízení ze tří na dvě; zastaralý checker299 byl opraven na293 pevných porovnání a dvě kontroly názvu/capabilities na každé skutečné zařízení. Nejde o opravu produkčního chování. Následná kontrola nástrojů1/1 také prošla. Prostorový waveform, všechny ostatní algoritmy/hardware, running3D timing, EAX/ZoomFX, obecné aliasy/FP flags a chybové OutsideVolume úspěšného cone getteru zůstávají neověřené. Celý97exportový audit ani projekt nejsou dokončené.
+
+```powershell
+cmake -S tools/squall_channel_vectors_probe -B build/squall-channel-vectors-probe -G "Visual Studio 17 2022" -A Win32
+cmake --build build/squall-channel-vectors-probe --config Release
+py -3 tools/validate_squall_channel_vectors.py
+# Samotné metody bez audio Init; diagnostická COM hranice je výslovná:
+py -3 tools/validate_squall_channel_vectors.py --fixture-only --output .local/squall-channel-vectors-fixture-validation.json
+```
+
 ## Globální konfigurace skutečných DLL
 
 Jedenáct exportů Get/Set3DAlgorithm, Get/SetBufferSize, Get/SetDevice, Get/SetHardwareAcceleration, GetNumDevice a Get/SetSpeakerMode nově prošlo skutečným načtením obou DLL. `tools/squall_config_probe` sestavuje `squall-config-reference-test`; `python tools/validate_squall_config.py` ověřuje PC53/PC24 před Init, s reálným DirectSound a po Free. Každé ze dvou sestavení má4634 API výsledků a1320 celých guarded output snapshotů. Zkouší signed hranice bufferu1..5000, opakované změny support tabulky algoritmů, speaker modes,36 dvojic raw hardware flags a přestavbu zařízení bez kanálů; čtyři scalar gettery po každé změně a null/bad/alias/cross-page hardware výstupy. V této etapě se neprokázala odchylka a produkční kód se neměnil. Původní zvláštnost Set3DAlgorithm10003a70, který zapisuje do support tabulky místo změny aktuálního algoritmu, zachovává už existující zdroj.

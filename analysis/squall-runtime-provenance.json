@@ -425,6 +425,16 @@
       "instruction_evidence": "FCOMP0, FNSTSW AX, TEST AH,41h; nonpositive/unordered MinDist becomes1 and MaxDist becomes0x4e6e6b28",
       "source_difference": "Public1.48 <=0 retains NaNs; negate ordered>0 acceptance for both fields",
       "current_sha256": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905"
+    },
+    {
+      "path": "SoundEngine/Channels.cpp",
+      "method": "SSample::Set3DParameters/Get3DParameters C3 and raw copies",
+      "original_addresses": [
+        "10001a70",
+        "10001c10"
+      ],
+      "instruction_evidence": "Cached-first FLD/FCOMP then TEST AH,40h; unordered/equal skip updates. Vector/scalar getter MOVs retain signaling-NaN bits and original forward word order.",
+      "current_sha256": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7"
     }
   ]
 }

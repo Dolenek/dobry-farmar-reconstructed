@@ -13,6 +13,39 @@
 #include "../SoundFile/SoundFile.h"
 #include "Channels.h"
 
+// Native SSample::Set3DParameters10001a70 tests only x87 C3, so equal
+// and unordered operands both skip a change. Read raw words in native order.
+static bool nativeChannelComponentChanged(const float* cached,const float* input)
+{
+#if defined(_MSC_VER) && defined(_M_IX86)
+    unsigned short status;
+    __asm {
+        mov eax, cached
+        fld dword ptr [eax]
+        mov eax, input
+        fcomp dword ptr [eax]
+        fnstsw ax
+        mov status, ax
+    }
+    return (status & 0x4000) == 0;
+#else
+    return (*cached < *input) || (*cached > *input);
+#endif
+}
+static bool nativeChannelVectorChanged(const D3DVECTOR* cached,const D3DVECTOR* input)
+{
+    return nativeChannelComponentChanged(&cached->x,&input->x) ||
+        nativeChannelComponentChanged(&cached->y,&input->y) ||
+        nativeChannelComponentChanged(&cached->z,&input->z);
+}
+static void nativeChannelVectorCopy(D3DVECTOR* target,const D3DVECTOR* input)
+{
+    // Native MOVs copy forward one word at a time, without quieting an sNaN.
+    memcpy(&target->x,&input->x,4);
+    memcpy(&target->y,&input->y,4);
+    memcpy(&target->z,&input->z,4);
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //				Процедуры для работы со звуковыми каналами
@@ -423,13 +456,9 @@ int SSample::Set3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
     // проверка наличия параметра
     if (Position) {
         // проверка изменений параметра
-        if ((Param.ds3d.vPosition.x != Position->x) ||
-            (Param.ds3d.vPosition.y != Position->y) ||
-            (Param.ds3d.vPosition.z != Position->z)) {
+        if (nativeChannelVectorChanged(&Param.ds3d.vPosition,Position)) {
             // запишем новое значение
-            Param.ds3d.vPosition.x = Position->x;
-            Param.ds3d.vPosition.y = Position->y;
-            Param.ds3d.vPosition.z = Position->z;
+            nativeChannelVectorCopy(&Param.ds3d.vPosition,Position);
             change = true;
         }
     }
@@ -437,13 +466,9 @@ int SSample::Set3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
     // проверка наличия параметра
     if (Velocity) {
         // проверка изменений параметра
-        if ((Param.ds3d.vVelocity.x != Velocity->x) ||
-            (Param.ds3d.vVelocity.y != Velocity->y) ||
-            (Param.ds3d.vVelocity.z != Velocity->z)) {
+        if (nativeChannelVectorChanged(&Param.ds3d.vVelocity,Velocity)) {
             // запишем новое значение
-            Param.ds3d.vVelocity.x = Velocity->x;
-            Param.ds3d.vVelocity.y = Velocity->y;
-            Param.ds3d.vVelocity.z = Velocity->z;
+            nativeChannelVectorCopy(&Param.ds3d.vVelocity,Velocity);
             change = true;
         }
     }
@@ -451,13 +476,9 @@ int SSample::Set3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
     // проверка наличия параметра
     if (ConeOrientation) {
         // проверка изменений параметра
-        if ((Param.ds3d.vConeOrientation.x != ConeOrientation->x) ||
-            (Param.ds3d.vConeOrientation.y != ConeOrientation->y) ||
-            (Param.ds3d.vConeOrientation.z != ConeOrientation->z)) {
+        if (nativeChannelVectorChanged(&Param.ds3d.vConeOrientation,ConeOrientation)) {
             // запишем новое значение
-            Param.ds3d.vConeOrientation.x = ConeOrientation->x;
-            Param.ds3d.vConeOrientation.y = ConeOrientation->y;
-            Param.ds3d.vConeOrientation.z = ConeOrientation->z;
+            nativeChannelVectorCopy(&Param.ds3d.vConeOrientation,ConeOrientation);
             change = true;
         }
     }
@@ -493,9 +514,10 @@ int SSample::Set3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
     }
 
     // проверка наличия параметра
-    if (MinDist) {
+    const float nativeZero=0;
+    if (nativeChannelComponentChanged(&MinDist,&nativeZero)) {
         // проверка изменений параметра
-        if (Param.ds3d.flMinDistance != MinDist) {
+        if (nativeChannelComponentChanged(&Param.ds3d.flMinDistance,&MinDist)) {
             // запишем новое значение
             Param.ds3d.flMinDistance = MinDist;
             change = true;
@@ -503,9 +525,9 @@ int SSample::Set3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
     }
 
     // проверка наличия параметра
-    if (MaxDist) {
+    if (nativeChannelComponentChanged(&MaxDist,&nativeZero)) {
         // проверка изменений параметра
-        if (Param.ds3d.flMaxDistance != MaxDist) {
+        if (nativeChannelComponentChanged(&Param.ds3d.flMaxDistance,&MaxDist)) {
             // запишем новое значение
             Param.ds3d.flMaxDistance = MaxDist;
             change = true;
@@ -536,23 +558,17 @@ int SSample::Get3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
 
     // получение координат источника звука
     if (Position) {
-        Position->x = Param.ds3d.vPosition.x;
-        Position->y = Param.ds3d.vPosition.y;
-        Position->z = Param.ds3d.vPosition.z;
+        nativeChannelVectorCopy(Position,&Param.ds3d.vPosition);
     }
 
     // получение скорости источника звука
     if (Velocity) {
-        Velocity->x = Param.ds3d.vVelocity.x;
-        Velocity->y = Param.ds3d.vVelocity.y;
-        Velocity->z = Param.ds3d.vVelocity.z;
+        nativeChannelVectorCopy(Velocity,&Param.ds3d.vVelocity);
     }
 
     // получения направления источника звука
     if (ConeOrientation) {
-        ConeOrientation->x = Param.ds3d.vConeOrientation.x;
-        ConeOrientation->y = Param.ds3d.vConeOrientation.y;
-        ConeOrientation->z = Param.ds3d.vConeOrientation.z;
+        nativeChannelVectorCopy(ConeOrientation,&Param.ds3d.vConeOrientation);
     }
 
     // получения угла внутреннего конуса
@@ -569,11 +585,11 @@ int SSample::Get3DParameters(D3DVECTOR* Position, D3DVECTOR* Velocity,
 
     // получение минимальной дистанции слышимости
     if (MinDist)
-        *MinDist = Param.ds3d.flMinDistance;
+        memcpy(MinDist,&Param.ds3d.flMinDistance,4);
 
     // получение максимальной дистанции слышимости
     if (MaxDist)
-        *MaxDist = Param.ds3d.flMaxDistance;
+        memcpy(MaxDist,&Param.ds3d.flMaxDistance,4);
 
     return true;
 }

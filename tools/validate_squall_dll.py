@@ -24,7 +24,11 @@ def main():
     contexts=[]
     for precision,output in run_precision_cases(oracle,[original,candidate,original.parent/'Data'],timeout=60):
         row=json.loads(output)
-        assert row['export_lookups']==194 and row['samples']==45 and row['api_comparisons']==299
+        # The oracle has293 fixed comparisons plus GetDeviceName/GetDeviceCaps
+        # for every actual endpoint. Device enumeration is host state, not a
+        # fixed three-device input; keep all per-device byte comparisons.
+        assert row['devices']>0
+        assert row['export_lookups']==194 and row['samples']==45 and row['api_comparisons']==293+2*row['devices']
         assert row['init_result']==1 and row['directsound_initialized'] and row['prepared_channels']==1
         assert row['physical_snapshots']==4 and row['physical_pcm_bytes']==282240
         assert row['dll_pcm_calls']==5034 and row['dll_pcm_bytes']==61263876 and row['dll_pcm_frames']==20421292
