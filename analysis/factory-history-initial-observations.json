@@ -1,0 +1,140 @@
+{
+  "status": "early_capture_and_incorrect_diagnostic_depth_replaced_by_observed_glyph_readiness",
+  "early_runtime_report_sha256": "d3be5539c55d44ac15b84b530738dfe888bcad85f0837552bd958950004e66c1",
+  "early_award_pixels": {
+    "compared_pixels": 480000,
+    "different_pixels": 9561,
+    "difference_bounds": [
+      270,
+      364,
+      535,
+      458
+    ],
+    "exact": false
+  },
+  "incorrect_depth_probe": {
+    "work_directory": ".local/factory-history/20261031T112724410306Z",
+    "report_sha256": "ed34e1f787e1cc1f1f60442feaf0942659d08dc21dd452b4d423781fdcaf5dc8",
+    "error": "RuntimeError('Award congratulation did not create visible text lines after transition')",
+    "recorded_as_game_failure": false
+  },
+  "late_diagnostic": {
+    "work_directory": ".local/award-history-visual/20261031T144716959586Z",
+    "report_sha256": "b44da55ca39c5600b57536749be2de721065721095526a02115159168cb37561",
+    "frames": [
+      {
+        "index": 0,
+        "whole_frame": {
+          "compared_pixels": 480000,
+          "different_pixels": 21,
+          "difference_bounds": [
+            719,
+            425,
+            757,
+            448
+          ],
+          "exact": false
+        },
+        "congratulation_rectangle": [
+          260,
+          340,
+          550,
+          470
+        ],
+        "congratulation_pixels": {
+          "compared_pixels": 37700,
+          "different_pixels": 0,
+          "difference_bounds": null,
+          "exact": true
+        }
+      },
+      {
+        "index": 1,
+        "whole_frame": {
+          "compared_pixels": 480000,
+          "different_pixels": 21,
+          "difference_bounds": [
+            719,
+            425,
+            757,
+            448
+          ],
+          "exact": false
+        },
+        "congratulation_rectangle": [
+          260,
+          340,
+          550,
+          470
+        ],
+        "congratulation_pixels": {
+          "compared_pixels": 37700,
+          "different_pixels": 0,
+          "difference_bounds": null,
+          "exact": true
+        }
+      },
+      {
+        "index": 2,
+        "whole_frame": {
+          "compared_pixels": 480000,
+          "different_pixels": 21,
+          "difference_bounds": [
+            719,
+            425,
+            757,
+            448
+          ],
+          "exact": false
+        },
+        "congratulation_rectangle": [
+          260,
+          340,
+          550,
+          470
+        ],
+        "congratulation_pixels": {
+          "compared_pixels": 37700,
+          "different_pixels": 0,
+          "difference_bounds": null,
+          "exact": true
+        }
+      },
+      {
+        "index": 3,
+        "whole_frame": {
+          "compared_pixels": 480000,
+          "different_pixels": 21,
+          "difference_bounds": [
+            719,
+            425,
+            757,
+            448
+          ],
+          "exact": false
+        },
+        "congratulation_rectangle": [
+          260,
+          340,
+          550,
+          470
+        ],
+        "congratulation_pixels": {
+          "compared_pixels": 37700,
+          "different_pixels": 0,
+          "difference_bounds": null,
+          "exact": true
+        }
+      }
+    ]
+  },
+  "actual_congratulation_glyphs": 79,
+  "actual_congratulation_rows": 4,
+  "actual_depth_range": [
+    6400,
+    6401
+  ],
+  "explanation": "Root XML adds3100 to child3300. Wait for all79 glyphs on four rows and a subsequent rendered frame. Four late pending-award observations match the text; the complete new eleven-kind workflow matches all480000 RGB pixels.",
+  "production_implementation_changed": false,
+  "whole_game_complete": false
+}

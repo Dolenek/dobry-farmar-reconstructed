@@ -1,0 +1,83 @@
+{
+  "status": "passed_actual_cumulative_eleven_factory_kinds_natural_award8_and_restores",
+  "recorded_at_utc": "2026-10-31T14:49:26.783804+00:00",
+  "recorder_sha256": "797e57ab8d2a16f1ef9fa126e25bc94cc80fd0db473a4c3eed5d4b8d301005dc",
+  "reports": {
+    "factory-history-state-validation.json": "c31fa6a7e1e53c200dcef01737b3ecbb1b6647ca9ee07021c1b1c04b770ba981",
+    "factory-history-interop-validation.json": "2d05cf5102e12c4fd2b9f466e58a0666fad51677555bd3fd1d8f27f406a5575b",
+    "factory-history-initial-observations.json": "2815878299a60160be84be4411fccc270294020e14a97e55d370feaba4b03b9d"
+  },
+  "natural_predicate": "004c8650: all eleven awManDepotBuild0..10 flags",
+  "paid_kinds": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "paid_cost": 1850,
+  "business_snapshots_per_executable": 16,
+  "actual_alias_word_snapshots": 98,
+  "alias_padding_claimed_equal": false,
+  "all_current_profile_discretes_equal": true,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "natural_new_journal_note": {
+    "event_time": 1140,
+    "text": "Воды на весь участок не хватает. Мне просто необходимо поставить новую колонку.",
+    "read": false,
+    "save_bytes_before": 4089,
+    "save_bytes_after": 4252
+  },
+  "complete_identical_save_bytes": 4252,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "4520f31e62d266f3b60ec9e1ab2711e52e4a6ef3f48f7dbebdcb79ca64138b02",
+      "events": [
+        {
+          "event": "image",
+          "base": 11993088
+        },
+        {
+          "event": "ready",
+          "pid": 27644,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "9f5114b62a06224cfaffc86cf72af0a10029d93688c720b670c2ed070ad07749",
+      "events": [
+        {
+          "event": "image",
+          "base": 11993088
+        },
+        {
+          "event": "ready",
+          "pid": 23796,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Five remaining crops and natural simultaneous-eight-culture award11",
+    "Other natural award predicates and modal overlap",
+    "Remaining Squall97, JNG and uninstaller scopes"
+  ]
+}

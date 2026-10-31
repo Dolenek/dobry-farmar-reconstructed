@@ -1,5 +1,15 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Jeden profil se všemi jedenácti typy a přirozeným oceněním8
+
+`validate_game_factory_history.py` navazuje na sedm skutečných kravínů. Sedmkrát zboří poslední budovu a normálně koupí typy4..10; odečte1850, Money7084→5234, awQDestroy6→13. Šest kravínů a poslední mlýn zůstanou na úrovni0. Původní `004c8650` vyhodnotí všech jedenáct `awManDepotBuild` a sám udělí ocenění8. Názvy ocenění i české blahopřání mluví o upgradech, ale ověřená podmínka vyžaduje historii typů. Žádný award příkaz ani zápis do paměti se nepoužije.
+
+Obě celé hry mají16 shodných pracovních stavů,98 skutečných readonly aliasových slov, všechny diskrétní profilové hodnoty a všech4252 save bajtů přesných. Přirozený dopis37 v1110 a zpráva o vodě v1140 zůstávají zachované; tato zpráva zvětší4089bajtový save o163 bajtů. Čtyři další skutečné obousměrné obnovy zachovají kompletní historii, všech sedm budov i všechny4252 bajty. Oba source restore procesy skončí0 bez AV.
+
+Časný snímek původně vykázal9561 odlišných pixelů textu. Následný diagnostický filtr omylem hledal glyphy na3300; kořen přičítá3100, skutečných79 glyphů leží na6400..6400.26 ve čtyřech řádcích. Pozdní snímky textu se shodují. Nový celý průchod čeká na tyto skutečné glyphy a další vykreslený snímek: všech480000 RGB pixelů je přesných. Produkční implementace se kvůli této diagnostice neměnila. Neúspěšné a časné snímky zůstávají v `analysis/factory-history-initial-observations.json`; případné rozdíly okolních animací pozdních diagnostických snímků se nevydávají za pixelovou shodu celého snímku.
+
+Metadata: `analysis/factory-history-regression.json` a odkazované state/interop reports. Poslední úplný102/102 běh `analysis/squall-channel-vectors-regression.json` stále odpovídá aktuálním produkčním zdrojům. Další plodiny, přirozená ocenění, úplné DLL a celý původní cíl pokračují.
+
 ## Sedm současně běžících výroben přes save a dokončení
 
 `validate_game_seven_inflight.py` navazuje na skutečně postavených sedm kravínů. Původní cheatproduct dodává zásoby přes GameInput; sedm skutečných sliderů přesune do každé budovy dvě trávy. Naplnění skladu postupně omezuje další dávky. Skutečné přesuny tří jiných skladových položek na trh uvolní18 míst, takže před výrobou je Warehouse80 a milk6. Původní Alt+Home poskytuje0.1 čas pro přípravu; také přechody scén se při něm zpomalí. Po obnovení1x každá ze sedmi budov sama postupuje. Při GameTime1105 původní Alt+Pause skutečně zmrazí všech sedm nenulových průběhů a14 vstupů.
