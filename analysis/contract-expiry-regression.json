@@ -1,0 +1,72 @@
+{
+  "status": "passed_actual_cross_program_active_contract37_expiry_failure_and_four_complete_restores_only",
+  "recorded_at_utc": "2026-10-31T17:32:06.251386+00:00",
+  "recorder_sha256": "abd503a8fcb6b2d753725241b3c99c2e58041931281a811dc0ec9af0788999b8",
+  "reports": {
+    "contract-expiry-state-validation.json": "464ef433c5cd09b24acd30924c8f54bcb18b87684c5809899d8b9c6e7dcd23f8",
+    "contract-expiry-interop-validation.json": "e759970ea3edb69a015a44e59433c0d40a77560724b87518f282497cc6d145d0",
+    "contract-expiry-initial-observation.json": "6b9b6601ec9073625289dba0de8fd0552fb236b0585a0e8b7bad64731c5fb982"
+  },
+  "business_snapshots_per_executable": 4,
+  "opposite_program_active_restores": 2,
+  "natural_deadline_failures": 2,
+  "additional_charge_at_expiry": 0,
+  "roses_retained": 2,
+  "equal_actual_failure_modal_sprites": 29,
+  "exact_caption_rgb_pixels": 14850,
+  "backdrop_pixel_comparison": 1,
+  "original_backdrop_alpha": 254,
+  "added_original_event_messages": 2,
+  "identical_complete_save_bytes": 4563,
+  "further_bidirectional_restores": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "ce7eff451f2b30a5bcc6ef46fafa49cfa88a5e8f4b61f4695fb6684564871f9b",
+      "events": [
+        {
+          "event": "image",
+          "base": 4653056
+        },
+        {
+          "event": "ready",
+          "pid": 19668,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "311ed3967adb61b86424ea1dc387dfac88218473fc7bcd4415fbd4664a1d562c",
+      "events": [
+        {
+          "event": "image",
+          "base": 4653056
+        },
+        {
+          "event": "ready",
+          "pid": 21420,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "nonzero_streak_reset_verified": false,
+  "controlled_whole_frame_background_animation_replay_verified": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural failure after a nonzero completed streak",
+    "Remaining natural world events, awards and upgrades",
+    "Remaining complete Squall/JNG/uninstaller scopes"
+  ]
+}

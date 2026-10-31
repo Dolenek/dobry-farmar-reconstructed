@@ -1,0 +1,14 @@
+{
+  "status": "diagnostic_alpha_compression_assumption_corrected_only",
+  "original_offer_alpha_compression": "JPEG JDAA",
+  "original_failure_alpha_compression": "PNG IDAT",
+  "initial_auditor_error": "PIL.UnidentifiedImageError while treating the failure panel as JPEG alpha",
+  "resolution": "Read original JHDR and reconstruct its grayscale PNG alpha stream; original pixels are unchanged.",
+  "failure_audit_alpha_values": [
+    254,
+    254
+  ],
+  "production_implementation_changed": false,
+  "recorded_as_game_failure": false,
+  "whole_game_complete": false
+}
