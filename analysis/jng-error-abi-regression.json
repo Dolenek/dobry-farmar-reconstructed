@@ -1,0 +1,39 @@
+{
+  "status": "passed_jng_error_exception_abi_and_selected_png_mng_inputs_in_two_win32_builds",
+  "recorded_at_utc": "2026-10-31T10:16:44.621993+00:00",
+  "recorder_sha256": "67bcc38b3d89527d66470ecb1cad25169968e0c6c17d92a020e35fad1669940c",
+  "reports": {
+    "jng-error-abi-validation.json": "53d08d28249455f2c52a1a3869a02cd2b110133c5c73201ef97ad0a246bffaf2",
+    "jng-error-abi-fresh-validation.json": "7983b1686d425962b54103f7b7801f4bf0333a97d2ea9a663e655f67ecac5094",
+    "jng-error-abi-exports.json": "ca7de71b6d35477bc31c0a20a2369470f14edb0e4518d53bfbb55cdaf2315e63"
+  },
+  "actual_process_pairs_per_build": 40,
+  "independent_builds": 2,
+  "export_names_and_ordinals_equal": true,
+  "original_const_char_pointer_exception_caught": true,
+  "error_outputs_preserve_caller_refs": true,
+  "free_null_and_nonnull_pointer_preservation": true,
+  "protected_truncation_cases_per_build": 7,
+  "crc_fixtures_accepted_by_both": true,
+  "zero_width_accepted_by_both": true,
+  "mng_delay20_returns_first_frame": true,
+  "mng_delay0_returns_last_frame": true,
+  "selected_valid_raw_pixels_equal": true,
+  "all_invalid_pixels_claimed_equal": false,
+  "valid_error_valid_and_cross_format_sequence": true,
+  "production_implementation_changed": false,
+  "previous_full_ctest_report": "analysis/profile-floating-regression.json",
+  "changes_since_full_ctest": {},
+  "build_configuration_change": "Adds only EXCLUDE_FROM_ALL jng-error-probe diagnostic target; production sources and binaries unchanged",
+  "build_log_sha256": {
+    "jng-error-probe-build.log": "5cab9a4f737bb49977d293c3bcd7760f3f88d869701565b56d033e590f0c1bde",
+    "jng-error-probe-fresh-build.log": "2b2b86c9bb95a3691376023f3800ee8c4953d36e2d69dd2c1efd38b832863d5a"
+  },
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Allocation/registration failure injection and general exception ABI",
+    "General MNG scripting, animation/callback timing and concurrent calls",
+    "Remaining Squall, game and isolated uninstaller scopes"
+  ]
+}

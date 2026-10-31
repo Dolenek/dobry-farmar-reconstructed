@@ -1,0 +1,2650 @@
+{
+  "status": "passed_for_actual_jng_error_abi_png_and_selected_mng_inputs_only",
+  "work_directory": ".local/jng-error-abi/20261031T101556128294Z",
+  "recorded_at_utc": "2026-10-31T10:15:56.299193+00:00",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "zlib_version": "1.3.1",
+  "probe_path": "build/windows/Release/jng-error-probe.exe",
+  "source_dll_path": "build/windows/Release/JNGLoad.dll",
+  "probe_sha256": "47f3db8e77d020da400fae26c65c0b87b393d1014ee43803c59cbb06e53bab52",
+  "original_dll_sha256": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687",
+  "source_dll_sha256": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+  "source_files": {
+    "tools/jng_error_probe.cpp": "d18f1906385352e0aa3b0c27887856d199e51158d1e481fa2f10a12b007c4845",
+    "tools/validate_jng_error_abi.py": "6a1032809fe705dc5f4447698d1f19952b70e445c1b36a0c4acf11a2b88bcd6b",
+    "src/jngload/JNGLoad.cpp": "81558ad85e2e1f4941f478fbdf7d7de7aa4acff2daf42aa57f39d8a19c3c2de8",
+    "src/jngload/JNGLoad.h": "da3b8c584240135122794cb4cac93f2e27c00cc3e5a92467935fa34942edc2c4",
+    "CMakeLists.txt": "8931d8bf7bbcd68b85305b46b3300f2ea1d405497c823e1985dddf32f4429055"
+  },
+  "cases": [
+    {
+      "name": "rgba8",
+      "inputs": [
+        {
+          "name": "rgba8",
+          "valid": true,
+          "sha256": "b730cab6ca454e8a2cffb0326109c45a3ded01121cbc41b97ec74550c837dfee"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgb8",
+      "inputs": [
+        {
+          "name": "rgb8",
+          "valid": true,
+          "sha256": "a15da05d545b2b7d9e50e4ec9be3255f32953d07cb4fe4a5ffee4cc79d5cec72"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "2caceca0301eb6c0790e2003af640a14dad6498a013ff6725d1420a66bfbc2f4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "2caceca0301eb6c0790e2003af640a14dad6498a013ff6725d1420a66bfbc2f4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "gray1",
+      "inputs": [
+        {
+          "name": "gray1",
+          "valid": true,
+          "sha256": "104746780595a66528be6d5a40e2a945abb03de0abfb2783d1ca6fa07951c42b"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "f38d522927a4f3eebe2cc4647870653de12ad51f6937f0e49fb398a9324ec6d6"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "f38d522927a4f3eebe2cc4647870653de12ad51f6937f0e49fb398a9324ec6d6"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "gray2",
+      "inputs": [
+        {
+          "name": "gray2",
+          "valid": true,
+          "sha256": "8f46654224a288ed6ae4bb346be21d698f0916222511b5485664f5607b3c51d3"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "gray4",
+      "inputs": [
+        {
+          "name": "gray4",
+          "valid": true,
+          "sha256": "6b2b105f04b6f48f481824d68c5f648e9c2bd8b8a51e06658d57234b6c97c067"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "gray8",
+      "inputs": [
+        {
+          "name": "gray8",
+          "valid": true,
+          "sha256": "f3adda2e6f57da42096d6f5889dca2f22586cf4206b97308b53286c5f46fa856"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "gray16",
+      "inputs": [
+        {
+          "name": "gray16",
+          "valid": true,
+          "sha256": "1ddd2e2d0f64b91a0ec92bd0990d5738fff877ad49cd60d8325d1b7eda138fdb"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "4a6929d4affcb618035f1c736fc52b748a02a6ae672697d1abbe74c2261618c9"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "grayalpha8",
+      "inputs": [
+        {
+          "name": "grayalpha8",
+          "valid": true,
+          "sha256": "2b232b24d3df06fce0db20600ba7ddd20a2e3e3472d8ead1588104fca87e7188"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "532c26a656384b47b2e4fd31b059f864d6d5583daae5c12dcd501372e00f2580"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "532c26a656384b47b2e4fd31b059f864d6d5583daae5c12dcd501372e00f2580"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "color2depth16",
+      "inputs": [
+        {
+          "name": "color2depth16",
+          "valid": true,
+          "sha256": "70e0da5c00c36169eb390894bc19427799adeb5a0575108c9535a29b369f996b"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "b175a9d083f54df67e7e60359d3759afab8109134d133c1a57c42cf6273365be"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "b175a9d083f54df67e7e60359d3759afab8109134d133c1a57c42cf6273365be"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "color4depth16",
+      "inputs": [
+        {
+          "name": "color4depth16",
+          "valid": true,
+          "sha256": "df74f69c1a4529b3f8cb08a27799c6980ea2e5d1ef41eadcaf403e9dd111d472"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "f14d9d8f0eccb62ad2e49f6846a149553b32ee070191a7e50105173b4df8aff9"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "f14d9d8f0eccb62ad2e49f6846a149553b32ee070191a7e50105173b4df8aff9"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "color6depth16",
+      "inputs": [
+        {
+          "name": "color6depth16",
+          "valid": true,
+          "sha256": "2c00ed7f86e203f5fb321388f5002fdb4535591233e9f03a9ae29688eafda7dc"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "c62bb102409c9d90f8f839480690afdf30a612194a971ac93aa57f976bc7ab83"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "c62bb102409c9d90f8f839480690afdf30a612194a971ac93aa57f976bc7ab83"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "palette1-transparency",
+      "inputs": [
+        {
+          "name": "palette1-transparency",
+          "valid": true,
+          "sha256": "64102c4d1c8a65f649f7d54a2bb0fd0adb570a4e6e304531f5b39c3e65b2a266"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "88d4f9c61580aa28bcf0ada1a96d292e5aa8d331f05e7b8f38e41d4cd3f6c3c4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "88d4f9c61580aa28bcf0ada1a96d292e5aa8d331f05e7b8f38e41d4cd3f6c3c4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgba8-filter1",
+      "inputs": [
+        {
+          "name": "rgba8-filter1",
+          "valid": true,
+          "sha256": "f435e80fca691eb2b10d763eea66aeb4d6b421e083f24dee6fbc8349e5da5049"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgba8-filter2",
+      "inputs": [
+        {
+          "name": "rgba8-filter2",
+          "valid": true,
+          "sha256": "e0ea7d282406aa97c427da2a268aacbf7acf143875cad60c4c560b30d31320ac"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgba8-filter3",
+      "inputs": [
+        {
+          "name": "rgba8-filter3",
+          "valid": true,
+          "sha256": "5577efb3c9f52005095593acf23674489b45d9126ea419f9b5716329d7291d8f"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgba8-filter4",
+      "inputs": [
+        {
+          "name": "rgba8-filter4",
+          "valid": true,
+          "sha256": "b956da515cdad9c7ec337ccf9018e4da705361432de159b244d0a10e3595efe3"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "rgba8-adam7",
+      "inputs": [
+        {
+          "name": "rgba8-adam7",
+          "valid": true,
+          "sha256": "e34531c53df585160607c59ed9a55a58123ac7676cc0fbd88d26a052e5622dcf"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 3,
+              "height": 3,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "5e73d14127224c0f58018a952134b0a5d1c63007d95471f3da1d1e114b0a2485"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 3,
+              "height": 3,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "5e73d14127224c0f58018a952134b0a5d1c63007d95471f3da1d1e114b0a2485"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "mng-single-opaque",
+      "inputs": [
+        {
+          "name": "mng-single-opaque",
+          "valid": true,
+          "sha256": "a01bdc20f89fcf298c75ad72318cfb1cbd2eb72163d1b363832f07ea660c20ea"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "mng-two-opaque-delay20",
+      "inputs": [
+        {
+          "name": "mng-two-opaque-delay20",
+          "valid": true,
+          "sha256": "1db8f260025cfd3985858b19ea59c884fcc13945e03c7919c9e144cc4e9c5b25"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "mng-two-opaque-delay0",
+      "inputs": [
+        {
+          "name": "mng-two-opaque-delay0",
+          "valid": true,
+          "sha256": "54e872f297665039af38d457dbe5ca57baa367ced1bbf41f90b7bc81b6310323"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "fb3a6a641bbce9b762a240d320a72e963ebbfd6d38cf17e86f37f165574bdbe0"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "fb3a6a641bbce9b762a240d320a72e963ebbfd6d38cf17e86f37f165574bdbe0"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "actual-building-mask-jng",
+      "inputs": [
+        {
+          "name": "actual-building-mask-jng",
+          "valid": true,
+          "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 200,
+              "height": 200,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "fdfbc1fae4e4f4f3bdb1f52be670dd5750381ecfa55f2b99e798a01862aeaaa6"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 200,
+              "height": 200,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "fdfbc1fae4e4f4f3bdb1f52be670dd5750381ecfa55f2b99e798a01862aeaaa6"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "bad-signature",
+      "inputs": [
+        {
+          "name": "bad-signature",
+          "valid": false,
+          "sha256": "8af87cfd9f53f4e37ea01139e961e72efddd5f7e85417a71daf472e21391329c"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "bad-ihdr-crc",
+      "inputs": [
+        {
+          "name": "bad-ihdr-crc",
+          "valid": false,
+          "sha256": "0616084cd7160f7c3a6576586b7ea3bc7064969fd1ed39146b0994c96fe065ce"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "bad-iend-crc",
+      "inputs": [
+        {
+          "name": "bad-iend-crc",
+          "valid": false,
+          "sha256": "114653ef4e505d4963725011d51ec0c45cb44a8234352a416224273bebe2a43a"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "unknown-critical",
+      "inputs": [
+        {
+          "name": "unknown-critical",
+          "valid": false,
+          "sha256": "fad874e50e1dc4607781ec309efc199c9973efecf3b941d2cce5cea93cb1c369"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "unknown-ancillary",
+      "inputs": [
+        {
+          "name": "unknown-ancillary",
+          "valid": true,
+          "sha256": "e1224fe2b84ce11294983e2e8c87561c2302efe28d193f7e00134f44c42604e4"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "bad-ancillary-crc",
+      "inputs": [
+        {
+          "name": "bad-ancillary-crc",
+          "valid": false,
+          "sha256": "9164b47338caea9cd320dcc5e4304cfaebe0ec53b20e0ab8f80aa78ec0e7fb1f"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "invalid-color-depth",
+      "inputs": [
+        {
+          "name": "invalid-color-depth",
+          "valid": false,
+          "sha256": "0c9585a5bc8fea8aa8423a25f38f71290e2d37f924e6d20e38218b8a9a34e090"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "zero-width",
+      "inputs": [
+        {
+          "name": "zero-width",
+          "valid": false,
+          "sha256": "4c415715657cd62889073ee421d2edc46710edd6d62989c6af61d7062d5fa109"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 0,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 0,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "invalid-filter",
+      "inputs": [
+        {
+          "name": "invalid-filter",
+          "valid": false,
+          "sha256": "6a3713c29dd0bf161d9392ea5b5d352e51630cb44cd3a194190f140d2ab76cdd"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "invalid-zlib",
+      "inputs": [
+        {
+          "name": "invalid-zlib",
+          "valid": false,
+          "sha256": "654d66c56223ae021ae54fd5d50b516a064cc87e8c0288b42aee8e442412eb98"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-1",
+      "inputs": [
+        {
+          "name": "truncated-1",
+          "valid": false,
+          "sha256": "e9b0c031f0493d3fd6b0b668260c79e7efe734bfd4b4115f9d82bc3be609c294"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 1
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 1
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-7",
+      "inputs": [
+        {
+          "name": "truncated-7",
+          "valid": false,
+          "sha256": "214246cd551e66de7b92c04e55355d0b3751adc15ee8ecc4066e0e9a7c9d3599"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 7
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 7
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-8",
+      "inputs": [
+        {
+          "name": "truncated-8",
+          "valid": false,
+          "sha256": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 8
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 8
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-16",
+      "inputs": [
+        {
+          "name": "truncated-16",
+          "valid": false,
+          "sha256": "02a3e298f1533f62558c58e4c70edcab9af5a50d62d925fd5390942020fb0fb8"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 16
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 16
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-32",
+      "inputs": [
+        {
+          "name": "truncated-32",
+          "valid": false,
+          "sha256": "639e76bf2ccfb7f59f0141458f0b7117bcc7c7c39a3cc274c964e262ea7214cd"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 32
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 32
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-39",
+      "inputs": [
+        {
+          "name": "truncated-39",
+          "valid": false,
+          "sha256": "4cba4bc1265e65902288eb0595356429654ff07d1ee7bdf769ad22ca1f2bdaf6"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 39
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 39
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "truncated-78",
+      "inputs": [
+        {
+          "name": "truncated-78",
+          "valid": false,
+          "sha256": "7639d7d279b72e4f8f37006e8770ba0fb627a6552153176db8a5bebcc9a2904d"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 78
+            }
+          ],
+          "pixels": {}
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "seh",
+              "message": "",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 3221225477,
+              "fault_offset": 78
+            }
+          ],
+          "pixels": {}
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "valid-invalid-valid",
+      "inputs": [
+        {
+          "name": "rgba8",
+          "valid": true,
+          "sha256": "b730cab6ca454e8a2cffb0326109c45a3ded01121cbc41b97ec74550c837dfee"
+        },
+        {
+          "name": "bad-signature",
+          "valid": false,
+          "sha256": "8af87cfd9f53f4e37ea01139e961e72efddd5f7e85417a71daf472e21391329c"
+        },
+        {
+          "name": "rgba8",
+          "valid": true,
+          "sha256": "b730cab6ca454e8a2cffb0326109c45a3ded01121cbc41b97ec74550c837dfee"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 1,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 2,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4",
+            "2.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 1,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 2,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4",
+            "2.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    },
+    {
+      "name": "png-mng-jng-errors-png",
+      "inputs": [
+        {
+          "name": "rgba8",
+          "valid": true,
+          "sha256": "b730cab6ca454e8a2cffb0326109c45a3ded01121cbc41b97ec74550c837dfee"
+        },
+        {
+          "name": "mng-two-opaque-delay20",
+          "valid": true,
+          "sha256": "1db8f260025cfd3985858b19ea59c884fcc13945e03c7919c9e144cc4e9c5b25"
+        },
+        {
+          "name": "actual-building-mask-jng",
+          "valid": true,
+          "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+        },
+        {
+          "name": "unknown-critical",
+          "valid": false,
+          "sha256": "fad874e50e1dc4607781ec309efc199c9973efecf3b941d2cce5cea93cb1c369"
+        },
+        {
+          "name": "invalid-filter",
+          "valid": false,
+          "sha256": "6a3713c29dd0bf161d9392ea5b5d352e51630cb44cd3a194190f140d2ab76cdd"
+        },
+        {
+          "name": "invalid-zlib",
+          "valid": false,
+          "sha256": "654d66c56223ae021ae54fd5d50b516a064cc87e8c0288b42aee8e442412eb98"
+        },
+        {
+          "name": "rgba8",
+          "valid": true,
+          "sha256": "b730cab6ca454e8a2cffb0326109c45a3ded01121cbc41b97ec74550c837dfee"
+        }
+      ],
+      "runs": [
+        {
+          "kind": "native",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 1,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 2,
+              "result": "returned",
+              "message": "",
+              "width": 200,
+              "height": 200,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 3,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 4,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 5,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 6,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4",
+            "1.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66",
+            "2.bgra": "fdfbc1fae4e4f4f3bdb1f52be670dd5750381ecfa55f2b99e798a01862aeaaa6",
+            "6.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        },
+        {
+          "kind": "source",
+          "events": [
+            {
+              "event": "free_null",
+              "unchanged": true
+            },
+            {
+              "index": 0,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 1,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 2,
+              "result": "returned",
+              "message": "",
+              "width": 200,
+              "height": 200,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 3,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 4,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 5,
+              "result": "const_char_pointer",
+              "message": "Error mng_read.",
+              "width": 305419896,
+              "height": 2271560481,
+              "pointer_unchanged": true,
+              "free_preserves_pointer": false,
+              "seh_code": 0,
+              "fault_offset": 0
+            },
+            {
+              "index": 6,
+              "result": "returned",
+              "message": "",
+              "width": 2,
+              "height": 2,
+              "pointer_unchanged": false,
+              "free_preserves_pointer": true,
+              "seh_code": 0,
+              "fault_offset": 0
+            }
+          ],
+          "pixels": {
+            "0.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4",
+            "1.bgra": "d37a4c2900bb85dfd24592c0b52e8dcd72e0ea45c47fa2db0cf1c4c132c80c66",
+            "2.bgra": "fdfbc1fae4e4f4f3bdb1f52be670dd5750381ecfa55f2b99e798a01862aeaaa6",
+            "6.bgra": "ccc39e954374a683279b3bad2dc4a86b3f4a809c5955c9648107b0b15fec6ab4"
+          }
+        }
+      ],
+      "events_equal": true,
+      "valid_pixels_equal": true,
+      "invalid_returned_pixels_compared": false
+    }
+  ],
+  "whole_game_complete": false,
+  "comparison": {
+    "case_process_pairs": 40,
+    "all_events_equal": true,
+    "all_valid_pixels_equal": true,
+    "invalid_pixels_claimed_equal": false
+  },
+  "original_files_unchanged": 17,
+  "pending": [
+    "Any recorded event or valid-pixel differences",
+    "Allocation/registration failures, concurrency and all remaining nonasset LIBMNG inputs",
+    "Entire reconstruction goal"
+  ]
+}

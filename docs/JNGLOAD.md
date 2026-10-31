@@ -19,6 +19,20 @@ LIBMNG používá canvas BGRA8, číselná hodnota `0x1001`. API bylo ověřeno 
 
 ## Co je a není hotové
 
+Nové porovnání `tools/validate_jng_error_abi.py` spustilo 40 dvojic skutečných DLL procesů v každém ze dvou nezávislých Win32 sestavení. `jng-error-probe` je pouze diagnostický host; produkce původní DLL nenačítá. Oba exporty zachovávají názvy/ordinály a nově je přímo doloženo zachycení původní C++ výjimky typu `const char*` moderním MSVC hostem. Chybná signatura, neznámý kritický chunk, nepřípustná barevná hloubka, filtr a zlib proud vracejí `Error mng_read.` a ponechávají všechny tři referenční výstupy beze změny. `freeData` přijímá null a po platné alokaci ponechává původní hodnotu pointeru.
+
+Platné mimoherní PNG zahrnují odstíny šedi 1/2/4/8/16 bitů, RGB/GA/RGBA 8/16 bitů, paletu s tRNS, všechny filtry a Adam7. Jejich výstupy jsou mezi DLL přesné; vybrané barevné výstupy navíc souhlasí s explicitními očekávanými BGRA bajty. Tři syntetické MNG ověřují statický obraz a dvě opaque vrstvy: s prodlevou20 vrátí wrapper první červený snímek, bez prodlevy poslední modrý. Střídání PNG→MNG→skutečný herní JNG→dvě různé chyby→PNG v jednom procesu i platný→chybný→platný běží shodně. Neprokazuje to obecné přehrávání všech MNG animací.
+
+Originál přijímá testované nesprávné CRC v IHDR/IEND/ancillary chunku a vrací stejný známý obraz; přijímá také nulovou šířku. Sedm zkrácených bufferů končí v obou DLL na stejné relativní hranici chráněné stránky s `C0000005`, protože původní ABI nemá délku vstupu. Každý takový pokus je v samostatném procesu a neovlivňuje další scénáře. Libovolné neinitializované pixely po chybovém display nejsou vydávány za shodné. Vynucené chyby alokace/registrace, obecné exception scénáře a souběh zůstávají neověřené.
+
+Přenositelné výsledky a hashe jsou v `analysis/jng-error-abi-regression.json`, dvou podrobných runtime reportech a novém exportním reportu. Produkční wrapper a obě DLL se v této etapě nezměnily; CMake přidává pouze samostatný `EXCLUDE_FROM_ALL` diagnostický target. Poslední úplný CTest102/102 nebyl pro tento target opakován a není vydáván za nový běh.
+
+```powershell
+cmake --build build/windows --config Release --target jng-error-probe
+py -3 tools/validate_jng_error_abi.py
+py -3 tools/validate_jng_error_abi.py --probe build/squall-source-repro-vs20261010/Release/jng-error-probe.exe --source-dll build/squall-source-repro-vs20261010/Release/JNGLoad.dll --output .local/jng-error-abi-fresh-validation.json
+```
+
 `src/jngload` obsahuje rekonstruovaný aplikační wrapper a používá zdrojově sestavenou LIBMNG. Windows Win32 DLL byla sestavena a porovnána s originálem: všechny pixely 416 herních JNG souhlasí, stejně jako exportní názvy, ordinály a architektura. Vnitřní původní verze LIBMNG, ostatní vstupy a exception ABI zatím nejsou plně ověřené. Linuxové sestavení zůstává diagnostikou.
 
 Používáme zdrojově sestavenou LIBMNG 1.0.10, připnutou na commit v `analysis/libmng-source.lock.json`. Závislost se stáhne do ignorovaného `.local/libmng-source`, včetně vlastní licence. Při stažení i při konfiguraci CMake se ověřuje všech 45 souborů proti Git blob hashům.
@@ -63,7 +77,7 @@ Pro Linux je připraven i `python3 tools/build_jng_diagnostic.py`, který sestav
 - Syntetické PNG ověřují známé červené, zelené a modré pixely v BGRA a rozměry 1×1, 3×2 a 7×5.
 - Nativní porovnání s původní DLL: 416/416 obrázků má stejné rozměry a všechny BGRA bajty, bez tolerance. Dokládá shodu barev, JPEG výstupu i alfa kanálu pro tyto konkrétní herní obrázky.
 - `analysis/jngload-windows-abi.json` dokládá PE32/i386 a přesně dva původní exporty v původním pořadí ordinálů. Přeposílané exporty nejsou použité.
-- Neověřené zůstávají obecné MNG/animace, chybové vstupy, opakovaná volání v jednom procesu a kompatibilita C++ výjimek s původním runtime. Tyto výsledky samy neznamenají dokončenou rekonstrukci celé DLL pro všechny vstupy.
+- Obecné MNG/animace, souběh a vynucené alokační/registrací chyby zůstávají neověřené. Nová vybraná chybová ABI a opakovaná volání jsou doložená výše; nejde o důkaz celé DLL pro všechny vstupy.
 
 ## Porovnání s původní DLL na Windows
 
