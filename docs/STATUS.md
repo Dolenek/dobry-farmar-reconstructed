@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Sedm současně běžících výroben](MANUFACTURE.md) má14 skutečných vstupů,18 pracovních kontrol na EXE, čtyři obousměrné obnovy průběhů a dvě skutečná dokončení v opačném programu. Všechna dokončení dala milk20/awQProcess20/Warehouse94 a přirozený dopis37; všech4089 save bajtů zůstává přesných. Tři source procesy prošly bez AV, přípravné chyby driveru jsou evidované zvlášť. Další kapacity, plodiny, úplné DLL a ostatní podmínky cíle pokračují.
+
 [Chybové ABI JNGLoad a vybrané PNG/MNG vstupy](JNGLOAD.md) prošly 40 dvojicemi procesů v každém ze dvou nezávislých Win32 sestavení. Souhlasí zachycená `const char*` výjimka, nezměněné referenční výstupy při chybě, freeData, sedm chráněných zkrácení, vybrané MNG snímky a střídání formátů v jednom procesu. Platné pixely jsou přesné, přijímání chybných CRC i nulové šířky odpovídá originálu. Obecné MNG, vynucené alokační chyby, souběh a celý původní cíl pokračují.
 
 [Sedm skutečných současně postavených budov](MANUFACTURE.md) prošlo v obou EXE: sedm kravínů úrovně0, cena1050, devět pracovních stavů,56 skutečných aliasových slov a přirozené ocenění9. Panel souhlasí ve480000 RGB pixelech; všechny diskrétní profilové hodnoty a4089 save bajtů jsou stejné. Čtyři další obousměrné obnovy zachovaly sedm pozic/budov a oba source procesy jsou bez AV. Souběžná aktivní výroba, další plodiny, úplné DLL a ostatní podmínky cíle pokračují.

@@ -1,0 +1,39 @@
+{
+  "status": "driver_counter_timing_endpoint_and_event_order_findings_preserved",
+  "probes": [
+    {
+      "work_directory": ".local/seven-inflight/20261031T102030640277Z",
+      "report_sha256": "e0599bf6c20756eb68c8e64735a9a0e2057fbb5f0b5701e9dfba665e9f73b992",
+      "error": "AssertionError()",
+      "reason": "Driver incorrectly expected zero previous processed items; actual existing baseline has six. No gameplay modification.",
+      "recorded_as_pass": false
+    },
+    {
+      "work_directory": ".local/seven-inflight/20261031T102117437399Z",
+      "report_sha256": "863eb8dad0a4297f770fd50774d92a9711aa26e80a7de5348bb625eb01c4d470",
+      "error": "AssertionError(('Actual feed missed', 0, 1, {'money': 7084, 'counts': [0, 0, 0, 0, 0, 0, 0], 'progress': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'stopped': [0, 0, 0, 0, 0, 0, 0], 'goods': [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 'market': [1, 1, 2, 1, 2, 2, 2, 1, 3, 3, 5, 3, 2, 2, 2, 2, 2, 2, 2], 'processed': 6, 'game_time': 1100.04345703125}))",
+      "reason": "Reference AddDepot input did not occur after slowed scene entry; recorded as driver failure, not a proved game difference.",
+      "recorded_as_pass": false
+    },
+    {
+      "work_directory": ".local/seven-inflight/20261031T102323638051Z",
+      "report_sha256": "89aaf8a228c761e122361ea3b0d11742b39fa1c4e38d4f7cd2a8d04ae844e5ab",
+      "error": "AssertionError(('Actual slider feed missed', 0, {'money': 7084, 'counts': [0, 0, 0, 0, 0, 0, 0], 'progress': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'stopped': [0, 0, 0, 0, 0, 0, 0], 'goods': [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 'market': [1, 1, 2, 1, 2, 2, 2, 1, 3, 3, 5, 3, 2, 2, 2, 2, 2, 2, 2], 'processed': 6, 'game_time': 1099.8489990234375}))",
+      "reason": "Reference slider input did not occur after slowed scene entry. Current driver allows both0.1-speed scene transitions to finish.",
+      "recorded_as_pass": false
+    },
+    {
+      "work_directory": ".local/seven-inflight/20261031T102642761652Z",
+      "report_sha256": "719fc8dc5c16f84064db3585986a34ff2f60a627c5241d5856643f4cb7850680",
+      "error": "AssertionError(('Actual slider feed missed', 4, {'money': 7084, 'counts': [2, 2, 2, 2, 1, 0, 0], 'progress': [11.295859336853027, 9.453073501586914, 7.609344482421875, 5.7488908767700195, 3.9009172916412354, 0.0, 0.0], 'stopped': [0, 0, 0, 0, 0, 0, 0], 'goods': [1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 4], 'market': [1, 1, 2, 1, 2, 2, 2, 1, 3, 3, 5, 3, 2, 2, 2, 2, 2, 2, 2], 'processed': 6, 'game_time': 1100.788818359375}))",
+      "reason": "Native completed; source slot4 accepted one unit at a nominal slider endpoint. Exact old cursor was not recorded. Current real drag crosses maximum and records all actual cursor positions; no inferred production-code fix.",
+      "recorded_as_pass": false
+    }
+  ],
+  "completion_auditor_initial_mistake": {
+    "source_xml_index": 75,
+    "original_and_source_profile_letter_index": 37,
+    "resolution": "Stable-sort all Gameplay events by time before interpreting profile letter IDs; original gameplay unchanged"
+  },
+  "whole_game_complete": false
+}

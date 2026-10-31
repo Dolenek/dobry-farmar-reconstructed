@@ -1,5 +1,13 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Sedm současně běžících výroben přes save a dokončení
+
+`validate_game_seven_inflight.py` navazuje na skutečně postavených sedm kravínů. Původní cheatproduct dodává zásoby přes GameInput; sedm skutečných sliderů přesune do každé budovy dvě trávy. Naplnění skladu postupně omezuje další dávky. Skutečné přesuny tří jiných skladových položek na trh uvolní18 míst, takže před výrobou je Warehouse80 a milk6. Původní Alt+Home poskytuje0.1 čas pro přípravu; také přechody scén se při něm zpomalí. Po obnovení1x každá ze sedmi budov sama postupuje. Při GameTime1105 původní Alt+Pause skutečně zmrazí všech sedm nenulových průběhů a14 vstupů.
+
+Obě EXE mají18 shodných pracovních stavů, stejné diskrétní profily a4089 přesných save bajtů. Přísný audit počítá všechny zásoby i kapacitně omezené dávky; původní čítač awQProcess6 není nahrazovaný nulou. Přípravné neúspěchy s předčasným vstupem a přesným koncem slideru zůstávají v `analysis/seven-inflight-initial-probes.json`. Úspěšný driver táhne za maximum a zaznamenává všech14 skutečných souřadnic kurzoru; nedokládá zpětně příčinu původního přesného endpointu ani nevydává neúspěch za opravu produkce.
+
+`validate_game_seven_inflight_interop.py` obnovil rozpracovaný stav ve čtyřech dalších procesech v obou směrech. Dva další procesy s `--complete` skutečně dokončily všech14 vstupů po obnově opačného EXE: všech sedm počtů kleslo2→1→0, milk6→20, awQProcess6→20 a sklad80→94. Obě dokončení došla přes skutečný čas1130. Přirozený dopis v1110 má index37 v časově seřazeném seznamu; není to jeho index75 v pořadí XML. Všechny čtyři přenosy i obě dokončení mají všech4089 save bajtů přesných, bez normalizace. Tři source procesy jsou bez AV. Nezávislé Float hodiny/procenta se netvrdí jako bitově shodné; všechny změny jsou uložené v metadatech `analysis/seven-inflight-regression.json`. Produkční implementace se nezměnila. Ostatní výrobní kapacity, další plodiny a úplné DLL/odinstalátor pokračují.
+
 ## Sedm současných budov a přirozené ocenění9
 
 `tools/plan_factory_placement.py` získá původní200×200 klikací masku ze zachovaného Data.pack a dekóduje ji vlastní JNGLoad. Původní allowed/forbidden obdélníky a21 maskových dvojic určují pouze kandidátní rozmístění. `tools/validate_game_seven_factories.py` následně skutečnými nákupy a myší umístí sedm kravínů na pozice317/124,482/124,235/269,400/269,564/269,317/414,482/414. Oba celé programy je skutečně přijaly; Money8134→7084, všechny úrovně0, žádné vstupy ani výroba.

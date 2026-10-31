@@ -44,7 +44,11 @@
       "analysis/paused-production-input-state-validation.json",
       "analysis/cowshed-capacities-interop-validation.json",
       "analysis/seven-factories-state-validation.json",
-      "analysis/seven-factories-interop-validation.json"
+      "analysis/seven-factories-interop-validation.json",
+      "analysis/seven-inflight-state-validation.json",
+      "analysis/seven-inflight-interop-state-validation.json",
+      "analysis/seven-completion-state-validation.json",
+      "analysis/seven-inflight-initial-probes.json"
     ]
   },
   "build": {
@@ -372,7 +376,12 @@
     "analysis/jng-error-abi-validation.json",
     "analysis/jng-error-abi-fresh-validation.json",
     "analysis/jng-error-abi-exports.json",
-    "analysis/jng-error-abi-regression.json"
+    "analysis/jng-error-abi-regression.json",
+    "analysis/seven-inflight-state-validation.json",
+    "analysis/seven-inflight-interop-state-validation.json",
+    "analysis/seven-completion-state-validation.json",
+    "analysis/seven-inflight-initial-probes.json",
+    "analysis/seven-inflight-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108292,8 +108301,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/jng-error-abi-regression.json",
-    "recorded_at_utc": "2026-10-31T10:16:44.621993+00:00",
+    "report": "analysis/seven-inflight-regression.json",
+    "recorded_at_utc": "2026-10-31T10:36:31.537346+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

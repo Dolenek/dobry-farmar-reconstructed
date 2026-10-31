@@ -1,0 +1,253 @@
+{
+  "status": "passed_seven_simultaneous_inflight_factories_four_restores_and_two_fourteen_unit_completions",
+  "recorded_at_utc": "2026-10-31T10:36:31.537346+00:00",
+  "recorder_sha256": "12c26918cb57bb6a682a9a028b69dff26a86a52f6e09451c230141479869b1bf",
+  "reports": {
+    "seven-inflight-state-validation.json": "15b620e81bd1f5b751075daf688ab701c1475cb168e86eed848173a5725d1a68",
+    "seven-inflight-interop-state-validation.json": "30d880944329050a22a50bb2a7c975423e1e66987e85ae3eddb4a7b473495967",
+    "seven-completion-state-validation.json": "3e41ec4233d14817851b11e40cfbda99e4b65e2af472162886c14f257c80c703",
+    "seven-inflight-initial-probes.json": "799a53a56b2431a755dfc71d1256bf3e67d034fa871235de4ec42c77d388a06f"
+  },
+  "actual_processes": 8,
+  "business_snapshots_per_executable": 18,
+  "simultaneous_factories": 7,
+  "loaded_units": 14,
+  "real_slider_release_cursors": [
+    [
+      {
+        "slot": 0,
+        "position": [
+          362,
+          204
+        ],
+        "requested": [
+          362,
+          204
+        ]
+      },
+      {
+        "slot": 1,
+        "position": [
+          527,
+          204
+        ],
+        "requested": [
+          527,
+          204
+        ]
+      },
+      {
+        "slot": 2,
+        "position": [
+          280,
+          349
+        ],
+        "requested": [
+          280,
+          349
+        ]
+      },
+      {
+        "slot": 3,
+        "position": [
+          445,
+          349
+        ],
+        "requested": [
+          445,
+          349
+        ]
+      },
+      {
+        "slot": 4,
+        "position": [
+          609,
+          349
+        ],
+        "requested": [
+          609,
+          349
+        ]
+      },
+      {
+        "slot": 5,
+        "position": [
+          362,
+          494
+        ],
+        "requested": [
+          362,
+          494
+        ]
+      },
+      {
+        "slot": 6,
+        "position": [
+          527,
+          494
+        ],
+        "requested": [
+          527,
+          494
+        ]
+      }
+    ],
+    [
+      {
+        "slot": 0,
+        "position": [
+          362,
+          204
+        ],
+        "requested": [
+          362,
+          204
+        ]
+      },
+      {
+        "slot": 1,
+        "position": [
+          527,
+          204
+        ],
+        "requested": [
+          527,
+          204
+        ]
+      },
+      {
+        "slot": 2,
+        "position": [
+          280,
+          349
+        ],
+        "requested": [
+          280,
+          349
+        ]
+      },
+      {
+        "slot": 3,
+        "position": [
+          445,
+          349
+        ],
+        "requested": [
+          445,
+          349
+        ]
+      },
+      {
+        "slot": 4,
+        "position": [
+          609,
+          349
+        ],
+        "requested": [
+          609,
+          349
+        ]
+      },
+      {
+        "slot": 5,
+        "position": [
+          362,
+          494
+        ],
+        "requested": [
+          362,
+          494
+        ]
+      },
+      {
+        "slot": 6,
+        "position": [
+          527,
+          494
+        ],
+        "requested": [
+          527,
+          494
+        ]
+      }
+    ]
+  ],
+  "partial_progress_transfers": 4,
+  "cross_executable_completion_processes": 2,
+  "production_units_per_completion": 14,
+  "final_milk": 20,
+  "final_processed": 20,
+  "final_warehouse": 94,
+  "complete_identical_save_bytes": 4089,
+  "normalizations": [],
+  "actual_new_letter": {
+    "time": 1110,
+    "event_index": 37
+  },
+  "source_exception_traces": {
+    ".local/seven-inflight-interop/20261031T103143846788Z/2-crash-trace.jsonl": {
+      "sha256": "24cc92261d491a44f9e78fb0835ad438f6774266639de8c3022f07af1997d6d4",
+      "events": [
+        {
+          "event": "image",
+          "base": 14155776
+        },
+        {
+          "event": "ready",
+          "pid": 22452,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    ".local/seven-inflight-interop/20261031T103143846788Z/5-crash-trace.jsonl": {
+      "sha256": "2b7af9d277d41d351b3e86ee7e13d4ad89047b3b12930498a4b82be9ccd00800",
+      "events": [
+        {
+          "event": "image",
+          "base": 14155776
+        },
+        {
+          "event": "ready",
+          "pid": 13668,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    ".local/seven-completion/20261031T103300949056Z/2-crash-trace.jsonl": {
+      "sha256": "52d59c77dc447e8ba33fe5cceda4dfb9161d74986220ab2b5b37983499fbcb7f",
+      "events": [
+        {
+          "event": "image",
+          "base": 6422528
+        },
+        {
+          "event": "ready",
+          "pid": 18888,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "previous_full_ctest_report": "analysis/profile-floating-regression.json",
+  "changes_since_full_ctest": {},
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Other factory-kind maximum loads and movement/collision limits",
+    "Five other planted crop cycles and remaining natural awards",
+    "Remaining Squall97, general JNG and isolated uninstaller scopes"
+  ]
+}
