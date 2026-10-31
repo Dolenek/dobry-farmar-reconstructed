@@ -1,5 +1,15 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Skutečné kapacity2/4/6/12, slider a obnovený plný sklad
+
+`validate_game_cowshed_capacities.py` koupí skutečný kravín a všechny tři placené upgrady. Původní Alt+Home0.1 poskytne čas pro skutečné vstupy; stav ani hodiny se nevkládají do paměti. Na každé úrovni se naplní přesná kapacita2/4/6/12, vrátí jeden kus a opět vloží. Skutečný slider na minimum vrátí vše, co se vejde do skladu: zůstanou počty0/2/4/10. Nad maximem nepřibude kus, přestože krmivo ve skladu je; při všech100 obsazených místech se nevrátí ani jeden kus. Potom se skutečně obnoví1x čas, plný kravín se zastaví na100 % a jediný přesun trávy na trh uvolní právě jedno místo pro mléko. Zbývajících11 vstupů opět čeká na100 %.
+
+Oba celé EXE mají52 shodných pracovních stavů, všechny současné diskrétní profilové hodnoty a4089 přesných save bajtů. Před nákupem a každým upgradem se readonly čtou skutečná dvě View/Upgrade aliasová slova. Osm snapshotů ověřilo původní signed clamp; native limit−1163067135 a source6947073 nejsou označené za stejný padding. V tomto konkrétním běhu obě hodnoty ponechaly předchozí Upgrade16843009 beze změny. Dřívější běh se source−2147483392 není zpětně vydávaný za shodný: jeho přesná padding slova nebyla zachycená a zůstává výslovně evidovaný.
+
+`validate_game_paused_production_input.py` samostatně potvrdil skutečný vstup pod předem připravenou myší při Alt+Pause. V obou programech se vložil jeden kus, zatímco GameTime a ProdPct stály; po obnovení se vložil druhý a výroba dále běžela. Tento scénář netvrdí obecnou dostupnost přesouvání myši a všech ovladačů při pauze. První neúspěšný postup s nepřipraveným cílem ani původní chybná diagnostická očekávání nejsou zaměněné za chybu hry.
+
+`validate_game_cowshed_capacities_interop.py` obnoví stav Warehouse100/ProdCount11/ProdPct100/Upgrade3 ve čtyřech dalších celých procesech v obou směrech. Všech4089 save bajtů je přesných a dvě source obnovy nemají AV. Metadatový souhrn je `analysis/cowshed-capacities-regression.json`; audity kapacit, pauzy, přenosů a nepřijatých prvních pokusů jsou samostatné. Produkční implementace se nezměnila a hashe stále odpovídají poslednímu úplnému102/102 běhu. Maximální vstupy ostatních druhů, souběžné budovy a další podmínky celého cíle pokračují.
+
 ## Plný sklad skutečně blokuje výstup a trh jej znovu uvolní
 
 `tools/validate_game_full_warehouse.py` navazuje na původní placený kravín, Money34 a dvě vyrobená mléka. Původní příkaz cheatproduct naplní15 míst skladu, dvě skutečná kliknutí vloží dvě trávy do výroby a další původní příkaz doplní uvolněná místa. Při100 % zůstávají oba vstupy naložené: dvě oddělená čtení s rostoucím GameTime potvrzují, že nejde o pauzu hry. Skutečná změna ceny trávy2→8 a All přesune dvě trávy na trh. První výrobek ihned obsadí14. místo skladu; další dvanáctisekundový cyklus dokončí druhý kus a opět zaplní všech15 míst. Market má stále dvě neprodané trávy, Money34, milk4, ProdCount0 a awQProcess4.

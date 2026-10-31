@@ -1,0 +1,74 @@
+{
+  "status": "passed_actual_cowshed_all_four_capacities_paused_input_and_full_store_restore",
+  "recorded_at_utc": "2026-10-31T09:54:52.603129+00:00",
+  "recorder_sha256": "e4b6a3cbdbce7e406a58a912d41a06c8e3d93185d1559aa45d0ab4432a7ededb",
+  "reports": {
+    "cowshed-capacities-state-validation.json": "6544eb1668f9173bd318a0d3cf2532518fdc1288e19992ccebb911484cea394d",
+    "paused-production-input-state-validation.json": "4963b75e3ab8f0bc6b02ca65603ab4feaf66c879b45e6fbfd4f22658e18d1d23",
+    "cowshed-capacities-interop-validation.json": "ba524891b564218db9c337c75ce54fcd96e59b2fdbafc65a0edc93b52062d1d0",
+    "cowshed-capacities-initial-probes.json": "4309e74250f23c237ae85aa927c0a0731341ac6f6783cc7c1637ead7da97b3b5"
+  },
+  "actual_factory_kind": 2,
+  "capacities": [
+    2,
+    4,
+    6,
+    12
+  ],
+  "business_snapshots_per_executable": 52,
+  "source_and_native_padding_words_claimed_equal": false,
+  "actual_alias_word_snapshots": 8,
+  "current_non_alias_discretes_equal": true,
+  "current_all_profile_discretes_equal": true,
+  "actual_paused_input": 1,
+  "actual_produced_after_one_space": 1,
+  "complete_identical_save_bytes": 4089,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "3a0589a139aa754027104fb673d68a7eaa13f796a3d0e1ff2b82e2b3ef1a5136",
+      "events": [
+        {
+          "event": "image",
+          "base": 5505024
+        },
+        {
+          "event": "ready",
+          "pid": 26280,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "f6c34dc037241e3d8f2ea5187d85a117953281d1b285019fe01308652c8a27c5",
+      "events": [
+        {
+          "event": "image",
+          "base": 5505024
+        },
+        {
+          "event": "ready",
+          "pid": 10648,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/profile-floating-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Other factory maximum-input paths, simultaneous buildings and natural award9",
+    "Remaining whole-game, Squall97, JNG and uninstaller scopes"
+  ]
+}

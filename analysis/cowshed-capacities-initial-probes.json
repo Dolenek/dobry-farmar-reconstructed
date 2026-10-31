@@ -1,0 +1,51 @@
+{
+  "status": "unaccepted_initial_driver_and_timing_probes_preserved",
+  "probes": [
+    {
+      "work_directory": ".local/cowshed-capacities/20261030T175931115912Z",
+      "runtime_status": "failed",
+      "error": "RuntimeError(('Catalog timeout', 'fill-2-1', {'tutorial': -1, 'money': 7984, 'held': 6, 'carried': 0, 'stock': 2, 'milk': 2, 'building_level': 0, 'building_loaded': 0, 'building_progress': 0.0, 'processed': 6, 'task': -1, 'task_remaining': 90.0, 'seed_available': 1, 'game_time': 1039.7030029296875, 'crop': 1, 'field_state': 0, 'water': 0.0, 'fertility': 47.648075103759766, 'crop_progress': 75.36720275878906, 'farm_level': 1, 'farm_available': 3}))",
+      "sha256": "4de6562afda93cace3a8440254b692018873deccc2434827440daa99402991a5",
+      "reason": "Paused before preparing the target; first feed did not occur. Prepositioned target is tested separately, no general mouse-disable conclusion.",
+      "recorded_as_full_pass": false
+    },
+    {
+      "work_directory": ".local/cowshed-capacities/20261030T180443498006Z",
+      "runtime_status": "failed",
+      "error": "RuntimeError(('Catalog timeout', 'fill-12-11', {'tutorial': -1, 'money': 6834, 'held': 6, 'carried': 0, 'stock': 1, 'milk': 7, 'building_level': 3, 'building_loaded': 10, 'building_progress': 100.0, 'processed': 7, 'task': -1, 'task_remaining': 90.0, 'seed_available': 1, 'game_time': 1053.132568359375, 'crop': 1, 'field_state': 0, 'water': 0.0, 'fertility': 46.07344055175781, 'crop_progress': 75.36720275878906, 'farm_level': 1, 'farm_available': 3}))",
+      "sha256": "d875e9eee6951987280a95a20d2d08c490d749a9e046dfcc0b09d3e0e68108cf",
+      "reason": "Native completed; source naturally produced one unit while slow individual moves accumulated time. Strict next-count expectation failed; not a proved implementation difference.",
+      "recorded_as_full_pass": false
+    },
+    {
+      "work_directory": ".local/cowshed-capacities/20261031T093719425955Z",
+      "runtime_status": "explored_actual_cowshed_all_four_capacities_and_transfer_controls_only",
+      "error": null,
+      "sha256": "91f84150b0802fb936df9e4a544df0c98a2028c5d14a514e79a626bf65209d5d",
+      "reason": "Both workflows completed, but the unobserved alias padding produced different extra profile values. Not accepted as complete profile equality.",
+      "recorded_as_full_pass": false,
+      "unequal_alias_values": [
+        "-1163067136",
+        "-2147483392"
+      ],
+      "exact_old_padding_words_observed": false
+    },
+    {
+      "work_directory": ".local/paused-production-input/20261031T093005091610Z",
+      "runtime_status": "failed",
+      "error": "RuntimeError(('Catalog timeout', 'active-feed', {'tutorial': -1, 'money': 7984, 'held': 6, 'carried': 0, 'stock': 0, 'milk': 4, 'building_level': 0, 'building_loaded': 0, 'building_progress': 0.0, 'processed': 8, 'task': -1, 'task_remaining': 90.0, 'seed_available': 1, 'game_time': 1076.0635986328125, 'crop': 1, 'field_state': 0, 'water': 0.0, 'fertility': 43.82732391357422, 'crop_progress': 75.36720275878906, 'farm_level': 1, 'farm_available': 3}))",
+      "sha256": "cdc8237ed434ca4c13877012be95c4d235b226b430d40733bf2b83e42fd6c277",
+      "reason": "Native accepted one paused input; driver incorrectly expected total1 after an additional active input. Original then completed both units during the faulty wait.",
+      "recorded_as_full_pass": false
+    },
+    {
+      "work_directory": ".local/paused-production-input/20261031T093418335336Z",
+      "runtime_status": "failed",
+      "error": "AssertionError('Source application lost foreground; no global input was injected')",
+      "sha256": "ac80fd4fd56af1f682cf59e8a48b37e7613c2e503116db71e74085dae0a73682",
+      "reason": "Foreground guard refused all input before the window was ready; desktop was Default and unlocked. Current driver waits for window visibility.",
+      "recorded_as_full_pass": false
+    }
+  ],
+  "whole_game_complete": false
+}

@@ -1,5 +1,7 @@
 # cLogic zkratky a odložený grafický reset
 
+[Skutečný výrobní vstup při pauze](MANUFACTURE.md) nyní také prošel v obou celých EXE. Předem umístěná myš při Alt+Pause vloží jeden kus; GameTime i ProdPct stojí. Po obnovení druhý vstup a běžná výroba pokračují. Všechny diskrétní profilové hodnoty i4089 save bajtů jsou stejné. Zvlášť se dále eviduje přemístění myši a další ovladače při pauze; prvotní neúspěšný postup není důkazem jejich obecného blokování.
+
 `LogicShortcuts` obnovuje binding/callback část původního cLogic005315b0/00531a70. Constructor registruje Alt-down0x138/0x1b8, Alt-up0x38/0xb8 a PrintScreen release0xb7; při Alt se přidá šest release akcí. Uvolnění kteréhokoliv Alt je opět odstraní. Snapshot pravidla původního Input platí i při několika událostech v jednom snímku. Destructor neodstraňuje šest dočasných bindings, pokud Alt zůstal stisknutý; běžné ukončení runtime zastaví dispatch před destrukcí.
 
 | Klávesy | Původní tělo | Účinek |

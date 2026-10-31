@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Kapacity kravína2/4/6/12 a omezení slideru](docs/MANUFACTURE.md) nově souhlasí v obou celých EXE, včetně skutečné pauzy,52 pracovních kontrol a čtyř přenosů plné rozpracované výroby. Všechny4089bajtové saves jsou přesné. Ostatní druhy, souběžná výroba a celý původní cíl pokračují.
+
 [Celý19řádkový trh a přirozené ocenění za sortiment](docs/MARKET.md) nově souhlasí v obou EXE:264 skutečných cenových změn,21 obchodních kontrol,480000 RGB pixelů a4089 save bajtů. Další čtyři obousměrné přenosy obnovily všech19 prodejních hodin. Pokračují maximální kapacity výroben a celý původní cíl.
 
 Poslední oprava obnovuje [původní číselné profily](docs/PROFILES.md), včetně skutečně nalezeného rozdílu `inf`/`1.#INF`. Skutečné [blokování výroby plným skladem](docs/MANUFACTURE.md) a uvolnění přes trh už souhlasí v celých EXE i všech4089 save bajtech. Nový úplný běh102/102 prošel; také čtyři skutečné obousměrné4089bajtové přenosy souhlasí. Další části původního cíle pokračují.
