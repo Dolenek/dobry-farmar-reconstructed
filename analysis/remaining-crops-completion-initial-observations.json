@@ -1,0 +1,46 @@
+{
+  "status": "preserved_diagnostic_and_time_boundary_observations",
+  "startup_tutorial49": {
+    "work_directory": ".local/remaining-crops-harvest/20261031T150426132599Z",
+    "report_sha256": "bb535e100d07330bc63a020ce84eafd444fde6603ee62abf34af20231b5aeb64",
+    "error": "RuntimeError(('Work timeout', 'take-mower', {'tutorial': -1, 'money': 4934, 'held': 1, 'carried': [0, 0, 0, 0, 0, 0, 0, 0], 'stock': [0, 0, 0, 0, 0, 0, 0, 0], 'game_time': 1552.630615234375, 'run_time': 1943.4906005859375, 'grow_mask': 255, 'water': 360.0, 'fields': [{'id': 24, 'crop': 2, 'status': 1, 'water': 41.14827346801758, 'fertility': 101.81199645996094, 'progress': 0.0}, {'id': 25, 'crop': 4, 'status': 1, 'water': 46.31003952026367, 'fertility': 101.9540023803711, 'progress': 0.0}, {'id': 26, 'crop': 5, 'status': 1, 'water': 52.01760482788086, 'fertility': 103.47100067138672, 'progress': 0.0}, {'id': 33, 'crop': 6, 'status': 1, 'water': 56.8896598815918, 'fertility': 94.31060028076172, 'progress': 0.0}, {'id': 35, 'crop': 7, 'status': 1, 'water': 62.251461029052734, 'fertility': 107.3499984741211, 'progress': 0.0}]}))",
+    "resolution": "Process pending tutorial49 before farm/mower input; no production change",
+    "recorded_as_game_failure": false
+  },
+  "original_cutoff1590": {
+    "work_directory": ".local/remaining-crops-harvest/20261031T150643626919Z",
+    "report_sha256": "7038e7f89e7ec1a50c0f8a50e5963beaca88fbf20d36c50e701c54ad2dacc8bd",
+    "actual_letter_states": [
+      {
+        "GameTime": [
+          "Float",
+          "1590.19"
+        ],
+        "letter1": [
+          "Int",
+          "-1"
+        ],
+        "letTime1": [
+          "Float",
+          "0"
+        ]
+      },
+      {
+        "GameTime": [
+          "Float",
+          "1590.14"
+        ],
+        "letter1": [
+          "Int",
+          "49"
+        ],
+        "letTime1": [
+          "Float",
+          "0.592604"
+        ]
+      }
+    ],
+    "resolution": "Repeat actual harvesting, then wait normally to1598 so both finish the real letter expiry; no XML or save writes"
+  },
+  "whole_game_complete": false
+}

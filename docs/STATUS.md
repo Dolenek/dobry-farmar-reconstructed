@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Pět dalších plodin už skutečně dozrálo a bylo sklizeno](SEED_RUNTIME.md) v opačném EXE. Obě hry měly současně zralých všech8 druhů a přirozená ocenění11/13; jejich panely souhlasí ve960000 RGB pixelech. Dvanáct dalších pracovních kontrol na EXE, všechna konečná diskrétní data a5439 save bajtů mimo původní seed padding souhlasí. Čtyři další obousměrné obnovy ověřily X+1 každého sáčku a dvě source obnovy bez AV. Časové odlišnosti a počáteční chyby driveru jsou doložené. Pokračuje skutečná závlaha a další celé rozsahy cíle.
+
 [Pět dalších skutečně koupených a zasetých plodin](SEED_RUNTIME.md) má35 pracovních kontrol na EXE, stejná diskrétní profilová data a4372bajtový save přesný mimo15 původně neurčených padding bajtů pěti sáčků. Meloun/růže/vodní meloun/ananas/pšenice skutečně rostou, zbývají3 semena každého druhu. Produkční implementace se neměnila. Obnova růstu v opačném EXE, dozrání/sklizeň, přirozené ocenění11 a celý původní cíl pokračují.
 
 [Historie všech11 typů výroben a přirozené ocenění8](MANUFACTURE.md) nyní prošly v obou celých EXE:16 pracovních stavů,98 skutečných aliasových slov,480000 přesných RGB pixelů a všech4252 save bajtů. Čtyři další obousměrné obnovy zachovaly celý stav i novou skutečnou zprávu o vodě. Časný snímek a chybná diagnostická hloubka jsou doložené odděleně; produkční implementace se neměnila. Pokračují zbývající plodiny, další přirozené systémy a celý původní cíl.

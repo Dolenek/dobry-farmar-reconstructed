@@ -1,5 +1,17 @@
 # Přirozený nákup osiva v celých EXE
 
+## Dokončený růst, současně zralých osm druhů a skutečné sklizně
+
+`validate_game_remaining_crops_growth.py` obnoví pět rozpracovaných druhů v opačném EXE: originál čte source save a source čte originální save. Normální kbelík znovu zalije původní rajče, okurku a trávu. Pouze růst používá fyzický původní Alt+Insert15×; poté se vrací1×. Obě celé hry mají skutečně současně zralých všech osm druhů, nenulovou vláhu a masku255. Původní správce sám udělí13 při RunTime1800 a11 po dozrání posledního ananasu. Oba celé panely souhlasí ve960000 RGB pixelech.5142bajtové saves souhlasí mimo původní padding pěti sáčků; obě nové zprávy z1335/1490 jsou stejné.
+
+Časové řezy růstu nejsou vydávané za stejné hodiny: native skončil1502.81 a source1491.53. Native proto už provedl cenu mléka16 v1500 a návod49 po vyčerpání úrodnosti starého pole; source ještě měl cenu8 a nevyřízený49. Tyto tři diskrétní rozdíly jsou přesně rozepsané v `analysis/remaining-crops-growth-state-validation.json`. Záznam všech osmi skutečně zralých polí v obou procesech je samostatný důkaz, nespoléhá jen na masku ocenění.
+
+`validate_game_remaining_crops_harvest.py` znovu načte zralý stav v opačném programu, převezme základní kosu a sklidí typy2/4/5/6/7. Po každém kusu se skutečně vrací do skladu; kosa0 nedovoluje smíšený náklad. awQCollect se zvýší o5, zásoba každého nového druhu je1. Původní událost1515 odečte25 a přidá skutečnou zprávu o sousedově poškození plotu. Dvanáct pracovních kontrol na EXE dokládá produkty a tento časový odpočet. Při1598 souhlasí všechny diskrétní properties a všech5439 save bajtů mimo15 neurčených padding bajtů.
+
+Další čtyři celé obousměrné obnovy zachovají pět zásob, historii výroben, ocenění, třináct zpráv a383 koeficientů. Každá zvlášť vyžaduje původní X+1 u všech pěti sáčků; kromě této prokázané změny a paddingu jsou všechny save bajty přesné. Dva source debug traces končí0 bez AV. Celkem jde o osm nových skutečných procesů růstu/sklizní/finálních přenosů, navazujících na dva nákupní.
+
+První sklizňový pokus měl už při otevření návod49, který zablokoval kliknutí kosy; driver nyní vyřizuje návod před vstupem. Další původní konce1590 ležely na expiraci dopisu: jeden už vypršel, ve druhém zbývalo0.59s. Úspěšný průchod skutečné akce zopakoval a počkal do1598. Tyto původní výsledky zůstávají v `analysis/remaining-crops-completion-initial-observations.json`, nejsou skryté normalizací času/profilu. Souhrn `analysis/remaining-crops-completion-regression.json`; produkční kód zůstává shodný s posledním102/102 během. Pokračují skutečná automatická závlaha, další zakázky/počasí/ocenění, úplné DLL a celý původní cíl.
+
 ## Pět dalších druhů koupených, zasetých a zalitých
 
 `validate_game_remaining_crops_sowing.py` navazuje na skutečný nativní save z historie11 výroben. Dostupnost sedmi osiv pochází z dřívějšího původního vstupního příkazu v tomto profilu; tato etapa netvrdí přirozené časové odemčení osiv. Normální UI koupí po jednom sáčku typů2/4/5/6/7 za70/50/40/90/25. Skutečná postava pokaždé vezme lopatu, vyryje pole24/25/26/33/35, převezme zaplacený sáček, zaseje jednu rostlinu, doplní kbelík480 a zalije120. Obě hry mají35 shodných pracovních kontrol, Money5234→4959, všechny diskrétní profilové hodnoty stejné a v každém z pěti sáčků zbývají tři semena. Čas není zrychlený a profilové hodnoty se nezapisují z testu.
