@@ -1,5 +1,13 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+## Sedm současných budov a přirozené ocenění9
+
+`tools/plan_factory_placement.py` získá původní200×200 klikací masku ze zachovaného Data.pack a dekóduje ji vlastní JNGLoad. Původní allowed/forbidden obdélníky a21 maskových dvojic určují pouze kandidátní rozmístění. `tools/validate_game_seven_factories.py` následně skutečnými nákupy a myší umístí sedm kravínů na pozice317/124,482/124,235/269,400/269,564/269,317/414,482/414. Oba celé programy je skutečně přijaly; Money8134→7084, všechny úrovně0, žádné vstupy ani výroba.
+
+Původní podmínka9 v00493af0 počítá sedm postavených flags. Profilový název `Award09UpgradeAllManufactureDepots` neznamená požadavek na upgrade: ocenění i awardShow9 vznikly přirozeně nad sedmi budovami základní úrovně. Devět pracovních stavů na EXE souhlasí; panel ocenění má480000 přesných RGB pixelů. Před každým placeným umístěním se readonly čtou skutečná View/Upgrade aliasová slova všech tehdejších budov, celkem56 snapshotů. Předepsaný signed clamp je ověřený bez náhrady paddingu konstantou. Aktuální diskrétní profily i všech4089 binárních save bajtů jsou stejné; nezávislé Float hodiny/polní průběhy zůstávají v reportu nezměněné.
+
+`tools/validate_game_seven_factories_interop.py` provedl další čtyři skutečné obnovy native0→source2→native4→source5 a source1→native3. Všechny pozice, sedm úrovní/typů, prázdné zásoby a ocenění zůstaly zachované, všechny4089 save bajty jsou přesné. Obě source obnovy prošly exception tracerem bez AV. První pokus s nesprávnou cestou traceru se zastavil v menu a je samostatně evidovaný jako chyba diagnostického driveru. Metadata jsou `analysis/seven-factories-regression.json`; produkční zdroje se od posledního102/102 běhu nezměnily. Současná aktivní výroba sedmi budov, další pohybové/kolizní hranice a ostatní podmínky celého projektu zůstávají další prací.
+
 ## Skutečné kapacity2/4/6/12, slider a obnovený plný sklad
 
 `validate_game_cowshed_capacities.py` koupí skutečný kravín a všechny tři placené upgrady. Původní Alt+Home0.1 poskytne čas pro skutečné vstupy; stav ani hodiny se nevkládají do paměti. Na každé úrovni se naplní přesná kapacita2/4/6/12, vrátí jeden kus a opět vloží. Skutečný slider na minimum vrátí vše, co se vejde do skladu: zůstanou počty0/2/4/10. Nad maximem nepřibude kus, přestože krmivo ve skladu je; při všech100 obsazených místech se nevrátí ani jeden kus. Potom se skutečně obnoví1x čas, plný kravín se zastaví na100 % a jediný přesun trávy na trh uvolní právě jedno místo pro mléko. Zbývajících11 vstupů opět čeká na100 %.

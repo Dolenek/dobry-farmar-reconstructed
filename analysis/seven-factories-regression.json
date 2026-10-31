@@ -1,0 +1,100 @@
+{
+  "status": "passed_actual_seven_simultaneous_level0_buildings_natural_award9_and_restores",
+  "recorded_at_utc": "2026-10-31T10:10:51.303349+00:00",
+  "recorder_sha256": "da6164aeb0278df0ca942f4bb17a0f56494e32a82c132b15c5b30b3c71b0486f",
+  "reports": {
+    "seven-factories-state-validation.json": "cd3243fce70c86323c759d86cd1159de81da494bc52072371657dae13e2dd027",
+    "seven-factories-interop-validation.json": "724682fbc00426082afcdefb28bbf8c059b6a266617e9655716210da8d5fed94",
+    "seven-factory-placement-plan.json": "19796eb77265a1e38adabb3c12d08f67d178ea81de31d682064af1054c98f90c",
+    "seven-factories-initial-probe.json": "48c00ea56a5b8f20c6a58c2ba8e323a89a43780efe689b048e2d372a48fd2b3a"
+  },
+  "simultaneous_factory_count": 7,
+  "factory_kind": 2,
+  "all_levels": 0,
+  "paid_cost": 1050,
+  "positions": [
+    [
+      317,
+      124
+    ],
+    [
+      482,
+      124
+    ],
+    [
+      235,
+      269
+    ],
+    [
+      400,
+      269
+    ],
+    [
+      564,
+      269
+    ],
+    [
+      317,
+      414
+    ],
+    [
+      482,
+      414
+    ]
+  ],
+  "business_snapshots_per_executable": 9,
+  "actual_alias_word_snapshots": 56,
+  "alias_padding_claimed_equal": false,
+  "all_current_profile_discretes_equal": true,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "complete_identical_save_bytes": 4089,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "71ed92fc0f8e61d982fa385c98130f93fb345e2b1734448557856f896dcedd31",
+      "events": [
+        {
+          "event": "image",
+          "base": 2818048
+        },
+        {
+          "event": "ready",
+          "pid": 4288,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "6d07b2f1a0610600851b2774c51b19adf73c0201215bd21150e8750036aae40f",
+      "events": [
+        {
+          "event": "image",
+          "base": 2818048
+        },
+        {
+          "event": "ready",
+          "pid": 5052,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/profile-floating-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Simultaneous active production, movement/collision limits and remaining maximum-input kinds",
+    "Remaining crops and natural award predicates",
+    "Remaining Squall97, JNG and uninstaller scopes"
+  ]
+}

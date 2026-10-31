@@ -1,0 +1,10 @@
+{
+  "status": "diagnostic_driver_failed_before_start",
+  "report_sha256": "cd484fd32885af1ef034205c71232108432af19baf5cdbb58665ce77d7bb17e5",
+  "work_directory": ".local/seven-factories-interop/20261031T100827282334Z",
+  "error": "NameError(\"name 'trace' is not defined\")",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\tools\\validate_game_seven_factories_interop.py\", line 105, in <module>\n    trace=subprocess.Popen([str(args.crash_trace.resolve(strict=True)),str(p.pid),str(runtime/'FarmarSourceInterop.exe')],cwd=r,stdout=subprocess.PIPE,stderr=trace_file,text=True)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1240, in resolve\n    s = self._flavour.realpath(self, strict=strict)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen ntpath>\", line 727, in realpath\nFileNotFoundError: [WinError 2] Systém nemůže nalézt uvedený soubor: 'C:\\\\Users\\\\thesa\\\\Desktop\\\\farmář\\\\farmář - decompile\\\\dobry-farmar-reconstructed\\\\build\\\\native-process\\\\Release\\\\native-crash-trace.exe'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\tools\\validate_game_seven_factories_interop.py\", line 153, in <module>\n    assert trace.wait(timeout=10)==0\n           ^^^^^\nNameError: name 'trace' is not defined. Did you forget to import 'trace'\n",
+  "cause": "Incorrect crash-tracer path; cleanup NameError obscured FileNotFoundError. Path now resolved before process creation; cleanup guards trace creation.",
+  "recorded_as_game_failure": false,
+  "whole_game_complete": false
+}

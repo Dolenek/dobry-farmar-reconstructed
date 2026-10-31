@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Sedm současně postavených budov](docs/MANUFACTURE.md) nově souhlasí v obou EXE, včetně přirozeného ocenění9,480000 RGB pixelů a čtyř obousměrných4089bajtových obnov. Celý původní cíl dále pokračuje.
+
 [Kapacity kravína2/4/6/12 a omezení slideru](docs/MANUFACTURE.md) nově souhlasí v obou celých EXE, včetně skutečné pauzy,52 pracovních kontrol a čtyř přenosů plné rozpracované výroby. Všechny4089bajtové saves jsou přesné. Ostatní druhy, souběžná výroba a celý původní cíl pokračují.
 
 [Celý19řádkový trh a přirozené ocenění za sortiment](docs/MARKET.md) nově souhlasí v obou EXE:264 skutečných cenových změn,21 obchodních kontrol,480000 RGB pixelů a4089 save bajtů. Další čtyři obousměrné přenosy obnovily všech19 prodejních hodin. Pokračují maximální kapacity výroben a celý původní cíl.
