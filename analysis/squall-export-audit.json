@@ -656,33 +656,37 @@
       "name": "SQUALL_SampleGroup_Play",
       "ordinal": 72,
       "original_address": "10007870",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_SampleGroup_Play3D",
       "ordinal": 73,
       "original_address": "10007990",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_SampleGroup_Play3DEx",
       "ordinal": 74,
       "original_address": "10007a60",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_SampleGroup_PlayEx",
       "ordinal": 75,
       "original_address": "10007910",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_GetDefault",
@@ -737,33 +741,37 @@
       "name": "SQUALL_Sample_Pause",
       "ordinal": 81,
       "original_address": "10007750",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_Play",
       "ordinal": 82,
       "original_address": "10007520",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_Play3D",
       "ordinal": 83,
       "original_address": "10007600",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_Play3DEx",
       "ordinal": 84,
       "original_address": "100076c0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_PlayEx",
@@ -773,7 +781,8 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual prepared ambient music buffer, loop=1, group=17, start=0, priority=7, volume=43, frequency=0, pan=50",
-      "integrated_game_audio_verified_scope": "Real ResourceManager/cSound music, actual MainMenu click and Loading game/menu music replacement through production imports"
+      "integrated_game_audio_verified_scope": "Real ResourceManager/cSound music, actual MainMenu click and Loading game/menu music replacement through production imports",
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_SetDefault",
@@ -788,9 +797,10 @@
       "name": "SQUALL_Sample_Stop",
       "ordinal": 87,
       "original_address": "100077e0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
     },
     {
       "name": "SQUALL_Sample_Unload",
@@ -919,5 +929,9 @@
   "memory_callback_reports": [
     "analysis/squall-memory-validation.json",
     "analysis/squall-memory-fresh-validation.json"
+  ],
+  "sample_play_reports": [
+    "analysis/squall-sample-play-validation.json",
+    "analysis/squall-sample-play-fresh-validation.json"
   ]
 }

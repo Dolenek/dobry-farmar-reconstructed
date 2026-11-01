@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Skutečné sample/group přehrávání, pauza a stop
+
+`tools/squall_sample_play_probe` porovnává všech osm variant Sample/SampleGroup Play/PlayEx/Play3D/Play3DEx přes skutečné DLL a DirectSound. Dvě nezávislá sestavení mají každé v PC53/PC24 celkem774 skutečných vytvoření kanálu,12240 stejných API návratů a836 celých guarded snapshotů. Singleton skupiny17/−7/0 používají vlastní sekundové mono PCM16 WAV; všechny16 kombinace syrových Loop/Start0/1/−1/2 mají vlastní vytvoření/úklid.2D i skutečné3D buffery ověřují výchozí/explicitní parametry, skalární gettery a přesné cached position/velocity/min/max včetně canaries. Spuštěný buffer se hned pozastaví, aby nezávislé dohrání neovlivnilo audit parametrů.
+
+Další11 pause kontrol na kontext současně používá dva2D/3D kanály téhož SampleID a další SampleID sdílející tentýž zvukový soubor. Pause0/1/−1/2 na připravených kanálech nezpustí playback; u spuštěných kanálů zachovává původní boolean pravidla. Sample_Stop odstraní právě odpovídající ID. Druhý sample se stejným Readerem zůstává hrát. Ukončení workeru se čeká přes původní přechody−24/0 do skutečného0; rozdílné počty pollů jsou zaznamenané a nepovažují se za stejný časový průběh. Před Init a po Free proběhlo dohromady112 empty-context volání na sestavení.
+
+Reprodukce: CMake `-S tools/squall_sample_play_probe -B build/squall-sample-play-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_sample_play.py`, totéž s nezávislou `--candidate` a `--output .local/squall-sample-play-fresh-validation.json`, potom `py -3 tools/record_squall_sample_play_verification.py`. Důkazy jsou `analysis/squall-sample-play-{validation,fresh-validation,regression}.json`. Produkce se neměnila. Výběr mezi více členy skupiny, limit skupiny, chybné3D pointery, preempce, selhání zařízení a souběžný teardown zůstávají otevřené; tento běh neporovnává slyšitelný výstup ani nedokončuje celý Squall.
+
 ## Skutečné paměťové callbacky a chyby alokace
 
 `tools/squall_memory_probe` a `tools/validate_squall_memory.py` načítají skutečnou původní a vlastní DLL. Obě nezávislá sestavení mají každé1568 shodných návratových hodnot,228 guarded sample snapshotů a672 kontrol callback událostí v PC53/PC24. Každý kontext zaznamenává147 skutečných alokací/uvolnění/chyb s přesným pořadím, velikostí, generací callbacku a pořadovým identifikátorem alokace; syrové adresy jednotlivých heapů se za shodné nepovažují.
