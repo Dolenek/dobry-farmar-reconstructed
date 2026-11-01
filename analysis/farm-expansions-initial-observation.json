@@ -1,0 +1,12 @@
+{
+  "status": "diagnostic_map_encoding_error_before_any_purchase_only",
+  "work_directory": ".local/farm-expansions/20261031T174052708240Z",
+  "report_sha256": "6b9f7bf305825ea2d756b2c4710ebaf09e8bd22bd13b5d4c94f9ac9968ee405c",
+  "preserved_driver_sha256": "5f0b2a7cd5898da9e57e4f365f902e19e39041601b7cab7038a857b8a8257c4c",
+  "initial_error_type": "UnicodeDecodeError",
+  "resolution": "MSVC map is not UTF-8; lossless Latin-1 decoding locates its ASCII decorated symbols.",
+  "large_error_repr": "Original diagnostic serialized the map bytes into its exception. Preserve the report, but do not dump its huge error line.",
+  "recorded_as_game_failure": false,
+  "production_implementation_changed": false,
+  "whole_game_complete": false
+}

@@ -1,0 +1,113 @@
+{
+  "status": "passed_actual_paid_two_expansions_sixty_active_fields_and_four_complete_restores_only",
+  "recorded_at_utc": "2026-11-01T16:32:36.002238+00:00",
+  "recorder_sha256": "65ec9cbb72fcbc210d7fdf1a9699b12c4eb10b6a06219ea00850ce470d880db6",
+  "reports": {
+    "farm-expansions-state-validation.json": "cf713cae5c617e008a3bb53b991cbbe11d1398dd014b7144c9dedf002f31f73f",
+    "farm-expansions-interop-validation.json": "a058ab533bc52b0cec7c355cc9f2e95e3f342b54cfa538df387f9461bdfc21e7",
+    "farm-expansions-initial-observation.json": "d57c96c9126f570930477246811517c3fc5a55b56c4725410de016bac2374b00"
+  },
+  "expansion_snapshots_per_executable": 5,
+  "live_field_records_per_executable": 300,
+  "active_field_counts": [
+    20,
+    38,
+    60
+  ],
+  "watered_field_counts": [
+    20,
+    28,
+    30
+  ],
+  "paid_costs": [
+    500,
+    1000
+  ],
+  "money_after": 3004,
+  "new_automatically_watered_field_ids": [
+    10,
+    19,
+    28,
+    37,
+    49,
+    50,
+    51,
+    52,
+    56,
+    57
+  ],
+  "native_field_vtable": "005f1870",
+  "native_constructor": "0043c120",
+  "native_active_offset": "510",
+  "native_identity_offsets": [
+    "508",
+    "50c"
+  ],
+  "instruction_evidence_sha256": "474afcee9d1dd47bb26de13f60448ef3633ab41e566d1bac9675b219979d94f1",
+  "field_layout": {
+    "executable_sha256": "7b3351473f3f78e8bf1085ae92c6f2125019832aa8851040fd3f1f18b5798097",
+    "metadata": {
+      "object_size": 2096,
+      "id": 1120,
+      "upgrade_index": 1124,
+      "active": 1128
+    },
+    "source_sha256": "b67bda82a767b760bef5537bf47ed3c6e3c68c06543aa118e3db8eea31aa5e9c",
+    "cmake_sha256": "b05de42a7c2b0025042e80da33a8e7fd7a4ad21ef053aca218c171a392a0c6b0"
+  },
+  "layout_build_logs": {
+    "live-farm-field-layout-config.log": "d72fd9ba621def35f4ebab8500cb8dac55adcdf702574f45dd360848889d0652",
+    "live-farm-field-layout-build.log": "7b879891f9cb670ec9ba9c46709e58ea3e10ffaa133a6aa1524b9ee691443a0a"
+  },
+  "identical_complete_save_bytes": 4563,
+  "further_bidirectional_restores": 4,
+  "restored_live_field_records": 240,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "14e3e42501966310ce29e198f92a6acddc496093eacb947757129640365a8654",
+      "events": [
+        {
+          "event": "image",
+          "base": 4718592
+        },
+        {
+          "event": "ready",
+          "pid": 8440,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "70578bcc93ba42bf9630820cea70cfd70fe57c1c06c9286183c6d6ddc2a4855e",
+      "events": [
+        {
+          "event": "image",
+          "base": 4718592
+        },
+        {
+          "event": "ready",
+          "pid": 6196,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural later field-destruction events and other world progression",
+    "Remaining natural awards and nonzero contract streak",
+    "Remaining complete Squall/JNG/uninstaller scopes"
+  ]
+}
