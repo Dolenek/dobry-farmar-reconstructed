@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Nezávislé původní argumentové sloty všech97 exportů
+
+`tools/audit_squall_native_arguments.py` sleduje původní ESP/EBP v celém CFG každého exportu. Počty nezískává z veřejného zdroje:230 konkrétních původních stack reference instrukcí přímo odkazuje souvislé sloty1..N a nejvyšší slot odpovídá deklaraci každého z97 exportů. Souhrn má5697 symbolických stavů,603 call site cleanup důkazů a63 interních callee souhrnů. Každý interní cleanup vychází ze skutečných C3/C2 návratových bajtů originálu; osm přímých COM callů má explicitní původní push kontrakty a osm použitých Win32 importů má svůj stdcall kontrakt. Cached import pointery se sledují i přes nevolatilní registry. Všechny sledované návraty mají původní relativní ESP0.
+
+Neznámý call/branch/změna ESP audit zastaví. První draft tak výslovně zastavil na dosud neuvedeném CreateMutexA; jeho tři DWORD argumenty jsou nyní zahrnuté podle Windows SDK a původních pushů. EBP používaný jako obyčejný pointer se za stack frame nepovažuje. Toto ověření potvrzuje původní použité sloty a jejich hranici; sémantiku pointerů, signedness a návratů dále dokládají konkrétní behaviorální testy, nikoli samotný počet slov. Native_signature_fully_verified se automaticky nezapíná.
+
+Reprodukce: dumpbin `/DISASM:BYTES` celého původního Squall.dll do `.local/squall-complete-native-disassembly.txt`, `py -3 tools/audit_squall_native_arguments.py`, potom `py -3 tools/record_squall_native_arguments.py`. Důkazy jsou `analysis/squall-native-arguments-{audit,regression}.json`: konkrétní adresy/operandy referencí, vyrovnané návraty, pop bajty a jejich původní instrukce. Deklarované počty se navíc porovnaly se všemi čtyřmi skutečně volanými97exportovými metadaty obou sestavení a přesností. Produkce ani původní17 souborů se neměnily. Další sample-group a pointer/callback rozsahy i celý původní cíl pokračují.
+
 ## Všech97 skutečných exportů: zásobník a dosažitelné návraty
 
 `tools/squall_export_stack_probe` sestavuje každý volaný typ přímo z aktuální hlavičky a skutečného GetProcAddress. S vypnutým vynecháváním frame pointeru měří ESP před/po každém volání a16 stack canaries; případný rozdíl by diagnostický frame před hlášením chyby obnovil. Každé ze dvou sestavení má v PC53/PC24 dohromady194 měření na DLL a3104 canary kontrol na DLL. Všech97 jmen/ordinalů se skutečně volá. Kanálové případy úmyslně používají neplatná ID před Init, platné kanály mají samostatná porovnání; skutečný Init s vlastním oknem běží poslední. Platný malý WAV a správné cdecl callback typy udržují vstupy čitelné. ESP se v každém případě přesně zachoval. Deklarované typy, počty argumentů, jejich DWORD velikosti a návratové šířky jsou v reportu; tento údaj sám nedokazuje původní počet argumentů.

@@ -1,0 +1,26 @@
+{
+  "status": "passed_all97_original_explicit_argument_slot_counts_only",
+  "recorded_at_utc": "2026-11-01T18:06:37.218570+00:00",
+  "recorder_sha256": "0548663d6bc9bc6760f294093da30d6e460fe8894aa6ad76df21c613ab22c60b",
+  "report": "analysis/squall-native-arguments-audit.json",
+  "report_sha256": "ce6f1f2a8d3d3c9b215e916276018df08b855cef7048b507fb0de25136827372",
+  "exports": 97,
+  "original_argument_reference_instructions": 230,
+  "symbolic_states": 5697,
+  "original_callee_cleanup_summaries": 63,
+  "call_cleanup_sites": 603,
+  "native_argument_slot_count_verified": true,
+  "whole_native_pointer_and_return_semantics_verified": false,
+  "native_input_disassembly_sha256": "bd4cb0e82fc647991fb9c7145f5919875571a877c9a4eefe82fb73ae73146f71",
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Remaining native pointer/return/callback semantics beyond current behavioral audits",
+    "Multiple-member sample selection and other remaining DLL scopes",
+    "Remaining whole original goal scopes"
+  ]
+}

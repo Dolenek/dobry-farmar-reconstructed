@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Původní argumentové sloty všech97 exportů Squallu](SQUALL.md) nyní mají nezávislý instrukční audit:230 stack referencí,5697 symbolických stavů,603 call site cleanup důkazů a63 interních callee souhrnů. Každý původně používaný slot1..N i nejvyšší slot souhlasí s deklarací; všechny sledované návraty mají ESP0. Počet slotů se nevydává za úplnou pointer/return sémantiku. Produkce se neměnila; pokračují další DLL rozsahy a celý původní cíl.
+
 [Všech97 exportů Squallu má nové měření zásobníku](SQUALL.md): každé sestavení194 skutečných volání a3104 canary kontrol na DLL v PC53/PC24, vždy ESP beze změny. Všech223 dosažitelných původních návratů v97 CFG používá caller cleanup; obě speaker mode tabulky jsou vyřešené. Deklarované DWORD argumenty se nepovažují za nezávislý důkaz původního počtu argumentů. Produkce se neměnila; audit argumentů a celý původní cíl pokračují.
 
 [Podporované EAX/ZOOMFX větve přes diagnostickou COM hranici](SQUALL.md) prošly v obou sestaveních po7800 případech. Souhlasí celé caller/cache bajty i GUID/property/velikosti/payloady COM volání, všech27 presetů EAX1/2/3 a řízené chyby. Původní zvláštnosti support/cache/ZOOMFX Get zůstaly zachované. Privátní kontextové fixtures a chybějící podporovaný hardware jsou výslovně odlišené; produkce se neměnila. Úplné ABI/chování Squallu i celý původní cíl pokračují.

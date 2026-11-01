@@ -1,0 +1,7027 @@
+{
+  "status": "passed_all97_native_referenced_argument_slots_only",
+  "recorded_at_utc": "2026-11-01T18:05:51.955546+00:00",
+  "auditor_sha256": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "disassembly_sha256": "bd4cb0e82fc647991fb9c7145f5919875571a877c9a4eefe82fb73ae73146f71",
+  "exports": [
+    {
+      "name": "SQUALL_ChannelGroup_Pause",
+      "original_address": "10007100",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000713c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10007141",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000718a"
+      ],
+      "symbolic_states": 47
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetFrequency",
+      "original_address": "100072c0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100072f1",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10007318",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007361"
+      ],
+      "symbolic_states": 53
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetVolume",
+      "original_address": "10007220",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000725c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10007261",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100072b1"
+      ],
+      "symbolic_states": 48
+    },
+    {
+      "name": "SQUALL_ChannelGroup_Stop",
+      "original_address": "10007190",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100071cc",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007213"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Channel_EAX_GetProperties",
+      "original_address": "10006dd0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10006dfa",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10006e07",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10006e55",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006e30",
+        "10006e54",
+        "10006e80",
+        "10006ec6",
+        "10006eed"
+      ],
+      "symbolic_states": 102
+    },
+    {
+      "name": "SQUALL_Channel_EAX_SetProperties",
+      "original_address": "10006cc0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10006cde",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10006d00",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10006d48",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006d24",
+        "10006d47",
+        "10006d72",
+        "10006dce"
+      ],
+      "symbolic_states": 93
+    },
+    {
+      "name": "SQUALL_Channel_Get3DPosition",
+      "original_address": "10006660",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10006688",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "100066b0",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100066af",
+        "100066d9",
+        "1000670f",
+        "1000673e"
+      ],
+      "symbolic_states": 76
+    },
+    {
+      "name": "SQUALL_Channel_GetConeParameters",
+      "original_address": "10006ba0",
+      "declared_argument_count": 5,
+      "referenced_argument_slots": 5,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "stack_references": [
+        {
+          "address": "10006bc8",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10006be0",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10006bef",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "10006bfe",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+28h]"
+        },
+        {
+          "address": "10006c0f",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+28h]"
+        },
+        {
+          "address": "10006c1f",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10006c23",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "dword ptr [esp+28h],0"
+        },
+        {
+          "address": "10006c4f",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "lea",
+          "operands": "edx,[esp+2Ch]"
+        },
+        {
+          "address": "10006c7f",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "fild",
+          "operands": "dword ptr [esp+28h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006cbd"
+      ],
+      "symbolic_states": 94
+    },
+    {
+      "name": "SQUALL_Channel_GetFragment",
+      "original_address": "10005cf0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10005d0f",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10005d27",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10005d5b",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005d5a",
+        "10005d86",
+        "10005dcb"
+      ],
+      "symbolic_states": 84
+    },
+    {
+      "name": "SQUALL_Channel_GetFragmentMs",
+      "original_address": "10005ef0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10005f18",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10005f30",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10005f60",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10005fb0",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "dword ptr [esp+1Ch],ecx"
+        },
+        {
+          "address": "10005fb8",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+20h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006019"
+      ],
+      "symbolic_states": 112
+    },
+    {
+      "name": "SQUALL_Channel_GetFrequency",
+      "original_address": "100057a0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100057cf",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100057fb",
+        "1000583c"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Channel_GetLength",
+      "original_address": "10006020",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10006043",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000606b",
+        "1000609f"
+      ],
+      "symbolic_states": 40
+    },
+    {
+      "name": "SQUALL_Channel_GetLengthMs",
+      "original_address": "100060a0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100060c8",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100060f1",
+        "10006129",
+        "1000616a"
+      ],
+      "symbolic_states": 68
+    },
+    {
+      "name": "SQUALL_Channel_GetLoop",
+      "original_address": "10006350",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10006373",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000639b",
+        "100063c5"
+      ],
+      "symbolic_states": 37
+    },
+    {
+      "name": "SQUALL_Channel_GetMinMaxDistance",
+      "original_address": "100069b0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "100069cf",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "100069e7",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10006a1f",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006a1e",
+        "10006a4a",
+        "10006a95"
+      ],
+      "symbolic_states": 84
+    },
+    {
+      "name": "SQUALL_Channel_GetPan",
+      "original_address": "100064a0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100064d3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100064ff",
+        "10006540",
+        "10006568"
+      ],
+      "symbolic_states": 53
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPosition",
+      "original_address": "100058d0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100058ff",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000592b",
+        "1000596c"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPositionMs",
+      "original_address": "10005a30",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10005a60",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005a89",
+        "10005ac3",
+        "10005b03"
+      ],
+      "symbolic_states": 73
+    },
+    {
+      "name": "SQUALL_Channel_GetPriority",
+      "original_address": "10006210",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10006233",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000625b",
+        "1000627f"
+      ],
+      "symbolic_states": 35
+    },
+    {
+      "name": "SQUALL_Channel_GetVelocity",
+      "original_address": "10006830",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10006858",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10006880",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000687f",
+        "100068a9",
+        "100068df",
+        "1000690e"
+      ],
+      "symbolic_states": 76
+    },
+    {
+      "name": "SQUALL_Channel_GetVolume",
+      "original_address": "10005620",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10005650",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005679",
+        "100056af",
+        "100056ef"
+      ],
+      "symbolic_states": 61
+    },
+    {
+      "name": "SQUALL_Channel_Pause",
+      "original_address": "100053a0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100053c3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "100053ec",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100053eb",
+        "10005420"
+      ],
+      "symbolic_states": 41
+    },
+    {
+      "name": "SQUALL_Channel_Set3DPosition",
+      "original_address": "10006570",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000658d",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "100065c6",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100065c5",
+        "100065ef",
+        "10006625",
+        "1000665b"
+      ],
+      "symbolic_states": 81
+    },
+    {
+      "name": "SQUALL_Channel_SetConeParameters",
+      "original_address": "10006aa0",
+      "declared_argument_count": 5,
+      "referenced_argument_slots": 5,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "stack_references": [
+        {
+          "address": "10006ac8",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10006aea",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+28h]"
+        },
+        {
+          "address": "10006af7",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10006b07",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "10006b25",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006b95"
+      ],
+      "symbolic_states": 80
+    },
+    {
+      "name": "SQUALL_Channel_SetFragment",
+      "original_address": "10005c30",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10005c55",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10005c5d",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10005c81",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005c80",
+        "10005cab",
+        "10005ce0"
+      ],
+      "symbolic_states": 64
+    },
+    {
+      "name": "SQUALL_Channel_SetFragmentMs",
+      "original_address": "10005dd0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10005e04",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10005e0c",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10005e34",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10005e9d",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005e33",
+        "10005e62",
+        "10005ee4"
+      ],
+      "symbolic_states": 97
+    },
+    {
+      "name": "SQUALL_Channel_SetFrequency",
+      "original_address": "100056f0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10005714",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "1000573c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000573b",
+        "10005765",
+        "10005798"
+      ],
+      "symbolic_states": 56
+    },
+    {
+      "name": "SQUALL_Channel_SetLoop",
+      "original_address": "10006280",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100062a7",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "100062ed",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100062cf",
+        "10006349"
+      ],
+      "symbolic_states": 63
+    },
+    {
+      "name": "SQUALL_Channel_SetMinMaxDistance",
+      "original_address": "10006910",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10006933",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "10006962",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+10h]"
+        },
+        {
+          "address": "1000696a",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000695b",
+        "100069a8"
+      ],
+      "symbolic_states": 51
+    },
+    {
+      "name": "SQUALL_Channel_SetPan",
+      "original_address": "100063d0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100063f8",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "1000641c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000641b",
+        "10006445",
+        "1000647b",
+        "1000649c"
+      ],
+      "symbolic_states": 68
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPosition",
+      "original_address": "10005840",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10005863",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "1000588c",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000588b",
+        "100058c0"
+      ],
+      "symbolic_states": 41
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPositionMs",
+      "original_address": "10005970",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10005994",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100059db",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "imul",
+          "operands": "dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100059bd",
+        "10005a01",
+        "10005a24"
+      ],
+      "symbolic_states": 61
+    },
+    {
+      "name": "SQUALL_Channel_SetPriority",
+      "original_address": "10006170",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10006195",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "100061b4",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006194",
+        "100061b3",
+        "100061dd",
+        "10006202"
+      ],
+      "symbolic_states": 51
+    },
+    {
+      "name": "SQUALL_Channel_SetVelocity",
+      "original_address": "10006740",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000675d",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10006796",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006795",
+        "100067bf",
+        "100067f5",
+        "1000682b"
+      ],
+      "symbolic_states": 81
+    },
+    {
+      "name": "SQUALL_Channel_SetVolume",
+      "original_address": "10005570",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10005594",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "100055b8",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100055b7",
+        "100055e1",
+        "1000561a"
+      ],
+      "symbolic_states": 57
+    },
+    {
+      "name": "SQUALL_Channel_SetWorker",
+      "original_address": "10005b10",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "10005b39",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10005b66",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10005bbf",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10005bd0",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10005b65",
+        "10005bb3",
+        "10005c10",
+        "10005c28"
+      ],
+      "symbolic_states": 85
+    },
+    {
+      "name": "SQUALL_Channel_Start",
+      "original_address": "10005310",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10005333",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000535b",
+        "10005397"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Channel_Status",
+      "original_address": "100054b0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100054d3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100054f8",
+        "10005526",
+        "10005541",
+        "10005560"
+      ],
+      "symbolic_states": 60
+    },
+    {
+      "name": "SQUALL_Channel_Stop",
+      "original_address": "10005430",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10005453",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000547b",
+        "100054ac"
+      ],
+      "symbolic_states": 39
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_GetProperties",
+      "original_address": "10006ff0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10007019",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10007063",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007041",
+        "10007062",
+        "1000708d",
+        "100070cf",
+        "100070f5"
+      ],
+      "symbolic_states": 89
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_SetProperties",
+      "original_address": "10006ef0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10006f0d",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10006f66",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10006f45",
+        "10006f65",
+        "10006f8f",
+        "10006fe7"
+      ],
+      "symbolic_states": 81
+    },
+    {
+      "name": "SQUALL_Free",
+      "original_address": "10003520",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "1000360a"
+      ],
+      "symbolic_states": 62
+    },
+    {
+      "name": "SQUALL_Get3DAlgorithm",
+      "original_address": "10003af0",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "10003b29"
+      ],
+      "symbolic_states": 18
+    },
+    {
+      "name": "SQUALL_GetBufferSize",
+      "original_address": "10003b90",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "10003bc9"
+      ],
+      "symbolic_states": 18
+    },
+    {
+      "name": "SQUALL_GetChannelsInfo",
+      "original_address": "10003e40",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10003e69",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003e91",
+        "10003f71"
+      ],
+      "symbolic_states": 95
+    },
+    {
+      "name": "SQUALL_GetDevice",
+      "original_address": "10003770",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "100037a9"
+      ],
+      "symbolic_states": 18
+    },
+    {
+      "name": "SQUALL_GetDeviceCaps",
+      "original_address": "10003d30",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10003d48",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10003d59",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003d47",
+        "10003d72",
+        "10003deb",
+        "10003df4"
+      ],
+      "symbolic_states": 81
+    },
+    {
+      "name": "SQUALL_GetDeviceName",
+      "original_address": "10003c80",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10003c93",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10003c9b",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10003cac",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003c92",
+        "10003cc4",
+        "10003cdc",
+        "10003d23"
+      ],
+      "symbolic_states": 76
+    },
+    {
+      "name": "SQUALL_GetEAXVersion",
+      "original_address": "10003e00",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "10003e39"
+      ],
+      "symbolic_states": 18
+    },
+    {
+      "name": "SQUALL_GetHardwareAcceleration",
+      "original_address": "10003810",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000382f",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10003847",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000387a",
+        "100038a5"
+      ],
+      "symbolic_states": 60
+    },
+    {
+      "name": "SQUALL_GetNumDevice",
+      "original_address": "10003c70",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "10007e4a"
+      ],
+      "symbolic_states": 4
+    },
+    {
+      "name": "SQUALL_GetSpeakerMode",
+      "original_address": "10003970",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "100039ce",
+        "100039fb",
+        "10003a12",
+        "10003a29",
+        "10003a40",
+        "10003a57"
+      ],
+      "symbolic_states": 77
+    },
+    {
+      "name": "SQUALL_Init",
+      "original_address": "10003280",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100032f1",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+4Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003517"
+      ],
+      "symbolic_states": 301
+    },
+    {
+      "name": "SQUALL_Listener_EAX_GetProperties",
+      "original_address": "10004b30",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10004b7a",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10004b87",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004b79",
+        "10004baf",
+        "10004bd2",
+        "10004c0b",
+        "10004c23"
+      ],
+      "symbolic_states": 86
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetPreset",
+      "original_address": "10004c30",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10004c62",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004c89",
+        "10004cb3",
+        "10004cea"
+      ],
+      "symbolic_states": 62
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetProperties",
+      "original_address": "10004a40",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10004a8a",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+10h]"
+        },
+        {
+          "address": "10004a97",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004a89",
+        "10004abf",
+        "10004af0",
+        "10004b22"
+      ],
+      "symbolic_states": 80
+    },
+    {
+      "name": "SQUALL_Listener_GetDistanceFactor",
+      "original_address": "100046c0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100046e4",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000470b",
+        "1000472b",
+        "10004744"
+      ],
+      "symbolic_states": 46
+    },
+    {
+      "name": "SQUALL_Listener_GetDopplerFactor",
+      "original_address": "10004960",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10004984",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100049ab",
+        "100049cb",
+        "100049e4"
+      ],
+      "symbolic_states": 46
+    },
+    {
+      "name": "SQUALL_Listener_GetParameters",
+      "original_address": "100041a0",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "100041c8",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "100041e0",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "100041ed",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "dword ptr [esp+1Ch],0"
+        },
+        {
+          "address": "100041f5",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10004204",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "10004250",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+1Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100042c2"
+      ],
+      "symbolic_states": 93
+    },
+    {
+      "name": "SQUALL_Listener_GetPosition",
+      "original_address": "10004560",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000457d",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100045a7",
+        "100045cb",
+        "100045f6"
+      ],
+      "symbolic_states": 50
+    },
+    {
+      "name": "SQUALL_Listener_GetRolloffFactor",
+      "original_address": "10004810",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10004834",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000485b",
+        "1000487b",
+        "10004894"
+      ],
+      "symbolic_states": 46
+    },
+    {
+      "name": "SQUALL_Listener_GetVelocity",
+      "original_address": "100043d0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100043ed",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004417",
+        "1000443b",
+        "10004466"
+      ],
+      "symbolic_states": 50
+    },
+    {
+      "name": "SQUALL_Listener_SetDistanceFactor",
+      "original_address": "10004600",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000461c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004630",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "10004681",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "1000468c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "1000469d",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004656",
+        "1000467a",
+        "100046bf"
+      ],
+      "symbolic_states": 61
+    },
+    {
+      "name": "SQUALL_Listener_SetDopplerFactor",
+      "original_address": "100048a0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100048bc",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100048d0",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "10004921",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "1000492c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "1000493d",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100048f6",
+        "1000491a",
+        "1000495f"
+      ],
+      "symbolic_states": 61
+    },
+    {
+      "name": "SQUALL_Listener_SetParameters",
+      "original_address": "10003f80",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "10003fa8",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10003fc0",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10003fcf",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10003fdc",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "dword ptr [esp+20h],0"
+        },
+        {
+          "address": "10003fe4",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "1000410d",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+20h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000419a"
+      ],
+      "symbolic_states": 177
+    },
+    {
+      "name": "SQUALL_Listener_SetPosition",
+      "original_address": "10004470",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000448d",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100044b7",
+        "100044e0",
+        "10004555"
+      ],
+      "symbolic_states": 78
+    },
+    {
+      "name": "SQUALL_Listener_SetRolloffFactor",
+      "original_address": "10004750",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000476c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004780",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "100047d1",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "100047dc",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "100047ed",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100047a6",
+        "100047ca",
+        "1000480f"
+      ],
+      "symbolic_states": 61
+    },
+    {
+      "name": "SQUALL_Listener_SetVelocity",
+      "original_address": "100042d0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100042ed",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004317",
+        "10004340",
+        "100043c0"
+      ],
+      "symbolic_states": 79
+    },
+    {
+      "name": "SQUALL_Listener_SetWorker",
+      "original_address": "10004cf0",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10004d14",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004d4b",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10004d6a",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10004d3f",
+        "10004d69",
+        "10004d90"
+      ],
+      "symbolic_states": 51
+    },
+    {
+      "name": "SQUALL_Listener_Update",
+      "original_address": "100049f0",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "10004a3b"
+      ],
+      "symbolic_states": 26
+    },
+    {
+      "name": "SQUALL_Pause",
+      "original_address": "10003610",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000364c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000368e"
+      ],
+      "symbolic_states": 42
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play",
+      "original_address": "10007870",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "10007899",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+28h]"
+        },
+        {
+          "address": "100078ce",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+3Ch]"
+        },
+        {
+          "address": "100078d3",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+3Ch]"
+        },
+        {
+          "address": "100078d8",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+3Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007900"
+      ],
+      "symbolic_states": 53
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3D",
+      "original_address": "10007990",
+      "declared_argument_count": 6,
+      "referenced_argument_slots": 6,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "stack_references": [
+        {
+          "address": "100079bc",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+48h]"
+        },
+        {
+          "address": "100079d4",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+48h]"
+        },
+        {
+          "address": "100079f0",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+30h]"
+        },
+        {
+          "address": "10007a2a",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+48h]"
+        },
+        {
+          "address": "10007a2f",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+48h]"
+        },
+        {
+          "address": "10007a34",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+48h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007a5f"
+      ],
+      "symbolic_states": 79
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3DEx",
+      "original_address": "10007a60",
+      "declared_argument_count": 11,
+      "referenced_argument_slots": 11,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "stack_references": [
+        {
+          "address": "10007a8a",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+2Ch]"
+        },
+        {
+          "address": "10007aa2",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+2Ch]"
+        },
+        {
+          "address": "10007abe",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        },
+        {
+          "address": "10007acf",
+          "entry_esp_offset": 44,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+3Ch]"
+        },
+        {
+          "address": "10007ad3",
+          "entry_esp_offset": 40,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+38h]"
+        },
+        {
+          "address": "10007ad7",
+          "entry_esp_offset": 36,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+34h]"
+        },
+        {
+          "address": "10007adc",
+          "entry_esp_offset": 32,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+34h]"
+        },
+        {
+          "address": "10007ae1",
+          "entry_esp_offset": 28,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+34h]"
+        },
+        {
+          "address": "10007ae6",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+2Ch]"
+        },
+        {
+          "address": "10007aeb",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+2Ch]"
+        },
+        {
+          "address": "10007af0",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+2Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007b19"
+      ],
+      "symbolic_states": 72
+    },
+    {
+      "name": "SQUALL_SampleGroup_PlayEx",
+      "original_address": "10007910",
+      "declared_argument_count": 8,
+      "referenced_argument_slots": 8,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stack_references": [
+        {
+          "address": "10007936",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10007947",
+          "entry_esp_offset": 32,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+28h]"
+        },
+        {
+          "address": "1000794b",
+          "entry_esp_offset": 28,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+24h]"
+        },
+        {
+          "address": "1000794f",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10007954",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10007959",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "1000795e",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10007963",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+20h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007988"
+      ],
+      "symbolic_states": 44
+    },
+    {
+      "name": "SQUALL_Sample_GetDefault",
+      "original_address": "100074e0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100074e1",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10007500",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100074ff",
+        "1000751b"
+      ],
+      "symbolic_states": 25
+    },
+    {
+      "name": "SQUALL_Sample_GetFileFrequency",
+      "original_address": "10007470",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10007470",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+4]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007486",
+        "1000749a"
+      ],
+      "symbolic_states": 15
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLength",
+      "original_address": "100073e0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100073e0",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+4]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100073f6",
+        "10007407"
+      ],
+      "symbolic_states": 14
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLengthMs",
+      "original_address": "10007410",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10007410",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+4]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000742c",
+        "10007441",
+        "10007469"
+      ],
+      "symbolic_states": 40
+    },
+    {
+      "name": "SQUALL_Sample_LoadFile",
+      "original_address": "10007370",
+      "declared_argument_count": 3,
+      "referenced_argument_slots": 3,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3
+      ],
+      "stack_references": [
+        {
+          "address": "10007378",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10007388",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+18h]"
+        },
+        {
+          "address": "1000739b",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100073b6"
+      ],
+      "symbolic_states": 33
+    },
+    {
+      "name": "SQUALL_Sample_Pause",
+      "original_address": "10007750",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "1000778c",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+14h]"
+        },
+        {
+          "address": "100077a3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+14h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100077d9"
+      ],
+      "symbolic_states": 46
+    },
+    {
+      "name": "SQUALL_Sample_Play",
+      "original_address": "10007520",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "10007544",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "1000756a",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+38h]"
+        },
+        {
+          "address": "1000756f",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+38h]"
+        },
+        {
+          "address": "10007574",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+38h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000759b"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Sample_Play3D",
+      "original_address": "10007600",
+      "declared_argument_count": 6,
+      "referenced_argument_slots": 6,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "stack_references": [
+        {
+          "address": "10007622",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+44h]"
+        },
+        {
+          "address": "1000763a",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+44h]"
+        },
+        {
+          "address": "10007649",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+30h]"
+        },
+        {
+          "address": "1000767a",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+48h]"
+        },
+        {
+          "address": "1000767f",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+48h]"
+        },
+        {
+          "address": "10007684",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+48h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100076b0"
+      ],
+      "symbolic_states": 70
+    },
+    {
+      "name": "SQUALL_Sample_Play3DEx",
+      "original_address": "100076c0",
+      "declared_argument_count": 11,
+      "referenced_argument_slots": 11,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "stack_references": [
+        {
+          "address": "100076d2",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "100076ea",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+24h]"
+        },
+        {
+          "address": "100076f9",
+          "entry_esp_offset": 44,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+38h]"
+        },
+        {
+          "address": "100076fd",
+          "entry_esp_offset": 40,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+34h]"
+        },
+        {
+          "address": "10007701",
+          "entry_esp_offset": 36,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+30h]"
+        },
+        {
+          "address": "10007706",
+          "entry_esp_offset": 32,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+30h]"
+        },
+        {
+          "address": "1000770b",
+          "entry_esp_offset": 28,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+30h]"
+        },
+        {
+          "address": "10007710",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+28h]"
+        },
+        {
+          "address": "10007715",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+28h]"
+        },
+        {
+          "address": "1000771a",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+28h]"
+        },
+        {
+          "address": "10007721",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+30h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007746"
+      ],
+      "symbolic_states": 53
+    },
+    {
+      "name": "SQUALL_Sample_PlayEx",
+      "original_address": "100075a0",
+      "declared_argument_count": 8,
+      "referenced_argument_slots": 8,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stack_references": [
+        {
+          "address": "100075b0",
+          "entry_esp_offset": 32,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+28h]"
+        },
+        {
+          "address": "100075b4",
+          "entry_esp_offset": 28,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+24h]"
+        },
+        {
+          "address": "100075b8",
+          "entry_esp_offset": 24,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "100075bd",
+          "entry_esp_offset": 20,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        },
+        {
+          "address": "100075c2",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "100075c7",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+20h]"
+        },
+        {
+          "address": "100075cc",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+20h]"
+        },
+        {
+          "address": "100075d1",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+20h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100075f4"
+      ],
+      "symbolic_states": 29
+    },
+    {
+      "name": "SQUALL_Sample_SetDefault",
+      "original_address": "100074a0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100074a1",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "esi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100074c4",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100074c3",
+        "100074df"
+      ],
+      "symbolic_states": 27
+    },
+    {
+      "name": "SQUALL_Sample_Stop",
+      "original_address": "100077e0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "1000781c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+10h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10007862"
+      ],
+      "symbolic_states": 43
+    },
+    {
+      "name": "SQUALL_Sample_Unload",
+      "original_address": "100073d0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100073d0",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+4]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100073db"
+      ],
+      "symbolic_states": 5
+    },
+    {
+      "name": "SQUALL_Sample_UnloadAll",
+      "original_address": "100073c0",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "100082fc"
+      ],
+      "symbolic_states": 37
+    },
+    {
+      "name": "SQUALL_Set3DAlgorithm",
+      "original_address": "10003a70",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10003a93",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003ab5",
+        "10003ad8",
+        "10003aee"
+      ],
+      "symbolic_states": 40
+    },
+    {
+      "name": "SQUALL_SetBufferSize",
+      "original_address": "10003b30",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10003b4c",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003b73",
+        "10003b8d"
+      ],
+      "symbolic_states": 30
+    },
+    {
+      "name": "SQUALL_SetDevice",
+      "original_address": "10003700",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "10003724",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "1000374b",
+        "1000376e"
+      ],
+      "symbolic_states": 38
+    },
+    {
+      "name": "SQUALL_SetFileCallbacks",
+      "original_address": "10003c10",
+      "declared_argument_count": 4,
+      "referenced_argument_slots": 4,
+      "explicit_argument_slots": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "stack_references": [
+        {
+          "address": "10003c11",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+8]"
+        },
+        {
+          "address": "10003c26",
+          "entry_esp_offset": 16,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+20h]"
+        },
+        {
+          "address": "10003c2e",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+1Ch]"
+        },
+        {
+          "address": "10003c39",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10003c50",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "edx,dword ptr [esp+18h]"
+        },
+        {
+          "address": "10003c54",
+          "entry_esp_offset": 12,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+1Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003c6a"
+      ],
+      "symbolic_states": 41
+    },
+    {
+      "name": "SQUALL_SetHardwareAcceleration",
+      "original_address": "100037b0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "100037d3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "100037d7",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+0Ch]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003807"
+      ],
+      "symbolic_states": 26
+    },
+    {
+      "name": "SQUALL_SetMemoryCallbacks",
+      "original_address": "10003bd0",
+      "declared_argument_count": 2,
+      "referenced_argument_slots": 2,
+      "explicit_argument_slots": [
+        1,
+        2
+      ],
+      "stack_references": [
+        {
+          "address": "10003bd1",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebx,dword ptr [esp+8]"
+        },
+        {
+          "address": "10003be6",
+          "entry_esp_offset": 8,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ebp,dword ptr [esp+18h]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "10003c0a"
+      ],
+      "symbolic_states": 27
+    },
+    {
+      "name": "SQUALL_SetSpeakerMode",
+      "original_address": "100038b0",
+      "declared_argument_count": 1,
+      "referenced_argument_slots": 1,
+      "explicit_argument_slots": [
+        1
+      ],
+      "stack_references": [
+        {
+          "address": "100038d3",
+          "entry_esp_offset": 4,
+          "bytes": 4,
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+8]"
+        }
+      ],
+      "balanced_return_addresses": [
+        "100038f5",
+        "10003950"
+      ],
+      "symbolic_states": 53
+    },
+    {
+      "name": "SQUALL_Stop",
+      "original_address": "10003690",
+      "declared_argument_count": 0,
+      "referenced_argument_slots": 0,
+      "explicit_argument_slots": [],
+      "stack_references": [],
+      "balanced_return_addresses": [
+        "100036f9"
+      ],
+      "symbolic_states": 37
+    }
+  ],
+  "call_cleanup_evidence": {
+    "10007109": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007120": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000715f": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "1000717c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100072c9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100072e1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007352": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007336": {
+      "kind": "direct_ret_instruction",
+      "target": "10001fe0",
+      "callee_pop_bytes": 4
+    },
+    "10007229": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007240": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007286": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f80",
+      "callee_pop_bytes": 4
+    },
+    "100072a3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007199": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100071b0": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100071e9": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f40",
+      "callee_pop_bytes": 0
+    },
+    "10007205": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006dd9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006dea": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006e0e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006e22": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006e46": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006e5f": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006e72": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006ea2": {
+      "kind": "direct_ret_instruction",
+      "target": "100010a0",
+      "callee_pop_bytes": 0
+    },
+    "10006eb8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006edf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006cc8": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006cd9": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006ce8": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10006d17": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006d3a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006d52": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006d65": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006daa": {
+      "kind": "direct_ret_instruction",
+      "target": "10001050",
+      "callee_pop_bytes": 0
+    },
+    "10006dc1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006667": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006678": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000668f": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100066a3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100066ba": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100066cd": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006703": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000671f": {
+      "kind": "direct_ret_instruction",
+      "target": "10001c10",
+      "callee_pop_bytes": 32
+    },
+    "10006732": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006ba9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006bc3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006bd8": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006be7": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006bf6": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006c05": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006c31": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006cac": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006c66": {
+      "kind": "direct_ret_instruction",
+      "target": "10001c10",
+      "callee_pop_bytes": 32
+    },
+    "10006c89": {
+      "kind": "direct_ret_instruction",
+      "target": "1003cf60",
+      "callee_pop_bytes": 0
+    },
+    "10006ca0": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d254",
+      "callee_pop_bytes": 0
+    },
+    "10005cf9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005d0a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005d1f": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10005d2e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10005d4c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005d65": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005d78": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005dbd": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005ef9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005f13": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005f28": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10005f37": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006008": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005f6a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005fa6": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10005fbf": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "10005fea": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10005ffb": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "100057a9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100057bf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100057d9": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100057ef": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000581a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002010",
+      "callee_pop_bytes": 4
+    },
+    "10005830": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006026": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006037": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000604d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006060": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000607f": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e140",
+      "callee_pop_bytes": 0
+    },
+    "10006094": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100060a7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100060b8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100060d2": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100060e5": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006108": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e140",
+      "callee_pop_bytes": 0
+    },
+    "1000611d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006134": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e000",
+      "callee_pop_bytes": 0
+    },
+    "10006148": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10006152": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "1000615e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006356": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006367": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000637d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006390": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100063ba": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100069b9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100069ca": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100069df": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100069ee": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006a10": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006a29": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006a3c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006a87": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100064a9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100064bf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100064dd": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100064f3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006534": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006546": {
+      "kind": "direct_ret_instruction",
+      "target": "10002080",
+      "callee_pop_bytes": 4
+    },
+    "1000655c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100058d9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100058ef": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005909": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "1000591f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000594a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002180",
+      "callee_pop_bytes": 4
+    },
+    "10005960": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005a3f": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005a50": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005a6a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005a7d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005aa4": {
+      "kind": "direct_ret_instruction",
+      "target": "10002180",
+      "callee_pop_bytes": 4
+    },
+    "10005ab7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005ae1": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10005aea": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "10005af7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006216": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006227": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000623d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006250": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006274": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006837": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006848": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000685f": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006873": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000688a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "1000689d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100068d3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100068ef": {
+      "kind": "direct_ret_instruction",
+      "target": "10001c10",
+      "callee_pop_bytes": 32
+    },
+    "10006902": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000562f": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005640": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000565a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "1000566d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005690": {
+      "kind": "direct_ret_instruction",
+      "target": "10001fb0",
+      "callee_pop_bytes": 4
+    },
+    "100056a3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100056c0": {
+      "kind": "direct_ret_instruction",
+      "target": "1003cf60",
+      "callee_pop_bytes": 0
+    },
+    "100056d7": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d254",
+      "callee_pop_bytes": 0
+    },
+    "100056e3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100053a6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100053b7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100053cd": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100053e0": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005402": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "10005415": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006577": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006588": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006597": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100065b9": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100065d0": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100065e3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006619": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000663c": {
+      "kind": "direct_ret_instruction",
+      "target": "10001a70",
+      "callee_pop_bytes": 36
+    },
+    "1000664f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006aa9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006ac3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006ad2": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10006b84": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006b2f": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006b6e": {
+      "kind": "direct_ret_instruction",
+      "target": "10001a70",
+      "callee_pop_bytes": 36
+    },
+    "10005c38": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005c49": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005c73": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005c8b": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005c9e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005cc0": {
+      "kind": "direct_ret_instruction",
+      "target": "10002300",
+      "callee_pop_bytes": 8
+    },
+    "10005cd3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005dd9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005df0": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005e25": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005e3e": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005e54": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005e88": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10005e96": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "10005ea6": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10005eb4": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "10005ebd": {
+      "kind": "direct_ret_instruction",
+      "target": "10002300",
+      "callee_pop_bytes": 8
+    },
+    "10005ed6": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100056f7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005708": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000572f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005746": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005759": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005779": {
+      "kind": "direct_ret_instruction",
+      "target": "10001fe0",
+      "callee_pop_bytes": 4
+    },
+    "1000578c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006286": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006297": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100062b1": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100062c4": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100062e8": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "10006332": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "1000633e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006916": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006927": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000693d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006950": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000698a": {
+      "kind": "direct_ret_instruction",
+      "target": "10001a70",
+      "callee_pop_bytes": 36
+    },
+    "1000699d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100063d7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100063e8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000640f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006426": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006439": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000646f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000647d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002040",
+      "callee_pop_bytes": 4
+    },
+    "10006490": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005846": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005857": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000586d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005880": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100058a2": {
+      "kind": "direct_ret_instruction",
+      "target": "100020d0",
+      "callee_pop_bytes": 4
+    },
+    "100058b5": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005977": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005988": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000599e": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100059b1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100059e1": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "100059f5": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005a05": {
+      "kind": "direct_ret_instruction",
+      "target": "100020d0",
+      "callee_pop_bytes": 4
+    },
+    "10005a18": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006177": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006188": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100061a7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100061be": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100061d1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100061f6": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006747": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006758": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006767": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10006789": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100067a0": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100067b3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100067e9": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000680c": {
+      "kind": "direct_ret_instruction",
+      "target": "10001a70",
+      "callee_pop_bytes": 36
+    },
+    "1000681f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005577": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005588": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100055ab": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100055c2": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100055d5": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100055fb": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f80",
+      "callee_pop_bytes": 4
+    },
+    "1000560e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005b18": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005b29": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10005b43": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005b58": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005ba6": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005bb5": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10005c03": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005c1b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005316": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005327": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000533d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005350": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005379": {
+      "kind": "direct_ret_instruction",
+      "target": "10001ef0",
+      "callee_pop_bytes": 0
+    },
+    "1000538c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100054b6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100054c7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100054dd": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "100054ed": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000551b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005536": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005555": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10005436": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10005447": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000545d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10005470": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000548e": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f40",
+      "callee_pop_bytes": 0
+    },
+    "100054a1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006ff8": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007009": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007020": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10007034": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007055": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000706d": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10007080": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100070ac": {
+      "kind": "direct_ret_instruction",
+      "target": "100013a0",
+      "callee_pop_bytes": 0
+    },
+    "100070c2": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100070e8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006ef7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10006f08": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10006f17": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10006f39": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006f59": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006f70": {
+      "kind": "direct_ret_instruction",
+      "target": "10002480",
+      "callee_pop_bytes": 4
+    },
+    "10006f83": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10006fc4": {
+      "kind": "direct_ret_instruction",
+      "target": "10001370",
+      "callee_pop_bytes": 0
+    },
+    "10006fdb": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003526": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000354d": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f40",
+      "callee_pop_bytes": 0
+    },
+    "1000355a": {
+      "kind": "direct_ret_instruction",
+      "target": "10001850",
+      "callee_pop_bytes": 0
+    },
+    "10003575": {
+      "kind": "win32_import_contract",
+      "target": "Sleep",
+      "callee_pop_bytes": 4
+    },
+    "10003580": {
+      "kind": "direct_ret_instruction",
+      "target": "10002710",
+      "callee_pop_bytes": 0
+    },
+    "1000358a": {
+      "kind": "direct_ret_instruction",
+      "target": "10002890",
+      "callee_pop_bytes": 0
+    },
+    "10003594": {
+      "kind": "direct_ret_instruction",
+      "target": "10002440",
+      "callee_pop_bytes": 0
+    },
+    "100035a3": {
+      "kind": "direct_ret_instruction",
+      "target": "10007bc0",
+      "callee_pop_bytes": 0
+    },
+    "100035bf": {
+      "kind": "win32_import_contract",
+      "target": "DestroyWindow",
+      "callee_pop_bytes": 4
+    },
+    "100035d4": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100035e6": {
+      "kind": "win32_import_contract",
+      "target": "CloseHandle",
+      "callee_pop_bytes": 4
+    },
+    "10003604": {
+      "kind": "direct_ret_instruction",
+      "target": "100084f0",
+      "callee_pop_bytes": 0
+    },
+    "10003af6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003b07": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003b1e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003b96": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003ba7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003bbe": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003e48": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003e59": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003e70": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10003e84": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003f64": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003776": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003787": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000379e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003d38": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003d50": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003d60": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10003d80": {
+      "kind": "direct_ret_instruction",
+      "target": "10007eb0",
+      "callee_pop_bytes": 0
+    },
+    "10003c83": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003ca3": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003cb2": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10003cc6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e50",
+      "callee_pop_bytes": 0
+    },
+    "10003e06": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003e17": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003e2e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003819": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000382a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000383f": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000384e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000386c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003897": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007e40": {
+      "kind": "direct_ret_instruction",
+      "target": "10008450",
+      "callee_pop_bytes": 0
+    },
+    "1000397f": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003990": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100039b1": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [ecx+20h]",
+      "callee_pop_bytes": 8
+    },
+    "100039c2": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003a4b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003a1d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003a34": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003a06": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100039ef": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000328e": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100032d3": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d254",
+      "callee_pop_bytes": 0
+    },
+    "100032fb": {
+      "kind": "direct_ret_instruction",
+      "target": "100030a0",
+      "callee_pop_bytes": 0
+    },
+    "1000330f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003010",
+      "callee_pop_bytes": 0
+    },
+    "1000332a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000334f": {
+      "kind": "win32_import_contract",
+      "target": "CreateMutexA",
+      "callee_pop_bytes": 12
+    },
+    "100033b8": {
+      "kind": "win32_import_contract",
+      "target": "timeGetTime",
+      "callee_pop_bytes": 0
+    },
+    "100033e5": {
+      "kind": "direct_ret_instruction",
+      "target": "10007ba0",
+      "callee_pop_bytes": 0
+    },
+    "1000341f": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e80",
+      "callee_pop_bytes": 0
+    },
+    "10003443": {
+      "kind": "direct_ret_instruction",
+      "target": "10002360",
+      "callee_pop_bytes": 20
+    },
+    "100034ba": {
+      "kind": "direct_ret_instruction",
+      "target": "10002710",
+      "callee_pop_bytes": 0
+    },
+    "100034c4": {
+      "kind": "direct_ret_instruction",
+      "target": "10002890",
+      "callee_pop_bytes": 0
+    },
+    "100034ce": {
+      "kind": "direct_ret_instruction",
+      "target": "10002440",
+      "callee_pop_bytes": 0
+    },
+    "100034da": {
+      "kind": "direct_ret_instruction",
+      "target": "10007bc0",
+      "callee_pop_bytes": 0
+    },
+    "100034ef": {
+      "kind": "direct_ret_instruction",
+      "target": "10003090",
+      "callee_pop_bytes": 0
+    },
+    "10003506": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000345f": {
+      "kind": "direct_ret_instruction",
+      "target": "10002750",
+      "callee_pop_bytes": 0
+    },
+    "1000348f": {
+      "kind": "direct_ret_instruction",
+      "target": "10002da0",
+      "callee_pop_bytes": 0
+    },
+    "100034a7": {
+      "kind": "direct_ret_instruction",
+      "target": "100026b0",
+      "callee_pop_bytes": 0
+    },
+    "10004b38": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004b49": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004b6c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004b8e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10004ba2": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004bc5": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004be1": {
+      "kind": "direct_ret_instruction",
+      "target": "100010a0",
+      "callee_pop_bytes": 0
+    },
+    "10004bfe": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004c16": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004c36": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004c47": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004c7e": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004c92": {
+      "kind": "direct_ret_instruction",
+      "target": "10001100",
+      "callee_pop_bytes": 0
+    },
+    "10004ca8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004cc9": {
+      "kind": "direct_ret_instruction",
+      "target": "100010a0",
+      "callee_pop_bytes": 0
+    },
+    "10004cdf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004a48": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004a59": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004a7c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004a9e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10004ab2": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004ae3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004aff": {
+      "kind": "direct_ret_instruction",
+      "target": "10001050",
+      "callee_pop_bytes": 0
+    },
+    "10004b15": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100046c7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100046d8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100046eb": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100046ff": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000471f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004738": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004967": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004978": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000498b": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000499f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100049bf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100049d8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100041a9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100041c3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100041d8": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100041e7": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100041fc": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000420b": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100042b1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004567": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004578": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004587": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000459b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100045bf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100045ea": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004817": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004828": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000483b": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000484f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000486f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004888": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100043d7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100043e8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100043f7": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "1000440b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000442f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000445a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004606": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004617": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000464b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000466f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100046a3": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+2Ch]",
+      "callee_pop_bytes": 12
+    },
+    "100046b4": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100048a6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100048b7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100048eb": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000490f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004943": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+30h]",
+      "callee_pop_bytes": 12
+    },
+    "10004954": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003f89": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003fa3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003fb8": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10003fc7": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10003fd6": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10003feb": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10004189": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004170": {
+      "kind": "direct_ret_instruction",
+      "target": "10002da0",
+      "callee_pop_bytes": 0
+    },
+    "10004477": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004488": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004497": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100044ab": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100044d4": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004538": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+38h]",
+      "callee_pop_bytes": 20
+    },
+    "10004549": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004756": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004767": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000479b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100047bf": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100047f3": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+3Ch]",
+      "callee_pop_bytes": 12
+    },
+    "10004804": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100042d7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100042e8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100042f7": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "1000430b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004334": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100043a3": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+40h]",
+      "callee_pop_bytes": 20
+    },
+    "100043b4": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004cf7": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004d08": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004d33": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004d41": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10004d5d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10004d84": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100049f6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10004a07": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10004a1f": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [ecx+44h]",
+      "callee_pop_bytes": 4
+    },
+    "10004a30": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003619": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003630": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003664": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "10003680": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000787c": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000788d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100078a0": {
+      "kind": "direct_ret_instruction",
+      "target": "10008330",
+      "callee_pop_bytes": 0
+    },
+    "100078b4": {
+      "kind": "direct_ret_instruction",
+      "target": "10008410",
+      "callee_pop_bytes": 0
+    },
+    "100078e5": {
+      "kind": "direct_ret_instruction",
+      "target": "10004da0",
+      "callee_pop_bytes": 0
+    },
+    "100078f1": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100079a0": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100079b7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100079cc": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100079db": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100079f7": {
+      "kind": "direct_ret_instruction",
+      "target": "10008330",
+      "callee_pop_bytes": 0
+    },
+    "10007a0b": {
+      "kind": "direct_ret_instruction",
+      "target": "10008410",
+      "callee_pop_bytes": 0
+    },
+    "10007a43": {
+      "kind": "direct_ret_instruction",
+      "target": "10005010",
+      "callee_pop_bytes": 0
+    },
+    "10007a4f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007a6e": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007a85": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007a9a": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10007aa9": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10007ac5": {
+      "kind": "direct_ret_instruction",
+      "target": "10008330",
+      "callee_pop_bytes": 0
+    },
+    "10007aff": {
+      "kind": "direct_ret_instruction",
+      "target": "10005010",
+      "callee_pop_bytes": 0
+    },
+    "10007b0b": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007919": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000792a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000793d": {
+      "kind": "direct_ret_instruction",
+      "target": "10008330",
+      "callee_pop_bytes": 0
+    },
+    "10007970": {
+      "kind": "direct_ret_instruction",
+      "target": "10004da0",
+      "callee_pop_bytes": 0
+    },
+    "1000797c": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100074ee": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "10007506": {
+      "kind": "direct_ret_instruction",
+      "target": "10008410",
+      "callee_pop_bytes": 0
+    },
+    "10007475": {
+      "kind": "direct_ret_instruction",
+      "target": "10008300",
+      "callee_pop_bytes": 0
+    },
+    "10007489": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e000",
+      "callee_pop_bytes": 0
+    },
+    "100073e5": {
+      "kind": "direct_ret_instruction",
+      "target": "10008300",
+      "callee_pop_bytes": 0
+    },
+    "100073f9": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e140",
+      "callee_pop_bytes": 0
+    },
+    "10007417": {
+      "kind": "direct_ret_instruction",
+      "target": "10008300",
+      "callee_pop_bytes": 0
+    },
+    "1000742f": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e140",
+      "callee_pop_bytes": 0
+    },
+    "10007444": {
+      "kind": "direct_ret_instruction",
+      "target": "1002e000",
+      "callee_pop_bytes": 0
+    },
+    "10007458": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d330",
+      "callee_pop_bytes": 16
+    },
+    "10007462": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d280",
+      "callee_pop_bytes": 16
+    },
+    "10007380": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "1000738f": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100073a2": {
+      "kind": "direct_ret_instruction",
+      "target": "10008040",
+      "callee_pop_bytes": 0
+    },
+    "10007759": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007770": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100077af": {
+      "kind": "direct_ret_instruction",
+      "target": "10002260",
+      "callee_pop_bytes": 4
+    },
+    "100077cb": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10007529": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000753a": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007550": {
+      "kind": "direct_ret_instruction",
+      "target": "10008410",
+      "callee_pop_bytes": 0
+    },
+    "10007581": {
+      "kind": "direct_ret_instruction",
+      "target": "10004da0",
+      "callee_pop_bytes": 0
+    },
+    "1000758d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "1000760c": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000761d": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007632": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "10007641": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "1000765b": {
+      "kind": "direct_ret_instruction",
+      "target": "10008410",
+      "callee_pop_bytes": 0
+    },
+    "10007693": {
+      "kind": "direct_ret_instruction",
+      "target": "10005010",
+      "callee_pop_bytes": 0
+    },
+    "1000769f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100076c3": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100076cd": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100076e2": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "100076f1": {
+      "kind": "win32_import_contract",
+      "target": "IsBadReadPtr",
+      "callee_pop_bytes": 8
+    },
+    "1000772d": {
+      "kind": "direct_ret_instruction",
+      "target": "10005010",
+      "callee_pop_bytes": 0
+    },
+    "10007739": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100075a1": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100075ab": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100075dd": {
+      "kind": "direct_ret_instruction",
+      "target": "10004da0",
+      "callee_pop_bytes": 0
+    },
+    "100075e9": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100074ae": {
+      "kind": "win32_import_contract",
+      "target": "IsBadWritePtr",
+      "callee_pop_bytes": 8
+    },
+    "100074ca": {
+      "kind": "direct_ret_instruction",
+      "target": "100083c0",
+      "callee_pop_bytes": 0
+    },
+    "100077e9": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10007800": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10007838": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f40",
+      "callee_pop_bytes": 0
+    },
+    "10007854": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "100073d5": {
+      "kind": "direct_ret_instruction",
+      "target": "10008240",
+      "callee_pop_bytes": 0
+    },
+    "10008291": {
+      "kind": "direct_ret_instruction",
+      "target": "10007fe0",
+      "callee_pop_bytes": 0
+    },
+    "100082b1": {
+      "kind": "direct_ret_instruction",
+      "target": "1002d8a0",
+      "callee_pop_bytes": 0
+    },
+    "100082cc": {
+      "kind": "direct_ret_instruction",
+      "target": "1002d870",
+      "callee_pop_bytes": 0
+    },
+    "100082d2": {
+      "kind": "direct_ret_instruction",
+      "target": "1003d518",
+      "callee_pop_bytes": 0
+    },
+    "100082f6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007ff0",
+      "callee_pop_bytes": 0
+    },
+    "10003a76": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003a87": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003aaa": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003acd": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003ae3": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003b36": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003b47": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "10003b68": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003b82": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003707": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "10003718": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "1000372c": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "1000373f": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003758": {
+      "kind": "direct_ret_instruction",
+      "target": "100028c0",
+      "callee_pop_bytes": 8
+    },
+    "10003762": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003c24": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003c33": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003c3e": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003c45": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003c5c": {
+      "kind": "direct_ret_instruction",
+      "target": "100085a0",
+      "callee_pop_bytes": 0
+    },
+    "100037b6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100037c7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100037f2": {
+      "kind": "direct_ret_instruction",
+      "target": "100028c0",
+      "callee_pop_bytes": 8
+    },
+    "100037fc": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003be4": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003bef": {
+      "kind": "win32_import_contract",
+      "target": "IsBadCodePtr",
+      "callee_pop_bytes": 4
+    },
+    "10003bfc": {
+      "kind": "direct_ret_instruction",
+      "target": "100085e0",
+      "callee_pop_bytes": 0
+    },
+    "100038b6": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100038c7": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100038ea": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003934": {
+      "kind": "native_com_argument_pushes",
+      "target": "dword ptr [edx+24h]",
+      "callee_pop_bytes": 8
+    },
+    "10003945": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    },
+    "10003697": {
+      "kind": "direct_ret_instruction",
+      "target": "10007e40",
+      "callee_pop_bytes": 0
+    },
+    "100036a8": {
+      "kind": "direct_ret_instruction",
+      "target": "10003220",
+      "callee_pop_bytes": 0
+    },
+    "100036d2": {
+      "kind": "direct_ret_instruction",
+      "target": "10001f40",
+      "callee_pop_bytes": 0
+    },
+    "100036ed": {
+      "kind": "direct_ret_instruction",
+      "target": "10003250",
+      "callee_pop_bytes": 0
+    }
+  },
+  "direct_callee_cleanup_summaries": {
+    "10007e40": 0,
+    "10003220": 0,
+    "10002260": 4,
+    "10003250": 0,
+    "10001fe0": 4,
+    "10001f80": 4,
+    "10001f40": 0,
+    "10002480": 4,
+    "100010a0": 0,
+    "10001050": 0,
+    "10001c10": 32,
+    "1003cf60": 0,
+    "1003d254": 0,
+    "1003d330": 16,
+    "1003d280": 16,
+    "10002010": 4,
+    "1002e140": 0,
+    "1002e000": 0,
+    "10002080": 4,
+    "10002180": 4,
+    "10001fb0": 4,
+    "10001a70": 36,
+    "10002300": 8,
+    "10002040": 4,
+    "100020d0": 4,
+    "10001ef0": 0,
+    "100013a0": 0,
+    "10001370": 0,
+    "10001850": 0,
+    "10002710": 0,
+    "10002890": 0,
+    "10002440": 0,
+    "10007bc0": 0,
+    "100084f0": 0,
+    "10007eb0": 0,
+    "10007e50": 0,
+    "10008450": 0,
+    "100030a0": 0,
+    "10003010": 0,
+    "10007ba0": 0,
+    "10007e80": 0,
+    "10002360": 20,
+    "10003090": 0,
+    "10002750": 0,
+    "10002da0": 0,
+    "100026b0": 0,
+    "10001100": 0,
+    "10008330": 0,
+    "10008410": 0,
+    "10004da0": 0,
+    "10005010": 0,
+    "10008300": 0,
+    "10008040": 0,
+    "100083c0": 0,
+    "10008240": 0,
+    "10007fe0": 0,
+    "1002d8a0": 0,
+    "1002d870": 0,
+    "1003d518": 0,
+    "10007ff0": 0,
+    "100028c0": 8,
+    "100085a0": 0,
+    "100085e0": 0
+  },
+  "direct_callee_return_evidence": {
+    "10007e40": [
+      {
+        "address": "10007e4a",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10003220": [
+      {
+        "address": "10003247",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002260": [
+      {
+        "address": "100022ae",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "100022f4",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "100022fa",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10003250": [
+      {
+        "address": "10003275",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001fe0": [
+      {
+        "address": "10002001",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "10002006",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10001f80": [
+      {
+        "address": "10001fa1",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "10001fa6",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10001f40": [
+      {
+        "address": "10001f79",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10001f7d",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002480": [
+      {
+        "address": "100024bd",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "100010a0": [
+      {
+        "address": "100010f0",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "100010f3",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001050": [
+      {
+        "address": "1000109b",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000109e",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001c10": [
+      {
+        "address": "10001c19",
+        "instruction_bytes": "c22000",
+        "pop_bytes": 32
+      },
+      {
+        "address": "10001cb9",
+        "instruction_bytes": "c22000",
+        "pop_bytes": 32
+      }
+    ],
+    "1003cf60": [
+      {
+        "address": "1003cf78",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1003d254": [
+      {
+        "address": "1003d27a",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1003d330": [
+      {
+        "address": "1003d346",
+        "instruction_bytes": "c21000",
+        "pop_bytes": 16
+      },
+      {
+        "address": "1003d361",
+        "instruction_bytes": "c21000",
+        "pop_bytes": 16
+      }
+    ],
+    "1003d280": [
+      {
+        "address": "1003d327",
+        "instruction_bytes": "c21000",
+        "pop_bytes": 16
+      }
+    ],
+    "10002010": [
+      {
+        "address": "10002037",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "1000203d",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "1002e140": [
+      {
+        "address": "1002e155",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1002e159",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1002e000": [
+      {
+        "address": "1002e010",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1002e014",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002080": [
+      {
+        "address": "100020c6",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "100020cc",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10002180": [
+      {
+        "address": "100021b1",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "10002204",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "10002224",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10001fb0": [
+      {
+        "address": "10001fcb",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "10001fd0",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10001a70": [
+      {
+        "address": "10001a7f",
+        "instruction_bytes": "c22400",
+        "pop_bytes": 36
+      },
+      {
+        "address": "10001bfe",
+        "instruction_bytes": "c22400",
+        "pop_bytes": 36
+      },
+      {
+        "address": "10001c08",
+        "instruction_bytes": "c22400",
+        "pop_bytes": 36
+      }
+    ],
+    "10002300": [
+      {
+        "address": "1000235c",
+        "instruction_bytes": "c20800",
+        "pop_bytes": 8
+      }
+    ],
+    "10002040": [
+      {
+        "address": "10002078",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      },
+      {
+        "address": "1000207d",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "100020d0": [
+      {
+        "address": "10002176",
+        "instruction_bytes": "c20400",
+        "pop_bytes": 4
+      }
+    ],
+    "10001ef0": [
+      {
+        "address": "10001f33",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10001f37",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100013a0": [
+      {
+        "address": "100013ca",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001370": [
+      {
+        "address": "10001399",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000139c",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001850": [
+      {
+        "address": "100018a5",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002710": [
+      {
+        "address": "1000274c",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002890": [
+      {
+        "address": "100028bb",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002440": [
+      {
+        "address": "1000247f",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007bc0": [
+      {
+        "address": "10007bcf",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100084f0": [
+      {
+        "address": "1000859e",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007eb0": [
+      {
+        "address": "10007ec5",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10007ecf",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007e50": [
+      {
+        "address": "10007e65",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10007e72",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008450": [
+      {
+        "address": "100084ee",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100030a0": [
+      {
+        "address": "1000321d",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10003010": [
+      {
+        "address": "10003082",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007ba0": [
+      {
+        "address": "10007ba8",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10007bb2",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007e80": [
+      {
+        "address": "10007e95",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10007ea1",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002360": [
+      {
+        "address": "10002431",
+        "instruction_bytes": "c21400",
+        "pop_bytes": 20
+      }
+    ],
+    "10003090": [
+      {
+        "address": "1000309f",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002750": [
+      {
+        "address": "10002796",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10002882",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10002da0": [
+      {
+        "address": "10002dac",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10002e6a",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100026b0": [
+      {
+        "address": "100026ce",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "100026f5",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10002705",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10001100": [
+      {
+        "address": "1000110f",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10001138",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000115f",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000117f",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008330": [
+      {
+        "address": "100083a8",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "100083b5",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008410": [
+      {
+        "address": "10008446",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10004da0": [
+      {
+        "address": "10004dc2",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10005003",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000500b",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10005010": [
+      {
+        "address": "1000507b",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000509d",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10005305",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008300": [
+      {
+        "address": "10008321",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1000832d",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008040": [
+      {
+        "address": "100080f7",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "100081b3",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "10008233",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100083c0": [
+      {
+        "address": "10008407",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10008240": [
+      {
+        "address": "1000828b",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007fe0": [
+      {
+        "address": "10007fee",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1002d8a0": [
+      {
+        "address": "1002d8b1",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      },
+      {
+        "address": "1002d8b6",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1002d870": [
+      {
+        "address": "1002d883",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "1003d518": [
+      {
+        "address": "1003d522",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "10007ff0": [
+      {
+        "address": "10007ffc",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100028c0": [
+      {
+        "address": "10002c46",
+        "instruction_bytes": "c20800",
+        "pop_bytes": 8
+      }
+    ],
+    "100085a0": [
+      {
+        "address": "10007ffc",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ],
+    "100085e0": [
+      {
+        "address": "10007ffc",
+        "instruction_bytes": "c3",
+        "pop_bytes": 0
+      }
+    ]
+  },
+  "declared_contract_report": "analysis/squall-export-stack-validation.json",
+  "declared_contract_report_sha256": "9787aca88de33ad40a13fbbda446b15d72fa7f322cc230d783a3c110d71e1a94",
+  "reference_files_unchanged": 17,
+  "source_files": {
+    "tools/audit_squall_native_arguments.py": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a",
+    "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb"
+  },
+  "whole_native_signature_semantics_verified": false,
+  "whole_game_complete": false
+}
