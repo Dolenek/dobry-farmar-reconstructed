@@ -1,5 +1,17 @@
 # Skutečný Farm controller
 
+## Přirozené pozdější události a skutečně zničené plodiny
+
+Dva celé programy obnovily protější skutečný profil se všemi60 zaplacenými poli a30 zalévanými. Původní zkratka15× postupovala z GameTime1400 přes šest kontrolních bodů do3550; přirozené ocenění13 bylo obsloužené skutečným UI a oba panely mají480000 přesně stejných RGB pixelů. Osm původních zralých kultur14/15/16/17/18/23/27/34 zůstalo pod závlahou připravených. Normální zavření/uložení a nové spuštění vrátily skutečný výchozí čas1×; rychlost nebyla přepsaná v paměti ani v profilu.
+
+Původní události112/113/114 na3585/3586/3587 mají Type3, počty4/2/3 a pravděpodobnosti0.4/0.6/0.4. V obou reálných bězích zaniklo právě sedm kultur14/15/16/17/18/23/27; záhon34 zůstal zralý. Live harvested příznaky se kvůli nezávislému časování liší a jsou uložené bez úprav. Toto není důkaz synchronizovaného RNG. Poslední kandidát odpovídá původní zvláštnosti0042f080, která před výběrem snižuje horní mez. První zpráva o hlodavcích je vložená ještě před náhodným rozhodnutím; samotná zpráva se nepoužívá jako důkaz úspěšného zničení.
+
+Jedenáct skutečných peněžních událostí od1400 do3550 má audit podle přítomnosti konkrétních původních zpráv v deníku, včetně všech šesti kontrolních bodů. Native skončil na2904, source na2804: source navíc skutečně zasáhly události67/72/90 s celkovým dopadem−100. Povinné události a nepeněžní sled zpráv souhlasí;19 tržních cen souhlasí v každém kontrolním bodě. Rozdíl se nenormalizuje a není označený za chybu rekonstrukce ani za shodný celý profil. Každá větev získala stejných219 bajtů rodent zprávy; konečné saves mají6943 a7784 bajtů.
+
+Čtyři další obousměrné obnovy zachovaly právě svůj vstupní save celý a beze změny:6943/7784/6943/6943 bajtů, příslušné peníze/deník, sedm zničených kultur, přeživší34, všech60 aktivních objektů a30 zalévaných polí. Dvě source obnovy mají readonly exception trace bez AV a normální exit0. Původní17 souborů zůstává beze změny, produkční zdroje stále odpovídají102/102 regresi. Čtyři diagnostické neúspěchy (nekonzistentní snapshot stromu, dvě ztráty foreground a odmítnutý pohyb myši před stiskem) jsou zachované odděleně; tři skutečně dokončené části posledního částečného běhu jsou ověřené hashi a převzaté do výsledku. Nejde o čtyři pády hry.
+
+Reprodukce používá `tools/validate_game_field_disasters.py`, `tools/validate_field_disasters_state.py`, `tools/validate_game_field_disasters_interop.py --crash-trace build/source-crash-trace-vs/Release/source-crash-trace.exe` a `tools/record_field_disasters_verification.py`. Přenositelné reporty jsou `analysis/field-disasters-{state-validation,interop-validation,initial-observation,regression}.json`. Garantované pozdější ničení, zbytek časové osy, další ocenění a celý původní cíl pokračují.
+
 ## Skutečné nákupy zbývajících rozšíření a všech60 aktivních polí
 
 `tools/validate_game_farm_expansions.py` navazuje na skutečný profil po neúspěchu zakázky37: fcu1/fua3, Money4504, tři zaplacené postřikovače. Původní tlačítka na572/152 a572/102 skutečně zaplatí500 a1000 z XML; Money postupuje4504→4004→3004. Nejde o cheat rozšíření ani zápis profilových klíčů. Už dříve původním průběhem dosažená dostupnost3 zůstává zachovaná.

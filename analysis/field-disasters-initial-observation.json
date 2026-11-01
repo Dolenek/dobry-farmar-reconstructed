@@ -1,0 +1,61 @@
+{
+  "status": "diagnostic_snapshot_foreground_and_pointer_failures_preserved",
+  "failures": [
+    {
+      "work_directory": ".local/field-disasters/20261101T164329730594Z",
+      "report_sha256": "528c7f76b36a6781e78d168ef3a3b02a089898857c4fc0842b15da66f0d9298b",
+      "driver_sha256": "dcbb2ca095df1fe736efc55172a040f0b2dc2f0275f94dbc88d699ffd72deaff",
+      "error": "AssertionError()",
+      "description": "Suspension caught an in-progress scene-tree rotation; rejected snapshot",
+      "completed_sessions": [],
+      "recorded_as_game_failure": false
+    },
+    {
+      "work_directory": ".local/field-disasters/20261101T164621601131Z",
+      "report_sha256": "ecaa2719f6e239608b30dae53f2c98b6927529cfc54a6edb58ed84a1c86ee666",
+      "driver_sha256": "1852436b874be4716003de08f2948637339f204d81fd61afb903f6cf791b30ff",
+      "error": "AssertionError('Source application lost foreground; no global input was injected')",
+      "description": "Owned window lost foreground while returning from fast clock",
+      "completed_sessions": [],
+      "recorded_as_game_failure": false
+    },
+    {
+      "work_directory": ".local/field-disasters/20261101T165225056632Z",
+      "report_sha256": "a41ab07aa246ef1b1e22671c5d3093380131631334ee06252e6cdcd560733120",
+      "driver_sha256": "12983daaad3bea66f542038416a7989c156dcdf7a75d3ca8dc462b89b4aa4cc6",
+      "error": "AssertionError(('Foreground was unavailable throughout diagnostic deadline', 'before-natural-destruction'))",
+      "description": "83 guarded foreground attempts exhausted the diagnostic deadline",
+      "completed_sessions": [],
+      "recorded_as_game_failure": false
+    },
+    {
+      "work_directory": ".local/field-disasters/20261101T170218566342Z",
+      "report_sha256": "0e4862d330ea8425e05632c015d9cffe28facdd332c2485e704f01615f4a4d75",
+      "driver_sha256": "f15cf71abde5201a07a8a8f476b4797f2f0c1806bd50c8dcd1b9f3f16eada517",
+      "error": "AssertionError(('Injected pointer missed owned window target', (353, 309), (400, 365)))",
+      "description": "Source Start pointer guard rejected move before mouse button; first three completed sessions retained",
+      "completed_sessions": [
+        0,
+        1,
+        2
+      ],
+      "recorded_as_game_failure": false
+    }
+  ],
+  "resolution": "Bounded read-only tree retry; ordinary save/restart returns to actual default1x clock; guarded pointer move retry",
+  "retained_completed_segments": {
+    "report_path": ".local/field-disasters/20261101T170218566342Z/report.json",
+    "report_sha256": "0e4862d330ea8425e05632c015d9cffe28facdd332c2485e704f01615f4a4d75",
+    "driver_snapshot_sha256": "f15cf71abde5201a07a8a8f476b4797f2f0c1806bd50c8dcd1b9f3f16eada517",
+    "completed_cycles": [
+      0,
+      1,
+      2
+    ],
+    "original_diagnostic_error": "AssertionError(('Injected pointer missed owned window target', (353, 309), (400, 365)))",
+    "old_production_and_helper_hashes_verified": true
+  },
+  "game_state_memory_written": false,
+  "production_implementation_changed": false,
+  "whole_game_complete": false
+}

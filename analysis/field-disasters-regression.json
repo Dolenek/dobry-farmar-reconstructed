@@ -1,0 +1,266 @@
+{
+  "status": "passed_actual_later_world_timeline_first_crop_destruction_and_four_cross_restores_only",
+  "recorded_at_utc": "2026-11-01T17:23:13.135566+00:00",
+  "recorder_sha256": "ea67457310671b74aadd68c8c10d4954d92aeef11e6557c606a7c9d2fcd64ffb",
+  "reports": {
+    "field-disasters-state-validation.json": "5883ec4cd5d6105c2d92cea1644773b474e515e94e4c3f20243ba3dd85a3d1c7",
+    "field-disasters-interop-validation.json": "16534fd92740bc6b362cfa501fb447ed105991f0f32769a5bc2c39fc2e7b58ee",
+    "field-disasters-initial-observation.json": "d12fa91a0a54ae4c3a5585df41f5cf1186f9c4e46a2be6f33bc5cb134765e6ae"
+  },
+  "runtime_processes": 4,
+  "further_bidirectional_restores": 4,
+  "timeline_checkpoints_per_executable": 6,
+  "money_event_ledger": [
+    {
+      "kind": "native",
+      "initial_money": 3004,
+      "events": [
+        {
+          "index": 53,
+          "time": 1515,
+          "value": -25,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 61,
+          "time": 1835,
+          "value": 100,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 67,
+          "time": 2100,
+          "value": -50,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 70,
+          "time": 2255,
+          "value": -150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 72,
+          "time": 2355,
+          "value": 50,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 81,
+          "time": 2595,
+          "value": -50,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 87,
+          "time": 2735,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 90,
+          "time": 2855,
+          "value": -100,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 95,
+          "time": 2975,
+          "value": 300,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 99,
+          "time": 3121,
+          "value": -75,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 106,
+          "time": 3421,
+          "value": -50,
+          "probability": 1.0,
+          "taken": true
+        }
+      ],
+      "expected_final_money": 2904,
+      "actual_final_money": 2904
+    },
+    {
+      "kind": "source",
+      "initial_money": 3004,
+      "events": [
+        {
+          "index": 53,
+          "time": 1515,
+          "value": -25,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 61,
+          "time": 1835,
+          "value": 100,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 67,
+          "time": 2100,
+          "value": -50,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 70,
+          "time": 2255,
+          "value": -150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 72,
+          "time": 2355,
+          "value": 50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 81,
+          "time": 2595,
+          "value": -50,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 87,
+          "time": 2735,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 90,
+          "time": 2855,
+          "value": -100,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 95,
+          "time": 2975,
+          "value": 300,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 99,
+          "time": 3121,
+          "value": -75,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 106,
+          "time": 3421,
+          "value": -50,
+          "probability": 1.0,
+          "taken": true
+        }
+      ],
+      "expected_final_money": 2804,
+      "actual_final_money": 2804
+    }
+  ],
+  "explicit_stochastic_money": [
+    2904,
+    2804
+  ],
+  "destruction_event_indices": [
+    112,
+    113,
+    114
+  ],
+  "destroy_fields_native_address": "0042f080",
+  "destroyed_crop_ids": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    23,
+    27
+  ],
+  "surviving_ready_crop_id": 34,
+  "matched_rng_and_particle_timing_verified": false,
+  "identical_whole_award_rgb_pixels": 480000,
+  "branch_save_bytes": [
+    6943,
+    7784
+  ],
+  "complete_cross_restore_bytes": [
+    6943,
+    7784,
+    6943,
+    6943
+  ],
+  "normalizations": [],
+  "source_restore_debugger_traces": {
+    "4-crash-trace.jsonl": {
+      "sha256": "1a81d8241ac00284ae8a1c753859b00f5df503fbcb6c96acfb463bd19975cb16",
+      "events": [
+        {
+          "event": "image",
+          "base": 16515072
+        },
+        {
+          "event": "ready",
+          "pid": 4024,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "7-crash-trace.jsonl": {
+      "sha256": "71bf2ff4357e6d5e5ead3e0ddca9d94673544ecd57eb9a04b1806fd35d76166a",
+      "events": [
+        {
+          "event": "image",
+          "base": 16515072
+        },
+        {
+          "event": "ready",
+          "pid": 436,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Guaranteed later crop destruction and remaining natural world events",
+    "Remaining natural awards and nonzero contract streak",
+    "Remaining complete Squall/JNG/uninstaller scopes"
+  ]
+}
