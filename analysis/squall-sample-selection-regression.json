@@ -1,0 +1,43 @@
+{
+  "status": "passed_multi_member_group_rng_cap_and_four_real_group_play_exports_both_builds",
+  "recorded_at_utc": "2026-11-01T18:16:39.304728+00:00",
+  "recorder_sha256": "3f41cd897bcbdf47e30a70149aac28346bf9555bff5c49fa6f4b702a9b9d05b2",
+  "reports": {
+    "squall-sample-selection-validation.json": "ff2f7a9b57347e3b54f789c22e4551e49264cd15fd0b039e6457b63d7e0e6159",
+    "squall-sample-selection-fresh-validation.json": "4b6002422befaaa90943ce20a62058a9fd52c44397f8e541b070824b9e7d5d95",
+    "squall-sample-selection-native-instructions.txt": "40569f565b47a1070ed28421a0e37d2c186095a2cece4bfb665e1983d7583135"
+  },
+  "api_results_per_build": 236896,
+  "selector_results_per_build": 229376,
+  "actual_group_channels_per_build": 224,
+  "loaded_samples_per_dll_per_precision": 300,
+  "member_counts": [
+    1,
+    2,
+    7,
+    255,
+    256,
+    257,
+    300
+  ],
+  "eligible_limit": 256,
+  "selectors_per_group_per_precision": 16384,
+  "original_selector_address": "10008330",
+  "readonly_native_sample_id_offset": "4c",
+  "rng_state_written": false,
+  "opaque_ids_normalized": false,
+  "build_logs": {
+    "squall-sample-selection-config.log": "17a8ca8aa9b7031d5c48cb8772b42225475f7e7d9503ad19998e380cac9fd659",
+    "squall-sample-selection-build.log": "29c0f28d72c3419a01cb1f8169eac9c2ddf8f6693c101bfb0db50f1363b6e505"
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Concurrent group mutation,65535 sample limit and generation wraparound",
+    "Additional decoder formats and remaining complete97-export/full-game scopes"
+  ]
+}

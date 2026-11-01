@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Vícečlenné sample skupiny, původní RNG a limit256
+
+`tools/squall_sample_selection_probe` načetl v každé skutečné DLL300 samostatných SampleID sdílejících jediný WAV Reader. Členství a individuální frekvence/priorita se mění skutečným Sample_SetDefault. Skupiny1/2/7/255/256/257/300 mají po16384 přesně shodných volbách na kontext; z každého způsobilého člena se skutečně alespoň jednou vybíralo. Původní selector10008330 a vlastní map symbol se volají pouze v diagnostickém testu, nikoli v produkci. Test nezasahuje do seedů: skutečná sekvence obou DLL souhlasí i s nezměněným výchozím CRT LCG, včetně spotřeby RNG u jednočlenné skupiny. Chybějící skupina RNG nespotřebuje a num0/1/ffffffff/256 zůstává ignorované.
+
+Prvních256 členů je přesný původní limit; členové256..299 ve větších skupinách nejsou způsobilí. Na každé sadě navazuje všech čtyři skutečných SampleGroup_Play variant po čtyřech real2D/3D kanálech. Readonly SampleID na původním offsetu4c odpovídá očekávanému výběru, stejně jako výchozí/explicitní frekvence a priorita. Všechna ASLR source čtení jsou odvozená z vlastního linker map. Součet na každé ze dvou sestavení v PC53/PC24:236896 API/selector výsledků,229376 porovnaných neprázdných výběrů a224 skutečných group kanálů. Histogramy i celé sekvenční FNV souhrny se shodují ve všech čtyřech kontextech; ID ani data se nenormalizují.
+
+Reprodukce: CMake `-S tools/squall_sample_selection_probe -B build/squall-sample-selection-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_sample_selection.py`, totéž s nezávislou `--candidate` a `--output .local/squall-sample-selection-fresh-validation.json`, potom `py -3 tools/record_squall_sample_selection.py`. Důkazy: `analysis/squall-sample-selection-{validation,fresh-validation,regression}.json` a native instrukce. Produkce se neměnila. Souběžné změny, limit65535 a generational wraparound, ostatní formáty a celý původní cíl pokračují.
+
 ## Nezávislé původní argumentové sloty všech97 exportů
 
 `tools/audit_squall_native_arguments.py` sleduje původní ESP/EBP v celém CFG každého exportu. Počty nezískává z veřejného zdroje:230 konkrétních původních stack reference instrukcí přímo odkazuje souvislé sloty1..N a nejvyšší slot odpovídá deklaraci každého z97 exportů. Souhrn má5697 symbolických stavů,603 call site cleanup důkazů a63 interních callee souhrnů. Každý interní cleanup vychází ze skutečných C3/C2 návratových bajtů originálu; osm přímých COM callů má explicitní původní push kontrakty a osm použitých Win32 importů má svůj stdcall kontrakt. Cached import pointery se sledují i přes nevolatilní registry. Všechny sledované návraty mají původní relativní ESP0.

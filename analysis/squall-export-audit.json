@@ -2011,7 +2011,8 @@
           "100078d8"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
-      }
+      },
+      "loaded_DLL_sample_selection_verified_scope": "Actual300 loaded sample IDs sharing one Reader; public membership/default updates; groups1/2/7/255/256/257/300,first256 cap,untouched default CRT sequence,all eligible observed; actual all four2D/3D group play methods and readonly selected SampleID/default-vs-explicit frequency/priority; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_SampleGroup_Play3D",
@@ -2047,7 +2048,8 @@
           "10007a34"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
-      }
+      },
+      "loaded_DLL_sample_selection_verified_scope": "Actual300 loaded sample IDs sharing one Reader; public membership/default updates; groups1/2/7/255/256/257/300,first256 cap,untouched default CRT sequence,all eligible observed; actual all four2D/3D group play methods and readonly selected SampleID/default-vs-explicit frequency/priority; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_SampleGroup_Play3DEx",
@@ -2093,7 +2095,8 @@
           "10007af0"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
-      }
+      },
+      "loaded_DLL_sample_selection_verified_scope": "Actual300 loaded sample IDs sharing one Reader; public membership/default updates; groups1/2/7/255/256/257/300,first256 cap,untouched default CRT sequence,all eligible observed; actual all four2D/3D group play methods and readonly selected SampleID/default-vs-explicit frequency/priority; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_SampleGroup_PlayEx",
@@ -2133,7 +2136,8 @@
           "10007963"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
-      }
+      },
+      "loaded_DLL_sample_selection_verified_scope": "Actual300 loaded sample IDs sharing one Reader; public membership/default updates; groups1/2/7/255/256/257/300,first256 cap,untouched default CRT sequence,all eligible observed; actual all four2D/3D group play methods and readonly selected SampleID/default-vs-explicit frequency/priority; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_Sample_GetDefault",
@@ -2837,5 +2841,9 @@
   ],
   "native_argument_reports": [
     "analysis/squall-native-arguments-audit.json"
+  ],
+  "sample_selection_reports": [
+    "analysis/squall-sample-selection-validation.json",
+    "analysis/squall-sample-selection-fresh-validation.json"
   ]
 }

@@ -452,7 +452,11 @@
     "analysis/squall-exports-native-instructions.txt",
     "analysis/squall-export-stack-regression.json",
     "analysis/squall-native-arguments-audit.json",
-    "analysis/squall-native-arguments-regression.json"
+    "analysis/squall-native-arguments-regression.json",
+    "analysis/squall-sample-selection-validation.json",
+    "analysis/squall-sample-selection-fresh-validation.json",
+    "analysis/squall-sample-selection-native-instructions.txt",
+    "analysis/squall-sample-selection-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108372,8 +108376,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-native-arguments-regression.json",
-    "recorded_at_utc": "2026-11-01T18:06:37.218570+00:00",
+    "report": "analysis/squall-sample-selection-regression.json",
+    "recorded_at_utc": "2026-11-01T18:16:39.304728+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"
