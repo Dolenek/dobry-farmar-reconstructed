@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Kanálové callbacky Squallu](SQUALL.md) prošly v obou sestaveních: po456 API výsledcích,432 pointer/period případech,52 skutečných2D/3D kanálech a48 callback pozorováních. Správné ID/data/thread/reentrantní getter, odmítnuté změny, clear a návrat0 souhlasí. Původní signed chování vysokobitových period je zachované; nezávislé počty callbacků nejsou normalizované. Produkce se neměnila; pokračují EAX/ZOOMFX a celý původní cíl.
+
 [Osm sample/group přehrávacích exportů a Sample_Pause/Stop](SQUALL.md) nyní prošlo ve dvou sestaveních: po774 skutečných2D/3D kanálech,12240 API výsledcích a836 guarded snapshotech. Všechny kombinace loop/start0/1/−1/2 a skupiny17/−7/0 souhlasí. Pause/Stop správně rozlišují jiné SampleID sdílející soubor; asynchronní úklid je výslovně pozorovaný. Více členů ve skupině a chybové větve zůstávají otevřené. Produkce se neměnila; pokračují channel callbacky a celý původní cíl.
 
 [Paměťové callbacky a UnloadAll Squallu](SQUALL.md) nově prošly v obou sestaveních: po1568 API výsledcích,228 guarded sample snapshotech,672 kontrolách skutečných callback událostí a18 vynucených chybách načtení. Původní callback zůstává vlastníkem paměti i po přepnutí, úklid i opakování po chybě souhlasí. Neplatné pointery se před použitím obnovují; jejich vyvolání se neoznačuje za ověřené. Produkce se neměnila; pokračují sample/group přehrávání a celý původní cíl.

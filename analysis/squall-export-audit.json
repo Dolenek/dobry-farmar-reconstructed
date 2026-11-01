@@ -327,9 +327,10 @@
       "name": "SQUALL_Channel_SetWorker",
       "ordinal": 36,
       "original_address": "10005b10",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_channel_worker_verified_scope": "Actual prepared/playing/paused2D/3D callbacks, channel ID/userdata/thread/reentrant getter, rejected code1/zero-period retention, synchronous clear, return0 deletes after one call, signed high-bit periods; two builds and PC53/PC24. Independent scheduling counts preserved."
     },
     {
       "name": "SQUALL_Channel_Start",
@@ -933,5 +934,9 @@
   "sample_play_reports": [
     "analysis/squall-sample-play-validation.json",
     "analysis/squall-sample-play-fresh-validation.json"
+  ],
+  "channel_worker_reports": [
+    "analysis/squall-channel-worker-validation.json",
+    "analysis/squall-channel-worker-fresh-validation.json"
   ]
 }

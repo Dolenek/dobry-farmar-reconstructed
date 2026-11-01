@@ -1,0 +1,32 @@
+{
+  "status": "passed_actual_channel_worker_callback_semantics_both_builds",
+  "recorded_at_utc": "2026-11-01T17:37:29.453526+00:00",
+  "recorder_sha256": "12fb612d041d0bbc6f7f283433f45af4795879e89ebdbffba2970d58ee462d03",
+  "reports": {
+    "squall-channel-worker-validation.json": "94434cf95705e59dc9b3312ad074f579a82d806ea9955deb85f2d0dcb11c9fd0",
+    "squall-channel-worker-fresh-validation.json": "cc5b472d35782b434e6888d7975f543e582c839e2a1077385bcb3a242a3626f6",
+    "squall-channel-worker-native-instructions.txt": "44f08bfa16e424d5192c737016a5c7cad9faca6ca89b2665737f49f74e76a6c9"
+  },
+  "original_export_address": "10005b10",
+  "api_results_per_build": 456,
+  "pointer_cases_per_build": 432,
+  "actual_created_channels_per_build": 52,
+  "callback_observations_per_build": 48,
+  "observation_ms_after_clear": 35,
+  "independent_callback_counts_claimed_equal": false,
+  "build_logs": {
+    "squall-channel-worker-config.log": "2b199a9091af91cda534c0fbe90820b6f1c99713618a74f5b4dc3ea54eb35dc1",
+    "squall-channel-worker-build.log": "d9cd426b07107a251931f879c0c3f0f0650bdc2c7bc5aa702a6a425e8ab569dc"
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Callback self-mutation and other reentrant APIs",
+    "Concurrent teardown and timer wraparound",
+    "Remaining complete97-export ABI/behavior and full-game scopes"
+  ]
+}

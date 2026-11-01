@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Skutečné kanálové callbacky
+
+`tools/squall_channel_worker_probe` porovnal `SQUALL_Channel_SetWorker` ve dvou skutečných DLL a dvou nezávislých source sestaveních. Každé sestavení má v PC53/PC24 dohromady456 API výsledků,432 pointer/period případů,52 skutečných2D/3D kanálů a48 uložených callback pozorování. Callback v připraveném, hrajícím i pozastaveném kanálu dostal správné ChannelID i userdata, běžel ve skutečném zvukovém threadu a reentrantní veřejný Channel_Status getter vrátil správný stav bez deadlocku. Po odmítnutí code1 i nulové periody pokračoval původní callback s původními daty; po synchronním clear se během35ms už neozval.
+
+Návrat0 z callbacku připraveného2D i3D kanálu skutečně odstranil buffer právě po jednom volání. Kanálový timer zachovává původní znaménkové porovnání: periody DWORDffffffff/fffffffe/80000000 spouštějí callbacky během35ms,7fffffff nikoli. Odlišné unsigned listener chování se tím nemění. Počty a časování callbacků jsou uložené zvlášť pro každý proces a nejsou vydávané za stejné. Souběh, samovolná změna callbacku a timer wraparound zůstávají neověřené.
+
+Reprodukce: CMake `-S tools/squall_channel_worker_probe -B build/squall-channel-worker-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_channel_worker.py`, totéž s nezávislou `--candidate` a `--output .local/squall-channel-worker-fresh-validation.json`, potom `py -3 tools/record_squall_channel_worker_verification.py`. Přenositelné reporty `analysis/squall-channel-worker-{validation,fresh-validation,regression}.json` a native instrukce10005b10 doplňují dosavadní listener důkazy. Produkce se neměnila; úplný Squall a celý původní cíl pokračují.
+
 ## Skutečné sample/group přehrávání, pauza a stop
 
 `tools/squall_sample_play_probe` porovnává všech osm variant Sample/SampleGroup Play/PlayEx/Play3D/Play3DEx přes skutečné DLL a DirectSound. Dvě nezávislá sestavení mají každé v PC53/PC24 celkem774 skutečných vytvoření kanálu,12240 stejných API návratů a836 celých guarded snapshotů. Singleton skupiny17/−7/0 používají vlastní sekundové mono PCM16 WAV; všechny16 kombinace syrových Loop/Start0/1/−1/2 mají vlastní vytvoření/úklid.2D i skutečné3D buffery ověřují výchozí/explicitní parametry, skalární gettery a přesné cached position/velocity/min/max včetně canaries. Spuštěný buffer se hned pozastaví, aby nezávislé dohrání neovlivnilo audit parametrů.
