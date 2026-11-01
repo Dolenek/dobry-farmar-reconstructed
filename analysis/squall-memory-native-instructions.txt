@@ -1,0 +1,35 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  10003BD0: 53                 push        ebx
+  10003BD1: 8B 5C 24 08        mov         ebx,dword ptr [esp+8]
+  10003BD5: 55                 push        ebp
+  10003BD6: 56                 push        esi
+  10003BD7: 57                 push        edi
+  10003BD8: 8B 3D 34 80 04 10  mov         edi,dword ptr ds:[10048034h]
+  10003BDE: 53                 push        ebx
+  10003BDF: BE 01 00 00 00     mov         esi,1
+  10003BE4: FF D7              call        edi
+  10003BE6: 8B 6C 24 18        mov         ebp,dword ptr [esp+18h]
+  10003BEA: 85 C0              test        eax,eax
+  10003BEC: 75 07              jne         10003BF5
+  10003BEE: 55                 push        ebp
+  10003BEF: FF D7              call        edi
+  10003BF1: 85 C0              test        eax,eax
+  10003BF3: 74 05              je          10003BFA
+  10003BF5: BE FC FF FF FF     mov         esi,0FFFFFFFCh
+  10003BFA: 55                 push        ebp
+  10003BFB: 53                 push        ebx
+  10003BFC: E8 DF 49 00 00     call        100085E0
+  10003C01: 83 C4 08           add         esp,8
+  10003C04: 8B C6              mov         eax,esi
+  10003C06: 5F                 pop         edi
+  10003C07: 5E                 pop         esi
+  10003C08: 5D                 pop         ebp
+  10003C09: 5B                 pop         ebx
+  10003C0A: C3                 ret

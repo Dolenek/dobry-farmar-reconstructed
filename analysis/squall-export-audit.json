@@ -730,7 +730,8 @@
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music",
       "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds",
-      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
+      "loaded_DLL_memory_verified_scope": "Actual mono PCM16 WAV64frames/8000Hz/8ms, memory flags0/1/-1/2, shared duplicate file ownership, forced allocation failures and successful retry; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_Sample_Pause",
@@ -805,9 +806,10 @@
       "name": "SQUALL_Sample_UnloadAll",
       "ordinal": 89,
       "original_address": "100073c0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_memory_verified_scope": "Actual two reader generations and duplicate file references; all owned filename/file-buffer allocations freed exactly once through retained callbacks; repeated empty unload; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_Set3DAlgorithm",
@@ -858,9 +860,10 @@
       "name": "SQUALL_SetMemoryCallbacks",
       "ordinal": 95,
       "original_address": "10003bd0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_memory_verified_scope": "Actual callback A/B/null/1/-1/readable/noaccess pointer pairs, pre-Init/DirectSound/post-Free, retained reader ownership, guarded sizes/order, filename/file-buffer allocation failure and successful retry; two builds and PC53/PC24"
     },
     {
       "name": "SQUALL_SetSpeakerMode",
@@ -912,5 +915,9 @@
   "channel_vector_reports": [
     "analysis/squall-channel-vectors-validation.json",
     "analysis/squall-channel-vectors-fresh-validation.json"
+  ],
+  "memory_callback_reports": [
+    "analysis/squall-memory-validation.json",
+    "analysis/squall-memory-fresh-validation.json"
   ]
 }

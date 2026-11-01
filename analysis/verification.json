@@ -427,7 +427,11 @@
     "analysis/field-disasters-state-validation.json",
     "analysis/field-disasters-interop-validation.json",
     "analysis/field-disasters-initial-observation.json",
-    "analysis/field-disasters-regression.json"
+    "analysis/field-disasters-regression.json",
+    "analysis/squall-memory-validation.json",
+    "analysis/squall-memory-fresh-validation.json",
+    "analysis/squall-memory-native-instructions.txt",
+    "analysis/squall-memory-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108347,8 +108351,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/field-disasters-regression.json",
-    "recorded_at_utc": "2026-11-01T17:23:13.135566+00:00",
+    "report": "analysis/squall-memory-regression.json",
+    "recorded_at_utc": "2026-11-01T17:28:02.637490+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

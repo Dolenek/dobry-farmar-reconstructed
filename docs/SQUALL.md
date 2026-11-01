@@ -1,5 +1,15 @@
 # Rekonstrukce Squall
 
+## Skutečné paměťové callbacky a chyby alokace
+
+`tools/squall_memory_probe` a `tools/validate_squall_memory.py` načítají skutečnou původní a vlastní DLL. Obě nezávislá sestavení mají každé1568 shodných návratových hodnot,228 guarded sample snapshotů a672 kontrol callback událostí v PC53/PC24. Každý kontext zaznamenává147 skutečných alokací/uvolnění/chyb s přesným pořadím, velikostí, generací callbacku a pořadovým identifikátorem alokace; syrové adresy jednotlivých heapů se za shodné nepovažují.
+
+Ve třech stavech před Init / se skutečným DirectSound / po Free se porovnává38 dvojic code pointerů (A/B/null/1/−1/readable/noaccess). Původní10003bd0 vrací1 nebo−4, avšak10003bfc vždy volá100085e0 a uloží dodané callbacky i při chybě. Test po každé takové kontrole ihned obnoví platnou dvojici. Volání neplatného uloženého callbacku zatím ověřené není.
+
+Vlastní mono PCM16 WAV má64 snímků,8000Hz a8ms. MemFlag0/1/−1/2, dva různé soubory a opakované načtení téhož názvu ověřily sdílení Readeru. Přepnutí A→B zachovává správný původní free callback každého živého Readeru;16bajtové canaries před/za každou alokací zůstaly celé. Skutečný UnloadAll uvolní všechny názvy i datové buffery právě jednou a opakované prázdné volání je bezpečné. Každé sestavení má18 záměrně neúspěšných načtení kvůli alokaci názvu nebo dat, úplný úklid a následné úspěšné opakování;102 dalších platných načtení na DLL.
+
+Reprodukce: CMake `-S tools/squall_memory_probe -B build/squall-memory-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_memory.py`, totéž s `--candidate build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll --output .local/squall-memory-fresh-validation.json`, potom `py -3 tools/record_squall_memory_verification.py`. Přenositelné důkazy jsou `analysis/squall-memory-{validation,fresh-validation,regression}.json` a původní instrukce `analysis/squall-memory-native-instructions.txt`. Produkce se neměnila a odpovídá dosavadní102/102 regresi. Tyto dva dříve neporovnané exporty mají nyní částečné pokrytí; úplné97exportové ABI/chování, souběh a ostatní původní cíle pokračují.
+
 ## Skutečné 3D kanály: původní C3 větve a syrové kopie
 
 Nové porovnání skutečných exportů prokázalo dvě odchylky zveřejněného podkladu. `SSample::Set3DParameters` na `10001a70` porovnává uloženou složku s novou přes x87 FCOMP/FNSTSW a testuje pouze C3 (`TEST AH,40h`). Stejné i neuspořádané hodnoty nechává beze změny. Tři vektory i oba testy vzdáleností nyní zachovávají tuto větev a původní pořadí. `Get3DParameters` na `10001c10` kopíruje DWORD přes MOV; původní C++ při kopii float měnilo signaling NaN na quiet NaN. Vektory se nyní kopírují dopředu po jednotlivých32bitových slovech a skalární getter také zachovává syrové bity. Ověřené starší listener implementace zůstaly beze změny.
