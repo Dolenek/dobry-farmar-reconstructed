@@ -1,0 +1,3699 @@
+{
+  "status": "passed_all97_export_caller_cleanup_paths_and_measured_stack_scope_only",
+  "recorded_at_utc": "2026-11-01T17:57:31.264593+00:00",
+  "work_directory": ".local/squall-export-stack/20261101T175731262075Z",
+  "source_files": {
+    "src/squall/Parameters.cpp": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508",
+    "src/squall/Parameters.h": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d",
+    "src/squall/VolumeTable.cpp": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1",
+    "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da",
+    "src/squall/runtime/Abi.cpp": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6",
+    "src/squall/runtime/LICENSE": "8b2ee763bd48e9d0ba84de84433b3b921cb666e75d5ba2949c78b11677e06ef2",
+    "src/squall/runtime/Squall.def": "11adf81ca9722174ab945f02ebf9af8e60cf79832518d297b94ca6d3963a0d98",
+    "src/squall/runtime/Squall.h": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+    "src/squall/codecs/vorbis/COPYING": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6",
+    "src/squall/codecs/vorbis/mdct.c": "8a4fcfde0ad92eb87e1d32bec640b1635ff94f6db3e9c318130efe71e4cfde77",
+    "src/squall/codecs/vorbis/mdct.h": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93",
+    "src/squall/codecs/vorbis/NativeButterfly.c": "bfff72d15cddaedbea2e6ad6b5ba6bebbafbf0b0bf7c7fb6084947e0561d37b1",
+    "src/squall/runtime/SoundEngine/Channels.cpp": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7",
+    "src/squall/runtime/SoundEngine/Channels.h": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523",
+    "src/squall/runtime/SoundEngine/Context.cpp": "527aeb60b4ffdfb40e8280163522323d2ae724ef1bb58245ec680f2ad9d7fa32",
+    "src/squall/runtime/SoundEngine/Context.h": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085",
+    "src/squall/runtime/SoundEngine/DirectSound.cpp": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b",
+    "src/squall/runtime/SoundEngine/DirectSound.h": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50",
+    "src/squall/runtime/SoundEngine/HiddenWindow.cpp": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a",
+    "src/squall/runtime/SoundEngine/HiddenWindow.h": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced",
+    "src/squall/runtime/SoundEngine/Squall.cpp": "fd6cdada95f24db3123e63dda1e0174d146993eabed54b0aaca44e2ce212a604",
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905",
+    "src/squall/runtime/SoundEngine/SquallApi.h": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b",
+    "src/squall/runtime/SoundFile/AbstractDecoder.h": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f",
+    "src/squall/runtime/SoundFile/AbstractSoundFile.h": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09",
+    "src/squall/runtime/SoundFile/ExternFunction.h": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb",
+    "src/squall/runtime/SoundFile/Reader.cpp": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc",
+    "src/squall/runtime/SoundFile/Reader.h": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370",
+    "src/squall/runtime/SoundFile/SoundFile.cpp": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5",
+    "src/squall/runtime/SoundFile/SoundFile.h": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874",
+    "src/squall/runtime/SoundEngine/ext/dsound.h": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb",
+    "src/squall/runtime/SoundEngine/ext/Eax.cpp": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e",
+    "src/squall/runtime/SoundEngine/ext/Eax.h": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d",
+    "src/squall/runtime/SoundEngine/ext/Eax1_api.h": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2",
+    "src/squall/runtime/SoundEngine/ext/Eax2_api.h": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac",
+    "src/squall/runtime/SoundEngine/ext/Eax3_api.h": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d",
+    "src/squall/runtime/SoundEngine/ext/Eax4_api.h": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.h": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65",
+    "src/squall/runtime/SoundFile/MP3/l1dec.cpp": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c",
+    "src/squall/runtime/SoundFile/MP3/l2dec.cpp": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050",
+    "src/squall/runtime/SoundFile/MP3/l3dec.cpp": "1e24973366f55f2fd0d673952c25c73b92a7895c62acb51178339d65bbdc9d82",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp": "8cd3b73b32ee169cc39cc736e45d2cac0065fa646350c3d83541650f0cd9b0ae",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.h": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.cpp": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.h": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d",
+    "src/squall/runtime/SoundFile/MP3/MpegHuff.h": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.cpp": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.h": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43",
+    "src/squall/runtime/SoundFile/track/fastmix.cpp": "de0e1e8c3deb1ccd80b9ef78100dc5b1686ba7f8f464b9897f28f4294796f383",
+    "src/squall/runtime/SoundFile/track/it_defs.h": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698",
+    "src/squall/runtime/SoundFile/track/load_669.cpp": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858",
+    "src/squall/runtime/SoundFile/track/load_amf.cpp": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57",
+    "src/squall/runtime/SoundFile/track/load_ams.cpp": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2",
+    "src/squall/runtime/SoundFile/track/load_dbm.cpp": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5",
+    "src/squall/runtime/SoundFile/track/load_dmf.cpp": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a",
+    "src/squall/runtime/SoundFile/track/load_dsm.cpp": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8",
+    "src/squall/runtime/SoundFile/track/load_far.cpp": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9",
+    "src/squall/runtime/SoundFile/track/load_it.cpp": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340",
+    "src/squall/runtime/SoundFile/track/load_mdl.cpp": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be",
+    "src/squall/runtime/SoundFile/track/load_med.cpp": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f",
+    "src/squall/runtime/SoundFile/track/load_mod.cpp": "f2775b27e3c8958060b9e04c01c38e5073c2d17ea27c217add5d6272ecb043e5",
+    "src/squall/runtime/SoundFile/track/load_mt2.cpp": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09",
+    "src/squall/runtime/SoundFile/track/load_mtm.cpp": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937",
+    "src/squall/runtime/SoundFile/track/load_okt.cpp": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a",
+    "src/squall/runtime/SoundFile/track/load_psm.cpp": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b",
+    "src/squall/runtime/SoundFile/track/load_ptm.cpp": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175",
+    "src/squall/runtime/SoundFile/track/load_s3m.cpp": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91",
+    "src/squall/runtime/SoundFile/track/load_stm.cpp": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82",
+    "src/squall/runtime/SoundFile/track/load_ult.cpp": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d",
+    "src/squall/runtime/SoundFile/track/load_umx.cpp": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+    "src/squall/runtime/SoundFile/track/load_xm.cpp": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e",
+    "src/squall/runtime/SoundFile/track/sndmix.cpp": "a2fbaacd2939af9767d8cc86f97fa9981b0085e1860f78dc34e526253f289cee",
+    "src/squall/runtime/SoundFile/track/snd_fx.cpp": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36",
+    "src/squall/runtime/SoundFile/track/stdafx.h": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c",
+    "src/squall/runtime/SoundFile/track/tables.cpp": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.cpp": "bbc515903ec6e5de6daada5bbf7bbca7229a83545616275415a1a3878dee633f",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.h": "d608767616f042d0369a606d1514decc91564634e3f07d8fddd8b05e5fea54eb",
+    "src/squall/runtime/SoundFile/track/TrackFile.cpp": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba",
+    "src/squall/runtime/SoundFile/track/TrackFile.h": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": "ece3cf623213396d823a2553d6e882c22fec2bad12e21fac5002da0b8596a4b8",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.h": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0",
+    "src/squall/runtime/SoundFile/WAV/WavFile.cpp": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8",
+    "src/squall/runtime/SoundFile/WAV/WavFile.h": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp": "0e8a29750c4437944e5914c9d40e9a60bbf30886a888b99b73ca8d76c079b63c",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.h": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.cpp": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.h": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56",
+    "tools/validate_squall_export_stack.py": "57a0de0266cf05235a6e3956095a29e53ee0aad25963ae7558f750e3ed7fe5a4",
+    "tools/squall_export_stack_reference_test.cpp": "7cd50d6e8c2735fa38a94127aa4e4a968152c5c4bfbb9b952385891782ee5cb4",
+    "tools/squall_export_stack_probe/CMakeLists.txt": "0653780719a9afa823544b4dd23a7a3432a4fcfa9a1e6f2780da138a0b52e0cd",
+    "tools/squall_exports.inc": "c44a64e39599a53f5772fa0ea277e6517139f72f19d4a490e110284b5bb43411",
+    "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb"
+  },
+  "candidate_path": "build/squall-source-repro-vs20261010/squall-candidate/Release/Squall.dll",
+  "rebuilt_sha256": "0ec0735163c17a391d648c66e1fd36d5c1c86e74123b384dce2da77852e173f6",
+  "oracle_path": "build/squall-export-stack-probe-vs/Release/squall-export-stack-reference-test.exe",
+  "oracle_sha256": "dc56ea1ab342cb80966a996ebb63d15068f7704f377a0ca9431162c2945404ad",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+  "precision_contexts": [
+    {
+      "export_lookups": 194,
+      "measured_exports": [
+        {
+          "name": "SQUALL_ChannelGroup_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_ChannelGroup_SetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_ChannelGroup_SetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_ChannelGroup_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Channel_EAX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,union squall_eax_channel_s*>(int (__cdecl *)(int,int,union squall_eax_channel_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_EAX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,union squall_eax_channel_s*>(int (__cdecl *)(int,int,union squall_eax_channel_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_Get3DPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetConeParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,int*,int*,int*>(int (__cdecl *)(int,float *,int *,int *,int *))",
+          "argument_count": 5,
+          "declared_stack_argument_bytes": 20,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFragment",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int*,int*>(int (__cdecl *)(int,int *,int *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFragmentMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int*,int*>(int (__cdecl *)(int,int *,int *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLength",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLengthMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLoop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetMinMaxDistance",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,float*>(int (__cdecl *)(int,float *,float *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPan",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPlayPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPlayPositionMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPriority",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Set3DPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetConeParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,int,int,int>(int (__cdecl *)(int,float *,int,int,int))",
+          "argument_count": 5,
+          "declared_stack_argument_bytes": 20,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFragment",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int>(int (__cdecl *)(int,int,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFragmentMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int>(int (__cdecl *)(int,int,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetLoop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetMinMaxDistance",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float,float>(int (__cdecl *)(int,float,float))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPan",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetPlayPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPlayPositionMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPriority",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetWorker",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int(__cdecl *)(int,void *),void*,unsigned int>(int (__cdecl *)(int,int (__cdecl *)(int,void *),void *,unsigned int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Start",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Status",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Channel_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_ZOOMFX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_zoomfx_channel_s*>(int (__cdecl *)(int,struct squall_zoomfx_channel_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -21,
+          "native_return_word": -21
+        },
+        {
+          "name": "SQUALL_Channel_ZOOMFX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_zoomfx_channel_s*>(int (__cdecl *)(int,struct squall_zoomfx_channel_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -21,
+          "native_return_word": -21
+        },
+        {
+          "name": "SQUALL_Free",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,>(void (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Get3DAlgorithm",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetBufferSize",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetChannelsInfo",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,struct squall_channels_s*>(int (__cdecl *)(struct squall_channels_s *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_GetDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetDeviceCaps",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_device_caps_s*>(int (__cdecl *)(int,struct squall_device_caps_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_GetDeviceName",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,char*,int>(int (__cdecl *)(int,char *,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_GetEAXVersion",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetHardwareAcceleration",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int*,int*>(int (__cdecl *)(int *,int *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_GetNumDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 3,
+          "native_return_word": 3
+        },
+        {
+          "name": "SQUALL_GetSpeakerMode",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_EAX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,union squall_eax_listener_s*>(int (__cdecl *)(int,union squall_eax_listener_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_EAX_SetPreset",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_EAX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,union squall_eax_listener_s*>(int (__cdecl *)(int,union squall_eax_listener_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_GetDistanceFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetDopplerFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*,float*,float*,float*>(int (__cdecl *)(float *,float *,float *,float *))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetRolloffFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetDistanceFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetDopplerFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*,float*,float*,float*>(int (__cdecl *)(float *,float *,float *,float *))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetRolloffFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetWorker",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,void(__cdecl *)(void *),void*,unsigned int>(int (__cdecl *)(void (__cdecl *)(void *),void *,unsigned int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Listener_Update",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int>(int (__cdecl *)(int,int,int,int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play3D",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*>(int (__cdecl *)(int,int,int,int,float *,float *))",
+          "argument_count": 6,
+          "declared_stack_argument_bytes": 24,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play3DEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*,int,int,int,float,float>(int (__cdecl *)(int,int,int,int,float *,float *,int,int,int,float,float))",
+          "argument_count": 11,
+          "declared_stack_argument_bytes": 44,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_PlayEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,int,int,int,int>(int (__cdecl *)(int,int,int,int,int,int,int,int))",
+          "argument_count": 8,
+          "declared_stack_argument_bytes": 32,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_GetDefault",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_sample_default_s*>(int (__cdecl *)(int,struct squall_sample_default_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileLength",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileLengthMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_LoadFile",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,char*,int,struct squall_sample_default_s*>(int (__cdecl *)(char *,int,struct squall_sample_default_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 65536,
+          "native_return_word": 65536
+        },
+        {
+          "name": "SQUALL_Sample_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Sample_Play",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int>(int (__cdecl *)(int,int,int,int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_Play3D",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*>(int (__cdecl *)(int,int,int,int,float *,float *))",
+          "argument_count": 6,
+          "declared_stack_argument_bytes": 24,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_Play3DEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*,int,int,int,float,float>(int (__cdecl *)(int,int,int,int,float *,float *,int,int,int,float,float))",
+          "argument_count": 11,
+          "declared_stack_argument_bytes": 44,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_PlayEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,int,int,int,int>(int (__cdecl *)(int,int,int,int,int,int,int,int))",
+          "argument_count": 8,
+          "declared_stack_argument_bytes": 32,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_SetDefault",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_sample_default_s*>(int (__cdecl *)(int,struct squall_sample_default_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Sample_Unload",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,int>(void (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Sample_UnloadAll",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,>(void (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Set3DAlgorithm",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetBufferSize",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetFileCallbacks",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,unsigned int(__cdecl *)(const char *),int(__cdecl *)(unsigned int,int,int),int(__cdecl *)(unsigned int,void *,int),void(__cdecl *)(unsigned int)>(int (__cdecl *)(unsigned int (__cdecl *)(const char *),int (__cdecl *)(unsigned int,int,int),int (__cdecl *)(unsigned int,void *,int),void (__cdecl *)(unsigned int)))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetHardwareAcceleration",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetMemoryCallbacks",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,void*(__cdecl *)(unsigned int),void(__cdecl *)(void *)>(int (__cdecl *)(void *(__cdecl *)(unsigned int),void (__cdecl *)(void *)))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetSpeakerMode",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Init",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,struct squall_parameters_s*>(int (__cdecl *)(struct squall_parameters_s *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        }
+      ],
+      "export_count": 97,
+      "actual_init_window": true,
+      "native_argument_count_statically_proved": false,
+      "precision": "PC53"
+    },
+    {
+      "export_lookups": 194,
+      "measured_exports": [
+        {
+          "name": "SQUALL_ChannelGroup_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_ChannelGroup_SetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_ChannelGroup_SetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_ChannelGroup_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Channel_EAX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,union squall_eax_channel_s*>(int (__cdecl *)(int,int,union squall_eax_channel_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_EAX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,union squall_eax_channel_s*>(int (__cdecl *)(int,int,union squall_eax_channel_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_Get3DPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetConeParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,int*,int*,int*>(int (__cdecl *)(int,float *,int *,int *,int *))",
+          "argument_count": 5,
+          "declared_stack_argument_bytes": 20,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFragment",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int*,int*>(int (__cdecl *)(int,int *,int *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFragmentMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int*,int*>(int (__cdecl *)(int,int *,int *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLength",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLengthMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetLoop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetMinMaxDistance",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,float*>(int (__cdecl *)(int,float *,float *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPan",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPlayPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPlayPositionMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetPriority",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_GetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Set3DPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetConeParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*,int,int,int>(int (__cdecl *)(int,float *,int,int,int))",
+          "argument_count": 5,
+          "declared_stack_argument_bytes": 20,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFragment",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int>(int (__cdecl *)(int,int,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFragmentMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int>(int (__cdecl *)(int,int,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetLoop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetMinMaxDistance",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float,float>(int (__cdecl *)(int,float,float))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPan",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetPlayPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPlayPositionMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetPriority",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,float*>(int (__cdecl *)(int,float *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_SetVolume",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Channel_SetWorker",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int(__cdecl *)(int,void *),void*,unsigned int>(int (__cdecl *)(int,int (__cdecl *)(int,void *),void *,unsigned int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Start",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_Status",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Channel_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -12,
+          "native_return_word": -12
+        },
+        {
+          "name": "SQUALL_Channel_ZOOMFX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_zoomfx_channel_s*>(int (__cdecl *)(int,struct squall_zoomfx_channel_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -21,
+          "native_return_word": -21
+        },
+        {
+          "name": "SQUALL_Channel_ZOOMFX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_zoomfx_channel_s*>(int (__cdecl *)(int,struct squall_zoomfx_channel_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -21,
+          "native_return_word": -21
+        },
+        {
+          "name": "SQUALL_Free",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,>(void (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Get3DAlgorithm",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetBufferSize",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetChannelsInfo",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,struct squall_channels_s*>(int (__cdecl *)(struct squall_channels_s *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_GetDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetDeviceCaps",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_device_caps_s*>(int (__cdecl *)(int,struct squall_device_caps_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_GetDeviceName",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,char*,int>(int (__cdecl *)(int,char *,int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_GetEAXVersion",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_GetHardwareAcceleration",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int*,int*>(int (__cdecl *)(int *,int *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_GetNumDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 3,
+          "native_return_word": 3
+        },
+        {
+          "name": "SQUALL_GetSpeakerMode",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_EAX_GetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,union squall_eax_listener_s*>(int (__cdecl *)(int,union squall_eax_listener_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_EAX_SetPreset",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_EAX_SetProperties",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,union squall_eax_listener_s*>(int (__cdecl *)(int,union squall_eax_listener_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -17,
+          "native_return_word": -17
+        },
+        {
+          "name": "SQUALL_Listener_GetDistanceFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetDopplerFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*,float*,float*,float*>(int (__cdecl *)(float *,float *,float *,float *))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetRolloffFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_GetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetDistanceFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetDopplerFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetParameters",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*,float*,float*,float*>(int (__cdecl *)(float *,float *,float *,float *))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetPosition",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetRolloffFactor",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float>(int (__cdecl *)(float))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetVelocity",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,float*>(int (__cdecl *)(float *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Listener_SetWorker",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,void(__cdecl *)(void *),void*,unsigned int>(int (__cdecl *)(void (__cdecl *)(void *),void *,unsigned int))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Listener_Update",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -24,
+          "native_return_word": -24
+        },
+        {
+          "name": "SQUALL_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int>(int (__cdecl *)(int,int,int,int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play3D",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*>(int (__cdecl *)(int,int,int,int,float *,float *))",
+          "argument_count": 6,
+          "declared_stack_argument_bytes": 24,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_Play3DEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*,int,int,int,float,float>(int (__cdecl *)(int,int,int,int,float *,float *,int,int,int,float,float))",
+          "argument_count": 11,
+          "declared_stack_argument_bytes": 44,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_SampleGroup_PlayEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,int,int,int,int>(int (__cdecl *)(int,int,int,int,int,int,int,int))",
+          "argument_count": 8,
+          "declared_stack_argument_bytes": 32,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_GetDefault",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_sample_default_s*>(int (__cdecl *)(int,struct squall_sample_default_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileFrequency",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileLength",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_GetFileLengthMs",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_LoadFile",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,char*,int,struct squall_sample_default_s*>(int (__cdecl *)(char *,int,struct squall_sample_default_s *))",
+          "argument_count": 3,
+          "declared_stack_argument_bytes": 12,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 65536,
+          "native_return_word": 65536
+        },
+        {
+          "name": "SQUALL_Sample_Pause",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Sample_Play",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int>(int (__cdecl *)(int,int,int,int))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_Play3D",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*>(int (__cdecl *)(int,int,int,int,float *,float *))",
+          "argument_count": 6,
+          "declared_stack_argument_bytes": 24,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_Play3DEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,float*,float*,int,int,int,float,float>(int (__cdecl *)(int,int,int,int,float *,float *,int,int,int,float,float))",
+          "argument_count": 11,
+          "declared_stack_argument_bytes": 44,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_PlayEx",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int,int,int,int,int,int,int>(int (__cdecl *)(int,int,int,int,int,int,int,int))",
+          "argument_count": 8,
+          "declared_stack_argument_bytes": 32,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -26,
+          "native_return_word": -26
+        },
+        {
+          "name": "SQUALL_Sample_SetDefault",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,struct squall_sample_default_s*>(int (__cdecl *)(int,struct squall_sample_default_s *))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Sample_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Sample_Unload",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,int>(void (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Sample_UnloadAll",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<void,>(void (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 0,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 0,
+          "native_return_word": 0
+        },
+        {
+          "name": "SQUALL_Set3DAlgorithm",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetBufferSize",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetDevice",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_SetFileCallbacks",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,unsigned int(__cdecl *)(const char *),int(__cdecl *)(unsigned int,int,int),int(__cdecl *)(unsigned int,void *,int),void(__cdecl *)(unsigned int)>(int (__cdecl *)(unsigned int (__cdecl *)(const char *),int (__cdecl *)(unsigned int,int,int),int (__cdecl *)(unsigned int,void *,int),void (__cdecl *)(unsigned int)))",
+          "argument_count": 4,
+          "declared_stack_argument_bytes": 16,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetHardwareAcceleration",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int,int>(int (__cdecl *)(int,int))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetMemoryCallbacks",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,void*(__cdecl *)(unsigned int),void(__cdecl *)(void *)>(int (__cdecl *)(void *(__cdecl *)(unsigned int),void (__cdecl *)(void *)))",
+          "argument_count": 2,
+          "declared_stack_argument_bytes": 8,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_SetSpeakerMode",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,int>(int (__cdecl *)(int))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": -4,
+          "native_return_word": -4
+        },
+        {
+          "name": "SQUALL_Stop",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,>(int (__cdecl *)(void))",
+          "argument_count": 0,
+          "declared_stack_argument_bytes": 0,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        },
+        {
+          "name": "SQUALL_Init",
+          "declared_signature": "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl `anonymous-namespace'::signature<int,struct squall_parameters_s*>(int (__cdecl *)(struct squall_parameters_s *))",
+          "argument_count": 1,
+          "declared_stack_argument_bytes": 4,
+          "declared_return_bytes": 4,
+          "source_stack_delta": 0,
+          "native_stack_delta": 0,
+          "stack_canaries_per_call": 16,
+          "source_return_word": 1,
+          "native_return_word": 1
+        }
+      ],
+      "export_count": 97,
+      "actual_init_window": true,
+      "native_argument_count_statically_proved": false,
+      "precision": "PC24"
+    }
+  ],
+  "native_return_paths": [
+    {
+      "name": "SQUALL_ChannelGroup_Pause",
+      "ordinal": 1,
+      "original_address": "10007100",
+      "reachable_instructions": 47,
+      "return_addresses": [
+        "1000718a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetFrequency",
+      "ordinal": 2,
+      "original_address": "100072c0",
+      "reachable_instructions": 53,
+      "return_addresses": [
+        "10007361"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_ChannelGroup_SetVolume",
+      "ordinal": 3,
+      "original_address": "10007220",
+      "reachable_instructions": 48,
+      "return_addresses": [
+        "100072b1"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_ChannelGroup_Stop",
+      "ordinal": 4,
+      "original_address": "10007190",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "10007213"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_EAX_GetProperties",
+      "ordinal": 5,
+      "original_address": "10006dd0",
+      "reachable_instructions": 102,
+      "return_addresses": [
+        "10006e30",
+        "10006e54",
+        "10006e80",
+        "10006ec6",
+        "10006eed"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_EAX_SetProperties",
+      "ordinal": 6,
+      "original_address": "10006cc0",
+      "reachable_instructions": 93,
+      "return_addresses": [
+        "10006d24",
+        "10006d47",
+        "10006d72",
+        "10006dce"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Get3DPosition",
+      "ordinal": 7,
+      "original_address": "10006660",
+      "reachable_instructions": 76,
+      "return_addresses": [
+        "100066af",
+        "100066d9",
+        "1000670f",
+        "1000673e"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetConeParameters",
+      "ordinal": 8,
+      "original_address": "10006ba0",
+      "reachable_instructions": 94,
+      "return_addresses": [
+        "10006cbd"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetFragment",
+      "ordinal": 9,
+      "original_address": "10005cf0",
+      "reachable_instructions": 84,
+      "return_addresses": [
+        "10005d5a",
+        "10005d86",
+        "10005dcb"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetFragmentMs",
+      "ordinal": 10,
+      "original_address": "10005ef0",
+      "reachable_instructions": 106,
+      "return_addresses": [
+        "10006019"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetFrequency",
+      "ordinal": 11,
+      "original_address": "100057a0",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "100057fb",
+        "1000583c"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetLength",
+      "ordinal": 12,
+      "original_address": "10006020",
+      "reachable_instructions": 40,
+      "return_addresses": [
+        "1000606b",
+        "1000609f"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetLengthMs",
+      "ordinal": 13,
+      "original_address": "100060a0",
+      "reachable_instructions": 68,
+      "return_addresses": [
+        "100060f1",
+        "10006129",
+        "1000616a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetLoop",
+      "ordinal": 14,
+      "original_address": "10006350",
+      "reachable_instructions": 37,
+      "return_addresses": [
+        "1000639b",
+        "100063c5"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetMinMaxDistance",
+      "ordinal": 15,
+      "original_address": "100069b0",
+      "reachable_instructions": 84,
+      "return_addresses": [
+        "10006a1e",
+        "10006a4a",
+        "10006a95"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetPan",
+      "ordinal": 16,
+      "original_address": "100064a0",
+      "reachable_instructions": 53,
+      "return_addresses": [
+        "100064ff",
+        "10006540",
+        "10006568"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPosition",
+      "ordinal": 17,
+      "original_address": "100058d0",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "1000592b",
+        "1000596c"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetPlayPositionMs",
+      "ordinal": 18,
+      "original_address": "10005a30",
+      "reachable_instructions": 73,
+      "return_addresses": [
+        "10005a89",
+        "10005ac3",
+        "10005b03"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetPriority",
+      "ordinal": 19,
+      "original_address": "10006210",
+      "reachable_instructions": 35,
+      "return_addresses": [
+        "1000625b",
+        "1000627f"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetVelocity",
+      "ordinal": 20,
+      "original_address": "10006830",
+      "reachable_instructions": 76,
+      "return_addresses": [
+        "1000687f",
+        "100068a9",
+        "100068df",
+        "1000690e"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_GetVolume",
+      "ordinal": 21,
+      "original_address": "10005620",
+      "reachable_instructions": 61,
+      "return_addresses": [
+        "10005679",
+        "100056af",
+        "100056ef"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Pause",
+      "ordinal": 22,
+      "original_address": "100053a0",
+      "reachable_instructions": 41,
+      "return_addresses": [
+        "100053eb",
+        "10005420"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Set3DPosition",
+      "ordinal": 23,
+      "original_address": "10006570",
+      "reachable_instructions": 81,
+      "return_addresses": [
+        "100065c5",
+        "100065ef",
+        "10006625",
+        "1000665b"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetConeParameters",
+      "ordinal": 24,
+      "original_address": "10006aa0",
+      "reachable_instructions": 80,
+      "return_addresses": [
+        "10006b95"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetFragment",
+      "ordinal": 25,
+      "original_address": "10005c30",
+      "reachable_instructions": 64,
+      "return_addresses": [
+        "10005c80",
+        "10005cab",
+        "10005ce0"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetFragmentMs",
+      "ordinal": 26,
+      "original_address": "10005dd0",
+      "reachable_instructions": 97,
+      "return_addresses": [
+        "10005e33",
+        "10005e62",
+        "10005ee4"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetFrequency",
+      "ordinal": 27,
+      "original_address": "100056f0",
+      "reachable_instructions": 56,
+      "return_addresses": [
+        "1000573b",
+        "10005765",
+        "10005798"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetLoop",
+      "ordinal": 28,
+      "original_address": "10006280",
+      "reachable_instructions": 63,
+      "return_addresses": [
+        "100062cf",
+        "10006349"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetMinMaxDistance",
+      "ordinal": 29,
+      "original_address": "10006910",
+      "reachable_instructions": 51,
+      "return_addresses": [
+        "1000695b",
+        "100069a8"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetPan",
+      "ordinal": 30,
+      "original_address": "100063d0",
+      "reachable_instructions": 68,
+      "return_addresses": [
+        "1000641b",
+        "10006445",
+        "1000647b",
+        "1000649c"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPosition",
+      "ordinal": 31,
+      "original_address": "10005840",
+      "reachable_instructions": 41,
+      "return_addresses": [
+        "1000588b",
+        "100058c0"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetPlayPositionMs",
+      "ordinal": 32,
+      "original_address": "10005970",
+      "reachable_instructions": 61,
+      "return_addresses": [
+        "100059bd",
+        "10005a01",
+        "10005a24"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetPriority",
+      "ordinal": 33,
+      "original_address": "10006170",
+      "reachable_instructions": 51,
+      "return_addresses": [
+        "10006194",
+        "100061b3",
+        "100061dd",
+        "10006202"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetVelocity",
+      "ordinal": 34,
+      "original_address": "10006740",
+      "reachable_instructions": 81,
+      "return_addresses": [
+        "10006795",
+        "100067bf",
+        "100067f5",
+        "1000682b"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetVolume",
+      "ordinal": 35,
+      "original_address": "10005570",
+      "reachable_instructions": 57,
+      "return_addresses": [
+        "100055b7",
+        "100055e1",
+        "1000561a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_SetWorker",
+      "ordinal": 36,
+      "original_address": "10005b10",
+      "reachable_instructions": 85,
+      "return_addresses": [
+        "10005b65",
+        "10005bb3",
+        "10005c10",
+        "10005c28"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Start",
+      "ordinal": 37,
+      "original_address": "10005310",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "1000535b",
+        "10005397"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Status",
+      "ordinal": 38,
+      "original_address": "100054b0",
+      "reachable_instructions": 60,
+      "return_addresses": [
+        "100054f8",
+        "10005526",
+        "10005541",
+        "10005560"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_Stop",
+      "ordinal": 39,
+      "original_address": "10005430",
+      "reachable_instructions": 39,
+      "return_addresses": [
+        "1000547b",
+        "100054ac"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_GetProperties",
+      "ordinal": 40,
+      "original_address": "10006ff0",
+      "reachable_instructions": 89,
+      "return_addresses": [
+        "10007041",
+        "10007062",
+        "1000708d",
+        "100070cf",
+        "100070f5"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Channel_ZOOMFX_SetProperties",
+      "ordinal": 41,
+      "original_address": "10006ef0",
+      "reachable_instructions": 81,
+      "return_addresses": [
+        "10006f45",
+        "10006f65",
+        "10006f8f",
+        "10006fe7"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Free",
+      "ordinal": 42,
+      "original_address": "10003520",
+      "reachable_instructions": 62,
+      "return_addresses": [
+        "1000360a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Get3DAlgorithm",
+      "ordinal": 43,
+      "original_address": "10003af0",
+      "reachable_instructions": 18,
+      "return_addresses": [
+        "10003b29"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetBufferSize",
+      "ordinal": 44,
+      "original_address": "10003b90",
+      "reachable_instructions": 18,
+      "return_addresses": [
+        "10003bc9"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetChannelsInfo",
+      "ordinal": 45,
+      "original_address": "10003e40",
+      "reachable_instructions": 95,
+      "return_addresses": [
+        "10003e91",
+        "10003f71"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetDevice",
+      "ordinal": 46,
+      "original_address": "10003770",
+      "reachable_instructions": 18,
+      "return_addresses": [
+        "100037a9"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetDeviceCaps",
+      "ordinal": 47,
+      "original_address": "10003d30",
+      "reachable_instructions": 81,
+      "return_addresses": [
+        "10003d47",
+        "10003d72",
+        "10003deb",
+        "10003df4"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetDeviceName",
+      "ordinal": 48,
+      "original_address": "10003c80",
+      "reachable_instructions": 76,
+      "return_addresses": [
+        "10003c92",
+        "10003cc4",
+        "10003cdc",
+        "10003d23"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetEAXVersion",
+      "ordinal": 49,
+      "original_address": "10003e00",
+      "reachable_instructions": 18,
+      "return_addresses": [
+        "10003e39"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetHardwareAcceleration",
+      "ordinal": 50,
+      "original_address": "10003810",
+      "reachable_instructions": 60,
+      "return_addresses": [
+        "1000387a",
+        "100038a5"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetNumDevice",
+      "ordinal": 51,
+      "original_address": "10003c70",
+      "reachable_instructions": 4,
+      "return_addresses": [
+        "10007e4a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_GetSpeakerMode",
+      "ordinal": 52,
+      "original_address": "10003970",
+      "reachable_instructions": 77,
+      "return_addresses": [
+        "100039ce",
+        "100039fb",
+        "10003a12",
+        "10003a29",
+        "10003a40",
+        "10003a57"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": [
+        {
+          "address": "100039de",
+          "table": "10003a58",
+          "bounded_entries": 5,
+          "targets": [
+            "100039e5",
+            "100039fc",
+            "10003a2a",
+            "10003a13",
+            "10003a41"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SQUALL_Init",
+      "ordinal": 53,
+      "original_address": "10003280",
+      "reachable_instructions": 187,
+      "return_addresses": [
+        "10003517"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_EAX_GetProperties",
+      "ordinal": 54,
+      "original_address": "10004b30",
+      "reachable_instructions": 86,
+      "return_addresses": [
+        "10004b79",
+        "10004baf",
+        "10004bd2",
+        "10004c0b",
+        "10004c23"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetPreset",
+      "ordinal": 55,
+      "original_address": "10004c30",
+      "reachable_instructions": 62,
+      "return_addresses": [
+        "10004c89",
+        "10004cb3",
+        "10004cea"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_EAX_SetProperties",
+      "ordinal": 56,
+      "original_address": "10004a40",
+      "reachable_instructions": 80,
+      "return_addresses": [
+        "10004a89",
+        "10004abf",
+        "10004af0",
+        "10004b22"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetDistanceFactor",
+      "ordinal": 57,
+      "original_address": "100046c0",
+      "reachable_instructions": 46,
+      "return_addresses": [
+        "1000470b",
+        "1000472b",
+        "10004744"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetDopplerFactor",
+      "ordinal": 58,
+      "original_address": "10004960",
+      "reachable_instructions": 46,
+      "return_addresses": [
+        "100049ab",
+        "100049cb",
+        "100049e4"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetParameters",
+      "ordinal": 59,
+      "original_address": "100041a0",
+      "reachable_instructions": 93,
+      "return_addresses": [
+        "100042c2"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetPosition",
+      "ordinal": 60,
+      "original_address": "10004560",
+      "reachable_instructions": 50,
+      "return_addresses": [
+        "100045a7",
+        "100045cb",
+        "100045f6"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetRolloffFactor",
+      "ordinal": 61,
+      "original_address": "10004810",
+      "reachable_instructions": 46,
+      "return_addresses": [
+        "1000485b",
+        "1000487b",
+        "10004894"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_GetVelocity",
+      "ordinal": 62,
+      "original_address": "100043d0",
+      "reachable_instructions": 50,
+      "return_addresses": [
+        "10004417",
+        "1000443b",
+        "10004466"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetDistanceFactor",
+      "ordinal": 63,
+      "original_address": "10004600",
+      "reachable_instructions": 61,
+      "return_addresses": [
+        "10004656",
+        "1000467a",
+        "100046bf"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetDopplerFactor",
+      "ordinal": 64,
+      "original_address": "100048a0",
+      "reachable_instructions": 61,
+      "return_addresses": [
+        "100048f6",
+        "1000491a",
+        "1000495f"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetParameters",
+      "ordinal": 65,
+      "original_address": "10003f80",
+      "reachable_instructions": 169,
+      "return_addresses": [
+        "1000419a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetPosition",
+      "ordinal": 66,
+      "original_address": "10004470",
+      "reachable_instructions": 78,
+      "return_addresses": [
+        "100044b7",
+        "100044e0",
+        "10004555"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetRolloffFactor",
+      "ordinal": 67,
+      "original_address": "10004750",
+      "reachable_instructions": 61,
+      "return_addresses": [
+        "100047a6",
+        "100047ca",
+        "1000480f"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetVelocity",
+      "ordinal": 68,
+      "original_address": "100042d0",
+      "reachable_instructions": 79,
+      "return_addresses": [
+        "10004317",
+        "10004340",
+        "100043c0"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_SetWorker",
+      "ordinal": 69,
+      "original_address": "10004cf0",
+      "reachable_instructions": 51,
+      "return_addresses": [
+        "10004d3f",
+        "10004d69",
+        "10004d90"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Listener_Update",
+      "ordinal": 70,
+      "original_address": "100049f0",
+      "reachable_instructions": 26,
+      "return_addresses": [
+        "10004a3b"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Pause",
+      "ordinal": 71,
+      "original_address": "10003610",
+      "reachable_instructions": 42,
+      "return_addresses": [
+        "1000368e"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play",
+      "ordinal": 72,
+      "original_address": "10007870",
+      "reachable_instructions": 53,
+      "return_addresses": [
+        "10007900"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3D",
+      "ordinal": 73,
+      "original_address": "10007990",
+      "reachable_instructions": 79,
+      "return_addresses": [
+        "10007a5f"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SampleGroup_Play3DEx",
+      "ordinal": 74,
+      "original_address": "10007a60",
+      "reachable_instructions": 72,
+      "return_addresses": [
+        "10007b19"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SampleGroup_PlayEx",
+      "ordinal": 75,
+      "original_address": "10007910",
+      "reachable_instructions": 44,
+      "return_addresses": [
+        "10007988"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_GetDefault",
+      "ordinal": 76,
+      "original_address": "100074e0",
+      "reachable_instructions": 25,
+      "return_addresses": [
+        "100074ff",
+        "1000751b"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_GetFileFrequency",
+      "ordinal": 77,
+      "original_address": "10007470",
+      "reachable_instructions": 15,
+      "return_addresses": [
+        "10007486",
+        "1000749a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLength",
+      "ordinal": 78,
+      "original_address": "100073e0",
+      "reachable_instructions": 14,
+      "return_addresses": [
+        "100073f6",
+        "10007407"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_GetFileLengthMs",
+      "ordinal": 79,
+      "original_address": "10007410",
+      "reachable_instructions": 40,
+      "return_addresses": [
+        "1000742c",
+        "10007441",
+        "10007469"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_LoadFile",
+      "ordinal": 80,
+      "original_address": "10007370",
+      "reachable_instructions": 33,
+      "return_addresses": [
+        "100073b6"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Pause",
+      "ordinal": 81,
+      "original_address": "10007750",
+      "reachable_instructions": 46,
+      "return_addresses": [
+        "100077d9"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Play",
+      "ordinal": 82,
+      "original_address": "10007520",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "1000759b"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Play3D",
+      "ordinal": 83,
+      "original_address": "10007600",
+      "reachable_instructions": 70,
+      "return_addresses": [
+        "100076b0"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Play3DEx",
+      "ordinal": 84,
+      "original_address": "100076c0",
+      "reachable_instructions": 53,
+      "return_addresses": [
+        "10007746"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_PlayEx",
+      "ordinal": 85,
+      "original_address": "100075a0",
+      "reachable_instructions": 29,
+      "return_addresses": [
+        "100075f4"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_SetDefault",
+      "ordinal": 86,
+      "original_address": "100074a0",
+      "reachable_instructions": 27,
+      "return_addresses": [
+        "100074c3",
+        "100074df"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Stop",
+      "ordinal": 87,
+      "original_address": "100077e0",
+      "reachable_instructions": 43,
+      "return_addresses": [
+        "10007862"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_Unload",
+      "ordinal": 88,
+      "original_address": "100073d0",
+      "reachable_instructions": 5,
+      "return_addresses": [
+        "100073db"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Sample_UnloadAll",
+      "ordinal": 89,
+      "original_address": "100073c0",
+      "reachable_instructions": 37,
+      "return_addresses": [
+        "100082fc"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_Set3DAlgorithm",
+      "ordinal": 90,
+      "original_address": "10003a70",
+      "reachable_instructions": 40,
+      "return_addresses": [
+        "10003ab5",
+        "10003ad8",
+        "10003aee"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetBufferSize",
+      "ordinal": 91,
+      "original_address": "10003b30",
+      "reachable_instructions": 30,
+      "return_addresses": [
+        "10003b73",
+        "10003b8d"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetDevice",
+      "ordinal": 92,
+      "original_address": "10003700",
+      "reachable_instructions": 38,
+      "return_addresses": [
+        "1000374b",
+        "1000376e"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetFileCallbacks",
+      "ordinal": 93,
+      "original_address": "10003c10",
+      "reachable_instructions": 41,
+      "return_addresses": [
+        "10003c6a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetHardwareAcceleration",
+      "ordinal": 94,
+      "original_address": "100037b0",
+      "reachable_instructions": 26,
+      "return_addresses": [
+        "10003807"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetMemoryCallbacks",
+      "ordinal": 95,
+      "original_address": "10003bd0",
+      "reachable_instructions": 27,
+      "return_addresses": [
+        "10003c0a"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    },
+    {
+      "name": "SQUALL_SetSpeakerMode",
+      "ordinal": 96,
+      "original_address": "100038b0",
+      "reachable_instructions": 53,
+      "return_addresses": [
+        "100038f5",
+        "10003950"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": [
+        {
+          "address": "100038fe",
+          "table": "10003954",
+          "bounded_entries": 5,
+          "targets": [
+            "10003905",
+            "1000390c",
+            "10003913",
+            "1000391a",
+            "10003921"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SQUALL_Stop",
+      "ordinal": 97,
+      "original_address": "10003690",
+      "reachable_instructions": 37,
+      "return_addresses": [
+        "100036f9"
+      ],
+      "all_returns_caller_cleanup": true,
+      "resolved_switches": []
+    }
+  ],
+  "sample_sha256": "61e1b78ddd49fbaa3b74b81883b4bfb83f3a44ccaec73fddbeeb66a03b679f42",
+  "reference_files_unchanged": 17,
+  "measured_calls_per_dll": 194,
+  "measured_stack_canaries_per_dll": 3104,
+  "production_implementation_changed": false,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Original parameter-count and pointer/return semantics require independent instruction/behavior evidence; declared metadata alone is insufficient",
+    "Remaining full Squall and original goal scopes"
+  ],
+  "logs": {
+    "PC24.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PC24.stdout.log": "3eac62030c792300481a00954d475e8b4825825e17eb1dad28b9fead947845ef",
+    "PC53.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PC53.stdout.log": "3eac62030c792300481a00954d475e8b4825825e17eb1dad28b9fead947845ef"
+  }
+}

@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Všech97 exportů Squallu má nové měření zásobníku](SQUALL.md): každé sestavení194 skutečných volání a3104 canary kontrol na DLL v PC53/PC24, vždy ESP beze změny. Všech223 dosažitelných původních návratů v97 CFG používá caller cleanup; obě speaker mode tabulky jsou vyřešené. Deklarované DWORD argumenty se nepovažují za nezávislý důkaz původního počtu argumentů. Produkce se neměnila; audit argumentů a celý původní cíl pokračují.
+
 [Podporované EAX/ZOOMFX větve přes diagnostickou COM hranici](SQUALL.md) prošly v obou sestaveních po7800 případech. Souhlasí celé caller/cache bajty i GUID/property/velikosti/payloady COM volání, všech27 presetů EAX1/2/3 a řízené chyby. Původní zvláštnosti support/cache/ZOOMFX Get zůstaly zachované. Privátní kontextové fixtures a chybějící podporovaný hardware jsou výslovně odlišené; produkce se neměnila. Úplné ABI/chování Squallu i celý původní cíl pokračují.
 
 [Sedm EAX/ZOOMFX exportů](SQUALL.md) má nové skutečné porovnání na dostupném EAX0 zařízení: obě sestavení po6692 návratech a6360 guarded snapshotech. Pořadí chyb a nedotčená výstupní paměť souhlasí. Všech97 exportů má nyní dílčí porovnání; podporované hardwarové větve, úplné ABI a celý Squall zůstávají otevřené. Produkce se neměnila; pokračuje audit COM hranice a celý původní cíl.

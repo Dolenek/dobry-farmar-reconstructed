@@ -1,0 +1,33 @@
+{
+  "status": "passed_all97_export_reachable_caller_cleanup_and_actual_stack_measurements_both_builds",
+  "recorded_at_utc": "2026-11-01T17:58:52.507328+00:00",
+  "recorder_sha256": "05d4732e809182c47ee23af309edba61491ffe098fe84d33c137e0d44c927da9",
+  "reports": {
+    "squall-export-stack-validation.json": "9787aca88de33ad40a13fbbda446b15d72fa7f322cc230d783a3c110d71e1a94",
+    "squall-export-stack-fresh-validation.json": "b524cfca978289d3bcc751698e1e065bf343f4a225ca625353366c38c88b6553",
+    "squall-exports-native-instructions.txt": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855"
+  },
+  "exports": 97,
+  "aggregate_native_cfg_instructions": 5569,
+  "aggregate_native_return_sites": 223,
+  "resolved_switch_tables": 2,
+  "measured_calls_per_build_per_dll": 194,
+  "stack_canaries_per_build_per_dll": 3104,
+  "original_argument_count_independently_proved": false,
+  "whole_native_signature_semantics_verified": false,
+  "build_logs": {
+    "squall-export-stack-config.log": "942205256865f0ac0f268b685c2e5523bb3bbc8475f6bb13ae9eaf63f198f930",
+    "squall-export-stack-build.log": "6c3588cbaffa7f8bb94e19cfdead851d8f89b8519fc239f2d7a1b22536e2b828"
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Independent native argument-count/stack-read audit",
+    "Remaining pointer/return semantics and complete97-export behavior",
+    "Remaining full original goal scopes"
+  ]
+}

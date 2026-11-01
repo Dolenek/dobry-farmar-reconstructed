@@ -10,7 +10,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_group_verified_scope": "Real groups17/-7; prepared no-op; actual start/pause/resume with0,1,-1,2; unrelated group preserved; empty contexts before/after Init/Free"
+      "loaded_DLL_group_verified_scope": "Real groups17/-7; prepared no-op; actual start/pause/resume with0,1,-1,2; unrelated group preserved; empty contexts before/after Init/Free",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_ChannelGroup_SetFrequency",
@@ -19,7 +26,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_group_verified_scope": "Actual groups and public getters across-1,0,99,100,22050,44100,88200,100000,100001,INT_MAX; unrelated group preserved"
+      "loaded_DLL_group_verified_scope": "Actual groups and public getters across-1,0,99,100,22050,44100,88200,100000,100001,INT_MAX; unrelated group preserved",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_ChannelGroup_SetVolume",
@@ -29,7 +43,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "integrated_game_audio_verified_scope": "Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter",
-      "loaded_DLL_group_verified_scope": "Actual groups and public getters for table indices0,1,43,99,100,101,255; invalid volumes only with no live matching channels"
+      "loaded_DLL_group_verified_scope": "Actual groups and public getters for table indices0,1,43,99,100,101,255; invalid volumes only with no live matching channels",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_ChannelGroup_Stop",
@@ -38,7 +59,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_group_verified_scope": "Real groups17/-7, unrelated group preserved, bounded original-24/0 asynchronous retirement and empty contexts"
+      "loaded_DLL_group_verified_scope": "Real groups17/-7, unrelated group preserved, bounded original-24/0 asynchronous retirement and empty contexts",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_EAX_GetProperties",
@@ -48,7 +76,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_EAX_SetProperties",
@@ -58,7 +93,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Get3DPosition",
@@ -67,7 +109,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetConeParameters",
@@ -76,7 +125,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 5,
+        "declared_stack_bytes": 20,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetFragment",
@@ -85,7 +141,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetFragmentMs",
@@ -94,7 +157,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetFrequency",
@@ -103,7 +173,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetLength",
@@ -112,7 +189,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared menu music channel"
+      "loaded_DLL_verified_scope": "Prepared menu music channel",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetLengthMs",
@@ -121,7 +205,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared menu music channel"
+      "loaded_DLL_verified_scope": "Prepared menu music channel",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetLoop",
@@ -131,7 +222,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Prepared looping menu music channel",
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetMinMaxDistance",
@@ -140,7 +238,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetPan",
@@ -149,7 +254,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetPlayPosition",
@@ -159,7 +271,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
-      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values"
+      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetPlayPositionMs",
@@ -169,7 +288,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
-      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values"
+      "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetPriority",
@@ -179,7 +305,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Prepared priority 7 menu music channel",
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetVelocity",
@@ -188,7 +321,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_GetVolume",
@@ -197,7 +337,14 @@
       "status": "partially_compared",
       "verified_scope": "All -10000..0 inverse arithmetic values with native lookup and explicit COM getter fixture",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Pause",
@@ -207,7 +354,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "integrated_game_audio_verified_scope": "Actual cChannel pause/resume status and frozen cursor",
-      "loaded_DLL_group_verified_scope": "Three actual started ambient buffers per precision enter paused public status2 before group operations"
+      "loaded_DLL_group_verified_scope": "Three actual started ambient buffers per precision enter paused public status2 before group operations",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Set3DPosition",
@@ -216,7 +370,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetConeParameters",
@@ -225,7 +386,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 5,
+        "declared_stack_bytes": 20,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetFragment",
@@ -234,7 +402,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetFragmentMs",
@@ -243,7 +418,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetFrequency",
@@ -252,7 +434,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetLoop",
@@ -261,7 +450,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetMinMaxDistance",
@@ -270,7 +466,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetPan",
@@ -279,7 +482,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetPlayPosition",
@@ -289,7 +499,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Three frame positions including near-end loop wrap; full physical buffers compared",
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetPlayPositionMs",
@@ -298,7 +515,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetPriority",
@@ -307,7 +531,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports"
+      "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetVelocity",
@@ -316,7 +547,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary"
+      "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetVolume",
@@ -325,7 +563,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101"
+      "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_SetWorker",
@@ -334,7 +579,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_channel_worker_verified_scope": "Actual prepared/playing/paused2D/3D callbacks, channel ID/userdata/thread/reentrant getter, rejected code1/zero-period retention, synchronous clear, return0 deletes after one call, signed high-bit periods; two builds and PC53/PC24. Independent scheduling counts preserved."
+      "loaded_DLL_channel_worker_verified_scope": "Actual prepared/playing/paused2D/3D callbacks, channel ID/userdata/thread/reentrant getter, rejected code1/zero-period retention, synchronous clear, return0 deletes after one call, signed high-bit periods; two builds and PC53/PC24. Independent scheduling counts preserved.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Start",
@@ -344,7 +596,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "integrated_game_audio_verified_scope": "Actual prepared and resumed music through cChannel with cursor progress",
-      "loaded_DLL_group_verified_scope": "Three actual prepared ambient buffers per precision transition from public status3 into playback before individual pause"
+      "loaded_DLL_group_verified_scope": "Three actual prepared ambient buffers per precision transition from public status3 into playback before individual pause",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Status",
@@ -355,7 +614,14 @@
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared",
       "integrated_game_audio_verified_scope": "Real prepared/play/pause/resume/retirement observations",
-      "loaded_DLL_group_verified_scope": "Actual prepared3, live1, paused2, transient stop-24 and retired0 in group scenarios"
+      "loaded_DLL_group_verified_scope": "Actual prepared3, live1, paused2, transient stop-24 and retired0 in group scenarios",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_Stop",
@@ -365,7 +631,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual buffer stop return and bounded worker retirement",
-      "integrated_game_audio_verified_scope": "Actual old shared music wrapper deletion before Loading selects and starts new music"
+      "integrated_game_audio_verified_scope": "Actual old shared music wrapper deletion before Loading selects and starts new music",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_ZOOMFX_GetProperties",
@@ -375,7 +648,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Channel_ZOOMFX_SetProperties",
@@ -385,7 +665,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Free",
@@ -395,7 +682,14 @@
       "verified_scope": "Cleanup after sample-only enumeration/loading; initialized backend lifecycle unverified",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Sample-only and initialized prepared-channel cleanup",
-      "integrated_game_audio_verified_scope": "Actual recovered SoundManager destruction after resource/channel cleanup"
+      "integrated_game_audio_verified_scope": "Actual recovered SoundManager destruction after resource/channel cleanup",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 0,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Get3DAlgorithm",
@@ -405,7 +699,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetBufferSize",
@@ -415,7 +716,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetChannelsInfo",
@@ -424,7 +732,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Complete empty initialized channel counts"
+      "loaded_DLL_verified_scope": "Complete empty initialized channel counts",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetDevice",
@@ -434,7 +749,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetDeviceCaps",
@@ -443,7 +765,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All device capability fields on this host"
+      "loaded_DLL_verified_scope": "All device capability fields on this host",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetDeviceName",
@@ -452,7 +781,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All device name output bytes in 512-byte guarded buffers on this host"
+      "loaded_DLL_verified_scope": "All device name output bytes in 512-byte guarded buffers on this host",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetEAXVersion",
@@ -461,7 +797,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host"
+      "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetHardwareAcceleration",
@@ -470,7 +813,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetNumDevice",
@@ -480,7 +830,14 @@
       "verified_scope": "Real device count on this host; device details and switching unverified",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual device count on this host",
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_GetSpeakerMode",
@@ -490,7 +847,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Init",
@@ -500,7 +864,14 @@
       "verified_scope": "Normalizer and all 256 volume table words only; backend initialization unverified",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Successful actual DirectSound initialization with game parameter values and hidden HWND",
-      "integrated_game_audio_verified_scope": "Actual game SoundSetup with null HWND and backend-owned window in both precisions"
+      "integrated_game_audio_verified_scope": "Actual game SoundSetup with null HWND and backend-owned window in both precisions",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_EAX_GetProperties",
@@ -510,7 +881,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_EAX_SetPreset",
@@ -520,7 +898,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_EAX_SetProperties",
@@ -530,7 +915,14 @@
       "verified_scope": null,
       "native_signature_fully_verified": false,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
-      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified."
+      "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetDistanceFactor",
@@ -539,7 +931,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetDopplerFactor",
@@ -548,7 +947,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetParameters",
@@ -557,7 +963,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetPosition",
@@ -566,7 +979,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetRolloffFactor",
@@ -575,7 +995,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_GetVelocity",
@@ -584,7 +1011,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetDistanceFactor",
@@ -593,7 +1027,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetDopplerFactor",
@@ -602,7 +1043,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetParameters",
@@ -611,7 +1059,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetPosition",
@@ -620,7 +1075,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetRolloffFactor",
@@ -629,7 +1091,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4"
+      "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetVelocity",
@@ -638,7 +1107,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_SetWorker",
@@ -647,7 +1123,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_worker_verified_scope": "PC53/PC24 pre-Init/live DirectSound/post-Free; DWORD periods, null/bad-code, actual userdata callback, retained handler after invalid setters and clear;152 compared results per build"
+      "listener_worker_verified_scope": "PC53/PC24 pre-Init/live DirectSound/post-Free; DWORD periods, null/bad-code, actual userdata callback, retained handler after invalid setters and clear;152 compared results per build",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Listener_Update",
@@ -656,7 +1139,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words"
+      "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Pause",
@@ -665,7 +1155,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "integrated_game_audio_verified_scope": "Actual playing/paused/resumed music cursor and status through SoundManager"
+      "integrated_game_audio_verified_scope": "Actual playing/paused/resumed music cursor and status through SoundManager",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SampleGroup_Play",
@@ -674,7 +1171,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SampleGroup_Play3D",
@@ -683,7 +1187,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 6,
+        "declared_stack_bytes": 24,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SampleGroup_Play3DEx",
@@ -692,7 +1203,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 11,
+        "declared_stack_bytes": 44,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SampleGroup_PlayEx",
@@ -701,7 +1219,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 8,
+        "declared_stack_bytes": 32,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_GetDefault",
@@ -711,7 +1236,14 @@
       "verified_scope": "All 28 default bytes for 45 valid loaded samples",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "All 28 default bytes for 45 valid samples",
-      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_GetFileFrequency",
@@ -720,7 +1252,14 @@
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample rates",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 45 game samples"
+      "loaded_DLL_verified_scope": "All 45 game samples",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_GetFileLength",
@@ -729,7 +1268,14 @@
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample frame lengths",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 45 game samples"
+      "loaded_DLL_verified_scope": "All 45 game samples",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_GetFileLengthMs",
@@ -738,7 +1284,14 @@
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample millisecond lengths",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "All 45 game samples"
+      "loaded_DLL_verified_scope": "All 45 game samples",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_LoadFile",
@@ -750,7 +1303,14 @@
       "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music",
       "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds",
       "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
-      "loaded_DLL_memory_verified_scope": "Actual mono PCM16 WAV64frames/8000Hz/8ms, memory flags0/1/-1/2, shared duplicate file ownership, forced allocation failures and successful retry; two builds and PC53/PC24"
+      "loaded_DLL_memory_verified_scope": "Actual mono PCM16 WAV64frames/8000Hz/8ms, memory flags0/1/-1/2, shared duplicate file ownership, forced allocation failures and successful retry; two builds and PC53/PC24",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 3,
+        "declared_stack_bytes": 12,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Pause",
@@ -759,7 +1319,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Play",
@@ -768,7 +1335,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Play3D",
@@ -777,7 +1351,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 6,
+        "declared_stack_bytes": 24,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Play3DEx",
@@ -786,7 +1367,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 11,
+        "declared_stack_bytes": 44,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_PlayEx",
@@ -797,7 +1385,14 @@
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "Actual prepared ambient music buffer, loop=1, group=17, start=0, priority=7, volume=43, frequency=0, pan=50",
       "integrated_game_audio_verified_scope": "Real ResourceManager/cSound music, actual MainMenu click and Loading game/menu music replacement through production imports",
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 8,
+        "declared_stack_bytes": 32,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_SetDefault",
@@ -806,7 +1401,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required"
+      "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Stop",
@@ -815,7 +1417,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending."
+      "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_Unload",
@@ -825,7 +1434,14 @@
       "verified_scope": "Successful loaded sample IDs and callback lifetime; invalid/busy IDs unverified",
       "native_signature_fully_verified": false,
       "loaded_DLL_verified_scope": "All 45 valid sample lifetimes and menu music after channel retirement",
-      "integrated_game_audio_verified_scope": "Actual unused preloaded sound cleanup across Loading screens, wrapper/resource destruction before Free"
+      "integrated_game_audio_verified_scope": "Actual unused preloaded sound cleanup across Loading screens, wrapper/resource destruction before Free",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 0,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Sample_UnloadAll",
@@ -834,7 +1450,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_memory_verified_scope": "Actual two reader generations and duplicate file references; all owned filename/file-buffer allocations freed exactly once through retained callbacks; repeated empty unload; two builds and PC53/PC24"
+      "loaded_DLL_memory_verified_scope": "Actual two reader generations and duplicate file references; all owned filename/file-buffer allocations freed exactly once through retained callbacks; repeated empty unload; two builds and PC53/PC24",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 0,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Set3DAlgorithm",
@@ -843,7 +1466,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetBufferSize",
@@ -852,7 +1482,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetDevice",
@@ -861,7 +1498,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetFileCallbacks",
@@ -870,7 +1514,14 @@
       "status": "partially_compared",
       "verified_scope": "Four recovered read-only callbacks used for all game samples; partial/null/custom cases unverified",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Recovered game read-only callbacks used before and after Init"
+      "loaded_DLL_verified_scope": "Recovered game read-only callbacks used before and after Init",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 4,
+        "declared_stack_bytes": 16,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetHardwareAcceleration",
@@ -879,7 +1530,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetMemoryCallbacks",
@@ -888,7 +1546,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_memory_verified_scope": "Actual callback A/B/null/1/-1/readable/noaccess pointer pairs, pre-Init/DirectSound/post-Free, retained reader ownership, guarded sizes/order, filename/file-buffer allocation failure and successful retry; two builds and PC53/PC24"
+      "loaded_DLL_memory_verified_scope": "Actual callback A/B/null/1/-1/readable/noaccess pointer pairs, pre-Init/DirectSound/post-Free, retained reader ownership, guarded sizes/order, filename/file-buffer allocation failure and successful retry; two builds and PC53/PC24",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 2,
+        "declared_stack_bytes": 8,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_SetSpeakerMode",
@@ -897,7 +1562,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs"
+      "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 1,
+        "declared_stack_bytes": 4,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     },
     {
       "name": "SQUALL_Stop",
@@ -906,7 +1578,14 @@
       "status": "partially_compared",
       "verified_scope": null,
       "native_signature_fully_verified": false,
-      "integrated_game_audio_verified_scope": "Actual group 1 UI clicks and group 2 music; bounded full worker retirement"
+      "integrated_game_audio_verified_scope": "Actual group 1 UI clicks and group 2 music; bounded full worker retirement",
+      "caller_cleanup_abi_verified": {
+        "declared_argument_count": 0,
+        "declared_stack_bytes": 0,
+        "declared_return_bytes": 4,
+        "native_and_source_measured_stack_delta": 0,
+        "scope": "All reachable native returns are C3; two builds/PC53/PC24 each execute every typed export with16 stack canaries. Declared count/type alone is not independent native argument proof."
+      }
     }
   ],
   "group_operation_reports": [
@@ -960,5 +1639,9 @@
   "extension_boundary_reports": [
     "analysis/squall-extension-boundary-validation.json",
     "analysis/squall-extension-boundary-fresh-validation.json"
+  ],
+  "export_stack_reports": [
+    "analysis/squall-export-stack-validation.json",
+    "analysis/squall-export-stack-fresh-validation.json"
   ]
 }
