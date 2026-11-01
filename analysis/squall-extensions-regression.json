@@ -1,0 +1,41 @@
+{
+  "status": "passed_seven_actual_extensions_unsupported_host_only_both_builds",
+  "recorded_at_utc": "2026-11-01T17:42:15.639099+00:00",
+  "recorder_sha256": "df4077dc310e00f46d2bf6009695b97a94dae10d6887e37b94ed3d8e963e9284",
+  "reports": {
+    "squall-extensions-validation.json": "43a6cf4586306f15d901ea35f5f65f9baefa718066b89b16d961499ed1b77275",
+    "squall-extensions-fresh-validation.json": "0d4fc2b17cbdd0f734bd5e8d6040b461358d5f2ce348e7055a769ce773abf724",
+    "squall-extensions-native-listener-instructions.txt": "42ecae6bc770b7b7bb0ede9729efe34408a24f941d444df1afa624bc60b50222",
+    "squall-extensions-native-channel-instructions.txt": "fc4e69c51a0b07550be8712f7409daa25306a5afcadd18a7dc3b700dca8dbceb"
+  },
+  "original_export_addresses": {
+    "SQUALL_Listener_EAX_SetProperties": "10004a40",
+    "SQUALL_Listener_EAX_GetProperties": "10004b30",
+    "SQUALL_Listener_EAX_SetPreset": "10004c30",
+    "SQUALL_Channel_EAX_SetProperties": "10006cc0",
+    "SQUALL_Channel_EAX_GetProperties": "10006dd0",
+    "SQUALL_Channel_ZOOMFX_SetProperties": "10006ef0",
+    "SQUALL_Channel_ZOOMFX_GetProperties": "10006ff0"
+  },
+  "api_results_per_build": 6692,
+  "guarded_property_snapshots_per_build": 6360,
+  "host_eax_version": 0,
+  "successful_hardware_extension_paths_verified": false,
+  "all_97_exports_have_some_comparison": true,
+  "whole_export_signatures_verified": false,
+  "build_logs": {
+    "squall-extensions-config.log": "348ddd687fad6441ee74da65d5787234cb15c4885588f2f82698f2681549597a",
+    "squall-extensions-build.log": "d0026ea63037f620b388572149d371fddd690ff23f0c0ef0f93850812c1d96f1"
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Successful EAX/ZOOMFX property paths,presets and version cache behavior",
+    "Diagnostic COM boundary comparison for inaccessible hardware branches",
+    "Remaining complete97-export ABI/behavior and full-game scopes"
+  ]
+}

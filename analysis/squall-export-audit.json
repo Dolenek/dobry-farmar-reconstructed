@@ -44,17 +44,19 @@
       "name": "SQUALL_Channel_EAX_GetProperties",
       "ordinal": 5,
       "original_address": "10006dd0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Channel_EAX_SetProperties",
       "ordinal": 6,
       "original_address": "10006cc0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Channel_Get3DPosition",
@@ -367,17 +369,19 @@
       "name": "SQUALL_Channel_ZOOMFX_GetProperties",
       "ordinal": 40,
       "original_address": "10006ff0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Channel_ZOOMFX_SetProperties",
       "ordinal": 41,
       "original_address": "10006ef0",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Free",
@@ -498,25 +502,28 @@
       "name": "SQUALL_Listener_EAX_GetProperties",
       "ordinal": 54,
       "original_address": "10004b30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Listener_EAX_SetPreset",
       "ordinal": 55,
       "original_address": "10004c30",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Listener_EAX_SetProperties",
       "ordinal": 56,
       "original_address": "10004a40",
-      "status": "editable_source_compiles_behavior_unverified",
+      "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false
+      "native_signature_fully_verified": false,
+      "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending."
     },
     {
       "name": "SQUALL_Listener_GetDistanceFactor",
@@ -938,5 +945,9 @@
   "channel_worker_reports": [
     "analysis/squall-channel-worker-validation.json",
     "analysis/squall-channel-worker-fresh-validation.json"
+  ],
+  "extensions_reports": [
+    "analysis/squall-extensions-validation.json",
+    "analysis/squall-extensions-fresh-validation.json"
   ]
 }

@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## EAX/ZOOMFX na skutečném nepodporovaném zařízení
+
+Všech sedm Listener/Channel EAX a Channel ZOOMFX exportů prošlo v `tools/squall_extensions_probe` s oběma skutečnými DLL. Každé ze dvou nezávislých sestavení má v PC53/PC24 celkem6692 shodných návratů a6360 celých guarded snapshotů výstupní paměti. Pět fází zahrnuje pre-Init, inicializovaný prázdný kontext, skutečný připravený2D i3D kanál a post-Free. Osm verzí včetně0/1/2/3,32 presetů, pět ID a šest writable/null/code1/read-only/cross-page/noaccess pointerů ověřuje pořadí chyb i nedotčenou paměť. Velikosti listener112/channel72/ZOOMFX52 odpovídají původním instrukcím.
+
+Skutečný host hlásí EAX0. Listener vrací−17 před kontrolou neplatných parametrů; kanálové EAX mají rozdílné pořadí−4/−18 a ZOOMFX−4/−21, včetně read-only getterů. Úspěšné hardwarové vlastnosti/presety a podporované verze tímto během ověřené nejsou. Jejich navazující audit přes řízenou diagnostickou COM hranici zůstává otevřený. Všech97 exportů má nyní určité částečné porovnání, nikoli úplné ABI/chování nebo dokončený Squall.
+
+Reprodukce: CMake `-S tools/squall_extensions_probe -B build/squall-extensions-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_extensions.py`, totéž s nezávislou `--candidate` a `--output .local/squall-extensions-fresh-validation.json`, potom `py -3 tools/record_squall_extensions_verification.py`. Přenositelné důkazy: `analysis/squall-extensions-{validation,fresh-validation,regression}.json` a oba native instruction soubory. Produkční kód zůstal beze změny; původní17 souborů také.
+
 ## Skutečné kanálové callbacky
 
 `tools/squall_channel_worker_probe` porovnal `SQUALL_Channel_SetWorker` ve dvou skutečných DLL a dvou nezávislých source sestaveních. Každé sestavení má v PC53/PC24 dohromady456 API výsledků,432 pointer/period případů,52 skutečných2D/3D kanálů a48 uložených callback pozorování. Callback v připraveném, hrajícím i pozastaveném kanálu dostal správné ChannelID i userdata, běžel ve skutečném zvukovém threadu a reentrantní veřejný Channel_Status getter vrátil správný stav bez deadlocku. Po odmítnutí code1 i nulové periody pokračoval původní callback s původními daty; po synchronním clear se během35ms už neozval.

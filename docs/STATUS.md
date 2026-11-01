@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Sedm EAX/ZOOMFX exportů](SQUALL.md) má nové skutečné porovnání na dostupném EAX0 zařízení: obě sestavení po6692 návratech a6360 guarded snapshotech. Pořadí chyb a nedotčená výstupní paměť souhlasí. Všech97 exportů má nyní dílčí porovnání; podporované hardwarové větve, úplné ABI a celý Squall zůstávají otevřené. Produkce se neměnila; pokračuje audit COM hranice a celý původní cíl.
+
 [Kanálové callbacky Squallu](SQUALL.md) prošly v obou sestaveních: po456 API výsledcích,432 pointer/period případech,52 skutečných2D/3D kanálech a48 callback pozorováních. Správné ID/data/thread/reentrantní getter, odmítnuté změny, clear a návrat0 souhlasí. Původní signed chování vysokobitových period je zachované; nezávislé počty callbacků nejsou normalizované. Produkce se neměnila; pokračují EAX/ZOOMFX a celý původní cíl.
 
 [Osm sample/group přehrávacích exportů a Sample_Pause/Stop](SQUALL.md) nyní prošlo ve dvou sestaveních: po774 skutečných2D/3D kanálech,12240 API výsledcích a836 guarded snapshotech. Všechny kombinace loop/start0/1/−1/2 a skupiny17/−7/0 souhlasí. Pause/Stop správně rozlišují jiné SampleID sdílející soubor; asynchronní úklid je výslovně pozorovaný. Více členů ve skupině a chybové větve zůstávají otevřené. Produkce se neměnila; pokračují channel callbacky a celý původní cíl.
