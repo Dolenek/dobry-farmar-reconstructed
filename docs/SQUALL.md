@@ -1,5 +1,15 @@
 # Rekonstrukce Squall
 
+## Podporované EAX/ZOOMFX větve přes diagnostickou COM hranici
+
+Navazující `tools/squall_extension_boundary_probe` volá skutečné exporty obou DLL nad vlastními izolovanými byte fixtures kontextu/kanálů. Původní RVA75034 a offsety useEax4/support8/listener1c/cache20/ZOOMFX90/kanály100 jsou doložené předchozími instrukcemi. Source context se odvozuje z vlastního map symbolu api+12. Statické kontrolované layouty odpovídají původním300bajtovým kanálům, EAX cache94 a ZOOMFX cachedc. Původní obsah privátního DLL kontextu se před úklidem DLL přesně vrací. Nejde o náhradní COM službu v produkci ani o test celého skutečného audio zařízení.
+
+Každé ze dvou sestavení má v PC53/PC24 dohromady7800 shodných návratů,7800 caller/cache snapshotů a7800 porovnání celých COM eventů. Porovnávají se skutečně předané GUID, property ID, nulové instance, velikosti a celé datové payloady. Podporované/nepodporované/−1 příznaky, verze, dvě platná i neplatná ID a ambient/positioned kanály ověřují cache i při chybě. Řízené HRESULT success/set failure/get failure, krátký Get zápis s vrácenou délkou0 a null interface pokrývají větve nedostupné na hostu EAX0.
+
+1920 preset případů na sestavení zahrnuje všechny27 přesné statické presety EAX1/2/3 i hranice a useEax0/4/−1. Zachované jsou původní zvláštnosti: listenerový support test je obrácený a setter kopíruje cache ještě před odmítnutím verze; channel EAX dovoluje verzi0, kterou až helper odmítne; ZOOMFX Get vrací true i při chybě COM nebo null interface a kopíruje stávající cache. Nic z toho se nepřepisuje odhadnutou mechanikou. Obě počáteční chyby hlaviček diagnostického nástroje jsou evidované v build logách; produkce se neměnila.
+
+Reprodukce: CMake `-S tools/squall_extension_boundary_probe -B build/squall-extension-boundary-probe-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, build Release, `py -3 tools/validate_squall_extension_boundary.py`, totéž s nezávislou `--candidate` a `--output .local/squall-extension-boundary-fresh-validation.json`, potom `py -3 tools/record_squall_extension_boundary_verification.py`. Přenositelné důkazy jsou `analysis/squall-extension-boundary-{validation,fresh-validation,regression}.json`. Podporovaný skutečný hardware/driver, další guarded pointer/aliasing větve a úplný97exportový audit zůstávají otevřené.
+
 ## EAX/ZOOMFX na skutečném nepodporovaném zařízení
 
 Všech sedm Listener/Channel EAX a Channel ZOOMFX exportů prošlo v `tools/squall_extensions_probe` s oběma skutečnými DLL. Každé ze dvou nezávislých sestavení má v PC53/PC24 celkem6692 shodných návratů a6360 celých guarded snapshotů výstupní paměti. Pět fází zahrnuje pre-Init, inicializovaný prázdný kontext, skutečný připravený2D i3D kanál a post-Free. Osm verzí včetně0/1/2/3,32 presetů, pět ID a šest writable/null/code1/read-only/cross-page/noaccess pointerů ověřuje pořadí chyb i nedotčenou paměť. Velikosti listener112/channel72/ZOOMFX52 odpovídají původním instrukcím.

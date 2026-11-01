@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Podporované EAX/ZOOMFX větve přes diagnostickou COM hranici](SQUALL.md) prošly v obou sestaveních po7800 případech. Souhlasí celé caller/cache bajty i GUID/property/velikosti/payloady COM volání, všech27 presetů EAX1/2/3 a řízené chyby. Původní zvláštnosti support/cache/ZOOMFX Get zůstaly zachované. Privátní kontextové fixtures a chybějící podporovaný hardware jsou výslovně odlišené; produkce se neměnila. Úplné ABI/chování Squallu i celý původní cíl pokračují.
+
 [Sedm EAX/ZOOMFX exportů](SQUALL.md) má nové skutečné porovnání na dostupném EAX0 zařízení: obě sestavení po6692 návratech a6360 guarded snapshotech. Pořadí chyb a nedotčená výstupní paměť souhlasí. Všech97 exportů má nyní dílčí porovnání; podporované hardwarové větve, úplné ABI a celý Squall zůstávají otevřené. Produkce se neměnila; pokračuje audit COM hranice a celý původní cíl.
 
 [Kanálové callbacky Squallu](SQUALL.md) prošly v obou sestaveních: po456 API výsledcích,432 pointer/period případech,52 skutečných2D/3D kanálech a48 callback pozorováních. Správné ID/data/thread/reentrantní getter, odmítnuté změny, clear a návrat0 souhlasí. Původní signed chování vysokobitových period je zachované; nezávislé počty callbacků nejsou normalizované. Produkce se neměnila; pokračují EAX/ZOOMFX a celý původní cíl.

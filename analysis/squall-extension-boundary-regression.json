@@ -1,0 +1,56 @@
+{
+  "status": "passed_eax_zoomfx_supported_wrapper_and_preset_com_boundary_only_both_builds",
+  "recorded_at_utc": "2026-11-01T17:48:39.456439+00:00",
+  "recorder_sha256": "312dce7b2975995e5a0eb453a79958c359a86870b9248878a44da15d9cebd9df",
+  "reports": {
+    "squall-extension-boundary-validation.json": "17245a0249be86e3120e456c3c1155efca531dab1c5751e92e887d37097c467c",
+    "squall-extension-boundary-fresh-validation.json": "eb1d6a8cf6feeed34a33137cd9cdb43404ee18d6c4ca47dbdc8fe03f277abf57"
+  },
+  "fixture_cases_per_build": 7800,
+  "cached_and_caller_snapshots_per_build": 7800,
+  "com_event_snapshots_per_build": 7800,
+  "preset_cases_per_build": 1920,
+  "original_context_rva": "00075034",
+  "native_context_offsets": {
+    "useEax": 4,
+    "eaxSupport": 8,
+    "eaxListener": 28,
+    "eaxLP": 32,
+    "zoomfxSupport": 144,
+    "channelsArray": 256
+  },
+  "native_channel_size": 300,
+  "native_channel_offsets": {
+    "property3d": 16,
+    "eaxCache": 148,
+    "zoomfxCache": 220
+  },
+  "native_instruction_reports": [
+    "analysis/squall-extensions-native-listener-instructions.txt",
+    "analysis/squall-extensions-native-channel-instructions.txt"
+  ],
+  "actual_hardware_extension_compared": false,
+  "diagnostic_private_context_fixture_only": true,
+  "original_program_code_used_in_implementation": false,
+  "build_logs": {
+    "squall-extension-boundary-config.log": "dfbf194611e175a2dd11e8834523ed5a47067cee7f25c84762356f5288b43c44",
+    "squall-extension-boundary-build.log": "62d3d601fd1a83a9cdd770badd1d9568966ec84a617351812d47468bae72acb2",
+    "squall-extension-boundary-initial-build.log": "6af5cfd5e21104e054543fb9ac6e04cf92af4378a5b2db2c2f75847286f78d61",
+    "squall-extension-boundary-second-build.log": "b1a51faf6e21e8d7e74447b89d8542858a70324221e54cbfc8eb1ce12548730f"
+  },
+  "diagnostic_build_corrections": [
+    "Explicit mmsystem.h supplies WAV types before dsound.h",
+    "Explicit string header supplies std::stoul"
+  ],
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Actual supported hardware and driver-specific constraints",
+    "Supported guarded pointers,aliasing and additional COM failure modes",
+    "Remaining complete97-export ABI/behavior and full-game scopes"
+  ]
+}
