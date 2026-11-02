@@ -1,0 +1,35 @@
+{
+  "status": "actual_pcm8_mono_to_stereo_eof_difference_reproduced_and_instruction_backed_repair_verified",
+  "initial_report_sha256": "3c20c2f267b80cc11542f8d9bc6d2d01cbb80cca52598cd91a43009b7ab77f3b",
+  "work_directory": ".local/squall-wave-formats/20261101T182037416422Z",
+  "error": "AssertionError(('PC53', 1, 'WAV pcm8-1.wav memory=0\\r\\nPCM mismatch file=pcm8-1.wav memory=0 channels=2 start=256 count=9 loop=0 first_byte=16\\r\\nDecoded WAV words/guards differ last_file=pcm8-1.wav memory=0 channels=2 start=256 count=9 loop=0\\r\\n'))",
+  "preserved_source_snapshots": {
+    "tools/squall_wave_formats_reference_test.cpp": {
+      "path": ".local/squall-wave-formats/20261101T182037416422Z/source-snapshots/tools/squall_wave_formats_reference_test.cpp",
+      "sha256": "569e91a1c8c927bd6c89f0e054fe11226b7bd321a65e400ef61c346d66d2ef03"
+    },
+    "tools/squall_wave_formats_probe/CMakeLists.txt": {
+      "path": ".local/squall-wave-formats/20261101T182037416422Z/source-snapshots/tools/squall_wave_formats_probe/CMakeLists.txt",
+      "sha256": "e8a8de7a123550567d1f51b2d9d0160a0b7f21c5417a56e2e9e66251798ef842"
+    },
+    "tools/squall_wave_fixtures.py": {
+      "path": ".local/squall-wave-formats/20261101T182037416422Z/source-snapshots/tools/squall_wave_fixtures.py",
+      "sha256": "729288611bf2540255c168a823d6fd3298f7009f8a318e8058c5da71e10caefb"
+    },
+    "tools/validate_squall_wave_formats.py": {
+      "path": ".local/squall-wave-formats/20261101T182037416422Z/source-snapshots/tools/validate_squall_wave_formats.py",
+      "sha256": "33019516657a959c30acc8aaf73aeb17f963b288c59dc95d59d9a945963e1617"
+    },
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": {
+      "path": ".local/squall-wave-formats/20261101T182037416422Z/source-snapshots/src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp",
+      "sha256": "ece3cf623213396d823a2553d6e882c22fec2bad12e21fac5002da0b8596a4b8"
+    }
+  },
+  "raw_outputs": {
+    "failed-source-pcm.bin": "b91a387976f88bdbe837668fc4942cd018f761a1874136a2723cf0adf8d89254",
+    "failed-native-pcm.bin": "786637c6c9a1a60a31a37a4e155be710a4058ea2d5fa592d63a8ce8af21b569f"
+  },
+  "explanation": "Native PUSH ECX seeds local PCM8 byte/PCM16 word with upper bits of this; PCM16 mono reuses start argument DWORD. Source C++ had unrelated uninitialized locals.",
+  "genuinely_uninitialized_pcm8_stereo_to_mono_eof": "Separate SUB ESP,8 local remains genuinely uninitialized; raw pairs preserved, equality not claimed.",
+  "whole_game_complete": false
+}

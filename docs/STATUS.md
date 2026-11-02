@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Oprava původních PCM EOF bajtů](SQUALL.md) je nově doložená216 neshodami staré vlastní DLL a nulou neshod v obou opravených sestaveních na stejných adresách objektů. Širší24formátová WAV/PCM/IMA/MS ADPCM sada má na sestavení1952 guarded čtení,192 skutečných bufferů a124856 přesných definovaných PCM bajtů. Adresně závislé a skutečně neurčené EOF výstupy se evidují bez normalizace. Nová úplná regrese102/102 prošla za490,82s; všech45 herních zvuků, skutečné game-audio/PersonSounds a čtyři celé6943/7784bajtové obnovy také prošly. Pokračují MPEG/WMA/tracker, další přirozený průběh hry a celý původní cíl.
+
 [Výběr mezi více členy sample skupiny Squallu](SQUALL.md) prošel v obou sestaveních po236896 výsledcích,229376 neprázdných výběrech a224 skutečných2D/3D group kanálech. Skupiny až300 SampleID zachovávají původní limit prvních256, nezměněný výchozí RNG i výchozí/explicitní parametry všech čtyř přehrávacích exportů. Všichni způsobilí členové byli vybraní; seed ani ID se nepřepisují. Produkce se neměnila; pokračují další formáty a celý původní cíl.
 
 [Původní argumentové sloty všech97 exportů Squallu](SQUALL.md) nyní mají nezávislý instrukční audit:230 stack referencí,5697 symbolických stavů,603 call site cleanup důkazů a63 interních callee souhrnů. Každý původně používaný slot1..N i nejvyšší slot souhlasí s deklarací; všechny sledované návraty mají ESP0. Počet slotů se nevydává za úplnou pointer/return sémantiku. Produkce se neměnila; pokračují další DLL rozsahy a celý původní cíl.
@@ -68,7 +70,7 @@
 
 [Přirozená rajčatová zakázka16](CONTRACT_RUNTIME.md) nově prošla přijetím, zálohou20, čtyřmi skutečně zalitými a znovu sklizenými plody a odměnou80: Money34→14→94. Nabídka, potvrzení a návod27 mají207200 přesně shodných RGB pixelů, úplné3278bajtové saves souhlasí bez normalizace. Další plodiny, nářadí, výroba a ostatní podmínky celého cíle pokračují.
 
-Aktuální stav1.11.2026: hlavní herní EXE, JNGLoad.dll, zdrojový kandidát celé Squall.dll a odinstalátor jsou sestavitelné z upravitelného kódu. Celý projekt zůstává rozpracovaný: zejména úplné chování97 exportů, další přirozené herní systémy a níže výslovně evidované hranice engine/odinstalátoru nejsou dokončené. Reference17 původních souborů a původní Ghidra projekt zůstávají zachované; nic se nepublikuje.
+Aktuální stav2.11.2026: hlavní herní EXE, JNGLoad.dll, zdrojový kandidát celé Squall.dll a odinstalátor jsou sestavitelné z upravitelného kódu. Celý projekt zůstává rozpracovaný: zejména úplné chování97 exportů, další přirozené herní systémy a níže výslovně evidované hranice engine/odinstalátoru nejsou dokončené. Reference17 původních souborů a původní Ghidra projekt zůstávají zachované; nic se nepublikuje.
 
 [Listener Squall](SQUALL.md) má opravené původní ordered kontroly tří faktorů: veřejný zdroj propouštěl NaN. Dvě sestavení prošla po24962 výsledcích v PC53/PC24 se skutečným DirectSound listenerem; stejný harness prokázal6144 odchylek starého kandidáta. Nový úplný běh102/102 za540.12s je evidovaný v analysis/squall-listener-regression.json; historický101/102 běh zůstává doložený v commitu38bedf7.
 

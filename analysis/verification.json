@@ -59,7 +59,8 @@
       "analysis/irrigation-state-validation.json",
       "analysis/irrigation-interop-validation.json",
       "analysis/field-disasters-state-validation.json",
-      "analysis/field-disasters-interop-validation.json"
+      "analysis/field-disasters-interop-validation.json",
+      "analysis/squall-pcm-eof-game-interop-validation.json"
     ]
   },
   "build": {
@@ -153,7 +154,7 @@
     "resource_write_checks": 12,
     "ctest_current_checks_covered_across_full_and_retry": 102,
     "ctest_focused_retry_repetitions": 0,
-    "last_full_ctest_report": "analysis/squall-channel-vectors-regression.json",
+    "last_full_ctest_report": "analysis/squall-pcm-eof-regression.json",
     "full_ctest_repeated_for_latest_vector_fix": false,
     "full_ctest_repeated_for_latest_game_alias_fix": true,
     "full_ctest_repeated_for_latest_sample_fix": true
@@ -456,7 +457,24 @@
     "analysis/squall-sample-selection-validation.json",
     "analysis/squall-sample-selection-fresh-validation.json",
     "analysis/squall-sample-selection-native-instructions.txt",
-    "analysis/squall-sample-selection-regression.json"
+    "analysis/squall-sample-selection-regression.json",
+    "analysis/squall-pcm-eof-before-validation.json",
+    "analysis/squall-pcm-eof-validation.json",
+    "analysis/squall-wave-formats-validation.json",
+    "analysis/squall-pcm-eof-dll-validation.json",
+    "analysis/squall-pcm-eof-game-audio-validation.json",
+    "analysis/squall-pcm-eof-person-sounds-validation.json",
+    "analysis/squall-pcm-eof-abi.json",
+    "analysis/squall-pcm-eof-fresh-validation.json",
+    "analysis/squall-wave-formats-fresh-validation.json",
+    "analysis/squall-pcm-eof-dll-fresh-validation.json",
+    "analysis/squall-pcm-eof-game-audio-fresh-validation.json",
+    "analysis/squall-pcm-eof-person-sounds-fresh-validation.json",
+    "analysis/squall-pcm-eof-fresh-abi.json",
+    "analysis/squall-pcm-eof-game-interop-validation.json",
+    "analysis/squall-pcm-eof-initial-observation.json",
+    "analysis/squall-pcm-eof-native-instructions.txt",
+    "analysis/squall-pcm-eof-regression.json"
   ],
   "full_reconstruction_pending": [
     "Main game EXE and all game systems",
@@ -108376,8 +108394,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-sample-selection-regression.json",
-    "recorded_at_utc": "2026-11-01T18:16:39.304728+00:00",
+    "report": "analysis/squall-pcm-eof-regression.json",
+    "recorded_at_utc": "2026-11-01T19:00:06.390399+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"

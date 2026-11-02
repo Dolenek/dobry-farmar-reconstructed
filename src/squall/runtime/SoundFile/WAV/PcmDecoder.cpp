@@ -5,6 +5,7 @@
 //	разработчик	: Гилязетдинов Марат (Марыч)
 //-----------------------------------------------------------------------------
 #include "PcmDecoder.h"
+#include <cstdint>
 
 //-----------------------------------------------------------------------------
 //	Декомпрессия 8 битного беззнакового ИКМ моно режим
@@ -58,7 +59,10 @@ DWORD CDecompressPcm8Unsigned::GetStereoSamples(void* buffer, DWORD start,
     DWORD length, bool loop)
 {
     // определение переменных
-    BYTE in;
+    // Native100149f0 allocates this local with PUSH ECX. Its byte at
+    // entryESP-1 initially contains the high byte of the decoder pointer;
+    // a zero-byte read leaves it intact. Preserve that address dependency.
+    BYTE in = static_cast<BYTE>(reinterpret_cast<std::uintptr_t>(this) >> 24);
     BYTE* out = (BYTE*) buffer;
 
     // защита от дурака
@@ -135,6 +139,9 @@ DWORD CDecompressPcm16Signed::GetMonoSamples(void* buffer, DWORD start,
 {
     int s;
     short in[2];
+    // Native10014b70 reuses the incoming start DWORD at entryESP+8 for
+    // these two words after seeking. Partial/empty reads retain its bytes.
+    memcpy(in, &start, sizeof(in));
     short* out = (short*) buffer;
 
     // защита от дурака
@@ -176,7 +183,11 @@ DWORD CDecompressPcm16Signed::GetMonoSamples(void* buffer, DWORD start,
 DWORD CDecompressPcm16Signed::GetStereoSamples(void* buffer, DWORD start,
     DWORD length, bool loop)
 {
+    // Native10014c70 also uses PUSH ECX for the local, reading the upper
+    // word at entryESP-2 if the first file read returns no data.
+    const auto savedThisWord = static_cast<std::uint16_t>(reinterpret_cast<std::uintptr_t>(this) >> 16);
     short in;
+    memcpy(&in, &savedThisWord, sizeof(in));
     short* out = (short*) buffer;
 
     // защита от дурака

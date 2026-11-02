@@ -1,0 +1,607 @@
+Native reference range 100148d0..100149f0; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  100148D0: 83 EC 08           sub         esp,8
+  100148D3: 53                 push        ebx
+  100148D4: 8B 5C 24 10        mov         ebx,dword ptr [esp+10h]
+  100148D8: 55                 push        ebp
+  100148D9: 8B 6C 24 1C        mov         ebp,dword ptr [esp+1Ch]
+  100148DD: 56                 push        esi
+  100148DE: 57                 push        edi
+  100148DF: 85 ED              test        ebp,ebp
+  100148E1: 8B F9              mov         edi,ecx
+  100148E3: 0F 84 F0 00 00 00  je          100149D9
+  100148E9: 8B 4F 04           mov         ecx,dword ptr [edi+4]
+  100148EC: 8B 01              mov         eax,dword ptr [ecx]
+  100148EE: FF 50 04           call        dword ptr [eax+4]
+  100148F1: 66 83 78 02 01     cmp         word ptr [eax+2],1
+  100148F6: 75 65              jne         1001495D
+  100148F8: 8B 47 04           mov         eax,dword ptr [edi+4]
+  100148FB: 8B 54 24 20        mov         edx,dword ptr [esp+20h]
+  100148FF: 8B 48 14           mov         ecx,dword ptr [eax+14h]
+  10014902: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014905: 3B D1              cmp         edx,ecx
+  10014907: 76 03              jbe         1001490C
+  10014909: 89 48 10           mov         dword ptr [eax+10h],ecx
+  1001490C: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  1001490F: 8B 70 10           mov         esi,dword ptr [eax+10h]
+  10014912: 03 CE              add         ecx,esi
+  10014914: 51                 push        ecx
+  10014915: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014918: E8 C3 8E 01 00     call        1002D7E0
+  1001491D: 8B 77 04           mov         esi,dword ptr [edi+4]
+  10014920: 8B D5              mov         edx,ebp
+  10014922: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014925: 8B 46 14           mov         eax,dword ptr [esi+14h]
+  10014928: 8D 3C 29           lea         edi,[ecx+ebp]
+  1001492B: 3B F8              cmp         edi,eax
+  1001492D: 76 04              jbe         10014933
+  1001492F: 2B C1              sub         eax,ecx
+  10014931: 8B D0              mov         edx,eax
+  10014933: 8B 5C 24 1C        mov         ebx,dword ptr [esp+1Ch]
+  10014937: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  1001493A: 52                 push        edx
+  1001493B: 53                 push        ebx
+  1001493C: E8 5F 8D 01 00     call        1002D6A0
+  10014941: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014944: 03 DD              add         ebx,ebp
+  10014946: 03 C8              add         ecx,eax
+  10014948: 5F                 pop         edi
+  10014949: 89 4E 10           mov         dword ptr [esi+10h],ecx
+  1001494C: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10014950: 8B C3              mov         eax,ebx
+  10014952: 5E                 pop         esi
+  10014953: 5D                 pop         ebp
+  10014954: 2B C1              sub         eax,ecx
+  10014956: 5B                 pop         ebx
+  10014957: 83 C4 08           add         esp,8
+  1001495A: C2 10 00           ret         10h
+  1001495D: 8B 54 24 20        mov         edx,dword ptr [esp+20h]
+  10014961: 8B 47 04           mov         eax,dword ptr [edi+4]
+  10014964: 8D 0C 12           lea         ecx,[edx+edx]
+  10014967: 8B 50 14           mov         edx,dword ptr [eax+14h]
+  1001496A: 3B CA              cmp         ecx,edx
+  1001496C: 89 48 10           mov         dword ptr [eax+10h],ecx
+  1001496F: 76 03              jbe         10014974
+  10014971: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014974: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  10014977: 8B 70 10           mov         esi,dword ptr [eax+10h]
+  1001497A: 03 CE              add         ecx,esi
+  1001497C: 51                 push        ecx
+  1001497D: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014980: E8 5B 8E 01 00     call        1002D7E0
+  10014985: 8B 77 04           mov         esi,dword ptr [edi+4]
+  10014988: B9 02 00 00 00     mov         ecx,2
+  1001498D: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014990: 8B 46 14           mov         eax,dword ptr [esi+14h]
+  10014993: 8D 6A 02           lea         ebp,[edx+2]
+  10014996: 3B E8              cmp         ebp,eax
+  10014998: 76 04              jbe         1001499E
+  1001499A: 2B C2              sub         eax,edx
+  1001499C: 8B C8              mov         ecx,eax
+  1001499E: 8D 54 24 10        lea         edx,[esp+10h]
+  100149A2: 51                 push        ecx
+  100149A3: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  100149A6: 52                 push        edx
+  100149A7: E8 F4 8C 01 00     call        1002D6A0
+  100149AC: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  100149AF: 03 D0              add         edx,eax
+  100149B1: 89 56 10           mov         dword ptr [esi+10h],edx
+  100149B4: 8B 44 24 11        mov         eax,dword ptr [esp+11h]
+  100149B8: 8B 4C 24 10        mov         ecx,dword ptr [esp+10h]
+  100149BC: 25 FF 00 00 00     and         eax,0FFh
+  100149C1: 81 E1 FF 00 00 00  and         ecx,0FFh
+  100149C7: 03 C1              add         eax,ecx
+  100149C9: D1 F8              sar         eax,1
+  100149CB: 88 03              mov         byte ptr [ebx],al
+  100149CD: 8B 44 24 24        mov         eax,dword ptr [esp+24h]
+  100149D1: 43                 inc         ebx
+  100149D2: 48                 dec         eax
+  100149D3: 89 44 24 24        mov         dword ptr [esp+24h],eax
+  100149D7: 75 AC              jne         10014985
+  100149D9: 8B 4C 24 1C        mov         ecx,dword ptr [esp+1Ch]
+  100149DD: 5F                 pop         edi
+  100149DE: 8B C3              mov         eax,ebx
+  100149E0: 5E                 pop         esi
+  100149E1: 5D                 pop         ebp
+  100149E2: 2B C1              sub         eax,ecx
+  100149E4: 5B                 pop         ebx
+  100149E5: 83 C4 08           add         esp,8
+  100149E8: C2 10 00           ret         10h
+  100149EB: 90                 nop
+  100149EC: 90                 nop
+  100149ED: 90                 nop
+  100149EE: 90                 nop
+  100149EF: 90                 nop
+Native reference range 100149f0..10014b00; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  100149F0: 51                 push        ecx
+  100149F1: 53                 push        ebx
+  100149F2: 55                 push        ebp
+  100149F3: 8B 6C 24 18        mov         ebp,dword ptr [esp+18h]
+  100149F7: 56                 push        esi
+  100149F8: 57                 push        edi
+  100149F9: 8B 7C 24 18        mov         edi,dword ptr [esp+18h]
+  100149FD: 85 ED              test        ebp,ebp
+  100149FF: 8B D9              mov         ebx,ecx
+  10014A01: 0F 84 E1 00 00 00  je          10014AE8
+  10014A07: 8B 4B 04           mov         ecx,dword ptr [ebx+4]
+  10014A0A: 8B 01              mov         eax,dword ptr [ecx]
+  10014A0C: FF 50 04           call        dword ptr [eax+4]
+  10014A0F: 66 83 78 02 01     cmp         word ptr [eax+2],1
+  10014A14: 75 7A              jne         10014A90
+  10014A16: 8B 43 04           mov         eax,dword ptr [ebx+4]
+  10014A19: 8B 54 24 1C        mov         edx,dword ptr [esp+1Ch]
+  10014A1D: 8B 48 14           mov         ecx,dword ptr [eax+14h]
+  10014A20: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014A23: 3B D1              cmp         edx,ecx
+  10014A25: 76 03              jbe         10014A2A
+  10014A27: 89 48 10           mov         dword ptr [eax+10h],ecx
+  10014A2A: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  10014A2D: 8B 70 10           mov         esi,dword ptr [eax+10h]
+  10014A30: 03 CE              add         ecx,esi
+  10014A32: 51                 push        ecx
+  10014A33: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014A36: E8 A5 8D 01 00     call        1002D7E0
+  10014A3B: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014A3E: B9 01 00 00 00     mov         ecx,1
+  10014A43: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014A46: 8B 46 14           mov         eax,dword ptr [esi+14h]
+  10014A49: 8D 6A 01           lea         ebp,[edx+1]
+  10014A4C: 3B E8              cmp         ebp,eax
+  10014A4E: 76 04              jbe         10014A54
+  10014A50: 2B C2              sub         eax,edx
+  10014A52: 8B C8              mov         ecx,eax
+  10014A54: 8D 54 24 13        lea         edx,[esp+13h]
+  10014A58: 51                 push        ecx
+  10014A59: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014A5C: 52                 push        edx
+  10014A5D: E8 3E 8C 01 00     call        1002D6A0
+  10014A62: 8B 6E 10           mov         ebp,dword ptr [esi+10h]
+  10014A65: 03 E8              add         ebp,eax
+  10014A67: 47                 inc         edi
+  10014A68: 89 6E 10           mov         dword ptr [esi+10h],ebp
+  10014A6B: 8A 44 24 13        mov         al,byte ptr [esp+13h]
+  10014A6F: 88 47 FF           mov         byte ptr [edi-1],al
+  10014A72: 88 07              mov         byte ptr [edi],al
+  10014A74: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10014A78: 47                 inc         edi
+  10014A79: 48                 dec         eax
+  10014A7A: 89 44 24 20        mov         dword ptr [esp+20h],eax
+  10014A7E: 75 BB              jne         10014A3B
+  10014A80: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10014A84: 8B C7              mov         eax,edi
+  10014A86: 5F                 pop         edi
+  10014A87: 5E                 pop         esi
+  10014A88: 5D                 pop         ebp
+  10014A89: 2B C1              sub         eax,ecx
+  10014A8B: 5B                 pop         ebx
+  10014A8C: 59                 pop         ecx
+  10014A8D: C2 10 00           ret         10h
+  10014A90: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10014A94: 8D 0C 00           lea         ecx,[eax+eax]
+  10014A97: 8B 43 04           mov         eax,dword ptr [ebx+4]
+  10014A9A: 8B 50 14           mov         edx,dword ptr [eax+14h]
+  10014A9D: 89 48 10           mov         dword ptr [eax+10h],ecx
+  10014AA0: 3B CA              cmp         ecx,edx
+  10014AA2: 76 03              jbe         10014AA7
+  10014AA4: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014AA7: 8B 48 08           mov         ecx,dword ptr [eax+8]
+  10014AAA: 8B 70 10           mov         esi,dword ptr [eax+10h]
+  10014AAD: 03 CE              add         ecx,esi
+  10014AAF: 51                 push        ecx
+  10014AB0: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014AB3: E8 28 8D 01 00     call        1002D7E0
+  10014AB8: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014ABB: 8D 44 2D 00        lea         eax,[ebp+ebp]
+  10014ABF: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014AC2: 8B 4E 14           mov         ecx,dword ptr [esi+14h]
+  10014AC5: 8D 3C 02           lea         edi,[edx+eax]
+  10014AC8: 3B F9              cmp         edi,ecx
+  10014ACA: 76 04              jbe         10014AD0
+  10014ACC: 2B CA              sub         ecx,edx
+  10014ACE: 8B C1              mov         eax,ecx
+  10014AD0: 8B 7C 24 18        mov         edi,dword ptr [esp+18h]
+  10014AD4: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014AD7: 50                 push        eax
+  10014AD8: 57                 push        edi
+  10014AD9: E8 C2 8B 01 00     call        1002D6A0
+  10014ADE: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014AE1: 03 C8              add         ecx,eax
+  10014AE3: 03 FD              add         edi,ebp
+  10014AE5: 89 4E 10           mov         dword ptr [esi+10h],ecx
+  10014AE8: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10014AEC: 8B C7              mov         eax,edi
+  10014AEE: 5F                 pop         edi
+  10014AEF: 5E                 pop         esi
+  10014AF0: 5D                 pop         ebp
+  10014AF1: 2B C1              sub         eax,ecx
+  10014AF3: 5B                 pop         ebx
+  10014AF4: 59                 pop         ecx
+  10014AF5: C2 10 00           ret         10h
+  10014AF8: 90                 nop
+  10014AF9: 90                 nop
+  10014AFA: 90                 nop
+  10014AFB: 90                 nop
+  10014AFC: 90                 nop
+  10014AFD: 90                 nop
+  10014AFE: 90                 nop
+  10014AFF: 90                 nop
+Native reference range 10014b70..10014c70; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  10014B70: 53                 push        ebx
+  10014B71: 55                 push        ebp
+  10014B72: 8B 6C 24 0C        mov         ebp,dword ptr [esp+0Ch]
+  10014B76: 56                 push        esi
+  10014B77: 8B 74 24 18        mov         esi,dword ptr [esp+18h]
+  10014B7B: 57                 push        edi
+  10014B7C: 85 F6              test        esi,esi
+  10014B7E: 8B D9              mov         ebx,ecx
+  10014B80: 8B FD              mov         edi,ebp
+  10014B82: 0F 84 D0 00 00 00  je          10014C58
+  10014B88: 8B 43 08           mov         eax,dword ptr [ebx+8]
+  10014B8B: 8B 4B 04           mov         ecx,dword ptr [ebx+4]
+  10014B8E: 0F AF 44 24 18     imul        eax,dword ptr [esp+18h]
+  10014B93: 8B 51 14           mov         edx,dword ptr [ecx+14h]
+  10014B96: D1 E0              shl         eax,1
+  10014B98: 3B C2              cmp         eax,edx
+  10014B9A: 89 41 10           mov         dword ptr [ecx+10h],eax
+  10014B9D: 76 03              jbe         10014BA2
+  10014B9F: 89 51 10           mov         dword ptr [ecx+10h],edx
+  10014BA2: 8B 41 08           mov         eax,dword ptr [ecx+8]
+  10014BA5: 8B 51 10           mov         edx,dword ptr [ecx+10h]
+  10014BA8: 8B 49 04           mov         ecx,dword ptr [ecx+4]
+  10014BAB: 03 C2              add         eax,edx
+  10014BAD: 50                 push        eax
+  10014BAE: E8 2D 8C 01 00     call        1002D7E0
+  10014BB3: 83 7B 08 01        cmp         dword ptr [ebx+8],1
+  10014BB7: 75 38              jne         10014BF1
+  10014BB9: 8D 3C 36           lea         edi,[esi+esi]
+  10014BBC: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014BBF: 8B C7              mov         eax,edi
+  10014BC1: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014BC4: 8B 4E 14           mov         ecx,dword ptr [esi+14h]
+  10014BC7: 8D 1C 02           lea         ebx,[edx+eax]
+  10014BCA: 3B D9              cmp         ebx,ecx
+  10014BCC: 76 04              jbe         10014BD2
+  10014BCE: 2B CA              sub         ecx,edx
+  10014BD0: 8B C1              mov         eax,ecx
+  10014BD2: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014BD5: 50                 push        eax
+  10014BD6: 55                 push        ebp
+  10014BD7: E8 C4 8A 01 00     call        1002D6A0
+  10014BDC: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014BDF: 03 FD              add         edi,ebp
+  10014BE1: 03 C8              add         ecx,eax
+  10014BE3: 8B C7              mov         eax,edi
+  10014BE5: 89 4E 10           mov         dword ptr [esi+10h],ecx
+  10014BE8: 5F                 pop         edi
+  10014BE9: 2B C5              sub         eax,ebp
+  10014BEB: 5E                 pop         esi
+  10014BEC: 5D                 pop         ebp
+  10014BED: 5B                 pop         ebx
+  10014BEE: C2 10 00           ret         10h
+  10014BF1: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014BF4: BA 04 00 00 00     mov         edx,4
+  10014BF9: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014BFC: 8B 46 14           mov         eax,dword ptr [esi+14h]
+  10014BFF: 8D 69 04           lea         ebp,[ecx+4]
+  10014C02: 3B E8              cmp         ebp,eax
+  10014C04: 76 04              jbe         10014C0A
+  10014C06: 2B C1              sub         eax,ecx
+  10014C08: 8B D0              mov         edx,eax
+  10014C0A: 8D 4C 24 18        lea         ecx,[esp+18h]
+  10014C0E: 52                 push        edx
+  10014C0F: 51                 push        ecx
+  10014C10: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014C13: E8 88 8A 01 00     call        1002D6A0
+  10014C18: 01 46 10           add         dword ptr [esi+10h],eax
+  10014C1B: 0F BF 44 24 1A     movsx       eax,word ptr [esp+1Ah]
+  10014C20: 0F BF 54 24 18     movsx       edx,word ptr [esp+18h]
+  10014C25: 03 C2              add         eax,edx
+  10014C27: D1 F8              sar         eax,1
+  10014C29: 3D 00 80 FF FF     cmp         eax,0FFFF8000h
+  10014C2E: 7D 07              jge         10014C37
+  10014C30: B8 00 80 FF FF     mov         eax,0FFFF8000h
+  10014C35: EB 0C              jmp         10014C43
+  10014C37: 3D FF 7F 00 00     cmp         eax,7FFFh
+  10014C3C: 7E 05              jle         10014C43
+  10014C3E: B8 FF 7F 00 00     mov         eax,7FFFh
+  10014C43: 66 89 07           mov         word ptr [edi],ax
+  10014C46: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10014C4A: 83 C7 02           add         edi,2
+  10014C4D: 48                 dec         eax
+  10014C4E: 89 44 24 1C        mov         dword ptr [esp+1Ch],eax
+  10014C52: 75 9D              jne         10014BF1
+  10014C54: 8B 6C 24 14        mov         ebp,dword ptr [esp+14h]
+  10014C58: 8B C7              mov         eax,edi
+  10014C5A: 5F                 pop         edi
+  10014C5B: 2B C5              sub         eax,ebp
+  10014C5D: 5E                 pop         esi
+  10014C5E: 5D                 pop         ebp
+  10014C5F: 5B                 pop         ebx
+  10014C60: C2 10 00           ret         10h
+  10014C63: 90                 nop
+  10014C64: 90                 nop
+  10014C65: 90                 nop
+  10014C66: 90                 nop
+  10014C67: 90                 nop
+  10014C68: 90                 nop
+  10014C69: 90                 nop
+  10014C6A: 90                 nop
+  10014C6B: 90                 nop
+  10014C6C: 90                 nop
+  10014C6D: 90                 nop
+  10014C6E: 90                 nop
+  10014C6F: 90                 nop
+Native reference range 10014c70..10014d90; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  10014C70: 51                 push        ecx
+  10014C71: 53                 push        ebx
+  10014C72: 55                 push        ebp
+  10014C73: 8B 6C 24 10        mov         ebp,dword ptr [esp+10h]
+  10014C77: 56                 push        esi
+  10014C78: 8B 74 24 1C        mov         esi,dword ptr [esp+1Ch]
+  10014C7C: 57                 push        edi
+  10014C7D: 85 F6              test        esi,esi
+  10014C7F: 8B D9              mov         ebx,ecx
+  10014C81: 8B FD              mov         edi,ebp
+  10014C83: 0F 84 EC 00 00 00  je          10014D75
+  10014C89: 8B 4B 04           mov         ecx,dword ptr [ebx+4]
+  10014C8C: 8B 01              mov         eax,dword ptr [ecx]
+  10014C8E: FF 50 04           call        dword ptr [eax+4]
+  10014C91: 66 83 78 02 01     cmp         word ptr [eax+2],1
+  10014C96: 8B 4C 24 1C        mov         ecx,dword ptr [esp+1Ch]
+  10014C9A: 0F 85 80 00 00 00  jne         10014D20
+  10014CA0: 8B 43 04           mov         eax,dword ptr [ebx+4]
+  10014CA3: 03 C9              add         ecx,ecx
+  10014CA5: 8B 50 14           mov         edx,dword ptr [eax+14h]
+  10014CA8: 89 48 10           mov         dword ptr [eax+10h],ecx
+  10014CAB: 3B CA              cmp         ecx,edx
+  10014CAD: 76 03              jbe         10014CB2
+  10014CAF: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014CB2: 8B 50 08           mov         edx,dword ptr [eax+8]
+  10014CB5: 8B 70 10           mov         esi,dword ptr [eax+10h]
+  10014CB8: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014CBB: 03 D6              add         edx,esi
+  10014CBD: 52                 push        edx
+  10014CBE: E8 1D 8B 01 00     call        1002D7E0
+  10014CC3: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014CC6: B9 02 00 00 00     mov         ecx,2
+  10014CCB: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014CCE: 8B 46 14           mov         eax,dword ptr [esi+14h]
+  10014CD1: 8D 6A 02           lea         ebp,[edx+2]
+  10014CD4: 3B E8              cmp         ebp,eax
+  10014CD6: 76 04              jbe         10014CDC
+  10014CD8: 2B C2              sub         eax,edx
+  10014CDA: 8B C8              mov         ecx,eax
+  10014CDC: 8D 44 24 12        lea         eax,[esp+12h]
+  10014CE0: 51                 push        ecx
+  10014CE1: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014CE4: 50                 push        eax
+  10014CE5: E8 B6 89 01 00     call        1002D6A0
+  10014CEA: 8B 6E 10           mov         ebp,dword ptr [esi+10h]
+  10014CED: 83 C7 02           add         edi,2
+  10014CF0: 03 E8              add         ebp,eax
+  10014CF2: 83 C7 02           add         edi,2
+  10014CF5: 89 6E 10           mov         dword ptr [esi+10h],ebp
+  10014CF8: 66 8B 44 24 12     mov         ax,word ptr [esp+12h]
+  10014CFD: 66 89 47 FC        mov         word ptr [edi-4],ax
+  10014D01: 66 89 47 FE        mov         word ptr [edi-2],ax
+  10014D05: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10014D09: 48                 dec         eax
+  10014D0A: 89 44 24 20        mov         dword ptr [esp+20h],eax
+  10014D0E: 75 B3              jne         10014CC3
+  10014D10: 8B 6C 24 18        mov         ebp,dword ptr [esp+18h]
+  10014D14: 8B C7              mov         eax,edi
+  10014D16: 5F                 pop         edi
+  10014D17: 2B C5              sub         eax,ebp
+  10014D19: 5E                 pop         esi
+  10014D1A: 5D                 pop         ebp
+  10014D1B: 5B                 pop         ebx
+  10014D1C: 59                 pop         ecx
+  10014D1D: C2 10 00           ret         10h
+  10014D20: 8B 43 04           mov         eax,dword ptr [ebx+4]
+  10014D23: C1 E1 02           shl         ecx,2
+  10014D26: 8B 50 14           mov         edx,dword ptr [eax+14h]
+  10014D29: 89 48 10           mov         dword ptr [eax+10h],ecx
+  10014D2C: 3B CA              cmp         ecx,edx
+  10014D2E: 76 03              jbe         10014D33
+  10014D30: 89 50 10           mov         dword ptr [eax+10h],edx
+  10014D33: 8B 50 08           mov         edx,dword ptr [eax+8]
+  10014D36: 8B 78 10           mov         edi,dword ptr [eax+10h]
+  10014D39: 8B 48 04           mov         ecx,dword ptr [eax+4]
+  10014D3C: 03 D7              add         edx,edi
+  10014D3E: 52                 push        edx
+  10014D3F: E8 9C 8A 01 00     call        1002D7E0
+  10014D44: 8D 3C B5 00 00 00  lea         edi,[esi*4+00000000h]
+            00
+  10014D4B: 8B 73 04           mov         esi,dword ptr [ebx+4]
+  10014D4E: 8B C7              mov         eax,edi
+  10014D50: 8B 56 10           mov         edx,dword ptr [esi+10h]
+  10014D53: 8B 4E 14           mov         ecx,dword ptr [esi+14h]
+  10014D56: 8D 1C 02           lea         ebx,[edx+eax]
+  10014D59: 3B D9              cmp         ebx,ecx
+  10014D5B: 76 04              jbe         10014D61
+  10014D5D: 2B CA              sub         ecx,edx
+  10014D5F: 8B C1              mov         eax,ecx
+  10014D61: 8B 4E 04           mov         ecx,dword ptr [esi+4]
+  10014D64: 50                 push        eax
+  10014D65: 55                 push        ebp
+  10014D66: E8 35 89 01 00     call        1002D6A0
+  10014D6B: 8B 4E 10           mov         ecx,dword ptr [esi+10h]
+  10014D6E: 03 C8              add         ecx,eax
+  10014D70: 03 FD              add         edi,ebp
+  10014D72: 89 4E 10           mov         dword ptr [esi+10h],ecx
+  10014D75: 8B C7              mov         eax,edi
+  10014D77: 5F                 pop         edi
+  10014D78: 2B C5              sub         eax,ebp
+  10014D7A: 5E                 pop         esi
+  10014D7B: 5D                 pop         ebp
+  10014D7C: 5B                 pop         ebx
+  10014D7D: 59                 pop         ecx
+  10014D7E: C2 10 00           ret         10h
+  10014D81: 90                 nop
+  10014D82: 90                 nop
+  10014D83: 90                 nop
+  10014D84: 90                 nop
+  10014D85: 90                 nop
+  10014D86: 90                 nop
+  10014D87: 90                 nop
+  10014D88: 90                 nop
+  10014D89: 90                 nop
+  10014D8A: 90                 nop
+  10014D8B: 90                 nop
+  10014D8C: 90                 nop
+  10014D8D: 90                 nop
+  10014D8E: 90                 nop
+  10014D8F: 90                 nop
+Native reference range 1002d92f..1002da42; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  1002D92F: 66 83 78 0E 08     cmp         word ptr [eax+0Eh],8
+  1002D934: 0F 85 87 00 00 00  jne         1002D9C1
+  1002D93A: 6A 08              push        8
+  1002D93C: E8 E2 FB 00 00     call        1003D523
+  1002D941: 8B F0              mov         esi,eax
+  1002D943: 83 C4 04           add         esp,4
+  1002D946: 89 74 24 14        mov         dword ptr [esp+14h],esi
+  1002D94A: 3B F3              cmp         esi,ebx
+  1002D94C: C7 44 24 20 01 00  mov         dword ptr [esp+20h],1
+            00 00
+  1002D954: 74 4F              je          1002D9A5
+  1002D956: 8B 4D 08           mov         ecx,dword ptr [ebp+8]
+  1002D959: 89 4E 04           mov         dword ptr [esi+4],ecx
+  1002D95C: C7 06 68 88 04 10  mov         dword ptr [esi],10048868h
+  1002D962: 8B 01              mov         eax,dword ptr [ecx]
+  1002D964: C6 44 24 20 02     mov         byte ptr [esp+20h],2
+  1002D969: FF 50 04           call        dword ptr [eax+4]
+  1002D96C: 8B 10              mov         edx,dword ptr [eax]
+  1002D96E: 8D 4D 10           lea         ecx,[ebp+10h]
+  1002D971: 5F                 pop         edi
+  1002D972: 89 11              mov         dword ptr [ecx],edx
+  1002D974: 8B 50 04           mov         edx,dword ptr [eax+4]
+  1002D977: 89 51 04           mov         dword ptr [ecx+4],edx
+  1002D97A: 8B 50 08           mov         edx,dword ptr [eax+8]
+  1002D97D: 89 51 08           mov         dword ptr [ecx+8],edx
+  1002D980: 8B 50 0C           mov         edx,dword ptr [eax+0Ch]
+  1002D983: 89 51 0C           mov         dword ptr [ecx+0Ch],edx
+  1002D986: 66 8B 40 10        mov         ax,word ptr [eax+10h]
+  1002D98A: 89 75 0C           mov         dword ptr [ebp+0Ch],esi
+  1002D98D: 5E                 pop         esi
+  1002D98E: 66 89 41 10        mov         word ptr [ecx+10h],ax
+  1002D992: 5D                 pop         ebp
+  1002D993: B0 01              mov         al,1
+  1002D995: 5B                 pop         ebx
+  1002D996: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  1002D99A: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002D9A1: 83 C4 14           add         esp,14h
+  1002D9A4: C3                 ret
+  1002D9A5: 8A 44 24 13        mov         al,byte ptr [esp+13h]
+  1002D9A9: 33 F6              xor         esi,esi
+  1002D9AB: 89 75 0C           mov         dword ptr [ebp+0Ch],esi
+  1002D9AE: 5F                 pop         edi
+  1002D9AF: 5E                 pop         esi
+  1002D9B0: 5D                 pop         ebp
+  1002D9B1: 5B                 pop         ebx
+  1002D9B2: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  1002D9B6: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002D9BD: 83 C4 14           add         esp,14h
+  1002D9C0: C3                 ret
+  1002D9C1: 6A 10              push        10h
+  1002D9C3: E8 5B FB 00 00     call        1003D523
+  1002D9C8: 8B F8              mov         edi,eax
+  1002D9CA: 83 C4 04           add         esp,4
+  1002D9CD: 89 7C 24 14        mov         dword ptr [esp+14h],edi
+  1002D9D1: 3B FB              cmp         edi,ebx
+  1002D9D3: C7 44 24 20 03 00  mov         dword ptr [esp+20h],3
+            00 00
+  1002D9DB: 74 65              je          1002DA42
+  1002D9DD: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  1002D9E0: 89 77 04           mov         dword ptr [edi+4],esi
+  1002D9E3: C7 07 48 88 04 10  mov         dword ptr [edi],10048848h
+  1002D9E9: 8B 16              mov         edx,dword ptr [esi]
+  1002D9EB: 8B CE              mov         ecx,esi
+  1002D9ED: C6 44 24 20 04     mov         byte ptr [esp+20h],4
+  1002D9F2: FF 52 04           call        dword ptr [edx+4]
+  1002D9F5: 8B 10              mov         edx,dword ptr [eax]
+  1002D9F7: 8D 4D 10           lea         ecx,[ebp+10h]
+  1002D9FA: 89 55 10           mov         dword ptr [ebp+10h],edx
+  1002D9FD: 8B 50 04           mov         edx,dword ptr [eax+4]
+  1002DA00: 89 51 04           mov         dword ptr [ecx+4],edx
+  1002DA03: 8B 50 08           mov         edx,dword ptr [eax+8]
+  1002DA06: 89 51 08           mov         dword ptr [ecx+8],edx
+  1002DA09: 8B 50 0C           mov         edx,dword ptr [eax+0Ch]
+  1002DA0C: 89 51 0C           mov         dword ptr [ecx+0Ch],edx
+  1002DA0F: 66 8B 40 10        mov         ax,word ptr [eax+10h]
+  1002DA13: 66 89 41 10        mov         word ptr [ecx+10h],ax
+  1002DA17: 8B 16              mov         edx,dword ptr [esi]
+  1002DA19: 8B CE              mov         ecx,esi
+  1002DA1B: FF 52 04           call        dword ptr [edx+4]
+  1002DA1E: 33 C9              xor         ecx,ecx
+  1002DA20: 66 8B 48 02        mov         cx,word ptr [eax+2]
+  1002DA24: 89 5F 0C           mov         dword ptr [edi+0Ch],ebx
+  1002DA27: 89 4F 08           mov         dword ptr [edi+8],ecx
+  1002DA2A: 89 7D 0C           mov         dword ptr [ebp+0Ch],edi
+  1002DA2D: 5F                 pop         edi
+  1002DA2E: 5E                 pop         esi
+  1002DA2F: 5D                 pop         ebp
+  1002DA30: B0 01              mov         al,1
+  1002DA32: 5B                 pop         ebx
+  1002DA33: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  1002DA37: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002DA3E: 83 C4 14           add         esp,14h
+  1002DA41: C3                 ret
+Native reference range 1002e020..1002e092; original Squall SHA712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021
+  1002E020: 56                 push        esi
+  1002E021: 8B F1              mov         esi,ecx
+  1002E023: E8 A8 FF FF FF     call        1002DFD0
+  1002E028: 84 C0              test        al,al
+  1002E02A: 74 20              je          1002E04C
+  1002E02C: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E030: 8B 4E 0C           mov         ecx,dword ptr [esi+0Ch]
+  1002E033: 52                 push        edx
+  1002E034: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E038: 8B 01              mov         eax,dword ptr [ecx]
+  1002E03A: 52                 push        edx
+  1002E03B: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E03F: 52                 push        edx
+  1002E040: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E044: 52                 push        edx
+  1002E045: FF 50 04           call        dword ptr [eax+4]
+  1002E048: 5E                 pop         esi
+  1002E049: C2 10 00           ret         10h
+  1002E04C: 33 C0              xor         eax,eax
+  1002E04E: 5E                 pop         esi
+  1002E04F: C2 10 00           ret         10h
+  1002E052: 90                 nop
+  1002E053: 90                 nop
+  1002E054: 90                 nop
+  1002E055: 90                 nop
+  1002E056: 90                 nop
+  1002E057: 90                 nop
+  1002E058: 90                 nop
+  1002E059: 90                 nop
+  1002E05A: 90                 nop
+  1002E05B: 90                 nop
+  1002E05C: 90                 nop
+  1002E05D: 90                 nop
+  1002E05E: 90                 nop
+  1002E05F: 90                 nop
+  1002E060: 56                 push        esi
+  1002E061: 8B F1              mov         esi,ecx
+  1002E063: E8 68 FF FF FF     call        1002DFD0
+  1002E068: 84 C0              test        al,al
+  1002E06A: 74 20              je          1002E08C
+  1002E06C: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E070: 8B 4E 0C           mov         ecx,dword ptr [esi+0Ch]
+  1002E073: 52                 push        edx
+  1002E074: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E078: 8B 01              mov         eax,dword ptr [ecx]
+  1002E07A: 52                 push        edx
+  1002E07B: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E07F: 52                 push        edx
+  1002E080: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002E084: 52                 push        edx
+  1002E085: FF 50 08           call        dword ptr [eax+8]
+  1002E088: 5E                 pop         esi
+  1002E089: C2 10 00           ret         10h
+  1002E08C: 33 C0              xor         eax,eax
+  1002E08E: 5E                 pop         esi
+  1002E08F: C2 10 00           ret         10h

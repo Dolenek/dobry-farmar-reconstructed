@@ -435,6 +435,18 @@
       ],
       "instruction_evidence": "Cached-first FLD/FCOMP then TEST AH,40h; unordered/equal skip updates. Vector/scalar getter MOVs retain signaling-NaN bits and original forward word order.",
       "current_sha256": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7"
+    },
+    {
+      "path": "SoundFile/WAV/PcmDecoder.cpp",
+      "method": "PCM8/PCM16 empty/partial input bytes",
+      "original_addresses": [
+        "100149f0",
+        "10014b70",
+        "10014c70"
+      ],
+      "instruction_evidence": "PUSH ECX local allocation retains high this byte/word; PCM16 stereo-to-mono aliases start argument DWORD after seeking.",
+      "source_difference": "Public C++ used unrelated uninitialized locals; initialize corresponding bytes explicitly without changing valid reads or the genuinely uninitialized PCM8 mono averaging branch.",
+      "current_sha256": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993"
     }
   ]
 }
