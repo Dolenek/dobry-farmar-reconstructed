@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Rozpracované přesné MPEG porovnání
+
+`tools/fetch_audio_fixture_encoder.py` připíná testovací FFmpeg z imageio-ffmpeg0.6.0 ověřeným SHA-256; slouží pouze ke kódování vlastního celočíselného PCM. Není součástí implementace ani sestavení hry. `tools/squall_mpeg_fixtures.py`, `tools/squall_mpeg_formats_probe` a `tools/validate_squall_mpeg_formats.py` porovnávají skutečně načtené DLL, stream/memory, guarded full/seek/EOF/loop čtení a reálné2D/3D buffery v PC53/PC24.
+
+Prvních16 běhů nad osmi MP2/MP3 mono/stereo vstupy odhalilo13 PCM neshod o jeden signed16 krok a jeden rozdíl posledního seek čtení (source0/native2 bajty). Dva PC24 MP2 44100 běhy prošly všemi40 čteními a čtyřmi buffery každý. Testy končící první chybou se nepovažují za ověření pozdějších větví. Readonly snapshoty skutečných47744bajtových decoder objektů ukázaly také rozdíly některých tabulek; původní velikost potvrzuje PUSH0xba80 na1002db04 před konstruktorem10012960. Příčiny a další výpočty jsou rozpracované. Tolerance ani normalizace se nepoužívá. `tools/record_squall_mpeg_observations.py` ověřuje hashe zachovaných vstupů, výstupů, zdrojů a snapshotů a zapisuje `analysis/squall-mpeg-initial-observations.json`. Ověřená produkce zůstává beze změny.
+
 ## PCM EOF: uložené this/start bajty a skutečné WAV/ADPCM
 
 Nové nenulové WAV vstupy odhalily skutečný rozdíl zveřejněného podkladu. Původní PCM8 mono→stereo100149f0 vyhradí lokální DWORD přes PUSH ECX a po prázdném čtení použije jeho nejvyšší byte, tedy this>>24. PCM16 mono→stereo10014c70 použije horní WORD this>>16. PCM16 stereo→mono10014b70 po seeku znovu používá vstupní start DWORD jako dvě signed16 hodnoty; nulové/částečné čtení ponechá jeho nepřepsané bajty. Zdroj nyní tyto tři počáteční hodnoty zachovává explicitně. Platná čtení ani ostatní ověřené implementace se nemění.

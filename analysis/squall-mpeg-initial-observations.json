@@ -1,0 +1,2262 @@
+{
+  "status": "found_actual_mpeg_decoder_differences_or_failures",
+  "recorded_at_utc": "2026-11-02T20:48:10.223416+00:00",
+  "work_directory": ".local/squall-mpeg-formats/20261102T204810211299Z",
+  "candidate_path": "build/windows/squall-candidate/Release/Squall.dll",
+  "rebuilt_sha256": "6523737333bda8d10aa600dd78fc4cb61f1a35f849cc153745e0d41a388fa2b1",
+  "oracle_path": "build/squall-mpeg-formats-probe-vs/Release/squall-mpeg-formats-reference-test.exe",
+  "oracle_sha256": "1d66875d2de3cb4cf8f4087d0175eb0758338939f69a156c98591e18fe7f42e7",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "source_files": {
+    "src/squall/Parameters.cpp": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508",
+    "src/squall/Parameters.h": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d",
+    "src/squall/VolumeTable.cpp": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1",
+    "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da",
+    "src/squall/runtime/Abi.cpp": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6",
+    "src/squall/runtime/LICENSE": "8b2ee763bd48e9d0ba84de84433b3b921cb666e75d5ba2949c78b11677e06ef2",
+    "src/squall/runtime/Squall.def": "11adf81ca9722174ab945f02ebf9af8e60cf79832518d297b94ca6d3963a0d98",
+    "src/squall/runtime/Squall.h": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+    "src/squall/codecs/vorbis/COPYING": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6",
+    "src/squall/codecs/vorbis/mdct.c": "8a4fcfde0ad92eb87e1d32bec640b1635ff94f6db3e9c318130efe71e4cfde77",
+    "src/squall/codecs/vorbis/mdct.h": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93",
+    "src/squall/codecs/vorbis/NativeButterfly.c": "bfff72d15cddaedbea2e6ad6b5ba6bebbafbf0b0bf7c7fb6084947e0561d37b1",
+    "src/squall/runtime/SoundEngine/Channels.cpp": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7",
+    "src/squall/runtime/SoundEngine/Channels.h": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523",
+    "src/squall/runtime/SoundEngine/Context.cpp": "527aeb60b4ffdfb40e8280163522323d2ae724ef1bb58245ec680f2ad9d7fa32",
+    "src/squall/runtime/SoundEngine/Context.h": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085",
+    "src/squall/runtime/SoundEngine/DirectSound.cpp": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b",
+    "src/squall/runtime/SoundEngine/DirectSound.h": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50",
+    "src/squall/runtime/SoundEngine/HiddenWindow.cpp": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a",
+    "src/squall/runtime/SoundEngine/HiddenWindow.h": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced",
+    "src/squall/runtime/SoundEngine/Squall.cpp": "fd6cdada95f24db3123e63dda1e0174d146993eabed54b0aaca44e2ce212a604",
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905",
+    "src/squall/runtime/SoundEngine/SquallApi.h": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b",
+    "src/squall/runtime/SoundFile/AbstractDecoder.h": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f",
+    "src/squall/runtime/SoundFile/AbstractSoundFile.h": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09",
+    "src/squall/runtime/SoundFile/ExternFunction.h": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb",
+    "src/squall/runtime/SoundFile/Reader.cpp": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc",
+    "src/squall/runtime/SoundFile/Reader.h": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370",
+    "src/squall/runtime/SoundFile/SoundFile.cpp": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5",
+    "src/squall/runtime/SoundFile/SoundFile.h": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874",
+    "src/squall/runtime/SoundEngine/ext/dsound.h": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb",
+    "src/squall/runtime/SoundEngine/ext/Eax.cpp": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e",
+    "src/squall/runtime/SoundEngine/ext/Eax.h": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d",
+    "src/squall/runtime/SoundEngine/ext/Eax1_api.h": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2",
+    "src/squall/runtime/SoundEngine/ext/Eax2_api.h": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac",
+    "src/squall/runtime/SoundEngine/ext/Eax3_api.h": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d",
+    "src/squall/runtime/SoundEngine/ext/Eax4_api.h": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.h": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65",
+    "src/squall/runtime/SoundFile/MP3/l1dec.cpp": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c",
+    "src/squall/runtime/SoundFile/MP3/l2dec.cpp": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050",
+    "src/squall/runtime/SoundFile/MP3/l3dec.cpp": "1e24973366f55f2fd0d673952c25c73b92a7895c62acb51178339d65bbdc9d82",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp": "8cd3b73b32ee169cc39cc736e45d2cac0065fa646350c3d83541650f0cd9b0ae",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.h": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.cpp": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.h": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d",
+    "src/squall/runtime/SoundFile/MP3/MpegHuff.h": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.cpp": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.h": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43",
+    "src/squall/runtime/SoundFile/track/fastmix.cpp": "de0e1e8c3deb1ccd80b9ef78100dc5b1686ba7f8f464b9897f28f4294796f383",
+    "src/squall/runtime/SoundFile/track/it_defs.h": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698",
+    "src/squall/runtime/SoundFile/track/load_669.cpp": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858",
+    "src/squall/runtime/SoundFile/track/load_amf.cpp": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57",
+    "src/squall/runtime/SoundFile/track/load_ams.cpp": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2",
+    "src/squall/runtime/SoundFile/track/load_dbm.cpp": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5",
+    "src/squall/runtime/SoundFile/track/load_dmf.cpp": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a",
+    "src/squall/runtime/SoundFile/track/load_dsm.cpp": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8",
+    "src/squall/runtime/SoundFile/track/load_far.cpp": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9",
+    "src/squall/runtime/SoundFile/track/load_it.cpp": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340",
+    "src/squall/runtime/SoundFile/track/load_mdl.cpp": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be",
+    "src/squall/runtime/SoundFile/track/load_med.cpp": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f",
+    "src/squall/runtime/SoundFile/track/load_mod.cpp": "f2775b27e3c8958060b9e04c01c38e5073c2d17ea27c217add5d6272ecb043e5",
+    "src/squall/runtime/SoundFile/track/load_mt2.cpp": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09",
+    "src/squall/runtime/SoundFile/track/load_mtm.cpp": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937",
+    "src/squall/runtime/SoundFile/track/load_okt.cpp": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a",
+    "src/squall/runtime/SoundFile/track/load_psm.cpp": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b",
+    "src/squall/runtime/SoundFile/track/load_ptm.cpp": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175",
+    "src/squall/runtime/SoundFile/track/load_s3m.cpp": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91",
+    "src/squall/runtime/SoundFile/track/load_stm.cpp": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82",
+    "src/squall/runtime/SoundFile/track/load_ult.cpp": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d",
+    "src/squall/runtime/SoundFile/track/load_umx.cpp": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+    "src/squall/runtime/SoundFile/track/load_xm.cpp": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e",
+    "src/squall/runtime/SoundFile/track/sndmix.cpp": "a2fbaacd2939af9767d8cc86f97fa9981b0085e1860f78dc34e526253f289cee",
+    "src/squall/runtime/SoundFile/track/snd_fx.cpp": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36",
+    "src/squall/runtime/SoundFile/track/stdafx.h": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c",
+    "src/squall/runtime/SoundFile/track/tables.cpp": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.cpp": "bbc515903ec6e5de6daada5bbf7bbca7229a83545616275415a1a3878dee633f",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.h": "d608767616f042d0369a606d1514decc91564634e3f07d8fddd8b05e5fea54eb",
+    "src/squall/runtime/SoundFile/track/TrackFile.cpp": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba",
+    "src/squall/runtime/SoundFile/track/TrackFile.h": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.h": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0",
+    "src/squall/runtime/SoundFile/WAV/WavFile.cpp": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8",
+    "src/squall/runtime/SoundFile/WAV/WavFile.h": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp": "0e8a29750c4437944e5914c9d40e9a60bbf30886a888b99b73ca8d76c079b63c",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.h": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.cpp": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.h": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56",
+    "tools/validate_squall_mpeg_formats.py": "9a636343af264016593fe7fafe9b8bd63275b60b330579260147ac9441c9b065",
+    "tools/squall_mpeg_fixtures.py": "610c63aa7682c67741fd62a66a242fcd77a3a1d5287172e121779cb06989e583",
+    "tools/squall_mpeg_formats_reference_test.cpp": "cb68fc5df210a2477716ff8b54854f59e71e7e3a2175c638da89f8441ef170c6",
+    "tools/squall_mpeg_formats_probe/CMakeLists.txt": "9b1cf03ee7f802d1bcc0d40759c56804eeb11dcefe62772f696de5a5400cb146",
+    "tools/fetch_audio_fixture_encoder.py": "e37e4bfba199aea82f4187f53ea77653e216c2efca689982f87aad19a2145e23",
+    "tools/squall_exports.inc": "c44a64e39599a53f5772fa0ea277e6517139f72f19d4a490e110284b5bb43411"
+  },
+  "encoder_provenance": {
+    "status": "pinned_test_fixture_encoder_only",
+    "metadata_source": "https://pypi.org/pypi/imageio-ffmpeg/0.6.0/json",
+    "package_url": "https://files.pythonhosted.org/packages/2c/c6/fa760e12a2483469e2bf5058c5faff664acf66cadb4df2ad6205b016a73d/imageio_ffmpeg-0.6.0-py3-none-win_amd64.whl",
+    "package_sha256": "02fa47c83703c37df6bfe4896aab339013f62bf02c5ebf2dce6da56af04ffc0a",
+    "package_bytes": 31246824,
+    "archive_member": "imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+    "executable_sha256": "2ce797a0f88d7f067180338fb227f7b1928ea727bd9a4d7a1d022f7c52af71a3",
+    "executable_path": ".local/audio-fixture-encoder/ffmpeg.exe",
+    "production_dependency": false,
+    "downloaded_program_code_used_in_game": false
+  },
+  "cases": [
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-0-mp2-44100-1.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/0",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=12736 different_bytes=2\r\nMPEG PCM/guards differ file=mpeg-0-mp2-44100-1.mp2 memory=0 channels=1 start=0 count=11520 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "3c9bab7a9ec5bb2037f5e1b01beeaaa799e5af5f6f61e9fbac45737d6fc84b7d",
+        "failed-source-pcm.bin": "a39c3dba587bb035269f3aab8e534bed433275f6bc5966fd5c7549f15753c221",
+        "mpeg-0-mp2-44100-1.mp2": "b92cce730ccfd1291a04810aaaa0da250996b756d4f826ec635a07996dfb5bff",
+        "stderr.log": "cd6611a0fcc12eb5f59549c2959ac3d2a43d08c428f8c3b380c6bb1a61764afc",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 23072,
+        "different_bytes": 2,
+        "different_words": 2,
+        "delta_counts": {
+          "1": 2
+        },
+        "first_byte": 12736
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-1-mp2-44100-2.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/1",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=1112 different_bytes=8\r\nMPEG PCM/guards differ file=mpeg-1-mp2-44100-2.mp2 memory=0 channels=1 start=0 count=11520 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "ae4c9d5842d60ea3001e4b69bc48e0a5bb4e2fba70c6fd92eb00b7b2ccbec5bd",
+        "failed-source-pcm.bin": "ae8abd81b213c03c6e87d25a596b4f7299319e1c7a0df4b6e960218007b83f4c",
+        "mpeg-1-mp2-44100-2.mp2": "152133c41fcc66e09598e90787615d2b5f44b895700530a273f1f8d2008ad1f4",
+        "stderr.log": "8d0ccc74ce93f0d80c2b9df12e4ac26084f03939dcaf204cdb53aae7e769ae6d",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 23072,
+        "different_bytes": 8,
+        "different_words": 8,
+        "delta_counts": {
+          "-1": 3,
+          "1": 5
+        },
+        "first_byte": 1112
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-2-mp2-22050-2.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/2",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=3704 different_bytes=1\r\nMPEG PCM/guards differ file=mpeg-2-mp2-22050-2.mp2 memory=0 channels=1 start=0 count=11520 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "a219080c945db2d13ae49b64b802e087b3d38561f0eafca6a2e11eac2c60b1c3",
+        "failed-source-pcm.bin": "85639b23bd5400ad5c404217978460a7e4af7da041d9885a4af61301b760defd",
+        "mpeg-2-mp2-22050-2.mp2": "7c91e479eb5b68b1297163d3f910b0821a45a6b595dc761c5f2b835121b68221",
+        "stderr.log": "5bf7d6bbb9de8450298b5889e695e524ebcdd64cd4ab156dfe55df8137a19bf8",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 23072,
+        "different_bytes": 1,
+        "different_words": 1,
+        "delta_counts": {
+          "-1": 1
+        },
+        "first_byte": 3704
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-3-mp3-44100-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/3",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=4134 different_bytes=15\r\nMPEG PCM/guards differ file=mpeg-3-mp3-44100-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "4ffa4dc2a65a5649f8621379c7a92b50a86e1aa705ac832144b1fe37cf368a5f",
+        "failed-source-pcm.bin": "f9bab56389eee73fe7dd94ad8735863d7c80ec6b5e7fbef82965d382f5bf27db",
+        "mpeg-3-mp3-44100-1.mp3": "92d783b677af92d59b7f30faed232705f5c0110277f5972ed956a6211228b1be",
+        "stderr.log": "bcf05fa00e3a211119a601d8ce3179c5d41a6f7df8984b4e4624421e7e224b0f",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 15,
+        "different_words": 15,
+        "delta_counts": {
+          "-1": 8,
+          "1": 7
+        },
+        "first_byte": 4134
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-4-mp3-44100-2.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/4",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=3206 different_bytes=22\r\nMPEG PCM/guards differ file=mpeg-4-mp3-44100-2.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "3a290572d9ef367a74221a7a470e505c2c28391b9008b245f4e0258f9a8f7a03",
+        "failed-source-pcm.bin": "86f4b07be640e38d1660acabc8e387df7a9cf7e941de4e1ad3dafc9bba4cd68b",
+        "mpeg-4-mp3-44100-2.mp3": "f03d697eb8b18620a7f6fd7e5cc62aa1e044fd36f0a1b1785ffb4def318a7fa1",
+        "stderr.log": "ef446afab18ad9ebdea26ef99455b94df28674d5a600c6e53935d72d1df0975d",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 22,
+        "different_words": 22,
+        "delta_counts": {
+          "-1": 9,
+          "1": 13
+        },
+        "first_byte": 3206
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-5-mp3-22050-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/5",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=2268 different_bytes=17\r\nMPEG PCM/guards differ file=mpeg-5-mp3-22050-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "3e25222036608e67e6feccb7f8903111516087814640fc768c4ada1e8a87aebe",
+        "failed-source-pcm.bin": "b94d47a3df45f52bcd48741e37ca66f789d437812a6c8bdea6c6dd5d7dc44d45",
+        "mpeg-5-mp3-22050-1.mp3": "31a68edbbb8b46e0afcfb11ae1b90c4e4bc2a5c40447228b7255674d39e95c92",
+        "stderr.log": "b3d1319e92dc89e90faddceec2faed7eb472aba90f7c3f656a2144db8349a079",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 17,
+        "different_words": 17,
+        "delta_counts": {
+          "-1": 9,
+          "1": 8
+        },
+        "first_byte": 2268
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-6-mp3-22050-2.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/6",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=2188 different_bytes=20\r\nMPEG PCM/guards differ file=mpeg-6-mp3-22050-2.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "bd8c786a1e7f79155418afbae358e3092add72a9b1bc730d8106b1e402db32ff",
+        "failed-source-pcm.bin": "0e997066653e2633de63fc5be9deffe32683ffe3384470d730979defdd81ca52",
+        "mpeg-6-mp3-22050-2.mp3": "43243ad27715ffb2e6679d61fa79394a4cf5d7d97a640619e705e8f4d5e9b083",
+        "stderr.log": "516e44d7493ffbe05749d56e7e47a341ab132d01449054c1a3196c9588251a25",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 20,
+        "different_words": 19,
+        "delta_counts": {
+          "-1": 1,
+          "1": 18
+        },
+        "first_byte": 2188
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture": "mpeg-7-mp3-11025-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC53/7",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=2378 different_bytes=23\r\nMPEG PCM/guards differ file=mpeg-7-mp3-11025-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "2a67c954650ee539063639713fcbf7c42c316cc6206977eec33557f0eeb89b9b",
+        "failed-source-pcm.bin": "094f91b0530852fa7d7c8af584627e5b8e52d538462d3ffad3edc7fdaba8793f",
+        "mpeg-7-mp3-11025-1.mp3": "4a551491df84142cdc2d441f645fce26ac259aad4b0542b2acbea3184fbc4a6a",
+        "stderr.log": "2479600c8c38ca7a1eb3545cc92ae39e257d813ae554ee4203eb09664e70fd3a",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 23,
+        "different_words": 23,
+        "delta_counts": {
+          "-1": 9,
+          "1": 14
+        },
+        "first_byte": 2378
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-0-mp2-44100-1.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/0",
+      "exit_code": 0,
+      "status": "passed",
+      "result": {
+        "result_comparisons": 53,
+        "guarded_pcm_reads": 40,
+        "pcm_bytes": 287280,
+        "physical_buffers": 4,
+        "physical_pcm_bytes": 138240,
+        "frames": 11520,
+        "frequency": 44100,
+        "pcm_fnv1a64": "54a5897a6417cc1",
+        "actual_directsound": true,
+        "export_lookups": 194
+      },
+      "artifacts": {
+        "mpeg-0-mp2-44100-1.mp2": "b92cce730ccfd1291a04810aaaa0da250996b756d4f826ec635a07996dfb5bff",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "acf39885340f3b0a16376a026488493c45710fc850d37c37272d1f96faab7e00"
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-1-mp2-44100-2.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/1",
+      "exit_code": 0,
+      "status": "passed",
+      "result": {
+        "result_comparisons": 53,
+        "guarded_pcm_reads": 40,
+        "pcm_bytes": 287280,
+        "physical_buffers": 4,
+        "physical_pcm_bytes": 138240,
+        "frames": 11520,
+        "frequency": 44100,
+        "pcm_fnv1a64": "b0277e7ab77cb931",
+        "actual_directsound": true,
+        "export_lookups": 194
+      },
+      "artifacts": {
+        "mpeg-1-mp2-44100-2.mp2": "152133c41fcc66e09598e90787615d2b5f44b895700530a273f1f8d2008ad1f4",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "db28ec34e97fb6d81f14313d8ca8a9aa54d6ba54e7fc915a153dbd90014135f6"
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-2-mp2-22050-2.mp2",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/2",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "Decoder byte count memory=1 source=0 native=2\r\nMPEG API differs file=mpeg-2-mp2-22050-2.mp2 memory=1 channels=1 start=11519 count=9 loop=0\r\n",
+      "artifacts": {
+        "mpeg-2-mp2-22050-2.mp2": "7c91e479eb5b68b1297163d3f910b0821a45a6b595dc761c5f2b835121b68221",
+        "stderr.log": "c7e3c5e1839a2be9613dd6a5c9b34b817d1a515f724cd971a9e2e618266605b6",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-3-mp3-44100-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/3",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=3400 different_bytes=30\r\nMPEG PCM/guards differ file=mpeg-3-mp3-44100-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "be18ed7f7154040c6f109c850f426537dbc324497088909b75731196ebb8419c",
+        "failed-source-pcm.bin": "0c31c65fc7d020187373bb24630ed5c5722b2de38a21cc40b47d7f2fdc2b9a07",
+        "mpeg-3-mp3-44100-1.mp3": "92d783b677af92d59b7f30faed232705f5c0110277f5972ed956a6211228b1be",
+        "stderr.log": "42689c9184d19df53086aaeca55e373ff267ea7a9ad303217db821edb1805418",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 30,
+        "different_words": 30,
+        "delta_counts": {
+          "-1": 12,
+          "1": 18
+        },
+        "first_byte": 3400
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-4-mp3-44100-2.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/4",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=2782 different_bytes=41\r\nMPEG PCM/guards differ file=mpeg-4-mp3-44100-2.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "a1c40c1b13526dcebd6290ea5298b6c76512a19b445f0a53c3f48d5679b431ca",
+        "failed-source-pcm.bin": "aff49c6731c962dc91f6c611733712d4e06abfa8915059c039529dd2169732d7",
+        "mpeg-4-mp3-44100-2.mp3": "f03d697eb8b18620a7f6fd7e5cc62aa1e044fd36f0a1b1785ffb4def318a7fa1",
+        "stderr.log": "45042a8a54f0b3559d6041512abf6802d77e181f15918c95fe2b614e53c2580e",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 41,
+        "different_words": 40,
+        "delta_counts": {
+          "-1": 20,
+          "1": 20
+        },
+        "first_byte": 2782
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-5-mp3-22050-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/5",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=2268 different_bytes=46\r\nMPEG PCM/guards differ file=mpeg-5-mp3-22050-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "8cdae731929e5e088542c3080a07ef0662e3bc0dd31a2d5e1c793a25cb51a0a5",
+        "failed-source-pcm.bin": "4636470cf90007d9b1349478445844ef7c10fd68f1fc14336ed99f41c86a9878",
+        "mpeg-5-mp3-22050-1.mp3": "31a68edbbb8b46e0afcfb11ae1b90c4e4bc2a5c40447228b7255674d39e95c92",
+        "stderr.log": "a45dba3abcd888377eebbd64b90245c188423a09d6a4f05af272c5074dc53c15",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 46,
+        "different_words": 46,
+        "delta_counts": {
+          "-1": 26,
+          "1": 20
+        },
+        "first_byte": 2268
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-6-mp3-22050-2.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/6",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=5710 different_bytes=28\r\nMPEG PCM/guards differ file=mpeg-6-mp3-22050-2.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "d88762920b82233012b909d681ce97f9ac1ec1e0c4f5d024ad27391de1f7fa1e",
+        "failed-source-pcm.bin": "df2678a4b991860b0fbf8c372a7b9c0b577c798ba8bc1a87cd5b99d604cad054",
+        "mpeg-6-mp3-22050-2.mp3": "43243ad27715ffb2e6679d61fa79394a4cf5d7d97a640619e705e8f4d5e9b083",
+        "stderr.log": "18d3288e0a4d453235b3ab9578b78ef3c662677ee88102be47937d21a49ce769",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 28,
+        "different_words": 28,
+        "delta_counts": {
+          "-1": 11,
+          "1": 17
+        },
+        "first_byte": 5710
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture": "mpeg-7-mp3-11025-1.mp3",
+      "directory": ".local/squall-mpeg-formats/20261102T204810211299Z/PC24/7",
+      "exit_code": 1,
+      "status": "failed",
+      "error": "PCM first_byte=1668 different_bytes=33\r\nMPEG PCM/guards differ file=mpeg-7-mp3-11025-1.mp3 memory=0 channels=1 start=0 count=12672 loop=0\r\n",
+      "artifacts": {
+        "failed-native-pcm.bin": "589c9b1d761d4992a5d3583a4f990ad74aac4974a98ff977818f240c12d17815",
+        "failed-source-pcm.bin": "b3599e62afa9d089bf3f4bc8637890d52d178c3235b06ad837e7ca4f41f2ff02",
+        "mpeg-7-mp3-11025-1.mp3": "4a551491df84142cdc2d441f645fce26ac259aad4b0542b2acbea3184fbc4a6a",
+        "stderr.log": "51f99d0c100882f14efcfe732e38d05a0894b6b90668af808b25fa64f2de17e1",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pcm_observation": {
+        "bytes": 25376,
+        "different_bytes": 33,
+        "different_words": 33,
+        "delta_counts": {
+          "-1": 15,
+          "1": 18
+        },
+        "first_byte": 1668
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "mpeg-0-mp2-44100-1.mp2",
+      "codec": "mp2",
+      "rate": 44100,
+      "channels": 1,
+      "source_frames": 11520,
+      "raw_name": "mpeg-0-mp2-44100-1.mp2.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "44100",
+        "-ac",
+        "1",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-0-mp2-44100-1.mp2.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "mp2",
+        "-b:a",
+        "192k",
+        "-f",
+        "mp2",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-0-mp2-44100-1.mp2"
+      ]
+    },
+    {
+      "name": "mpeg-1-mp2-44100-2.mp2",
+      "codec": "mp2",
+      "rate": 44100,
+      "channels": 2,
+      "source_frames": 11520,
+      "raw_name": "mpeg-1-mp2-44100-2.mp2.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "44100",
+        "-ac",
+        "2",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-1-mp2-44100-2.mp2.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "mp2",
+        "-b:a",
+        "192k",
+        "-f",
+        "mp2",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-1-mp2-44100-2.mp2"
+      ]
+    },
+    {
+      "name": "mpeg-2-mp2-22050-2.mp2",
+      "codec": "mp2",
+      "rate": 22050,
+      "channels": 2,
+      "source_frames": 11520,
+      "raw_name": "mpeg-2-mp2-22050-2.mp2.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "22050",
+        "-ac",
+        "2",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-2-mp2-22050-2.mp2.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "mp2",
+        "-b:a",
+        "96k",
+        "-f",
+        "mp2",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-2-mp2-22050-2.mp2"
+      ]
+    },
+    {
+      "name": "mpeg-3-mp3-44100-1.mp3",
+      "codec": "mp3",
+      "rate": 44100,
+      "channels": 1,
+      "source_frames": 11520,
+      "raw_name": "mpeg-3-mp3-44100-1.mp3.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "44100",
+        "-ac",
+        "1",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-3-mp3-44100-1.mp3.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "128k",
+        "-write_xing",
+        "0",
+        "-id3v2_version",
+        "0",
+        "-write_id3v1",
+        "0",
+        "-f",
+        "mp3",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-3-mp3-44100-1.mp3"
+      ]
+    },
+    {
+      "name": "mpeg-4-mp3-44100-2.mp3",
+      "codec": "mp3",
+      "rate": 44100,
+      "channels": 2,
+      "source_frames": 11520,
+      "raw_name": "mpeg-4-mp3-44100-2.mp3.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "44100",
+        "-ac",
+        "2",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-4-mp3-44100-2.mp3.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "128k",
+        "-write_xing",
+        "0",
+        "-id3v2_version",
+        "0",
+        "-write_id3v1",
+        "0",
+        "-f",
+        "mp3",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-4-mp3-44100-2.mp3"
+      ]
+    },
+    {
+      "name": "mpeg-5-mp3-22050-1.mp3",
+      "codec": "mp3",
+      "rate": 22050,
+      "channels": 1,
+      "source_frames": 11520,
+      "raw_name": "mpeg-5-mp3-22050-1.mp3.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "22050",
+        "-ac",
+        "1",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-5-mp3-22050-1.mp3.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "64k",
+        "-write_xing",
+        "0",
+        "-id3v2_version",
+        "0",
+        "-write_id3v1",
+        "0",
+        "-f",
+        "mp3",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-5-mp3-22050-1.mp3"
+      ]
+    },
+    {
+      "name": "mpeg-6-mp3-22050-2.mp3",
+      "codec": "mp3",
+      "rate": 22050,
+      "channels": 2,
+      "source_frames": 11520,
+      "raw_name": "mpeg-6-mp3-22050-2.mp3.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "22050",
+        "-ac",
+        "2",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-6-mp3-22050-2.mp3.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "64k",
+        "-write_xing",
+        "0",
+        "-id3v2_version",
+        "0",
+        "-write_id3v1",
+        "0",
+        "-f",
+        "mp3",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-6-mp3-22050-2.mp3"
+      ]
+    },
+    {
+      "name": "mpeg-7-mp3-11025-1.mp3",
+      "codec": "mp3",
+      "rate": 11025,
+      "channels": 1,
+      "source_frames": 11520,
+      "raw_name": "mpeg-7-mp3-11025-1.mp3.s16le",
+      "encoder_command": [
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\audio-fixture-encoder\\ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-nostdin",
+        "-y",
+        "-f",
+        "s16le",
+        "-ar",
+        "11025",
+        "-ac",
+        "1",
+        "-i",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-7-mp3-11025-1.mp3.s16le",
+        "-map_metadata",
+        "-1",
+        "-threads",
+        "1",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "32k",
+        "-write_xing",
+        "0",
+        "-id3v2_version",
+        "0",
+        "-write_id3v1",
+        "0",
+        "-f",
+        "mp3",
+        "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\dobry-farmar-reconstructed\\.local\\squall-mpeg-formats\\20261102T204810211299Z\\mpeg-7-mp3-11025-1.mp3"
+      ]
+    }
+  ],
+  "fixture_files": {
+    "mpeg-0-mp2-44100-1.mp2": "b92cce730ccfd1291a04810aaaa0da250996b756d4f826ec635a07996dfb5bff",
+    "mpeg-0-mp2-44100-1.mp2.s16le": "23fb3ce9f64a6e6f399bcd1675b671dc4d00a1c3a1efb93b702a4ade9af4cd8f",
+    "mpeg-1-mp2-44100-2.mp2": "152133c41fcc66e09598e90787615d2b5f44b895700530a273f1f8d2008ad1f4",
+    "mpeg-1-mp2-44100-2.mp2.s16le": "a8e8eb0a035d8fa550aaacac6e12649165931b8d2552e103118b45d3c241d5c2",
+    "mpeg-2-mp2-22050-2.mp2": "7c91e479eb5b68b1297163d3f910b0821a45a6b595dc761c5f2b835121b68221",
+    "mpeg-2-mp2-22050-2.mp2.s16le": "a8e8eb0a035d8fa550aaacac6e12649165931b8d2552e103118b45d3c241d5c2",
+    "mpeg-3-mp3-44100-1.mp3": "92d783b677af92d59b7f30faed232705f5c0110277f5972ed956a6211228b1be",
+    "mpeg-3-mp3-44100-1.mp3.s16le": "23fb3ce9f64a6e6f399bcd1675b671dc4d00a1c3a1efb93b702a4ade9af4cd8f",
+    "mpeg-4-mp3-44100-2.mp3": "f03d697eb8b18620a7f6fd7e5cc62aa1e044fd36f0a1b1785ffb4def318a7fa1",
+    "mpeg-4-mp3-44100-2.mp3.s16le": "a8e8eb0a035d8fa550aaacac6e12649165931b8d2552e103118b45d3c241d5c2",
+    "mpeg-5-mp3-22050-1.mp3": "31a68edbbb8b46e0afcfb11ae1b90c4e4bc2a5c40447228b7255674d39e95c92",
+    "mpeg-5-mp3-22050-1.mp3.s16le": "23fb3ce9f64a6e6f399bcd1675b671dc4d00a1c3a1efb93b702a4ade9af4cd8f",
+    "mpeg-6-mp3-22050-2.mp3": "43243ad27715ffb2e6679d61fa79394a4cf5d7d97a640619e705e8f4d5e9b083",
+    "mpeg-6-mp3-22050-2.mp3.s16le": "a8e8eb0a035d8fa550aaacac6e12649165931b8d2552e103118b45d3c241d5c2",
+    "mpeg-7-mp3-11025-1.mp3": "4a551491df84142cdc2d441f645fce26ac259aad4b0542b2acbea3184fbc4a6a",
+    "mpeg-7-mp3-11025-1.mp3.s16le": "23fb3ce9f64a6e6f399bcd1675b671dc4d00a1c3a1efb93b702a4ade9af4cd8f"
+  },
+  "source_map": {
+    "path": "build/windows/squall-candidate/Release/Squall.map",
+    "sha256": "cf5c0ad0d2df3b251d1bbe49423ddd693e9a39f36a5b2a09f083b9dc43d20043",
+    "symbol_rvas": [
+      40576,
+      30064,
+      30384,
+      402684
+    ]
+  },
+  "failed_cases": 14,
+  "production_implementation_changed": false,
+  "original_program_code_used_in_implementation": false,
+  "reference_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Resolve all observed decoder differences",
+    "Broader MPEG layer1,metadata/corruption,tracker/WMA and full original goal scopes"
+  ],
+  "state_observations": [
+    {
+      "precision": "PC53",
+      "fixture_index": 0,
+      "state": {
+        "decoder_bytes": 47744,
+        "source_decoder": 20467808,
+        "native_decoder": 53215304,
+        "fields": [
+          {
+            "field": "m_sf_table",
+            "offset": 16,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_look_c_valueL2",
+            "offset": 272,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_c_value",
+            "offset": 7760,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_cs_factor",
+            "offset": 8280,
+            "words": 192,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "csa",
+            "offset": 9052,
+            "words": 16,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "lr",
+            "offset": 9116,
+            "words": 32,
+            "different": 2,
+            "first_differences": [
+              [
+                13,
+                613232946,
+                613232640
+              ],
+              [
+                29,
+                617065734,
+                617065302
+              ]
+            ]
+          },
+          {
+            "field": "lr2",
+            "offset": 9244,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "win",
+            "offset": 22348,
+            "words": 144,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_global",
+            "offset": 22924,
+            "words": 262,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_scale",
+            "offset": 23972,
+            "words": 256,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_pow",
+            "offset": 24996,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_subblock",
+            "offset": 25252,
+            "words": 8,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w",
+            "offset": 42336,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w2",
+            "offset": 42408,
+            "words": 9,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef",
+            "offset": 42444,
+            "words": 36,
+            "different": 1,
+            "first_differences": [
+              [
+                13,
+                613232946,
+                613232640
+              ]
+            ]
+          },
+          {
+            "field": "v",
+            "offset": 42588,
+            "words": 6,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "v2",
+            "offset": 42612,
+            "words": 3,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef87",
+            "offset": 42624,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef32",
+            "offset": 42628,
+            "words": 31,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf",
+            "offset": 38240,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf2",
+            "offset": 40288,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sample",
+            "offset": 11292,
+            "words": 2304,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_yout",
+            "offset": 35812,
+            "words": 576,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sbt_wrk",
+            "offset": 38228,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          }
+        ]
+      },
+      "artifacts": {
+        "PC53/0/state-probe/mpeg-0-mp2-44100-1.mp2": "b92cce730ccfd1291a04810aaaa0da250996b756d4f826ec635a07996dfb5bff",
+        "PC53/0/state-probe/native-decoder.bin": "b5f5f85c0b7f0ea37184be7d9d7e1b4225e7ba50e26f0db64fdc3b6517cd9583",
+        "PC53/0/state-probe/source-decoder.bin": "4b24db94b65529fa8f710aaafb6950b994213cfe4df6f80c2578ac64f0b2d735",
+        "PC53/0/state-probe/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PC53/0/state-probe/stdout.json": "7e8922bd8e99e52cca5a510feed052b325e47340d507df3742437e5f5b5bb54a"
+      }
+    },
+    {
+      "precision": "PC53",
+      "fixture_index": 3,
+      "state": {
+        "decoder_bytes": 47744,
+        "source_decoder": 19163312,
+        "native_decoder": 55902280,
+        "fields": [
+          {
+            "field": "m_sf_table",
+            "offset": 16,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_look_c_valueL2",
+            "offset": 272,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_c_value",
+            "offset": 7760,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_cs_factor",
+            "offset": 8280,
+            "words": 192,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "csa",
+            "offset": 9052,
+            "words": 16,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "lr",
+            "offset": 9116,
+            "words": 32,
+            "different": 2,
+            "first_differences": [
+              [
+                13,
+                613232946,
+                613232640
+              ],
+              [
+                29,
+                617065734,
+                617065302
+              ]
+            ]
+          },
+          {
+            "field": "lr2",
+            "offset": 9244,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "win",
+            "offset": 22348,
+            "words": 144,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_global",
+            "offset": 22924,
+            "words": 262,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_scale",
+            "offset": 23972,
+            "words": 256,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_pow",
+            "offset": 24996,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_subblock",
+            "offset": 25252,
+            "words": 8,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w",
+            "offset": 42336,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w2",
+            "offset": 42408,
+            "words": 9,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef",
+            "offset": 42444,
+            "words": 36,
+            "different": 1,
+            "first_differences": [
+              [
+                13,
+                613232946,
+                613232640
+              ]
+            ]
+          },
+          {
+            "field": "v",
+            "offset": 42588,
+            "words": 6,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "v2",
+            "offset": 42612,
+            "words": 3,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef87",
+            "offset": 42624,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef32",
+            "offset": 42628,
+            "words": 31,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf",
+            "offset": 38240,
+            "words": 512,
+            "different": 437,
+            "first_differences": [
+              [
+                0,
+                1171765835,
+                1171765838
+              ],
+              [
+                1,
+                1167112252,
+                1167112253
+              ],
+              [
+                3,
+                1152026801,
+                1152026804
+              ],
+              [
+                4,
+                1158437305,
+                1158437310
+              ],
+              [
+                7,
+                1154942812,
+                1154942810
+              ],
+              [
+                8,
+                3313317297,
+                3313317298
+              ],
+              [
+                9,
+                3316283884,
+                3316283886
+              ],
+              [
+                10,
+                3306021516,
+                3306021520
+              ]
+            ]
+          },
+          {
+            "field": "vbuf2",
+            "offset": 40288,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sample",
+            "offset": 11292,
+            "words": 2304,
+            "different": 423,
+            "first_differences": [
+              [
+                0,
+                1096100084,
+                1096100091
+              ],
+              [
+                1,
+                3244018551,
+                3244018558
+              ],
+              [
+                4,
+                3256043187,
+                3256043185
+              ],
+              [
+                5,
+                1106827304,
+                1106827300
+              ],
+              [
+                6,
+                3274095360,
+                3274095359
+              ],
+              [
+                7,
+                1121557364,
+                1121557363
+              ],
+              [
+                11,
+                3249511062,
+                3249511061
+              ],
+              [
+                18,
+                1118592942,
+                1118592932
+              ]
+            ]
+          },
+          {
+            "field": "m_yout",
+            "offset": 35812,
+            "words": 576,
+            "different": 397,
+            "first_differences": [
+              [
+                0,
+                1096100084,
+                1096100091
+              ],
+              [
+                1,
+                1118592942,
+                1118592932
+              ],
+              [
+                2,
+                1118488240,
+                1118488293
+              ],
+              [
+                3,
+                3259809492,
+                3259809518
+              ],
+              [
+                4,
+                3266639787,
+                3266639789
+              ],
+              [
+                5,
+                3249471200,
+                3249471196
+              ],
+              [
+                6,
+                3264966593,
+                3264966591
+              ],
+              [
+                7,
+                1104976546,
+                1104976552
+              ]
+            ]
+          },
+          {
+            "field": "m_sbt_wrk",
+            "offset": 38228,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          }
+        ]
+      },
+      "artifacts": {
+        "PC53/3/state-probe/mpeg-3-mp3-44100-1.mp3": "92d783b677af92d59b7f30faed232705f5c0110277f5972ed956a6211228b1be",
+        "PC53/3/state-probe/native-decoder.bin": "4a7d4ae9d89d4d321c2add194f94347cd56af27c01b5f6bbe8e9da431431a4bf",
+        "PC53/3/state-probe/source-decoder.bin": "9bb1293bce4e5ee187fee11e061fcd8fc1dc6d97a365297e695652571f0ad5a5",
+        "PC53/3/state-probe/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PC53/3/state-probe/stdout.json": "74d952eff9f6e1b3617010abeb605a428b803edc0c3d749e1458498fde7a3ee1"
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture_index": 0,
+      "state": {
+        "decoder_bytes": 47744,
+        "source_decoder": 15951696,
+        "native_decoder": 51576904,
+        "fields": [
+          {
+            "field": "m_sf_table",
+            "offset": 16,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_look_c_valueL2",
+            "offset": 272,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_c_value",
+            "offset": 7760,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_cs_factor",
+            "offset": 8280,
+            "words": 192,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "csa",
+            "offset": 9052,
+            "words": 16,
+            "different": 6,
+            "first_differences": [
+              [
+                2,
+                1063369177,
+                1063369175
+              ],
+              [
+                3,
+                3203499740,
+                3203499738
+              ],
+              [
+                8,
+                1065278017,
+                1065278019
+              ],
+              [
+                9,
+                3183587356,
+                3183587358
+              ],
+              [
+                12,
+                1065351524,
+                1065351526
+              ],
+              [
+                13,
+                3160973596,
+                3160973598
+              ]
+            ]
+          },
+          {
+            "field": "lr",
+            "offset": 9116,
+            "words": 32,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "lr2",
+            "offset": 9244,
+            "words": 512,
+            "different": 160,
+            "first_differences": [
+              [
+                24,
+                1058551792,
+                1058551793
+              ],
+              [
+                27,
+                1058551792,
+                1058551793
+              ],
+              [
+                40,
+                1058551792,
+                1058551793
+              ],
+              [
+                43,
+                1058551792,
+                1058551793
+              ],
+              [
+                48,
+                1054295293,
+                1054295294
+              ],
+              [
+                51,
+                1054295293,
+                1054295294
+              ],
+              [
+                52,
+                1052050675,
+                1052050676
+              ],
+              [
+                55,
+                1052050675,
+                1052050676
+              ]
+            ]
+          },
+          {
+            "field": "win",
+            "offset": 22348,
+            "words": 144,
+            "different": 24,
+            "first_differences": [
+              [
+                7,
+                1058789323,
+                1058789322
+              ],
+              [
+                9,
+                3208429110,
+                3208429109
+              ],
+              [
+                13,
+                3211559775,
+                3211559774
+              ],
+              [
+                14,
+                3212060364,
+                3212060363
+              ],
+              [
+                19,
+                3212693332,
+                3212693333
+              ],
+              [
+                25,
+                3209369908,
+                3209369906
+              ],
+              [
+                27,
+                3207394168,
+                3207394171
+              ],
+              [
+                28,
+                3206272967,
+                3206272970
+              ]
+            ]
+          },
+          {
+            "field": "look_global",
+            "offset": 22924,
+            "words": 262,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_scale",
+            "offset": 23972,
+            "words": 256,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_pow",
+            "offset": 24996,
+            "words": 64,
+            "different": 12,
+            "first_differences": [
+              [
+                1,
+                3267544062,
+                3267544063
+              ],
+              [
+                2,
+                3266998039,
+                3266998040
+              ],
+              [
+                18,
+                3255236557,
+                3255236556
+              ],
+              [
+                19,
+                3254028783,
+                3254028782
+              ],
+              [
+                20,
+                3252406527,
+                3252406526
+              ],
+              [
+                22,
+                3249298131,
+                3249298130
+              ],
+              [
+                42,
+                1101814483,
+                1101814482
+              ],
+              [
+                44,
+                1104922879,
+                1104922878
+              ]
+            ]
+          },
+          {
+            "field": "look_subblock",
+            "offset": 25252,
+            "words": 8,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w",
+            "offset": 42336,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w2",
+            "offset": 42408,
+            "words": 9,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef",
+            "offset": 42444,
+            "words": 36,
+            "different": 5,
+            "first_differences": [
+              [
+                14,
+                3210589143,
+                3210589145
+              ],
+              [
+                23,
+                1065098334,
+                1065098333
+              ],
+              [
+                26,
+                1056964605,
+                1056964614
+              ],
+              [
+                30,
+                1065098334,
+                1065098333
+              ],
+              [
+                31,
+                3206843849,
+                3206843837
+              ]
+            ]
+          },
+          {
+            "field": "v",
+            "offset": 42588,
+            "words": 6,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "v2",
+            "offset": 42612,
+            "words": 3,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef87",
+            "offset": 42624,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef32",
+            "offset": 42628,
+            "words": 31,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf",
+            "offset": 38240,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf2",
+            "offset": 40288,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sample",
+            "offset": 11292,
+            "words": 2304,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_yout",
+            "offset": 35812,
+            "words": 576,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sbt_wrk",
+            "offset": 38228,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          }
+        ]
+      },
+      "artifacts": {
+        "PC24/0/state-probe/mpeg-0-mp2-44100-1.mp2": "b92cce730ccfd1291a04810aaaa0da250996b756d4f826ec635a07996dfb5bff",
+        "PC24/0/state-probe/native-decoder.bin": "4011436583b904a1b5cddfa0a3dc4d6e2cae3d5860f7f1f8e5ae976f49b648fc",
+        "PC24/0/state-probe/source-decoder.bin": "9a704e805c3cce213e98172a98c1bf155ed13e5752d486a25620486277a43fef",
+        "PC24/0/state-probe/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PC24/0/state-probe/stdout.json": "2bc67d1981c09c4fca91605889691841f9929f5e68658d219baf9c9c73a6d286"
+      }
+    },
+    {
+      "precision": "PC24",
+      "fixture_index": 3,
+      "state": {
+        "decoder_bytes": 47744,
+        "source_decoder": 7693752,
+        "native_decoder": 43778120,
+        "fields": [
+          {
+            "field": "m_sf_table",
+            "offset": 16,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_look_c_valueL2",
+            "offset": 272,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_c_value",
+            "offset": 7760,
+            "words": 64,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_cs_factor",
+            "offset": 8280,
+            "words": 192,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "csa",
+            "offset": 9052,
+            "words": 16,
+            "different": 6,
+            "first_differences": [
+              [
+                2,
+                1063369177,
+                1063369175
+              ],
+              [
+                3,
+                3203499740,
+                3203499738
+              ],
+              [
+                8,
+                1065278017,
+                1065278019
+              ],
+              [
+                9,
+                3183587356,
+                3183587358
+              ],
+              [
+                12,
+                1065351524,
+                1065351526
+              ],
+              [
+                13,
+                3160973596,
+                3160973598
+              ]
+            ]
+          },
+          {
+            "field": "lr",
+            "offset": 9116,
+            "words": 32,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "lr2",
+            "offset": 9244,
+            "words": 512,
+            "different": 160,
+            "first_differences": [
+              [
+                24,
+                1058551792,
+                1058551793
+              ],
+              [
+                27,
+                1058551792,
+                1058551793
+              ],
+              [
+                40,
+                1058551792,
+                1058551793
+              ],
+              [
+                43,
+                1058551792,
+                1058551793
+              ],
+              [
+                48,
+                1054295293,
+                1054295294
+              ],
+              [
+                51,
+                1054295293,
+                1054295294
+              ],
+              [
+                52,
+                1052050675,
+                1052050676
+              ],
+              [
+                55,
+                1052050675,
+                1052050676
+              ]
+            ]
+          },
+          {
+            "field": "win",
+            "offset": 22348,
+            "words": 144,
+            "different": 24,
+            "first_differences": [
+              [
+                7,
+                1058789323,
+                1058789322
+              ],
+              [
+                9,
+                3208429110,
+                3208429109
+              ],
+              [
+                13,
+                3211559775,
+                3211559774
+              ],
+              [
+                14,
+                3212060364,
+                3212060363
+              ],
+              [
+                19,
+                3212693332,
+                3212693333
+              ],
+              [
+                25,
+                3209369908,
+                3209369906
+              ],
+              [
+                27,
+                3207394168,
+                3207394171
+              ],
+              [
+                28,
+                3206272967,
+                3206272970
+              ]
+            ]
+          },
+          {
+            "field": "look_global",
+            "offset": 22924,
+            "words": 262,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_scale",
+            "offset": 23972,
+            "words": 256,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "look_pow",
+            "offset": 24996,
+            "words": 64,
+            "different": 12,
+            "first_differences": [
+              [
+                1,
+                3267544062,
+                3267544063
+              ],
+              [
+                2,
+                3266998039,
+                3266998040
+              ],
+              [
+                18,
+                3255236557,
+                3255236556
+              ],
+              [
+                19,
+                3254028783,
+                3254028782
+              ],
+              [
+                20,
+                3252406527,
+                3252406526
+              ],
+              [
+                22,
+                3249298131,
+                3249298130
+              ],
+              [
+                42,
+                1101814483,
+                1101814482
+              ],
+              [
+                44,
+                1104922879,
+                1104922878
+              ]
+            ]
+          },
+          {
+            "field": "look_subblock",
+            "offset": 25252,
+            "words": 8,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w",
+            "offset": 42336,
+            "words": 18,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "w2",
+            "offset": 42408,
+            "words": 9,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef",
+            "offset": 42444,
+            "words": 36,
+            "different": 5,
+            "first_differences": [
+              [
+                14,
+                3210589143,
+                3210589145
+              ],
+              [
+                23,
+                1065098334,
+                1065098333
+              ],
+              [
+                26,
+                1056964605,
+                1056964614
+              ],
+              [
+                30,
+                1065098334,
+                1065098333
+              ],
+              [
+                31,
+                3206843849,
+                3206843837
+              ]
+            ]
+          },
+          {
+            "field": "v",
+            "offset": 42588,
+            "words": 6,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "v2",
+            "offset": 42612,
+            "words": 3,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef87",
+            "offset": 42624,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "coef32",
+            "offset": 42628,
+            "words": 31,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "vbuf",
+            "offset": 38240,
+            "words": 512,
+            "different": 372,
+            "first_differences": [
+              [
+                0,
+                1171765837,
+                1171765839
+              ],
+              [
+                1,
+                1167112254,
+                1167112256
+              ],
+              [
+                2,
+                1164894488,
+                1164894484
+              ],
+              [
+                3,
+                1152026805,
+                1152026812
+              ],
+              [
+                4,
+                1158437309,
+                1158437311
+              ],
+              [
+                5,
+                1163511608,
+                1163511607
+              ],
+              [
+                6,
+                1125656128,
+                1125656064
+              ],
+              [
+                7,
+                1154942816,
+                1154942814
+              ]
+            ]
+          },
+          {
+            "field": "vbuf2",
+            "offset": 40288,
+            "words": 512,
+            "different": 0,
+            "first_differences": []
+          },
+          {
+            "field": "m_sample",
+            "offset": 11292,
+            "words": 2304,
+            "different": 394,
+            "first_differences": [
+              [
+                0,
+                1096100097,
+                1096100109
+              ],
+              [
+                1,
+                3244018552,
+                3244018565
+              ],
+              [
+                2,
+                1103058350,
+                1103058358
+              ],
+              [
+                3,
+                1101192638,
+                1101192628
+              ],
+              [
+                4,
+                3256043183,
+                3256043178
+              ],
+              [
+                5,
+                1106827288,
+                1106827280
+              ],
+              [
+                7,
+                1121557358,
+                1121557359
+              ],
+              [
+                11,
+                3249511048,
+                3249511069
+              ]
+            ]
+          },
+          {
+            "field": "m_yout",
+            "offset": 35812,
+            "words": 576,
+            "different": 339,
+            "first_differences": [
+              [
+                0,
+                1096100097,
+                1096100109
+              ],
+              [
+                2,
+                1118488192,
+                1118488240
+              ],
+              [
+                3,
+                3259809548,
+                3259809522
+              ],
+              [
+                4,
+                3266639802,
+                3266639784
+              ],
+              [
+                5,
+                3249471196,
+                3249471198
+              ],
+              [
+                6,
+                3264966577,
+                3264966582
+              ],
+              [
+                7,
+                1104976506,
+                1104976514
+              ],
+              [
+                8,
+                1083320536,
+                1083320406
+              ]
+            ]
+          },
+          {
+            "field": "m_sbt_wrk",
+            "offset": 38228,
+            "words": 1,
+            "different": 0,
+            "first_differences": []
+          }
+        ]
+      },
+      "artifacts": {
+        "PC24/3/state-probe/mpeg-3-mp3-44100-1.mp3": "92d783b677af92d59b7f30faed232705f5c0110277f5972ed956a6211228b1be",
+        "PC24/3/state-probe/native-decoder.bin": "03fe804f1031661b08e8acd4ebdf99527d32cca0e838825e76d9b1978e68cd9a",
+        "PC24/3/state-probe/source-decoder.bin": "41c29ac0d4823ab87cacde9daa8d0df10a442517c92447ee84873d5ef52cb532",
+        "PC24/3/state-probe/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PC24/3/state-probe/stdout.json": "61c5d1458bef3cc7a06ca9488a30bffa651d6c6e84a51393318b2e56888206f0"
+      }
+    }
+  ],
+  "observation_recorded_at_utc": "2026-11-02T20:59:33.958795+00:00",
+  "recorder_sha256": "04b9b89c4d3ca49e0b7c6dbf736dc90fd77301989de1a76a32620bfeb138d0c8",
+  "state_probe_sources": {
+    "tools/squall_mpeg_state_probe.cpp": "11a2b562dfc3c970bc49388b8f51ccaf852b47a1a6b744d1344a093f40d1afe9",
+    "tools/squall_mpeg_formats_probe/CMakeLists.txt": "da9f34dba70ea99d2a44313daccdaf0423f19bdd78aa4b44296cbbe2116798fa"
+  },
+  "native_allocation_instruction": "1002db04 PUSH 0xba80 before constructor10012960",
+  "fixture_encoder_used_only_to_encode_owned_integer_pcm": true,
+  "numerical_tolerance_used": false,
+  "observations": [
+    "13 processes stopped at differing PCM words; one stopped at differing final seek read byte count",
+    "PC24 MP2 44100 mono and stereo completed all40 guarded reads and four physical buffers each",
+    "Initial table differences are evidence only; cause and decoded differences remain unresolved"
+  ],
+  "production_changed": false
+}
