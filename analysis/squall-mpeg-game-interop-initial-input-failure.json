@@ -1,0 +1,25 @@
+{
+  "status": "test_input_missed_before_native_Start_unchanged_implementation_passed_full_retry",
+  "work_directory": ".local/field-disasters-interop/20261103T210325996856Z",
+  "error": "AssertionError(('Injected pointer missed owned window target', (1899, 435), (400, 365)))",
+  "report_sha256": "8fbc6e41ee728d990e5d10ee6c54760ee71502ac56f25d9b6d0e8e6df016beef",
+  "implementation_files": {
+    "FarmarSourceInterop.exe": "3e1acb3956ee6bef549e9c415696c75486a9d58b3e4c4daf0f8a4d7913db07b1",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "f156c2197a6be7e6de86e22f6de258546e30c17569c19ab3956cd7f6c5337682"
+  },
+  "screenshots": {
+    "4-01-logo.png": "429f9637b36a71004f041b8f08c97cd1c297a825c4dcd1a0abafa30d65779932",
+    "4-02-startup.png": "be1ead760b05031f2a9919d5e31ce24a1e3684ed670e742e2044982120e989e6",
+    "4-03-menu.png": "be1ead760b05031f2a9919d5e31ce24a1e3684ed670e742e2044982120e989e6",
+    "4-04-game.png": "dd32af9c286f94143fe3af33af499513fd4f572e80dda50f8dc755f07f88f2af",
+    "4-10-restored-disaster-outcome.png": "7192cf6ddb427551ddb638f57fe661f5aa2e0e0abd367cb3467dfd951ecab64e",
+    "5-01-logo.png": "f24fb11b0236d3260bba5db63a3f58afa50eefb9ef44489febbc4701ec90da45",
+    "5-02-startup.png": "7fd9458b144cccb2f35dda435297ca50ad9615fcddf14e0d76089b60ad96fa3e",
+    "5-03-menu.png": "7fd9458b144cccb2f35dda435297ca50ad9615fcddf14e0d76089b60ad96fa3e"
+  },
+  "completed_source_restore_before_failure": true,
+  "retry_report": "analysis/squall-mpeg-game-interop-validation.json",
+  "retry_log_sha256": "70c449797a32deee7421b40a4ed6c137bc26bff38daa6824c98dd93e8fe0c5dc",
+  "production_changed_between_attempts": false
+}

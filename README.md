@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Obnovená původní x87 aritmetika MPEG](docs/SQUALL.md) prošla v obou sestaveních přesnými tabulkami,40960 kernel případy,640 čteními a56 bezpečnými fyzickými buffery na sestavení. Oba původní MPEG2/Layer2 přesahy jsou prokázané odděleně; nebezpečné přehrávání se nepovažuje za ověřené. Aktuální celá regrese102/102 za543,07s, obě audio regrese a čtyři celé6943/7784bajtové herní obnovy prošly. Dvě source obnovy jsou bez AV, minutí kurzoru prvního GUI pokusu je zachované. Celý původní projekt dále pokračuje.
+
 [Oprava3D parametrů Squall](docs/SQUALL.md) nově obnovuje původní C3 větve a zachování signaling NaN. Obě sestavení prošla skutečnými kanály i herním zvukem, aktuální celý CTest102/102 a čtyři4089bajtové herní přenosy také prošly. Úplný audit DLL a celý původní cíl pokračují.
 
 [Sedm souběžných výrobních cyklů](docs/MANUFACTURE.md) nově prošlo skutečnými vstupy, čtyřmi obousměrnými obnovami a dvěma dokončeními všech14 kusů v opačném programu. Úplné4089bajtové saves souhlasí; celý původní cíl pokračuje.

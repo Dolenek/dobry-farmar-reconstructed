@@ -447,6 +447,78 @@
       "instruction_evidence": "PUSH ECX local allocation retains high this byte/word; PCM16 stereo-to-mono aliases start argument DWORD after seeking.",
       "source_difference": "Public C++ used unrelated uninitialized locals; initialize corresponding bytes explicitly without changing valid reads or the genuinely uninitialized PCM8 mono averaging branch.",
       "current_sha256": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993"
+    },
+    {
+      "path": "SoundFile/MP3/MpegDecoder.cpp",
+      "method": "MPEG x87 tables,IMDCT18/6,window accumulation and dequant order",
+      "original_addresses": [
+        "1000abd0",
+        "1000acc0",
+        "1000ad70",
+        "1000ba00",
+        "1000c350",
+        "1000c5cc",
+        "1000c798",
+        "1000e8f0",
+        "1000ea50",
+        "1000eee0",
+        "10010cf0",
+        "10010e60",
+        "1003cf60",
+        "1003f3b0"
+      ],
+      "instruction_evidence": "analysis/squall-mpeg-native-instructions.txt",
+      "source_difference": "Preserve original transcendental instructions,scalar register lifetimes,float spills and arithmetic order; finite internal MPEG math domain,not a generic CRT replacement.",
+      "current_sha256": "49dee53da239f1ebe8b6b27a7f1d099e4fe4b5298c36dc421a943a483e779b6b",
+      "verification_report": "analysis/squall-mpeg-regression.json"
+    },
+    {
+      "path": "SoundFile/MP3/l3dec.cpp",
+      "method": "MPEG x87 tables,IMDCT18/6,window accumulation and dequant order",
+      "original_addresses": [
+        "1000abd0",
+        "1000acc0",
+        "1000ad70",
+        "1000ba00",
+        "1000c350",
+        "1000c5cc",
+        "1000c798",
+        "1000e8f0",
+        "1000ea50",
+        "1000eee0",
+        "10010cf0",
+        "10010e60",
+        "1003cf60",
+        "1003f3b0"
+      ],
+      "instruction_evidence": "analysis/squall-mpeg-native-instructions.txt",
+      "source_difference": "Preserve original transcendental instructions,scalar register lifetimes,float spills and arithmetic order; finite internal MPEG math domain,not a generic CRT replacement.",
+      "current_sha256": "98e683e464b9a1ae11fa9299e1b41fb0cbbc730367be62daa4d0544ce480c958",
+      "verification_report": "analysis/squall-mpeg-regression.json"
+    },
+    {
+      "path": "SoundFile/MP3/NativeMpegMath.h",
+      "method": "MPEG x87 tables,IMDCT18/6,window accumulation and dequant order",
+      "original_addresses": [
+        "1000abd0",
+        "1000acc0",
+        "1000ad70",
+        "1000ba00",
+        "1000c350",
+        "1000c5cc",
+        "1000c798",
+        "1000e8f0",
+        "1000ea50",
+        "1000eee0",
+        "10010cf0",
+        "10010e60",
+        "1003cf60",
+        "1003f3b0"
+      ],
+      "instruction_evidence": "analysis/squall-mpeg-native-instructions.txt",
+      "source_difference": "Preserve original transcendental instructions,scalar register lifetimes,float spills and arithmetic order; finite internal MPEG math domain,not a generic CRT replacement.",
+      "current_sha256": "1802bfc7781c19c5e1ccad9d12976ed968e21c3035fe6f6c3a7186e6c848ae43",
+      "verification_report": "analysis/squall-mpeg-regression.json"
     }
   ]
 }

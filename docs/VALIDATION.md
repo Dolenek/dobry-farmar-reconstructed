@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Obnovená původní x87 aritmetika MPEG](SQUALL.md) prošla v obou sestaveních přesnými tabulkami,40960 kernel případy,640 čteními a56 bezpečnými fyzickými buffery na sestavení. Oba původní MPEG2/Layer2 přesahy jsou prokázané odděleně; nebezpečné přehrávání se nepovažuje za ověřené. Aktuální celá regrese102/102 za543,07s, obě audio regrese a čtyři celé6943/7784bajtové herní obnovy prošly. Dvě source obnovy jsou bez AV, minutí kurzoru prvního GUI pokusu je zachované. Celý původní projekt dále pokračuje.
+
 [Skutečné číselné profily](PROFILES.md) nově porovnávají4324 položek s nezměněnými původními CRT streamy v PC24 a odděleném FP fixture PC53. Same-seed bity/text i všechny přiřazené převody souhlasí; skutečné adresně závislé neplatné výsledky zůstávají výslovně odlišné. Nezávislé sestavení také prošlo. [Celé EXE s plným skladem](MANUFACTURE.md) mají devět shodných pracovních kontrol, správné blokování při100 %, skutečné uvolnění dvou míst přes trh a4089 přesných save bajtů. Nový úplný CTest po produkční opravě profilů:102/102,1062,64s. Celý původní cíl pokračuje.
 
 [Pozice a další kanálové exporty Squall](SQUALL.md) mají obnovenou původní adresně závislou větev a2542 přesných porovnání v obou přesnostech, zopakovaných ve druhém sestavení. Nová zvuková regrese a čtyři celé2650bajtové save přenosy prošly; úplná sada101/102 a tři focused opakování opraveného testovacího driveru jsou evidované odděleně. Ostatní exporty a celý projekt pokračují.
