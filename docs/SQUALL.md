@@ -1,5 +1,15 @@
 # Rekonstrukce Squall
 
+## WMA: skutečný COM backend, částečné návraty a původní podtečení
+
+Pět vlastních nenulových WMAv1/WMAv2 vstupů (mono/stereo,22050/44100/48000Hz) prošlo skutečným Windows COM backendem. První250 oddělených DLL procesů daly pět shodných metadata párů a96 shodných vrácených PCM/destination párů v memory0/1 a PC53/PC24. Šedesát čtení vrátilo celou délku;36 vrátilo0 po částečném zápisu. V obou knihovnách souhlasí celé guarded destinace /1947440 bajtů i343120 hlášených vrácených PCM bajtů. Původní chybný předpoklad testu o vždy plné délce je opravený, původní neúspěšný report zůstává beze změny.
+
+Dalších24 stereo→mono párů při počtu nad2048 skončilo v obou procesech AV; kódy selhání se nepovažují za PCM ekvivalenci. Omezený čtecí debugger na vlastním WMA hostu doložil konkrétní příčinu: GetInfo vrátí0 vzorků, ale původní DO smyčka přesto začne převádět a její counter podteče. Reference padá při zápisu na100155b5 s EDIffffedd8 a zbývajícím požadavkem1; aktuální zdrojová DLL padá ve stejné logice na RVA13656 s EAXffffeb98. Výjimky se nepotlačují a debugger nepíše do paměti. Produkce se zatím neměnila.
+
+Instrukce1001558e navíc čtou levý vzorek, zdvojnásobí ho a vydělí dvěma; pravý kanál přeskočí. U tří stereo souborů se128 mono vzorků přesně rovná levému kanálu, od skutečného signed průměru se liší127/128/128 vzorků. Zveřejněný C++ výraz má unsequenced `*src++ + *src++`; současný připnutý MSVC ho také přeložil na levý kanál. Výslovná zdrojová rekonstrukce tohoto chování následuje. Tři skutečné metody15180/153e0/155f0 nebyly v původním916funkčním raw Ghidra exportu definované; instrukční důkaz je zachovaný samostatně, referenční projekt i raw export zůstávají zachované.
+
+Reprodukce: `tools/squall_wma_fixtures.py` používá pouze připnutý testovací encoder; `tools/squall_wma_probe` sestaví skutečný COM/metadata/PCM host. `tools/validate_squall_wma.py` zaznamenává celé návraty, partial destination i samostatná neobsloužená selhání. `tools/squall_wma_crash_trace` přijme jen přesnou cestu a PID vlastního `squall-wma-probe.exe`. `tools/record_squall_wma_observations.py` ověřuje původní snapshoty a zapisuje `analysis/squall-wma-initial-observations.json`, celé procesní výsledky a čtecí crash traces. Stateful/loop/EOF, skutečné fyzické buffery, COM chybové větve i celý původní cíl pokračují. Aktuální produkce stále odpovídá úplné MPEG regresi5421195.
+
 ## MPEG: původní x87 tabulky, transformace a syntézní okno
 
 `NativeMpegMath.h`, `MpegDecoder.cpp` a `l3dec.cpp` obnovují původní x87 FPATAN/FSIN/FCOS/FSQRT a mocninnou sekvenci, pořadí násobení v dekvantizaci a přesné mezní zápisy do float. IMDCT18 (1000ea50) a tři krátké IMDCT6 (1000eee0) používají upravitelný inline assembler s vlastní scratch pamětí, kompilátorem spravovaným vstupem/výstupem a staticky kontrolovaným rozložením tabulek. Nevolají původní DLL. Syntézní okna10010cf0/10010e60 drží součet v x87 přesnosti až do původního truncation převodu; opakované float spills ve zveřejněném podkladu měnily PCM o jeden signed16 krok.
