@@ -4,6 +4,10 @@
 #include <windows.h>
 #include <mmsystem.h>
 #include "Squall.h"
+using byte=unsigned char;
+#define protected public
+#include "SoundFile/MP3/MpegDecoder.h"
+#undef protected
 #include "SoundEngine/Context.h"
 #include <array>
 #include <vector>
@@ -59,29 +63,38 @@ int wmain(int argc,wchar_t** argv){
         window=CreateWindowExW(0,L"STATIC",L"Squall MPEG formats",0,0,0,64,64,nullptr,nullptr,GetModuleHandleW(nullptr),nullptr);need(window!=nullptr,"Create window");
         squall_parameters_t p{};p.Window=window;p.SampleRate=44100;p.BitPerSample=16;p.Channels=4;p.UseAlg=1;p.BufferSize=200;p.DistanceFactor=1;p.RolloffFactor=.001f;p.DopplerFactor=1;
         auto init=native.SQUALL_Init(&p);same(source.SQUALL_Init(&p),init,"Init");need(init>=0,"Actual DirectSound Init failed");
-        unsigned frames{},frequency{};
+        unsigned frames{},frequency{},definedFrames{},tableEntries{},samplesPerFrame{};bool unsafeLayer2Shape=false;
         for(int memory:{0,1}){memoryMode=memory;
             int ns=native.SQUALL_Sample_LoadFile(filename.data(),memory,nullptr),ss=source.SQUALL_Sample_LoadFile(filename.data(),memory,nullptr);same(ss,ns,"Load actual MPEG");need(ns>0,"Original rejected encoded MPEG fixture");
             frames=unsigned(native.SQUALL_Sample_GetFileLength(ns));frequency=unsigned(native.SQUALL_Sample_GetFileFrequency(ns));need(frames>0&&frames<1048576&&frequency>0,"Native metadata invalid");
             same(source.SQUALL_Sample_GetFileLength(ss),frames,"Frame length");same(source.SQUALL_Sample_GetFileFrequency(ss),frequency,"Frequency");same(source.SQUALL_Sample_GetFileLengthMs(ss),native.SQUALL_Sample_GetFileLengthMs(ns),"Milliseconds");
             auto own=source.file(ss),original=native.file(ns);need(own&&original,"Actual decoder object missing");
+            const auto* sm=*reinterpret_cast<CDecompressMpeg**>(static_cast<unsigned char*>(own)+12);
+            const auto* nm=*reinterpret_cast<CDecompressMpeg**>(static_cast<unsigned char*>(original)+12);
+            need(sm->_frames==nm->_frames&&sm->_samplesInFrame==nm->_samplesInFrame&&sm->_samplesInFile==nm->_samplesInFile,"MPEG frame table metadata differs");
+            unsafeLayer2Shape=nm->_layer==2&&nm->_version!=1;
+            tableEntries=nm->_frames;samplesPerFrame=nm->_samplesInFrame;definedFrames=tableEntries*samplesPerFrame;
+            need(definedFrames>0&&definedFrames<=frames,"MPEG defined seek range");
+            // Original MPEG2 Layer2 overstates length before correcting its table.
+            // Keep and compare that API result and full sequential read; seek only
+            // in the actual table domain. Dedicated guard probe proves unsafe tail.
             for(unsigned channels:{1U,2U}){
                 decoded(source,native,own,original,channels,0,frames,false);
                 decoded(source,native,own,original,channels,0,1,false);
                 decoded(source,native,own,original,channels,1,127,false);
-                decoded(source,native,own,original,channels,frames/2,769,false);
-                decoded(source,native,own,original,channels,frames-1,9,false);
-                decoded(source,native,own,original,channels,frames,9,false);
-                decoded(source,native,own,original,channels,frames+1,9,false);
+                decoded(source,native,own,original,channels,definedFrames/2,unsafeLayer2Shape?2*samplesPerFrame:769,false);
+                decoded(source,native,own,original,channels,definedFrames-1,9,false);
+                decoded(source,native,own,original,channels,definedFrames,9,false);
+                decoded(source,native,own,original,channels,definedFrames+1,9,false);
                 decoded(source,native,own,original,channels,0,0,false);
-                decoded(source,native,own,original,channels,frames-2,9,true);
+                decoded(source,native,own,original,channels,definedFrames-2,9,true);
                 decoded(source,native,own,original,channels,0,frames+17,true);
             }
-            for(bool spatial:{false,true}){std::array<float,3> zero{};auto create=[&](Api& api,int sample){return spatial?api.SQUALL_Sample_Play3DEx(sample,1,17,0,zero.data(),zero.data(),7,0,0,1,1000):api.SQUALL_Sample_PlayEx(sample,1,17,0,7,0,0,50);};
+            if(!unsafeLayer2Shape)for(bool spatial:{false,true}){std::array<float,3> zero{};auto create=[&](Api& api,int sample){return spatial?api.SQUALL_Sample_Play3DEx(sample,1,17,0,zero.data(),zero.data(),7,0,0,1,1000):api.SQUALL_Sample_PlayEx(sample,1,17,0,7,0,0,50);};
                 auto nc=create(native,ns),sc=create(source,ss);same(sc,nc,"Actual MPEG channel");need(nc>=0,"MPEG buffer failed");auto a=physical(source,sc),b=physical(native,nc);need(a==b,"Physical MPEG PCM differs");++buffers;bufferBytes+=a.size();stop(source,sc);stop(native,nc);}
             source.SQUALL_Sample_Unload(ss);native.SQUALL_Sample_Unload(ns);
         }
         need((_control87(0,0)&_MCW_PC)==precision,"Precision changed");source.SQUALL_Free();native.SQUALL_Free();DestroyWindow(window);window=nullptr;
-        std::cout<<"{\"result_comparisons\":"<<comparisons<<",\"guarded_pcm_reads\":"<<reads<<",\"pcm_bytes\":"<<bytes<<",\"physical_buffers\":"<<buffers<<",\"physical_pcm_bytes\":"<<bufferBytes<<",\"frames\":"<<frames<<",\"frequency\":"<<frequency<<",\"pcm_fnv1a64\":\""<<std::hex<<digest<<std::dec<<"\",\"actual_directsound\":true,\"export_lookups\":194}\n";return 0;
+        std::cout<<"{\"result_comparisons\":"<<comparisons<<",\"guarded_pcm_reads\":"<<reads<<",\"pcm_bytes\":"<<bytes<<",\"physical_buffers\":"<<buffers<<",\"physical_buffers_skipped_native_layer2_overrun\":"<<(unsafeLayer2Shape?"true":"false")<<",\"physical_pcm_bytes\":"<<bufferBytes<<",\"frames\":"<<frames<<",\"defined_seek_frames\":"<<definedFrames<<",\"frame_table_entries\":"<<tableEntries<<",\"samples_per_frame\":"<<samplesPerFrame<<",\"frequency\":"<<frequency<<",\"pcm_fnv1a64\":\""<<std::hex<<digest<<std::dec<<"\",\"actual_directsound\":true,\"export_lookups\":194}\n";return 0;
     }catch(const std::exception& error){if(window)DestroyWindow(window);std::cerr<<error.what()<<" file="<<filename<<" memory="<<memoryMode<<" channels="<<outputChannels<<" start="<<readStart<<" count="<<readCount<<" loop="<<readLoop<<'\n';return 1;}
 }

@@ -57,6 +57,16 @@ foreach(TARGET squall_ogg_candidate squall_vorbis_candidate squall_runtime_candi
     target_compile_options(${TARGET} PRIVATE /arch:IA32 /fp:precise)
     target_compile_definitions(${TARGET} PRIVATE _CRT_SECURE_NO_WARNINGS)
 endforeach()
+# Separate audit build for the historical MPEG x87 evaluation policy. The
+# validated default remains precise until decoded samples are compared.
+set(SQUALL_MPEG_FP "precise" CACHE STRING "MPEG x87 evaluation policy under native audit")
+if(NOT SQUALL_MPEG_FP MATCHES "^(precise|fast|strict)$")
+    message(FATAL_ERROR "Unknown MPEG floating point policy")
+endif()
+foreach(NAME MpegDecoder l1dec l2dec l3dec)
+    set_source_files_properties("${SQUALL_RUNTIME_DIR}/SoundFile/MP3/${NAME}.cpp"
+        PROPERTIES COMPILE_OPTIONS "/fp:${SQUALL_MPEG_FP}")
+endforeach()
 # Audit the historical x87 evaluation policy separately from the release tag.
 set(SQUALL_VORBIS_FP "fast" CACHE STRING "Candidate Vorbis x87 evaluation policy")
 if(NOT SQUALL_VORBIS_FP MATCHES "^(precise|fast|strict)$")

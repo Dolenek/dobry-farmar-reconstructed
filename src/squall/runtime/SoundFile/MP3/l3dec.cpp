@@ -1,6 +1,7 @@
 #include <string.h>
 #include <math.h>
 #include "MpegDecoder.h"
+#include "NativeMpegMath.h"
 
 //////////////////////////////////////////////////////////////////////////
 // i3alias.c
@@ -13,8 +14,7 @@ void CDecompressMpeg::alias_init()
     int i;
 
     for (i = 0; i < 8; i++) {
-        csa[i][0] = (float) (1.0 / sqrt(1.0 + Ci[i] * Ci[i]));
-        csa[i][1] = (float) (Ci[i] / sqrt(1.0 + Ci[i] * Ci[i]));
+        native_mpeg::alias(Ci[i], csa[i]);
     }
 }
 
@@ -38,22 +38,11 @@ void CDecompressMpeg::antialias(float x[], int n)
 void CDecompressMpeg::msis_init1()
 {
     int i;
-    double s, c;
-    double pi;
-    double t;
-
-    pi = 4.0 * atan(1.0);
-    t = pi / 12.0;
-    for (i = 0; i < 7; i++) {
-        s = sin(i * t);
-        c = cos(i * t);
-        /* ms_mode = 0 */
-        lr[0][i][0] = (float) (s / (s + c));
-        lr[0][i][1] = (float) (c / (s + c));
-        /* ms_mode = 1 */
-        lr[1][i][0] = (float) (sqrt(2.0) * (s / (s + c)));
-        lr[1][i][1] = (float) (sqrt(2.0) * (c / (s + c)));
-    }
+    native_mpeg::Extended pi, angle;
+    native_mpeg::pi(pi);
+    native_mpeg::scale(pi, 1.0 / 12.0, angle);
+    for (i = 0; i < 7; ++i)
+        native_mpeg::stereoRatios(angle, i, lr[0][i], lr[1][i]);
     /* sf = 7 */
     /* ms_mode = 0 */
     lr[0][i][0] = 1.0f;
@@ -80,13 +69,13 @@ void CDecompressMpeg::msis_init2()
 
 
     ms_factor[0] = 1.0;
-    ms_factor[1] = (float) sqrt(2.0);
+    ms_factor[1] = native_mpeg::squareRootTwo();
 
     /* intensity stereo MPEG2 */
     /* lr2[intensity_scale][ms_mode][sflen_offset+sf][left/right] */
 
     for (intensity_scale = 0; intensity_scale < 2; intensity_scale++) {
-        t = pow(2.0, -0.25 * (1 + intensity_scale));
+        t = native_mpeg::powerDouble(2.0, -0.25 * (1 + intensity_scale));
         for (ms_mode = 0; ms_mode < 2; ms_mode++) {
             n = 1;
             k = 0;
@@ -97,12 +86,12 @@ void CDecompressMpeg::msis_init2()
                         lr2[intensity_scale][ms_mode][k][1] = ms_factor[ms_mode] * 1.0f;
                     } else if ((sf & 1)) {
                         lr2[intensity_scale][ms_mode][k][0] = (float)
-                            (ms_factor[ms_mode] * pow(t, (sf + 1) / 2));
+                            native_mpeg::powerFloat(t, (sf + 1) / 2, ms_factor[ms_mode]);
                         lr2[intensity_scale][ms_mode][k][1] = ms_factor[ms_mode] * 1.0f;
                     } else {
                         lr2[intensity_scale][ms_mode][k][0] = ms_factor[ms_mode] * 1.0f;
                         lr2[intensity_scale][ms_mode][k][1] = (float)
-                            (ms_factor[ms_mode] * pow(t, sf / 2));
+                            native_mpeg::powerFloat(t, sf / 2, ms_factor[ms_mode]);
                     }
                 }
 
@@ -998,21 +987,20 @@ int CDecompressMpeg::huffman_quad(int vwxy[], int n, int nbits, int ntable)
 void CDecompressMpeg::hwin_init()
 {
     int i, j;
-    double pi;
-
-    pi = 4.0 * atan(1.0);
+    native_mpeg::Extended pi;
+    native_mpeg::pi(pi);
 
     /* type 0 */
     for (i = 0; i < 36; i++)
-        win[0][i] = (float) sin(pi / 36 * (i + 0.5));
+        win[0][i] = native_mpeg::window(pi, i, 0.0, 1.0 / 36.0);
 
     /* type 1 */
     for (i = 0; i < 18; i++)
-        win[1][i] = (float) sin(pi / 36 * (i + 0.5));
+        win[1][i] = native_mpeg::window(pi, i, 0.0, 1.0 / 36.0);
     for (i = 18; i < 24; i++)
         win[1][i] = 1.0F;
     for (i = 24; i < 30; i++)
-        win[1][i] = (float) sin(pi / 12 * (i + 0.5 - 18));
+        win[1][i] = native_mpeg::window(pi, i, 18.0, 1.0 / 12.0);
     for (i = 30; i < 36; i++)
         win[1][i] = 0.0F;
 
@@ -1020,15 +1008,15 @@ void CDecompressMpeg::hwin_init()
     for (i = 0; i < 6; i++)
         win[3][i] = 0.0F;
     for (i = 6; i < 12; i++)
-        win[3][i] = (float) sin(pi / 12 * (i + 0.5 - 6));
+        win[3][i] = native_mpeg::window(pi, i, 6.0, 1.0 / 12.0);
     for (i = 12; i < 18; i++)
         win[3][i] = 1.0F;
     for (i = 18; i < 36; i++)
-        win[3][i] = (float) sin(pi / 36 * (i + 0.5));
+        win[3][i] = native_mpeg::window(pi, i, 0.0, 1.0 / 36.0);
 
     /* type 2 */
     for (i = 0; i < 12; i++)
-        win[2][i] = (float) sin(pi / 12 * (i + 0.5));
+        win[2][i] = native_mpeg::window(pi, i, 0.0, 1.0 / 12.0);
     for (i = 12; i < 36; i++)
         win[2][i] = 0.0F;
 
@@ -1448,20 +1436,20 @@ void CDecompressMpeg::quant_init()
     int scalefact_scale, preemp, scalefac;
     double tmp;
 
-    /* 8 bit plus 2 lookup x = pow(2.0, 0.25*(global_gain-210)) */
+    /* 8 bit plus 2 lookup x = native_mpeg::powerFloat(2.0, 0.25*(global_gain-210)) */
     /* extra 2 for ms scaling by 1/sqrt(2) */
     /* extra 4 for cvt to mono scaling by 1/2 */
     for (i = 0; i < 256 + 2 + 4; i++)
         look_global[i] = (float)
-            pow(2.0,
+            native_mpeg::powerFloat(2.0,
                 0.25 * ((i - (2 + 4)) - 210 + GLOBAL_GAIN_SCALE));
 
-    /* x = pow(2.0, -0.5*(1+scalefact_scale)*scalefac + preemp) */
+    /* x = native_mpeg::powerFloat(2.0, -0.5*(1+scalefact_scale)*scalefac + preemp) */
     for (scalefact_scale = 0; scalefact_scale < 2; scalefact_scale++) {
         for (preemp = 0; preemp < 4; preemp++) {
             for (scalefac = 0; scalefac < 32; scalefac++) {
                 look_scale[scalefact_scale][preemp][scalefac] = (float)
-                    pow(2.0,
+                    native_mpeg::powerFloat(2.0,
                         -0.5 * (1 + scalefact_scale) * (scalefac + preemp));
             }
         }
@@ -1470,12 +1458,12 @@ void CDecompressMpeg::quant_init()
     /*--- iSample**(4/3) lookup, -32<=i<=31 ---*/
     for (i = 0; i < 64; i++) {
         tmp = i - 32;
-        look_pow[i] = (float) (tmp * pow(fabs(tmp), (1.0 / 3.0)));
+        look_pow[i] = (float) native_mpeg::powerFloat(fabs(tmp), 1.0 / 3.0, tmp);
     }
 
-    /*-- pow(2.0, -0.25*8.0*subblock_gain)  3 bits --*/
+    /*-- native_mpeg::powerFloat(2.0, -0.25*8.0*subblock_gain)  3 bits --*/
     for (i = 0; i < 8; i++) {
-        look_subblock[i] = (float) pow(2.0, 0.25 * -8.0 * i);
+        look_subblock[i] = (float) native_mpeg::powerFloat(2.0, 0.25 * -8.0 * i);
     }
     // quant_init_sf_band(sr_index);   replaced by code in sup.c
 }
@@ -1491,7 +1479,6 @@ void CDecompressMpeg::dequant(SAMPLE Sample[], int gr, int ch)
     int cb, n, w;
     float x0, xs;
     float xsb[3];
-    double tmp;
     int ncbl;
     int cbs0;
     ARRAY3* buf;			/* short block reorder */
@@ -1538,9 +1525,8 @@ void CDecompressMpeg::dequant(SAMPLE Sample[], int gr, int ch)
                 if ((Sample[i].s >= (-ISMAX)) && (Sample[i].s < ISMAX))
                     Sample[i].x = xs * look_pow[ISMAX + Sample[i].s];
                 else {
-                    tmp = (double) Sample[i].s;
                     Sample[i].x = (float)
-                        (xs * tmp * pow(fabs(tmp), (1.0 / 3.0)));
+                        native_mpeg::dequant(xs, Sample[i].s);
                 }
             }
         }
@@ -1576,9 +1562,8 @@ void CDecompressMpeg::dequant(SAMPLE Sample[], int gr, int ch)
                     if ((Sample[i].s >= (-ISMAX)) && (Sample[i].s < ISMAX))
                         buf[j][w] = xs * look_pow[ISMAX + Sample[i].s];
                     else {
-                        tmp = (double) Sample[i].s;
                         buf[j][w] = (float)
-                            (xs * tmp * pow(fabs(tmp), (1.0 / 3.0)));
+                            native_mpeg::dequant(xs, Sample[i].s);
                     }
                 }
             }

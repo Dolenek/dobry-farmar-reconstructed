@@ -8,228 +8,491 @@
 // включения
 #include <string.h>
 #include <math.h>
+#include <stddef.h>
 
 #include "MpegDecoder.h"
+#include "NativeMpegMath.h"
 
 void CDecompressMpeg::imdct_init()
 {
-    int k, p, n;
-    double t, pi;
-    n = 18;
-    pi = 4.0 * atan(1.0);
-    t = pi / (4 * n);
-
-    for (p = 0; p < n; p++)
-        w[p] = (float) (2.0 * cos(t * (2 * p + 1)));
-
-    for (p = 0; p < 9; p++)
-        w2[p] = (float) (2.0 * cos(2 * t * (2 * p + 1)));
-
-    t = pi / (2 * n);
-    for (k = 0; k < 9; k++) {
-        for (p = 0; p < 4; p++)
-            coef[k][p] = (float) (cos(t * (2 * k) * (2 * p + 1)));
-    }
-
-    n = 6;
-    pi = 4.0 * atan(1.0);
-    t = pi / (4 * n);
-
-    for (p = 0; p < n; p++)
-        v[p] = (float) (2.0 * cos(t * (2 * p + 1)));
-
-    for (p = 0; p < 3; p++)
-        v2[p] = (float) (2.0 * cos(2 * t * (2 * p + 1)));
-
-    t = pi / (2 * n);
-    k = 1;
-    p = 0;
-    coef87 = (float) (cos(t * (2 * k) * (2 * p + 1)));
-
-    for (p = 0; p < 6; p++)
+    // Original 1000e8f0..1000ea4d: retain the FPATAN-derived pi and
+    // scaled angles; double the computed angle after integer multiplication.
+    native_mpeg::Extended pi, t;
+    native_mpeg::pi(pi);
+    native_mpeg::scale(pi, 1.0 / 72.0, t);
+    for (int p = 0; p < 18; ++p)
+        w[p] = native_mpeg::cosine(t, 2 * p + 1, 1, false, true);
+    for (int p = 0; p < 9; ++p)
+        w2[p] = native_mpeg::cosine(t, 2 * p + 1, 1, true, true);
+    native_mpeg::scale(pi, 1.0 / 36.0, t);
+    for (int k = 0; k < 9; ++k)
+        for (int p = 0; p < 4; ++p)
+            coef[k][p] = native_mpeg::cosine(t, 2 * k, 2 * p + 1, false, false);
+    native_mpeg::scale(pi, 1.0 / 24.0, t);
+    for (int p = 0; p < 6; ++p)
+        v[p] = native_mpeg::cosine(t, 2 * p + 1, 1, false, true);
+    for (int p = 0; p < 3; ++p)
+        v2[p] = native_mpeg::cosine(t, 2 * p + 1, 1, true, true);
+    native_mpeg::scale(pi, 1.0 / 12.0, t);
+    coef87 = native_mpeg::cosine(t, 1, 1, true, false);
+    for (int p = 0; p < 6; ++p)
         v[p] = v[p] / 2.0f;
-
-    coef87 = (float) (2.0 * coef87);
+    coef87 = 2.0f * coef87;
 }
 
-void CDecompressMpeg::imdct18(float f[18])	/* 18 point */
+namespace { const float nativeImdctHalf = 0.5f; }
+
+void CDecompressMpeg::imdct18(float f[18])
 {
-    int p;
-    float a[9], b[9];
-    float ap, bp, a8p, b8p;
-    float g1, g2;
-
-    for (p = 0; p < 4; p++) {
-        g1 = w[p] * f[p];
-        g2 = w[17 - p] * f[17 - p];
-        ap = g1 + g2;		// a[p]
-
-        bp = w2[p] * (g1 - g2);	// b[p]
-
-        g1 = w[8 - p] * f[8 - p];
-        g2 = w[9 + p] * f[9 + p];
-        a8p = g1 + g2;		// a[8-p]
-
-        b8p = w2[8 - p] * (g1 - g2);	// b[8-p]
-
-        a[p] = ap + a8p;
-        a[5 + p] = ap - a8p;
-        b[p] = bp + b8p;
-        b[5 + p] = bp - b8p;
+    // Original 1000ea50..1000eeda. Its scalar register lifetimes, exact
+    // float spill boundaries and addition order are part of the decoder.
+    // This owned scratch area includes the slot originally reused from f.
+    // The compiler still owns the function's entry, exit and caller ABI.
+    static_assert(offsetof(CDecompressMpeg, w) == 0xa560, "native w layout");
+    static_assert(offsetof(CDecompressMpeg, coef) == 0xa5cc, "native coef layout");
+    __asm {
+        mov eax, f
+        mov ecx, this
+        sub esp, 68h
+        push        ebx
+        push        ebp
+        lea         ebp,[esp+20h]
+        sub         ebp,eax
+        push        esi
+        mov         dword ptr [esp+14h],ebp
+        lea         ebp,[esp+38h]
+        sub         ebp,eax
+        push        edi
+        mov         dword ptr [esp+1Ch],ebp
+        lea         ebp,[esp+4Ch]
+        sub         ebp,eax
+        mov         edx,eax
+        mov         dword ptr [esp+20h],ebp
+        lea         ebp,[esp+60h]
+        sub         ebp,eax
+        lea         edi,[ecx+0000A5A8h]
+        lea         ebx,[eax+20h]
+        lea         esi,[ecx+0000A580h]
+        mov         dword ptr [esp+24h],ebp
+        mov         dword ptr [esp+14h],4
+    stage_pairs:
+        fld         dword ptr [edi-48h]
+        fmul        dword ptr [edx]
+        fld         dword ptr [esi+24h]
+        fmul        dword ptr [ebx+24h]
+        mov         ebp,dword ptr [esp+18h]
+        sub         esi,4
+        sub         ebx,4
+        add         edx,4
+        fld         st(0)
+        fadd        st,st(2)
+        add         edi,4
+        fstp        dword ptr [esp+74h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [edi-4]
+        fxch        st(1)
+        fstp        st(0)
+        fld         dword ptr [esi+4]
+        fmul        dword ptr [ebx+4]
+        fld         dword ptr [edi-28h]
+        fmul        dword ptr [edx+20h]
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [esp+10h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [esi+4Ch]
+        fxch        st(1)
+        fstp        st(0)
+        fld         dword ptr [esp+10h]
+        fadd        dword ptr [esp+74h]
+        fstp        dword ptr [edx+ebp-4]
+        fld         dword ptr [esp+74h]
+        fsub        dword ptr [esp+10h]
+        mov         ebp,dword ptr [esp+1Ch]
+        fstp        dword ptr [edx+ebp-4]
+        mov         ebp,dword ptr [esp+20h]
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [edx+ebp-4]
+        mov         ebp,dword ptr [esp+24h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fstp        dword ptr [edx+ebp-4]
+        mov         ebp,dword ptr [esp+14h]
+        dec         ebp
+        fstp        st(0)
+        mov         dword ptr [esp+14h],ebp
+        jne         stage_pairs
+        // Center pair, then successive coefficient rows and retained outputs.
+        fld         dword ptr [ecx+0000A570h]
+        fmul        dword ptr [eax+10h]
+        fld         dword ptr [ecx+0000A594h]
+        fmul        dword ptr [eax+34h]
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [esp+38h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [ecx+0000A5B8h]
+        fxch        st(1)
+        fstp        st(0)
+        fld         dword ptr [esp+38h]
+        fadd        dword ptr [esp+34h]
+        fadd        dword ptr [esp+30h]
+        fadd        dword ptr [esp+2Ch]
+        fadd        dword ptr [esp+28h]
+        fmul        nativeImdctHalf
+        fst         dword ptr [eax]
+        fld         st(1)
+        fadd        dword ptr [esp+58h]
+        fadd        dword ptr [esp+54h]
+        fadd        dword ptr [esp+50h]
+        fadd        dword ptr [esp+4Ch]
+        fmul        nativeImdctHalf
+        fst         dword ptr [eax+4]
+        fld         dword ptr [esp+3Ch]
+        fmul        dword ptr [ecx+0000A5DCh]
+        fld         dword ptr [esp+40h]
+        fmul        dword ptr [ecx+0000A5E0h]
+        faddp       st(1),st
+        fld         dword ptr [esp+48h]
+        fmul        dword ptr [ecx+0000A5E8h]
+        faddp       st(1),st
+        fld         dword ptr [esp+44h]
+        fmul        dword ptr [ecx+0000A5E4h]
+        faddp       st(1),st
+        fstp        dword ptr [eax+8]
+        fld         dword ptr [esp+60h]
+        fmul        dword ptr [ecx+0000A5DCh]
+        fld         dword ptr [esp+64h]
+        fmul        dword ptr [ecx+0000A5E0h]
+        faddp       st(1),st
+        fld         dword ptr [esp+6Ch]
+        fmul        dword ptr [ecx+0000A5E8h]
+        faddp       st(1),st
+        fld         dword ptr [esp+68h]
+        fmul        dword ptr [ecx+0000A5E4h]
+        faddp       st(1),st
+        fsub        st,st(1)
+        fstp        dword ptr [eax+0Ch]
+        fsubrp      st(1),st
+        fst         dword ptr [eax+4]
+        fsubr       dword ptr [eax+8]
+        fst         dword ptr [eax+8]
+        fld         dword ptr [esp+28h]
+        fmul        dword ptr [ecx+0000A5ECh]
+        fld         dword ptr [esp+2Ch]
+        fmul        dword ptr [ecx+0000A5F0h]
+        faddp       st(1),st
+        fld         dword ptr [esp+34h]
+        fmul        dword ptr [ecx+0000A5F8h]
+        faddp       st(1),st
+        fld         dword ptr [esp+30h]
+        fmul        dword ptr [ecx+0000A5F4h]
+        faddp       st(1),st
+        fsub        dword ptr [esp+38h]
+        fstp        dword ptr [eax+10h]
+        fld         dword ptr [esp+4Ch]
+        fmul        dword ptr [ecx+0000A5ECh]
+        fld         dword ptr [esp+50h]
+        fmul        dword ptr [ecx+0000A5F0h]
+        faddp       st(1),st
+        fld         dword ptr [esp+58h]
+        fmul        dword ptr [ecx+0000A5F8h]
+        faddp       st(1),st
+        fld         dword ptr [esp+54h]
+        fmul        dword ptr [ecx+0000A5F4h]
+        faddp       st(1),st
+        fsub        st,st(2)
+        fsub        dword ptr [eax+0Ch]
+        fstp        dword ptr [eax+14h]
+        fsubr       dword ptr [eax+0Ch]
+        fst         dword ptr [eax+0Ch]
+        fsubr       dword ptr [eax+10h]
+        fst         dword ptr [eax+10h]
+        fld         dword ptr [esp+3Ch]
+        fsub        dword ptr [esp+44h]
+        fsub        dword ptr [esp+48h]
+        fmul        dword ptr [ecx+0000A5FCh]
+        fstp        dword ptr [eax+18h]
+        fld         dword ptr [esp+60h]
+        fsub        dword ptr [esp+68h]
+        fsub        dword ptr [esp+6Ch]
+        fmul        dword ptr [ecx+0000A5FCh]
+        fsub        dword ptr [eax+14h]
+        fstp        dword ptr [eax+1Ch]
+        fsubr       dword ptr [eax+14h]
+        fst         dword ptr [eax+14h]
+        fsubr       dword ptr [eax+18h]
+        fst         dword ptr [eax+18h]
+        fld         dword ptr [esp+28h]
+        fmul        dword ptr [ecx+0000A60Ch]
+        fld         dword ptr [esp+2Ch]
+        fmul        dword ptr [ecx+0000A610h]
+        faddp       st(1),st
+        fld         dword ptr [esp+34h]
+        fmul        dword ptr [ecx+0000A618h]
+        faddp       st(1),st
+        fld         dword ptr [esp+30h]
+        fmul        dword ptr [ecx+0000A614h]
+        faddp       st(1),st
+        fadd        dword ptr [esp+38h]
+        fstp        dword ptr [eax+20h]
+        fld         dword ptr [esp+4Ch]
+        fmul        dword ptr [ecx+0000A60Ch]
+        fld         dword ptr [esp+50h]
+        fmul        dword ptr [ecx+0000A610h]
+        faddp       st(1),st
+        fld         dword ptr [esp+58h]
+        fmul        dword ptr [ecx+0000A618h]
+        faddp       st(1),st
+        fld         dword ptr [esp+54h]
+        fmul        dword ptr [ecx+0000A614h]
+        faddp       st(1),st
+        fadd        st,st(2)
+        fsub        dword ptr [eax+1Ch]
+        fstp        dword ptr [eax+24h]
+        fsubr       dword ptr [eax+1Ch]
+        fst         dword ptr [eax+1Ch]
+        fsubr       dword ptr [eax+20h]
+        fst         dword ptr [eax+20h]
+        fld         dword ptr [esp+40h]
+        fmul        dword ptr [ecx+0000A620h]
+        fld         dword ptr [esp+48h]
+        fmul        dword ptr [ecx+0000A628h]
+        faddp       st(1),st
+        fld         dword ptr [esp+44h]
+        fmul        dword ptr [ecx+0000A624h]
+        faddp       st(1),st
+        fld         dword ptr [esp+3Ch]
+        fmul        dword ptr [ecx+0000A61Ch]
+        faddp       st(1),st
+        fstp        dword ptr [eax+28h]
+        fld         dword ptr [esp+64h]
+        fmul        dword ptr [ecx+0000A620h]
+        fld         dword ptr [esp+6Ch]
+        fmul        dword ptr [ecx+0000A628h]
+        faddp       st(1),st
+        fld         dword ptr [esp+68h]
+        fmul        dword ptr [ecx+0000A624h]
+        faddp       st(1),st
+        fld         dword ptr [esp+60h]
+        fmul        dword ptr [ecx+0000A61Ch]
+        faddp       st(1),st
+        fsub        dword ptr [eax+24h]
+        fstp        dword ptr [eax+2Ch]
+        fsubr       dword ptr [eax+24h]
+        fst         dword ptr [eax+24h]
+        fsubr       dword ptr [eax+28h]
+        fst         dword ptr [eax+28h]
+        fld         dword ptr [esp+58h]
+        fadd        dword ptr [esp+54h]
+        fadd        dword ptr [esp+4Ch]
+        fmul        nativeImdctHalf
+        fsub        dword ptr [esp+50h]
+        fsub        st,st(2)
+        fsub        dword ptr [eax+2Ch]
+        fstp        dword ptr [eax+34h]
+        fsubr       dword ptr [eax+2Ch]
+        fst         dword ptr [eax+2Ch]
+        fld         dword ptr [esp+34h]
+        fadd        dword ptr [esp+30h]
+        fadd        dword ptr [esp+28h]
+        fmul        nativeImdctHalf
+        fsub        dword ptr [esp+2Ch]
+        fsub        dword ptr [esp+38h]
+        fsubrp      st(1),st
+        fst         dword ptr [eax+30h]
+        fld         dword ptr [esp+40h]
+        fmul        dword ptr [ecx+0000A640h]
+        fld         dword ptr [esp+48h]
+        fmul        dword ptr [ecx+0000A648h]
+        faddp       st(1),st
+        fld         dword ptr [esp+44h]
+        fmul        dword ptr [ecx+0000A644h]
+        faddp       st(1),st
+        fld         dword ptr [esp+3Ch]
+        fmul        dword ptr [ecx+0000A63Ch]
+        faddp       st(1),st
+        fstp        dword ptr [eax+38h]
+        fld         dword ptr [esp+64h]
+        fmul        dword ptr [ecx+0000A640h]
+        fld         dword ptr [esp+6Ch]
+        fmul        dword ptr [ecx+0000A648h]
+        faddp       st(1),st
+        fld         dword ptr [esp+68h]
+        fmul        dword ptr [ecx+0000A644h]
+        faddp       st(1),st
+        fld         dword ptr [esp+60h]
+        fmul        dword ptr [ecx+0000A63Ch]
+        faddp       st(1),st
+        fsub        dword ptr [eax+34h]
+        fstp        dword ptr [eax+3Ch]
+        fsubr       dword ptr [eax+34h]
+        fst         dword ptr [eax+34h]
+        fsubr       dword ptr [eax+38h]
+        fst         dword ptr [esp+74h]
+        fstp        dword ptr [eax+38h]
+        fld         dword ptr [esp+28h]
+        fmul        dword ptr [ecx+0000A64Ch]
+        fld         dword ptr [esp+2Ch]
+        fmul        dword ptr [ecx+0000A650h]
+        faddp       st(1),st
+        fld         dword ptr [esp+34h]
+        fmul        dword ptr [ecx+0000A658h]
+        faddp       st(1),st
+        fld         dword ptr [esp+30h]
+        fmul        dword ptr [ecx+0000A654h]
+        faddp       st(1),st
+        fadd        dword ptr [esp+38h]
+        fstp        dword ptr [eax+40h]
+        fld         dword ptr [esp+4Ch]
+        fmul        dword ptr [ecx+0000A64Ch]
+        fld         dword ptr [esp+50h]
+        fmul        dword ptr [ecx+0000A650h]
+        faddp       st(1),st
+        fld         dword ptr [esp+58h]
+        fmul        dword ptr [ecx+0000A658h]
+        faddp       st(1),st
+        fld         dword ptr [esp+54h]
+        fmul        dword ptr [ecx+0000A654h]
+        faddp       st(1),st
+        fadd        st,st(1)
+        fsub        dword ptr [eax+3Ch]
+        fstp        dword ptr [eax+44h]
+        fstp        st(0)
+        fld         dword ptr [eax+3Ch]
+        fsub        dword ptr [esp+74h]
+        pop         edi
+        pop         esi
+        pop         ebp
+        pop         ebx
+        fst         dword ptr [eax+3Ch]
+        fsubr       dword ptr [eax+40h]
+        fst         dword ptr [eax+40h]
+        fld         dword ptr [eax+44h]
+        fsub        st,st(1)
+        fstp        dword ptr [eax+44h]
+        fstp        st(0)
+        add         esp,68h
     }
-
-    g1 = w[p] * f[p];
-    g2 = w[17 - p] * f[17 - p];
-    a[p] = g1 + g2;
-    b[p] = w2[p] * (g1 - g2);
-
-
-    f[0] = 0.5f * (a[0] + a[1] + a[2] + a[3] + a[4]);
-    f[1] = 0.5f * (b[0] + b[1] + b[2] + b[3] + b[4]);
-
-    f[2] = coef[1][0] * a[5] +
-        coef[1][1] * a[6] +
-        coef[1][2] * a[7] +
-        coef[1][3] * a[8];
-    f[3] = coef[1][0] * b[5] +
-        coef[1][1] * b[6] +
-        coef[1][2] * b[7] +
-        coef[1][3] * b[8] -
-        f[1];
-    f[1] = f[1] - f[0];
-    f[2] = f[2] - f[1];
-
-    f[4] = coef[2][0] * a[0] +
-        coef[2][1] * a[1] +
-        coef[2][2] * a[2] +
-        coef[2][3] * a[3] -
-        a[4];
-    f[5] = coef[2][0] * b[0] +
-        coef[2][1] * b[1] +
-        coef[2][2] * b[2] +
-        coef[2][3] * b[3] -
-        b[4] -
-        f[3];
-    f[3] = f[3] - f[2];
-    f[4] = f[4] - f[3];
-
-    f[6] = coef[3][0] * (a[5] - a[7] - a[8]);
-    f[7] = coef[3][0] * (b[5] - b[7] - b[8]) - f[5];
-    f[5] = f[5] - f[4];
-    f[6] = f[6] - f[5];
-
-    f[8] = coef[4][0] * a[0] +
-        coef[4][1] * a[1] +
-        coef[4][2] * a[2] +
-        coef[4][3] * a[3] +
-        a[4];
-    f[9] = coef[4][0] * b[0] +
-        coef[4][1] * b[1] +
-        coef[4][2] * b[2] +
-        coef[4][3] * b[3] +
-        b[4] -
-        f[7];
-    f[7] = f[7] - f[6];
-    f[8] = f[8] - f[7];
-
-    f[10] = coef[5][0] * a[5] +
-        coef[5][1] * a[6] +
-        coef[5][2] * a[7] +
-        coef[5][3] * a[8];
-    f[11] = coef[5][0] * b[5] +
-        coef[5][1] * b[6] +
-        coef[5][2] * b[7] +
-        coef[5][3] * b[8] -
-        f[9];
-    f[9] = f[9] - f[8];
-    f[10] = f[10] - f[9];
-
-    f[12] = 0.5f * (a[0] + a[2] + a[3]) - a[1] - a[4];
-    f[13] = 0.5f * (b[0] + b[2] + b[3]) - b[1] - b[4] - f[11];
-    f[11] = f[11] - f[10];
-    f[12] = f[12] - f[11];
-
-    f[14] = coef[7][0] * a[5] +
-        coef[7][1] * a[6] +
-        coef[7][2] * a[7] +
-        coef[7][3] * a[8];
-    f[15] = coef[7][0] * b[5] +
-        coef[7][1] * b[6] +
-        coef[7][2] * b[7] +
-        coef[7][3] * b[8] -
-        f[13];
-    f[13] = f[13] - f[12];
-    f[14] = f[14] - f[13];
-
-    f[16] = coef[8][0] * a[0] +
-        coef[8][1] * a[1] +
-        coef[8][2] * a[2] +
-        coef[8][3] * a[3] +
-        a[4];
-    f[17] = coef[8][0] * b[0] +
-        coef[8][1] * b[1] +
-        coef[8][2] * b[2] +
-        coef[8][3] * b[3] +
-        b[4] -
-        f[15];
-    f[15] = f[15] - f[14];
-    f[16] = f[16] - f[15];
-    f[17] = f[17] - f[16];
 }
 
 /*--------------------------------------------------------------------*/
 /* does 3, 6 pt dct.  changes order from f[i][window] c[window][i] */
-void CDecompressMpeg::imdct6_3(float f[])	/* 6 point */
+void CDecompressMpeg::imdct6_3(float f[])
 {
-    int w;
-    float buf[18];
-    float* a,* c;		// b[i] = a[3+i]
-
-    float g1, g2;
-    float a02, b02;
-
-    c = f;
-    a = buf;
-    for (w = 0; w < 3; w++) {
-        g1 = v[0] * f[3 * 0];
-        g2 = v[5] * f[3 * 5];
-        a[0] = g1 + g2;
-        a[3 + 0] = v2[0] * (g1 - g2);
-
-        g1 = v[1] * f[3 * 1];
-        g2 = v[4] * f[3 * 4];
-        a[1] = g1 + g2;
-        a[3 + 1] = v2[1] * (g1 - g2);
-
-        g1 = v[2] * f[3 * 2];
-        g2 = v[3] * f[3 * 3];
-        a[2] = g1 + g2;
-        a[3 + 2] = v2[2] * (g1 - g2);
-
-        a += 6;
-        f++;
-    }
-
-    a = buf;
-    for (w = 0; w < 3; w++) {
-        a02 = (a[0] + a[2]);
-        b02 = (a[3 + 0] + a[3 + 2]);
-        c[0] = a02 + a[1];
-        c[1] = b02 + a[3 + 1];
-        c[2] = coef87 * (a[0] - a[2]);
-        c[3] = coef87 * (a[3 + 0] - a[3 + 2]) - c[1];
-        c[1] = c[1] - c[0];
-        c[2] = c[2] - c[1];
-        c[4] = a02 - a[1] - a[1];
-        c[5] = b02 - a[3 + 1] - a[3 + 1] - c[3];
-        c[3] = c[3] - c[2];
-        c[4] = c[4] - c[3];
-        c[5] = c[5] - c[4];
-        a += 6;
-        c += 6;
+    // Original 1000eee0..1000f00a: three short blocks with retained scalar
+    // results. Extra owned scratch replaces the reused incoming argument slot.
+    static_assert(offsetof(CDecompressMpeg, v) == 0xa65c, "native v layout");
+    static_assert(offsetof(CDecompressMpeg, coef87) == 0xa680, "native coef87 layout");
+    __asm {
+        mov edx, f
+        mov ecx, this
+        sub esp, 50h
+        lea         eax,[esp+4]
+        push        esi
+        mov         esi,edx
+        push        edi
+        mov         edx,esi
+        mov         edi,3
+    short_pairs:
+        fld         dword ptr [ecx+0000A65Ch]
+        fmul        dword ptr [esi]
+        fld         dword ptr [esi+3Ch]
+        fmul        dword ptr [ecx+0000A670h]
+        add         eax,18h
+        add         esi,4
+        dec         edi
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [eax-1Ch]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [ecx+0000A674h]
+        fstp        dword ptr [eax-10h]
+        fstp        st(0)
+        fld         dword ptr [esi+8]
+        fmul        dword ptr [ecx+0000A660h]
+        fld         dword ptr [esi+2Ch]
+        fmul        dword ptr [ecx+0000A66Ch]
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [eax-18h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [ecx+0000A678h]
+        fstp        dword ptr [eax-0Ch]
+        fstp        st(0)
+        fld         dword ptr [esi+14h]
+        fmul        dword ptr [ecx+0000A664h]
+        fld         dword ptr [esi+20h]
+        fmul        dword ptr [ecx+0000A668h]
+        fld         st(0)
+        fadd        st,st(2)
+        fstp        dword ptr [eax-14h]
+        fxch        st(1)
+        fsub        st,st(1)
+        fmul        dword ptr [ecx+0000A67Ch]
+        fstp        dword ptr [eax-8]
+        fstp        st(0)
+        jne         short_pairs
+        lea         eax,[esp+14h]
+        mov         esi,3
+    short_outputs:
+        fld         dword ptr [eax-4]
+        fadd        dword ptr [eax-0Ch]
+        fld         dword ptr [eax+8]
+        fadd        dword ptr [eax]
+        fld         st(1)
+        fadd        dword ptr [eax-8]
+        add         eax,18h
+        add         edx,18h
+        dec         esi
+        fst         dword ptr [edx-18h]
+        fld         st(1)
+        fadd        dword ptr [eax-14h]
+        fst         dword ptr [edx-14h]
+        fld         dword ptr [eax-24h]
+        fsub        dword ptr [eax-1Ch]
+        fmul        dword ptr [ecx+0000A680h]
+        fstp        dword ptr [edx-10h]
+        fld         dword ptr [eax-18h]
+        fsub        dword ptr [eax-10h]
+        fmul        dword ptr [ecx+0000A680h]
+        fsub        st,st(1)
+        fstp        dword ptr [edx-0Ch]
+        fsubrp      st(1),st
+        fst         dword ptr [edx-14h]
+        fsubr       dword ptr [edx-10h]
+        fst         dword ptr [esp+54h]
+        fstp        dword ptr [edx-10h]
+        fsub        dword ptr [eax-14h]
+        fsub        dword ptr [eax-14h]
+        fsub        dword ptr [edx-0Ch]
+        fstp        dword ptr [edx-4]
+        fld         dword ptr [edx-0Ch]
+        fsub        dword ptr [esp+54h]
+        fst         dword ptr [edx-0Ch]
+        fxch        st(1)
+        fsub        dword ptr [eax-20h]
+        fsub        dword ptr [eax-20h]
+        fsub        st,st(1)
+        fxch        st(1)
+        fstp        st(0)
+        fst         dword ptr [edx-8]
+        fld         dword ptr [edx-4]
+        fsub        st,st(1)
+        fstp        dword ptr [edx-4]
+        fstp        st(0)
+        jne         short_outputs
+        pop         edi
+        pop         esi
+        add         esp,50h
     }
 }
-
 
 void CDecompressMpeg::fdct_init()		/* gen coef for N=32 (31 coefs) */
 {
@@ -1452,7 +1715,7 @@ void CDecompressMpeg::window(float* vbuf, int vb_ptr, short* pcm)
     int i, j;
     int si, bx;
     float* coef;
-    float sum;
+    native_mpeg::Accumulator sum;
     long tmp;
 
     si = vb_ptr + 16;
@@ -1461,16 +1724,16 @@ void CDecompressMpeg::window(float* vbuf, int vb_ptr, short* pcm)
 
     /*-- first 16 --*/
     for (i = 0; i < 16; i++) {
-        sum = 0.0F;
+        sum.reset();
         for (j = 0; j < 8; j++) {
-            sum += (*coef++) * vbuf[si];
+            sum.addProduct(*coef++, vbuf[si]);
             si = (si + 64) & 511;
-            sum -= (*coef++) * vbuf[bx];
+            sum.subtractProduct(*coef++, vbuf[bx]);
             bx = (bx + 64) & 511;
         }
         si++;
         bx--;
-        tmp = (long) sum;
+        tmp = sum.truncate();
         if (tmp > 32767)
             tmp = 32767;
         else if (tmp < -32768)
@@ -1478,12 +1741,12 @@ void CDecompressMpeg::window(float* vbuf, int vb_ptr, short* pcm)
         *pcm++ = (short) tmp;
     }
     /*--  special case --*/
-    sum = 0.0F;
+    sum.reset();
     for (j = 0; j < 8; j++) {
-        sum += (*coef++) * vbuf[bx];
+        sum.addProduct(*coef++, vbuf[bx]);
         bx = (bx + 64) & 511;
     }
-    tmp = (long) sum;
+    tmp = sum.truncate();
     if (tmp > 32767)
         tmp = 32767;
     else if (tmp < -32768)
@@ -1494,14 +1757,14 @@ void CDecompressMpeg::window(float* vbuf, int vb_ptr, short* pcm)
     for (i = 0; i < 15; i++) {
         si--;
         bx++;
-        sum = 0.0F;
+        sum.reset();
         for (j = 0; j < 8; j++) {
-            sum += (*coef--) * vbuf[si];
+            sum.addProduct(*coef--, vbuf[si]);
             si = (si + 64) & 511;
-            sum += (*coef--) * vbuf[bx];
+            sum.addProduct(*coef--, vbuf[bx]);
             bx = (bx + 64) & 511;
         }
-        tmp = (long) sum;
+        tmp = sum.truncate();
         if (tmp > 32767)
             tmp = 32767;
         else if (tmp < -32768)
@@ -1515,7 +1778,7 @@ void CDecompressMpeg::window_dual(float* vbuf, int vb_ptr, short* pcm)
     int i, j;			/* dual window interleaves output */
     int si, bx;
     float* coef;
-    float sum;
+    native_mpeg::Accumulator sum;
     long tmp;
 
     si = vb_ptr + 16;
@@ -1524,16 +1787,16 @@ void CDecompressMpeg::window_dual(float* vbuf, int vb_ptr, short* pcm)
 
     /*-- first 16 --*/
     for (i = 0; i < 16; i++) {
-        sum = 0.0F;
+        sum.reset();
         for (j = 0; j < 8; j++) {
-            sum += (*coef++) * vbuf[si];
+            sum.addProduct(*coef++, vbuf[si]);
             si = (si + 64) & 511;
-            sum -= (*coef++) * vbuf[bx];
+            sum.subtractProduct(*coef++, vbuf[bx]);
             bx = (bx + 64) & 511;
         }
         si++;
         bx--;
-        tmp = (long) sum;
+        tmp = sum.truncate();
         if (tmp > 32767)
             tmp = 32767;
         else if (tmp < -32768)
@@ -1542,12 +1805,12 @@ void CDecompressMpeg::window_dual(float* vbuf, int vb_ptr, short* pcm)
         pcm += 2;
     }
     /*--  special case --*/
-    sum = 0.0F;
+    sum.reset();
     for (j = 0; j < 8; j++) {
-        sum += (*coef++) * vbuf[bx];
+        sum.addProduct(*coef++, vbuf[bx]);
         bx = (bx + 64) & 511;
     }
-    tmp = (long) sum;
+    tmp = sum.truncate();
     if (tmp > 32767)
         tmp = 32767;
     else if (tmp < -32768)
@@ -1559,14 +1822,14 @@ void CDecompressMpeg::window_dual(float* vbuf, int vb_ptr, short* pcm)
     for (i = 0; i < 15; i++) {
         si--;
         bx++;
-        sum = 0.0F;
+        sum.reset();
         for (j = 0; j < 8; j++) {
-            sum += (*coef--) * vbuf[si];
+            sum.addProduct(*coef--, vbuf[si]);
             si = (si + 64) & 511;
-            sum += (*coef--) * vbuf[bx];
+            sum.addProduct(*coef--, vbuf[bx]);
             bx = (bx + 64) & 511;
         }
-        tmp = (long) sum;
+        tmp = sum.truncate();
         if (tmp > 32767)
             tmp = 32767;
         else if (tmp < -32768)

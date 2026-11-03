@@ -1,0 +1,87 @@
+{
+  "status": "matched_actual_native_and_source_table_overread_and_wide_backing_output_overrun",
+  "result": {
+    "cases": [
+      {
+        "precision": 65536,
+        "memory": 0,
+        "entries": 10,
+        "declared_samples": 11520,
+        "samples_per_frame": 576,
+        "requested_frame": 19,
+        "table_index": 16,
+        "source_exception": 3221225477,
+        "native_exception": 3221225477,
+        "guard_byte_offset": 24,
+        "stereo_requested_frames": 577,
+        "stereo_returned_bytes": 2308,
+        "stereo_changed_bytes_past_declared_end": 2298,
+        "stereo_last_changed_byte": 4608
+      },
+      {
+        "precision": 65536,
+        "memory": 1,
+        "entries": 10,
+        "declared_samples": 11520,
+        "samples_per_frame": 576,
+        "requested_frame": 19,
+        "table_index": 16,
+        "source_exception": 3221225477,
+        "native_exception": 3221225477,
+        "guard_byte_offset": 24,
+        "stereo_requested_frames": 577,
+        "stereo_returned_bytes": 2308,
+        "stereo_changed_bytes_past_declared_end": 2298,
+        "stereo_last_changed_byte": 4608
+      },
+      {
+        "precision": 131072,
+        "memory": 0,
+        "entries": 10,
+        "declared_samples": 11520,
+        "samples_per_frame": 576,
+        "requested_frame": 19,
+        "table_index": 16,
+        "source_exception": 3221225477,
+        "native_exception": 3221225477,
+        "guard_byte_offset": 24,
+        "stereo_requested_frames": 577,
+        "stereo_returned_bytes": 2308,
+        "stereo_changed_bytes_past_declared_end": 2298,
+        "stereo_last_changed_byte": 4608
+      },
+      {
+        "precision": 131072,
+        "memory": 1,
+        "entries": 10,
+        "declared_samples": 11520,
+        "samples_per_frame": 576,
+        "requested_frame": 19,
+        "table_index": 16,
+        "source_exception": 3221225477,
+        "native_exception": 3221225477,
+        "guard_byte_offset": 24,
+        "stereo_requested_frames": 577,
+        "stereo_returned_bytes": 2308,
+        "stereo_changed_bytes_past_declared_end": 2298,
+        "stereo_last_changed_byte": 4608
+      }
+    ],
+    "guarded_overreads": 8,
+    "matched_wide_backing_output_overrun_pairs": 4,
+    "production_table_mutated": false,
+    "diagnostic_table_pointer_temporarily_replaced": true
+  },
+  "artifacts": {
+    ".local/squall-mpeg-overrun-guard/mpeg-2-mp2-22050-2.mp2": "7c91e479eb5b68b1297163d3f910b0821a45a6b595dc761c5f2b835121b68221",
+    ".local/squall-mpeg-overrun-guard/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-mpeg-overrun-guard/stdout.json": "1b64d8775a83b4a0272cf0ee6e4c5f6408ae5bafe66285a2ac97131097da63bc"
+  },
+  "probe_sha256": "dd62b4a6635277a446c6b25bb86281fc96e07efb03e201fce8da480a56517751",
+  "probe_source_sha256": "6cd968d450a4d61acd189b6daad1760d2d118f6bf2c5efddc61b8d31d6c3efd2",
+  "source_dll_sha256": "f156c2197a6be7e6de86e22f6de258546e30c17569c19ab3956cd7f6c5337682",
+  "production_modified_for_guard": false,
+  "diagnostic_pointer_temporarily_replaced": true,
+  "raw_undefined_heap_values_claimed_equal": false,
+  "unsafe_physical_buffers_claimed_verified": false
+}

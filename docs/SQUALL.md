@@ -1,6 +1,18 @@
 # Rekonstrukce Squall
 
-## Rozpracované přesné MPEG porovnání
+## MPEG: původní x87 tabulky, transformace a syntézní okno
+
+`NativeMpegMath.h`, `MpegDecoder.cpp` a `l3dec.cpp` obnovují původní x87 FPATAN/FSIN/FCOS/FSQRT a mocninnou sekvenci, pořadí násobení v dekvantizaci a přesné mezní zápisy do float. IMDCT18 (1000ea50) a tři krátké IMDCT6 (1000eee0) používají upravitelný inline assembler s vlastní scratch pamětí, kompilátorem spravovaným vstupem/výstupem a staticky kontrolovaným rozložením tabulek. Nevolají původní DLL. Syntézní okna10010cf0/10010e60 drží součet v x87 přesnosti až do původního truncation převodu; opakované float spills ve zveřejněném podkladu měnily PCM o jeden signed16 krok.
+
+Každé ze dvou sestavení prošlo osmi celými47744bajtovými zero-initialized diagnostickými objekty po skutečných inicializátorech L1/L2/L3/IMDCT a40960 guarded případy pěti kernelů v PC53/PC24. Kontroluje se také nezměněný control word, vyvážený x87 stack, vstupní a výstupní guard. Osm vlastních nenulových MP2/MP3 vstupů prošlo640 guarded skutečnými stream/memory čteními,seek/EOF/loop a4421736 přesnými vrácenými PCM bajty na sestavení. Sedm kombinací dále prošlo56 skutečnými2D/3D buffery a1690416 přesnými PCM bajty. Tabulky i decoded data se porovnávají přesně bez tolerance.
+
+MP2 MPEG2/22050Hz vyžaduje samostatné vymezení. Původní konstruktor nejprve uloží11520 samples, následně opraví počet frames na10, ale samples nepřepočítá. Tabulka obsahuje10 položek po576 hlášených samples. Seek na frame19 na100127dd čte položku16 bez kontroly. Guard test dočasně nahradí pouze diagnostický table pointer identickou desetipoložkovou tabulkou na konci stránky: původní i vlastní metoda v memory0/1 a PC53/PC24 čtou stejných24 bajtů za guard hranicí, celkem osm zachycených AV. Původní návratové hodnoty závislé na cizím heapu se nepovažují za definovaný požadavek ani se nenormalizují.
+
+Tentýž formát v původní Layer2 větvi fyzicky dekóduje1152 stereo samples, zatímco wrapper počítá576. Požadavek start576/count577 vrátí2308 bajtů, ale zapíše4608; na širokém vlastním backing bufferu se všechna data obou DLL shodují, včetně2298 změněných bajtů za deklarovaným koncem. Čtyři páry kontrolují skutečné metody v memory0/1 a PC53/PC24. Běžné přesné porovnání proto používá skutečnou doménu tabulky a celé bezpečné bloky. Fyzické přehrávání této konkrétní kombinace se neoznačuje za ověřené: první nezarovnaný proces skončil0xc0000374 a zůstává zachovaný. Produkční logika tyto původní hranice svévolně neopravuje.
+
+Reprodukce: sestavit `tools/squall_mpeg_formats_probe` ve VS2022/Win32/v143,version=14.43.34808, potom `tools/validate_squall_mpeg_formats.py` a `tools/validate_squall_mpeg_kernels.py`, obojí také s nezávislou `--candidate`. `squall-mpeg-seek-probe` přijímá původní/vlastní DLL, vlastní File/seek RVA z map a zachovaný MP2 vstup. `tools/record_squall_mpeg_scope.py` striktně ověřuje hashe zdrojů, neměnných binary snapshots, všech vstupů a výsledků. Souhrn je `analysis/squall-mpeg-scoped-reconstruction.json`; instrukce a původní nebezpečné rozsahy mají vlastní reporty. Úplná aktuální herní/audio regrese a další původní rozsahy pokračují.
+
+## První MPEG měření před opravou
 
 `tools/fetch_audio_fixture_encoder.py` připíná testovací FFmpeg z imageio-ffmpeg0.6.0 ověřeným SHA-256; slouží pouze ke kódování vlastního celočíselného PCM. Není součástí implementace ani sestavení hry. `tools/squall_mpeg_fixtures.py`, `tools/squall_mpeg_formats_probe` a `tools/validate_squall_mpeg_formats.py` porovnávají skutečně načtené DLL, stream/memory, guarded full/seek/EOF/loop čtení a reálné2D/3D buffery v PC53/PC24.
 

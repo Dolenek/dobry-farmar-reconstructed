@@ -46,5 +46,11 @@ int wmain(int argc,wchar_t** argv){if(argc<5||argc>6)return 2;
 #define FIELD(name) array(#name,own,original,offsetof(CDecompressMpeg,name),sizeof(((CDecompressMpeg*)nullptr)->name)/4)
         FIELD(m_sf_table);FIELD(m_look_c_valueL2);FIELD(m_c_value);FIELD(m_cs_factor);FIELD(csa);FIELD(lr);FIELD(lr2);FIELD(win);FIELD(look_global);FIELD(look_scale);FIELD(look_pow);FIELD(look_subblock);FIELD(w);FIELD(w2);FIELD(coef);FIELD(v);FIELD(v2);FIELD(coef87);FIELD(coef32);FIELD(vbuf);FIELD(vbuf2);FIELD(m_sample);FIELD(m_yout);FIELD(m_sbt_wrk);
 #undef FIELD
-        std::cout<<"]}\n";return 0;
+        const auto* sm=reinterpret_cast<const CDecompressMpeg*>(own);const auto* nm=reinterpret_cast<const CDecompressMpeg*>(original);
+        std::cout<<"],\"mpeg_metadata\":{";
+#define META(name) std::cout<<"\"" #name "\":{\"offset\":"<<offsetof(CDecompressMpeg,name)<<",\"source\":"<<+sm->name<<",\"native\":"<<+nm->name<<"},"
+        META(_frames);META(_samplesInFrame);META(_samplesInFile);META(_curFrame);META(_vbr);META(_bitPerFrame);
+#undef META
+        std::cout<<"\"frame_offsets\":[";need(sm->_frames==nm->_frames&&sm->_frames<10000,"Frame metadata");for(unsigned i=0;i<sm->_frames;++i){if(i)std::cout<<',';std::cout<<'['<<sm->_vbrFrameOffTable[i]<<','<<nm->_vbrFrameOffTable[i]<<']';}
+        std::cout<<"]}}\n";return 0;
     }catch(const std::exception& error){std::cerr<<error.what()<<'\n';return 1;}}
