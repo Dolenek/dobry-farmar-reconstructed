@@ -1,0 +1,402 @@
+{
+  "status": "actual_system_GetInfo_returns_before_continuing_destination_writes",
+  "trace": {
+    "status": "observed_real_COM_GetInfo_callers_and_counts",
+    "work_directory": ".local/squall-wma-async-callers/20261104T175556529960Z",
+    "cases": [
+      {
+        "iteration": 0,
+        "backend": "native",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908784499,
+              "thread_id": 22324
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 268522634,
+              "thread_id": 22324
+            }
+          ]
+        },
+        "state": {
+          "module_base": 268435456,
+          "decoder": 47190304,
+          "temporary_buffer": 15782272,
+          "stereo_input_channels": 1,
+          "output_buffer": 15790512,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 0,
+        "backend": "source",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908260211,
+              "thread_id": 15008
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 1921529183,
+              "thread_id": 15008
+            }
+          ]
+        },
+        "state": {
+          "module_base": 1921449984,
+          "decoder": 16327616,
+          "temporary_buffer": 16778888,
+          "stereo_input_channels": 1,
+          "output_buffer": 16787120,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 1,
+        "backend": "native",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908784499,
+              "thread_id": 23480
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 268522634,
+              "thread_id": 23480
+            }
+          ]
+        },
+        "state": {
+          "module_base": 268435456,
+          "decoder": 46010656,
+          "temporary_buffer": 13966576,
+          "stereo_input_channels": 1,
+          "output_buffer": 13974832,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 1,
+        "backend": "source",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908260211,
+              "thread_id": 18292
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 1921529183,
+              "thread_id": 18292
+            }
+          ]
+        },
+        "state": {
+          "module_base": 1921449984,
+          "decoder": 15412208,
+          "temporary_buffer": 15790856,
+          "stereo_input_channels": 1,
+          "output_buffer": 15799088,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 2,
+        "backend": "native",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908784499,
+              "thread_id": 16428
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 268522634,
+              "thread_id": 16428
+            }
+          ]
+        },
+        "state": {
+          "module_base": 268435456,
+          "decoder": 50794784,
+          "temporary_buffer": 18870360,
+          "stereo_input_channels": 1,
+          "output_buffer": 18878608,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 2,
+        "backend": "source",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908260211,
+              "thread_id": 2812
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 1921529183,
+              "thread_id": 2812
+            }
+          ]
+        },
+        "state": {
+          "module_base": 1921449984,
+          "decoder": 11015048,
+          "temporary_buffer": 11407608,
+          "stereo_input_channels": 1,
+          "output_buffer": 11415856,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 3,
+        "backend": "native",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908784499,
+              "thread_id": 3896
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 268522634,
+              "thread_id": 3896
+            }
+          ]
+        },
+        "state": {
+          "module_base": 268435456,
+          "decoder": 44962080,
+          "temporary_buffer": 13534056,
+          "stereo_input_channels": 1,
+          "output_buffer": 13542288,
+          "declared_output_bytes": 32722
+        }
+      },
+      {
+        "iteration": 3,
+        "backend": "source",
+        "exit_code": 0,
+        "result": {
+          "sample_id": 65536,
+          "frames": 16361,
+          "milliseconds": 741,
+          "frequency": 22050,
+          "returned_bytes": 0,
+          "changed_bytes": 30661,
+          "guards_intact": true
+        },
+        "info": {
+          "actual_system_COM_called_unchanged": true,
+          "diagnostic_vtable_pointer_temporarily_replaced": true,
+          "calls": [
+            {
+              "HRESULT": 0,
+              "actual_bytes": 0,
+              "caller_address": 1908260211,
+              "thread_id": 16424
+            },
+            {
+              "HRESULT": 0,
+              "actual_bytes": 2048,
+              "caller_address": 1921529183,
+              "thread_id": 16424
+            }
+          ]
+        },
+        "state": {
+          "module_base": 1921449984,
+          "decoder": 14038864,
+          "temporary_buffer": 14427832,
+          "stereo_input_channels": 1,
+          "output_buffer": 14436080,
+          "declared_output_bytes": 32722
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    ".local/squall-wma-async-callers/20261104T175556529960Z/report.json": "0b7fc35d95c7dc59ccd9889960c8f35409c25dcdc4f84bed7480dcd2b4a54188",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/decoder-state-before.json": "d567135f29dfd73375f2645c976f821e1ad6249c718da67f75d35bf86dfea904",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/get-info-observations.json": "e0cee36e4e7d0b04787db5f3ff214ae0aafff9db748aa5e499c760001180bcb7",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-native/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/decoder-state-before.json": "a06943a53d4274d62c2f141ba003488ba16cba8b96536c4682e628f1d986dcb8",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/get-info-observations.json": "b719e272e654275d02387dd4c5d14ea2fa6b814d07cb804f72b3386985bee24b",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/0-source/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/decoder-state-before.json": "e6c0ce841bfea7638dc660d27e2ebfb1bdd4db44212bc406aa916cc92a449597",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/get-info-observations.json": "0fc2cc10919e74349016174109e289acf17bc3366f27ed0993a5c29a86d06784",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-native/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/decoder-state-before.json": "a786033b744c2bda594231a0e632e59a488ed72d2bff6ef4c88aa979d7a86687",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/get-info-observations.json": "e185d98f1eb502e1e81be91ebbeef28f2f38eaa4f354a472f1c2aa52f2df5740",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/1-source/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/decoder-state-before.json": "e2d1f9329e802d7909b37a55d780ae2ddab1d623150addf9fcb00be92fcfc0ea",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/get-info-observations.json": "ce6279218324eac43440df9e7c50d72488c09098a0011540e9454ef5509d3535",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-native/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/decoder-state-before.json": "06d7c10c93a4f5bc8509bde4729a8525a020fea3e5e69be707dec8edc15fcfee",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/get-info-observations.json": "5501e23c95c1c642a80e786d66c770533f847b7d1bfe3e13149cab5bd3dcab43",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/2-source/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/decoder-state-before.json": "794a29aaeaa6773f4a7e8346eae41f8dff5c93321940fe6af6aa6bbce5c4eacf",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/get-info-observations.json": "6397493a0c2fb67fd7e4037c4e4a948475285cfe1bbf4f76dda4ebd55d6a3e5e",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-native/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/decoded-pcm.bin": "ce4958c6dad837301b1341b4dd54c4e3cc4733beb830f05126b53812df2e2ad2",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/decoder-state-before.json": "637a911096db11a8672dbd269553ff1a94151480fd7b9398f7be66f369e53eca",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/get-info-observations.json": "8bfc4f01e1cf580b02952bcbdcc47499901e765ea3e7df7a64cfbc5186c90148",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/operations.log": "fec4b1c81aed15fe3096a6bedce69d95e8a0eef9217a9f373a60ab284449b8d6",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/stdout.json": "7d35e9243d7ef76e19daadba5e8eb7dc98b5b78242a65aee87a51c4be8a7fd69",
+    ".local/squall-wma-async-callers/20261104T175556529960Z/3-source/wma-2-wmav2-22050-1.wma": "d0d2d4d7383d075f6d63e6e6000a0fd17f1c17e0ac77de1135200782af3006ef"
+  },
+  "original_mono_instructions": "1001546a Update(SSUPDATE_ASYNC);10015487 GetInfo;no CompletionStatus wait",
+  "raw_unequal_case_directory": ".local/squall-wma/20261104T175106386373Z/2/PC53/1/mono-16361/source",
+  "stored_destination_changed_bytes": [
+    30661,
+    20439
+  ],
+  "subsequent_changed_byte_counts": [
+    30661,
+    24526
+  ],
+  "raw_destination_equality_claimed": false,
+  "controlled_COM_result_forced": false,
+  "diagnostic_GetInfo_vtable_temporarily_replaced": true,
+  "production_changed": false
+}

@@ -1,0 +1,68 @@
+{
+  "status": "matched_both_wma_prepared_buffer_and_stateful_read_scopes_short48k10ms_nonprogress_still_open",
+  "recorded_at_utc": "2026-11-04T17:58:29.958662+00:00",
+  "recorder_sha256": "b9fca059b4c1b9e1c2a06f62aaece4523b4af5bb3c3c796a46529dc382628dc6",
+  "candidate_sha256": [
+    "72773d90ad9bc755fa3423b32251eadd74412fc600f1385e88cb31108180930f",
+    "f6ac3ac4d6c2dbc83ccda7325b3cc355eb9b797f22ef6d0888f9ffa610b1a573"
+  ],
+  "reports": {
+    "squall-wma-buffers-status-validation.json": "4e6af2767c5862ae9578f493c014c0437309501ea177c61c70ede223f38f0877",
+    "squall-wma-sequences-validation.json": "d41dc04c6d1751920f3094ac07f4908beb24e2a04778c258f4be66ae9363ed5f",
+    "squall-wma-buffers-status-fresh-validation.json": "b36e8d8f69ea3d2bc296298c598eb8887f816f9a84c7a3db76f8a4a965d8f035",
+    "squall-wma-sequences-fresh-validation.json": "6d747422882f26f95959852310827de13fea357e2c0e22ea2f8a2e3df2a01028",
+    "squall-wma-buffers-48k-11ms-validation.json": "904dcf7bd3d53a81e825b05329406e20c238c448d311767234da2bcf6aaeb38b",
+    "squall-wma-current-block-observations.json": "a7401e1e6091d18e4644e8b8c8a1cf914daaa49aae721b1343b5fde081a50dc2",
+    "squall-wma-async-com-observations.json": "ceb7f94eaa5dbef68a290784a6071e07b24dc6d294daa2ba16980fab4eff52da"
+  },
+  "binary_equivalence_proof": "analysis/squall-wma-explicit-left-validation.json",
+  "prepared_buffer_pairs_per_build": 40,
+  "exact_physical_pcm_bytes_per_build": 97104,
+  "observed_cursor_progress_processes_per_build": 72,
+  "nonprogress_processes_per_build": 8,
+  "pause_stability_observations_per_build": 80,
+  "stateful_read_pairs_per_build": 280,
+  "exact_stateful_destination_bytes_per_build": 92160,
+  "latest_block_comparison_raw_destination_mismatches": 1,
+  "async_destination_difference_resolved_as_exact_match": false,
+  "additional48k11ms_buffer_pairs": 8,
+  "additional48k11ms_exact_pcm_bytes": 25344,
+  "additional48k11ms_cursor_progress_processes": 16,
+  "raw_cursors_compared_or_normalized": false,
+  "interpretation": "All prepared buffers and stateful read outputs match exactly.10ms48kHz nonprogress occurs on both native and reconstructed processes;11ms shows progress in all16 probes. Dependence on fragment length is observed; general timing correctness and root cause are not yet proved.",
+  "preserved_exploration_failures": [
+    {
+      "work_directory": ".local/squall-wma-buffers/20261104T173929189806Z",
+      "report_sha256": "10db52d31bbe8e21f995b1588762734c88e8979dc1206a48fd49bea4f387e1b7",
+      "status": "found_actual_wma_buffer_or_playback_differences",
+      "failed_cases": 40,
+      "error": null,
+      "all_raw_outputs_preserved": true
+    },
+    {
+      "work_directory": ".local/squall-wma-buffers/20261104T174113898915Z",
+      "report_sha256": "81ec615020cc95e50ed9177a66126565655edaa59db94ddb688b70b414364c78",
+      "status": "failed",
+      "failed_cases": null,
+      "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+      "all_raw_outputs_preserved": true
+    },
+    {
+      "work_directory": ".local/squall-wma-buffers/20261104T174317774694Z",
+      "report_sha256": "69e6fa5b4d3ca872bba42608fb427f3cab34a7ffce1261a1004c3f5e6223c98c",
+      "status": "found_actual_wma_buffer_or_playback_differences",
+      "failed_cases": 7,
+      "error": null,
+      "all_raw_outputs_preserved": true
+    }
+  ],
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Async return0 raw destinations are unequal and not treated as verified byte equality",
+    "Resolve short48kHz10ms cursor observation/root cause,default200ms buffers and long refill/EOF",
+    "General COM error and lifetime branches,malformed WMA",
+    "Tracker and full original game/DLL/JNG/uninstaller requirements"
+  ]
+}

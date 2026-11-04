@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Skutečné WMA buffery a stateful čtení](SQUALL.md) prošly v obou sestaveních po40 přesných bufferových párech/97104 bajtech a280 guarded čteních/92160 bajtech.72/80 procesů ukázalo posun; osm krátkých48kHz pozorování bez posunu je otevřených,11ms varianta prošla16/16. Jeden raw rozdíl při návratu0 je uložený bez normalizace; skutečný COM trace a instrukce dokládají probíhající asynchronní zápis. `analysis/squall-wma-runtime-validation.json` přesně rozlišuje ověřené a otevřené oblasti. Pokračují tracker a další původní herní/DLL rozsahy; celý projekt není dokončený.
+
 [WMA výběr levého kanálu](SQUALL.md) je nyní výslovně rekonstruovaný podle instrukcí. V obou sestaveních se všechny programové bajty DLL shodují s předchozí úplně ověřenou verzí; liší se pouze linker timestamps. Oba herní EXE a JNG DLL jsou celé přesně nezměněné. `analysis/squall-wma-explicit-left-validation.json` dokládá přenos regrese102/102 přes tuto shodu, nikoli nový běh. Pokračují WMA buffery/stateful čtení a nevyřešené krátké48kHz kanály i celý původní cíl.
 
 [První skutečné WMA porovnání](SQUALL.md) zaznamenalo96 přesných párů návratů a celých guarded destinací, včetně36 původních částečných zápisů s návratem0. Dalších24 párů shodně spadlo; čtecí debugger doložil původní zero-count DO podtečení. Tři stereo vstupy dokazují původní výběr levého kanálu místo průměru. Produkce se zatím neměnila, nový rozsah nenahrazuje úplnou MPEG regresi5421195. Pokračují výslovná zdrojová rekonstrukce WMA, skutečné buffery a celý původní cíl.
