@@ -2,6 +2,7 @@
 """Record current full-game regression after the original tracker loader and nonzero mixer reconstruction."""
 import datetime
 import json
+import hashlib
 import re
 import subprocess
 import xml.etree.ElementTree as ET
@@ -102,6 +103,12 @@ def main():
                                                       actual_tracker_loader_and_nonzero_mixer_scopes_passed=True,unsafe_factory_open=True)
     name='analysis/squall-tracker-loaders-game-interop-validation.json'
     if name not in verification['original_game_runtime']['scope_reports']:verification['original_game_runtime']['scope_reports'].append(name)
+    paths=[ROOT/'CMakeLists.txt']+[p for folder in ['src','tools','tests'] for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
+    rows=[p.relative_to(ROOT).as_posix()+'\0'+digest(p)+'\n' for p in sorted(paths,key=lambda p:p.relative_to(ROOT).as_posix())]
+    verification['source_tree_sha256']=hashlib.sha256(''.join(rows).encode('utf-8')).hexdigest()
+    verification['source_tree_hash_as_of_report']='analysis/squall-tracker-loaders-regression.json'
+    verification['current_report_serialization']=dict(encoding='UTF-8',newlines='LF',cross_report_hashes_match_git_text_policy=True,
+        scope='Current tracker-loaders reports; older records identify their original locally recorded bytes')
     write(ROOT/'analysis/verification.json',verification)
     print('Recorded current full102/102, both complete audio builds and four exact whole-game restores; tracker and original whole goal remain active.')
 

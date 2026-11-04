@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-04T19:26:51.328551+00:00",
+  "recorded_at_utc": "2026-11-04T19:34:57.325053+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "partial_reconstruction",
@@ -170,7 +170,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "c9e966d7a2f378693e850a8eee69973684c9f3165d633733fe3b46822d31e1f7",
+  "source_tree_sha256": "8d203b730825e8b23d91ed5d8ce83c38c3e29850f379e0aef31ca3ad6dfad18a",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -108457,7 +108457,7 @@
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
     "report": "analysis/squall-tracker-loaders-regression.json",
-    "recorded_at_utc": "2026-11-04T19:26:51.328551+00:00",
+    "recorded_at_utc": "2026-11-04T19:34:57.325053+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108481,5 +108481,12 @@
     "complete": false,
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
+  },
+  "source_tree_hash_as_of_report": "analysis/squall-tracker-loaders-regression.json",
+  "current_report_serialization": {
+    "encoding": "UTF-8",
+    "newlines": "LF",
+    "cross_report_hashes_match_git_text_policy": true,
+    "scope": "Current tracker-loaders reports; older records identify their original locally recorded bytes"
   }
 }

@@ -5,7 +5,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def read(path):return json.loads(Path(path).read_text(encoding='utf-8'))
-def write(path,value):Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+def write(path,value):
+    # Keep recorded JSON bytes identical to the repository's explicit LF policy.
+    # Windows text-mode CRLF translation otherwise invalidates cross-report SHA256s.
+    Path(path).write_bytes((json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
 def checked(report):
     for name,value in report['source_files'].items():assert digest(ROOT/name)==value,name
     work=ROOT/report['work_directory']

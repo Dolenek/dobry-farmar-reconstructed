@@ -1,6 +1,6 @@
 {
   "status": "passed_scoped_old_loader_fields_and_nonzero_mixer_reconstruction_both_builds",
-  "recorded_at_utc": "2026-11-04T19:16:28.219411+00:00",
+  "recorded_at_utc": "2026-11-04T19:33:21.785179+00:00",
   "candidate_sha256": [
     "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
     "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
@@ -153,19 +153,19 @@
     "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da"
   },
   "reports": {
-    "squall-tracker-loaders-formats-validation.json": "48685f427e874a245df5f5507c2558b7f9de5ab061a2067003445a876bfb5adf",
-    "squall-tracker-loaders-agc-validation.json": "b007fb535758b9e87e4312ad5e53ad88719bfffe44e42f689899f5021c48722d",
-    "squall-tracker-loaders-tail-validation.json": "f0f207fa2526a017bee783ed30795110c92576919b85fd9f8d58a1c3ed935c1a",
-    "squall-tracker-loaders-runtime-validation.json": "a42f7322e272c453b726435a88672466815da8ee1c53c9c77b55c89d93ee951f",
-    "squall-tracker-loaders-formats-fresh-validation.json": "343cdb1b78c83e6dc4c7be94eed119ef46ff3b71aadb2c9383c3deb64a233aab",
-    "squall-tracker-loaders-agc-fresh-validation.json": "19f7100f46fb02ad44d81379e061d05b563a1d1006b132ce85aac866430565c9",
-    "squall-tracker-loaders-tail-fresh-validation.json": "811dccd575c890515f5b9aedafccf6ddf2cfa67c510799ec33b24291b8082587",
-    "squall-tracker-loaders-runtime-fresh-validation.json": "800aaef720a0ee544537d1580d134647bdceb09445f11e56de4d7e97800c61b6",
-    "squall-tracker-formats-initial-validation.json": "5edd951ef9a60676d9fc2876f2147dc20397d8e9329c0ce0115edb3726c326d6",
-    "squall-tracker-agc-before-validation.json": "097eba9138ff12d36dc1aed76f78ead5ef06bc6f174fe56935187c8d69fe88ec",
-    "squall-tracker-agc-validation.json": "fe4d90443d7041a654ca7c326c6922bcf554b934df8164d35f673e206d5895f2",
-    "squall-tracker-tail-before-validation.json": "294c821b3cc8efb0ff507e2cea71b2440e3d8cecf54f8502eabf1109a9f96912",
-    "squall-tracker-loaders-offsets-validation.json": "b701d58de82221dbf64b7b875621f3f52fba2f9a8d96ffdad3fd574ebd6ebee7"
+    "squall-tracker-loaders-formats-validation.json": "6894b0ee3d38f15f4b1be0f48630a48d2b3c16cacec02046f9229ef3c4d425ed",
+    "squall-tracker-loaders-agc-validation.json": "fc430532d619c0a9ba8ab7689aa3489ba1d43f67f544e23247be77d31e3a8d0e",
+    "squall-tracker-loaders-tail-validation.json": "922875358e3d27dca0cad3ed44b1f391af7581f445b110579e006bd074526770",
+    "squall-tracker-loaders-runtime-validation.json": "73b5e0916db9c42414c94a3b20b621b95533d2cac354b808f4940c27baf213d6",
+    "squall-tracker-loaders-formats-fresh-validation.json": "f43ff3f6a1bbe34bdb410b0a7702d96f8833a08b788e6aaa056bf2f7037c9f86",
+    "squall-tracker-loaders-agc-fresh-validation.json": "5e191b0ec690a0f4b95f045b78e26e0a343045b014ca6b8718adf2adfad8ce3e",
+    "squall-tracker-loaders-tail-fresh-validation.json": "54c6a6e23602c506a236f7b1d337ff7d1dd7b12870c098dea7f4d06c61a6f2b9",
+    "squall-tracker-loaders-runtime-fresh-validation.json": "aa15aa6ad1177e7572d81df0f5a8131a57b5a791b3b3e950b508adde38c74df3",
+    "squall-tracker-formats-initial-validation.json": "21bde0961dd84f70a75e548760593dc52e16b30b4a3e4687b08f2b9d4bcd3eb8",
+    "squall-tracker-agc-before-validation.json": "f5ca2aa5e1af1be9eb0c6a8691574abe34937500accd0e5beadcc1b9a5d05ceb",
+    "squall-tracker-agc-validation.json": "db3ebd0d00a473e8061ca3e864e70ca3390d10a8ad0ddc04f7724445737b6237",
+    "squall-tracker-tail-before-validation.json": "8f5cffe59f8f58ee2e1e50b5abc2b023a87be56f45147187608dae7793ca275a",
+    "squall-tracker-loaders-offsets-validation.json": "b28ff16fb93f2a1e0f183dc6ecd276e33c4955c4d5985ca2add61eaf528b0186"
   },
   "owned_object_address_fields_excluded": {
     "0x0": "vtable",
@@ -458,6 +458,7 @@
   "pending": [
     "Broader remaining tracker format/body cases and actual active sample voices/effects",
     "Unmodified native tracker factory/title invalid frees and uninitialized Ogg fallback remain explicitly unsafe",
+    "Remaining original whole-game/JNG/uninstaller goals",
     "Remaining original whole-game/JNG/uninstaller goals"
   ],
   "whole_squall_complete": false,
