@@ -1,0 +1,106 @@
+{
+  "status": "actual_tracker_layout_inconsistency_and_native_cleanup_failures_not_equivalent",
+  "recorded_at_utc": "2026-11-04T18:15:19.107625+00:00",
+  "production_implementation_changed": false,
+  "candidate_sha256": "72773d90ad9bc755fa3423b32251eadd74412fc600f1385e88cb31108180930f",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "normal_load_processes": 18,
+  "native_heap_corruption_processes": 9,
+  "source_successful_normal_load_processes": 9,
+  "staged_processes": 16,
+  "native_titled_cleanup_failures": 4,
+  "native_blank_title_successful_cleanup": 4,
+  "source_staged_successes": 8,
+  "original_files_unchanged": 17,
+  "initial_source_provenance_limit": "First exploratory probes were snapshotted after their runs; no claim of pre-run source hashing. Production remained at70d62ec. New staged runs snapshot all sources/binaries before execution.",
+  "initial_baseline": {
+    "status": "post_run_snapshot_production_unchanged_since_HEAD70d62ec",
+    "historical_probes_not_pre_run_hashed": true,
+    "files": {
+      "tools/squall_tracker_probe.cpp": "4057b68fc7986fe7b152ec165f3f81d36ec0fbef1d858eb013c88b55f0f546c5",
+      "tools/squall_tracker_ctor_probe.cpp": "1c6df8890d096a486c6c0ef2724ad02bc3d5c8fbc1018cc9aed685f1615b3dad",
+      "tools/squall_tracker_layout.cpp": "3303fa78096424fb22faf394fe5948194d6db5eace60439b4c8b42f07c24d75a",
+      "tools/squall_tracker_fixtures.py": "fa5945da3d92802eecd90c2b0af3d495ca1ca2fe3e25e80a73126f38923dff47",
+      "tools/squall_tracker_probe/CMakeLists.txt": "cdc191663ecf58b7b63951a27d055b148235ad06bd53dbbe98de021f7a57c818",
+      "build/windows/squall-candidate/Release/Squall.dll": "72773d90ad9bc755fa3423b32251eadd74412fc600f1385e88cb31108180930f",
+      "build/windows/squall-candidate/Release/Squall.map": "125baaf0b78ce71a8f3b5d80c7f4a63f4841f8aa1f9f9721b9ed0a9ba8273423",
+      "build/squall-tracker-probe-vs/Release/squall-tracker-probe.exe": "e111da60158990cba9807472e769fcb139d23673ed468834ba78c74f94882dc1",
+      "build/squall-tracker-probe-vs/Release/squall-tracker-ctor-probe.exe": "1fcc16d9bbbc407848f484c9efd6f740f84577d44a97c77e7c8d9b9e70998983",
+      "build/squall-tracker-probe-vs/Release/squall-tracker-layout.exe": "0af015ba4d091d52beabb85b84ba5e371a137c57f676dd5b084b1c7285423be8"
+    }
+  },
+  "initial_report_sha256": "66d8246ca6618b5b797658f03f44be84f8cbaf1c6ec54561be43233debd27896",
+  "constructor_report": {
+    "status": "actual_tracker_constructors_owned_64k_storage_only",
+    "work_directory": ".local/squall-tracker-ctor/20261104T180419739546Z",
+    "cases": [
+      {
+        "slot": 1,
+        "backend": "native",
+        "exit_code": 3221226356,
+        "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true",
+        "stderr": ""
+      },
+      {
+        "slot": 1,
+        "backend": "source",
+        "exit_code": 0,
+        "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":338688,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":8192,\"nonzero_destination_bytes\":16262,\"wide_guards_intact\":true}\r\n",
+        "stderr": ""
+      },
+      {
+        "slot": 2,
+        "backend": "native",
+        "exit_code": 3221226356,
+        "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true",
+        "stderr": ""
+      },
+      {
+        "slot": 2,
+        "backend": "source",
+        "exit_code": 0,
+        "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":338688,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":16384,\"nonzero_destination_bytes\":16193,\"wide_guards_intact\":true}\r\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "constructor_artifacts": {
+    ".local/squall-tracker-ctor/20261104T180419739546Z/report.json": "04fa44d4698ed40d7b70c6ad959859953405aae023ccfab6db6b568435a8a0a7",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-native/constructed-object.bin": "163bcf3d9483241f198d09b5528635a11a1d26cbab3323bce1442f6b200711ce",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-native/decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-native/owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-native/stdout.json": "eb4128a960401b1a693ec839556b3d3a8b06056a22dc5f3474906cf5910f7c16",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-source/constructed-object.bin": "a3bb0e1e0ef99219a622d76959a1d4e848c5900cb5b953071cdb137cfcf7f643",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-source/decoded-pcm.bin": "9e3be6a3e8756784ed2cdda65a86ffc83623c4731aee6761a060aefbe50589b1",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-source/owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/1-source/stdout.json": "8afdb330ee8f915552e4d828fe431cb2a14bf20173ee049d2f544bdb68252887",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-native/constructed-object.bin": "bd620f640e38d346901ec76f797d50b205bb4a51ea63ee9426ba8d15505bd354",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-native/decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-native/owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-native/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-native/stdout.json": "4c3baf3e7bfb02d8b65fec4047d03b3016f84ebdd6874698a257f93a9330a5e1",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-source/constructed-object.bin": "34807cddb89c26b05f9f1774c81cbeccc17486f2265041fd6595c6d714d7418b",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-source/decoded-pcm.bin": "d56092f28c3dc1b320c4e66ec5b37a9e764dbe098acba430336fe8f6794aa4d4",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-source/owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-source/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/squall-tracker-ctor/20261104T180419739546Z/2-source/stdout.json": "54efd0c20596d51a36c31e7fc99cf95f6302634d8686b02f34204ff3bf886ba4"
+  },
+  "staged_report_sha256": "80d5c66f76c065a3c4954b6f8528c38f9bb1d6960313d8fba377b792e68091bc",
+  "findings": [
+    "Native factory1002dd9a allocates0xeef8 bytes; constructor1002bed2 writes FileBuffer at+0xef08 and pattern pointer at+0xef04. Owned64KiB storage removes that underallocation but titled input still corrupts heap during cleanup.",
+    "Constructor/Create/Destroy use newer fields: Order+b7ac, channels+d05c, pattern-name pointer+d0e4. MOD loader10021250 and stream Read1002a590 use older fields four bytes earlier afterOrderInfo.",
+    "After native Create, title Owne occupies+d0e4 (0x656e774f). Native Destroy1002c61a loads this field and1002c62b calls delete. The same bytes with a zero20-byte title clean up successfully on owned large storage in PC53/PC24.",
+    "Native CreateOrderInfo10026910 clears+b7a8 as SamplesInFile, overwriting the old loader order. It sees newer Order+b7ac still0xff, yielding0 frames rather than338688.",
+    "Native GetMonoSamples1002bfe0 and GetStereoSamples1002c000 invoke Read(buffer,length*2,1) / Read(buffer,length*4,2), ignore start/loop and return frames directly. Public source instead copies cached pattern bytes."
+  ],
+  "limitations": [
+    "No broad tracker-format or actual physical playback equivalence established.",
+    "Owned zeroed objects validate isolated actual methods, not safe behavior of the unmodified native factory.",
+    "Pointer addresses and heap corruption are not normalized into successful PCM equivalence.",
+    "Full reconstructed tracker implementation still differs; no production workaround or decoder replacement introduced."
+  ],
+  "whole_game_complete": false,
+  "whole_squall_complete": false
+}

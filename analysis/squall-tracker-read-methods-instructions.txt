@@ -1,0 +1,154 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002BFE0: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  1002BFE4: 6A 01              push        1
+  1002BFE6: 8D 14 00           lea         edx,[eax+eax]
+  1002BFE9: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  1002BFED: 52                 push        edx
+  1002BFEE: 50                 push        eax
+  1002BFEF: E8 9C E5 FF FF     call        1002A590
+  1002BFF4: C2 10 00           ret         10h
+  1002BFF7: 90                 nop
+  1002BFF8: 90                 nop
+  1002BFF9: 90                 nop
+  1002BFFA: 90                 nop
+  1002BFFB: 90                 nop
+  1002BFFC: 90                 nop
+  1002BFFD: 90                 nop
+  1002BFFE: 90                 nop
+  1002BFFF: 90                 nop
+  1002C000: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  1002C004: 6A 02              push        2
+  1002C006: 8D 14 85 00 00 00  lea         edx,[eax*4+00000000h]
+            00
+  1002C00D: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  1002C011: 52                 push        edx
+  1002C012: 50                 push        eax
+  1002C013: E8 78 E5 FF FF     call        1002A590
+  1002C018: C2 10 00           ret         10h
+  1002C01B: 90                 nop
+  1002C01C: 90                 nop
+  1002C01D: 90                 nop
+  1002C01E: 90                 nop
+  1002C01F: 90                 nop
+  1002C020: 8B 54 24 08        mov         edx,dword ptr [esp+8]
+  1002C024: 56                 push        esi
+  1002C025: C1 E2 02           shl         edx,2
+  1002C028: 8B CA              mov         ecx,edx
+  1002C02A: 57                 push        edi
+  1002C02B: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  1002C02F: 8B F1              mov         esi,ecx
+  1002C031: 33 C0              xor         eax,eax
+  1002C033: C1 E9 02           shr         ecx,2
+  1002C036: F3 AB              rep stos    dword ptr es:[edi]
+  1002C038: 8B CE              mov         ecx,esi
+  1002C03A: 83 E1 03           and         ecx,3
+  1002C03D: F3 AA              rep stos    byte ptr es:[edi]
+  1002C03F: 5F                 pop         edi
+  1002C040: 8B C2              mov         eax,edx
+  1002C042: 5E                 pop         esi
+  1002C043: C2 08 00           ret         8
+  1002C046: 90                 nop
+  1002C047: 90                 nop
+  1002C048: 90                 nop
+  1002C049: 90                 nop
+  1002C04A: 90                 nop
+  1002C04B: 90                 nop
+  1002C04C: 90                 nop
+  1002C04D: 90                 nop
+  1002C04E: 90                 nop
+  1002C04F: 90                 nop
+  1002C050: 8B 54 24 08        mov         edx,dword ptr [esp+8]
+  1002C054: 56                 push        esi
+  1002C055: D1 E2              shl         edx,1
+  1002C057: 8B CA              mov         ecx,edx
+  1002C059: 57                 push        edi
+  1002C05A: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  1002C05E: 8B F1              mov         esi,ecx
+  1002C060: 33 C0              xor         eax,eax
+  1002C062: C1 E9 02           shr         ecx,2
+  1002C065: F3 AB              rep stos    dword ptr es:[edi]
+  1002C067: 8B CE              mov         ecx,esi
+  1002C069: 83 E1 03           and         ecx,3
+  1002C06C: F3 AA              rep stos    byte ptr es:[edi]
+  1002C06E: 5F                 pop         edi
+  1002C06F: 8B C2              mov         eax,edx
+  1002C071: 5E                 pop         esi
+  1002C072: C2 08 00           ret         8
+  1002C075: 90                 nop
+  1002C076: 90                 nop
+  1002C077: 90                 nop
+  1002C078: 90                 nop
+  1002C079: 90                 nop
+  1002C07A: 90                 nop
+  1002C07B: 90                 nop
+  1002C07C: 90                 nop
+  1002C07D: 90                 nop
+  1002C07E: 90                 nop
+  1002C07F: 90                 nop
+  1002C080: 8B 81 A8 B7 00 00  mov         eax,dword ptr [ecx+0000B7A8h]
+  1002C086: C3                 ret
+  1002C087: 90                 nop
+  1002C088: 90                 nop
+  1002C089: 90                 nop
+  1002C08A: 90                 nop
+  1002C08B: 90                 nop
+  1002C08C: 90                 nop
+  1002C08D: 90                 nop
+  1002C08E: 90                 nop
+  1002C08F: 90                 nop
+  1002C090: 56                 push        esi
+  1002C091: 8B F1              mov         esi,ecx
+  1002C093: E8 18 00 00 00     call        1002C0B0
+  1002C098: F6 44 24 08 01     test        byte ptr [esp+8],1
+  1002C09D: 74 09              je          1002C0A8
+  1002C09F: 56                 push        esi
+  1002C0A0: E8 73 14 01 00     call        1003D518
+  1002C0A5: 83 C4 04           add         esp,4
+  1002C0A8: 8B C6              mov         eax,esi
+  1002C0AA: 5E                 pop         esi
+  1002C0AB: C2 04 00           ret         4
+  1002C0AE: 90                 nop
+  1002C0AF: 90                 nop
+  1002C0B0: 6A FF              push        0FFFFFFFFh
+  1002C0B2: 68 68 70 04 10     push        10047068h
+  1002C0B7: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  1002C0BD: 50                 push        eax
+  1002C0BE: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  1002C0C5: 51                 push        ecx
+  1002C0C6: 56                 push        esi
+  1002C0C7: 8B F1              mov         esi,ecx
+  1002C0C9: 89 74 24 04        mov         dword ptr [esp+4],esi
+  1002C0CD: C7 06 10 88 04 10  mov         dword ptr [esi],10048810h
+  1002C0D3: C7 44 24 10 00 00  mov         dword ptr [esp+10h],0
+            00 00
+  1002C0DB: E8 10 05 00 00     call        1002C5F0
+  1002C0E0: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  1002C0E4: C7 06 70 82 04 10  mov         dword ptr [esi],10048270h
+  1002C0EA: 5E                 pop         esi
+  1002C0EB: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002C0F2: 83 C4 10           add         esp,10h
+  1002C0F5: C3                 ret
+  1002C0F6: 90                 nop
+  1002C0F7: 90                 nop
+  1002C0F8: 90                 nop
+  1002C0F9: 90                 nop
+  1002C0FA: 90                 nop
+  1002C0FB: 90                 nop
+  1002C0FC: 90                 nop
+  1002C0FD: 90                 nop
+  1002C0FE: 90                 nop
+  1002C0FF: 90                 nop
+  1002C100: 53                 push        ebx
+
+  Summary
+
+       47000 .text

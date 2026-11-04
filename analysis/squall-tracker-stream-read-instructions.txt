@@ -1,0 +1,200 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002A590: 83 EC 10           sub         esp,10h
+  1002A593: 53                 push        ebx
+  1002A594: 55                 push        ebp
+  1002A595: 56                 push        esi
+  1002A596: 8B 74 24 20        mov         esi,dword ptr [esp+20h]
+  1002A59A: 8B E9              mov         ebp,ecx
+  1002A59C: 33 DB              xor         ebx,ebx
+  1002A59E: 57                 push        edi
+  1002A59F: 89 74 24 18        mov         dword ptr [esp+18h],esi
+  1002A5A3: 89 5C 24 10        mov         dword ptr [esp+10h],ebx
+  1002A5A7: C7 44 24 1C FF FF  mov         dword ptr [esp+1Ch],7FFFFFFFh
+            FF 7F
+  1002A5AF: C7 44 24 24 01 00  mov         dword ptr [esp+24h],80000001h
+            00 80
+  1002A5B7: B8 08 00 00 00     mov         eax,8
+  1002A5BC: 8D 8D B8 CF 00 00  lea         ecx,[ebp+0000CFB8h]
+  1002A5C2: 39 19              cmp         dword ptr [ecx],ebx
+  1002A5C4: 75 0B              jne         1002A5D1
+  1002A5C6: 48                 dec         eax
+  1002A5C7: 81 E9 90 00 00 00  sub         ecx,90h
+  1002A5CD: 3B C3              cmp         eax,ebx
+  1002A5CF: 77 F1              ja          1002A5C2
+  1002A5D1: 8B 44 24 2C        mov         eax,dword ptr [esp+2Ch]
+  1002A5D5: 89 9D 60 D0 00 00  mov         dword ptr [ebp+0000D060h],ebx
+  1002A5DB: 8B 0D A4 E1 05 10  mov         ecx,dword ptr ds:[1005E1A4h]
+  1002A5E1: 89 44 24 14        mov         dword ptr [esp+14h],eax
+  1002A5E5: 83 F9 10           cmp         ecx,10h
+  1002A5E8: 75 06              jne         1002A5F0
+  1002A5EA: 03 C0              add         eax,eax
+  1002A5EC: 89 44 24 14        mov         dword ptr [esp+14h],eax
+  1002A5F0: 8B 44 24 28        mov         eax,dword ptr [esp+28h]
+  1002A5F4: 33 D2              xor         edx,edx
+  1002A5F6: F7 74 24 14        div         eax,dword ptr [esp+14h]
+  1002A5FA: 8B F8              mov         edi,eax
+  1002A5FC: 3B FB              cmp         edi,ebx
+  1002A5FE: 89 7C 24 28        mov         dword ptr [esp+28h],edi
+  1002A602: 0F 84 DC 01 00 00  je          1002A7E4
+  1002A608: 3B F3              cmp         esi,ebx
+  1002A60A: 0F 84 D4 01 00 00  je          1002A7E4
+  1002A610: 39 9D 58 D0 00 00  cmp         dword ptr [ebp+0000D058h],ebx
+  1002A616: 0F 84 C8 01 00 00  je          1002A7E4
+  1002A61C: 8B 85 54 D0 00 00  mov         eax,dword ptr [ebp+0000D054h]
+  1002A622: 8B DF              mov         ebx,edi
+  1002A624: F6 C4 02           test        ah,2
+  1002A627: 0F 85 0E 01 00 00  jne         1002A73B
+  1002A62D: 85 FF              test        edi,edi
+  1002A62F: 0F 86 06 01 00 00  jbe         1002A73B
+  1002A635: 8B 85 64 D0 00 00  mov         eax,dword ptr [ebp+0000D064h]
+  1002A63B: 85 C0              test        eax,eax
+  1002A63D: 75 28              jne         1002A667
+  1002A63F: 8B CD              mov         ecx,ebp
+  1002A641: E8 5A 04 00 00     call        1002AAA0
+  1002A646: 85 C0              test        eax,eax
+  1002A648: 75 1D              jne         1002A667
+  1002A64A: 8B 8D 54 D0 00 00  mov         ecx,dword ptr [ebp+0000D054h]
+  1002A650: 80 CD 02           or          ch,2
+  1002A653: 3B DF              cmp         ebx,edi
+  1002A655: 89 8D 54 D0 00 00  mov         dword ptr [ebp+0000D054h],ecx
+  1002A65B: 0F 84 DA 00 00 00  je          1002A73B
+  1002A661: 89 9D 64 D0 00 00  mov         dword ptr [ebp+0000D064h],ebx
+  1002A667: 8B B5 64 D0 00 00  mov         esi,dword ptr [ebp+0000D064h]
+  1002A66D: 81 FE 00 02 00 00  cmp         esi,200h
+  1002A673: 76 05              jbe         1002A67A
+  1002A675: BE 00 02 00 00     mov         esi,200h
+  1002A67A: 3B F3              cmp         esi,ebx
+  1002A67C: 76 02              jbe         1002A680
+  1002A67E: 8B F3              mov         esi,ebx
+  1002A680: 85 F6              test        esi,esi
+  1002A682: 0F 84 B3 00 00 00  je          1002A73B
+  1002A688: 68 D8 19 08 10     push        100819D8h
+  1002A68D: 68 D4 19 08 10     push        100819D4h
+  1002A692: 56                 push        esi
+  1002A693: 68 AC 59 07 10     push        100759ACh
+  1002A698: 8B FE              mov         edi,esi
+  1002A69A: E8 31 DF FE FF     call        100185D0
+  1002A69F: 8B 44 24 3C        mov         eax,dword ptr [esp+3Ch]
+  1002A6A3: 83 C4 10           add         esp,10h
+  1002A6A6: 83 F8 02           cmp         eax,2
+  1002A6A9: 7C 13              jl          1002A6BE
+  1002A6AB: 56                 push        esi
+  1002A6AC: 8B CD              mov         ecx,ebp
+  1002A6AE: 8D 3C 36           lea         edi,[esi+esi]
+  1002A6B1: E8 2A D9 FE FF     call        10017FE0
+  1002A6B6: 01 85 60 D0 00 00  add         dword ptr [ebp+0000D060h],eax
+  1002A6BC: EB 24              jmp         1002A6E2
+  1002A6BE: 56                 push        esi
+  1002A6BF: 8B CD              mov         ecx,ebp
+  1002A6C1: E8 1A D9 FE FF     call        10017FE0
+  1002A6C6: 8B 8D 60 D0 00 00  mov         ecx,dword ptr [ebp+0000D060h]
+  1002A6CC: 56                 push        esi
+  1002A6CD: 03 C8              add         ecx,eax
+  1002A6CF: 68 AC 59 07 10     push        100759ACh
+  1002A6D4: 89 8D 60 D0 00 00  mov         dword ptr [ebp+0000D060h],ecx
+  1002A6DA: E8 C1 DE FE FF     call        100185A0
+  1002A6DF: 83 C4 08           add         esp,8
+  1002A6E2: 8B 4C 24 10        mov         ecx,dword ptr [esp+10h]
+  1002A6E6: A0 C8 19 08 10     mov         al,byte ptr ds:[100819C8h]
+  1002A6EB: 41                 inc         ecx
+  1002A6EC: A8 04              test        al,4
+  1002A6EE: 89 4C 24 10        mov         dword ptr [esp+10h],ecx
+  1002A6F2: 74 08              je          1002A6FC
+  1002A6F4: 57                 push        edi
+  1002A6F5: 8B CD              mov         ecx,ebp
+  1002A6F7: E8 14 E0 FE FF     call        10018710
+  1002A6FC: 8D 4C 24 24        lea         ecx,[esp+24h]
+  1002A700: 8D 54 24 1C        lea         edx,[esp+1Ch]
+  1002A704: 51                 push        ecx
+  1002A705: 52                 push        edx
+  1002A706: 57                 push        edi
+  1002A707: 8B 7C 24 24        mov         edi,dword ptr [esp+24h]
+  1002A70B: 68 AC 59 07 10     push        100759ACh
+  1002A710: 57                 push        edi
+  1002A711: E8 FA DD FE FF     call        10018510
+  1002A716: 8B 8D 64 D0 00 00  mov         ecx,dword ptr [ebp+0000D064h]
+  1002A71C: 03 F8              add         edi,eax
+  1002A71E: 2B DE              sub         ebx,esi
+  1002A720: 83 C4 14           add         esp,14h
+  1002A723: 2B CE              sub         ecx,esi
+  1002A725: 89 7C 24 18        mov         dword ptr [esp+18h],edi
+  1002A729: 8B 7C 24 28        mov         edi,dword ptr [esp+28h]
+  1002A72D: 89 8D 64 D0 00 00  mov         dword ptr [ebp+0000D064h],ecx
+  1002A733: 85 DB              test        ebx,ebx
+  1002A735: 0F 87 FA FE FF FF  ja          1002A635
+  1002A73B: 85 DB              test        ebx,ebx
+  1002A73D: 74 4B              je          1002A78A
+  1002A73F: 8B 15 A4 E1 05 10  mov         edx,dword ptr ds:[1005E1A4h]
+  1002A745: 8B CB              mov         ecx,ebx
+  1002A747: 0F AF 4C 24 14     imul        ecx,dword ptr [esp+14h]
+  1002A74C: 33 C0              xor         eax,eax
+  1002A74E: 83 FA 08           cmp         edx,8
+  1002A751: 0F 95 C0           setne       al
+  1002A754: 48                 dec         eax
+  1002A755: 8B 7C 24 18        mov         edi,dword ptr [esp+18h]
+  1002A759: 25 80 00 00 00     and         eax,80h
+  1002A75E: 8B F1              mov         esi,ecx
+  1002A760: 8A D0              mov         dl,al
+  1002A762: 8A F2              mov         dh,dl
+  1002A764: 8B C2              mov         eax,edx
+  1002A766: C1 E0 10           shl         eax,10h
+  1002A769: 66 8B C2           mov         ax,dx
+  1002A76C: C1 E9 02           shr         ecx,2
+  1002A76F: F3 AB              rep stos    dword ptr es:[edi]
+  1002A771: 8B CE              mov         ecx,esi
+  1002A773: 8B 74 24 10        mov         esi,dword ptr [esp+10h]
+  1002A777: 83 E1 03           and         ecx,3
+  1002A77A: F3 AA              rep stos    byte ptr es:[edi]
+  1002A77C: 8B 4C 24 1C        mov         ecx,dword ptr [esp+1Ch]
+  1002A780: 8B 44 24 24        mov         eax,dword ptr [esp+24h]
+  1002A784: 8B 7C 24 28        mov         edi,dword ptr [esp+28h]
+  1002A788: EB 0C              jmp         1002A796
+  1002A78A: 8B 74 24 10        mov         esi,dword ptr [esp+10h]
+  1002A78E: 8B 44 24 24        mov         eax,dword ptr [esp+24h]
+  1002A792: 8B 4C 24 1C        mov         ecx,dword ptr [esp+1Ch]
+  1002A796: C1 F9 14           sar         ecx,14h
+  1002A799: C1 F8 14           sar         eax,14h
+  1002A79C: 3B C1              cmp         eax,ecx
+  1002A79E: 7D 06              jge         1002A7A6
+  1002A7A0: 89 4C 24 24        mov         dword ptr [esp+24h],ecx
+  1002A7A4: 8B C1              mov         eax,ecx
+  1002A7A6: 2B C1              sub         eax,ecx
+  1002A7A8: 3D FF 00 00 00     cmp         eax,0FFh
+  1002A7AD: A3 CC 19 08 10     mov         dword ptr ds:[100819CCh],eax
+  1002A7B2: 76 0A              jbe         1002A7BE
+  1002A7B4: C7 05 CC 19 08 10  mov         dword ptr ds:[100819CCh],0FFh
+            FF 00 00 00
+  1002A7BE: 85 F6              test        esi,esi
+  1002A7C0: 74 14              je          1002A7D6
+  1002A7C2: 8B 85 60 D0 00 00  mov         eax,dword ptr [ebp+0000D060h]
+  1002A7C8: 33 D2              xor         edx,edx
+  1002A7CA: 8D 44 30 FF        lea         eax,[eax+esi-1]
+  1002A7CE: F7 F6              div         eax,esi
+  1002A7D0: 89 85 60 D0 00 00  mov         dword ptr [ebp+0000D060h],eax
+  1002A7D6: 8B C7              mov         eax,edi
+  1002A7D8: 5F                 pop         edi
+  1002A7D9: 5E                 pop         esi
+  1002A7DA: 2B C3              sub         eax,ebx
+  1002A7DC: 5D                 pop         ebp
+  1002A7DD: 5B                 pop         ebx
+  1002A7DE: 83 C4 10           add         esp,10h
+  1002A7E1: C2 0C 00           ret         0Ch
+  1002A7E4: 5F                 pop         edi
+  1002A7E5: 5E                 pop         esi
+  1002A7E6: 5D                 pop         ebp
+  1002A7E7: 33 C0              xor         eax,eax
+  1002A7E9: 5B                 pop         ebx
+  1002A7EA: 83 C4 10           add         esp,10h
+  1002A7ED: C2 0C 00           ret         0Ch
+  1002A7F0: 8B
+
+  Summary
+
+       47000 .text

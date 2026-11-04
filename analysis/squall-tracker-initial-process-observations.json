@@ -1,0 +1,331 @@
+{
+  "status": "first_actual_owned_tracker_observations",
+  "work_directory": ".local/squall-tracker-first/20261104T175858399323Z",
+  "cases": [
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "metadata",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-metadata-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "9bfb690840227dd8edf513426fe222386db054d6b472ac553e73713f94119428",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "4ca4699df81484e6cb0fd9198bd369041a20fe30def1381d019e351c27df7e52"
+      }
+    },
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "metadata",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-metadata-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "5af6d2198721dabf919308ac169cc4cfa8dd9f27eae77c3061eb6047a4c6e24e",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "c616fd496ee2066780ec6198b94e9f39c4f5a9b08c78951e156a2018765f44ee"
+      }
+    },
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "mono",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-mono-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "mono",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-mono-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680,\"returned_bytes\":8192,\"guards_intact\":true,\"nonzero_bytes\":8070}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "6f0442d56735d0c4bd36ee4b62b191d381b4dacd5e703f17848591cef5fc4606",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "78cdbc65aff28afb1b7e7bc56fc7032e38e4dac3f4d03708ed2c8fe7561a9819"
+      }
+    },
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "stereo",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-stereo-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-0.mod",
+      "mode": "stereo",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-0.mod-stereo-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680,\"returned_bytes\":16384,\"guards_intact\":true,\"nonzero_bytes\":16193}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "d56092f28c3dc1b320c4e66ec5b37a9e764dbe098acba430336fe8f6794aa4d4",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bb58ef178491c07fb8da0455576687715af17e01b652c74a69f31f2cd55759c9"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "metadata",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-metadata-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "9bfb690840227dd8edf513426fe222386db054d6b472ac553e73713f94119428",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "4ca4699df81484e6cb0fd9198bd369041a20fe30def1381d019e351c27df7e52"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "metadata",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-metadata-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":282240,\"frequency\":44100,\"milliseconds\":6400}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "5af6d2198721dabf919308ac169cc4cfa8dd9f27eae77c3061eb6047a4c6e24e",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3e783765e625cedaa4d0ea1128fcb1db84660898c4f092135d07cfdcc094ee50"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "mono",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-mono-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "mono",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-mono-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":282240,\"frequency\":44100,\"milliseconds\":6400,\"returned_bytes\":8192,\"guards_intact\":true,\"nonzero_bytes\":8081}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "3ce8d94c6106a0cb6b235d83c01e34b08adf738379a89666b0bcec0cbff5b2c3",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "afe4b1b52c30072cd93e0e4fc85f0d5d8747f7edd6772a4386c8bb296ae02ae9"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "stereo",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-stereo-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-1.mod",
+      "mode": "stereo",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-1.mod-stereo-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":282240,\"frequency\":44100,\"milliseconds\":6400,\"returned_bytes\":16384,\"guards_intact\":true,\"nonzero_bytes\":16180}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "cbe48c6068f20ac626d98c27b449336d3dd75e62645b12b50d1c5f22901257c6",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "7304ea6943b4e8e8ad82cfee595f1f80c2744771a68aa7e5d51897b10b8bb3af"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "metadata",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-metadata-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "9bfb690840227dd8edf513426fe222386db054d6b472ac553e73713f94119428",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "4ca4699df81484e6cb0fd9198bd369041a20fe30def1381d019e351c27df7e52"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "metadata",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-metadata-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "operations.log": "5af6d2198721dabf919308ac169cc4cfa8dd9f27eae77c3061eb6047a4c6e24e",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "c616fd496ee2066780ec6198b94e9f39c4f5a9b08c78951e156a2018765f44ee"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "mono",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-mono-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "mono",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-mono-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680,\"returned_bytes\":8192,\"guards_intact\":true,\"nonzero_bytes\":8101}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "b9c2c483fcd3cb26125a5c45ba236398f5940495cb530b7730b53b61fabd2981",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "9f84f5ed6e92ca65224fd437b4748efa7e7331cfbfc025a4b0f4f94af77caf49"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "stereo",
+      "backend": "native",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-stereo-native",
+      "exit_code": 3221226356,
+      "stdout": "{\"sample_id\":65536,\"frames\":-26,\"frequency\":44100,\"milliseconds\":-26,\"returned_bytes\":4096,\"guards_intact\":true,\"nonzero_bytes\":0",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698"
+      }
+    },
+    {
+      "fixture": "owned-protracker-2.mod",
+      "mode": "stereo",
+      "backend": "source",
+      "directory": ".local/squall-tracker-first/20261104T175858399323Z/owned-protracker-2.mod-stereo-source",
+      "exit_code": 0,
+      "stdout": "{\"sample_id\":65536,\"frames\":338688,\"frequency\":44100,\"milliseconds\":7680,\"returned_bytes\":16384,\"guards_intact\":true,\"nonzero_bytes\":16178}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "decoded-pcm.bin": "e21da5d12686e77df6b3db8ac2918785c1bf9eae7ac5ccfa5e7e556c6b3746e2",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "7c6bcd165f7a4d55e94642e5f09c7d15ffd2cf081a59a984fc5ab568d248f7ee"
+      }
+    }
+  ],
+  "fixture_manifest": {
+    "status": "owned_tracker_inputs_only_runtime_not_yet_verified",
+    "fixtures": [
+      {
+        "name": "owned-protracker-0.mod",
+        "type": "ProTracker MOD",
+        "channels": 4,
+        "orders": 1,
+        "patterns": 1,
+        "samples": 1,
+        "sample_bytes": 2048,
+        "looping_sample": true,
+        "owned_integer_sample": true
+      },
+      {
+        "name": "owned-protracker-1.mod",
+        "type": "ProTracker MOD",
+        "channels": 4,
+        "orders": 1,
+        "patterns": 1,
+        "samples": 1,
+        "sample_bytes": 2048,
+        "looping_sample": true,
+        "owned_integer_sample": true
+      },
+      {
+        "name": "owned-protracker-2.mod",
+        "type": "ProTracker MOD",
+        "channels": 4,
+        "orders": 1,
+        "patterns": 1,
+        "samples": 1,
+        "sample_bytes": 2048,
+        "looping_sample": false,
+        "owned_integer_sample": true
+      }
+    ],
+    "files": {
+      "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+      "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+      "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729"
+    }
+  }
+}

@@ -1,0 +1,179 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002BDB0: 6A FF              push        0FFFFFFFFh
+  1002BDB2: 68 48 70 04 10     push        10047048h
+  1002BDB7: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  1002BDBD: 50                 push        eax
+  1002BDBE: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  1002BDC5: 51                 push        ecx
+  1002BDC6: 53                 push        ebx
+  1002BDC7: 55                 push        ebp
+  1002BDC8: 8B 6C 24 24        mov         ebp,dword ptr [esp+24h]
+  1002BDCC: 56                 push        esi
+  1002BDCD: 8B F1              mov         esi,ecx
+  1002BDCF: 57                 push        edi
+  1002BDD0: 89 74 24 10        mov         dword ptr [esp+10h],esi
+  1002BDD4: 89 6E 04           mov         dword ptr [esi+4],ebp
+  1002BDD7: 8B 44 24 28        mov         eax,dword ptr [esp+28h]
+  1002BDDB: 33 DB              xor         ebx,ebx
+  1002BDDD: C7 06 10 88 04 10  mov         dword ptr [esi],10048810h
+  1002BDE3: B9 00 14 00 00     mov         ecx,1400h
+  1002BDE8: 88 18              mov         byte ptr [eax],bl
+  1002BDEA: B8 80 00 00 00     mov         eax,80h
+  1002BDEF: 89 86 B8 D0 00 00  mov         dword ptr [esi+0000D0B8h],eax
+  1002BDF5: 89 86 B4 D0 00 00  mov         dword ptr [esi+0000D0B4h],eax
+  1002BDFB: 89 86 A8 D0 00 00  mov         dword ptr [esi+0000D0A8h],eax
+  1002BE01: 33 C0              xor         eax,eax
+  1002BE03: 8D 7E 08           lea         edi,[esi+8]
+  1002BE06: 89 9E 6C D0 00 00  mov         dword ptr [esi+0000D06Ch],ebx
+  1002BE0C: 89 9E 58 D0 00 00  mov         dword ptr [esi+0000D058h],ebx
+  1002BE12: 89 9E 5C D0 00 00  mov         dword ptr [esi+0000D05Ch],ebx
+  1002BE18: 89 9E 60 D0 00 00  mov         dword ptr [esi+0000D060h],ebx
+  1002BE1E: 89 9E 70 D0 00 00  mov         dword ptr [esi+0000D070h],ebx
+  1002BE24: 89 9E 74 D0 00 00  mov         dword ptr [esi+0000D074h],ebx
+  1002BE2A: 89 9E DC D0 00 00  mov         dword ptr [esi+0000D0DCh],ebx
+  1002BE30: 89 9E E4 D0 00 00  mov         dword ptr [esi+0000D0E4h],ebx
+  1002BE36: 89 9E E0 D0 00 00  mov         dword ptr [esi+0000D0E0h],ebx
+  1002BE3C: C7 86 C0 D0 00 00  mov         dword ptr [esi+0000D0C0h],20h
+            20 00 00 00
+  1002BE46: C7 86 C4 D0 00 00  mov         dword ptr [esi+0000D0C4h],7FFFh
+            FF 7F 00 00
+  1002BE50: 89 9E C8 D0 00 00  mov         dword ptr [esi+0000D0C8h],ebx
+  1002BE56: 89 5C 24 1C        mov         dword ptr [esp+1Ch],ebx
+  1002BE5A: F3 AB              rep stos    dword ptr es:[edi]
+  1002BE5C: B9 50 00 00 00     mov         ecx,50h
+  1002BE61: 8D BE 08 50 00 00  lea         edi,[esi+00005008h]
+  1002BE67: F3 AB              rep stos    dword ptr es:[edi]
+  1002BE69: B9 00 0F 00 00     mov         ecx,0F00h
+  1002BE6E: 8D BE 48 51 00 00  lea         edi,[esi+00005148h]
+  1002BE74: F3 AB              rep stos    dword ptr es:[edi]
+  1002BE76: B9 40 02 00 00     mov         ecx,240h
+  1002BE7B: 8D BE 08 91 00 00  lea         edi,[esi+00009108h]
+  1002BE81: F3 AB              rep stos    dword ptr es:[edi]
+  1002BE83: B9 F0 00 00 00     mov         ecx,0F0h
+  1002BE88: 8D BE 48 8D 00 00  lea         edi,[esi+00008D48h]
+  1002BE8E: F3 AB              rep stos    dword ptr es:[edi]
+  1002BE90: B9 40 00 00 00     mov         ecx,40h
+  1002BE95: 83 C8 FF           or          eax,0FFFFFFFFh
+  1002BE98: 8D BE AC B7 00 00  lea         edi,[esi+0000B7ACh]
+  1002BE9E: F3 AB              rep stos    dword ptr es:[edi]
+  1002BEA0: B9 F0 00 00 00     mov         ecx,0F0h
+  1002BEA5: 33 C0              xor         eax,eax
+  1002BEA7: 8D BE 08 9A 00 00  lea         edi,[esi+00009A08h]
+  1002BEAD: F3 AB              rep stos    dword ptr es:[edi]
+  1002BEAF: B9 80 07 00 00     mov         ecx,780h
+  1002BEB4: 8D BE E8 D0 00 00  lea         edi,[esi+0000D0E8h]
+  1002BEBA: F3 AB              rep stos    dword ptr es:[edi]
+  1002BEBC: B9 20 01 00 00     mov         ecx,120h
+  1002BEC1: 8D BE CC CB 00 00  lea         edi,[esi+0000CBCCh]
+  1002BEC7: F3 AB              rep stos    dword ptr es:[edi]
+  1002BEC9: 8B 45 14           mov         eax,dword ptr [ebp+14h]
+  1002BECC: 50                 push        eax
+  1002BECD: E8 F3 12 01 00     call        1003D1C5
+  1002BED2: 89 86 08 EF 00 00  mov         dword ptr [esi+0000EF08h],eax
+  1002BED8: 8B 4D 14           mov         ecx,dword ptr [ebp+14h]
+  1002BEDB: 8B 55 10           mov         edx,dword ptr [ebp+10h]
+  1002BEDE: 83 C4 04           add         esp,4
+  1002BEE1: 8D 3C 0A           lea         edi,[edx+ecx]
+  1002BEE4: 3B F9              cmp         edi,ecx
+  1002BEE6: 76 02              jbe         1002BEEA
+  1002BEE8: 2B CA              sub         ecx,edx
+  1002BEEA: 51                 push        ecx
+  1002BEEB: 8B 4D 04           mov         ecx,dword ptr [ebp+4]
+  1002BEEE: 50                 push        eax
+  1002BEEF: E8 AC 17 00 00     call        1002D6A0
+  1002BEF4: 8B 4D 10           mov         ecx,dword ptr [ebp+10h]
+  1002BEF7: 03 C8              add         ecx,eax
+  1002BEF9: 89 4D 10           mov         dword ptr [ebp+10h],ecx
+  1002BEFC: 8B 6D 14           mov         ebp,dword ptr [ebp+14h]
+  1002BEFF: 8B 8E 08 EF 00 00  mov         ecx,dword ptr [esi+0000EF08h]
+  1002BF05: 55                 push        ebp
+  1002BF06: 51                 push        ecx
+  1002BF07: 8B CE              mov         ecx,esi
+  1002BF09: E8 F2 01 00 00     call        1002C100
+  1002BF0E: 85 C0              test        eax,eax
+  1002BF10: 0F 84 A8 00 00 00  je          1002BFBE
+  1002BF16: 8B 6C 24 24        mov         ebp,dword ptr [esp+24h]
+  1002BF1A: 66 C7 45 00 01 00  mov         word ptr [ebp],1
+  1002BF20: 66 8B 15 A4 E1 05  mov         dx,word ptr ds:[1005E1A4h]
+            10
+  1002BF27: 66 89 55 0E        mov         word ptr [ebp+0Eh],dx
+  1002BF2B: A1 A0 E1 05 10     mov         eax,dword ptr ds:[1005E1A0h]
+  1002BF30: 89 45 04           mov         dword ptr [ebp+4],eax
+  1002BF33: 66 8B 0D 9C E1 05  mov         cx,word ptr ds:[1005E19Ch]
+            10
+  1002BF3A: 33 C0              xor         eax,eax
+  1002BF3C: 66 89 4D 02        mov         word ptr [ebp+2],cx
+  1002BF40: 66 8B C2           mov         ax,dx
+  1002BF43: 33 D2              xor         edx,edx
+  1002BF45: 66 8B D1           mov         dx,cx
+  1002BF48: 8B CE              mov         ecx,esi
+  1002BF4A: 0F AF C2           imul        eax,edx
+  1002BF4D: C1 F8 03           sar         eax,3
+  1002BF50: 66 89 45 0C        mov         word ptr [ebp+0Ch],ax
+  1002BF54: 25 FF FF 00 00     and         eax,0FFFFh
+  1002BF59: 0F AF 45 04        imul        eax,dword ptr [ebp+4]
+  1002BF5D: 89 45 08           mov         dword ptr [ebp+8],eax
+  1002BF60: E8 AB A9 FF FF     call        10026910
+  1002BF65: 33 C0              xor         eax,eax
+  1002BF67: 66 8B 45 0C        mov         ax,word ptr [ebp+0Ch]
+  1002BF6B: 0F AF 86 F8 EE 00  imul        eax,dword ptr [esi+0000EEF8h]
+            00
+  1002BF72: 50                 push        eax
+  1002BF73: E8 4D 12 01 00     call        1003D1C5
+  1002BF78: 8B F8              mov         edi,eax
+  1002BF7A: 33 C9              xor         ecx,ecx
+  1002BF7C: 89 BE 04 EF 00 00  mov         dword ptr [esi+0000EF04h],edi
+  1002BF82: 66 8B 4D 0C        mov         cx,word ptr [ebp+0Ch]
+  1002BF86: 0F AF 8E F8 EE 00  imul        ecx,dword ptr [esi+0000EEF8h]
+            00
+  1002BF8D: 8B D1              mov         edx,ecx
+  1002BF8F: 33 C0              xor         eax,eax
+  1002BF91: C1 E9 02           shr         ecx,2
+  1002BF94: F3 AB              rep stos    dword ptr es:[edi]
+  1002BF96: 8B CA              mov         ecx,edx
+  1002BF98: 83 C4 04           add         esp,4
+  1002BF9B: 83 E1 03           and         ecx,3
+  1002BF9E: F3 AA              rep stos    byte ptr es:[edi]
+  1002BFA0: 53                 push        ebx
+  1002BFA1: 8B CE              mov         ecx,esi
+  1002BFA3: E8 E8 0A 00 00     call        1002CA90
+  1002BFA8: 8B 44 24 28        mov         eax,dword ptr [esp+28h]
+  1002BFAC: C6 00 01           mov         byte ptr [eax],1
+  1002BFAF: 8B 8E 08 EF 00 00  mov         ecx,dword ptr [esi+0000EF08h]
+  1002BFB5: 51                 push        ecx
+  1002BFB6: E8 C2 11 01 00     call        1003D17D
+  1002BFBB: 83 C4 04           add         esp,4
+  1002BFBE: 8B 4C 24 14        mov         ecx,dword ptr [esp+14h]
+  1002BFC2: 8B C6              mov         eax,esi
+  1002BFC4: 5F                 pop         edi
+  1002BFC5: 5E                 pop         esi
+  1002BFC6: 5D                 pop         ebp
+  1002BFC7: 5B                 pop         ebx
+  1002BFC8: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002BFCF: 83 C4 10           add         esp,10h
+  1002BFD2: C2 0C 00           ret         0Ch
+  1002BFD5: 90                 nop
+  1002BFD6: 90                 nop
+  1002BFD7: 90                 nop
+  1002BFD8: 90                 nop
+  1002BFD9: 90                 nop
+  1002BFDA: 90                 nop
+  1002BFDB: 90                 nop
+  1002BFDC: 90                 nop
+  1002BFDD: 90                 nop
+  1002BFDE: 90                 nop
+  1002BFDF: 90                 nop
+  1002BFE0: 8B
+
+  Summary
+
+       47000 .text

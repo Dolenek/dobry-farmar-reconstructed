@@ -500,7 +500,10 @@
     "analysis/squall-wma-current-block-observations.json",
     "analysis/squall-wma-async-com-observations.json",
     "analysis/squall-wma-runtime-validation.json",
-    "analysis/squall-wma-explicit-left-validation.json"
+    "analysis/squall-wma-explicit-left-validation.json",
+    "analysis/squall-tracker-initial-observations.json",
+    "analysis/squall-tracker-initial-process-observations.json",
+    "analysis/squall-tracker-staged-process-observations.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108427,5 +108430,14 @@
     "latest_full_game_regression": "analysis/squall-mpeg-regression.json",
     "full_game_regression_transferred_by_program_byte_equality": "analysis/squall-wma-explicit-left-validation.json"
   },
-  "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries"
+  "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
+  "squall-tracker-observations": {
+    "report": "analysis/squall-tracker-initial-observations.json",
+    "status": "actual_tracker_layout_inconsistency_and_native_cleanup_failures_not_equivalent",
+    "production_implementation_changed": false,
+    "native_normal_loads_failed": 9,
+    "native_staged_titled_cleanup_failed": 4,
+    "native_staged_blank_title_cleanup_passed": 4,
+    "complete": false
+  }
 }
