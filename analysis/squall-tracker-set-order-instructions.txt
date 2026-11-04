@@ -1,0 +1,99 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002CA90: 56                 push        esi
+  1002CA91: 57                 push        edi
+  1002CA92: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  1002CA96: 8B F1              mov         esi,ecx
+  1002CA98: 81 FF 00 01 00 00  cmp         edi,100h
+  1002CA9E: 0F 83 FF 00 00 00  jae         1002CBA3
+  1002CAA4: B0 FE              mov         al,0FEh
+  1002CAA6: 38 84 3E AC B7 00  cmp         byte ptr [esi+edi+0000B7ACh],al
+            00
+  1002CAAD: 75 0E              jne         1002CABD
+  1002CAAF: 47                 inc         edi
+  1002CAB0: 81 FF 00 01 00 00  cmp         edi,100h
+  1002CAB6: 72 EE              jb          1002CAA6
+  1002CAB8: 5F                 pop         edi
+  1002CAB9: 5E                 pop         esi
+  1002CABA: C2 04 00           ret         4
+  1002CABD: 81 FF 00 01 00 00  cmp         edi,100h
+  1002CAC3: 0F 83 DA 00 00 00  jae         1002CBA3
+  1002CAC9: 80 BC 37 AC B7 00  cmp         byte ptr [edi+esi+0000B7ACh],0F0h
+            00 F0
+  1002CAD1: 0F 83 CC 00 00 00  jae         1002CBA3
+  1002CAD7: 53                 push        ebx
+  1002CAD8: 8D 86 DC 00 00 00  lea         eax,[esi+000000DCh]
+  1002CADE: B9 50 00 00 00     mov         ecx,50h
+  1002CAE3: 33 DB              xor         ebx,ebx
+  1002CAE5: 89 58 AC           mov         dword ptr [eax-54h],ebx
+  1002CAE8: 88 18              mov         byte ptr [eax],bl
+  1002CAEA: 89 58 B4           mov         dword ptr [eax-4Ch],ebx
+  1002CAED: 88 58 04           mov         byte ptr [eax+4],bl
+  1002CAF0: 88 58 21           mov         byte ptr [eax+21h],bl
+  1002CAF3: 88 58 20           mov         byte ptr [eax+20h],bl
+  1002CAF6: 88 58 1E           mov         byte ptr [eax+1Eh],bl
+  1002CAF9: 05 00 01 00 00     add         eax,100h
+  1002CAFE: 49                 dec         ecx
+  1002CAFF: 75 E4              jne         1002CAE5
+  1002CB01: 3B FB              cmp         edi,ebx
+  1002CB03: 75 0A              jne         1002CB0F
+  1002CB05: 53                 push        ebx
+  1002CB06: 8B CE              mov         ecx,esi
+  1002CB08: E8 43 FD FF FF     call        1002C850
+  1002CB0D: EB 3C              jmp         1002CB4B
+  1002CB0F: 8B 86 88 D0 00 00  mov         eax,dword ptr [esi+0000D088h]
+  1002CB15: 89 BE A0 D0 00 00  mov         dword ptr [esi+0000D0A0h],edi
+  1002CB1B: 89 9E 90 D0 00 00  mov         dword ptr [esi+0000D090h],ebx
+  1002CB21: 89 9E 94 D0 00 00  mov         dword ptr [esi+0000D094h],ebx
+  1002CB27: 89 9E 98 D0 00 00  mov         dword ptr [esi+0000D098h],ebx
+  1002CB2D: 89 86 78 D0 00 00  mov         dword ptr [esi+0000D078h],eax
+  1002CB33: 89 9E 68 D0 00 00  mov         dword ptr [esi+0000D068h],ebx
+  1002CB39: 89 9E 7C D0 00 00  mov         dword ptr [esi+0000D07Ch],ebx
+  1002CB3F: 89 9E 80 D0 00 00  mov         dword ptr [esi+0000D080h],ebx
+  1002CB45: 89 9E 84 D0 00 00  mov         dword ptr [esi+0000D084h],ebx
+  1002CB4B: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  1002CB51: 89 9E FC EE 00 00  mov         dword ptr [esi+0000EEFCh],ebx
+  1002CB57: 81 E1 DF F0 FF FF  and         ecx,0FFFFF0DFh
+  1002CB5D: 3B FB              cmp         edi,ebx
+  1002CB5F: 89 8E 58 D0 00 00  mov         dword ptr [esi+0000D058h],ecx
+  1002CB65: 74 21              je          1002CB88
+  1002CB67: 39 9E A8 9F 00 00  cmp         dword ptr [esi+00009FA8h],ebx
+  1002CB6D: 74 15              je          1002CB84
+  1002CB6F: 8B 8E B4 9F 00 00  mov         ecx,dword ptr [esi+00009FB4h]
+  1002CB75: 8B 96 FC EE 00 00  mov         edx,dword ptr [esi+0000EEFCh]
+  1002CB7B: 03 D1              add         edx,ecx
+  1002CB7D: 4F                 dec         edi
+  1002CB7E: 89 96 FC EE 00 00  mov         dword ptr [esi+0000EEFCh],edx
+  1002CB84: 3B FB              cmp         edi,ebx
+  1002CB86: 75 DF              jne         1002CB67
+  1002CB88: 8B 96 F8 EE 00 00  mov         edx,dword ptr [esi+0000EEF8h]
+  1002CB8E: 8B 86 04 EF 00 00  mov         eax,dword ptr [esi+0000EF04h]
+  1002CB94: C1 E2 02           shl         edx,2
+  1002CB97: 6A 02              push        2
+  1002CB99: 52                 push        edx
+  1002CB9A: 50                 push        eax
+  1002CB9B: 8B CE              mov         ecx,esi
+  1002CB9D: E8 EE D9 FF FF     call        1002A590
+  1002CBA2: 5B                 pop         ebx
+  1002CBA3: 5F                 pop         edi
+  1002CBA4: 5E                 pop         esi
+  1002CBA5: C2 04 00           ret         4
+  1002CBA8: 90                 nop
+  1002CBA9: 90                 nop
+  1002CBAA: 90                 nop
+  1002CBAB: 90                 nop
+  1002CBAC: 90                 nop
+  1002CBAD: 90                 nop
+  1002CBAE: 90                 nop
+  1002CBAF: 90                 nop
+  1002CBB0: 83
+
+  Summary
+
+       47000 .text

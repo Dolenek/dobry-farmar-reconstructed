@@ -1,0 +1,1419 @@
+{
+  "status": "native_tracker_loader_offset_instructions_not_complete_body_equivalence",
+  "work_directory": ".local/squall-tracker-loader-offsets/20261104T184351910691Z",
+  "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "raw_pseudocode_sha256": "346379d2c862b607c39e9d0a70f72e3f3872673172b1c6edea2e7cfed7df185a",
+  "dumpbin_sha256": "cf48fd643acfb53342bf5ed3ab26126d8986f9fbabfabb83be910b91fcff511e",
+  "loaders": [
+    {
+      "name": "XM",
+      "path": "load_xm.cpp",
+      "address": "100258a0",
+      "instruction_range_end": "0x10026910",
+      "instruction_sha256": "9ecfff41ad0da1aad6f0a61c3eae8413fcb61afade152a2ea65978fb2673afa7",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 2,
+          "instructions": [
+            "10025A1C: 8D 93 A8 B7 00 00  lea         edx,[ebx+0000B7A8h]",
+            "10025AE4: 8D 83 A8 B7 00 00  lea         eax,[ebx+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10025A07: 89 8B 48 D0 00 00  mov         dword ptr [ebx+0000D048h],ecx"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "100259F0: 89 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],eax"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 4,
+          "instructions": [
+            "100259BC: 83 8B 54 D0 00 00  or          dword ptr [ebx+0000D054h],10h",
+            "100259C8: 8B 83 54 D0 00 00  mov         eax,dword ptr [ebx+0000D054h]",
+            "100259D1: 89 83 54 D0 00 00  mov         dword ptr [ebx+0000D054h],eax",
+            "10026713: 83 88 54 D0 00 00  or          dword ptr [eax+0000D054h],1"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 5,
+          "instructions": [
+            "100258B9: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],0",
+            "10025962: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "10025C1F: 8B 88 58 D0 00 00  mov         ecx,dword ptr [eax+0000D058h]",
+            "10025C74: 8B 90 58 D0 00 00  mov         edx,dword ptr [eax+0000D058h]",
+            "10025E6B: 3B 88 58 D0 00 00  cmp         ecx,dword ptr [eax+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "10025944: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],4"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 4,
+          "instructions": [
+            "100259A0: C7 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],0",
+            "10025FED: 8B 8D 6C D0 00 00  mov         ecx,dword ptr [ebp+0000D06Ch]",
+            "10026014: 8B 85 6C D0 00 00  mov         eax,dword ptr [ebp+0000D06Ch]",
+            "100260D2: 89 95 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],edx"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "100258F5: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]",
+            "10026492: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "IT",
+      "path": "load_it.cpp",
+      "address": "1001d240",
+      "instruction_range_end": "0x1001e120",
+      "instruction_sha256": "62b73cca9316d57c9cfc739ce88a1969039030da3f444243ca2c0c7adc550a07",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1001D4DD: 8D BB A8 B7 00 00  lea         edi,[ebx+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001D3C3: 89 83 48 D0 00 00  mov         dword ptr [ebx+0000D048h],eax"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001D3D9: 89 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],eax"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 7,
+          "instructions": [
+            "1001D326: 83 8B 54 D0 00 00  or          dword ptr [ebx+0000D054h],10h",
+            "1001D331: 83 8B 54 D0 00 00  or          dword ptr [ebx+0000D054h],4",
+            "1001D33C: 83 8B 54 D0 00 00  or          dword ptr [ebx+0000D054h],8",
+            "1001D347: 83 8B 54 D0 00 00  or          dword ptr [ebx+0000D054h],1",
+            "1001D353: 8B 83 54 D0 00 00  mov         eax,dword ptr [ebx+0000D054h]",
+            "1001D35C: 89 83 54 D0 00 00  mov         dword ptr [ebx+0000D054h],eax",
+            "1001D633: F6 83 54 D0 00 00  test        byte ptr [ebx+0000D054h],1"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 18,
+          "instructions": [
+            "1001D442: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "1001D451: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1001D6EE: C7 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],4",
+            "1001D727: 89 95 58 D0 00 00  mov         dword ptr [ebp+0000D058h],edx",
+            "1001D85E: 3B 83 58 D0 00 00  cmp         eax,dword ptr [ebx+0000D058h]",
+            "1001D86C: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1001DCD4: 8B 8A 58 D0 00 00  mov         ecx,dword ptr [edx+0000D058h]",
+            "1001DD4A: 8B 87 58 D0 00 00  mov         eax,dword ptr [edi+0000D058h]",
+            "1001DD88: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001DDB1: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001DDDB: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001DE10: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001DE4F: 8B 97 58 D0 00 00  mov         edx,dword ptr [edi+0000D058h]",
+            "1001DE90: 8B 97 58 D0 00 00  mov         edx,dword ptr [edi+0000D058h]",
+            "1001DEC9: 8B 97 58 D0 00 00  mov         edx,dword ptr [edi+0000D058h]",
+            "1001E00C: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001E06D: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "1001E0C8: 3B 8A 58 D0 00 00  cmp         ecx,dword ptr [edx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001D318: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],20h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 2,
+          "instructions": [
+            "1001D98D: 89 87 6C D0 00 00  mov         dword ptr [edi+0000D06Ch],eax",
+            "1001D995: C7 87 6C D0 00 00  mov         dword ptr [edi+0000D06Ch],0EFh"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "1001D362: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "S3M",
+      "path": "load_s3m.cpp",
+      "address": "10024450",
+      "instruction_range_end": "0x10024c50",
+      "instruction_sha256": "fde14f276ebef9caa8e13778e5b3b047c92dca773ade6bcaac6000dd3454db8f",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "10024610: 8D BD A8 B7 00 00  lea         edi,[ebp+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 4,
+          "instructions": [
+            "100244DA: 89 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],eax",
+            "100244E2: C7 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],6",
+            "100244EC: 8B 8D 48 D0 00 00  mov         ecx,dword ptr [ebp+0000D048h]",
+            "100244FB: 89 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],eax"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 4,
+          "instructions": [
+            "1002450F: 89 85 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],eax",
+            "10024517: C7 85 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],28h",
+            "10024521: 39 9D 4C D0 00 00  cmp         dword ptr [ebp+0000D04Ch],ebx",
+            "10024529: 89 9D 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],ebx"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 3,
+          "instructions": [
+            "100245D2: 8B 85 54 D0 00 00  mov         eax,dword ptr [ebp+0000D054h]",
+            "100245DA: 89 85 54 D0 00 00  mov         dword ptr [ebp+0000D054h],eax",
+            "10024C1E: 81 8D 54 D0 00 00  or          dword ptr [ebp+0000D054h],10000h"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "10024560: 89 BD 58 D0 00 00  mov         dword ptr [ebp+0000D058h],edi",
+            "10024599: 89 9D 58 D0 00 00  mov         dword ptr [ebp+0000D058h],ebx",
+            "100245B4: 39 BD 58 D0 00 00  cmp         dword ptr [ebp+0000D058h],edi",
+            "100245BC: 89 BD 58 D0 00 00  mov         dword ptr [ebp+0000D058h],edi",
+            "1002471C: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]",
+            "10024A09: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]",
+            "10024A6A: 8B 92 58 D0 00 00  mov         edx,dword ptr [edx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "100244AD: C7 85 68 D0 00 00  mov         dword ptr [ebp+0000D068h],2"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 1,
+          "instructions": [
+            "10024671: 89 9D 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],ebx"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "1002449E: 8D 95 E4 D0 00 00  lea         edx,[ebp+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "STM",
+      "path": "load_stm.cpp",
+      "address": "10024c50",
+      "instruction_range_end": "0x10025160",
+      "instruction_sha256": "c48e788e8a22f30046581ef6377c4bfe385e5b3be5751eaffa09d74b353dbec4",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 2,
+          "instructions": [
+            "10024D43: 8D BD A8 B7 00 00  lea         edi,[ebp+0000B7A8h]",
+            "10024E5F: 8D 85 A8 B7 00 00  lea         eax,[ebp+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 2,
+          "instructions": [
+            "10024D0F: 89 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],eax",
+            "10024D17: C7 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],1"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10024D23: C7 85 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],7Dh"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 2,
+          "instructions": [
+            "10024CE2: C7 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],4",
+            "10024EE6: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "10024CD2: 89 B5 68 D0 00 00  mov         dword ptr [ebp+0000D068h],esi"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 1,
+          "instructions": [
+            "10024CD8: C7 85 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],1Fh"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "10024CBA: 8D BD E4 D0 00 00  lea         edi,[ebp+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "Med",
+      "path": "load_med.cpp",
+      "address": "1001fa10",
+      "instruction_range_end": "0x10020a10",
+      "instruction_sha256": "d658f065e165c4129b80a71c85626bfabddd117bf487baa9dfcdb73f2a7e99cf",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 3,
+          "instructions": [
+            "1001FD77: 8D BD A8 B7 00 00  lea         edi,[ebp+0000B7A8h]",
+            "1001FF63: 88 84 3B A8 B7 00  mov         byte ptr [ebx+edi+0000B7A8h],al",
+            "1001FFB2: 8D BC 03 A8 B7 00  lea         edi,[ebx+eax+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 5,
+          "instructions": [
+            "1001FC0C: 89 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],eax",
+            "1001FC14: C7 85 48 D0 00 00  mov         dword ptr [ebp+0000D048h],6",
+            "1001FC32: 83 BD 48 D0 00 00  cmp         dword ptr [ebp+0000D048h],3",
+            "1001FC43: 8B BD 48 D0 00 00  mov         edi,dword ptr [ebp+0000D048h]",
+            "1001FC50: 89 B5 48 D0 00 00  mov         dword ptr [ebp+0000D048h],esi"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 2,
+          "instructions": [
+            "1001FBA1: C7 85 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],7Dh",
+            "1001FC75: 89 8D 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],ecx"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 2,
+          "instructions": [
+            "1001FD36: 8B 85 54 D0 00 00  mov         eax,dword ptr [ebp+0000D054h]",
+            "1001FD3E: 89 85 54 D0 00 00  mov         dword ptr [ebp+0000D054h],eax"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 14,
+          "instructions": [
+            "1001FB70: C7 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],4",
+            "1001FDC0: 89 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],eax",
+            "1001FFD8: 83 B9 58 D0 00 00  cmp         dword ptr [ecx+0000D058h],4",
+            "1001FFF8: FF 81 58 D0 00 00  inc         dword ptr [ecx+0000D058h]",
+            "10020262: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]",
+            "1002039C: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]",
+            "10020629: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "10020637: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]",
+            "1002069A: 3B AA 58 D0 00 00  cmp         ebp,dword ptr [edx+0000D058h]",
+            "10020730: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "1002073E: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]",
+            "100208D7: 3B AA 58 D0 00 00  cmp         ebp,dword ptr [edx+0000D058h]",
+            "100209A9: 8B 86 58 D0 00 00  mov         eax,dword ptr [esi+0000D058h]",
+            "100209DB: 8B 86 58 D0 00 00  mov         eax,dword ptr [esi+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001FAAA: C7 85 68 D0 00 00  mov         dword ptr [ebp+0000D068h],8"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 7,
+          "instructions": [
+            "1001FB8F: 89 85 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],eax",
+            "1001FB97: C7 85 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],3Fh",
+            "1001FC6F: 8B 85 6C D0 00 00  mov         eax,dword ptr [ebp+0000D06Ch]",
+            "1001FD10: 8B 95 6C D0 00 00  mov         edx,dword ptr [ebp+0000D06Ch]",
+            "100201FB: 3B A9 6C D0 00 00  cmp         ebp,dword ptr [ecx+0000D06Ch]",
+            "100203CB: 8B 82 6C D0 00 00  mov         eax,dword ptr [edx+0000D06Ch]",
+            "10020518: 8B 91 6C D0 00 00  mov         edx,dword ptr [ecx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 3,
+          "instructions": [
+            "1001FEF3: 8D B9 E4 D0 00 00  lea         edi,[ecx+0000D0E4h]",
+            "1001FEF9: 8A 89 E4 D0 00 00  mov         cl,byte ptr [ecx+0000D0E4h]",
+            "10020116: 8D B8 E4 D0 00 00  lea         edi,[eax+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "MTM",
+      "path": "load_mtm.cpp",
+      "address": "10022920",
+      "instruction_range_end": "0x10022e30",
+      "instruction_sha256": "c0e65b56d8c03be38695f28e4a94e84a2ee87906cf512b5bc6cb2c74e9a8fa7d",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "10022B4C: 8D BD A8 B7 00 00  lea         edi,[ebp+0000B7A8h]"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 6,
+          "instructions": [
+            "10022A14: 89 8D 58 D0 00 00  mov         dword ptr [ebp+0000D058h],ecx",
+            "10022B0E: 8B 8D 58 D0 00 00  mov         ecx,dword ptr [ebp+0000D058h]",
+            "10022B3B: 3B 85 58 D0 00 00  cmp         eax,dword ptr [ebp+0000D058h]",
+            "10022BAC: 8B 95 58 D0 00 00  mov         edx,dword ptr [ebp+0000D058h]",
+            "10022BF3: 8B BD 58 D0 00 00  mov         edi,dword ptr [ebp+0000D058h]",
+            "10022C7E: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "100229FC: C7 85 68 D0 00 00  mov         dword ptr [ebp+0000D068h],10h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 5,
+          "instructions": [
+            "10022A0B: 89 85 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],eax",
+            "10022A1A: 8B 8D 6C D0 00 00  mov         ecx,dword ptr [ebp+0000D06Ch]",
+            "10022AF1: 8B 8D 6C D0 00 00  mov         ecx,dword ptr [ebp+0000D06Ch]",
+            "10022DA6: 8B 85 6C D0 00 00  mov         eax,dword ptr [ebp+0000D06Ch]",
+            "10022DEC: 8B 85 6C D0 00 00  mov         eax,dword ptr [ebp+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "100229AE: 8D 8D E4 D0 00 00  lea         ecx,[ebp+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "MDL",
+      "path": "load_mdl.cpp",
+      "address": "1001ee40",
+      "instruction_range_end": "0x1001fa10",
+      "instruction_sha256": "9a01ab04b12188edcf49f54f6035773f29d27e870aab560629983b562f2f4f17",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1001F2B6: 88 94 2E A8 B7 00  mov         byte ptr [esi+ebp+0000B7A8h],dl"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001F250: 89 95 48 D0 00 00  mov         dword ptr [ebp+0000D048h],edx"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001F23B: 89 95 4C D0 00 00  mov         dword ptr [ebp+0000D04Ch],edx"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 2,
+          "instructions": [
+            "1001F9C9: 8B 83 54 D0 00 00  mov         eax,dword ptr [ebx+0000D054h]",
+            "1001F9D3: 89 83 54 D0 00 00  mov         dword ptr [ebx+0000D054h],eax"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "1001F096: 8B B5 58 D0 00 00  mov         esi,dword ptr [ebp+0000D058h]",
+            "1001F0A4: 89 8D 58 D0 00 00  mov         dword ptr [ebp+0000D058h],ecx",
+            "1001F246: C7 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],4",
+            "1001F293: 89 95 58 D0 00 00  mov         dword ptr [ebp+0000D058h],edx",
+            "1001F6A1: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]",
+            "1001F70B: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]",
+            "1001F76E: 8B 85 58 D0 00 00  mov         eax,dword ptr [ebp+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001F9D9: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],4000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 5,
+          "instructions": [
+            "1001EEF7: 89 AA 6C D0 00 00  mov         dword ptr [edx+0000D06Ch],ebp",
+            "1001EF60: 8B 95 6C D0 00 00  mov         edx,dword ptr [ebp+0000D06Ch]",
+            "1001F00A: 8B 95 6C D0 00 00  mov         edx,dword ptr [ebp+0000D06Ch]",
+            "1001F5A6: 39 A8 6C D0 00 00  cmp         dword ptr [eax+0000D06Ch],ebp",
+            "1001F5AE: 89 A8 6C D0 00 00  mov         dword ptr [eax+0000D06Ch],ebp"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "1001F1F4: 8D BD E4 D0 00 00  lea         edi,[ebp+0000D0E4h]",
+            "1001F5CD: 8D BC 0F E4 D0 00  lea         edi,[edi+ecx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "DBM",
+      "path": "load_dbm.cpp",
+      "address": "1001aa80",
+      "instruction_range_end": "0x1001b4f0",
+      "instruction_sha256": "3b2da8425f7771a2d02fb479b6579045df7b586e458773273a235e5eb6a87cf9",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1001AC1F: 88 8C 02 A8 B7 00  mov         byte ptr [edx+eax+0000B7A8h],cl"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "1001ABBF: 89 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],eax",
+            "1001ABC7: C7 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],4",
+            "1001ABD1: 8B 8A 58 D0 00 00  mov         ecx,dword ptr [edx+0000D058h]",
+            "1001ABE0: 89 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],eax",
+            "1001B172: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "1001B1DF: 8B B9 58 D0 00 00  mov         edi,dword ptr [ecx+0000D058h]",
+            "1001B366: 8B 81 58 D0 00 00  mov         eax,dword ptr [ecx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001AB92: C7 82 68 D0 00 00  mov         dword ptr [edx+0000D068h],80000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 1,
+          "instructions": [
+            "1001B3E7: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "1001ABF3: 8D BA E4 D0 00 00  lea         edi,[edx+0000D0E4h]",
+            "1001AD8C: 8D B8 E4 D0 00 00  lea         edi,[eax+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "669",
+      "path": "load_669.cpp",
+      "address": "100187b0",
+      "instruction_range_end": "0x10018cd0",
+      "instruction_sha256": "07fb1ba4ede51dad8c3d08fc0f9febcc4f22c40b09583d4b81f3fd00553af7ab",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 2,
+          "instructions": [
+            "100189A6: 8D BB A8 B7 00 00  lea         edi,[ebx+0000B7A8h]",
+            "100189C5: 8A 8C 18 A8 B7 00  mov         cl,byte ptr [eax+ebx+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001889B: C7 83 48 D0 00 00  mov         dword ptr [ebx+0000D048h],6"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10018891: C7 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],7Dh"
+          ]
+        },
+        "0xd054": {
+          "meaning": "old song flags / new default global volume",
+          "instruction_count": 2,
+          "instructions": [
+            "10018861: 8B 93 54 D0 00 00  mov         edx,dword ptr [ebx+0000D054h]",
+            "10018877: 89 93 54 D0 00 00  mov         dword ptr [ebx+0000D054h],edx"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 2,
+          "instructions": [
+            "100188A5: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],8",
+            "10018A5B: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001886D: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],40h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 4,
+          "instructions": [
+            "100188D7: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "10018972: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]",
+            "10018C3E: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10018C85: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "100188B1: 8D 93 E4 D0 00 00  lea         edx,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "FAR",
+      "path": "load_far.cpp",
+      "address": "1001c670",
+      "instruction_range_end": "0x1001cd80",
+      "instruction_sha256": "03c710aca3698bc89b176afc9ef7fae6899b4ee50628ccc90f9c299e667a81ba",
+      "field_instructions": {
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C723: 89 88 48 D0 00 00  mov         dword ptr [eax+0000D048h],ecx"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C734: C7 80 4C D0 00 00  mov         dword ptr [eax+0000D04Ch],50h"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 2,
+          "instructions": [
+            "1001C6FD: C7 80 58 D0 00 00  mov         dword ptr [eax+0000D058h],10h",
+            "1001C90B: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C6F3: C7 80 68 D0 00 00  mov         dword ptr [eax+0000D068h],200h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 2,
+          "instructions": [
+            "1001C70D: 89 90 6C D0 00 00  mov         dword ptr [eax+0000D06Ch],edx",
+            "1001CB71: 89 8E 6C D0 00 00  mov         dword ptr [esi+0000D06Ch],ecx"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C729: 8D B8 E4 D0 00 00  lea         edi,[eax+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "AMS",
+      "path": "load_ams.cpp",
+      "address": "100197f0",
+      "instruction_range_end": "0x1001a160",
+      "instruction_sha256": "33f32e36133d349bbd0db41c486b34a996610e71f24d0e4d7ed0711fdbac5fb1",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "10019C41: 88 94 03 A8 B7 00  mov         byte ptr [ebx+eax+0000B7A8h],dl"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "100198CA: 89 8B 58 D0 00 00  mov         dword ptr [ebx+0000D058h],ecx",
+            "10019A6E: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10019CB5: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10019D24: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "10019D7B: 3B BB 58 D0 00 00  cmp         edi,dword ptr [ebx+0000D058h]",
+            "10019DA4: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "10019F79: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "100198AD: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],1000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 6,
+          "instructions": [
+            "100198D8: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "10019981: 8B 9A 6C D0 00 00  mov         ebx,dword ptr [edx+0000D06Ch]",
+            "100199F4: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10019A5C: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10019FD6: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "1001A031: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "100199DA: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]",
+            "100199EC: C6 84 18 E4 D0 00  mov         byte ptr [eax+ebx+0000D0E4h],0"
+          ]
+        }
+      },
+      "source_sha256": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "OKT",
+      "path": "load_okt.cpp",
+      "address": "10022e30",
+      "instruction_range_end": "0x10023520",
+      "instruction_sha256": "2770baaef50580dee68461a97055d0166e08d2e855b3a7b4e47476cea0952fcd",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "100231A2: 88 94 28 A8 B7 00  mov         byte ptr [eax+ebp+0000B7A8h],dl"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10023097: 89 8F 48 D0 00 00  mov         dword ptr [edi+0000D048h],ecx"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 4,
+          "instructions": [
+            "10022EFF: 89 87 58 D0 00 00  mov         dword ptr [edi+0000D058h],eax",
+            "10022F07: C7 87 58 D0 00 00  mov         dword ptr [edi+0000D058h],50h",
+            "1002325C: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "1002328D: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "10022EDA: C7 87 68 D0 00 00  mov         dword ptr [edi+0000D068h],8000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 2,
+          "instructions": [
+            "10022F46: 89 87 6C D0 00 00  mov         dword ptr [edi+0000D06Ch],eax",
+            "10022F4E: C7 87 6C D0 00 00  mov         dword ptr [edi+0000D06Ch],0EFh"
+          ]
+        }
+      },
+      "source_sha256": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "PTM",
+      "path": "load_ptm.cpp",
+      "address": "10023d10",
+      "instruction_range_end": "0x10024210",
+      "instruction_sha256": "b738bfa36a5c67502057ba57ceb95e81a1a7c26239096fa03a936c787bb730e9",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "10023E48: 8D BB A8 B7 00 00  lea         edi,[ebx+0000B7A8h]"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 5,
+          "instructions": [
+            "10023E14: 89 93 58 D0 00 00  mov         dword ptr [ebx+0000D058h],edx",
+            "10023E5C: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10023E87: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "10024027: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10024188: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "10023E0A: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],40000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 3,
+          "instructions": [
+            "10023E25: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "10023E91: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10023FA5: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "10023DE7: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "Ult",
+      "path": "load_ult.cpp",
+      "address": "10025160",
+      "instruction_range_end": "0x100257b0",
+      "instruction_sha256": "0e5c8950700563c30c1c66f402d45e100f505d03224e2a9b8a982cc84b4542f3",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "100253D6: 8D BB A8 B7 00 00  lea         edi,[ebx+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "100251BB: C7 83 48 D0 00 00  mov         dword ptr [ebx+0000D048h],6"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "100251C5: C7 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],7Dh"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 11,
+          "instructions": [
+            "100253F3: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "100253F9: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10025413: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "10025419: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "10025446: 8B BB 58 D0 00 00  mov         edi,dword ptr [ebx+0000D058h]",
+            "10025456: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "1002549E: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "100254D3: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "10025501: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "100256B6: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]",
+            "10025711: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "100251AE: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],80h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 5,
+          "instructions": [
+            "10025295: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "1002529D: C7 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],0EFh",
+            "1002530C: 8B B3 6C D0 00 00  mov         esi,dword ptr [ebx+0000D06Ch]",
+            "1002572B: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10025779: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "100251A3: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "DMF",
+      "path": "load_dmf.cpp",
+      "address": "1001b4f0",
+      "instruction_range_end": "0x1001c110",
+      "instruction_sha256": "b6323e19e0a21ab9cd825f079077ed4af9d794d7d2607358cc014b2eaaf29c94",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1001B8AF: 88 9C 02 A8 B7 00  mov         byte ptr [edx+eax+0000B7A8h],bl"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 15,
+          "instructions": [
+            "1001B577: C7 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],0",
+            "1001B8D2: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "1001B920: 89 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],eax",
+            "1001B92D: 89 8A 58 D0 00 00  mov         dword ptr [edx+0000D058h],ecx",
+            "1001B933: 8B 8A 58 D0 00 00  mov         ecx,dword ptr [edx+0000D058h]",
+            "1001B942: 89 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],eax",
+            "1001B948: 8B 8A 58 D0 00 00  mov         ecx,dword ptr [edx+0000D058h]",
+            "1001B957: 89 82 58 D0 00 00  mov         dword ptr [edx+0000D058h],eax",
+            "1001B9F7: 8B 88 58 D0 00 00  mov         ecx,dword ptr [eax+0000D058h]",
+            "1001BA9E: 8B 80 58 D0 00 00  mov         eax,dword ptr [eax+0000D058h]",
+            "1001BE10: 3B 82 58 D0 00 00  cmp         eax,dword ptr [edx+0000D058h]",
+            "1001BEC3: 8B B8 58 D0 00 00  mov         edi,dword ptr [eax+0000D058h]",
+            "1001BF04: 3B 8F 58 D0 00 00  cmp         ecx,dword ptr [edi+0000D058h]",
+            "1001C059: 8B 88 58 D0 00 00  mov         ecx,dword ptr [eax+0000D058h]",
+            "1001C083: C7 80 58 D0 00 00  mov         dword ptr [eax+0000D058h],4"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 2,
+          "instructions": [
+            "1001B56D: C7 82 68 D0 00 00  mov         dword ptr [edx+0000D068h],20000h",
+            "1001C06D: C7 80 68 D0 00 00  mov         dword ptr [eax+0000D068h],0"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 7,
+          "instructions": [
+            "1001B5D6: 8B 8A 6C D0 00 00  mov         ecx,dword ptr [edx+0000D06Ch]",
+            "1001B677: 8B 8A 6C D0 00 00  mov         ecx,dword ptr [edx+0000D06Ch]",
+            "1001B6C0: 89 8A 6C D0 00 00  mov         dword ptr [edx+0000D06Ch],ecx",
+            "1001B6C8: C7 82 6C D0 00 00  mov         dword ptr [edx+0000D06Ch],0EFh",
+            "1001B6D2: 8B 8A 6C D0 00 00  mov         ecx,dword ptr [edx+0000D06Ch]",
+            "1001B820: 8B 99 6C D0 00 00  mov         ebx,dword ptr [ecx+0000D06Ch]",
+            "1001C063: 8B 88 6C D0 00 00  mov         ecx,dword ptr [eax+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "1001B54B: 8D BA E4 D0 00 00  lea         edi,[edx+0000D0E4h]",
+            "1001B773: C6 84 0E E4 D0 00  mov         byte ptr [esi+ecx+0000D0E4h],0"
+          ]
+        }
+      },
+      "source_sha256": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "DSM",
+      "path": "load_dsm.cpp",
+      "address": "1001c110",
+      "instruction_range_end": "0x1001c670",
+      "instruction_sha256": "75b4511f75b4c3d21144983bba84fc7f3a5c18be7cb5547c9b4dfb24e7314f3b",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C242: 88 8C 03 A8 B7 00  mov         byte ptr [ebx+eax+0000B7A8h],cl"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C1EB: 89 83 48 D0 00 00  mov         dword ptr [ebx+0000D048h],eax"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C1F6: 89 8B 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],ecx"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "1001C1A0: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1001C1A8: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],4",
+            "1001C1B2: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]",
+            "1001C1C1: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1001C2FB: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "1001C368: F7 B7 58 D0 00 00  div         eax,dword ptr [edi+0000D058h]",
+            "1001C4C9: 8B 80 58 D0 00 00  mov         eax,dword ptr [eax+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C18A: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],2000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 3,
+          "instructions": [
+            "1001C1D2: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "1001C1DA: C7 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],0F0h",
+            "1001C4E4: 8B BB 6C D0 00 00  mov         edi,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "1001C282: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "UMX",
+      "path": "load_umx.cpp",
+      "address": "100257b0",
+      "instruction_range_end": "0x100258a0",
+      "instruction_sha256": "a394cd46b83df5669fe0ee2921517ce86b6d71794ea20d79010cf79830e7a9db",
+      "field_instructions": {},
+      "source_sha256": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "AMF",
+      "path": "load_amf.cpp",
+      "address": "10018f80",
+      "instruction_range_end": "0x100197f0",
+      "instruction_sha256": "5930219d06324735c25903b96930cd6a11564366ad60d1d49de91f9502e849f7",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 3,
+          "instructions": [
+            "1001905C: 88 8C 06 A8 B7 00  mov         byte ptr [esi+eax+0000B7A8h],cl",
+            "100193E4: C6 84 06 A8 B7 00  mov         byte ptr [esi+eax+0000B7A8h],0FFh",
+            "100193F3: 88 84 06 A8 B7 00  mov         byte ptr [esi+eax+0000B7A8h],al"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 3,
+          "instructions": [
+            "1001903F: C7 86 48 D0 00 00  mov         dword ptr [esi+0000D048h],6",
+            "1001939E: C7 86 48 D0 00 00  mov         dword ptr [esi+0000D048h],6",
+            "100193CD: 89 86 48 D0 00 00  mov         dword ptr [esi+0000D048h],eax"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 3,
+          "instructions": [
+            "10019035: C7 86 4C D0 00 00  mov         dword ptr [esi+0000D04Ch],7Dh",
+            "10019394: C7 86 4C D0 00 00  mov         dword ptr [esi+0000D04Ch],7Dh",
+            "100193BA: 89 86 4C D0 00 00  mov         dword ptr [esi+0000D04Ch],eax"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 7,
+          "instructions": [
+            "10019017: C7 86 58 D0 00 00  mov         dword ptr [esi+0000D058h],8",
+            "1001914C: 8B 88 58 D0 00 00  mov         ecx,dword ptr [eax+0000D058h]",
+            "100192F0: 89 85 58 D0 00 00  mov         dword ptr [ebp+0000D058h],eax",
+            "10019414: 8B 96 58 D0 00 00  mov         edx,dword ptr [esi+0000D058h]",
+            "10019657: 8B 86 58 D0 00 00  mov         eax,dword ptr [esi+0000D058h]",
+            "1001967C: 8B 96 58 D0 00 00  mov         edx,dword ptr [esi+0000D058h]",
+            "100196FB: 8B 96 58 D0 00 00  mov         edx,dword ptr [esi+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 2,
+          "instructions": [
+            "1001900D: C7 86 68 D0 00 00  mov         dword ptr [esi+0000D068h],200000h",
+            "100192E1: C7 85 68 D0 00 00  mov         dword ptr [ebp+0000D068h],800h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 8,
+          "instructions": [
+            "1001902B: C7 86 6C D0 00 00  mov         dword ptr [esi+0000D06Ch],1Fh",
+            "10019100: 89 B7 6C D0 00 00  mov         dword ptr [edi+0000D06Ch],esi",
+            "10019202: 8B 87 6C D0 00 00  mov         eax,dword ptr [edi+0000D06Ch]",
+            "10019233: 8B 8F 6C D0 00 00  mov         ecx,dword ptr [edi+0000D06Ch]",
+            "10019303: 89 8D 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],ecx",
+            "1001942C: 8B 86 6C D0 00 00  mov         eax,dword ptr [esi+0000D06Ch]",
+            "10019563: 8B B2 6C D0 00 00  mov         esi,dword ptr [edx+0000D06Ch]",
+            "1001976D: 8B 8E 6C D0 00 00  mov         ecx,dword ptr [esi+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "100192D9: 8D BD E4 D0 00 00  lea         edi,[ebp+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "PSM",
+      "path": "load_psm.cpp",
+      "address": "10023520",
+      "instruction_range_end": "0x10023d10",
+      "instruction_sha256": "dc01de0a058461539af424f2cc9d8a058f3f95eed75c4604d2b663eab3389401",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "1002396B: 88 84 19 A8 B7 00  mov         byte ptr [ecx+ebx+0000B7A8h],al"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "100238FA: 89 8B 48 D0 00 00  mov         dword ptr [ebx+0000D048h],ecx"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10023904: 89 93 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],edx"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 6,
+          "instructions": [
+            "10023589: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],10h",
+            "10023816: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "10023A23: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "10023AAC: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]",
+            "10023AFF: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]",
+            "10023B18: 3B B2 58 D0 00 00  cmp         esi,dword ptr [edx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1002357F: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],400000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 6,
+          "instructions": [
+            "10023593: 89 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],eax",
+            "100236F1: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]",
+            "10023704: 89 8B 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],ecx",
+            "1002372D: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]",
+            "10023741: 8B B3 6C D0 00 00  mov         esi,dword ptr [ebx+0000D06Ch]",
+            "10023747: 8A 8B 6C D0 00 00  mov         cl,byte ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 2,
+          "instructions": [
+            "100236BF: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]",
+            "1002371C: 8D BC 19 E4 D0 00  lea         edi,[ecx+ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "MT2",
+      "path": "load_mt2.cpp",
+      "address": "10021b40",
+      "instruction_range_end": "0x10022830",
+      "instruction_sha256": "ba25a984b5be6fedb81e0f6601642f53eb88991b2a0f658968019730a3e93647",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 1,
+          "instructions": [
+            "10021C2A: 88 8C 03 A8 B7 00  mov         byte ptr [ebx+eax+0000B7A8h],cl"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10021BDE: 89 93 48 D0 00 00  mov         dword ptr [ebx+0000D048h],edx"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 2,
+          "instructions": [
+            "10021BD4: C7 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],7Dh",
+            "10021C0B: 89 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],eax"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 6,
+          "instructions": [
+            "10021BBF: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "10021E1B: 8B 82 58 D0 00 00  mov         eax,dword ptr [edx+0000D058h]",
+            "10021EAF: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]",
+            "10021F63: 3B 82 58 D0 00 00  cmp         eax,dword ptr [edx+0000D058h]",
+            "10021F89: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "10022042: 8B 8B 58 D0 00 00  mov         ecx,dword ptr [ebx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "10021BAF: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],100000h"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 3,
+          "instructions": [
+            "100224F1: 89 85 6C D0 00 00  mov         dword ptr [ebp+0000D06Ch],eax",
+            "100226C2: 8B 9D 6C D0 00 00  mov         ebx,dword ptr [ebp+0000D06Ch]",
+            "10022766: 3B 9D 6C D0 00 00  cmp         ebx,dword ptr [ebp+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "10021C3C: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09",
+      "legacy_view_already_present": false
+    },
+    {
+      "name": "Mod",
+      "path": "load_mod.cpp",
+      "address": "10021250",
+      "instruction_range_end": "0x10021b40",
+      "instruction_sha256": "23c6a29f91603552a41c85d5cb6b6a8543312f87298bc94fb5e9c47aa870d502",
+      "field_instructions": {
+        "0xb7a8": {
+          "meaning": "old Order / new SamplesInFile",
+          "instruction_count": 2,
+          "instructions": [
+            "100216B2: 8D AB A8 B7 00 00  lea         ebp,[ebx+0000B7A8h]",
+            "10021749: 8D BC 1A A8 B7 00  lea         edi,[edx+ebx+0000B7A8h]"
+          ]
+        },
+        "0xd048": {
+          "meaning": "old default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10021887: C7 83 48 D0 00 00  mov         dword ptr [ebx+0000D048h],6"
+          ]
+        },
+        "0xd04c": {
+          "meaning": "old default tempo / new default speed",
+          "instruction_count": 1,
+          "instructions": [
+            "10021891: C7 83 4C D0 00 00  mov         dword ptr [ebx+0000D04Ch],7Dh"
+          ]
+        },
+        "0xd058": {
+          "meaning": "old channels / new song flags",
+          "instruction_count": 19,
+          "instructions": [
+            "10021291: 89 BB 58 D0 00 00  mov         dword ptr [ebx+0000D058h],edi",
+            "1002137B: 89 8B 58 D0 00 00  mov         dword ptr [ebx+0000D058h],ecx",
+            "100213AB: 89 93 58 D0 00 00  mov         dword ptr [ebx+0000D058h],edx",
+            "100213E4: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1002140D: 89 8B 58 D0 00 00  mov         dword ptr [ebx+0000D058h],ecx",
+            "10021436: 89 93 58 D0 00 00  mov         dword ptr [ebx+0000D058h],edx",
+            "1002145F: 89 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],eax",
+            "1002147D: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],10h",
+            "1002149F: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],20h",
+            "100214B7: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],8",
+            "100214C3: 89 BB 58 D0 00 00  mov         dword ptr [ebx+0000D058h],edi",
+            "100217D8: C7 83 58 D0 00 00  mov         dword ptr [ebx+0000D058h],8",
+            "100217F3: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "1002182C: 0F AF 93 58 D0 00  imul        edx,dword ptr [ebx+0000D058h]",
+            "1002186C: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "10021903: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "1002194D: 8B 93 58 D0 00 00  mov         edx,dword ptr [ebx+0000D058h]",
+            "10021979: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]",
+            "10021A2B: 8B 83 58 D0 00 00  mov         eax,dword ptr [ebx+0000D058h]"
+          ]
+        },
+        "0xd068": {
+          "meaning": "old type / new buffer count",
+          "instruction_count": 1,
+          "instructions": [
+            "1002187D: C7 83 68 D0 00 00  mov         dword ptr [ebx+0000D068h],1"
+          ]
+        },
+        "0xd06c": {
+          "meaning": "old sample count / new type",
+          "instruction_count": 8,
+          "instructions": [
+            "10021287: C7 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],1Fh",
+            "100214AB: C7 83 6C D0 00 00  mov         dword ptr [ebx+0000D06Ch],0Fh",
+            "100214C9: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]",
+            "10021643: 8B B3 6C D0 00 00  mov         esi,dword ptr [ebx+0000D06Ch]",
+            "10021665: 8B 83 6C D0 00 00  mov         eax,dword ptr [ebx+0000D06Ch]",
+            "10021851: 83 BB 6C D0 00 00  cmp         dword ptr [ebx+0000D06Ch],0Fh",
+            "10021A59: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]",
+            "10021AFC: 8B 8B 6C D0 00 00  mov         ecx,dword ptr [ebx+0000D06Ch]"
+          ]
+        },
+        "0xd0e4": {
+          "meaning": "old title / new pattern-name pointer",
+          "instruction_count": 1,
+          "instructions": [
+            "10021872: 8D BB E4 D0 00 00  lea         edi,[ebx+0000D0E4h]"
+          ]
+        }
+      },
+      "source_sha256": "d78dbd349406d4f269b66c78877e2605bbe370a911c8e3c62ca4f73862e8d3c4",
+      "legacy_view_already_present": true
+    }
+  ]
+}

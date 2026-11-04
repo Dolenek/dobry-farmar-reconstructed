@@ -531,6 +531,106 @@
       "source_difference": "Unsequenced public C++ increments replaced with signed left sample and advance2; both compiled DLL bodies unchanged.",
       "current_sha256": "e5857408b02b95e523288fbbaf6c06a349843b2ec9ab821915ac4ad61200ee24",
       "verification_report": "analysis/squall-wma-explicit-left-validation.json"
+    },
+    {
+      "path": "SoundFile/track/TrackDecoder.cpp",
+      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "original_addresses": [
+        "10017fe0",
+        "10021250",
+        "10026910",
+        "10027870",
+        "1002a590",
+        "1002a7f0",
+        "1002aaa0",
+        "1002bdb0",
+        "1002bfe0",
+        "1002c000",
+        "1002ca90"
+      ],
+      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
+      "current_sha256": "dd4669f757ed0e7925a2cd3d93222675f02a65c6e488407c90e307260c3ba404",
+      "verification_report": "analysis/squall-tracker-regression.json"
+    },
+    {
+      "path": "SoundFile/track/TrackDecoder.h",
+      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "original_addresses": [
+        "10017fe0",
+        "10021250",
+        "10026910",
+        "10027870",
+        "1002a590",
+        "1002a7f0",
+        "1002aaa0",
+        "1002bdb0",
+        "1002bfe0",
+        "1002c000",
+        "1002ca90"
+      ],
+      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
+      "current_sha256": "4683abc920286c0a308c1a0b0217d27b597f4c3082876919f5b48fc3e10e9cb3",
+      "verification_report": "analysis/squall-tracker-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_mod.cpp",
+      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "original_addresses": [
+        "10017fe0",
+        "10021250",
+        "10026910",
+        "10027870",
+        "1002a590",
+        "1002a7f0",
+        "1002aaa0",
+        "1002bdb0",
+        "1002bfe0",
+        "1002c000",
+        "1002ca90"
+      ],
+      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
+      "current_sha256": "d78dbd349406d4f269b66c78877e2605bbe370a911c8e3c62ca4f73862e8d3c4",
+      "verification_report": "analysis/squall-tracker-regression.json"
+    },
+    {
+      "path": "SoundFile/track/sndmix.cpp",
+      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "original_addresses": [
+        "10017fe0",
+        "10021250",
+        "10026910",
+        "10027870",
+        "1002a590",
+        "1002a7f0",
+        "1002aaa0",
+        "1002bdb0",
+        "1002bfe0",
+        "1002c000",
+        "1002ca90"
+      ],
+      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
+      "current_sha256": "808eb8cf8e1ce2be0f346a35327dbb2a8cb8c7f641f75234ec9db6d82370276e",
+      "verification_report": "analysis/squall-tracker-regression.json"
+    },
+    {
+      "path": "SoundFile/track/fastmix.cpp",
+      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "original_addresses": [
+        "10017fe0",
+        "10021250",
+        "10026910",
+        "10027870",
+        "1002a590",
+        "1002a7f0",
+        "1002aaa0",
+        "1002bdb0",
+        "1002bfe0",
+        "1002c000",
+        "1002ca90"
+      ],
+      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
+      "current_sha256": "de08410e915049b0d5f91a4f2960fa59639ca95788eb54881415445608825a58",
+      "verification_report": "analysis/squall-tracker-regression.json"
     }
   ]
 }

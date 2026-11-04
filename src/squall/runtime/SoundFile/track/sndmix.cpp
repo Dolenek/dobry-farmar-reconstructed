@@ -209,10 +209,10 @@ BOOL CDecompressTrack::FadeSong(UINT msec)
     LONG nsamples = _muldiv(msec, gdwMixingFreq, 1000);
     if (nsamples <= 0) return FALSE;
     if (nsamples > 0x100000) nsamples = 0x100000;
-    m_nBufferCount = nsamples;
-    LONG nRampLength = m_nBufferCount;
+    legacy_m_nBufferCount = nsamples;
+    LONG nRampLength = legacy_m_nBufferCount;
     // Ramp everything down
-    for (UINT noff=0; noff < m_nMixChannels; noff++)
+    for (UINT noff=0; noff < legacy_m_nMixChannels; noff++)
     {
         MODCHANNEL *pramp = &Chn[ChnMix[noff]];
         if (!pramp) continue;
@@ -224,7 +224,7 @@ BOOL CDecompressTrack::FadeSong(UINT msec)
         pramp->nRampLength = nRampLength;
         pramp->dwFlags |= CHN_VOLUMERAMP;
     }
-    m_dwSongFlags |= SONG_FADINGSONG;
+    legacy_m_dwSongFlags |= SONG_FADINGSONG;
     return TRUE;
 }*/
 
@@ -232,10 +232,10 @@ BOOL CDecompressTrack::FadeSong(UINT msec)
 BOOL CDecompressTrack::GlobalFadeSong(UINT msec)
 //----------------------------------------
 {
-    if (m_dwSongFlags & SONG_GLOBALFADE) return FALSE;
-    m_nGlobalFadeMaxSamples = _muldiv(msec, gdwMixingFreq, 1000);
-    m_nGlobalFadeSamples = m_nGlobalFadeMaxSamples;
-    m_dwSongFlags |= SONG_GLOBALFADE;
+    if (legacy_m_dwSongFlags & SONG_GLOBALFADE) return FALSE;
+    legacy_m_nGlobalFadeMaxSamples = _muldiv(msec, gdwMixingFreq, 1000);
+    legacy_m_nGlobalFadeSamples = legacy_m_nGlobalFadeMaxSamples;
+    legacy_m_dwSongFlags |= SONG_GLOBALFADE;
     return TRUE;
 }*/
 
@@ -254,10 +254,10 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
      {
         nMaxPlugins = MAX_MIXPLUGINS;
         while ((nMaxPlugins > 0) &&
-            (!m_MixPlugins[nMaxPlugins - 1].pMixPlugin))
+            (!legacy_m_MixPlugins[nMaxPlugins - 1].pMixPlugin))
             nMaxPlugins--;
     }
-    m_nMixStat = 0;
+    legacy_m_nMixStat = 0;
     //	lSampleSize = gnChannels;
     lSampleSize = out_channels;   // размер семпла в байтах (соответсвует количеству каналов)
 
@@ -269,28 +269,28 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
     lMax = cbBuffer / lSampleSize;   // вычисление количества семплов в буфере
 
     // если количество семплов равно 0 или буфер или количестов каналов то выход
-    if ((!lMax) || (!lpBuffer) || (!m_nChannels))
+    if ((!lMax) || (!lpBuffer) || (!legacy_m_nChannels))
         return 0;
     lRead = lMax;
-    if (m_dwSongFlags & SONG_ENDREACHED)
+    if (legacy_m_dwSongFlags & SONG_ENDREACHED)
         goto MixDone;
 
     // обрабатывать пока не прочитаем все нужные данные
     while (lRead > 0) {
         // Update Channel Data
-        if (!m_nBufferCount) {
+        if (!legacy_m_nBufferCount) {
             if (!ReadNote())  // чтение ноты
             {
                  {
-                    m_dwSongFlags |= SONG_ENDREACHED;
+                    legacy_m_dwSongFlags |= SONG_ENDREACHED;
                     if (lRead == lMax)
                         goto MixDone;
-                    m_nBufferCount = lRead;
+                    legacy_m_nBufferCount = lRead;
                 }
             }
         }
 
-        lCount = m_nBufferCount;
+        lCount = legacy_m_nBufferCount;
         if (lCount > MIXBUFFERSIZE)
             lCount = MIXBUFFERSIZE;
         if (lCount > lRead)
@@ -306,9 +306,9 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
         //		if (gnChannels >= 2)
         if (out_channels >= 2) {
             lSampleCount *= 2;
-            m_nMixStat += CreateStereoMix(lCount);
+            legacy_m_nMixStat += CreateStereoMix(lCount);
         } else {
-            m_nMixStat += CreateStereoMix(lCount);
+            legacy_m_nMixStat += CreateStereoMix(lCount);
             if (nMaxPlugins)
                 ProcessPlugins(lCount);
             X86_MonoFromStereo(MixSoundBuffer, lCount);
@@ -328,7 +328,7 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
         lpBuffer += size;
         // Buffer ready
         lRead -= lCount;
-        m_nBufferCount -= lCount;
+        legacy_m_nBufferCount -= lCount;
     }
     MixDone:
     if (lRead)
@@ -343,7 +343,7 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
     if ((gnVUMeter = (UINT) (nVUMeterMax - nVUMeterMin)) > 0xFF)
         gnVUMeter = 0xFF;
     if (nStat) {
-        m_nMixStat += nStat - 1; m_nMixStat /= nStat;
+        legacy_m_nMixStat += nStat - 1; legacy_m_nMixStat /= nStat;
     }
     return lMax - lRead;
 }
@@ -354,37 +354,37 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
 BOOL CDecompressTrack::ProcessRow()
     //---------------------------
 {
-    if (++m_nTickCount >= m_nMusicSpeed * (m_nPatternDelay + 1) +
-        m_nFrameDelay) {
-        m_nPatternDelay = 0;
-        m_nFrameDelay = 0;
-        m_nTickCount = 0;
-        m_nRow = m_nNextRow;
+    if (++legacy_m_nTickCount >= legacy_m_nMusicSpeed * (legacy_m_nPatternDelay + 1) +
+        legacy_m_nFrameDelay) {
+        legacy_m_nPatternDelay = 0;
+        legacy_m_nFrameDelay = 0;
+        legacy_m_nTickCount = 0;
+        legacy_m_nRow = legacy_m_nNextRow;
 
         // Reset Pattern Loop Effect
-        if (m_nCurrentPattern != m_nNextPattern)
-            m_nCurrentPattern = m_nNextPattern;
+        if (legacy_m_nCurrentPattern != legacy_m_nNextPattern)
+            legacy_m_nCurrentPattern = legacy_m_nNextPattern;
 
         // Check if pattern is valid
-        if (!(m_dwSongFlags & SONG_PATTERNLOOP)) {
-            m_nPattern = (m_nCurrentPattern < MAX_ORDERS) ?
-                Order[m_nCurrentPattern] :
+        if (!(legacy_m_dwSongFlags & SONG_PATTERNLOOP)) {
+            legacy_m_nPattern = (legacy_m_nCurrentPattern < MAX_ORDERS) ?
+                legacy_Order[legacy_m_nCurrentPattern] :
                 0xFF;
-            if ((m_nPattern < MAX_PATTERNS) && (!Patterns[m_nPattern]))
-                m_nPattern = 0xFE;
-            while (m_nPattern >= MAX_PATTERNS) {
+            if ((legacy_m_nPattern < MAX_PATTERNS) && (!Patterns[legacy_m_nPattern]))
+                legacy_m_nPattern = 0xFE;
+            while (legacy_m_nPattern >= MAX_PATTERNS) {
                 // End of song ?
-                if ((m_nPattern == 0xFF) || (m_nCurrentPattern >= MAX_ORDERS)) {
-                    //					if (!m_nRepeatCount) //!!!marat
+                if ((legacy_m_nPattern == 0xFF) || (legacy_m_nCurrentPattern >= MAX_ORDERS)) {
+                    //					if (!legacy_m_nRepeatCount) //!!!marat
                     return FALSE;     //never repeat entire song
-                    if (!m_nRestartPos) {
-                        m_nMusicSpeed = m_nDefaultSpeed;
-                        m_nMusicTempo = m_nDefaultTempo;
-                        m_nGlobalVolume = m_nDefaultGlobalVolume;
+                    if (!legacy_m_nRestartPos) {
+                        legacy_m_nMusicSpeed = legacy_m_nDefaultSpeed;
+                        legacy_m_nMusicTempo = legacy_m_nDefaultTempo;
+                        legacy_m_nGlobalVolume = legacy_m_nDefaultGlobalVolume;
                         for (UINT i = 0; i < MAX_CHANNELS; i++) {
                             Chn[i].dwFlags |= CHN_NOTEFADE | CHN_KEYOFF;
                             Chn[i].nFadeOutVol = 0;
-                            if (i < m_nChannels) {
+                            if (i < legacy_m_nChannels) {
                                 Chn[i].nGlobalVol = ChnSettings[i].nVolume;
                                 Chn[i].nVolume = ChnSettings[i].nVolume;
                                 Chn[i].nPan = ChnSettings[i].nPan;
@@ -404,39 +404,39 @@ BOOL CDecompressTrack::ProcessRow()
                             }
                         }
                     }
-                    //					if (m_nRepeatCount > 0) m_nRepeatCount--; //!!!marat
-                    m_nCurrentPattern = m_nRestartPos;
-                    m_nRow = 0;
-                    if ((Order[m_nCurrentPattern] >= MAX_PATTERNS) ||
-                        (!Patterns[Order[m_nCurrentPattern]]))
+                    //					if (legacy_m_nRepeatCount > 0) legacy_m_nRepeatCount--; //!!!marat
+                    legacy_m_nCurrentPattern = legacy_m_nRestartPos;
+                    legacy_m_nRow = 0;
+                    if ((legacy_Order[legacy_m_nCurrentPattern] >= MAX_PATTERNS) ||
+                        (!Patterns[legacy_Order[legacy_m_nCurrentPattern]]))
                         return FALSE;
                 } else {
-                    m_nCurrentPattern++;
+                    legacy_m_nCurrentPattern++;
                 }
-                m_nPattern = (m_nCurrentPattern < MAX_ORDERS) ?
-                    Order[m_nCurrentPattern] :
+                legacy_m_nPattern = (legacy_m_nCurrentPattern < MAX_ORDERS) ?
+                    legacy_Order[legacy_m_nCurrentPattern] :
                     0xFF;
-                if ((m_nPattern < MAX_PATTERNS) && (!Patterns[m_nPattern]))
-                    m_nPattern = 0xFE;
+                if ((legacy_m_nPattern < MAX_PATTERNS) && (!Patterns[legacy_m_nPattern]))
+                    legacy_m_nPattern = 0xFE;
             }
-            m_nNextPattern = m_nCurrentPattern;
+            legacy_m_nNextPattern = legacy_m_nCurrentPattern;
         }
         // Weird stuff?
-        if ((m_nPattern >= MAX_PATTERNS) || (!Patterns[m_nPattern]))
+        if ((legacy_m_nPattern >= MAX_PATTERNS) || (!Patterns[legacy_m_nPattern]))
             return FALSE;
         // Should never happen
-        if (m_nRow >= PatternSize[m_nPattern])
-            m_nRow = 0;
-        m_nNextRow = m_nRow + 1;
-        if (m_nNextRow >= PatternSize[m_nPattern]) {
-            if (!(m_dwSongFlags & SONG_PATTERNLOOP))
-                m_nNextPattern = m_nCurrentPattern + 1;
-            m_nNextRow = 0;
+        if (legacy_m_nRow >= PatternSize[legacy_m_nPattern])
+            legacy_m_nRow = 0;
+        legacy_m_nNextRow = legacy_m_nRow + 1;
+        if (legacy_m_nNextRow >= PatternSize[legacy_m_nPattern]) {
+            if (!(legacy_m_dwSongFlags & SONG_PATTERNLOOP))
+                legacy_m_nNextPattern = legacy_m_nCurrentPattern + 1;
+            legacy_m_nNextRow = 0;
         }
         // Reset channel values
         MODCHANNEL* pChn = Chn;
-        MODCOMMAND* m = Patterns[m_nPattern] + m_nRow* m_nChannels;
-        for (UINT nChn = 0; nChn < m_nChannels; pChn++, nChn++, m++) {
+        MODCOMMAND* m = Patterns[legacy_m_nPattern] + legacy_m_nRow* legacy_m_nChannels;
+        for (UINT nChn = 0; nChn < legacy_m_nChannels; pChn++, nChn++, m++) {
             pChn->nRowNote = m->note;
             pChn->nRowInstr = m->instr;
             pChn->nRowVolCmd = m->volcmd;
@@ -454,15 +454,15 @@ BOOL CDecompressTrack::ProcessRow()
         }
     }
     // Should we process tick0 effects?
-    if (!m_nMusicSpeed)
-        m_nMusicSpeed = 1;
-    m_dwSongFlags |= SONG_FIRSTTICK;
-    if (m_nTickCount) {
-        m_dwSongFlags &= ~SONG_FIRSTTICK;
-        if ((!(m_nType & MOD_TYPE_XM)) &&
-            (m_nTickCount < m_nMusicSpeed * (1 + m_nPatternDelay))) {
-            if (!(m_nTickCount % m_nMusicSpeed))
-                m_dwSongFlags |= SONG_FIRSTTICK;
+    if (!legacy_m_nMusicSpeed)
+        legacy_m_nMusicSpeed = 1;
+    legacy_m_dwSongFlags |= SONG_FIRSTTICK;
+    if (legacy_m_nTickCount) {
+        legacy_m_dwSongFlags &= ~SONG_FIRSTTICK;
+        if ((!(legacy_m_nType & MOD_TYPE_XM)) &&
+            (legacy_m_nTickCount < legacy_m_nMusicSpeed * (1 + legacy_m_nPatternDelay))) {
+            if (!(legacy_m_nTickCount % legacy_m_nMusicSpeed))
+                legacy_m_dwSongFlags |= SONG_FIRSTTICK;
         }
     }
     // Update Effects
@@ -479,17 +479,17 @@ BOOL CDecompressTrack::ReadNote()
     if (!ProcessRow())
         return FALSE;
     ////////////////////////////////////////////////////////////////////////////////////
-    m_nTotalCount++;  // общее количество тиков
-    if (!m_nMusicTempo)
+    legacy_m_nTotalCount++;  // общее количество тиков
+    if (!legacy_m_nMusicTempo)
         return FALSE;
-    m_nBufferCount = (gdwMixingFreq * 5 * m_nTempoFactor) /
-        (m_nMusicTempo << 8);
+    legacy_m_nBufferCount = (gdwMixingFreq * 5 * legacy_m_nTempoFactor) /
+        (legacy_m_nMusicTempo << 8);
     // Master Volume + Pre-Amplification / Attenuation setup
     DWORD nMasterVol; {
-        int nchn32 = (m_nChannels < 32) ? m_nChannels : 31;
-        if ((m_nType & MOD_TYPE_IT) && (m_nInstruments) && (nchn32 < 6))
+        int nchn32 = (legacy_m_nChannels < 32) ? legacy_m_nChannels : 31;
+        if ((legacy_m_nType & MOD_TYPE_IT) && (legacy_m_nInstruments) && (nchn32 < 6))
             nchn32 = 6;
-        int realmastervol = m_nMasterVolume;
+        int realmastervol = legacy_m_nMasterVolume;
         if (realmastervol > 0x80) {
             realmastervol = 0x80 +
                 ((realmastervol - 0x80) * (nchn32 + 4)) /
@@ -498,13 +498,13 @@ BOOL CDecompressTrack::ReadNote()
         UINT attenuation = (gdwSoundSetup& SNDMIX_AGC) ?
             PreAmpAGCTable[nchn32 >> 1] :
             PreAmpTable[nchn32 >> 1];
-        DWORD mastervol = (realmastervol * (m_nSongPreAmp + 0x10)) >> 6;
+        DWORD mastervol = (realmastervol * (legacy_m_nSongPreAmp + 0x10)) >> 6;
         if (mastervol > 0x200)
             mastervol = 0x200;
-        if ((m_dwSongFlags & SONG_GLOBALFADE) && (m_nGlobalFadeMaxSamples)) {
+        if ((legacy_m_dwSongFlags & SONG_GLOBALFADE) && (legacy_m_nGlobalFadeMaxSamples)) {
             mastervol = _muldiv(mastervol,
-                            m_nGlobalFadeSamples,
-                            m_nGlobalFadeMaxSamples);
+                            legacy_m_nGlobalFadeSamples,
+                            legacy_m_nGlobalFadeMaxSamples);
         }
         nMasterVol = (mastervol << 7) / attenuation;
         if (nMasterVol > 0x180)
@@ -512,7 +512,7 @@ BOOL CDecompressTrack::ReadNote()
     }
     ////////////////////////////////////////////////////////////////////////////////////
     // Update channels data
-    m_nMixChannels = 0;
+    legacy_m_nMixChannels = 0;
     MODCHANNEL* pChn = Chn;
     for (UINT nChn = 0; nChn < MAX_CHANNELS; nChn++,pChn++) {
         if ((pChn->dwFlags & CHN_NOTEFADE) &&
@@ -522,7 +522,7 @@ BOOL CDecompressTrack::ReadNote()
         }
         // Check for unused channel
         if ((pChn->dwFlags & CHN_MUTE) ||
-            ((nChn >= m_nChannels) && (!pChn->nLength))) {
+            ((nChn >= legacy_m_nChannels) && (!pChn->nLength))) {
             pChn->nVUMeter = 0;
 #ifdef ENABLE_STEREOVU
             pChn->nLeftVU = pChn->nRightVU = 0;
@@ -550,7 +550,7 @@ BOOL CDecompressTrack::ReadNote()
             if (pChn->dwFlags & CHN_TREMOLO) {
                 UINT trempos = pChn->nTremoloPos & 0x3F;
                 if (vol > 0) {
-                    int tremattn = (m_nType& MOD_TYPE_XM) ? 5 : 6;
+                    int tremattn = (legacy_m_nType& MOD_TYPE_XM) ? 5 : 6;
                     switch (pChn->nTremoloType & 0x03) {
                     case 1:
                         vol += (ModRampDownTable[trempos] * (int)
@@ -573,9 +573,9 @@ BOOL CDecompressTrack::ReadNote()
                             tremattn;
                     }
                 }
-                if ((m_nTickCount) ||
-                    ((m_nType & (MOD_TYPE_STM | MOD_TYPE_S3M | MOD_TYPE_IT)) &&
-                    (!(m_dwSongFlags & SONG_ITOLDEFFECTS)))) {
+                if ((legacy_m_nTickCount) ||
+                    ((legacy_m_nType & (MOD_TYPE_STM | MOD_TYPE_S3M | MOD_TYPE_IT)) &&
+                    (!(legacy_m_dwSongFlags & SONG_ITOLDEFFECTS)))) {
                     pChn->nTremoloPos = (trempos + pChn->nTremoloSpeed) & 0x3F;
                 }
             }
@@ -584,14 +584,14 @@ BOOL CDecompressTrack::ReadNote()
                 UINT n = (pChn->nTremorParam >> 4) +
                     (pChn->nTremorParam & 0x0F);
                 UINT ontime = pChn->nTremorParam >> 4;
-                if ((!(m_nType & MOD_TYPE_IT)) ||
-                    (m_dwSongFlags & SONG_ITOLDEFFECTS)) {
+                if ((!(legacy_m_nType & MOD_TYPE_IT)) ||
+                    (legacy_m_dwSongFlags & SONG_ITOLDEFFECTS)) {
                     n += 2; ontime++;
                 }
                 UINT tremcount = (UINT) pChn->nTremorCount;
                 if (tremcount >= n)
                     tremcount = 0;
-                if ((m_nTickCount) || (m_nType & (MOD_TYPE_S3M | MOD_TYPE_IT))) {
+                if ((legacy_m_nTickCount) || (legacy_m_nType & (MOD_TYPE_S3M | MOD_TYPE_IT))) {
                     if (tremcount >= ontime)
                         vol = 0;
                     pChn->nTremorCount = (BYTE) (tremcount + 1);
@@ -723,12 +723,12 @@ BOOL CDecompressTrack::ReadNote()
             if (vol) {
                 // IMPORTANT: pChn->nRealVolume is 14 bits !!!
                 // -> _muldiv( 14+8, 6+6, 18); => RealVolume: 14-bit result (22+12-20)
-                pChn->nRealVolume = _muldiv(vol * m_nGlobalVolume,
+                pChn->nRealVolume = _muldiv(vol * legacy_m_nGlobalVolume,
                                         pChn->nGlobalVol * pChn->nInsVol,
                                         1 << 20);
             }
-            if (pChn->nPeriod < m_nMinPeriod)
-                pChn->nPeriod = m_nMinPeriod;
+            if (pChn->nPeriod < legacy_m_nMinPeriod)
+                pChn->nPeriod = legacy_m_nMinPeriod;
             int period = pChn->nPeriod;
             if ((pChn->dwFlags & (CHN_GLISSANDO | CHN_PORTAMENTO)) ==
                 (CHN_GLISSANDO | CHN_PORTAMENTO)) {
@@ -739,7 +739,7 @@ BOOL CDecompressTrack::ReadNote()
 
             // Arpeggio ?
             if (pChn->nCommand == CMD_ARPEGGIO) {
-                switch (m_nTickCount % 3) {
+                switch (legacy_m_nTickCount % 3) {
                 case 1:
                     period = GetPeriodFromNote(pChn->nNote +
                                 (pChn->nArpeggio >> 4),
@@ -753,7 +753,7 @@ BOOL CDecompressTrack::ReadNote()
                 }
             }
 
-            if (m_dwSongFlags & SONG_AMIGALIMITS) {
+            if (legacy_m_dwSongFlags & SONG_AMIGALIMITS) {
                 if (period < 113 * 4)
                     period = 113 * 4;
                 if (period > 856 * 4)
@@ -836,13 +836,13 @@ BOOL CDecompressTrack::ReadNote()
                 default:
                     vdelta = ModSinusTable[vibpos];
                 }
-                UINT vdepth = ((m_nType != MOD_TYPE_IT) ||
-                    (m_dwSongFlags& SONG_ITOLDEFFECTS)) ?
+                UINT vdepth = ((legacy_m_nType != MOD_TYPE_IT) ||
+                    (legacy_m_dwSongFlags& SONG_ITOLDEFFECTS)) ?
                     6 :
                     7;
                 vdelta = (vdelta * (int) pChn->nVibratoDepth) >> vdepth;
-                if ((m_dwSongFlags & SONG_LINEARSLIDES) &&
-                    (m_nType & MOD_TYPE_IT)) {
+                if ((legacy_m_dwSongFlags & SONG_LINEARSLIDES) &&
+                    (legacy_m_nType & MOD_TYPE_IT)) {
                     LONG l = vdelta;
                     if (l < 0) {
                         l = -l;
@@ -864,9 +864,9 @@ BOOL CDecompressTrack::ReadNote()
                     }
                 }
                 period += vdelta;
-                if ((m_nTickCount) ||
-                    ((m_nType & MOD_TYPE_IT) &&
-                    (!(m_dwSongFlags & SONG_ITOLDEFFECTS)))) {
+                if ((legacy_m_nTickCount) ||
+                    ((legacy_m_nType & MOD_TYPE_IT) &&
+                    (!(legacy_m_dwSongFlags & SONG_ITOLDEFFECTS)))) {
                     pChn->nVibratoPos = (vibpos + pChn->nVibratoSpeed) & 0x3F;
                 }
             }
@@ -903,7 +903,7 @@ BOOL CDecompressTrack::ReadNote()
                 if (pins->nVibSweep == 0) {
                     pChn->nAutoVibDepth = pins->nVibDepth << 8;
                 } else {
-                    if (m_nType & MOD_TYPE_IT) {
+                    if (legacy_m_nType & MOD_TYPE_IT) {
                         pChn->nAutoVibDepth += pins->nVibSweep << 3;
                     } else if (!(pChn->dwFlags & CHN_KEYOFF)) {
                         pChn->nAutoVibDepth += (pins->nVibDepth << 8) /
@@ -937,7 +937,7 @@ BOOL CDecompressTrack::ReadNote()
                     val = ft2VibratoTable[pChn->nAutoVibPos & 255];
                 }
                 int n = ((val* pChn->nAutoVibDepth) >> 8);
-                if (m_nType & MOD_TYPE_IT) {
+                if (legacy_m_nType & MOD_TYPE_IT) {
                     int df1, df2;
                     if (n < 0) {
                         n = -n;
@@ -960,22 +960,22 @@ BOOL CDecompressTrack::ReadNote()
                 }
             }
             // Final Period
-            if (period <= m_nMinPeriod) {
-                if (m_nType & MOD_TYPE_S3M)
+            if (period <= legacy_m_nMinPeriod) {
+                if (legacy_m_nType & MOD_TYPE_S3M)
                     pChn->nLength = 0;
-                period = m_nMinPeriod;
+                period = legacy_m_nMinPeriod;
             }
-            if (period > m_nMaxPeriod) {
-                if ((m_nType & MOD_TYPE_IT) || (period >= 0x100000)) {
+            if (period > legacy_m_nMaxPeriod) {
+                if ((legacy_m_nType & MOD_TYPE_IT) || (period >= 0x100000)) {
                     pChn->nFadeOutVol = 0;
                     pChn->dwFlags |= CHN_NOTEFADE;
                     pChn->nRealVolume = 0;
                 }
-                period = m_nMaxPeriod;
+                period = legacy_m_nMaxPeriod;
                 nPeriodFrac = 0;
             }
             UINT freq = GetFreqFromPeriod(period, pChn->nC4Speed, nPeriodFrac);
-            if ((m_nType & MOD_TYPE_IT) && (freq < 256)) {
+            if ((legacy_m_nType & MOD_TYPE_IT) && (freq < 256)) {
                 pChn->nFadeOutVol = 0;
                 pChn->dwFlags |= CHN_NOTEFADE;
                 pChn->nRealVolume = 0;
@@ -983,8 +983,8 @@ BOOL CDecompressTrack::ReadNote()
             UINT ninc = _muldiv(freq, 0x10000, gdwMixingFreq);
             if ((ninc >= 0xFFB0) && (ninc <= 0x10090))
                 ninc = 0x10000;
-            if (m_nFreqFactor != 128)
-                ninc = (ninc * m_nFreqFactor) >> 7;
+            if (legacy_m_nFreqFactor != 128)
+                ninc = (ninc * legacy_m_nFreqFactor) >> 7;
             if (ninc > 0xFF0000)
                 ninc = 0xFF0000;
             pChn->nInc = (ninc + 1) & ~ 3;
@@ -1000,13 +1000,13 @@ BOOL CDecompressTrack::ReadNote()
                 // Volume Loop ?
                 if (penv->dwFlags & ENV_VOLLOOP) {
                     UINT volloopend = penv->VolPoints[penv->nVolLoopEnd];
-                    if (m_nType != MOD_TYPE_XM)
+                    if (legacy_m_nType != MOD_TYPE_XM)
                         volloopend++;
                     if (pChn->nVolEnvPosition == volloopend) {
                         pChn->nVolEnvPosition = penv->VolPoints[penv->nVolLoopStart];
                         if ((penv->nVolLoopEnd == penv->nVolLoopStart) &&
                             (!penv->VolEnv[penv->nVolLoopStart]) &&
-                            ((!(m_nType & MOD_TYPE_XM)) ||
+                            ((!(legacy_m_nType & MOD_TYPE_XM)) ||
                             (penv->nVolLoopEnd + 1 == penv->nVolEnv))) {
                             pChn->dwFlags |= CHN_NOTEFADE;
                             pChn->nFadeOutVol = 0;
@@ -1023,12 +1023,12 @@ BOOL CDecompressTrack::ReadNote()
                 } else
                 // End of Envelope ?
                 if (pChn->nVolEnvPosition > penv->VolPoints[penv->nVolEnv - 1]) {
-                    if ((m_nType & MOD_TYPE_IT) ||
+                    if ((legacy_m_nType & MOD_TYPE_IT) ||
                         (pChn->dwFlags & CHN_KEYOFF))
                         pChn->dwFlags |= CHN_NOTEFADE;
                     pChn->nVolEnvPosition = penv->VolPoints[penv->nVolEnv - 1];
                     if ((!penv->VolEnv[penv->nVolEnv - 1]) &&
-                        ((nChn >= m_nChannels) || (m_nType & MOD_TYPE_IT))) {
+                        ((nChn >= legacy_m_nChannels) || (legacy_m_nType & MOD_TYPE_IT))) {
                         pChn->dwFlags |= CHN_NOTEFADE;
                         pChn->nFadeOutVol = 0;
 
@@ -1041,7 +1041,7 @@ BOOL CDecompressTrack::ReadNote()
                 pChn->nPanEnvPosition++;
                 if (penv->dwFlags & ENV_PANLOOP) {
                     UINT panloopend = penv->PanPoints[penv->nPanLoopEnd];
-                    if (m_nType != MOD_TYPE_XM)
+                    if (legacy_m_nType != MOD_TYPE_XM)
                         panloopend++;
                     if (pChn->nPanEnvPosition == panloopend)
                         pChn->nPanEnvPosition = penv->PanPoints[penv->nPanLoopStart];
@@ -1244,8 +1244,8 @@ BOOL CDecompressTrack::ReadNote()
             pChn->nRampRightVol = pChn->nRightVol << VOLUMERAMPPRECISION;
             pChn->nRampLeftVol = pChn->nLeftVol << VOLUMERAMPPRECISION;
             // Adding the channel in the channel list
-            ChnMix[m_nMixChannels++] = nChn;
-            if (m_nMixChannels >= MAX_CHANNELS)
+            ChnMix[legacy_m_nMixChannels++] = nChn;
+            if (legacy_m_nMixChannels >= MAX_CHANNELS)
                 break;
         } else {
 #ifdef ENABLE_STEREOVU
@@ -1262,11 +1262,11 @@ BOOL CDecompressTrack::ReadNote()
         }
     }
     // Checking Max Mix Channels reached: ordering by volume
-    //	if ((m_nMixChannels >= m_nMaxMixChannels) && (!(gdwSoundSetup & SNDMIX_DIRECTTODISK)))
-    if ((m_nMixChannels >= 32) && (!(gdwSoundSetup & SNDMIX_DIRECTTODISK))) {
-        for (UINT i = 0; i < m_nMixChannels; i++) {
+    //	if ((legacy_m_nMixChannels >= m_nMaxMixChannels) && (!(gdwSoundSetup & SNDMIX_DIRECTTODISK)))
+    if ((legacy_m_nMixChannels >= 32) && (!(gdwSoundSetup & SNDMIX_DIRECTTODISK))) {
+        for (UINT i = 0; i < legacy_m_nMixChannels; i++) {
             UINT j = i;
-            while ((j + 1 < m_nMixChannels) &&
+            while ((j + 1 < legacy_m_nMixChannels) &&
                 (Chn[ChnMix[j]].nRealVolume < Chn[ChnMix[j + 1]].nRealVolume)) {
                 UINT n = ChnMix[j];
                 ChnMix[j] = ChnMix[j + 1];
@@ -1275,15 +1275,15 @@ BOOL CDecompressTrack::ReadNote()
             }
         }
     }
-    if (m_dwSongFlags & SONG_GLOBALFADE) {
-        if (!m_nGlobalFadeSamples) {
-            m_dwSongFlags |= SONG_ENDREACHED;
+    if (legacy_m_dwSongFlags & SONG_GLOBALFADE) {
+        if (!legacy_m_nGlobalFadeSamples) {
+            legacy_m_dwSongFlags |= SONG_ENDREACHED;
             return FALSE;
         }
-        if (m_nGlobalFadeSamples > m_nBufferCount)
-            m_nGlobalFadeSamples -= m_nBufferCount;
+        if (legacy_m_nGlobalFadeSamples > legacy_m_nBufferCount)
+            legacy_m_nGlobalFadeSamples -= legacy_m_nBufferCount;
         else
-            m_nGlobalFadeSamples = 0;
+            legacy_m_nGlobalFadeSamples = 0;
     }
     return TRUE;
 }

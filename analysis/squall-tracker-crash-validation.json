@@ -1,0 +1,1559 @@
+{
+  "status": "read_only_original_exceptions_not_suppressed",
+  "work_directory": ".local/squall-tracker-crash/20261104T183022685227Z",
+  "binary_hashes": {
+    "native.dll": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+    "source.dll": "4eac67a7ab180606fedbfc58ed04a475e681217c35e5cdd512f46d8651fbbd7d",
+    "source.map": "812dd254daac2c9db70d953ac6a8a27788c5026ab007d32fbe6475ea34d5ed4e",
+    "squall-tracker-probe.exe": "915a307b1b8015b2d5561af665bac822c5233fbcce93f0a289cbb532dc33924e",
+    "trace.exe": "5a0ddaab0bc54950c0f34ad4d330c877b33edcae837d0f5f0dcf4372b11340af"
+  },
+  "sources": {
+    "tools/trace_squall_tracker_failures.py": "d8621ec049151fea26650702b6549e83e1520540a47e78a9de29d94d06a01a16",
+    "tools/squall_tracker_probe.cpp": "1bdfb7aaf97f84d8e52fafaddfe3a693abc10552f4a7752d5cad969da00fa2c2",
+    "tools/squall_tracker_crash_trace/trace.cpp": "74e4606385c49695130baeb9323bd15b2494ce8eb2c4c6c3f344a1021da3b22a",
+    "tools/squall_tracker_crash_trace/CMakeLists.txt": "bcd65f8a395ceb9ee7bd67fb1a4afa43d8689094d02d08d1f3e0d6f1d59e5945",
+    "src/squall/codecs/vorbis/mdct.h": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93",
+    "src/squall/Parameters.cpp": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508",
+    "src/squall/Parameters.h": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d",
+    "src/squall/runtime/Abi.cpp": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6",
+    "src/squall/runtime/SoundEngine/Channels.cpp": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7",
+    "src/squall/runtime/SoundEngine/Channels.h": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523",
+    "src/squall/runtime/SoundEngine/Context.cpp": "527aeb60b4ffdfb40e8280163522323d2ae724ef1bb58245ec680f2ad9d7fa32",
+    "src/squall/runtime/SoundEngine/Context.h": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085",
+    "src/squall/runtime/SoundEngine/DirectSound.cpp": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b",
+    "src/squall/runtime/SoundEngine/DirectSound.h": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50",
+    "src/squall/runtime/SoundEngine/ext/dsound.h": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb",
+    "src/squall/runtime/SoundEngine/ext/Eax.cpp": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e",
+    "src/squall/runtime/SoundEngine/ext/Eax.h": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d",
+    "src/squall/runtime/SoundEngine/ext/Eax1_api.h": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2",
+    "src/squall/runtime/SoundEngine/ext/Eax2_api.h": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac",
+    "src/squall/runtime/SoundEngine/ext/Eax3_api.h": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d",
+    "src/squall/runtime/SoundEngine/ext/Eax4_api.h": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.h": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65",
+    "src/squall/runtime/SoundEngine/HiddenWindow.cpp": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a",
+    "src/squall/runtime/SoundEngine/HiddenWindow.h": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced",
+    "src/squall/runtime/SoundEngine/Squall.cpp": "fd6cdada95f24db3123e63dda1e0174d146993eabed54b0aaca44e2ce212a604",
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905",
+    "src/squall/runtime/SoundEngine/SquallApi.h": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b",
+    "src/squall/runtime/SoundFile/AbstractDecoder.h": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f",
+    "src/squall/runtime/SoundFile/AbstractSoundFile.h": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09",
+    "src/squall/runtime/SoundFile/ExternFunction.h": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb",
+    "src/squall/runtime/SoundFile/MP3/l1dec.cpp": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c",
+    "src/squall/runtime/SoundFile/MP3/l2dec.cpp": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050",
+    "src/squall/runtime/SoundFile/MP3/l3dec.cpp": "98e683e464b9a1ae11fa9299e1b41fb0cbbc730367be62daa4d0544ce480c958",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp": "49dee53da239f1ebe8b6b27a7f1d099e4fe4b5298c36dc421a943a483e779b6b",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.h": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.cpp": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.h": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d",
+    "src/squall/runtime/SoundFile/MP3/MpegHuff.h": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003",
+    "src/squall/runtime/SoundFile/MP3/NativeMpegMath.h": "1802bfc7781c19c5e1ccad9d12976ed968e21c3035fe6f6c3a7186e6c848ae43",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.cpp": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.h": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43",
+    "src/squall/runtime/SoundFile/Reader.cpp": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc",
+    "src/squall/runtime/SoundFile/Reader.h": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370",
+    "src/squall/runtime/SoundFile/SoundFile.cpp": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5",
+    "src/squall/runtime/SoundFile/SoundFile.h": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874",
+    "src/squall/runtime/SoundFile/track/fastmix.cpp": "de08410e915049b0d5f91a4f2960fa59639ca95788eb54881415445608825a58",
+    "src/squall/runtime/SoundFile/track/it_defs.h": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698",
+    "src/squall/runtime/SoundFile/track/load_669.cpp": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858",
+    "src/squall/runtime/SoundFile/track/load_amf.cpp": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57",
+    "src/squall/runtime/SoundFile/track/load_ams.cpp": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2",
+    "src/squall/runtime/SoundFile/track/load_dbm.cpp": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5",
+    "src/squall/runtime/SoundFile/track/load_dmf.cpp": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a",
+    "src/squall/runtime/SoundFile/track/load_dsm.cpp": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8",
+    "src/squall/runtime/SoundFile/track/load_far.cpp": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9",
+    "src/squall/runtime/SoundFile/track/load_it.cpp": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340",
+    "src/squall/runtime/SoundFile/track/load_mdl.cpp": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be",
+    "src/squall/runtime/SoundFile/track/load_med.cpp": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f",
+    "src/squall/runtime/SoundFile/track/load_mod.cpp": "d78dbd349406d4f269b66c78877e2605bbe370a911c8e3c62ca4f73862e8d3c4",
+    "src/squall/runtime/SoundFile/track/load_mt2.cpp": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09",
+    "src/squall/runtime/SoundFile/track/load_mtm.cpp": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937",
+    "src/squall/runtime/SoundFile/track/load_okt.cpp": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a",
+    "src/squall/runtime/SoundFile/track/load_psm.cpp": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b",
+    "src/squall/runtime/SoundFile/track/load_ptm.cpp": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175",
+    "src/squall/runtime/SoundFile/track/load_s3m.cpp": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91",
+    "src/squall/runtime/SoundFile/track/load_stm.cpp": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82",
+    "src/squall/runtime/SoundFile/track/load_ult.cpp": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d",
+    "src/squall/runtime/SoundFile/track/load_umx.cpp": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+    "src/squall/runtime/SoundFile/track/load_xm.cpp": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e",
+    "src/squall/runtime/SoundFile/track/snd_fx.cpp": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36",
+    "src/squall/runtime/SoundFile/track/sndmix.cpp": "808eb8cf8e1ce2be0f346a35327dbb2a8cb8c7f641f75234ec9db6d82370276e",
+    "src/squall/runtime/SoundFile/track/stdafx.h": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c",
+    "src/squall/runtime/SoundFile/track/tables.cpp": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.cpp": "dd4669f757ed0e7925a2cd3d93222675f02a65c6e488407c90e307260c3ba404",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.h": "4683abc920286c0a308c1a0b0217d27b597f4c3082876919f5b48fc3e10e9cb3",
+    "src/squall/runtime/SoundFile/track/TrackFile.cpp": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba",
+    "src/squall/runtime/SoundFile/track/TrackFile.h": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.h": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0",
+    "src/squall/runtime/SoundFile/WAV/WavFile.cpp": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8",
+    "src/squall/runtime/SoundFile/WAV/WavFile.h": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp": "e5857408b02b95e523288fbbaf6c06a349843b2ec9ab821915ac4ad61200ee24",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.h": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.cpp": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.h": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56",
+    "src/squall/runtime/Squall.h": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+    "src/squall/VolumeTable.cpp": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1",
+    "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da"
+  },
+  "cases": [
+    {
+      "backend": "native",
+      "index": 0,
+      "state": {
+        "pid": 5692,
+        "module_base": 268435456
+      },
+      "exit_code": 3221226356,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 5692,
+          "game_memory_written": false
+        },
+        {
+          "event": "fault",
+          "exception_code": 3221226356,
+          "first_chance": 1,
+          "eip": 2001917727,
+          "ecx": 11007780,
+          "eax": 11007732,
+          "edx": 0,
+          "esp": 11007692,
+          "ebp": 11007748,
+          "esi": 2001917631,
+          "edi": 0,
+          "access_kind": 2002155888,
+          "access_address": 0,
+          "stack_words": [
+            397037875,
+            0,
+            2001917631,
+            0,
+            0,
+            0,
+            0,
+            0,
+            11007692,
+            0,
+            11007880,
+            2001407024,
+            1616422463,
+            0,
+            11007896,
+            2001917681,
+            397037999,
+            47972352,
+            2,
+            53542976,
+            2002155888,
+            3221226356,
+            3221226356,
+            1,
+            0,
+            2001917727,
+            1,
+            2002155888,
+            2,
+            53542976,
+            0,
+            11,
+            11007860,
+            11075584,
+            0,
+            11,
+            11007796,
+            46,
+            11007940,
+            2001407024,
+            1616467215,
+            4294967294,
+            11007892,
+            2001278735,
+            397037999,
+            11007756,
+            11006228,
+            11007940,
+            2001407024,
+            1616422431,
+            4294967294,
+            11007956,
+            2001955921,
+            1,
+            2002155936,
+            2001948814,
+            397038051,
+            47972352,
+            53604176,
+            53542976,
+            11007916,
+            11008248,
+            11008284,
+            2001407024,
+            1616422591,
+            4294967294,
+            11007980,
+            2001947113,
+            13,
+            47972352,
+            53604176,
+            53604168,
+            11008300,
+            2001201778,
+            53604176,
+            48003096,
+            53604176,
+            0,
+            397041435,
+            53542976
+          ],
+          "frames": [
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917681,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 209
+            },
+            {
+              "address": 2001955921,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 10817
+            },
+            {
+              "address": 2001947113,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 2009
+            },
+            {
+              "address": 2001201778,
+              "symbol": "RtlReleaseSRWLockShared",
+              "displacement": 2354
+            },
+            {
+              "address": 2001484626,
+              "symbol": "RtlGetSystemTimeAndBias",
+              "displacement": 7090
+            },
+            {
+              "address": 2001129722,
+              "symbol": "RtlFreeHeap",
+              "displacement": 202
+            },
+            {
+              "address": 268685763,
+              "symbol": "SQUALL_SampleGroup_Play3DEx",
+              "displacement": 218979
+            },
+            {
+              "address": 11690589
+            },
+            {
+              "address": 1977638217,
+              "symbol": "BaseThreadInitThunk",
+              "displacement": 25
+            },
+            {
+              "address": 2001323867,
+              "symbol": "RtlInitializeExceptionChain",
+              "displacement": 107
+            },
+            {
+              "address": 2001323745,
+              "symbol": "RtlGetAppContainerNamedObjectPath",
+              "displacement": 561
+            }
+          ]
+        },
+        {
+          "event": "fault",
+          "exception_code": 3221226356,
+          "first_chance": 0,
+          "eip": 2001917727,
+          "ecx": 11007780,
+          "eax": 11007732,
+          "edx": 0,
+          "esp": 11007692,
+          "ebp": 11007748,
+          "esi": 2001917631,
+          "edi": 0,
+          "access_kind": 2002155888,
+          "access_address": 0,
+          "stack_words": [
+            397037875,
+            0,
+            2001917631,
+            0,
+            0,
+            3221226356,
+            3221226356,
+            11006164,
+            11007692,
+            11006164,
+            11007880,
+            2001407024,
+            1616422463,
+            0,
+            11007896,
+            2001917681,
+            397037999,
+            47972352,
+            2,
+            53542976,
+            2002155888,
+            3221226356,
+            3221226356,
+            1,
+            0,
+            2001917727,
+            1,
+            2002155888,
+            2,
+            53542976,
+            0,
+            11,
+            11007860,
+            11075584,
+            0,
+            11,
+            11007796,
+            46,
+            11007940,
+            2001407024,
+            1616467215,
+            4294967294,
+            11007892,
+            2001278735,
+            397037999,
+            11007756,
+            11006228,
+            11007940,
+            2001407024,
+            1616422431,
+            4294967294,
+            11007956,
+            2001955921,
+            1,
+            2002155936,
+            2001948814,
+            397038051,
+            47972352,
+            53604176,
+            53542976,
+            11007916,
+            11008248,
+            11008284,
+            2001407024,
+            1616422591,
+            4294967294,
+            11007980,
+            2001947113,
+            13,
+            47972352,
+            53604176,
+            53604168,
+            11008300,
+            2001201778,
+            53604176,
+            48003096,
+            53604176,
+            0,
+            397041435,
+            53542976
+          ],
+          "frames": [
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917681,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 209
+            },
+            {
+              "address": 2001955921,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 10817
+            },
+            {
+              "address": 2001947113,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 2009
+            },
+            {
+              "address": 2001201778,
+              "symbol": "RtlReleaseSRWLockShared",
+              "displacement": 2354
+            },
+            {
+              "address": 2001484626,
+              "symbol": "RtlGetSystemTimeAndBias",
+              "displacement": 7090
+            },
+            {
+              "address": 2001129722,
+              "symbol": "RtlFreeHeap",
+              "displacement": 202
+            },
+            {
+              "address": 268685763,
+              "symbol": "SQUALL_SampleGroup_Play3DEx",
+              "displacement": 218979
+            },
+            {
+              "address": 11690589
+            },
+            {
+              "address": 1977638217,
+              "symbol": "BaseThreadInitThunk",
+              "displacement": 25
+            },
+            {
+              "address": 2001323867,
+              "symbol": "RtlInitializeExceptionChain",
+              "displacement": 107
+            },
+            {
+              "address": 2001323745,
+              "symbol": "RtlGetAppContainerNamedObjectPath",
+              "displacement": 561
+            }
+          ]
+        },
+        {
+          "event": "exit",
+          "exit_code": 3221226356
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/00-native",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "9dfc7a9f389e16797ae6dcb773354ccd75788902427fa6979cf63767848390d0",
+        "ready.json": "9d8624e4d0c3b79cfff210bd4797770e09323e6d8147d05f7c63b989ca2e26cf",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "93784e8dfda71a5cfa3a5bfedfff7c6db22556791c07aaa77e5a953a3fee1698",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "0e82acae81c60895d564dde8593fe7b74be77adc632f34b7e9a1ceb07a3074ec"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 1,
+      "state": {
+        "pid": 22760,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 22760,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/01-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "08f2f3f833115c821823542535f5607b7174ae51d2c33dcb2e4241d1c2dc7303",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "2ccbd84a31746be1f0e07771ae60002d5735b537ef7909f5bcff9acac14b3e6a"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 2,
+      "state": {
+        "pid": 27680,
+        "module_base": 1921449984
+      },
+      "exit_code": 3221226356,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 27680,
+          "game_memory_written": false
+        },
+        {
+          "event": "fault",
+          "exception_code": 3221226356,
+          "first_chance": 1,
+          "eip": 2001917727,
+          "ecx": 11401276,
+          "eax": 11401228,
+          "edx": 0,
+          "esp": 11401188,
+          "ebp": 11401244,
+          "esi": 2001917631,
+          "edi": 0,
+          "access_kind": 2002155888,
+          "access_address": 0,
+          "stack_words": [
+            3901793802,
+            0,
+            2001917631,
+            0,
+            0,
+            0,
+            0,
+            2001037476,
+            11401188,
+            1,
+            11401376,
+            2001407024,
+            2674417182,
+            0,
+            11401392,
+            2001917681,
+            3901793958,
+            0,
+            2,
+            0,
+            2002155888,
+            3221226356,
+            3221226356,
+            1,
+            0,
+            2001917727,
+            1,
+            2002155888,
+            2,
+            0,
+            134283264,
+            16,
+            11401356,
+            11468800,
+            0,
+            16,
+            11401292,
+            128,
+            11401436,
+            2001407024,
+            2674502958,
+            4294967294,
+            11401388,
+            2001278735,
+            3901793958,
+            11401252,
+            11399724,
+            11401436,
+            2001407024,
+            2674417214,
+            4294967294,
+            11401452,
+            2001955921,
+            1,
+            2002155936,
+            2001948814,
+            3901794042,
+            0,
+            7733362,
+            0,
+            11401412,
+            38,
+            11401600,
+            2001407024,
+            2674417310,
+            4294967294,
+            11401476,
+            2001947113,
+            9,
+            16908288,
+            7733362,
+            16908288,
+            11401564,
+            2001483022,
+            7733362,
+            0,
+            0,
+            0,
+            7733362,
+            16908288
+          ],
+          "frames": [
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917681,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 209
+            },
+            {
+              "address": 2001955921,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 10817
+            },
+            {
+              "address": 2001947113,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 2009
+            },
+            {
+              "address": 2001483022,
+              "symbol": "RtlGetSystemTimeAndBias",
+              "displacement": 5486
+            },
+            {
+              "address": 2001129722,
+              "symbol": "RtlFreeHeap",
+              "displacement": 202
+            },
+            {
+              "address": 1971387699,
+              "symbol": "GlobalFree",
+              "displacement": 195
+            },
+            {
+              "address": 1921527722,
+              "symbol": "SQUALL_Stop",
+              "displacement": 49850
+            },
+            {
+              "address": 1921481513,
+              "symbol": "SQUALL_Stop",
+              "displacement": 3641
+            },
+            {
+              "address": 1921479788,
+              "symbol": "SQUALL_Stop",
+              "displacement": 1916
+            },
+            {
+              "address": 1921491238,
+              "symbol": "SQUALL_Stop",
+              "displacement": 13366
+            },
+            {
+              "address": 1921475755,
+              "symbol": "SQUALL_Sample_LoadFile",
+              "displacement": 59
+            },
+            {
+              "address": 11686471
+            },
+            {
+              "address": 11690589
+            },
+            {
+              "address": 1977638217,
+              "symbol": "BaseThreadInitThunk",
+              "displacement": 25
+            },
+            {
+              "address": 2001323867,
+              "symbol": "RtlInitializeExceptionChain",
+              "displacement": 107
+            },
+            {
+              "address": 2001323745,
+              "symbol": "RtlGetAppContainerNamedObjectPath",
+              "displacement": 561
+            }
+          ]
+        },
+        {
+          "event": "fault",
+          "exception_code": 3221226356,
+          "first_chance": 0,
+          "eip": 2001917727,
+          "ecx": 11401276,
+          "eax": 11401228,
+          "edx": 0,
+          "esp": 11401188,
+          "ebp": 11401244,
+          "esi": 2001917631,
+          "edi": 0,
+          "access_kind": 2002155888,
+          "access_address": 0,
+          "stack_words": [
+            3901793802,
+            0,
+            2001917631,
+            0,
+            0,
+            3221226356,
+            3221226356,
+            11399660,
+            11401188,
+            11399660,
+            11401376,
+            2001407024,
+            2674417182,
+            0,
+            11401392,
+            2001917681,
+            3901793958,
+            0,
+            2,
+            0,
+            2002155888,
+            3221226356,
+            3221226356,
+            1,
+            0,
+            2001917727,
+            1,
+            2002155888,
+            2,
+            0,
+            134283264,
+            16,
+            11401356,
+            11468800,
+            0,
+            16,
+            11401292,
+            128,
+            11401436,
+            2001407024,
+            2674502958,
+            4294967294,
+            11401388,
+            2001278735,
+            3901793958,
+            11401252,
+            11399724,
+            11401436,
+            2001407024,
+            2674417214,
+            4294967294,
+            11401452,
+            2001955921,
+            1,
+            2002155936,
+            2001948814,
+            3901794042,
+            0,
+            7733362,
+            0,
+            11401412,
+            38,
+            11401600,
+            2001407024,
+            2674417310,
+            4294967294,
+            11401476,
+            2001947113,
+            9,
+            16908288,
+            7733362,
+            16908288,
+            11401564,
+            2001483022,
+            7733362,
+            0,
+            0,
+            0,
+            7733362,
+            16908288
+          ],
+          "frames": [
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917727,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 255
+            },
+            {
+              "address": 2001917681,
+              "symbol": "RtlIsZeroMemory",
+              "displacement": 209
+            },
+            {
+              "address": 2001955921,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 10817
+            },
+            {
+              "address": 2001947113,
+              "symbol": "RtlpNtSetValueKey",
+              "displacement": 2009
+            },
+            {
+              "address": 2001483022,
+              "symbol": "RtlGetSystemTimeAndBias",
+              "displacement": 5486
+            },
+            {
+              "address": 2001129722,
+              "symbol": "RtlFreeHeap",
+              "displacement": 202
+            },
+            {
+              "address": 1971387699,
+              "symbol": "GlobalFree",
+              "displacement": 195
+            },
+            {
+              "address": 1921527722,
+              "symbol": "SQUALL_Stop",
+              "displacement": 49850
+            },
+            {
+              "address": 1921481513,
+              "symbol": "SQUALL_Stop",
+              "displacement": 3641
+            },
+            {
+              "address": 1921479788,
+              "symbol": "SQUALL_Stop",
+              "displacement": 1916
+            },
+            {
+              "address": 1921491238,
+              "symbol": "SQUALL_Stop",
+              "displacement": 13366
+            },
+            {
+              "address": 1921475755,
+              "symbol": "SQUALL_Sample_LoadFile",
+              "displacement": 59
+            },
+            {
+              "address": 11686471
+            },
+            {
+              "address": 11690589
+            },
+            {
+              "address": 1977638217,
+              "symbol": "BaseThreadInitThunk",
+              "displacement": 25
+            },
+            {
+              "address": 2001323867,
+              "symbol": "RtlInitializeExceptionChain",
+              "displacement": 107
+            },
+            {
+              "address": 2001323745,
+              "symbol": "RtlGetAppContainerNamedObjectPath",
+              "displacement": 561
+            }
+          ]
+        },
+        {
+          "event": "exit",
+          "exit_code": 3221226356
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/02-source",
+      "artifacts": {
+        "operations.log": "0fe9e9f192e9241f9dae392b5ffd38489f4b8d1a6f3f351ccfb167a59e4027c7",
+        "ready.json": "1b5046c8f2e8179fca9d850c6848bd80171a583c6eeec5e631e5958cd4c08352",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "b0aa8f238b255ae6b668c716d85efd3df0d4fa604946c3a66493fe7819b24d42"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 3,
+      "state": {
+        "pid": 20276,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 20276,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/03-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "d646b3626ce88ea667c2f7ec7496dd25bc243530ae368901f102a209d3c5b4b2",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "2727ae074275da6667c2094641e6eb2c7a97ffe203589b40a0f05b7c64dfe904"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 4,
+      "state": {
+        "pid": 7008,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 7008,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/04-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "a57c2efc0b36c1b399da14f573ffd8955d6ba8061954ccc40dd8d891fbfe071b",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "b5161f729eab8735493884d15cc5e57d7a5de47a063f9c3601c137c4653e8c12"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 5,
+      "state": {
+        "pid": 20676,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 20676,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/05-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "51dbf916589cc3f36c5ecdc4ca1aa7ef2eb1e587f4ecba4a8ff98a65d8375dfa",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "3120b5db08641c7e101e6bc76efcee08293a5ff8ab646a9af3f39102aa997f4f"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 6,
+      "state": {
+        "pid": 7620,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 7620,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/06-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "55ef84479384b87afaf74aa2bf876498f1518e9fdf6dfb5a7ca34811b1077c0d",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "91c72758d86b0b34b4d4182181d613983e9e276e6595f5b27c35efc55ef1a996"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 7,
+      "state": {
+        "pid": 28024,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 28024,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/07-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "0d3d5dfb5c57f6d62abfce9dec227d087b345f98a768356e9661f4761c31b64c",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "2400449715256d9e96830639e9c7a86a14bb5735f581824cd85f7375c1ce83c4"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 8,
+      "state": {
+        "pid": 13712,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 13712,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/08-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "ecce77c70d3cf94715e5998b9ecb9564dcaa3058ae8c8e116702453eac04ff78",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "22bdeece3952c763e0b40ebf500376aadcf6eafc3e1df8354eba40396878989f"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 9,
+      "state": {
+        "pid": 19488,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 19488,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/09-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "d77d01c5bcf1fb192cd01c84a5c764095329cf1788bafa8850698696f990e4ff",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "a2b24b24cd9a43b0e9b1e101280df232b3adfe104058bed15ada4224ccf050cb"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 10,
+      "state": {
+        "pid": 28076,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 28076,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/10-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "ebe7ee4334eb7e19d4bf915bc1004a1865f8b8c4ef76d960524194ca4689f36e",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "d0d7410903ce27e186c1c53ac83f28462e278158c780c9628c51dc6c86e10565"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 11,
+      "state": {
+        "pid": 14872,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 14872,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/11-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "d5874715274f5ed1e4726fa44c7139691b5e73cabe8a20e1a2c40c74ec096904",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "af1ecf8604bb02549aa353ad87b4e0a7b12d52478f3fa1de87c6457a95e52845"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 12,
+      "state": {
+        "pid": 3280,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 3280,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/12-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "538dad4228a91dba25f4bb3abfc1d375063d03e0f02ea6c09df32f29f7ec5dcc",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "7105f81721f334893fd3f238d2b0138894aed04131619e7f6da20caa15b9d7ca"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 13,
+      "state": {
+        "pid": 24328,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 24328,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/13-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "0a35ff635e58742d832051568eeb2322185e61d3954b44cd9a7303d8474041a0",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "321871f07da09bb55b0f6344c68e4f7f0482d9e17cd4c0de31301fed0984f464"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 14,
+      "state": {
+        "pid": 2812,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 2812,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/14-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "451563c1a2f69116509db34bf927751c69351b967df8c818aa22b27e0b075c3a",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "ecfd6c4abf19483ae7da92da88e993852e0d556e0e0978cd4a92346c2041f872"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 15,
+      "state": {
+        "pid": 23176,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 23176,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/15-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "aa178958bec23e8b75942772078ccb5edc21f2c31f0987579a497d33f2e20f07",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "20779b3167880c200f15f786fd32268be14a6465cf11d424fcef6dbd6e4e8f3d"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 16,
+      "state": {
+        "pid": 8476,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 8476,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/16-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "4270a7b6e766dbdcd3373dcd0b7a763f399afe4b04f61044d2011d75c14728d7",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "a8067c8ac179803692d56c2e54ab7d3b57be5e6d60800e368a33014b63ce5398"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 17,
+      "state": {
+        "pid": 8004,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 8004,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/17-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "86793d47f9c77ec476c43015c53f50b6385ab1a8fa20033d13955560f22bb913",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "08c819999ad8bf41d69391679665414538ead3ac361ee3f57a292a31d0c5cd01"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 18,
+      "state": {
+        "pid": 26760,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 26760,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/18-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "bc9f451dc7b97e0afd20ec06a37e7ada32481c8008ddf9e9e83710e2ddedd3d4",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "30e93df34d825fc4fac86a8542342113ccf46baf13d0feb9ca19c016586bd282"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 19,
+      "state": {
+        "pid": 17072,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 17072,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/19-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "ae247e09788f75a0cf9b751feaf5648f2b3f6b8c5dde4946bfe529f00987aed0",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "ea61b3331adede179a9f45ffc29c1cb4c6afd94a4797caa3f0a9bb1fbfea191e"
+      }
+    },
+    {
+      "backend": "source",
+      "index": 20,
+      "state": {
+        "pid": 21244,
+        "module_base": 1921449984
+      },
+      "exit_code": 0,
+      "trace_exit_code": 0,
+      "events": [
+        {
+          "event": "image",
+          "base": 11665408
+        },
+        {
+          "event": "ready",
+          "pid": 21244,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ],
+      "directory": ".local/squall-tracker-crash/20261104T183022685227Z/20-source",
+      "artifacts": {
+        "decoded-pcm.bin": "27cab296dc20d5e0f0f258cbb91bfc1b0a9c8d9b225a215ba59eaed927033823",
+        "operations.log": "3e316eea4b5192c138a176ec73e7131dc41b046534f47b48abdeff3139949a32",
+        "ready.json": "a82d7ac5be0c5c2e392f6b1ce67ca26a5740ad5e24ae472003aaa8ab896e4bca",
+        "ready.json.go": "7134fe6667b4b2287cb806d21d2f2488b9b2077f52c6b8e06b16a4aa27c1cc13",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "dee23aa1d4a9ec88298238a951ecd473e3d66462cb2054beed075c46536f920e",
+        "trace-error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "trace.jsonl": "c7eecd4abe200887f637eaf88f97ad003bb8509fe193ca76e46503cb09262078"
+      }
+    }
+  ]
+}

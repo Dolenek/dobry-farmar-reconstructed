@@ -8,6 +8,14 @@
 #include <math.h>   	//for GCCFIX
 #include "stdafx.h"
 #include "TrackDecoder.h"
+#include <cstddef>
+
+static_assert(sizeof(CDecompressTrack) == 0xef0c, "Native constructor field extent");
+static_assert(offsetof(CDecompressTrack, Order) == 0xb7ac, "Native new order view");
+static_assert(offsetof(CDecompressTrack, legacy_Order) == 0xb7a8, "Native MOD order view");
+static_assert(offsetof(CDecompressTrack, m_nChannels) == 0xd05c, "Native new channels");
+static_assert(offsetof(CDecompressTrack, legacy_m_nChannels) == 0xd058, "Native mixer channels");
+static_assert(offsetof(CDecompressTrack, FileBuffer) == 0xef08, "Native constructor file pointer");
 
 // включения
 #include <windows.h>
@@ -880,150 +888,32 @@ void CDecompressTrack::SetCurrentOrder(UINT nPos)
         SONG_ENDREACHED |
         SONG_GLOBALFADE);
 
-    CurOrder = nPos;
-    /*   CurPatternPos = 0;
-       int i = 0;
-       while( nPos )
-       {
-          if( OrderInfo[i]._init )
-          {
-             CurPatternPos += OrderInfo[i]._samples;
-             nPos--;
-          }
-       }*/
-
-    SamplesInPattern = OrderInfo[CurOrder]._samples;
+    // Native1002cb51..1002cba0: accumulate entry0 repeatedly, then
+    // predecode MaxSamplesInPattern as stereo. No CurOrder field exists there.
     PatternSamplePos = 0;
-
-    Read(PatternSampleBuffer, SamplesInPattern * 2 * gnChannels, gnChannels);
+    while (nPos) {
+        if (OrderInfo[0]._init) {
+            PatternSamplePos += OrderInfo[0]._samples;
+            --nPos;
+        }
+    }
+    Read(PatternSampleBuffer, MaxSamplesInPattern * 4, 2);
 }
 
+// Native1002c000/1002bfe0: these wrappers ignore start and loop. Read
+// reports sample frames, even though the abstract interface names byte counts.
 DWORD CDecompressTrack::GetStereoSamples(void* buffer, DWORD start,
     DWORD length, bool loop)
 {
-    UINT NeedOrder = 0;
-    UINT NeedRead = length;
-    UINT CurPos = 0;
-    int Block = 0;
-    short* Out = (short*) buffer;
-    short* In = 0;
-
-    // вычисление номера требуемого патерна
-    while (1) {
-        if (OrderInfo[NeedOrder]._init) {
-            if (start < OrderInfo[NeedOrder]._samples)
-                break;
-            start -= OrderInfo[NeedOrder]._samples;
-            NeedOrder += OrderInfo[NeedOrder]._next;
-        }
-    }
-
-
-    CurPos = start;
-
-    while (NeedRead) {
-        // если текущая позиция не совпадает с вычисленой
-        if (CurOrder != NeedOrder) {
-            SetCurrentOrder(NeedOrder);
-        }
-
-        if (NeedRead > (SamplesInPattern - CurPos))
-            Block = (SamplesInPattern - CurPos);
-        else
-            Block = NeedRead;
-
-        In = (short *) PatternSampleBuffer + CurPos * gnChannels;
-        CurPos += Block;
-        NeedRead -= Block;
-
-        // сборка семплов
-        if (gnChannels == 1) {
-            // моно данные
-            do {
-                *Out++ = *In;
-                *Out++ = *In;
-                In++;
-            } while (--Block);
-        } else {
-            // стерео данные
-            do {
-                *Out++ = *In++;
-                *Out++ = *In++;
-            } while (--Block);
-        }
-
-        if ((SamplesInPattern - CurPos) == 0) {
-            NeedOrder++;
-            CurPos = 0;
-        }
-    };
-
-    return (DWORD) Out - (DWORD) buffer;
+    return Read(buffer, length * 4, 2);
 }
-
 
 DWORD CDecompressTrack::GetMonoSamples(void* buffer, DWORD start,
     DWORD length, bool loop)
 {
-    UINT NeedOrder = 0;
-    UINT NeedRead = length;
-    int Block = 0;
-    short* Out = (short*) buffer;
-    short* In = 0;
-    int s = 0;
-
-    // вычисление номера требуемого патерна
-    while (1) {
-        if (OrderInfo[NeedOrder]._init) {
-            if (start < OrderInfo[NeedOrder]._samples)
-                break;
-            start -= OrderInfo[NeedOrder]._samples;
-            NeedOrder += OrderInfo[NeedOrder]._next;
-        }
-    }
-
-
-    while (NeedRead) {
-        // если текущая позиция не совпадает с вычисленой
-        if (CurOrder != NeedOrder) {
-            SetCurrentOrder(NeedOrder);
-        }
-
-        if (NeedRead > (SamplesInPattern - PatternSamplePos))
-            Block = (SamplesInPattern - PatternSamplePos);
-        else
-            Block = NeedRead;
-
-        PatternSamplePos += Block;
-        NeedRead -= Block;
-
-        // сборка семплов
-        if (gnChannels == 1) {
-            In = (short *) PatternSampleBuffer + PatternSamplePos;
-            // моно данные
-            do {
-                *Out++ = *In++;
-            } while (--Block);
-        } else {
-            In = (short *) PatternSampleBuffer + PatternSamplePos * 2;
-            // стерео данные
-            do {
-                s = ((int) In[0] + (int) In[1]) >> 1;
-                if (s < -32768)
-                    s = -32768;
-                else if (s > 32767)
-                    s = 32767;
-                *Out++ = (short) s;
-                In += 2;
-            } while (--Block);
-        }
-
-        if (SamplesInPattern - PatternSamplePos)
-            NeedOrder++;
-    }
-
-    return (DWORD) Out - (DWORD) buffer;
+    return Read(buffer, length * 2, 1);
 }
+
 
 void CDecompressTrack::ResetChannels()
     //------------------------------

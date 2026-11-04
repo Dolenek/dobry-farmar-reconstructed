@@ -1,0 +1,45 @@
+{
+  "status": "actual_rejected_constructor_and_destructor_field_observations",
+  "work_directory": ".local/squall-ogg-rejection/20261104T183504474356Z",
+  "binaries": {
+    "native.dll": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+    "source.dll": "4eac67a7ab180606fedbfc58ed04a475e681217c35e5cdd512f46d8651fbbd7d",
+    "source.map": "812dd254daac2c9db70d953ac6a8a27788c5026ab007d32fbe6475ea34d5ed4e",
+    "probe.exe": "f68b5d3d542228bfe1d002fbcdd42bac7e4ba893ffbaec3f5991d5e01ca911e8"
+  },
+  "sources": {
+    "tools/validate_squall_ogg_rejection.py": "f1d09db06350bed359c92129bc3e61a53119159561064935b62657aef6ca3136",
+    "tools/squall_ogg_failure_probe.cpp": "a6ba09e7ac5805de1177d6564038af8849e4b1278541ec22adb491f36503e83a",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3"
+  },
+  "fixture_sha256": "4579b5b13cde08f9c50fca12fc28ff01843887c3d571eb2a73a4c91f670a1f6d",
+  "runs": [
+    {
+      "backend": "native",
+      "exit_code": 0,
+      "stdout": "{\"cases\":[{\"precision\":53,\"seeded_owned_buffer\":false,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":false,\"heap_walk_observed\":true},{\"precision\":53,\"seeded_owned_buffer\":true,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":true,\"heap_walk_observed\":true},{\"precision\":24,\"seeded_owned_buffer\":false,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":false,\"heap_walk_observed\":true},{\"precision\":24,\"seeded_owned_buffer\":true,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":true,\"heap_walk_observed\":true}],\"case_count\":4}\r\n",
+      "stderr": "",
+      "directory": ".local/squall-ogg-rejection/20261104T183504474356Z/native",
+      "artifacts": {
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "f04fdb7519f162cb9b45feb98ce072f635fbc5379ab0943d4f7568c2b620e9e8"
+      }
+    },
+    {
+      "backend": "source",
+      "exit_code": 0,
+      "stdout": "{\"cases\":[{\"precision\":53,\"seeded_owned_buffer\":false,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":false,\"heap_walk_observed\":true},{\"precision\":53,\"seeded_owned_buffer\":true,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":true,\"heap_walk_observed\":true},{\"precision\":24,\"seeded_owned_buffer\":false,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":false,\"heap_walk_observed\":true},{\"precision\":24,\"seeded_owned_buffer\":true,\"vf_cleared\":true,\"temp_pointer_untouched_by_constructor\":true,\"temp_size_untouched_by_constructor\":true,\"owned_buffer_freed_by_destructor\":true,\"heap_walk_observed\":true}],\"case_count\":4}\r\n",
+      "stderr": "",
+      "directory": ".local/squall-ogg-rejection/20261104T183504474356Z/source",
+      "artifacts": {
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "f04fdb7519f162cb9b45feb98ce072f635fbc5379ab0943d4f7568c2b620e9e8"
+      }
+    }
+  ],
+  "exact_case_pairs": 4,
+  "production_changed": false,
+  "uninitialized_temp_pointer_confirmed": true,
+  "unsafe_uninitialized_values_not_normalized": true
+}

@@ -13,6 +13,7 @@
 #include <float.h>
 #include <cstdint>
 #include <stdexcept>
+#include <cstring>
 
 void need(bool ok, const char* message) { if (!ok) throw std::runtime_error(message); }
 int wmain(int argc, wchar_t** argv) {
@@ -43,6 +44,22 @@ int wmain(int argc, wchar_t** argv) {
         };
         auto result = create(object.data(), stream.data(), static_cast<unsigned>(stream.size()));
         save("after-create.bin");
+        // The MOD loader uses the old channel field. Preserve actual allocated
+        // pattern commands and decoded instrument samples, not pointer values.
+        auto word = [&object](unsigned offset) { unsigned value; std::memcpy(&value, object.data()+offset, 4); return value; };
+        auto copy = [](const char* name, unsigned pointer, unsigned size) {
+            need(size <= 1048576, "Allocated diagnostic extent");
+            if (!size) return;
+            need(pointer != 0, "Missing allocated tracker data");
+            std::vector<unsigned char> bytes(size);
+            SIZE_T copied = 0;
+            need(ReadProcessMemory(GetCurrentProcess(), reinterpret_cast<const void*>(pointer), bytes.data(), size, &copied) && copied == size, "Read actual tracker allocation");
+            std::ofstream(name, std::ios::binary).write(reinterpret_cast<char*>(bytes.data()), size);
+        };
+        copy("pattern0.bin", word(0x9a08), (word(0x9dc8)&0xffff)*word(0xd058)*6);
+        unsigned sample = 0x5148 + 64;
+        unsigned flags = word(sample+32) >> 16;
+        copy("instrument1-pcm.bin", word(sample+20), word(sample)*((flags&1) ? 2 : 1));
         std::cout << "{\"create_result\":" << result;
         need(result != 0, "Actual Create rejected fixture");
         std::string stage = std::filesystem::path(argv[7]).string();

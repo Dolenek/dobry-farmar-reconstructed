@@ -1230,7 +1230,7 @@ UINT CDecompressTrack::CreateStereoMix(int count)
     if (!count)
         return 0;
     nchused = nchmixed = 0;
-    for (UINT nChn = 0; nChn < m_nMixChannels; nChn++) {
+    for (UINT nChn = 0; nChn < legacy_m_nMixChannels; nChn++) {
         const LPMIXINTERFACE* pMixFuncTable;
         MODCHANNEL * const pChannel =& Chn[ChnMix[nChn]];
         UINT nFlags, nMasterCh;
@@ -1240,7 +1240,7 @@ UINT CDecompressTrack::CreateStereoMix(int count)
 
         if (!pChannel->pCurrentSample)
             continue;
-        nMasterCh = (ChnMix[nChn] < m_nChannels) ?
+        nMasterCh = (ChnMix[nChn] < legacy_m_nChannels) ?
             ChnMix[nChn] +
             1 :
             pChannel->nMasterChn;

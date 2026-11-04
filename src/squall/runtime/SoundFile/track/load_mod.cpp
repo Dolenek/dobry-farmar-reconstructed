@@ -58,10 +58,10 @@ void CDecompressTrack::ConvertModCommand(MODCOMMAND* m) const
         command = CMD_MODCMDEX; break;
     case 0x0F:
         command = (param <= (UINT)
-            ((m_nType & (MOD_TYPE_XM | MOD_TYPE_MT2)) ? 0x1F : 0x20)) ?
+            ((legacy_m_nType & (MOD_TYPE_XM | MOD_TYPE_MT2)) ? 0x1F : 0x20)) ?
             CMD_SPEED :
             CMD_TEMPO;
-        if ((param == 0xFF) && (m_nSamples == 15))
+        if ((param == 0xFF) && (legacy_m_nSamples == 15))
             command = 0; break;
         // Extension for XM extended effects
     case 'G' - 55:
@@ -108,7 +108,7 @@ WORD CDecompressTrack::ModSaveCommand(const MODCOMMAND *m, BOOL bXM) const
     case 0:						command = param = 0; break;
     case CMD_ARPEGGIO:			command = 0; break;
     case CMD_PORTAMENTOUP:
-        if (m_nType & (MOD_TYPE_S3M|MOD_TYPE_IT|MOD_TYPE_STM))
+        if (legacy_m_nType & (MOD_TYPE_S3M|MOD_TYPE_IT|MOD_TYPE_STM))
         {
             if ((param & 0xF0) == 0xE0) { command=0x0E; param=((param & 0x0F) >> 2)|0x10; break; }
             else if ((param & 0xF0) == 0xF0) { command=0x0E; param &= 0x0F; param|=0x10; break; }
@@ -116,7 +116,7 @@ WORD CDecompressTrack::ModSaveCommand(const MODCOMMAND *m, BOOL bXM) const
         command = 0x01;
         break;
     case CMD_PORTAMENTODOWN:
-        if (m_nType & (MOD_TYPE_S3M|MOD_TYPE_IT|MOD_TYPE_STM))
+        if (legacy_m_nType & (MOD_TYPE_S3M|MOD_TYPE_IT|MOD_TYPE_STM))
         {
             if ((param & 0xF0) == 0xE0) { command=0x0E; param=((param & 0x0F) >> 2)|0x20; break; }
             else if ((param & 0xF0) == 0xF0) { command=0x0E; param &= 0x0F; param|=0x20; break; }
@@ -132,14 +132,14 @@ WORD CDecompressTrack::ModSaveCommand(const MODCOMMAND *m, BOOL bXM) const
         command = 0x08;
         if (bXM)
         {
-            if ((m_nType != MOD_TYPE_IT) && (m_nType != MOD_TYPE_XM) && (param <= 0x80))
+            if ((legacy_m_nType != MOD_TYPE_IT) && (legacy_m_nType != MOD_TYPE_XM) && (param <= 0x80))
             {
                 param <<= 1;
                 if (param > 255) param = 255;
             }
         } else
         {
-            if ((m_nType == MOD_TYPE_IT) || (m_nType == MOD_TYPE_XM)) param >>= 1;
+            if ((legacy_m_nType == MOD_TYPE_IT) || (legacy_m_nType == MOD_TYPE_XM)) param >>= 1;
         }
         break;
     case CMD_OFFSET:			command = 0x09; break;
@@ -221,8 +221,8 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
     if ((!lpStream) || (dwMemLength < 0x600))
         return FALSE;
     dwMemPos = 20;
-    m_nSamples = 31;
-    m_nChannels = 4;
+    legacy_m_nSamples = 31;
+    legacy_m_nChannels = 4;
     pMagic = (PMODMAGIC) (lpStream + dwMemPos + sizeof(MODSAMPLE) * 31);
     // Check Mod Magic
     memcpy(s, pMagic->Magic, 4);
@@ -230,61 +230,61 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
         (IsMagic(s, "M!K!")) ||
         (IsMagic(s, "M&K!")) ||
         (IsMagic(s, "N.T.")))
-        m_nChannels = 4;
+        legacy_m_nChannels = 4;
     else if ((IsMagic(s, "CD81")) || (IsMagic(s, "OKTA")))
-        m_nChannels = 8;
+        legacy_m_nChannels = 8;
     else if ((s[0] == 'F') &&
             (s[1] == 'L') &&
             (s[2] == 'T') &&
             (s[3] >= '4') &&
             (s[3] <= '9'))
-            m_nChannels = s[3] - '0';
+            legacy_m_nChannels = s[3] - '0';
     else if ((s[0] >= '4') &&
             (s[0] <= '9') &&
             (s[1] == 'C') &&
             (s[2] == 'H') &&
             (s[3] == 'N'))
-            m_nChannels = s[0] - '0';
+            legacy_m_nChannels = s[0] - '0';
     else if ((s[0] == '1') &&
             (s[1] >= '0') &&
             (s[1] <= '9') &&
             (s[2] == 'C') &&
             (s[3] == 'H'))
-            m_nChannels = s[1] - '0' + 10;
+            legacy_m_nChannels = s[1] - '0' + 10;
     else if ((s[0] == '2') &&
             (s[1] >= '0') &&
             (s[1] <= '9') &&
             (s[2] == 'C') &&
             (s[3] == 'H'))
-            m_nChannels = s[1] - '0' + 20;
+            legacy_m_nChannels = s[1] - '0' + 20;
     else if ((s[0] == '3') &&
             (s[1] >= '0') &&
             (s[1] <= '2') &&
             (s[2] == 'C') &&
             (s[3] == 'H'))
-            m_nChannels = s[1] - '0' + 30;
+            legacy_m_nChannels = s[1] - '0' + 30;
     else if ((s[0] == 'T') &&
             (s[1] == 'D') &&
             (s[2] == 'Z') &&
             (s[3] >= '4') &&
             (s[3] <= '9'))
-            m_nChannels = s[3] - '0';
+            legacy_m_nChannels = s[3] - '0';
     else if (IsMagic(s, "16CN"))
-        m_nChannels = 16;
+        legacy_m_nChannels = 16;
     else if (IsMagic(s, "32CN"))
-        m_nChannels = 32;
+        legacy_m_nChannels = 32;
     else
-        m_nSamples = 15;
+        legacy_m_nSamples = 15;
     // Load Samples
     nErr = 0;
     dwTotalSampleLen = 0;
-    for (UINT i = 1; i <= m_nSamples; i++) {
+    for (UINT i = 1; i <= legacy_m_nSamples; i++) {
         PMODSAMPLE pms = (PMODSAMPLE) (lpStream + dwMemPos);
         MODINSTRUMENT* psmp =& Ins[i];
         UINT loopstart, looplen;
 
-        memcpy(m_szNames[i], pms->name, 22);
-        m_szNames[i][22] = 0;
+        memcpy(legacy_m_szNames[i], pms->name, 22);
+        legacy_m_szNames[i][22] = 0;
         psmp->uFlags = 0;
         psmp->nLength = bswapBE16(pms->length) * 2;
         dwTotalSampleLen += psmp->nLength;
@@ -329,28 +329,28 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
         }
         dwMemPos += sizeof(MODSAMPLE);
     }
-    if ((m_nSamples == 15) && (dwTotalSampleLen > dwMemLength * 4))
+    if ((legacy_m_nSamples == 15) && (dwTotalSampleLen > dwMemLength * 4))
         return FALSE;
     pMagic = (PMODMAGIC) (lpStream + dwMemPos);
     dwMemPos += sizeof(MODMAGIC);
-    if (m_nSamples == 15)
+    if (legacy_m_nSamples == 15)
         dwMemPos -= 4;
-    memset(Order, 0, sizeof(Order));
-    memcpy(Order, pMagic->Orders, 128);
+    memset(legacy_Order, 0, sizeof(legacy_Order));
+    memcpy(legacy_Order, pMagic->Orders, 128);
 
     UINT nbp, nbpbuggy, nbpbuggy2, norders;
 
     norders = pMagic->nOrders;
     if ((!norders) || (norders > 0x80)) {
         norders = 0x80;
-        while ((norders > 1) && (!Order[norders - 1]))
+        while ((norders > 1) && (!legacy_Order[norders - 1]))
             norders--;
     }
     nbpbuggy = 0;
     nbpbuggy2 = 0;
     nbp = 0;
     for (UINT iord = 0; iord < 128; iord++) {
-        UINT i = Order[iord];
+        UINT i = legacy_Order[iord];
         if ((i < 0x80) && (nbp <= i)) {
             nbp = i + 1;
             if (iord < norders)
@@ -360,42 +360,42 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
             nbpbuggy2 = i + 1;
     }
     for (UINT iend = norders; iend < MAX_ORDERS; iend++)
-        Order[iend] = 0xFF;
+        legacy_Order[iend] = 0xFF;
     norders--;
-    m_nRestartPos = pMagic->nRestartPos;
-    if (m_nRestartPos >= 0x78)
-        m_nRestartPos = 0;
-    if (m_nRestartPos + 1 >= (UINT) norders)
-        m_nRestartPos = 0;
+    legacy_m_nRestartPos = pMagic->nRestartPos;
+    if (legacy_m_nRestartPos >= 0x78)
+        legacy_m_nRestartPos = 0;
+    if (legacy_m_nRestartPos + 1 >= (UINT) norders)
+        legacy_m_nRestartPos = 0;
     if (!nbp)
         return FALSE;
     DWORD dwWowTest = dwTotalSampleLen + dwMemPos;
     if ((IsMagic(pMagic->Magic, "M.K.")) &&
         (dwWowTest + nbp * 8 * 256 == dwMemLength))
-        m_nChannels = 8;
+        legacy_m_nChannels = 8;
     if ((nbp != nbpbuggy) &&
-        (dwWowTest + nbp * m_nChannels * 256 != dwMemLength)) {
-        if (dwWowTest + nbpbuggy * m_nChannels * 256 == dwMemLength)
+        (dwWowTest + nbp * legacy_m_nChannels * 256 != dwMemLength)) {
+        if (dwWowTest + nbpbuggy * legacy_m_nChannels * 256 == dwMemLength)
             nbp = nbpbuggy;
         else
             nErr += 8;
     } else if ((nbpbuggy2 > nbp) &&
-        (dwWowTest + nbpbuggy2 * m_nChannels * 256 == dwMemLength)) {
+        (dwWowTest + nbpbuggy2 * legacy_m_nChannels * 256 == dwMemLength)) {
         nbp = nbpbuggy2;
     }
     if ((dwWowTest < 0x600) || (dwWowTest > dwMemLength))
         nErr += 8;
-    if ((m_nSamples == 15) && (nErr >= 16))
+    if ((legacy_m_nSamples == 15) && (nErr >= 16))
         return FALSE;
     // Default settings
-    m_nType = MOD_TYPE_MOD;
-    m_nDefaultSpeed = 6;
-    m_nDefaultTempo = 125;
-    m_nMinPeriod = 14 << 2;
-    m_nMaxPeriod = 3424 << 2;
-    memcpy(m_szNames, lpStream, 20);
+    legacy_m_nType = MOD_TYPE_MOD;
+    legacy_m_nDefaultSpeed = 6;
+    legacy_m_nDefaultTempo = 125;
+    legacy_m_nMinPeriod = 14 << 2;
+    legacy_m_nMaxPeriod = 3424 << 2;
+    memcpy(legacy_m_szNames, lpStream, 20);
     // Setting channels pan
-    for (UINT ich = 0; ich < m_nChannels; ich++) {
+    for (UINT ich = 0; ich < legacy_m_nChannels; ich++) {
         ChnSettings[ich].nVolume = 64;
         if (gdwSoundSetup & SNDMIX_MAXDEFAULTPAN)
             ChnSettings[ich].nPan = (((ich & 3) == 1) || ((ich & 3) == 2)) ?
@@ -409,14 +409,14 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
     // Reading channels
     for (UINT ipat = 0; ipat < nbp; ipat++) {
         if (ipat < MAX_PATTERNS) {
-            if ((Patterns[ipat] = AllocatePattern(64, m_nChannels)) == NULL)
+            if ((Patterns[ipat] = AllocatePattern(64, legacy_m_nChannels)) == NULL)
                 break;
             PatternSize[ipat] = 64;
-            if (dwMemPos + m_nChannels * 256 >= dwMemLength)
+            if (dwMemPos + legacy_m_nChannels * 256 >= dwMemLength)
                 break;
             MODCOMMAND* m = Patterns[ipat];
             LPCBYTE p = lpStream + dwMemPos;
-            for (UINT j = m_nChannels*64; j; m++,p += 4,j--) {
+            for (UINT j = legacy_m_nChannels*64; j; m++,p += 4,j--) {
                 BYTE A0 = p[0], A1 = p[1], A2 = p[2], A3 = p[3];
                 UINT n = ((((UINT) A0 & 0x0F) << 8) | (A1));
                 if ((n) && (n != 0xFFF))
@@ -428,11 +428,11 @@ BOOL CDecompressTrack::ReadMod(const BYTE* lpStream, DWORD dwMemLength)
                     ConvertModCommand(m);
             }
         }
-        dwMemPos += m_nChannels * 256;
+        dwMemPos += legacy_m_nChannels * 256;
     }
     // Reading instruments
     DWORD dwErrCheck = 0;
-    for (UINT ismp = 1; ismp <= m_nSamples; ismp++)
+    for (UINT ismp = 1; ismp <= legacy_m_nSamples; ismp++)
         if (Ins[ismp].nLength) {
             LPSTR p = (LPSTR) (lpStream + dwMemPos);
             UINT flags = 0;

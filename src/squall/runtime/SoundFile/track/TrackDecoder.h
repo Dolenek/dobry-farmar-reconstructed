@@ -533,6 +533,11 @@ public:	// for Editing
     MODCOMMAND* Patterns[MAX_PATTERNS];				// Массив с патернами
     WORD PatternSize[MAX_PATTERNS];					// Массив с длинами Ровс в каждом патерне
     ORDERINFO OrderInfo[MAX_ORDERS];
+    // The original DLL links two incompatible tracker field layouts. Its
+    // loader/mixer objects omit SamplesInFile; TrackDecoder and snd_fx include
+    // it. Keep both views explicit in owned union storage (MSVC Win32 ABI).
+    union {
+        struct {
     DWORD SamplesInFile;
     BYTE Order[MAX_ORDERS]; 					 // Последовательность патернов
     MODMIDICFG m_MidiCfg;							// Midi macro config table
@@ -579,11 +584,60 @@ public:	// for Editing
     char m_szNames[MAX_INSTRUMENTS][32];	// имена инструментов  // changed from CHAR
     CHAR CompressionTable[16];
 
+        };
+        struct {
+    BYTE legacy_Order[MAX_ORDERS]; 					 // Последовательность патернов
+    MODMIDICFG legacy_m_MidiCfg;							// Midi macro config table
+    SNDMIXPLUGIN legacy_m_MixPlugins[MAX_MIXPLUGINS];		// Mix plugins
+    UINT legacy_m_nDefaultSpeed;   		// скорость по умолчанию
+    UINT legacy_m_nDefaultTempo;   		// темп по умолчанию
+    UINT legacy_m_nDefaultGlobalVolume;	// глобальная громкость по умолчанию
+    DWORD legacy_m_dwSongFlags;			 // Song flags SONG_XXXX
+    UINT legacy_m_nChannels;   			// количество каналов
+    UINT legacy_m_nMixChannels;			// микшируемое количество каналов
+    UINT legacy_m_nMixStat;				// стутус микширования (количество каналов?)
+    UINT legacy_m_nBufferCount;			// Количество семплов в промежуточном буфере
+    UINT legacy_m_nType;   				// тип обрабатываемых данных
+    UINT legacy_m_nSamples;				// количество семплов в композиции
+    UINT legacy_m_nInstruments;			// количество инструментов в композиции
+    UINT legacy_m_nTickCount;  			// текущий счетчик тиков?
+    UINT legacy_m_nTotalCount; 			// общее количество прошедших тиков
+    UINT legacy_m_nPatternDelay;   		// задержка патерна
+    UINT legacy_m_nFrameDelay; 			// задержка кадра
+    UINT legacy_m_nMusicSpeed; 			// текущая скорость музыки
+    UINT legacy_m_nMusicTempo; 			// текущий темп музыки
+    UINT legacy_m_nNextRow;				// номер следующего элемента
+    UINT legacy_m_nRow;					// номер текущего элемента
+    UINT legacy_m_nPattern;				// номер текущего патерна
+    UINT legacy_m_nCurrentPattern; 		// номер текущего патерна
+    UINT legacy_m_nNextPattern;			// номер следующего патерна
+    UINT legacy_m_nRestartPos;
+    UINT legacy_m_nMasterVolume;
+    UINT legacy_m_nGlobalVolume;
+    UINT legacy_m_nSongPreAmp;
+    UINT legacy_m_nFreqFactor;
+    UINT legacy_m_nTempoFactor;
+    UINT legacy_m_nOldGlbVolSlide;
+    LONG legacy_m_nMinPeriod;
+    LONG legacy_m_nMaxPeriod;
+    LONG legacy_m_nRepeatCount;
+    LONG legacy_m_nInitialRepeatCount;
+    DWORD legacy_m_nGlobalFadeSamples;
+    DWORD legacy_m_nGlobalFadeMaxSamples;
+    UINT legacy_m_nMaxOrderPosition;
+    UINT legacy_m_nPatternNames;
+    LPSTR legacy_m_lpszSongComments;
+    LPSTR legacy_m_lpszPatternNames;
+    char legacy_m_szNames[MAX_INSTRUMENTS][32];	// имена инструментов  // changed from CHAR
+    CHAR legacy_CompressionTable[16];
+
+        };
+    };
+
     UINT MaxSamplesInPattern;   	   // Максимальный размер патерна
     UINT PatternSamplePos;
     UINT SamplesInPattern;  		   // Текущее количество семплов в патерне
     char* PatternSampleBuffer;  		// Указатель на буфер с семплами патерна
-    UINT CurOrder;
 
 public:
 
@@ -596,15 +650,9 @@ public:
 
     // получение данных из декодера в моно режиме
     DWORD GetMonoSamples(void* buffer, DWORD start, DWORD length, bool loop);
-    /*   {
-          return Read(buffer, length * 2, 1);
-       };*/
 
     // получение данных из декодера в стерео режиме
     DWORD GetStereoSamples(void* buffer, DWORD start, DWORD length, bool loop);
-    /*   {
-          return Read(buffer, length * 4, 2);
-       };*/
 
     // получение тишины в моно режиме
     DWORD GetMonoMute(void* buffer, DWORD length)

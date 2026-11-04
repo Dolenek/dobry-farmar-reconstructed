@@ -1,0 +1,814 @@
+{
+  "status": "observed_actual_mod_factory_and_owned_constructors_not_general_tracker_equivalence",
+  "work_directory": ".local/squall-tracker-runtime/20261104T183611021787Z",
+  "binaries": {
+    "native.dll": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+    "source.dll": "4eac67a7ab180606fedbfc58ed04a475e681217c35e5cdd512f46d8651fbbd7d",
+    "source.map": "812dd254daac2c9db70d953ac6a8a27788c5026ab007d32fbe6475ea34d5ed4e",
+    "probe.exe": "915a307b1b8015b2d5561af665bac822c5233fbcce93f0a289cbb532dc33924e",
+    "ctor-probe.exe": "e3ef3557677d32db33a262b55ae8059c64644fca431581f4b81860d182075e91"
+  },
+  "source_files": {
+    "tools/validate_squall_tracker_runtime.py": "20d4ba5f06782e266b316027c4d7c33ca6356b99246ce9756ac9a6297acd39b6",
+    "tools/validate_squall_tracker_stages.py": "d26d77e3a5c56acc8affa202d5ddb6e064bc0e589706ca7c56ea940e6fa66737",
+    "tools/squall_tracker_fixtures.py": "fa5945da3d92802eecd90c2b0af3d495ca1ca2fe3e25e80a73126f38923dff47",
+    "tools/squall_tracker_probe.cpp": "1bdfb7aaf97f84d8e52fafaddfe3a693abc10552f4a7752d5cad969da00fa2c2",
+    "tools/squall_tracker_ctor_probe.cpp": "9d4ad4a18751234e15f2a93e83122a8ba14e1593df11a437e66c853ea3d5dcce",
+    "tools/squall_tracker_probe/CMakeLists.txt": "63d3f1ffbac551f84fb2106ee321e75a8adce50d787442ab40c837330a0de018",
+    "src/squall/codecs/vorbis/mdct.h": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93",
+    "src/squall/Parameters.cpp": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508",
+    "src/squall/Parameters.h": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d",
+    "src/squall/runtime/Abi.cpp": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6",
+    "src/squall/runtime/SoundEngine/Channels.cpp": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7",
+    "src/squall/runtime/SoundEngine/Channels.h": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523",
+    "src/squall/runtime/SoundEngine/Context.cpp": "527aeb60b4ffdfb40e8280163522323d2ae724ef1bb58245ec680f2ad9d7fa32",
+    "src/squall/runtime/SoundEngine/Context.h": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085",
+    "src/squall/runtime/SoundEngine/DirectSound.cpp": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b",
+    "src/squall/runtime/SoundEngine/DirectSound.h": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50",
+    "src/squall/runtime/SoundEngine/ext/dsound.h": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb",
+    "src/squall/runtime/SoundEngine/ext/Eax.cpp": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e",
+    "src/squall/runtime/SoundEngine/ext/Eax.h": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d",
+    "src/squall/runtime/SoundEngine/ext/Eax1_api.h": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2",
+    "src/squall/runtime/SoundEngine/ext/Eax2_api.h": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac",
+    "src/squall/runtime/SoundEngine/ext/Eax3_api.h": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d",
+    "src/squall/runtime/SoundEngine/ext/Eax4_api.h": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.h": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65",
+    "src/squall/runtime/SoundEngine/HiddenWindow.cpp": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a",
+    "src/squall/runtime/SoundEngine/HiddenWindow.h": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced",
+    "src/squall/runtime/SoundEngine/Squall.cpp": "fd6cdada95f24db3123e63dda1e0174d146993eabed54b0aaca44e2ce212a604",
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905",
+    "src/squall/runtime/SoundEngine/SquallApi.h": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b",
+    "src/squall/runtime/SoundFile/AbstractDecoder.h": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f",
+    "src/squall/runtime/SoundFile/AbstractSoundFile.h": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09",
+    "src/squall/runtime/SoundFile/ExternFunction.h": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb",
+    "src/squall/runtime/SoundFile/MP3/l1dec.cpp": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c",
+    "src/squall/runtime/SoundFile/MP3/l2dec.cpp": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050",
+    "src/squall/runtime/SoundFile/MP3/l3dec.cpp": "98e683e464b9a1ae11fa9299e1b41fb0cbbc730367be62daa4d0544ce480c958",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp": "49dee53da239f1ebe8b6b27a7f1d099e4fe4b5298c36dc421a943a483e779b6b",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.h": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.cpp": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.h": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d",
+    "src/squall/runtime/SoundFile/MP3/MpegHuff.h": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003",
+    "src/squall/runtime/SoundFile/MP3/NativeMpegMath.h": "1802bfc7781c19c5e1ccad9d12976ed968e21c3035fe6f6c3a7186e6c848ae43",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.cpp": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.h": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43",
+    "src/squall/runtime/SoundFile/Reader.cpp": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc",
+    "src/squall/runtime/SoundFile/Reader.h": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370",
+    "src/squall/runtime/SoundFile/SoundFile.cpp": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5",
+    "src/squall/runtime/SoundFile/SoundFile.h": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874",
+    "src/squall/runtime/SoundFile/track/fastmix.cpp": "de08410e915049b0d5f91a4f2960fa59639ca95788eb54881415445608825a58",
+    "src/squall/runtime/SoundFile/track/it_defs.h": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698",
+    "src/squall/runtime/SoundFile/track/load_669.cpp": "575b3bca4d75e533f17c56ee0a61c584fd4aac79214de9c972eb40bef1897858",
+    "src/squall/runtime/SoundFile/track/load_amf.cpp": "00bf6069cb78d66f615af22c612dc3b27847543ab3151ba78ae884d3af43cb57",
+    "src/squall/runtime/SoundFile/track/load_ams.cpp": "2579a2734359d43287e3ae0c9722c2c83a9c0e5bd38127d62b5a0c0c1da489f2",
+    "src/squall/runtime/SoundFile/track/load_dbm.cpp": "e54b65b09e7c5830c7006221ea5214c9f7bd0c0d9c9624f2a1138087de83d6d5",
+    "src/squall/runtime/SoundFile/track/load_dmf.cpp": "a5dd817e583a87d82409e69fd634d4eb6fc5134e5c05ee46f448610c61a2678a",
+    "src/squall/runtime/SoundFile/track/load_dsm.cpp": "eaf561c7ffced00f9275f10ca29f95309113e1605c06ba15a6cdcbb47737adb8",
+    "src/squall/runtime/SoundFile/track/load_far.cpp": "9ffb35194d5f093e1ca2f059df1bcaab486908631aa5a33b87bd1dbfb50d2cf9",
+    "src/squall/runtime/SoundFile/track/load_it.cpp": "2617a2aee5c3202c05d887fcfe67b5a9b7e552006e4cddfbb43172bb67913340",
+    "src/squall/runtime/SoundFile/track/load_mdl.cpp": "a213b9bdc97d8f0d2635bc8052bbc488f020f6710203e01dba38f1c3b19e57be",
+    "src/squall/runtime/SoundFile/track/load_med.cpp": "8f152cd3c3eb50b24f53004420873712b3e131b9f31f4ced2951a373379bc52f",
+    "src/squall/runtime/SoundFile/track/load_mod.cpp": "d78dbd349406d4f269b66c78877e2605bbe370a911c8e3c62ca4f73862e8d3c4",
+    "src/squall/runtime/SoundFile/track/load_mt2.cpp": "a74948e5d310ac2a30de77bdc3fd9d5deae2c71e627976325336ab77eff36f09",
+    "src/squall/runtime/SoundFile/track/load_mtm.cpp": "83de33d6481af11f8af5de30189883aeb7b7b4aa76936ee3cb385df112ba5937",
+    "src/squall/runtime/SoundFile/track/load_okt.cpp": "a6b275ea99fd9e325c1f7548a12cda3f83513d6272975a50356d18599cca3d6a",
+    "src/squall/runtime/SoundFile/track/load_psm.cpp": "2ccf822bc726bc16ab6b9365b20070e636751f681be920a921a1b817c4ee810b",
+    "src/squall/runtime/SoundFile/track/load_ptm.cpp": "3dbeabf75b10d1a91418df096e74c5282600f86853d1a8f01c00a788e2247175",
+    "src/squall/runtime/SoundFile/track/load_s3m.cpp": "ee745834b5eae629018dd4621f00c49a562cdd9b7d759b31417867ede685cd91",
+    "src/squall/runtime/SoundFile/track/load_stm.cpp": "5427a68f5c3183da7e1548f633aa094358de52d60a1a017e6364742313edab82",
+    "src/squall/runtime/SoundFile/track/load_ult.cpp": "4838c3a29367a47f0d0936916fe86f1d52e5d947402777ddb522cbde39a83c4d",
+    "src/squall/runtime/SoundFile/track/load_umx.cpp": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+    "src/squall/runtime/SoundFile/track/load_xm.cpp": "86a0ac430ef47ffffef305f7e70fa89af06f008a4eb60397522a44fc80bbb77e",
+    "src/squall/runtime/SoundFile/track/snd_fx.cpp": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36",
+    "src/squall/runtime/SoundFile/track/sndmix.cpp": "808eb8cf8e1ce2be0f346a35327dbb2a8cb8c7f641f75234ec9db6d82370276e",
+    "src/squall/runtime/SoundFile/track/stdafx.h": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c",
+    "src/squall/runtime/SoundFile/track/tables.cpp": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.cpp": "dd4669f757ed0e7925a2cd3d93222675f02a65c6e488407c90e307260c3ba404",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.h": "4683abc920286c0a308c1a0b0217d27b597f4c3082876919f5b48fc3e10e9cb3",
+    "src/squall/runtime/SoundFile/track/TrackFile.cpp": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba",
+    "src/squall/runtime/SoundFile/track/TrackFile.h": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.h": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0",
+    "src/squall/runtime/SoundFile/WAV/WavFile.cpp": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8",
+    "src/squall/runtime/SoundFile/WAV/WavFile.h": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp": "e5857408b02b95e523288fbbaf6c06a349843b2ec9ab821915ac4ad61200ee24",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.h": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.cpp": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.h": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56",
+    "src/squall/runtime/Squall.h": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+    "src/squall/VolumeTable.cpp": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1",
+    "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da"
+  },
+  "fixture_hashes": {
+    "owned-protracker-0-blank-title.mod": "c995b167e4be9e186f558f811dd07d36a8a78ccfffc1f997e44b4d75d9105ac8",
+    "owned-protracker-0-blank-title.wav": "253dea6cc7374160b8f470647f20168df06f96f64b7bd5b4029c89f7dc3fb8db",
+    "owned-protracker-0.mod": "334c4a254fa29d354584a93a4defa101b4976b25495c9b70631053ce527722d7",
+    "owned-protracker-1-blank-title.mod": "d681a8a701981578ed3d614b7d733375b3857576b12ff4f549d62347dd649b42",
+    "owned-protracker-1-blank-title.wav": "528474c754e332d0f2d792b1e4f345a1473297a7f88648d027bfcfc9c11fab3b",
+    "owned-protracker-1.mod": "310594bd032980a0e3941782147ac82f190def9a4c26ea1982e9302c8dcd1dc9",
+    "owned-protracker-2-blank-title.mod": "1303a6624979b51a8c653e79f211b384755a3d94a4181459e13aebea1407b54d",
+    "owned-protracker-2-blank-title.wav": "a305d239c434a99d0d2432b4de0e6c4bba5f5b3c6493b942480ac66f619eef59",
+    "owned-protracker-2.mod": "2b593862c20af6e4e65fc3c10c981d1616c199e4323bcc9c1b0f8e59e3cec729",
+    "owned-protracker-orders5-blank-title.mod": "5e43d7baa6200efa51f8779fee91f944e2dbc2c703a1dc420cb0f3183e796db1",
+    "owned-protracker-orders5-blank-title.wav": "cc81650d9a22d98861360bec44d7bc45ee42430805ba9a53b2a80565c9a1bd3e",
+    "owned-protracker-orders8-blank-title.mod": "aba0e7983af75cb16bcf5b1cddff91739989bbcc317c8d283a56b16eb2b31106",
+    "owned-protracker-orders8-blank-title.wav": "3cad9c49555c5a04ef99b9cbb6b21209aba920e6ef002a7f5c3f7956c0541b63"
+  },
+  "cases": [
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc53-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "77ce278804ea572e454f9c2472708222ef8121184155acad10e3a5426e7b952f",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "cba4f11b45f6d15cc7094d29ff7d7f6b28e9f5a5589b0934f8b168fbeca0900b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc53-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "7b835d9844639d6ae6c3e55e9d26ac4ccb4d910beda9c29ea8c8660fb987fc86",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bdd007646f98f8f9363ecd88b70f0c63c8dc19af21f10160f7eeeed74b579df2"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc53-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "926f12ae130e475e3fd1d9c9b01c90fb3eb212989e5e261d712bab85f1a3c6f0",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "c99bd86e650a4b36e2fe9544a1021d3551977ea9b1c4e591d94dbdd1bfd0673a"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc53-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "2177388d85152b086ca703a6fc4e7595971005a289606d9aee413411a72f333c",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3601a02239dbd91fa1234ac8c5db6bc7faf939a1c7369a8303373d247932d20b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc24-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "2d00e484817fd9d84140b4066bf8575c166ba56827adc182e0c71e178b70d804",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3d1e9f526100f0ffabf8773d68c40982e78a40988b165e795eeb409af862de1b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc24-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "d23e4f1c654a4a72c7a24c86ddd671a9f00a7d15e5e6178423d14b7fdc4e5d36",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "1b982a653853af266747638fef9910db9cb4bdb5e26682ea2037cf19a1eb4d8d"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc24-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "63545e9a4f366820a09561b7f6725ac1e85f7374cd4a1f9e44d42b2236bed1be",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "489211e05d79082dcd37b496c83addf60d0102810f9ac21da70f4636378f54f7"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-0-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-0-blank-title-pc24-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "7daac5c13c710a89289ad3a19de9fc089a0a44c4b19a3caf41cb7bf9bfe35def",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bbbc3d6f6152a8d8088c640403a136ee2b520f61b56e03f294249088d5eee911"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc53-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "5e0ff1d22d4a09be5452bc9b7cd354f7c87114845b9dde394f53c9fa752b20d9",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "cba4f11b45f6d15cc7094d29ff7d7f6b28e9f5a5589b0934f8b168fbeca0900b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc53-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "4096d951f6d3b8ce3f6751f97d5134fa30fdb723f0271071229dcff7502c9578",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bdd007646f98f8f9363ecd88b70f0c63c8dc19af21f10160f7eeeed74b579df2"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc53-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "e51257ab72c065f9c243823cf56bb629f4f7203bfdfb299f8a7d37bece4ef649",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "c99bd86e650a4b36e2fe9544a1021d3551977ea9b1c4e591d94dbdd1bfd0673a"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc53-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":5,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "8f5dc803686ba9059ae2532a81dda366634301a8c7592d28592cc2ba9d5eb993",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "73fe8ebda00a8a8f2643efb5d08d5e6ee8674f707516c8efcd75449d38de6632"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc24-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "a85cfcc94981ab0cd0566a01c3eaef16c2b302f206e91cdef174e3087bd294b8",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3d1e9f526100f0ffabf8773d68c40982e78a40988b165e795eeb409af862de1b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc24-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "6ec9feb271a0557a76e2aac7e8aaba7f33a3a098ef8f1704284dedd49cabae46",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bdd007646f98f8f9363ecd88b70f0c63c8dc19af21f10160f7eeeed74b579df2"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc24-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "724f32816b574363cc66a9f5dc4479cf27cbc6909f36a38a330039287c8d62d5",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "489211e05d79082dcd37b496c83addf60d0102810f9ac21da70f4636378f54f7"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-1-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-1-blank-title-pc24-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "10648609f11a0a21ca8071e1ee63e7a858cce68919afdb27105a412ebce95088",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bbbc3d6f6152a8d8088c640403a136ee2b520f61b56e03f294249088d5eee911"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc53-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "f63529e49cc279c513da4173f511193f81b7ffc4e04637b05e43dfbad47adfe5",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "cba4f11b45f6d15cc7094d29ff7d7f6b28e9f5a5589b0934f8b168fbeca0900b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc53-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "3023d3fd4370a971269143cb586e36aff9a0d27af15623d4febccaf7413dd68c",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "1b982a653853af266747638fef9910db9cb4bdb5e26682ea2037cf19a1eb4d8d"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc53-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":7,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "4fcb10cf42ddb89377f9bcb0e96dd24fece59ff695f5054578e584b32a53da66",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "c99bd86e650a4b36e2fe9544a1021d3551977ea9b1c4e591d94dbdd1bfd0673a"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc53-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "7db566ec966e1fdefeb020904c094a15df8ee8d528c2f9a91b122dd8dc4fb7f4",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3601a02239dbd91fa1234ac8c5db6bc7faf939a1c7369a8303373d247932d20b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc24-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "ff0954d40245ca98b90d6e0a585dadee6089bc963ebfb698bd96f2511b14c421",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "3d1e9f526100f0ffabf8773d68c40982e78a40988b165e795eeb409af862de1b"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc24-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "cd9f58fd56c64f96e14c677efe5fbb3e1042f20e28491773380ccb44957d3616",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bdd007646f98f8f9363ecd88b70f0c63c8dc19af21f10160f7eeeed74b579df2"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc24-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":8,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "40bc4f58fcdfebbca81adffccc794a158916c71659a20e6b0abae0be24d9154b",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "489211e05d79082dcd37b496c83addf60d0102810f9ac21da70f4636378f54f7"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-2-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-2-blank-title-pc24-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":0,\"nonzero_bytes_past_native_factory_allocation\":6,\"returned_bytes\":4096,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "b0be25c62953e6e35e138fba4ce47755d4a7d3cce2e8f6438efe174dcc211d57",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "bbbc3d6f6152a8d8088c640403a136ee2b520f61b56e03f294249088d5eee911"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc53-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":10,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "205188303ea41d668d3f6a814737f31cea5eed64dfcbf2343ca01219d2f34b2a",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "f7bc6705c8eb2785f45c4071a934c84d3f5fe9f85ff36fb75ae5c72701874ff8"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc53-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "4a428a8f46664b9acbb29b6e289c11ada8153b962b957ad540e4f27184f58033",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "7727f37c3484683357dcce3b3ce42698bd799e7b79cc4a75046b7ba683d60a4a"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc53-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "80a525f05ef3fc6c2582ff9182b5e4837869e9e6db386ff7c11bd627b6d6802e",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "6cffbca4940cc4b11bf4a449bc0c76723d9676e794fba17ffba8a790647ebe00"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc53-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":9,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "fca21176a7a8a908a5e5643be39bab766aa2cde20cc478b374ff4509bd7d96fc",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "4e3ad7a5a4f7acc597c7e1854ecd1e4af0b372f8e776bb90667bbe31846277fd"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc24-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "3fb099daa1d38066e7b0ba6400b521fe500a5ba6b9b4d1f4d89545ff01a80746",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "1a0a4640fc2a83af0a03ee5ca475b19af7496f243a5d339de0b5a857e622c62d"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc24-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":10,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "49ef15d68f23780ec5b7ffd5636cc38794c622cdacc03c27868085627f29f706",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "2c154009dab72748d5f0662a1b926bf65f29cd02786ab7034dc3b22c4e13fc4e"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc24-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "5e21e18e845662b75d60e50aa265aaf7533488869ed1234ba0b85a202d6c4243",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "6cffbca4940cc4b11bf4a449bc0c76723d9676e794fba17ffba8a790647ebe00"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders5-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders5-blank-title-pc24-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":7056000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "bbe0d9a2a32c5ce34b2591c79cfc75f5ce959129f62d246173e8bb30192281cb",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "8ac849e125e193ffa8d162628f98791466bd00c4c8fe2e34abff578211c5a042"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc53-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "933a38bcbe2d9d4377a643f55a0da8e5b857cb5630b42477f1a46904d1c3bf8e",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "12a6f00b391dac1b687d788e50a9cca2808d63a74ea61701b76706c53aa3ea63"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 53,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc53-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":10,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "1a5293ba6152a9ed3845f2f4b8925bba67ed5e8c43cb6aed918e35fcee23f1b2",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "b76c3ebdab763b8c29bb037cb10dec38ea079363c0fd2b199f50822c114647bb"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc53-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "be0df9fd62837f244dab0d72cca276d59d61ae822586ddf7659ee6c0af388185",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "5e93088c9e7d32f0389036caa5ff7cada732f6ef26ebe51289f3c3554b033734"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 53,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc53-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":10,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "586ab6c37d3b6c6a33709124e732ca236a8e4701f58f29173d99ae2a7ea76dfb",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "327de9ea6dbeab63642c5b2ba6747fe0b3ecb7ba98b5d91c79a414ae419b6f41"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc24-slot1-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "fb5d6aceb9b02bf414aaf1d70bc4b966f3821e4cadf6f2392561752105bf7158",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "12a6f00b391dac1b687d788e50a9cca2808d63a74ea61701b76706c53aa3ea63"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 24,
+      "slot": 1,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc24-slot1-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":8192,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "a29a904e7467f84755efd47932804b165e1a9f27221e8c3dbe6eb5e8592dd4c3",
+        "decoded-pcm.bin": "0e2a56bcbb26dd8e8146739301718a3c33226e6456cea74929afcb2c7fed9ccf",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "29189d8a0ecd4c11d1dc72361072266e778a67fc1bf781e7378d584abdfd3b81"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "native",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc24-slot2-native",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"native\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "5879fbde84be5baf1b92c23e1a696c841070c14cb8a9060a28013bd2a3875754",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "5e93088c9e7d32f0389036caa5ff7cada732f6ef26ebe51289f3c3554b033734"
+      }
+    },
+    {
+      "kind": "owned-constructor",
+      "fixture": "owned-protracker-orders8-blank-title.mod",
+      "precision": 24,
+      "slot": 2,
+      "backend": "source",
+      "exit_code": 0,
+      "directory": ".local/squall-tracker-runtime/20261104T183611021787Z/owned-owned-protracker-orders8-blank-title-pc24-slot2-source",
+      "stdout": "{\"initialized\":true,\"constructor_backend\":\"source\",\"frequency\":44100,\"channels\":2,\"bits\":16,\"samples\":28224000,\"nonzero_bytes_past_native_factory_allocation\":11,\"returned_bytes\":0,\"nonzero_destination_bytes\":0,\"wide_guards_intact\":true}\r\n",
+      "stderr": "",
+      "artifacts": {
+        "constructed-object.bin": "776fd2ecbc78c144859cec0e523958bcbe8d14dd141ed4b3d14bfdac59c1b657",
+        "decoded-pcm.bin": "90654c5e04742bec2b282cc7191b4cb36e3a1cef56f361c05fe27448fb2fa19b",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.json": "061457f157634366f915fdc07751539abd8b756e7331637e67206fc548e5233b"
+      }
+    }
+  ],
+  "owned_reader_mod_payload_in_real_wav_data": true,
+  "normal_factory_safe_claimed": false,
+  "source_rvas": {
+    "file": "9e80",
+    "seek": "acd0",
+    "constructor": "13910"
+  }
+}

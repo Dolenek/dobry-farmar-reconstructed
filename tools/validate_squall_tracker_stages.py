@@ -38,6 +38,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--candidate', type=Path, default=ROOT/'build/windows/squall-candidate/Release/Squall.dll')
     parser.add_argument('--output', type=Path, default=ROOT/'.local/squall-tracker-stages-validation.json')
+    parser.add_argument('--all-mod-fixtures', action='store_true')
     args = parser.parse_args()
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     work = ROOT/'.local/squall-tracker-stages'/stamp
@@ -66,6 +67,14 @@ def main():
     titled = fixtures/'owned-protracker-0.mod'
     blank = fixtures/'owned-protracker-blank-title.mod'
     blank.write_bytes(bytes(20) + titled.read_bytes()[20:])
+    inputs = [titled, blank]
+    if args.all_mod_fixtures:
+        inputs = []
+        for index in [0, 1, 2]:
+            path = fixtures/f'owned-protracker-{index}.mod'
+            blank_path = fixtures/f'owned-protracker-{index}-blank-title.mod'
+            blank_path.write_bytes(bytes(20)+path.read_bytes()[20:])
+            inputs.extend([path, blank_path])
     native = ['2c100', '26910', '2a590', '2c5f0']
     names = ['?Create@CDecompressTrack@@', '?CreateOrderInfo@CDecompressTrack@@',
              '?Read@CDecompressTrack@@', '?Destroy@CDecompressTrack@@']
@@ -75,7 +84,7 @@ def main():
                   binaries=hashes, sources_snapshotted_before_run=True,
                   fixture_hashes={p.name: digest(p) for p in fixtures.glob('*.mod')},
                   native_rvas=native, source_rvas=own, cases=[])
-    for fixture in [titled, blank]:
+    for fixture in inputs:
         for precision in [53, 24]:
             for stage in ['create', 'orders']:
                 for backend, rvas in [('native', native), ('source', own)]:
