@@ -519,6 +519,18 @@
       "source_difference": "Preserve original transcendental instructions,scalar register lifetimes,float spills and arithmetic order; finite internal MPEG math domain,not a generic CRT replacement.",
       "current_sha256": "1802bfc7781c19c5e1ccad9d12976ed968e21c3035fe6f6c3a7186e6c848ae43",
       "verification_report": "analysis/squall-mpeg-regression.json"
+    },
+    {
+      "path": "SoundFile/Wma/WmaDecoder.cpp",
+      "method": "Explicit native stereo-to-mono left channel",
+      "original_addresses": [
+        "1001558e",
+        "10015596"
+      ],
+      "instruction_evidence": "analysis/squall-wma-native-data-instructions.txt",
+      "source_difference": "Unsequenced public C++ increments replaced with signed left sample and advance2; both compiled DLL bodies unchanged.",
+      "current_sha256": "e5857408b02b95e523288fbbaf6c06a349843b2ec9ab821915ac4ad61200ee24",
+      "verification_report": "analysis/squall-wma-explicit-left-validation.json"
     }
   ]
 }

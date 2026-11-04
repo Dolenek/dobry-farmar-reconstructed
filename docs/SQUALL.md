@@ -1,5 +1,9 @@
 # Rekonstrukce Squall
 
+## WMA: výslovná rekonstrukce levého kanálu
+
+Zdroj stereo→mono nyní výslovně načte signed levý vzorek a posune pointer o dva WORDy podle1001558e/10015596. Neurčené pořadí dvou post-increment výrazů je odstraněné. `tools/record_squall_wma_explicit_left.py` ověřil oba celé zdrojové buildy proti zachovaným binárkám úplné MPEG regrese: obě399360bajtové Squall.dll se liší pouze dvěma linker timestamp DWORDy, oba celé herní EXE i obě JNG DLL jsou přesně nezměněné. Proto se dokládá přenos předchozí úplné102/102/audio/save regrese přes shodu všech executable bajtů; netvrdí se nový CTest běh. Důkazy, hashe a původní zdroj jsou v `analysis/squall-wma-explicit-left-validation.json` a zachovaných lokálních snapshotech. Probíhající skutečná WMA buffer/stateful měření navíc zachovávají nepostupující krátké48kHz kanály jako nevyřešené, nikoli jako ověřené přehrávání.
+
 ## WMA: skutečný COM backend, částečné návraty a původní podtečení
 
 Pět vlastních nenulových WMAv1/WMAv2 vstupů (mono/stereo,22050/44100/48000Hz) prošlo skutečným Windows COM backendem. První250 oddělených DLL procesů daly pět shodných metadata párů a96 shodných vrácených PCM/destination párů v memory0/1 a PC53/PC24. Šedesát čtení vrátilo celou délku;36 vrátilo0 po částečném zápisu. V obou knihovnách souhlasí celé guarded destinace /1947440 bajtů i343120 hlášených vrácených PCM bajtů. Původní chybný předpoklad testu o vždy plné délce je opravený, původní neúspěšný report zůstává beze změny.

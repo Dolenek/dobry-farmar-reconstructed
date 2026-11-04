@@ -317,7 +317,11 @@ DWORD CDecompressWma::GetMonoSamples(void* buffer, DWORD start, DWORD length,
             NeedSamples -= Temp;
             short* src = (short*) temp_wma_buffer;
             do {
-                int val = (int) (*src++ + *src++) / 2;
+                // Original1001558e reads the left WORD, doubles/divides it,
+                // and advances by both channels. Preserve that observed result
+                // explicitly; the public expression had unsequenced increments.
+                int val = *src;
+                src += 2;
                 if (val > 32767)
                     val = 32767;
                 else if (val < -32768)
