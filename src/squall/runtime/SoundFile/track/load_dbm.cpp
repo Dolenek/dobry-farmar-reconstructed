@@ -114,18 +114,18 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
     nInstruments = bswapBE16(pfh->instruments);
     nSamples = bswapBE16(pfh->samples);
     nPatterns = bswapBE16(pfh->patterns);
-    m_nType = MOD_TYPE_DBM;
-    m_nChannels = bswapBE16(pfh->channels);
-    if (m_nChannels < 4)
-        m_nChannels = 4;
-    if (m_nChannels > 64)
-        m_nChannels = 64;
-    memcpy(m_szNames[0],
+    legacy_m_nType = MOD_TYPE_DBM;
+    legacy_m_nChannels = bswapBE16(pfh->channels);
+    if (legacy_m_nChannels < 4)
+        legacy_m_nChannels = 4;
+    if (legacy_m_nChannels > 64)
+        legacy_m_nChannels = 64;
+    memcpy(legacy_m_szNames[0],
         (pfh->songname[0]) ? pfh->songname : pfh->songname2,
         32);
-    m_szNames[0][31] = 0;
+    legacy_m_szNames[0][31] = 0;
     for (UINT iOrd = 0; iOrd < nOrders; iOrd++) {
-        Order[iOrd] = lpStream[dwMemPos + iOrd * 2 + 1];
+        legacy_Order[iOrd] = lpStream[dwMemPos + iOrd * 2 + 1];
         if (iOrd >= MAX_ORDERS - 2)
             break;
     }
@@ -161,8 +161,8 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
                 memset(penv, 0, sizeof(INSTRUMENTHEADER));
                 memcpy(penv->name, pih->name, 30);
                 if (psmp) {
-                    memcpy(m_szNames[nsmp], pih->name, 30);
-                    m_szNames[nsmp][30] = 0;
+                    memcpy(legacy_m_szNames[nsmp], pih->name, 30);
+                    legacy_m_szNames[nsmp][30] = 0;
                 }
                 Headers[iIns + 1] = penv;
                 penv->nFadeOut = 1024;	// ???
@@ -199,7 +199,7 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
                     }
                 }
                 chunk_pos += sizeof(DBMINSTRUMENT);
-                m_nInstruments = iIns + 1;
+                legacy_m_nInstruments = iIns + 1;
             }
         } else
         // Volume Envelopes
@@ -259,7 +259,7 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
                     break;
                 nRows = bswapBE16(pph->rows);
                 if ((nRows >= 4) && (nRows <= 256)) {
-                    MODCOMMAND* m = AllocatePattern(nRows, m_nChannels);
+                    MODCOMMAND* m = AllocatePattern(nRows, legacy_m_nChannels);
                     if (m) {
                         LPBYTE pkdata = (LPBYTE) & pph->patterndata;
                         UINT row = 0;
@@ -273,7 +273,7 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
                             if (ch) {
                                 BYTE b = pkdata[i++];
                                 ch--;
-                                if (ch < m_nChannels) {
+                                if (ch < legacy_m_nChannels) {
                                     if (b & 0x01) {
                                         UINT note = pkdata[i++];
 
@@ -338,7 +338,7 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
                                 }
                             } else {
                                 row++;
-                                m += m_nChannels;
+                                m += legacy_m_nChannels;
                             }
                         }
                     }
@@ -350,7 +350,7 @@ BOOL CDecompressTrack::ReadDBM(const BYTE* lpStream, DWORD dwMemLength)
         if (chunk_id == DBM_ID_SMPL) {
             if (nSamples >= MAX_SAMPLES)
                 nSamples = MAX_SAMPLES - 1;
-            m_nSamples = nSamples;
+            legacy_m_nSamples = nSamples;
             for (UINT iSmp = 1; iSmp <= nSamples; iSmp++) {
                 MODINSTRUMENT* pins;
                 DBMSAMPLE* psh;

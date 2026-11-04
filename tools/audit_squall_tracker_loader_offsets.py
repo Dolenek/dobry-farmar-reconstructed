@@ -51,7 +51,8 @@ def main():
                                       source_sha256=digest(source),legacy_view_already_present='legacy_m_nChannels' in source.read_text(encoding='utf-8')))
     encoded=(json.dumps(report,indent=2)+'\n').encode('utf-8')
     (work/'report.json').write_bytes(encoded);(ROOT/'.local/squall-tracker-loader-offsets-validation.json').write_bytes(encoded)
-    print('Retained21 exact-entry instruction ranges and old field accesses;20 loaders still require reconstruction after MOD.')
+    remaining=[row['name'] for row in report['loaders'] if row['field_instructions'] and not row['legacy_view_already_present']]
+    print(f'Retained21 exact-entry instruction ranges; unresolved old field views: {remaining}. Full loader body comparison remains separately scoped.')
 
 
 if __name__=='__main__':main()

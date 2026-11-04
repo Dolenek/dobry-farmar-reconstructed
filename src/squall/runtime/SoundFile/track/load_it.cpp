@@ -222,32 +222,32 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         pifh.patnum * 4 >
         dwMemLength)
         return FALSE;
-    m_nType = MOD_TYPE_IT;
+    legacy_m_nType = MOD_TYPE_IT;
     if (pifh.flags & 0x08)
-        m_dwSongFlags |= SONG_LINEARSLIDES;
+        legacy_m_dwSongFlags |= SONG_LINEARSLIDES;
     if (pifh.flags & 0x10)
-        m_dwSongFlags |= SONG_ITOLDEFFECTS;
+        legacy_m_dwSongFlags |= SONG_ITOLDEFFECTS;
     if (pifh.flags & 0x20)
-        m_dwSongFlags |= SONG_ITCOMPATMODE;
+        legacy_m_dwSongFlags |= SONG_ITCOMPATMODE;
     if (pifh.flags & 0x80)
-        m_dwSongFlags |= SONG_EMBEDMIDICFG;
+        legacy_m_dwSongFlags |= SONG_EMBEDMIDICFG;
     if (pifh.flags & 0x1000)
-        m_dwSongFlags |= SONG_EXFILTERRANGE;
-    memcpy(m_szNames[0], pifh.songname, 26);
-    m_szNames[0][26] = 0;
+        legacy_m_dwSongFlags |= SONG_EXFILTERRANGE;
+    memcpy(legacy_m_szNames[0], pifh.songname, 26);
+    legacy_m_szNames[0][26] = 0;
     // Global Volume
     if (pifh.globalvol) {
-        m_nDefaultGlobalVolume = pifh.globalvol << 1;
-        if (!m_nDefaultGlobalVolume)
-            m_nDefaultGlobalVolume = 256;
-        if (m_nDefaultGlobalVolume > 256)
-            m_nDefaultGlobalVolume = 256;
+        legacy_m_nDefaultGlobalVolume = pifh.globalvol << 1;
+        if (!legacy_m_nDefaultGlobalVolume)
+            legacy_m_nDefaultGlobalVolume = 256;
+        if (legacy_m_nDefaultGlobalVolume > 256)
+            legacy_m_nDefaultGlobalVolume = 256;
     }
     if (pifh.speed)
-        m_nDefaultSpeed = pifh.speed;
+        legacy_m_nDefaultSpeed = pifh.speed;
     if (pifh.tempo)
-        m_nDefaultTempo = pifh.tempo;
-    m_nSongPreAmp = pifh.mv & 0x7F;
+        legacy_m_nDefaultTempo = pifh.tempo;
+    legacy_m_nSongPreAmp = pifh.mv & 0x7F;
     // Reading Channels Pan Positions
     for (int ipan = 0; ipan < 64; ipan++)
         if (pifh.chnpan[ipan] != 0xFF) {
@@ -261,25 +261,25 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
             if (n == 100)
                 ChnSettings[ipan].dwFlags |= CHN_SURROUND;
         }
-    if (m_nChannels < 4)
-        m_nChannels = 4;
+    if (legacy_m_nChannels < 4)
+        legacy_m_nChannels = 4;
     // Reading Song Message
     if ((pifh.special & 0x01) &&
         (pifh.msglength) &&
         (pifh.msgoffset + pifh.msglength < dwMemLength)) {
-        m_lpszSongComments = new char[pifh.msglength + 1];
-        if (m_lpszSongComments) {
-            memcpy(m_lpszSongComments,
+        legacy_m_lpszSongComments = new char[pifh.msglength + 1];
+        if (legacy_m_lpszSongComments) {
+            memcpy(legacy_m_lpszSongComments,
                 lpStream + pifh.msgoffset,
                 pifh.msglength);
-            m_lpszSongComments[pifh.msglength] = 0;
+            legacy_m_lpszSongComments[pifh.msglength] = 0;
         }
     }
     // Reading orders
     UINT nordsize = pifh.ordnum;
     if (nordsize > MAX_ORDERS)
         nordsize = MAX_ORDERS;
-    memcpy(Order, lpStream + dwMemPos, nordsize);
+    memcpy(legacy_Order, lpStream + dwMemPos, nordsize);
     dwMemPos += pifh.ordnum;
     // Reading Instrument Offsets
     memset(inspos, 0, sizeof(inspos));
@@ -325,9 +325,9 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
             dwMemPos += nflt * 8;
     }
     // Reading Midi Output & Macros
-    if (m_dwSongFlags & SONG_EMBEDMIDICFG) {
+    if (legacy_m_dwSongFlags & SONG_EMBEDMIDICFG) {
         if (dwMemPos + sizeof(MODMIDICFG) < dwMemLength) {
-            memcpy(&m_MidiCfg, lpStream + dwMemPos, sizeof(MODMIDICFG));
+            memcpy(&legacy_m_MidiCfg, lpStream + dwMemPos, sizeof(MODMIDICFG));
             dwMemPos += sizeof(MODMIDICFG);
         }
     }
@@ -339,16 +339,16 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         if ((dwMemPos + len <= dwMemLength) &&
             (len <= MAX_PATTERNS * MAX_PATTERNNAME) &&
             (len >= MAX_PATTERNNAME)) {
-            m_lpszPatternNames = new char[len];
-            if (m_lpszPatternNames) {
-                m_nPatternNames = len / MAX_PATTERNNAME;
-                memcpy(m_lpszPatternNames, lpStream + dwMemPos, len);
+            legacy_m_lpszPatternNames = new char[len];
+            if (legacy_m_lpszPatternNames) {
+                legacy_m_nPatternNames = len / MAX_PATTERNNAME;
+                memcpy(legacy_m_lpszPatternNames, lpStream + dwMemPos, len);
             }
             dwMemPos += len;
         }
     }
     // 4-channels minimum
-    m_nChannels = 4;
+    legacy_m_nChannels = 4;
     // Read channel names: "CNAM"
     if ((dwMemPos + 8 < dwMemLength) &&
         (bswapLE32(*((DWORD *) (lpStream + dwMemPos))) == 0x4d414e43)) {
@@ -356,8 +356,8 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         dwMemPos += 8;
         if ((dwMemPos + len <= dwMemLength) && (len <= 64 * MAX_CHANNELNAME)) {
             UINT n = len / MAX_CHANNELNAME;
-            if (n > m_nChannels)
-                m_nChannels = n;
+            if (n > legacy_m_nChannels)
+                legacy_m_nChannels = n;
             for (UINT i = 0; i < n; i++) {
                 memcpy(ChnSettings[i].szName,
                     (lpStream + dwMemPos + i * MAX_CHANNELNAME),
@@ -406,8 +406,8 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
             }
             // Channel used
             if (chnmask[ch] & 0x0F) {
-                if ((ch >= m_nChannels) && (ch < 64))
-                    m_nChannels = ch + 1;
+                if ((ch >= legacy_m_nChannels) && (ch < 64))
+                    legacy_m_nChannels = ch + 1;
             }
             // Note
             if (chnmask[ch] & 1)
@@ -426,12 +426,12 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     // Reading Instruments
-    m_nInstruments = 0;
+    legacy_m_nInstruments = 0;
     if (pifh.flags & 0x04)
-        m_nInstruments = pifh.insnum;
-    if (m_nInstruments >= MAX_INSTRUMENTS)
-        m_nInstruments = MAX_INSTRUMENTS - 1;
-    for (UINT nins = 0; nins < m_nInstruments; nins++) {
+        legacy_m_nInstruments = pifh.insnum;
+    if (legacy_m_nInstruments >= MAX_INSTRUMENTS)
+        legacy_m_nInstruments = MAX_INSTRUMENTS - 1;
+    for (UINT nins = 0; nins < legacy_m_nInstruments; nins++) {
         if ((inspos[nins] > 0) &&
             (inspos[nins] < dwMemLength - sizeof(ITOLDINSTRUMENT))) {
             INSTRUMENTHEADER* penv = new INSTRUMENTHEADER;
@@ -443,9 +443,9 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     // Reading Samples
-    m_nSamples = pifh.smpnum;
-    if (m_nSamples >= MAX_SAMPLES)
-        m_nSamples = MAX_SAMPLES - 1;
+    legacy_m_nSamples = pifh.smpnum;
+    if (legacy_m_nSamples >= MAX_SAMPLES)
+        legacy_m_nSamples = MAX_SAMPLES - 1;
     for (UINT nsmp = 0; nsmp < pifh.smpnum; nsmp++)
         if ((smppos[nsmp]) &&
             (smppos[nsmp] + sizeof(ITSAMPLESTRUCT) <= dwMemLength)) {
@@ -531,13 +531,13 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                         dwMemLength - pis.samplepointer);
                 }
             }
-            memcpy(m_szNames[nsmp + 1], pis.name, 26);
+            memcpy(legacy_m_szNames[nsmp + 1], pis.name, 26);
         }
     // Reading Patterns
     for (UINT npat = 0; npat < npatterns; npat++) {
         if ((!patpos[npat]) || ((DWORD) patpos[npat] + 4 >= dwMemLength)) {
             PatternSize[npat] = 64;
-            Patterns[npat] = AllocatePattern(64, m_nChannels);
+            Patterns[npat] = AllocatePattern(64, legacy_m_nChannels);
             continue;
         }
 
@@ -548,7 +548,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         if (patpos[npat] + 8 + len > dwMemLength)
             continue;
         PatternSize[npat] = rows;
-        if ((Patterns[npat] = AllocatePattern(rows, m_nChannels)) == NULL)
+        if ((Patterns[npat] = AllocatePattern(rows, legacy_m_nChannels)) == NULL)
             continue;
         memset(lastvalue, 0, sizeof(lastvalue));
         memset(chnmask, 0, sizeof(chnmask));
@@ -562,7 +562,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
             BYTE b = p[i++];
             if (!b) {
                 nrow++;
-                m += m_nChannels;
+                m += legacy_m_nChannels;
                 continue;
             }
             UINT ch = b & 0x7F;
@@ -573,17 +573,17 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                     break;
                 chnmask[ch] = p[i++];
             }
-            if ((chnmask[ch] & 0x10) && (ch < m_nChannels)) {
+            if ((chnmask[ch] & 0x10) && (ch < legacy_m_nChannels)) {
                 m[ch].note = lastvalue[ch].note;
             }
-            if ((chnmask[ch] & 0x20) && (ch < m_nChannels)) {
+            if ((chnmask[ch] & 0x20) && (ch < legacy_m_nChannels)) {
                 m[ch].instr = lastvalue[ch].instr;
             }
-            if ((chnmask[ch] & 0x40) && (ch < m_nChannels)) {
+            if ((chnmask[ch] & 0x40) && (ch < legacy_m_nChannels)) {
                 m[ch].volcmd = lastvalue[ch].volcmd;
                 m[ch].vol = lastvalue[ch].vol;
             }
-            if ((chnmask[ch] & 0x80) && (ch < m_nChannels)) {
+            if ((chnmask[ch] & 0x80) && (ch < legacy_m_nChannels)) {
                 m[ch].command = lastvalue[ch].command;
                 m[ch].param = lastvalue[ch].param;
             }
@@ -592,7 +592,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                 if (i >= len)
                     break;
                 UINT note = p[i++];
-                if (ch < m_nChannels) {
+                if (ch < legacy_m_nChannels) {
                     if (note < 0x80)
                         note++;
                     m[ch].note = note;
@@ -604,7 +604,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                 if (i >= len)
                     break;
                 UINT instr = p[i++];
-                if (ch < m_nChannels) {
+                if (ch < legacy_m_nChannels) {
                     m[ch].instr = instr;
                     lastvalue[ch].instr = instr;
                 }
@@ -613,7 +613,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                 if (i >= len)
                     break;
                 UINT vol = p[i++];
-                if (ch < m_nChannels) {
+                if (ch < legacy_m_nChannels) {
                     // 0-64: Set Volume
                     if (vol <= 64) {
                         m[ch].volcmd = VOLCMD_VOLUME; m[ch].vol = vol;
@@ -670,7 +670,7 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
                     break;
                 UINT cmd = p[i++];
                 UINT param = p[i++];
-                if (ch < m_nChannels) {
+                if (ch < legacy_m_nChannels) {
                     if (cmd) {
                         m[ch].command = cmd;
                         m[ch].param = param;
@@ -683,13 +683,13 @@ BOOL CDecompressTrack::ReadIT(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     for (UINT ncu = 0; ncu < MAX_BASECHANNELS; ncu++) {
-        if (ncu >= m_nChannels) {
+        if (ncu >= legacy_m_nChannels) {
             ChnSettings[ncu].nVolume = 64;
             ChnSettings[ncu].dwFlags &= ~CHN_MUTE;
         }
     }
-    m_nMinPeriod = 8;
-    m_nMaxPeriod = 0xF000;
+    legacy_m_nMinPeriod = 8;
+    legacy_m_nMaxPeriod = 0xF000;
     return TRUE;
 }
 
@@ -903,7 +903,7 @@ UINT CDecompressTrack::SaveMixPlugins(FILE *f, BOOL bUpdate)
 
     for (UINT i=0; i<MAX_MIXPLUGINS; i++)
     {
-        PSNDMIXPLUGIN p = &m_MixPlugins[i];
+        PSNDMIXPLUGIN p = &legacy_m_MixPlugins[i];
         if ((p->Info.dwPluginId1) || (p->Info.dwPluginId2))
         {
             nPluginSize = sizeof(SNDMIXPLUGININFO)+4; // plugininfo+4 (datalen)
@@ -924,16 +924,16 @@ UINT CDecompressTrack::SaveMixPlugins(FILE *f, BOOL bUpdate)
                 fwrite(s, 1, 4, f);
                 fwrite(&nPluginSize, 1, 4, f);
                 fwrite(&p->Info, 1, sizeof(SNDMIXPLUGININFO), f);
-                fwrite(&m_MixPlugins[i].nPluginDataSize, 1, 4, f);
-                if (m_MixPlugins[i].pPluginData)
+                fwrite(&legacy_m_MixPlugins[i].nPluginDataSize, 1, 4, f);
+                if (legacy_m_MixPlugins[i].pPluginData)
                 {
-                    fwrite(m_MixPlugins[i].pPluginData, 1, m_MixPlugins[i].nPluginDataSize, f);
+                    fwrite(legacy_m_MixPlugins[i].pPluginData, 1, legacy_m_MixPlugins[i].nPluginDataSize, f);
                 }
             }
             nTotalSize += nPluginSize + 8;
         }
     }
-    for (UINT j=0; j<m_nChannels; j++)
+    for (UINT j=0; j<legacy_m_nChannels; j++)
     {
         if (j < 64)
         {
@@ -990,22 +990,22 @@ UINT CDecompressTrack::LoadMixPlugins(const void* pData, UINT nLen)
                 (nPluginSize >= sizeof(SNDMIXPLUGININFO) + 4)) {
                 DWORD dwExtra = bswapLE32(*(DWORD*)
                                     (p + nPos + 8 + sizeof(SNDMIXPLUGININFO)));
-                m_MixPlugins[nPlugin].Info = *(const SNDMIXPLUGININFO *)
+                legacy_m_MixPlugins[nPlugin].Info = *(const SNDMIXPLUGININFO *)
                     (p + nPos + 8);
-                m_MixPlugins[nPlugin].Info.dwPluginId1 = bswapLE32(m_MixPlugins[nPlugin].Info.dwPluginId1);
-                m_MixPlugins[nPlugin].Info.dwPluginId2 = bswapLE32(m_MixPlugins[nPlugin].Info.dwPluginId2);
-                m_MixPlugins[nPlugin].Info.dwInputRouting = bswapLE32(m_MixPlugins[nPlugin].Info.dwInputRouting);
-                m_MixPlugins[nPlugin].Info.dwOutputRouting = bswapLE32(m_MixPlugins[nPlugin].Info.dwOutputRouting);
+                legacy_m_MixPlugins[nPlugin].Info.dwPluginId1 = bswapLE32(legacy_m_MixPlugins[nPlugin].Info.dwPluginId1);
+                legacy_m_MixPlugins[nPlugin].Info.dwPluginId2 = bswapLE32(legacy_m_MixPlugins[nPlugin].Info.dwPluginId2);
+                legacy_m_MixPlugins[nPlugin].Info.dwInputRouting = bswapLE32(legacy_m_MixPlugins[nPlugin].Info.dwInputRouting);
+                legacy_m_MixPlugins[nPlugin].Info.dwOutputRouting = bswapLE32(legacy_m_MixPlugins[nPlugin].Info.dwOutputRouting);
                 for (UINT j = 0; j < 4; j++) {
-                    m_MixPlugins[nPlugin].Info.dwReserved[j] = bswapLE32(m_MixPlugins[nPlugin].Info.dwReserved[j]);
+                    legacy_m_MixPlugins[nPlugin].Info.dwReserved[j] = bswapLE32(legacy_m_MixPlugins[nPlugin].Info.dwReserved[j]);
                 }
                 if ((dwExtra) &&
                     (dwExtra <= nPluginSize - sizeof(SNDMIXPLUGININFO) - 4)) {
-                    m_MixPlugins[nPlugin].nPluginDataSize = 0;
-                    m_MixPlugins[nPlugin].pPluginData = new signed char [dwExtra];
-                    if (m_MixPlugins[nPlugin].pPluginData) {
-                        m_MixPlugins[nPlugin].nPluginDataSize = dwExtra;
-                        memcpy(m_MixPlugins[nPlugin].pPluginData,
+                    legacy_m_MixPlugins[nPlugin].nPluginDataSize = 0;
+                    legacy_m_MixPlugins[nPlugin].pPluginData = new signed char [dwExtra];
+                    if (legacy_m_MixPlugins[nPlugin].pPluginData) {
+                        legacy_m_MixPlugins[nPlugin].nPluginDataSize = dwExtra;
+                        memcpy(legacy_m_MixPlugins[nPlugin].pPluginData,
                             p + nPos + 8 + sizeof(SNDMIXPLUGININFO) + 4,
                             dwExtra);
                     }

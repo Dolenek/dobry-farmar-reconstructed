@@ -1438,11 +1438,19 @@ DWORD MPPASMCALL X86_Convert32To16(LPVOID lp16, int* pBuffer,
     signed short * p = (signed short *) lp16;
     for (UINT i = 0; i < lSampleCount; i++) {
         int n = pBuffer[i];
-        if (n < MIXING_CLIPMIN)
+        // Native10018531..1001859e biases negative values before clipping.
+        // A clipped sample sets both meter extremes, irrespective of sign.
+        if (n < 0)
+            n += 0x0fff;
+        if (n < MIXING_CLIPMIN) {
             n = MIXING_CLIPMIN;
-        else if (n > MIXING_CLIPMAX)
+            vumin = MIXING_CLIPMIN;
+            vumax = MIXING_CLIPMAX;
+        } else if (n > MIXING_CLIPMAX) {
             n = MIXING_CLIPMAX;
-        if (n < vumin)
+            vumin = MIXING_CLIPMIN;
+            vumax = MIXING_CLIPMAX;
+        } else if (n < vumin)
             vumin = n;
         else if (n > vumax)
             vumax = n;
@@ -1528,13 +1536,29 @@ VOID MPPASMCALL X86_MonoFromStereo(int* pMixBuf, UINT nSamples)
     UINT j;
     for (UINT i = 0; i < nSamples; i++) {
         j = i << 1;
-        pMixBuf[i] = (pMixBuf[j] + pMixBuf[j + 1]) >> 1;
+        // Native100185a0 uses wrapping ADD followed by arithmetic SAR.
+        pMixBuf[i] = static_cast<int>(static_cast<unsigned>(pMixBuf[j]) +
+            static_cast<unsigned>(pMixBuf[j + 1])) >> 1;
     }
 }
 //#endif
 
 #define OFSDECAYSHIFT	8
 #define OFSDECAYMASK	0xFF
+
+// Explicit Win32 NEG/ADD/SUB wrapping used by100185d0/10018670.
+static int NativeOffsetDecay(int value)
+{
+    unsigned negative = 0u - static_cast<unsigned>(value);
+    unsigned bias = static_cast<int>(negative) < 0 ? OFSDECAYMASK : 0;
+    return static_cast<int>(static_cast<unsigned>(value) + bias) >> OFSDECAYSHIFT;
+}
+
+static int NativeWrappedSubtract(int value, int decrement)
+{
+    return static_cast<int>(static_cast<unsigned>(value) -
+        static_cast<unsigned>(decrement));
+}
 
 /*
 #ifdef MSC_VER
@@ -1633,12 +1657,10 @@ void MPPASMCALL X86_StereoFill(int* pBuffer, UINT nSamples, LPLONG lpROfs,
     }
 
     for (UINT i = 0; i < nSamples; i++) {
-        int x_r = (rofs + (((-rofs) >> 31) & OFSDECAYMASK)) >> OFSDECAYSHIFT;
-        int x_l = (lofs + (((-lofs) >> 31) & OFSDECAYMASK)) >> OFSDECAYSHIFT;
-        rofs -= x_r;
-        lofs -= x_l;
-        pBuffer[i * 2] = x_r;
-        pBuffer[i * 2 + 1] = x_l;
+        rofs = NativeWrappedSubtract(rofs, NativeOffsetDecay(rofs));
+        lofs = NativeWrappedSubtract(lofs, NativeOffsetDecay(lofs));
+        pBuffer[i * 2] = rofs;
+        pBuffer[i * 2 + 1] = lofs;
     }
     *lpROfs = rofs;
     *lpLOfs = lofs;
@@ -1698,20 +1720,22 @@ void MPPASMCALL X86_EndChannelOfs(MODCHANNEL* pChannel, int* pBuffer,
     if ((!rofs) && (!lofs))
         return;
     for (UINT i = 0; i < nSamples; i++) {
-        int x_r = (rofs + (((-rofs) >> 31) & OFSDECAYMASK)) >> OFSDECAYSHIFT;
-        int x_l = (lofs + (((-lofs) >> 31) & OFSDECAYMASK)) >> OFSDECAYSHIFT;
-        rofs -= x_r;
-        lofs -= x_l;
-        pBuffer[i * 2] += x_r;
-        pBuffer[i * 2 + 1] += x_l;
+        rofs = NativeWrappedSubtract(rofs, NativeOffsetDecay(rofs));
+        lofs = NativeWrappedSubtract(lofs, NativeOffsetDecay(lofs));
+        pBuffer[i * 2] = static_cast<int>(static_cast<unsigned>(pBuffer[i * 2]) +
+            static_cast<unsigned>(rofs));
+        pBuffer[i * 2 + 1] = static_cast<int>(static_cast<unsigned>(pBuffer[i * 2 + 1]) +
+            static_cast<unsigned>(lofs));
+        if (!rofs && !lofs)
+            break;
     }
     pChannel->nROfs = rofs;
     pChannel->nLOfs = lofs;
 }
 //#endif
 
-/*
 //////////////////////////////////////////////////////////////////////////////////
+// Native100186d0/10018710: automatic gain limiter and recovery.
 // Automatic Gain Control
 
 #ifndef NO_AGC
@@ -1792,5 +1816,3 @@ void CDecompressTrack::ResetAGC()
 }
 
 #endif // NO_AGC
-
-*/

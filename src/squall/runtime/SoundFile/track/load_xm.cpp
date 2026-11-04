@@ -86,13 +86,13 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
     BOOL samples_used[MAX_SAMPLES];
     UINT unused_samples;
 
-    m_nChannels = 0;
+    legacy_m_nChannels = 0;
     if ((!lpStream) || (dwMemLength < 0x200))
         return FALSE;
     if (_strnicmp((LPCSTR) lpStream, "Extended Module", 15))
         return FALSE;
 
-    memcpy(m_szNames[0], lpStream + 17, 20);
+    memcpy(legacy_m_szNames[0], lpStream + 17, 20);
     dwHdrSize = bswapLE32(*((DWORD *) (lpStream + 60)));
     norders = bswapLE16(*((WORD *) (lpStream + 64)));
     if ((!norders) || (norders > MAX_ORDERS))
@@ -101,39 +101,39 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
     channels = bswapLE16(*((WORD *) (lpStream + 68)));
     if ((!channels) || (channels > 64))
         return FALSE;
-    m_nType = MOD_TYPE_XM;
-    m_nMinPeriod = 27;
-    m_nMaxPeriod = 54784;
-    m_nChannels = channels;
+    legacy_m_nType = MOD_TYPE_XM;
+    legacy_m_nMinPeriod = 27;
+    legacy_m_nMaxPeriod = 54784;
+    legacy_m_nChannels = channels;
     if (restartpos < norders)
-        m_nRestartPos = restartpos;
+        legacy_m_nRestartPos = restartpos;
     patterns = bswapLE16(*((WORD *) (lpStream + 70)));
     if (patterns > 256)
         patterns = 256;
     instruments = bswapLE16(*((WORD *) (lpStream + 72)));
     if (instruments >= MAX_INSTRUMENTS)
         instruments = MAX_INSTRUMENTS - 1;
-    m_nInstruments = instruments;
-    m_nSamples = 0;
+    legacy_m_nInstruments = instruments;
+    legacy_m_nSamples = 0;
     memcpy(&xmflags, lpStream + 74, 2);
     xmflags = bswapLE16(xmflags);
     if (xmflags & 1)
-        m_dwSongFlags |= SONG_LINEARSLIDES;
+        legacy_m_dwSongFlags |= SONG_LINEARSLIDES;
     if (xmflags & 0x1000)
-        m_dwSongFlags |= SONG_EXFILTERRANGE;
+        legacy_m_dwSongFlags |= SONG_EXFILTERRANGE;
     defspeed = bswapLE16(*((WORD *) (lpStream + 76)));
     deftempo = bswapLE16(*((WORD *) (lpStream + 78)));
     if ((deftempo >= 32) && (deftempo < 256))
-        m_nDefaultTempo = deftempo;
+        legacy_m_nDefaultTempo = deftempo;
     if ((defspeed > 0) && (defspeed < 40))
-        m_nDefaultSpeed = defspeed;
-    memcpy(Order, lpStream + 80, norders);
+        legacy_m_nDefaultSpeed = defspeed;
+    memcpy(legacy_Order, lpStream + 80, norders);
     memset(InstUsed, 0, sizeof(InstUsed));
     if (patterns > MAX_PATTERNS) {
         UINT i, j;
         for (i = 0; i < norders; i++) {
-            if (Order[i] < patterns)
-                InstUsed[Order[i]] = TRUE;
+            if (legacy_Order[i] < patterns)
+                InstUsed[legacy_Order[i]] = TRUE;
         }
         j = 0;
         for (i = 0; i < 256; i++) {
@@ -147,7 +147,7 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
             }
         }
         for (i = 0; i < norders; i++) {
-            Order[i] = pattern_map[Order[i]];
+            legacy_Order[i] = pattern_map[legacy_Order[i]];
         }
     } else {
         for (UINT i = 0; i < 256; i++)
@@ -182,7 +182,7 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         MODCOMMAND* p;
         if (ipatmap < MAX_PATTERNS) {
             PatternSize[ipatmap] = rows;
-            if ((Patterns[ipatmap] = AllocatePattern(rows, m_nChannels)) ==
+            if ((Patterns[ipatmap] = AllocatePattern(rows, legacy_m_nChannels)) ==
                 NULL)
                 return TRUE;
             if (!packsize)
@@ -193,7 +193,7 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         const BYTE* src = lpStream + dwMemPos;
         UINT j = 0;
         for (UINT row = 0; row < rows; row++) {
-            for (UINT chn = 0; chn < m_nChannels; chn++) {
+            for (UINT chn = 0; chn < legacy_m_nChannels; chn++) {
                 if ((p) && (j < packsize)) {
                     BYTE b = src[j++];
                     UINT vol = 0;
@@ -340,11 +340,11 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         memset(samplemap, 0, sizeof(samplemap));
         if (nsamples > 32)
             return TRUE;
-        UINT newsamples = m_nSamples;
+        UINT newsamples = legacy_m_nSamples;
         for (UINT nmap = 0; nmap < nsamples; nmap++) {
-            UINT n = m_nSamples + nmap + 1;
+            UINT n = legacy_m_nSamples + nmap + 1;
             if (n >= MAX_SAMPLES) {
-                n = m_nSamples;
+                n = legacy_m_nSamples;
                 while (n > 0) {
                     if (!Ins[n].pSample) {
                         for (UINT xmapchk = 0; xmapchk < nmap; xmapchk++) {
@@ -369,7 +369,7 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
                 newsamples = n;
             samplemap[nmap] = n;
         }
-        m_nSamples = newsamples;
+        legacy_m_nSamples = newsamples;
         // Reading Volume Envelope
         INSTRUMENTHEADER* penv = Headers[iIns];
         penv->nMidiProgram = pih->type;
@@ -478,8 +478,8 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
             if (!xmss.looplen)
                 xmss.type &= ~ 3;
             UINT imapsmp = samplemap[ins];
-            memcpy(m_szNames[imapsmp], xmss.name, 22);
-            m_szNames[imapsmp][22] = 0;
+            memcpy(legacy_m_szNames[imapsmp], xmss.name, 22);
+            legacy_m_szNames[imapsmp][22] = 0;
             MODINSTRUMENT* pins =& Ins[imapsmp];
             pins->nLength = (xmss.samplen > MAX_SAMPLE_LENGTH) ?
                 MAX_SAMPLE_LENGTH :
@@ -540,10 +540,10 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         UINT len = *((DWORD*) (lpStream + dwMemPos + 4));
         dwMemPos += 8;
         if ((dwMemPos + len <= dwMemLength) && (len < 16384)) {
-            m_lpszSongComments = new char[len + 1];
-            if (m_lpszSongComments) {
-                memcpy(m_lpszSongComments, lpStream + dwMemPos, len);
-                m_lpszSongComments[len] = 0;
+            legacy_m_lpszSongComments = new char[len + 1];
+            if (legacy_m_lpszSongComments) {
+                memcpy(legacy_m_lpszSongComments, lpStream + dwMemPos, len);
+                legacy_m_lpszSongComments[len] = 0;
             }
             dwMemPos += len;
         }
@@ -554,8 +554,8 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         UINT len = *((DWORD*) (lpStream + dwMemPos + 4));
         dwMemPos += 8;
         if (len == sizeof(MODMIDICFG)) {
-            memcpy(&m_MidiCfg, lpStream + dwMemPos, len);
-            m_dwSongFlags |= SONG_EMBEDMIDICFG;
+            memcpy(&legacy_m_MidiCfg, lpStream + dwMemPos, len);
+            legacy_m_dwSongFlags |= SONG_EMBEDMIDICFG;
         }
     }
     // Read pattern names: "PNAM"
@@ -566,11 +566,11 @@ BOOL CDecompressTrack::ReadXM(const BYTE* lpStream, DWORD dwMemLength)
         if ((dwMemPos + len <= dwMemLength) &&
             (len <= MAX_PATTERNS * MAX_PATTERNNAME) &&
             (len >= MAX_PATTERNNAME)) {
-            m_lpszPatternNames = new char[len];
+            legacy_m_lpszPatternNames = new char[len];
 
-            if (m_lpszPatternNames) {
-                m_nPatternNames = len / MAX_PATTERNNAME;
-                memcpy(m_lpszPatternNames, lpStream + dwMemPos, len);
+            if (legacy_m_lpszPatternNames) {
+                legacy_m_nPatternNames = len / MAX_PATTERNNAME;
+                memcpy(legacy_m_lpszPatternNames, lpStream + dwMemPos, len);
             }
             dwMemPos += len;
         }

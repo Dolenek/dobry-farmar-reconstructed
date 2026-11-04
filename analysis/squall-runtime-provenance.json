@@ -593,44 +593,380 @@
       "verification_report": "analysis/squall-tracker-regression.json"
     },
     {
-      "path": "SoundFile/track/sndmix.cpp",
-      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "path": "SoundFile/track/fastmix.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
       "original_addresses": [
         "10017fe0",
-        "10021250",
-        "10026910",
-        "10027870",
-        "1002a590",
-        "1002a7f0",
-        "1002aaa0",
-        "1002bdb0",
-        "1002bfe0",
-        "1002c000",
-        "1002ca90"
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
       ],
-      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
-      "current_sha256": "808eb8cf8e1ce2be0f346a35327dbb2a8cb8c7f641f75234ec9db6d82370276e",
-      "verification_report": "analysis/squall-tracker-regression.json"
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "684ae14158a536fa0ca75a08e3988014c79ebc59edc8f9641b49d50448f9f784",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
     },
     {
-      "path": "SoundFile/track/fastmix.cpp",
-      "method": "Explicit mixed native tracker field layouts and actual MOD loader/Read wrappers",
+      "path": "SoundFile/track/load_669.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "100187b0",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "d02d70f4a8528df5b6ba4c79b667023a5aff273c6521d85a477496cb5798bfc9",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_amf.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10018f80",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "4de8093af34b63db19877c60b9afc4358f563beb4ffd5da7f1dab5c4182151f9",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_ams.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "100197f0",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "b26e38b6d109f769cdd7d7cd44f5a73306fbb8b1d8a1cfa0f10456a6a14e85cb",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_dbm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001aa80",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "2ab9e894b537c34930823ae3382508ed15d4bc1f738e1201ea41b7cccddbef1e",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_dmf.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001b4f0",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "7c264ad8983be772bfc7bc4b34c3838269fe6752985505aa4e9400073d3841ef",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_dsm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001c110",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "e67303acb2c768f62922e9607de74d8d63792dee59bb837ba3a4226dd7a7d642",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_far.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001c670",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "07c537e94e2ae250724370e6301251a294ae39f3787d94b85023eb99314c0e71",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_it.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001d240",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "a769cd3e072021e671a32b3ff341c0557da485db69d5151b61814be22f4209dc",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_mdl.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001ee40",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "8d14b355d147c8efbb94412a541ca2f052ad3d8cdfa30589323a9306b990fc97",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_med.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "1001fa10",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "c8f3fb032d56e504b848a07fb8aff83564f6a9ec9cea243d1e82601dbe038c1b",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_mt2.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10021b40",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "3e9e90f74c4a4570f32670cda72fa18eaf946feea6179073afa2fa482e00acdd",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_mtm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10022920",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "ba3b731525d0a3a44bbbc05a81df5e2e99debd034d5293d480e205d9de973c11",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_okt.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10022e30",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "d8752ce97baedb13ceb75c146dd4d29d4ede94be034b28a7329faaf93dced22a",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_psm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10023520",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "4662dc0140c6bbcd817f4c551318dc43f6470f67f397e15e1ce00fb4aaa89927",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_ptm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10023d10",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "ffaa4b3dc8f467e7d46fb8f80579ed461ad557758b4a53be7a0efc65badb1ab2",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_s3m.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10024450",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "28a22e293d57610bfd324cb5e539bbef31d110c7bc0e9da2be764c80dc7f90bc",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_stm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10024c50",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "b9f3aa47abc49de2854ead657be6ef8570a8f153533e1fcb1888acb8539e3952",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_ult.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "10025160",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "c3bb85203b95b615d0aea53b2dd38a1a981a53896c542100db8f557f4e1b5dd7",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/load_xm.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
+      "original_addresses": [
+        "100258a0",
+        "10017fe0",
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
+      ],
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "ae296c041957e537b9277bda3f576b1ad90c34a7404ff77c0564d596f4d6d562",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundFile/track/sndmix.cpp",
+      "method": "Original old loader fields and nonzero tracker mixer/AGC operations",
       "original_addresses": [
         "10017fe0",
-        "10021250",
-        "10026910",
-        "10027870",
-        "1002a590",
-        "1002a7f0",
-        "1002aaa0",
-        "1002bdb0",
-        "1002bfe0",
-        "1002c000",
-        "1002ca90"
+        "10018510",
+        "100185a0",
+        "100185d0",
+        "10018670",
+        "100186d0",
+        "10018710",
+        "1002a590"
       ],
-      "source_difference": "Public source used one newer layout and cached pattern copying. Original combines old loader/mixer views with new constructor/effect views and frame-return wrappers. Constructor field extent is owned safely; original factory underallocation is separately recorded.",
-      "current_sha256": "de08410e915049b0d5f91a4f2960fa59639ca95788eb54881415445608825a58",
-      "verification_report": "analysis/squall-tracker-regression.json"
+      "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
+      "current_sha256": "d4fc2796e73c5aa9767c7e1e5486ab85fb7bd3677de2c3769d1f0b970ff97d5a",
+      "verification_report": "analysis/squall-tracker-loaders-regression.json"
     }
   ]
 }

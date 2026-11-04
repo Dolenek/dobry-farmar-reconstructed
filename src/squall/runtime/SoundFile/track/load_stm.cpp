@@ -68,22 +68,22 @@ BOOL CDecompressTrack::ReadSTM(const BYTE* lpStream, DWORD dwMemLength)
                                                             "BMOD2STM",
                                                             8))))
         return FALSE;
-    memcpy(m_szNames[0], phdr->songname, 20);
+    memcpy(legacy_m_szNames[0], phdr->songname, 20);
     // Read STM header
-    m_nType = MOD_TYPE_STM;
-    m_nSamples = 31;
-    m_nChannels = 4;
-    m_nInstruments = 0;
-    m_nMinPeriod = 64;
-    m_nMaxPeriod = 0x7FFF;
-    m_nDefaultSpeed = phdr->inittempo >> 4;
-    if (m_nDefaultSpeed < 1)
-        m_nDefaultSpeed = 1;
-    m_nDefaultTempo = 125;
-    m_nDefaultGlobalVolume = phdr->globalvol << 2;
-    if (m_nDefaultGlobalVolume > 256)
-        m_nDefaultGlobalVolume = 256;
-    memcpy(Order, phdr->patorder, 128);
+    legacy_m_nType = MOD_TYPE_STM;
+    legacy_m_nSamples = 31;
+    legacy_m_nChannels = 4;
+    legacy_m_nInstruments = 0;
+    legacy_m_nMinPeriod = 64;
+    legacy_m_nMaxPeriod = 0x7FFF;
+    legacy_m_nDefaultSpeed = phdr->inittempo >> 4;
+    if (legacy_m_nDefaultSpeed < 1)
+        legacy_m_nDefaultSpeed = 1;
+    legacy_m_nDefaultTempo = 125;
+    legacy_m_nDefaultGlobalVolume = phdr->globalvol << 2;
+    if (legacy_m_nDefaultGlobalVolume > 256)
+        legacy_m_nDefaultGlobalVolume = 256;
+    memcpy(legacy_Order, phdr->patorder, 128);
     // Setting up channels
     for (UINT nSet = 0; nSet < 4; nSet++) {
         ChnSettings[nSet].dwFlags = 0;
@@ -95,7 +95,7 @@ BOOL CDecompressTrack::ReadSTM(const BYTE* lpStream, DWORD dwMemLength)
         MODINSTRUMENT* pIns =& Ins[nIns + 1];
         STMSAMPLE* pStm =& phdr->sample[nIns];  // STM sample data
         memcpy(pIns->name, pStm->filename, 13);
-        memcpy(m_szNames[nIns + 1], pStm->filename, 12);
+        memcpy(legacy_m_szNames[nIns + 1], pStm->filename, 12);
         pIns->nC4Speed = pStm->c2spd;
         pIns->nGlobalVol = 64;
         pIns->nVolume = pStm->volume << 2;
@@ -111,14 +111,14 @@ BOOL CDecompressTrack::ReadSTM(const BYTE* lpStream, DWORD dwMemLength)
     }
     dwMemPos = sizeof(STMHEADER);
     for (UINT nOrd = 0; nOrd < MAX_ORDERS; nOrd++)
-        if (Order[nOrd] >= 99)
-            Order[nOrd] = 0xFF;
+        if (legacy_Order[nOrd] >= 99)
+            legacy_Order[nOrd] = 0xFF;
     UINT nPatterns = phdr->numpat;
     for (UINT nPat = 0; nPat < nPatterns; nPat++) {
         if (dwMemPos + 64 * 4 * 4 > dwMemLength)
             return TRUE;
         PatternSize[nPat] = 64;
-        if ((Patterns[nPat] = AllocatePattern(64, m_nChannels)) == NULL)
+        if ((Patterns[nPat] = AllocatePattern(64, legacy_m_nChannels)) == NULL)
             return TRUE;
         MODCOMMAND* m = Patterns[nPat];
         STMNOTE* p = (STMNOTE*) (lpStream + dwMemPos);

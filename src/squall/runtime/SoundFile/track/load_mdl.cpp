@@ -244,7 +244,7 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
     dwTrackPos = 0;
     pvolenv = ppanenv = ppitchenv = NULL;
     nvolenv = npanenv = npitchenv = 0;
-    m_nSamples = m_nInstruments = 0;
+    legacy_m_nSamples = legacy_m_nInstruments = 0;
     while (dwMemPos + 6 < dwMemLength) {
         block = *((WORD *) (lpStream + dwMemPos));
         blocklen = *((DWORD *) (lpStream + dwMemPos + 2));
@@ -258,35 +258,35 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
             // IN: infoblock
         case 0x4E49:
             pmib = (MDLINFOBLOCK *) (lpStream + dwMemPos);
-            memcpy(m_szNames[0], pmib->songname, 32);
+            memcpy(legacy_m_szNames[0], pmib->songname, 32);
             norders = pmib->norders;
             if (norders > MAX_ORDERS)
                 norders = MAX_ORDERS;
-            m_nRestartPos = pmib->repeatpos;
-            m_nDefaultGlobalVolume = pmib->globalvol;
-            m_nDefaultTempo = pmib->tempo;
-            m_nDefaultSpeed = pmib->speed;
-            m_nChannels = 4;
+            legacy_m_nRestartPos = pmib->repeatpos;
+            legacy_m_nDefaultGlobalVolume = pmib->globalvol;
+            legacy_m_nDefaultTempo = pmib->tempo;
+            legacy_m_nDefaultSpeed = pmib->speed;
+            legacy_m_nChannels = 4;
             for (i = 0; i < 32; i++) {
                 ChnSettings[i].nVolume = 64;
                 ChnSettings[i].nPan = (pmib->channelinfo[i] & 0x7F) << 1;
                 if (pmib->channelinfo[i] & 0x80)
                     ChnSettings[i].dwFlags |= CHN_MUTE;
                 else
-                    m_nChannels = i + 1;
+                    legacy_m_nChannels = i + 1;
             }
             for (j = 0; j < norders; j++)
-                Order[j] = pmib->seq[j];
+                legacy_Order[j] = pmib->seq[j];
             break;
             // ME: song message
         case 0x454D:
             if (blocklen) {
-                if (m_lpszSongComments)
-                    delete m_lpszSongComments;
-                m_lpszSongComments = new char[blocklen];
-                if (m_lpszSongComments) {
-                    memcpy(m_lpszSongComments, lpStream + dwMemPos, blocklen);
-                    m_lpszSongComments[blocklen - 1] = 0;
+                if (legacy_m_lpszSongComments)
+                    delete legacy_m_lpszSongComments;
+                legacy_m_lpszSongComments = new char[blocklen];
+                if (legacy_m_lpszSongComments) {
+                    memcpy(legacy_m_lpszSongComments, lpStream + dwMemPos, blocklen);
+                    legacy_m_lpszSongComments[blocklen - 1] = 0;
                 }
             }
             break;
@@ -303,8 +303,8 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
                 if (pmpd->channels > 32)
                     break;
                 PatternSize[i] = pmpd->lastrow + 1;
-                if (m_nChannels < pmpd->channels)
-                    m_nChannels = pmpd->channels;
+                if (legacy_m_nChannels < pmpd->channels)
+                    legacy_m_nChannels = pmpd->channels;
                 dwPos += 18 + 2 * pmpd->channels;
                 for (j = 0; j < pmpd->channels; j++) {
                     patterntracks[i * 32 + j] = pmpd->data[j];
@@ -326,8 +326,8 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
                 UINT nins = lpStream[dwPos];
                 if ((nins >= MAX_INSTRUMENTS) || (!nins))
                     break;
-                if (m_nInstruments < nins)
-                    m_nInstruments = nins;
+                if (legacy_m_nInstruments < nins)
+                    legacy_m_nInstruments = nins;
                 if (!Headers[nins]) {
                     UINT note = 12;
                     if ((Headers[nins] = new INSTRUMENTHEADER) == NULL)
@@ -370,7 +370,7 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
                 }
                 dwPos += 34 + 14 * lpStream[dwPos + 1];
             }
-            for (j = 1; j <= m_nInstruments; j++)
+            for (j = 1; j <= legacy_m_nInstruments; j++)
                 if (!Headers[j]) {
                     Headers[j] = new INSTRUMENTHEADER;
                     if (Headers[j])
@@ -406,10 +406,10 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
                 UINT nins = lpStream[dwPos];
                 if ((nins >= MAX_SAMPLES) || (!nins))
                     continue;
-                if (m_nSamples < nins)
-                    m_nSamples = nins;
+                if (legacy_m_nSamples < nins)
+                    legacy_m_nSamples = nins;
                 MODINSTRUMENT* pins =& Ins[nins];
-                memcpy(m_szNames[nins], lpStream + dwPos + 1, 32);
+                memcpy(legacy_m_szNames[nins], lpStream + dwPos + 1, 32);
                 memcpy(pins->name, lpStream + dwPos + 33, 8);
                 pins->nC4Speed = *((DWORD *) (lpStream + dwPos + 41));
                 pins->nLength = *((DWORD *) (lpStream + dwPos + 45));
@@ -433,7 +433,7 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
             // SA: Sample Data
         case 0x4153:
             dwPos = dwMemPos;
-            for (i = 1; i <= m_nSamples; i++)
+            for (i = 1; i <= legacy_m_nSamples; i++)
                 if ((Ins[i].nLength) &&
                     (!Ins[i].pSample) &&
                     (smpinfo[i] != 3) &&
@@ -467,18 +467,18 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
         dwMemPos += blocklen;
     }
     // Unpack Patterns
-    if ((dwTrackPos) && (npatterns) && (m_nChannels) && (ntracks)) {
+    if ((dwTrackPos) && (npatterns) && (legacy_m_nChannels) && (ntracks)) {
         for (UINT ipat = 0; ipat < npatterns; ipat++) {
             if ((Patterns[ipat] = AllocatePattern(PatternSize[ipat],
-                                    m_nChannels)) ==
+                                    legacy_m_nChannels)) ==
                 NULL)
                 break;
-            for (UINT chn = 0; chn < m_nChannels; chn++)
+            for (UINT chn = 0; chn < legacy_m_nChannels; chn++)
                 if ((patterntracks[ipat * 32 + chn]) &&
                     (patterntracks[ipat * 32 + chn] <= ntracks)) {
                     MODCOMMAND* m = Patterns[ipat] + chn;
                     UnpackMDLTrack(m,
-                        m_nChannels,
+                        legacy_m_nChannels,
                         PatternSize[ipat],
                         patterntracks[ipat * 32 + chn],
                         lpStream + dwTrackPos);
@@ -486,7 +486,7 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     // Set up envelopes
-    for (UINT iIns = 1; iIns <= m_nInstruments; iIns++)
+    for (UINT iIns = 1; iIns <= legacy_m_nInstruments; iIns++)
         if (Headers[iIns]) {
             INSTRUMENTHEADER* penv = Headers[iIns];
             // Setup volume envelope
@@ -541,7 +541,7 @@ BOOL CDecompressTrack::ReadMDL(const BYTE* lpStream, DWORD dwMemLength)
                     }
             }
         }
-    m_dwSongFlags |= SONG_LINEARSLIDES;
-    m_nType = MOD_TYPE_MDL;
+    legacy_m_dwSongFlags |= SONG_LINEARSLIDES;
+    legacy_m_nType = MOD_TYPE_MDL;
     return TRUE;
 }

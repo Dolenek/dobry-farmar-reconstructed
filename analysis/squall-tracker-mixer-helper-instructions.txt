@@ -1,0 +1,296 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  10018510: 53                 push        ebx
+  10018511: 56                 push        esi
+  10018512: 57                 push        edi
+  10018513: 8B 5C 24 10        mov         ebx,dword ptr [esp+10h]
+  10018517: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  1001851B: 8B 74 24 14        mov         esi,dword ptr [esp+14h]
+  1001851F: 8B 08              mov         ecx,dword ptr [eax]
+  10018521: 8B 7C 24 18        mov         edi,dword ptr [esp+18h]
+  10018525: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10018529: 55                 push        ebp
+  1001852A: 8B 28              mov         ebp,dword ptr [eax]
+  1001852C: 8B 06              mov         eax,dword ptr [esi]
+  1001852E: 83 C3 02           add         ebx,2
+  10018531: 99                 cdq
+  10018532: 81 E2 FF 0F 00 00  and         edx,0FFFh
+  10018538: 83 C6 04           add         esi,4
+  1001853B: 03 C2              add         eax,edx
+  1001853D: 3D 00 00 00 F8     cmp         eax,0F8000000h
+  10018542: 7C 3A              jl          1001857E
+  10018544: 3D FF FF FF 07     cmp         eax,7FFFFFFh
+  10018549: 7F 44              jg          1001858F
+  1001854B: 3B C1              cmp         eax,ecx
+  1001854D: 7C 27              jl          10018576
+  1001854F: 3B C5              cmp         eax,ebp
+  10018551: 7F 27              jg          1001857A
+  10018553: C1 F8 0C           sar         eax,0Ch
+  10018556: 4F                 dec         edi
+  10018557: 66 89 43 FE        mov         word ptr [ebx-2],ax
+  1001855B: 75 CF              jne         1001852C
+  1001855D: 8B D5              mov         edx,ebp
+  1001855F: 5D                 pop         ebp
+  10018560: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10018564: 89 08              mov         dword ptr [eax],ecx
+  10018566: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  1001856A: 89 10              mov         dword ptr [eax],edx
+  1001856C: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  10018570: 5F                 pop         edi
+  10018571: D1 E0              shl         eax,1
+  10018573: 5E                 pop         esi
+  10018574: 5B                 pop         ebx
+  10018575: C3                 ret
+  10018576: 8B C8              mov         ecx,eax
+  10018578: EB D9              jmp         10018553
+  1001857A: 8B E8              mov         ebp,eax
+  1001857C: EB D5              jmp         10018553
+  1001857E: B9 00 00 00 F8     mov         ecx,0F8000000h
+  10018583: BD FF FF FF 07     mov         ebp,7FFFFFFh
+  10018588: B8 00 00 00 F8     mov         eax,0F8000000h
+  1001858D: EB C4              jmp         10018553
+  1001858F: B9 00 00 00 F8     mov         ecx,0F8000000h
+  10018594: BD FF FF FF 07     mov         ebp,7FFFFFFh
+  10018599: B8 FF FF FF 07     mov         eax,7FFFFFFh
+  1001859E: EB B3              jmp         10018553
+  100185A0: 55                 push        ebp
+  100185A1: 8B EC              mov         ebp,esp
+  100185A3: 56                 push        esi
+  100185A4: 57                 push        edi
+  100185A5: 8B 4D 0C           mov         ecx,dword ptr [ebp+0Ch]
+  100185A8: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  100185AB: 8B FE              mov         edi,esi
+  100185AD: 8B 06              mov         eax,dword ptr [esi]
+  100185AF: 8B 56 04           mov         edx,dword ptr [esi+4]
+  100185B2: 83 C7 04           add         edi,4
+  100185B5: 83 C6 08           add         esi,8
+  100185B8: 03 C2              add         eax,edx
+  100185BA: D1 F8              sar         eax,1
+  100185BC: 49                 dec         ecx
+  100185BD: 89 47 FC           mov         dword ptr [edi-4],eax
+  100185C0: 75 EB              jne         100185AD
+  100185C2: 5F                 pop         edi
+  100185C3: 5E                 pop         esi
+  100185C4: 5D                 pop         ebp
+  100185C5: C3                 ret
+  100185C6: 90                 nop
+  100185C7: 90                 nop
+  100185C8: 90                 nop
+  100185C9: 90                 nop
+  100185CA: 90                 nop
+  100185CB: 90                 nop
+  100185CC: 90                 nop
+  100185CD: 90                 nop
+  100185CE: 90                 nop
+  100185CF: 90                 nop
+  100185D0: 55                 push        ebp
+  100185D1: 8B EC              mov         ebp,esp
+  100185D3: 53                 push        ebx
+  100185D4: 56                 push        esi
+  100185D5: 57                 push        edi
+  100185D6: 8B 7D 08           mov         edi,dword ptr [ebp+8]
+  100185D9: 8B 4D 0C           mov         ecx,dword ptr [ebp+0Ch]
+  100185DC: 8B 45 10           mov         eax,dword ptr [ebp+10h]
+  100185DF: 8B 55 14           mov         edx,dword ptr [ebp+14h]
+  100185E2: 8B 00              mov         eax,dword ptr [eax]
+  100185E4: 8B 12              mov         edx,dword ptr [edx]
+  100185E6: 0B C9              or          ecx,ecx
+  100185E8: 74 40              je          1001862A
+  100185EA: 8B D8              mov         ebx,eax
+  100185EC: 0B DA              or          ebx,edx
+  100185EE: 74 3A              je          1001862A
+  100185F0: 8B D8              mov         ebx,eax
+  100185F2: 8B F2              mov         esi,edx
+  100185F4: F7 DB              neg         ebx
+  100185F6: F7 DE              neg         esi
+  100185F8: C1 FB 1F           sar         ebx,1Fh
+  100185FB: C1 FE 1F           sar         esi,1Fh
+  100185FE: 81 E3 FF 00 00 00  and         ebx,0FFh
+  10018604: 81 E6 FF 00 00 00  and         esi,0FFh
+  1001860A: 03 D8              add         ebx,eax
+  1001860C: 03 F2              add         esi,edx
+  1001860E: C1 FB 08           sar         ebx,8
+  10018611: C1 FE 08           sar         esi,8
+  10018614: 2B C3              sub         eax,ebx
+  10018616: 2B D6              sub         edx,esi
+  10018618: 8B D8              mov         ebx,eax
+  1001861A: 0B DA              or          ebx,edx
+  1001861C: 74 0C              je          1001862A
+  1001861E: 83 C7 08           add         edi,8
+  10018621: 49                 dec         ecx
+  10018622: 89 47 F8           mov         dword ptr [edi-8],eax
+  10018625: 89 57 FC           mov         dword ptr [edi-4],edx
+  10018628: 75 C6              jne         100185F0
+  1001862A: 8B D9              mov         ebx,ecx
+  1001862C: 83 E3 03           and         ebx,3
+  1001862F: 74 0B              je          1001863C
+  10018631: 89 07              mov         dword ptr [edi],eax
+  10018633: 89 57 04           mov         dword ptr [edi+4],edx
+  10018636: 83 C7 08           add         edi,8
+  10018639: 4B                 dec         ebx
+  1001863A: 75 F5              jne         10018631
+  1001863C: C1 E9 02           shr         ecx,2
+  1001863F: 0B C9              or          ecx,ecx
+  10018641: 74 1D              je          10018660
+  10018643: 89 07              mov         dword ptr [edi],eax
+  10018645: 89 57 04           mov         dword ptr [edi+4],edx
+  10018648: 89 47 08           mov         dword ptr [edi+8],eax
+  1001864B: 89 57 0C           mov         dword ptr [edi+0Ch],edx
+  1001864E: 83 C7 20           add         edi,20h
+  10018651: 49                 dec         ecx
+  10018652: 89 47 F0           mov         dword ptr [edi-10h],eax
+  10018655: 89 57 F4           mov         dword ptr [edi-0Ch],edx
+  10018658: 89 47 F8           mov         dword ptr [edi-8],eax
+  1001865B: 89 57 FC           mov         dword ptr [edi-4],edx
+  1001865E: 75 E3              jne         10018643
+  10018660: 8B 75 10           mov         esi,dword ptr [ebp+10h]
+  10018663: 8B 7D 14           mov         edi,dword ptr [ebp+14h]
+  10018666: 89 06              mov         dword ptr [esi],eax
+  10018668: 89 17              mov         dword ptr [edi],edx
+  1001866A: 5F                 pop         edi
+  1001866B: 5E                 pop         esi
+  1001866C: 5B                 pop         ebx
+  1001866D: 5D                 pop         ebp
+  1001866E: C3                 ret
+  1001866F: 90                 nop
+  10018670: 55                 push        ebp
+  10018671: 8B EC              mov         ebp,esp
+  10018673: 53                 push        ebx
+  10018674: 56                 push        esi
+  10018675: 57                 push        edi
+  10018676: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  10018679: 8B 7D 0C           mov         edi,dword ptr [ebp+0Ch]
+  1001867C: 8B 4D 10           mov         ecx,dword ptr [ebp+10h]
+  1001867F: 8B 46 54           mov         eax,dword ptr [esi+54h]
+  10018682: 8B 56 58           mov         edx,dword ptr [esi+58h]
+  10018685: 0B C9              or          ecx,ecx
+  10018687: 74 39              je          100186C2
+  10018689: 8B D8              mov         ebx,eax
+  1001868B: 8B F2              mov         esi,edx
+  1001868D: F7 DB              neg         ebx
+  1001868F: F7 DE              neg         esi
+  10018691: C1 FB 1F           sar         ebx,1Fh
+  10018694: C1 FE 1F           sar         esi,1Fh
+  10018697: 81 E3 FF 00 00 00  and         ebx,0FFh
+  1001869D: 81 E6 FF 00 00 00  and         esi,0FFh
+  100186A3: 03 D8              add         ebx,eax
+  100186A5: 03 F2              add         esi,edx
+  100186A7: C1 FB 08           sar         ebx,8
+  100186AA: C1 FE 08           sar         esi,8
+  100186AD: 2B C3              sub         eax,ebx
+  100186AF: 2B D6              sub         edx,esi
+  100186B1: 8B D8              mov         ebx,eax
+  100186B3: 01 07              add         dword ptr [edi],eax
+  100186B5: 01 57 04           add         dword ptr [edi+4],edx
+  100186B8: 0B DA              or          ebx,edx
+  100186BA: 74 06              je          100186C2
+  100186BC: 83 C7 08           add         edi,8
+  100186BF: 49                 dec         ecx
+  100186C0: 75 C7              jne         10018689
+  100186C2: 8B 75 08           mov         esi,dword ptr [ebp+8]
+  100186C5: 89 46 54           mov         dword ptr [esi+54h],eax
+  100186C8: 89 56 58           mov         dword ptr [esi+58h],edx
+  100186CB: 5F                 pop         edi
+  100186CC: 5E                 pop         esi
+  100186CD: 5B                 pop         ebx
+  100186CE: 5D                 pop         ebp
+  100186CF: C3                 ret
+  100186D0: 53                 push        ebx
+  100186D1: 55                 push        ebp
+  100186D2: 56                 push        esi
+  100186D3: 57                 push        edi
+  100186D4: 8B 74 24 14        mov         esi,dword ptr [esp+14h]
+  100186D8: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  100186DC: 8B 7C 24 1C        mov         edi,dword ptr [esp+1Ch]
+  100186E0: 8B 06              mov         eax,dword ptr [esi]
+  100186E2: F7 EF              imul        edi
+  100186E4: 0F AC D0 09        shrd        eax,edx,9
+  100186E8: 83 C6 04           add         esi,4
+  100186EB: 3D 00 00 F0 F7     cmp         eax,0F7F00000h
+  100186F0: 7C 14              jl          10018706
+  100186F2: 3D 00 00 10 08     cmp         eax,8100000h
+  100186F7: 7F 0D              jg          10018706
+  100186F9: 49                 dec         ecx
+  100186FA: 89 46 FC           mov         dword ptr [esi-4],eax
+  100186FD: 75 E1              jne         100186E0
+  100186FF: 8B C7              mov         eax,edi
+  10018701: 5F                 pop         edi
+  10018702: 5E                 pop         esi
+  10018703: 5D                 pop         ebp
+  10018704: 5B                 pop         ebx
+  10018705: C3                 ret
+  10018706: 4F                 dec         edi
+  10018707: EB F0              jmp         100186F9
+  10018709: 90                 nop
+  1001870A: 90                 nop
+  1001870B: 90                 nop
+  1001870C: 90                 nop
+  1001870D: 90                 nop
+  1001870E: 90                 nop
+  1001870F: 90                 nop
+  10018710: A1 A8 E1 05 10     mov         eax,dword ptr ds:[1005E1A8h]
+  10018715: 56                 push        esi
+  10018716: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  1001871A: 57                 push        edi
+  1001871B: 50                 push        eax
+  1001871C: 56                 push        esi
+  1001871D: 68 AC 59 07 10     push        100759ACh
+  10018722: E8 A9 FF FF FF     call        100186D0
+  10018727: 8B 0D A8 E1 05 10  mov         ecx,dword ptr ds:[1005E1A8h]
+  1001872D: 83 C4 0C           add         esp,0Ch
+  10018730: 3B C1              cmp         eax,ecx
+  10018732: 72 5E              jb          10018792
+  10018734: 81 F9 00 02 00 00  cmp         ecx,200h
+  1001873A: 73 56              jae         10018792
+  1001873C: 8B D1              mov         edx,ecx
+  1001873E: BF FF 00 00 00     mov         edi,0FFh
+  10018743: C1 EA 02           shr         edx,2
+  10018746: 2B FA              sub         edi,edx
+  10018748: 8B 15 CC 19 08 10  mov         edx,dword ptr ds:[100819CCh]
+  1001874E: 3B D7              cmp         edx,edi
+  10018750: 73 40              jae         10018792
+  10018752: 8B 3D C0 19 08 10  mov         edi,dword ptr ds:[100819C0h]
+  10018758: A1 A0 E1 05 10     mov         eax,dword ptr ds:[1005E1A0h]
+  1001875D: 8B 15 9C E1 05 10  mov         edx,dword ptr ds:[1005E19Ch]
+  10018763: 03 FE              add         edi,esi
+  10018765: 03 C1              add         eax,ecx
+  10018767: 83 FA 02           cmp         edx,2
+  1001876A: 89 3D C0 19 08 10  mov         dword ptr ds:[100819C0h],edi
+  10018770: 72 02              jb          10018774
+  10018772: D1 E0              shl         eax,1
+  10018774: 39 05 C0 19 08 10  cmp         dword ptr ds:[100819C0h],eax
+  1001877A: 72 25              jb          100187A1
+  1001877C: 41                 inc         ecx
+  1001877D: 5F                 pop         edi
+  1001877E: C7 05 C0 19 08 10  mov         dword ptr ds:[100819C0h],0
+            00 00 00 00
+  10018788: 89 0D A8 E1 05 10  mov         dword ptr ds:[1005E1A8h],ecx
+  1001878E: 5E                 pop         esi
+  1001878F: C2 04 00           ret         4
+  10018792: A3 A8 E1 05 10     mov         dword ptr ds:[1005E1A8h],eax
+  10018797: C7 05 C0 19 08 10  mov         dword ptr ds:[100819C0h],0
+            00 00 00 00
+  100187A1: 5F                 pop         edi
+  100187A2: 5E                 pop         esi
+  100187A3: C2 04 00           ret         4
+  100187A6: 90                 nop
+  100187A7: 90                 nop
+  100187A8: 90                 nop
+  100187A9: 90                 nop
+  100187AA: 90                 nop
+  100187AB: 90                 nop
+  100187AC: 90                 nop
+  100187AD: 90                 nop
+  100187AE: 90                 nop
+  100187AF: 90                 nop
+  100187B0: 83
+
+  Summary
+
+       47000 .text

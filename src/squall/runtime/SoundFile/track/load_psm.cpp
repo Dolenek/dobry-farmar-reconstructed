@@ -94,9 +94,9 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
         (pfh->len + 12 > dwMemLength) ||
         (pfh->listid != IFFID_FILE))
         return FALSE;
-    m_nType = MOD_TYPE_PSM;
-    m_nChannels = 16;
-    m_nSamples = 0;
+    legacy_m_nType = MOD_TYPE_PSM;
+    legacy_m_nChannels = 16;
+    legacy_m_nSamples = 0;
     nPatterns = 0;
     dwMemPos = 12;
     dwSongPos = 0;
@@ -119,8 +119,8 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                 if (!pdata[0]) {
                     pdata++; len--;
                 }
-                memcpy(m_szNames[0], pdata, (len > 31) ? 31 : len);
-                m_szNames[0][31] = 0;
+                memcpy(legacy_m_szNames[0], pdata, (len > 31) ? 31 : len);
+                legacy_m_szNames[0][31] = 0;
                 break;
                 // "PBOD": Pattern
             case IFFID_PBOD:
@@ -137,14 +137,14 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                 // "DSMP": Sample Data
             case IFFID_DSMP:
                 if ((len >= sizeof(PSMSAMPLE)) &&
-                    (m_nSamples + 1 < MAX_SAMPLES)) {
-                    m_nSamples++;
-                    MODINSTRUMENT* pins =& Ins[m_nSamples];
+                    (legacy_m_nSamples + 1 < MAX_SAMPLES)) {
+                    legacy_m_nSamples++;
+                    MODINSTRUMENT* pins =& Ins[legacy_m_nSamples];
                     PSMSAMPLE* psmp = (PSMSAMPLE*) pdata;
-                    smpnames[m_nSamples] = psmp->smpid;
-                    memcpy(m_szNames[m_nSamples], psmp->samplename, 31);
-                    m_szNames[m_nSamples][31] = 0;
-                    samplemap[m_nSamples - 1] = (BYTE) m_nSamples;
+                    smpnames[legacy_m_nSamples] = psmp->smpid;
+                    memcpy(legacy_m_szNames[legacy_m_nSamples], psmp->samplename, 31);
+                    legacy_m_szNames[legacy_m_nSamples][31] = 0;
+                    samplemap[legacy_m_nSamples - 1] = (BYTE) legacy_m_nSamples;
                     // Init sample
                     pins->nGlobalVol = 0x40;
                     pins->nC4Speed = psmp->samplerate;
@@ -184,7 +184,7 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
     PSMSONGHDR* pSong = (PSMSONGHDR*) (lpStream + dwSongPos + 8);
     if ((!dwSongPos) || (pSong->channels < 2) || (pSong->channels > 32))
         return TRUE;
-    m_nChannels = pSong->channels;
+    legacy_m_nChannels = pSong->channels;
     // Valid song header -> convert attached chunks
      {
         DWORD dwSongEnd = dwSongPos +
@@ -220,8 +220,8 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                             (pdata[pos + 1] <= 0x10) &&
                             (pdata[pos + 3] > 0x40) &&
                             (pdata[pos + 3] < 0xC0)) {
-                            m_nDefaultSpeed = pdata[pos + 1];
-                            m_nDefaultTempo = pdata[pos + 3];
+                            legacy_m_nDefaultSpeed = pdata[pos + 1];
+                            legacy_m_nDefaultTempo = pdata[pos + 3];
                             break;
                         }
                     }
@@ -232,7 +232,7 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                             DWORD dwPatName = ((PSMPATTERN*)
                                 (lpStream + patptrs[i] + 8))->name;
                             if (dwName == dwPatName) {
-                                Order[iOrd++] = i;
+                                legacy_Order[iOrd++] = i;
                                 break;
                             }
                         }
@@ -255,7 +255,7 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
         if ((nRows < 64) || (nRows > 256))
             nRows = 64;
         PatternSize[nPat] = nRows;
-        if ((Patterns[nPat] = AllocatePattern(nRows, m_nChannels)) == NULL)
+        if ((Patterns[nPat] = AllocatePattern(nRows, legacy_m_nChannels)) == NULL)
             break;
         MODCOMMAND* m = Patterns[nPat];
         BYTE* p = pPsmPat->data;
@@ -278,12 +278,12 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
             if (((flags & 0xf0) == 0x10) && (ch <= oldch) /*&& (!bNewRow)*/) {
                 if ((pos + 1 < len) &&
                     (!(p[pos] & 0x0f)) &&
-                    (p[pos + 1] < m_nChannels)) {
+                    (p[pos + 1] < legacy_m_nChannels)) {
 #ifdef PSM_LOG
                     //if (!nPat) Log("Continuing on new row\n");
 #endif
                     row++;
-                    m += m_nChannels;
+                    m += legacy_m_nChannels;
                     oldch = ch;
                     continue;
                 }
@@ -295,13 +295,13 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                 //if (!nPat) Log("EOR(%d): %02X.%02X\n", row, p[pos], p[pos+1]);
 #endif
                 row++;
-                m += m_nChannels;
+                m += legacy_m_nChannels;
                 bNewRow = TRUE;
                 oldch = ch;
                 continue;
             }
             bNewRow = FALSE;
-            if (ch >= m_nChannels) {
+            if (ch >= legacy_m_nChannels) {
 #ifdef PSM_LOG
                 if (!nPat)
                     Log("Invalid channel row=%d (0x%02X.0x%02X)\n",
@@ -317,7 +317,7 @@ BOOL CDecompressTrack::ReadPSM(LPCBYTE lpStream, DWORD dwMemLength)
                 UINT nins = p[pos++];
 #ifdef PSM_LOG
                 //if (!nPat) Log("note+ins: %02X.%02X\n", note, nins);
-                if ((!nPat) && (nins >= m_nSamples))
+                if ((!nPat) && (nins >= legacy_m_nSamples))
                     Log("WARNING: invalid instrument number (%d)\n", nins);
 #endif
                 if ((note) && (note < 0x80))

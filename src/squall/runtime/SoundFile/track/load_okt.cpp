@@ -55,18 +55,18 @@ BOOL CDecompressTrack::ReadOKT(const BYTE* lpStream, DWORD dwMemLength)
         (pfh->fixed8 != 0x08000000) ||
         (pfh->samp != 0x504D4153))
         return FALSE;
-    m_nType = MOD_TYPE_OKT;
-    m_nChannels = 4 +
+    legacy_m_nType = MOD_TYPE_OKT;
+    legacy_m_nChannels = 4 +
         pfh->chnsetup[1] +
         pfh->chnsetup[3] +
         pfh->chnsetup[5] +
         pfh->chnsetup[7];
-    if (m_nChannels > MAX_CHANNELS)
-        m_nChannels = MAX_CHANNELS;
+    if (legacy_m_nChannels > MAX_CHANNELS)
+        legacy_m_nChannels = MAX_CHANNELS;
     nsamples = bswapBE32(pfh->samplen) >> 5;
-    m_nSamples = nsamples;
-    if (m_nSamples >= MAX_SAMPLES)
-        m_nSamples = MAX_SAMPLES - 1;
+    legacy_m_nSamples = nsamples;
+    if (legacy_m_nSamples >= MAX_SAMPLES)
+        legacy_m_nSamples = MAX_SAMPLES - 1;
     // Reading samples
     for (UINT smp = 1; smp <= nsamples; smp++) {
         if (dwMemPos >= dwMemLength)
@@ -75,7 +75,7 @@ BOOL CDecompressTrack::ReadOKT(const BYTE* lpStream, DWORD dwMemLength)
             OKTSAMPLE* psmp = (OKTSAMPLE*) (lpStream + dwMemPos);
             MODINSTRUMENT* pins =& Ins[smp];
 
-            memcpy(m_szNames[smp], psmp->name, 20);
+            memcpy(legacy_m_szNames[smp], psmp->name, 20);
             pins->uFlags = 0;
             pins->nLength = bswapBE32(psmp->length) & ~ 1;
             pins->nLoopStart = bswapBE16(psmp->loopstart);
@@ -92,7 +92,7 @@ BOOL CDecompressTrack::ReadOKT(const BYTE* lpStream, DWORD dwMemLength)
     if (dwMemPos >= dwMemLength)
         return TRUE;
     if (*((DWORD *) (lpStream + dwMemPos)) == 0x45455053) {
-        m_nDefaultSpeed = lpStream[dwMemPos + 9];
+        legacy_m_nDefaultSpeed = lpStream[dwMemPos + 9];
         dwMemPos += bswapBE32(*((DWORD *) (lpStream + dwMemPos + 4))) + 8;
     }
     // SLEN
@@ -117,10 +117,10 @@ BOOL CDecompressTrack::ReadOKT(const BYTE* lpStream, DWORD dwMemLength)
         if (orderlen >= MAX_ORDERS)
             orderlen = MAX_ORDERS - 1;
         for (UINT i = 0; i < orderlen; i++)
-            Order[i] = lpStream[dwMemPos + 10 + i];
+            legacy_Order[i] = lpStream[dwMemPos + 10 + i];
         for (UINT j = orderlen; j > 1; j--) {
-            if (Order[j - 1])
-                break; Order[j - 1] = 0xFF;
+            if (legacy_Order[j - 1])
+                break; legacy_Order[j - 1] = 0xFF;
         }
         dwMemPos += bswapBE32(*((DWORD *) (lpStream + dwMemPos + 4))) + 8;
     }
@@ -133,11 +133,11 @@ BOOL CDecompressTrack::ReadOKT(const BYTE* lpStream, DWORD dwMemLength)
         if (!rows)
             rows = 64;
         if (npat < MAX_PATTERNS) {
-            if ((Patterns[npat] = AllocatePattern(rows, m_nChannels)) == NULL)
+            if ((Patterns[npat] = AllocatePattern(rows, legacy_m_nChannels)) == NULL)
                 return TRUE;
             MODCOMMAND* m = Patterns[npat];
             PatternSize[npat] = rows;
-            UINT imax = m_nChannels* rows;
+            UINT imax = legacy_m_nChannels* rows;
             for (UINT i = 0; i < imax; i++, m++, dwPos += 4) {
                 if (dwPos + 4 > dwMemLength)
                     break;

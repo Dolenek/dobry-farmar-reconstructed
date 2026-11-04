@@ -225,21 +225,21 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
             (!numorders) ||
             (numpats * 64 * 32 + 294 + 37 * 64 >= dwMemLength))
             return FALSE;
-        m_nType = MOD_TYPE_AMF0;
-        m_nChannels = 8;
-        m_nInstruments = 0;
-        m_nSamples = 31;
-        m_nDefaultTempo = 125;
-        m_nDefaultSpeed = 6;
+        legacy_m_nType = MOD_TYPE_AMF0;
+        legacy_m_nChannels = 8;
+        legacy_m_nInstruments = 0;
+        legacy_m_nSamples = 31;
+        legacy_m_nDefaultTempo = 125;
+        legacy_m_nDefaultSpeed = 6;
         for (UINT iOrd = 0; iOrd < MAX_ORDERS; iOrd++) {
-            Order[iOrd] = (iOrd < numorders) ?
+            legacy_Order[iOrd] = (iOrd < numorders) ?
                 lpStream[dwMemPos + iOrd] :
                 0xFF;
         }
         dwMemPos = 294; // ???
         for (UINT iSmp = 0; iSmp < numsamples; iSmp++) {
             MODINSTRUMENT* psmp =& Ins[iSmp + 1];
-            memcpy(m_szNames[iSmp + 1], lpStream + dwMemPos, 22);
+            memcpy(legacy_m_szNames[iSmp + 1], lpStream + dwMemPos, 22);
             psmp->nFineTune = MOD2XMFineTune(lpStream[dwMemPos + 22]);
             psmp->nVolume = lpStream[dwMemPos + 23];
             psmp->nGlobalVol = 64;
@@ -258,11 +258,11 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
                 psmp->nLoopStart = psmp->nLoopEnd = 0;
             }
             if ((psmp->nLength) && (iSmp > 31))
-                m_nSamples = iSmp + 1;
+                legacy_m_nSamples = iSmp + 1;
             dwMemPos += 37;
         }
         for (UINT iPat = 0; iPat < numpats; iPat++) {
-            MODCOMMAND* p = AllocatePattern(64, m_nChannels);
+            MODCOMMAND* p = AllocatePattern(64, legacy_m_nChannels);
             if (!p)
                 break;
             Patterns[iPat] = p;
@@ -290,7 +290,7 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
             dwMemPos += 64 * 32;
         }
         // Read samples
-        for (UINT iData = 0; iData < m_nSamples; iData++) {
+        for (UINT iData = 0; iData < legacy_m_nSamples; iData++) {
             MODINSTRUMENT* psmp =& Ins[iData + 1];
             if (psmp->nLength) {
                 dwMemPos += ReadSample(psmp,
@@ -319,12 +319,12 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
         (pfh->numchannels < 4) ||
         (pfh->numchannels > 32))
         return FALSE;
-    memcpy(m_szNames[0], pfh->title, 32);
+    memcpy(legacy_m_szNames[0], pfh->title, 32);
     dwMemPos = sizeof(AMFFILEHEADER);
-    m_nType = MOD_TYPE_AMF;
-    m_nChannels = pfh->numchannels;
-    m_nSamples = pfh->numsamples;
-    m_nInstruments = 0;
+    legacy_m_nType = MOD_TYPE_AMF;
+    legacy_m_nChannels = pfh->numchannels;
+    legacy_m_nSamples = pfh->numsamples;
+    legacy_m_nInstruments = 0;
     // Setup Channel Pan Positions
     if (pfh->version >= 11) {
         signed char * panpos = (signed char *) (lpStream + dwMemPos);
@@ -346,20 +346,20 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
         dwMemPos += 16;
     }
     // Get Tempo/Speed
-    m_nDefaultTempo = 125;
-    m_nDefaultSpeed = 6;
+    legacy_m_nDefaultTempo = 125;
+    legacy_m_nDefaultSpeed = 6;
     if (pfh->version >= 13) {
         if (lpStream[dwMemPos] >= 32)
-            m_nDefaultTempo = lpStream[dwMemPos];
+            legacy_m_nDefaultTempo = lpStream[dwMemPos];
         if (lpStream[dwMemPos + 1] <= 32)
-            m_nDefaultSpeed = lpStream[dwMemPos + 1];
+            legacy_m_nDefaultSpeed = lpStream[dwMemPos + 1];
         dwMemPos += 2;
     }
     // Setup sequence list
     for (UINT iOrd = 0; iOrd < MAX_ORDERS; iOrd++) {
-        Order[iOrd] = 0xFF;
+        legacy_Order[iOrd] = 0xFF;
         if (iOrd < pfh->numorders) {
-            Order[iOrd] = iOrd;
+            legacy_Order[iOrd] = iOrd;
             PatternSize[iOrd] = 64;
             if (pfh->version >= 14) {
                 PatternSize[iOrd] = bswapLE16(*(USHORT *)
@@ -367,19 +367,19 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
                 dwMemPos += 2;
             }
             ptracks[iOrd] = (USHORT *) (lpStream + dwMemPos);
-            dwMemPos += m_nChannels * sizeof(USHORT);
+            dwMemPos += legacy_m_nChannels * sizeof(USHORT);
         }
     }
-    if (dwMemPos + m_nSamples * (sizeof(AMFSAMPLE) + 8) > dwMemLength)
+    if (dwMemPos + legacy_m_nSamples * (sizeof(AMFSAMPLE) + 8) > dwMemLength)
         return TRUE;
     // Read Samples
     UINT maxsampleseekpos = 0;
-    for (UINT iIns = 0; iIns < m_nSamples; iIns++) {
+    for (UINT iIns = 0; iIns < legacy_m_nSamples; iIns++) {
         MODINSTRUMENT* pins =& Ins[iIns + 1];
         AMFSAMPLE* psh = (AMFSAMPLE*) (lpStream + dwMemPos);
 
         dwMemPos += sizeof(AMFSAMPLE);
-        memcpy(m_szNames[iIns + 1], psh->samplename, 32);
+        memcpy(legacy_m_szNames[iIns + 1], psh->samplename, 32);
         memcpy(pins->name, psh->filename, 13);
         pins->nLength = bswapLE32(psh->length);
         pins->nC4Speed = bswapLE16(psh->c2spd);
@@ -427,11 +427,11 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
         }
     // Create the patterns from the list of tracks
     for (UINT iPat = 0; iPat < pfh->numorders; iPat++) {
-        MODCOMMAND* p = AllocatePattern(PatternSize[iPat], m_nChannels);
+        MODCOMMAND* p = AllocatePattern(PatternSize[iPat], legacy_m_nChannels);
         if (!p)
             break;
         Patterns[iPat] = p;
-        for (UINT iChn = 0; iChn < m_nChannels; iChn++) {
+        for (UINT iChn = 0; iChn < legacy_m_nChannels; iChn++) {
             UINT nTrack = bswapLE16(ptracks[iPat][iChn]);
             if ((nTrack) && (nTrack <= pfh->numtracks)) {
                 UINT realtrk = bswapLE16(pTrackMap[nTrack - 1]);
@@ -441,7 +441,7 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
                         AMF_Unpack(p + iChn,
                             pTrackData[realtrk],
                             PatternSize[iPat],
-                            m_nChannels);
+                            legacy_m_nChannels);
                     }
                 }
             }
@@ -452,7 +452,7 @@ BOOL CDecompressTrack::ReadAMF(LPCBYTE lpStream, DWORD dwMemLength)
     for (UINT iSeek = 1; iSeek <= maxsampleseekpos; iSeek++) {
         if (dwMemPos >= dwMemLength)
             break;
-        for (UINT iSmp = 0; iSmp < m_nSamples; iSmp++)
+        for (UINT iSmp = 0; iSmp < legacy_m_nSamples; iSmp++)
             if (iSeek == sampleseekpos[iSmp]) {
                 MODINSTRUMENT* pins =& Ins[iSmp + 1];
                 dwMemPos += ReadSample(pins,

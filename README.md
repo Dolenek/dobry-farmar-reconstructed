@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Další trackerové loadery a nenulový mixer](docs/SQUALL.md) mají obnovené původní pohledy polí, AGC, útlum a převod PCM. Obě sestavení prošla9088 mixer/AGC případy,288 ukončeními kanálu a32 páry skutečných konstruktorů MOD/XM/IT/S3M. Nová úplná regrese102/102 za499,88s, obě zvukové regrese a čtyři celé obousměrné save obnovy prošly. Širší trackerové větve, pozdější herní průběh a celý původní cíl pokračují.
+
 [MOD tracker](docs/SQUALL.md) nyní zachovává původní dvojí rozložení polí, čtecí metody a nastavení pořadí. Obě sestavení prošla432 přímými páry wrapperů,24 páry loader/order a20 bezpečnými páry skutečných konstruktorů; nebezpečná původní továrna a Ogg fallback jsou doložené odděleně. Aktuální úplná regrese102/102 za510,02s, obě zvukové regrese a čtyři celé6943/7784bajtové obousměrné obnovy prošly. Další trackerové formáty a celý původní projekt pokračují.
 
 [Obnovená původní x87 aritmetika MPEG](docs/SQUALL.md) prošla v obou sestaveních přesnými tabulkami,40960 kernel případy,640 čteními a56 bezpečnými fyzickými buffery na sestavení. Oba původní MPEG2/Layer2 přesahy jsou prokázané odděleně; nebezpečné přehrávání se nepovažuje za ověřené. Aktuální celá regrese102/102 za543,07s, obě audio regrese a čtyři celé6943/7784bajtové herní obnovy prošly. Dvě source obnovy jsou bez AV, minutí kurzoru prvního GUI pokusu je zachované. Celý původní projekt dále pokračuje.

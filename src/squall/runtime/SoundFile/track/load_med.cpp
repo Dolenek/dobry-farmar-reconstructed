@@ -537,8 +537,8 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
     Log("  extra_songs = %d\n", pmmh->extra_songs);
     Log("\n");
 #endif
-    m_nType = MOD_TYPE_MED;
-    m_nSongPreAmp = 0x20;
+    legacy_m_nType = MOD_TYPE_MED;
+    legacy_m_nSongPreAmp = 0x20;
     dwBlockArr = bswapBE32(pmmh->blockarr);
     dwSmplArr = bswapBE32(pmmh->smplarr);
     dwExpData = bswapBE32(pmmh->expdata);
@@ -594,12 +594,12 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
     Log("\n");
 #endif
     wNumBlocks = bswapBE16(pmsh->numblocks);
-    m_nChannels = 4;
-    m_nSamples = pmsh->numsamples;
-    if (m_nSamples > 63)
-        m_nSamples = 63;
+    legacy_m_nChannels = 4;
+    legacy_m_nSamples = pmsh->numsamples;
+    if (legacy_m_nSamples > 63)
+        legacy_m_nSamples = 63;
     // Tempo
-    m_nDefaultTempo = 125;
+    legacy_m_nDefaultTempo = 125;
     deftempo = bswapBE16(pmsh->deftempo);
     if (!deftempo)
         deftempo = 125;
@@ -624,22 +624,22 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
 #endif
     }
     // Speed
-    m_nDefaultSpeed = pmsh->tempo2;
-    if (!m_nDefaultSpeed)
-        m_nDefaultSpeed = 6;
+    legacy_m_nDefaultSpeed = pmsh->tempo2;
+    if (!legacy_m_nDefaultSpeed)
+        legacy_m_nDefaultSpeed = 6;
     if (deftempo < 0x21)
         deftempo = 0x21;
     if (deftempo > 255) {
-        while ((m_nDefaultSpeed > 3) && (deftempo > 260)) {
-            deftempo = (deftempo * (m_nDefaultSpeed - 1)) / m_nDefaultSpeed;
-            m_nDefaultSpeed--;
+        while ((legacy_m_nDefaultSpeed > 3) && (deftempo > 260)) {
+            deftempo = (deftempo * (legacy_m_nDefaultSpeed - 1)) / legacy_m_nDefaultSpeed;
+            legacy_m_nDefaultSpeed--;
         }
         if (deftempo > 255)
             deftempo = 255;
     }
-    m_nDefaultTempo = deftempo;
+    legacy_m_nDefaultTempo = deftempo;
     // Reading Samples
-    for (UINT iSHdr = 0; iSHdr < m_nSamples; iSHdr++) {
+    for (UINT iSHdr = 0; iSHdr < legacy_m_nSamples; iSHdr++) {
         MODINSTRUMENT* pins =& Ins[iSHdr + 1];
         pins->nLoopStart = bswapBE16(pmsh->sample[iSHdr].rep) << 1;
         pins->nLoopEnd = pins->nLoopStart +
@@ -655,7 +655,7 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
     }
     // Common Flags
     if (!(pmsh->flags & 0x20))
-        m_dwSongFlags |= SONG_FASTVOLSLIDES;
+        legacy_m_dwSongFlags |= SONG_FASTVOLSLIDES;
     // Reading play sequence
     if (version < '2') {
         UINT nbo = pmsh->songlen >> 8;
@@ -663,13 +663,13 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
             nbo = MAX_ORDERS - 1;
         if (!nbo)
             nbo = 1;
-        memcpy(Order, pmsh->playseq, nbo);
+        memcpy(legacy_Order, pmsh->playseq, nbo);
         playtransp = pmsh->playtransp;
     } else {
         UINT nOrders, nSections;
         UINT nTrks = bswapBE16(pmsh2->numtracks);
         if ((nTrks >= 4) && (nTrks <= 32))
-            m_nChannels = nTrks;
+            legacy_m_nChannels = nTrks;
         DWORD playseqtable = bswapBE32(pmsh2->playseqtable);
         UINT numplayseqs = bswapBE16(pmsh2->numpseqs);
         if (!numplayseqs)
@@ -697,15 +697,15 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
             }
             if ((pseq) && (pseq < dwMemLength - sizeof(MMD2PLAYSEQ))) {
                 MMD2PLAYSEQ* pmps = (MMD2PLAYSEQ*) (lpStream + pseq);
-                if (!m_szNames[0][0])
-                    memcpy(m_szNames[0], pmps->name, 31);
+                if (!legacy_m_szNames[0][0])
+                    memcpy(legacy_m_szNames[0], pmps->name, 31);
                 UINT n = bswapBE16(pmps->length);
                 if (pseq + n <= dwMemLength) {
                     for (UINT i = 0; i < n; i++) {
                         UINT seqval = pmps->seq[i] >> 8;
                         if ((seqval < wNumBlocks) &&
                             (nOrders < MAX_ORDERS - 1)) {
-                            Order[nOrders++] = seqval;
+                            legacy_Order[nOrders++] = seqval;
                         }
                     }
                 }
@@ -713,24 +713,24 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
         }
         playtransp = pmsh2->playtransp;
         while (nOrders < MAX_ORDERS)
-            Order[nOrders++] = 0xFF;
+            legacy_Order[nOrders++] = 0xFF;
     }
     // Reading Expansion structure
     if (pmex) {
         // Channel Split
-        if ((m_nChannels == 4) && (pmsh->flags & 0x40)) {
+        if ((legacy_m_nChannels == 4) && (pmsh->flags & 0x40)) {
             for (UINT i8ch = 0; i8ch < 4; i8ch++) {
                 if (pmex->channelsplit[i8ch])
-                    m_nChannels++;
+                    legacy_m_nChannels++;
             }
         }
         // Song Comments
         UINT annotxt = bswapBE32(pmex->annotxt);
         UINT annolen = bswapBE32(pmex->annolen);
         if ((annotxt) && (annolen) && (annotxt + annolen <= dwMemLength)) {
-            m_lpszSongComments = new char[annolen + 1];
-            memcpy(m_lpszSongComments, lpStream + annotxt, annolen);
-            m_lpszSongComments[annolen] = 0;
+            legacy_m_lpszSongComments = new char[annolen + 1];
+            memcpy(legacy_m_lpszSongComments, lpStream + annotxt, annolen);
+            legacy_m_lpszSongComments[annolen] = 0;
         }
         // Song Name
         UINT songname = bswapBE32(pmex->songname);
@@ -740,7 +740,7 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
             (songname + songnamelen <= dwMemLength)) {
             if (songnamelen > 31)
                 songnamelen = 31;
-            memcpy(m_szNames[0], lpStream + songname, songnamelen);
+            memcpy(legacy_m_szNames[0], lpStream + songname, songnamelen);
         }
         // Sample Names
         DWORD smpinfoex = bswapBE32(pmex->iinfo);
@@ -757,8 +757,8 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
                 if (maxnamelen > 32)
                     maxnamelen = 32;
                 for (UINT i = 0; i < ientries; i++)
-                    if (i < m_nSamples) {
-                        lstrcpyn(m_szNames[i + 1],
+                    if (i < legacy_m_nSamples) {
+                        lstrcpyn(legacy_m_szNames[i + 1],
                             psznames + i * ientrysz,
                             maxnamelen);
                     }
@@ -766,9 +766,9 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
         }
         // Track Names
         DWORD trackinfo_ofs = bswapBE32(pmex->trackinfo_ofs);
-        if ((trackinfo_ofs) && (trackinfo_ofs + m_nChannels * 4 < dwMemLength)) {
+        if ((trackinfo_ofs) && (trackinfo_ofs + legacy_m_nChannels * 4 < dwMemLength)) {
             DWORD* ptrktags = (DWORD*) (lpStream + trackinfo_ofs);
-            for (UINT i = 0; i < m_nChannels; i++) {
+            for (UINT i = 0; i < legacy_m_nChannels; i++) {
                 DWORD trknameofs = 0, trknamelen = 0;
                 DWORD trktagofs = bswapBE32(ptrktags[i]);
                 if (trktagofs) {
@@ -800,10 +800,10 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     // Reading samples
-    if (dwSmplArr > dwMemLength - 4 * m_nSamples)
+    if (dwSmplArr > dwMemLength - 4 * legacy_m_nSamples)
         return TRUE;
     pdwTable = (LPDWORD) (lpStream + dwSmplArr);
-    for (UINT iSmp = 0; iSmp < m_nSamples; iSmp++)
+    for (UINT iSmp = 0; iSmp < legacy_m_nSamples; iSmp++)
         if (pdwTable[iSmp]) {
             UINT dwPos = bswapBE32(pdwTable[iSmp]);
             if ((dwPos >= dwMemLength) ||
@@ -854,8 +854,8 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
             lines = pmb->lines + 1;
             tracks = pmb->numtracks;
             if (!tracks)
-                tracks = m_nChannels;
-            if ((Patterns[iBlk] = AllocatePattern(lines, m_nChannels)) == NULL)
+                tracks = legacy_m_nChannels;
+            if ((Patterns[iBlk] = AllocatePattern(lines, legacy_m_nChannels)) == NULL)
                 continue;
             PatternSize[iBlk] = lines;
             MODCOMMAND* p = Patterns[iBlk];
@@ -865,7 +865,7 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
                 break;
             for (UINT y = 0; y < lines; y++) {
                 for (UINT x = 0; x < tracks; x++, s += 3)
-                    if (x < m_nChannels) {
+                    if (x < legacy_m_nChannels) {
                         BYTE note = s[0] & 0x3F;
                         BYTE instr = s[1] >> 4;
                         if (s[0] & 0x80)
@@ -896,8 +896,8 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
             lines = (pmb->lines >> 8) + 1;
             tracks = pmb->numtracks >> 8;
             if (!tracks)
-                tracks = m_nChannels;
-            if ((Patterns[iBlk] = AllocatePattern(lines, m_nChannels)) == NULL)
+                tracks = legacy_m_nChannels;
+            if ((Patterns[iBlk] = AllocatePattern(lines, legacy_m_nChannels)) == NULL)
                 continue;
             PatternSize[iBlk] = (WORD) lines;
             DWORD dwBlockInfo = bswapBE32(pmb->info);
@@ -938,7 +938,7 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
                 break;
             for (UINT y = 0; y < lines; y++) {
                 for (UINT x = 0; x < tracks; x++, s += 4)
-                    if (x < m_nChannels) {
+                    if (x < legacy_m_nChannels) {
                         BYTE note = s[0];
                         if ((note) && (note <= 132)) {
                             int rnote = note + playtransp;
@@ -962,7 +962,7 @@ BOOL CDecompressTrack::ReadMed(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     // Setup channel pan positions
-    for (UINT iCh = 0; iCh < m_nChannels; iCh++) {
+    for (UINT iCh = 0; iCh < legacy_m_nChannels; iCh++) {
         ChnSettings[iCh].nPan = (((iCh & 3) == 1) || ((iCh & 3) == 2)) ?
             0xC0 :
             0x40;

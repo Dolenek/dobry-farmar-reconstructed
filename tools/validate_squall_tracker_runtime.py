@@ -10,6 +10,7 @@ import wave
 
 from validate_squall_tracker_stages import ROOT, digest, symbol
 from squall_tracker_fixtures import generate
+from squall_tracker_format_fixtures import generate as generate_formats
 
 
 def main():
@@ -18,6 +19,7 @@ def main():
     parser.add_argument('--output', type=Path, default=ROOT/'.local/squall-tracker-runtime-validation.json')
     parser.add_argument('--only-owned', action='store_true')
     parser.add_argument('--wrapped-reader', action='store_true')
+    parser.add_argument('--additional-formats', action='store_true')
     args = parser.parse_args()
     work = ROOT/'.local/squall-tracker-runtime'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     work.mkdir(parents=True)
@@ -28,7 +30,7 @@ def main():
     for name, path in binaries.items():
         shutil.copyfile(path, work/name)
     sources = ['tools/validate_squall_tracker_runtime.py', 'tools/validate_squall_tracker_stages.py',
-               'tools/squall_tracker_fixtures.py', 'tools/squall_tracker_probe.cpp',
+               'tools/squall_tracker_fixtures.py', 'tools/squall_tracker_format_fixtures.py', 'tools/squall_tracker_probe.cpp',
                'tools/squall_tracker_ctor_probe.cpp', 'tools/squall_tracker_probe/CMakeLists.txt']
     sources += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT/'src/squall').rglob('*')) if p.suffix in ['.cpp', '.h']]
     for name in sources:
@@ -44,13 +46,18 @@ def main():
         blank = fixtures/f'owned-protracker-{index}-blank-title.mod'
         blank.write_bytes(bytes(20)+titled.read_bytes()[20:])
         inputs.extend([titled, blank])
+    if args.additional_formats:
+        inputs.extend(fixtures/item['name'] for item in generate_formats(fixtures))
+    wrapped_files={}
     if args.wrapped_reader:
         for orders in [5, 8]:
             path=fixtures/f'owned-protracker-orders{orders}-blank-title.mod'
             data=bytearray(inputs[1].read_bytes());data[950]=orders
             path.write_bytes(data);inputs.append(path)
         for path in [p for p in inputs if 'blank-title' in p.name]:
-            with wave.open(str(path.with_suffix('.wav')),'wb') as out:
+            container=fixtures/(path.name+'.reader.wav') if args.additional_formats else path.with_suffix('.wav')
+            wrapped_files[path.name]=container.name
+            with wave.open(str(container),'wb') as out:
                 out.setparams((1,1,44100,0,'NONE','not compressed'));out.writeframes(path.read_bytes())
     report = dict(status='observed_actual_mod_factory_and_owned_constructors_not_general_tracker_equivalence',
                   work_directory=work.relative_to(ROOT).as_posix(),
@@ -58,6 +65,8 @@ def main():
                   source_files={name:digest(work/'snapshots'/name) for name in sources},
                   fixture_hashes={p.name:digest(p) for p in fixtures.iterdir()}, cases=[])
     report['owned_reader_mod_payload_in_real_wav_data'] = args.wrapped_reader
+    report['wrapped_reader_files'] = wrapped_files
+    report['owned_constructor_return_unit'] = 'sample frames; legacy raw probe field returned_bytes retained verbatim'
     file_rva = symbol(work/'source.map', '?api_SampleGetFile@@')
     seek_rva = symbol(work/'source.map', '?seek@CReader@@')
     ctor_rva = symbol(work/'source.map', '??0CDecompressTrack@@')
@@ -80,7 +89,7 @@ def main():
             for memory in [0, 1]:
                 for mode in ['metadata', 'mono', 'stereo']:
                     for backend in ['native', 'source']:
-                        folder = work/f'factory-{fixture.stem}-pc{precision}-mem{memory}-{mode}-{backend}'
+                        folder = work/f'factory-{fixture.name}-pc{precision}-mem{memory}-{mode}-{backend}'
                         command = [str(work/'probe.exe'), str(work/f'{backend}.dll'),
                                    '8300' if backend == 'native' else file_rva,
                                    str(fixture), mode, '0', '4096', str(memory), *extra]
@@ -90,9 +99,9 @@ def main():
         for precision in [53, 24]:
             for slot in [1, 2]:
                 for backend in ['native', 'source']:
-                    folder = work/f'owned-{fixture.stem}-pc{precision}-slot{slot}-{backend}'
+                    folder = work/f'owned-{fixture.name}-pc{precision}-slot{slot}-{backend}'
                     command = [str(work/'ctor-probe.exe'), str(work/'native.dll'), str(work/'source.dll'),
-                               str(fixture.with_suffix('.wav') if args.wrapped_reader else fixture), file_rva, seek_rva, '2bdb0' if backend == 'native' else ctor_rva,
+                               str(fixtures/wrapped_files[fixture.name] if args.wrapped_reader else fixture), file_rva, seek_rva, '2bdb0' if backend == 'native' else ctor_rva,
                                str(slot), backend, *(['pc24'] if precision == 24 else [])]
                     run_case(folder, command, dict(kind='owned-constructor', fixture=fixture.name,
                                                   precision=precision, slot=slot, backend=backend))

@@ -179,20 +179,20 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
         return FALSE;
 
     pdd = NULL;
-    m_nType = MOD_TYPE_MT2;
-    m_nChannels = pfh->wChannels;
-    m_nRestartPos = pfh->wRestart;
-    m_nDefaultSpeed = pfh->bTicksPerLine;
-    m_nDefaultTempo = 125;
+    legacy_m_nType = MOD_TYPE_MT2;
+    legacy_m_nChannels = pfh->wChannels;
+    legacy_m_nRestartPos = pfh->wRestart;
+    legacy_m_nDefaultSpeed = pfh->bTicksPerLine;
+    legacy_m_nDefaultTempo = 125;
     if ((pfh->wSamplesPerTick > 100) && (pfh->wSamplesPerTick < 5000)) {
-        m_nDefaultTempo = 110250 / pfh->wSamplesPerTick;
+        legacy_m_nDefaultTempo = 110250 / pfh->wSamplesPerTick;
     }
     for (UINT iOrd = 0; iOrd < MAX_ORDERS; iOrd++) {
-        Order[iOrd] = (BYTE)
+        legacy_Order[iOrd] = (BYTE)
             ((iOrd < pfh->nOrders) ? pfh->Orders[iOrd] : 0xFF);
     }
-    memcpy(m_szNames[0], pfh->szSongName, 32);
-    m_szNames[0][31] = 0;
+    memcpy(legacy_m_szNames[0], pfh->szSongName, 32);
+    legacy_m_szNames[0][31] = 0;
     dwMemPos = sizeof(MT2FILEHEADER);
     nDrumDataLen = *(WORD *) (lpStream + dwMemPos);
     dwDrumDataPos = dwMemPos + 2;
@@ -203,7 +203,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
 
     Log("MT2 v%03X: \"%s\" (flags=%04X)\n",
         pfh->wVersion,
-        m_szNames[0],
+        legacy_m_szNames[0],
         pfh->fulFlags);
     Log("%d Channels, %d Patterns, %d Instruments, %d Samples\n",
         pfh->wChannels,
@@ -241,16 +241,16 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
         switch (dwId) {
             // MSG
         case 0x0047534D:
-            if ((dwLen > 3) && (!m_lpszSongComments)) {
+            if ((dwLen > 3) && (!legacy_m_lpszSongComments)) {
                 DWORD nTxtLen = dwLen;
                 if (nTxtLen > 32000)
                     nTxtLen = 32000;
-                m_lpszSongComments = new char[nTxtLen];  // changed from CHAR
-                if (m_lpszSongComments) {
-                    memcpy(m_lpszSongComments,
+                legacy_m_lpszSongComments = new char[nTxtLen];  // changed from CHAR
+                if (legacy_m_lpszSongComments) {
+                    memcpy(legacy_m_lpszSongComments,
                         lpStream + dwMemPos + 1,
                         nTxtLen - 1);
-                    m_lpszSongComments[nTxtLen - 1] = 0;
+                    legacy_m_lpszSongComments[nTxtLen - 1] = 0;
                 }
             }
             break;
@@ -281,7 +281,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
                     pmp->wDataLen);
 #endif
                 PatternSize[iPat] = nLines;
-                Patterns[iPat] = AllocatePattern(nLines, m_nChannels);
+                Patterns[iPat] = AllocatePattern(nLines, legacy_m_nChannels);
                 if (!Patterns[iPat])
                     return TRUE;
                 MODCOMMAND* m = Patterns[iPat];
@@ -305,7 +305,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
         #endif
                         }
                         if (infobyte & 0x7f) {
-                            UINT patpos = row* m_nChannels + ch;
+                            UINT patpos = row* legacy_m_nChannels + ch;
                             cmd.note = cmd.instr = cmd.vol = cmd.pan = cmd.fxcmd = cmd.fxparam1 = cmd.fxparam2 = 0;
                             if (infobyte & 1)
                                 cmd.note = p[pos++];
@@ -337,14 +337,14 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
                         while (row >= nLines) {
                             row -= nLines; ch++;
                         }
-                        if (ch >= m_nChannels)
+                        if (ch >= legacy_m_nChannels)
                             break;
                     }
                 } else {
                     MT2COMMAND* p = (MT2COMMAND*) (lpStream + dwMemPos);
                     UINT n = 0;
                     while ((len > sizeof(MT2COMMAND)) &&
-                        (n < m_nChannels * nLines)) {
+                        (n < legacy_m_nChannels * nLines)) {
                         ConvertMT2Command(this, m, p);
                         len -= sizeof(MT2COMMAND);
                         n++;
@@ -381,7 +381,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
 #ifdef MT2DEBUG
         Log("Automation at offset 0x%08X\n", dwMemPos);
 #endif
-        UINT nAutoCount = m_nChannels;
+        UINT nAutoCount = legacy_m_nChannels;
         if (pfh->fulFlags & 0x10)
             nAutoCount++; // Master Automation
         if ((pfh->fulFlags & 0x08) && (pdd))
@@ -413,7 +413,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
     Log("Loading instruments at offset 0x%08X\n", dwMemPos);
 #endif
     memset(InstrMap, 0, sizeof(InstrMap));
-    m_nInstruments = (pfh->wInstruments < MAX_INSTRUMENTS) ?
+    legacy_m_nInstruments = (pfh->wInstruments < MAX_INSTRUMENTS) ?
         pfh->wInstruments :
         MAX_INSTRUMENTS -
         1;
@@ -422,7 +422,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
             return TRUE;
         MT2INSTRUMENT* pmi = (MT2INSTRUMENT*) (lpStream + dwMemPos);
         INSTRUMENTHEADER* penv = NULL;
-        if (iIns <= m_nInstruments) {
+        if (iIns <= legacy_m_nInstruments) {
             penv = new INSTRUMENTHEADER;
             Headers[iIns] = penv;
             if (penv) {
@@ -563,7 +563,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
     Log("Loading samples at offset 0x%08X\n", dwMemPos);
 #endif
     memset(SampleMap, 0, sizeof(SampleMap));
-    m_nSamples = (pfh->wSamples < MAX_SAMPLES) ?
+    legacy_m_nSamples = (pfh->wSamples < MAX_SAMPLES) ?
         pfh->wSamples :
         MAX_SAMPLES -
         1;
@@ -572,14 +572,14 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
             return TRUE;
         MT2SAMPLE* pms = (MT2SAMPLE*) (lpStream + dwMemPos);
 #ifdef MT2DEBUG
-        if (iSmp <= m_nSamples)
+        if (iSmp <= legacy_m_nSamples)
             Log("  Sample #%d at offset %04X: %d bytes\n",
                 iSmp,
                 dwMemPos,
                 pms->dwDataLen);
 #endif
         if (iSmp < MAX_SAMPLES) {
-            memcpy(m_szNames[iSmp], pms->szName, 32);
+            memcpy(legacy_m_szNames[iSmp], pms->szName, 32);
         }
         if (pms->dwDataLen > 0) {
             SampleMap[iSmp - 1] = pms;
@@ -621,7 +621,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
                 return TRUE;
             MT2INSTRUMENT* pmi = InstrMap[iMap];
             INSTRUMENTHEADER* penv = NULL;
-            if (iMap < m_nInstruments)
+            if (iMap < legacy_m_nInstruments)
                 penv = Headers[iMap + 1];
             for (UINT iGrp = 0; iGrp < pmi->wSamples; iGrp++) {
                 if (penv) {
@@ -630,7 +630,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
                         if (pmi->GroupsMapping[i] == iGrp) {
                             UINT nSmp = pmg->nSmpNo + 1;
                             penv->Keyboard[i + 12] = (BYTE) nSmp;
-                            if (nSmp <= m_nSamples) {
+                            if (nSmp <= legacy_m_nSamples) {
                                 Ins[nSmp].nVibType = pmi->bVibType;
                                 Ins[nSmp].nVibSweep = pmi->bVibSweep;
                                 Ins[nSmp].nVibDepth = pmi->bVibDepth;
@@ -646,7 +646,7 @@ BOOL CDecompressTrack::ReadMT2(LPCBYTE lpStream, DWORD dwMemLength)
     Log("Loading sample data at offset 0x%08X\n", dwMemPos);
 #endif
     for (UINT iData = 0; iData < 256; iData++)
-        if ((iData < m_nSamples) && (SampleMap[iData])) {
+        if ((iData < legacy_m_nSamples) && (SampleMap[iData])) {
             MT2SAMPLE* pms = SampleMap[iData];
             MODINSTRUMENT* psmp =& Ins[iData + 1];
             if (!(pms->nFlags & 5)) {

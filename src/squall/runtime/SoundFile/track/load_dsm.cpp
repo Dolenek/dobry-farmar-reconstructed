@@ -96,23 +96,23 @@ BOOL CDecompressTrack::ReadDSM(LPCBYTE lpStream, DWORD dwMemLength)
         return FALSE;
     psong = (DSMSONG *) (lpStream + sizeof(DSMFILEHEADER));
     dwMemPos = sizeof(DSMFILEHEADER) + pfh->song_len;
-    m_nType = MOD_TYPE_DSM;
-    m_nChannels = psong->numtrk;
-    if (m_nChannels < 4)
-        m_nChannels = 4;
-    if (m_nChannels > 16)
-        m_nChannels = 16;
-    m_nSamples = psong->numsmp;
-    if (m_nSamples > MAX_SAMPLES)
-        m_nSamples = MAX_SAMPLES;
-    m_nDefaultSpeed = psong->speed;
-    m_nDefaultTempo = psong->bpm;
-    m_nDefaultGlobalVolume = psong->globalvol << 2;
-    if ((!m_nDefaultGlobalVolume) || (m_nDefaultGlobalVolume > 256))
-        m_nDefaultGlobalVolume = 256;
-    m_nSongPreAmp = psong->mastervol & 0x7F;
+    legacy_m_nType = MOD_TYPE_DSM;
+    legacy_m_nChannels = psong->numtrk;
+    if (legacy_m_nChannels < 4)
+        legacy_m_nChannels = 4;
+    if (legacy_m_nChannels > 16)
+        legacy_m_nChannels = 16;
+    legacy_m_nSamples = psong->numsmp;
+    if (legacy_m_nSamples > MAX_SAMPLES)
+        legacy_m_nSamples = MAX_SAMPLES;
+    legacy_m_nDefaultSpeed = psong->speed;
+    legacy_m_nDefaultTempo = psong->bpm;
+    legacy_m_nDefaultGlobalVolume = psong->globalvol << 2;
+    if ((!legacy_m_nDefaultGlobalVolume) || (legacy_m_nDefaultGlobalVolume > 256))
+        legacy_m_nDefaultGlobalVolume = 256;
+    legacy_m_nSongPreAmp = psong->mastervol & 0x7F;
     for (UINT iOrd = 0; iOrd < MAX_ORDERS; iOrd++) {
-        Order[iOrd] = (BYTE)
+        legacy_Order[iOrd] = (BYTE)
             ((iOrd < psong->numord) ? psong->orders[iOrd] : 0xFF);
     }
     for (UINT iPan = 0; iPan < 16; iPan++) {
@@ -121,7 +121,7 @@ BOOL CDecompressTrack::ReadDSM(LPCBYTE lpStream, DWORD dwMemLength)
             ChnSettings[iPan].nPan = psong->panpos[iPan] << 1;
         }
     }
-    memcpy(m_szNames[0], psong->songname, 28);
+    memcpy(legacy_m_szNames[0], psong->songname, 28);
     nPat = 0;
     nSmp = 1;
     while (dwMemPos < dwMemLength - 8) {
@@ -134,7 +134,7 @@ BOOL CDecompressTrack::ReadDSM(LPCBYTE lpStream, DWORD dwMemLength)
                 break;
             DWORD dwPos = dwMemPos;
             dwMemPos += ppatt->patt_len;
-            MODCOMMAND* m = AllocatePattern(64, m_nChannels);
+            MODCOMMAND* m = AllocatePattern(64, legacy_m_nChannels);
             if (!m)
                 break;
             PatternSize[nPat] = 64;
@@ -143,7 +143,7 @@ BOOL CDecompressTrack::ReadDSM(LPCBYTE lpStream, DWORD dwMemLength)
             while ((row < 64) && (dwPos + 2 <= dwMemPos)) {
                 UINT flag = lpStream[dwPos++];
                 if (flag) {
-                    UINT ch = (flag & 0x0F) % m_nChannels;
+                    UINT ch = (flag & 0x0F) % legacy_m_nChannels;
                     if (flag & 0x80) {
                         UINT note = lpStream[dwPos++];
                         if (note) {
@@ -200,19 +200,19 @@ BOOL CDecompressTrack::ReadDSM(LPCBYTE lpStream, DWORD dwMemLength)
                             ConvertModCommand(&m[ch]);
                     }
                 } else {
-                    m += m_nChannels;
+                    m += legacy_m_nChannels;
                     row++;
                 }
             }
             nPat++;
         } else
         // Reading Samples
-        if ((nSmp <= m_nSamples) && (pins->id_INST == DSMID_INST)) {
+        if ((nSmp <= legacy_m_nSamples) && (pins->id_INST == DSMID_INST)) {
             if (dwMemPos + pins->inst_len >= dwMemLength - 8)
                 break;
             DWORD dwPos = dwMemPos + sizeof(DSMINST);
             dwMemPos += 8 + pins->inst_len;
-            memcpy(m_szNames[nSmp], pins->samplename, 28);
+            memcpy(legacy_m_szNames[nSmp], pins->samplename, 28);
             MODINSTRUMENT* psmp =& Ins[nSmp];
             memcpy(psmp->name, pins->filename, 13);
             psmp->nGlobalVol = 64;

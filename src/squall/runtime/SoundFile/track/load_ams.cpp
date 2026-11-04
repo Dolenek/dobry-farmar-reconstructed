@@ -63,12 +63,12 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
     dwMemPos = sizeof(AMSFILEHEADER) + pfh->extra;
     if (dwMemPos + pfh->samples * sizeof(AMSSAMPLEHEADER) + 256 >= dwMemLength)
         return FALSE;
-    m_nType = MOD_TYPE_AMS;
-    m_nInstruments = 0;
-    m_nChannels = (pfh->chncfg & 0x1F) + 1;
-    m_nSamples = pfh->samples;
+    legacy_m_nType = MOD_TYPE_AMS;
+    legacy_m_nInstruments = 0;
+    legacy_m_nChannels = (pfh->chncfg & 0x1F) + 1;
+    legacy_m_nSamples = pfh->samples;
     for (UINT nSmp = 1;
-        nSmp <= m_nSamples;
+        nSmp <= legacy_m_nSamples;
         nSmp++, dwMemPos += sizeof(AMSSAMPLEHEADER)) {
         AMSSAMPLEHEADER* psh = (AMSSAMPLEHEADER*) (lpStream + dwMemPos);
         MODINSTRUMENT* pins =& Ins[nSmp];
@@ -94,39 +94,39 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
         return TRUE;
     tmp2 = (tmp < 32) ? tmp : 31;
     if (tmp2)
-        memcpy(m_szNames[0], lpStream + dwMemPos, tmp2);
-    m_szNames[0][tmp2] = 0;
+        memcpy(legacy_m_szNames[0], lpStream + dwMemPos, tmp2);
+    legacy_m_szNames[0][tmp2] = 0;
     dwMemPos += tmp;
     // Read sample names
-    for (UINT sNam = 1; sNam <= m_nSamples; sNam++) {
+    for (UINT sNam = 1; sNam <= legacy_m_nSamples; sNam++) {
         if (dwMemPos + 32 >= dwMemLength)
             return TRUE;
         tmp = lpStream[dwMemPos++];
         tmp2 = (tmp < 32) ? tmp : 31;
         if (tmp2)
-            memcpy(m_szNames[sNam], lpStream + dwMemPos, tmp2);
+            memcpy(legacy_m_szNames[sNam], lpStream + dwMemPos, tmp2);
         dwMemPos += tmp;
     }
     // Skip Channel names
-    for (UINT cNam = 0; cNam < m_nChannels; cNam++) {
+    for (UINT cNam = 0; cNam < legacy_m_nChannels; cNam++) {
         if (dwMemPos + 32 >= dwMemLength)
             return TRUE;
         tmp = lpStream[dwMemPos++];
         dwMemPos += tmp;
     }
     // Read Pattern Names
-    m_lpszPatternNames = new char[pfh->patterns * 32];  // changed from CHAR
-    if (!m_lpszPatternNames)
+    legacy_m_lpszPatternNames = new char[pfh->patterns * 32];  // changed from CHAR
+    if (!legacy_m_lpszPatternNames)
         return TRUE;
-    m_nPatternNames = pfh->patterns;
-    memset(m_lpszPatternNames, 0, m_nPatternNames * 32);
-    for (UINT pNam = 0; pNam < m_nPatternNames; pNam++) {
+    legacy_m_nPatternNames = pfh->patterns;
+    memset(legacy_m_lpszPatternNames, 0, legacy_m_nPatternNames * 32);
+    for (UINT pNam = 0; pNam < legacy_m_nPatternNames; pNam++) {
         if (dwMemPos + 32 >= dwMemLength)
             return TRUE;
         tmp = lpStream[dwMemPos++];
         tmp2 = (tmp < 32) ? tmp : 31;
         if (tmp2)
-            memcpy(m_lpszPatternNames + pNam * 32, lpStream + dwMemPos, tmp2);
+            memcpy(legacy_m_lpszPatternNames + pNam * 32, lpStream + dwMemPos, tmp2);
         dwMemPos += tmp;
     }
     // Read Song Comments
@@ -135,17 +135,17 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
     if (dwMemPos + tmp >= dwMemLength)
         return TRUE;
     if (tmp) {
-        m_lpszSongComments = new char[tmp + 1];  // changed from CHAR
-        if (!m_lpszSongComments)
+        legacy_m_lpszSongComments = new char[tmp + 1];  // changed from CHAR
+        if (!legacy_m_lpszSongComments)
             return TRUE;
-        memset(m_lpszSongComments, 0, tmp + 1);
-        memcpy(m_lpszSongComments, lpStream + dwMemPos, tmp);
+        memset(legacy_m_lpszSongComments, 0, tmp + 1);
+        memcpy(legacy_m_lpszSongComments, lpStream + dwMemPos, tmp);
         dwMemPos += tmp;
     }
-    // Read Order List
+    // Read legacy_Order List
     for (UINT iOrd = 0; iOrd < pfh->orders; iOrd++, dwMemPos += 2) {
         UINT n = *((WORD*) (lpStream + dwMemPos));
-        Order[iOrd] = (BYTE) n;
+        legacy_Order[iOrd] = (BYTE) n;
     }
     // Read Patterns
     for (UINT iPat = 0; iPat < pfh->patterns; iPat++) {
@@ -156,7 +156,7 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
         if ((len >= dwMemLength) || (dwMemPos + len > dwMemLength))
             return TRUE;
         PatternSize[iPat] = 64;
-        MODCOMMAND* m = AllocatePattern(PatternSize[iPat], m_nChannels);
+        MODCOMMAND* m = AllocatePattern(PatternSize[iPat], legacy_m_nChannels);
         if (!m)
             return TRUE;
         Patterns[iPat] = m;
@@ -170,7 +170,7 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
             // Note+Instr
             if (!(b0 & 0x40)) {
                 b2 = p[i++];
-                if (ch < m_nChannels) {
+                if (ch < legacy_m_nChannels) {
                     if (b1 & 0x7F)
                         m[ch].note = (b1 & 0x7F) + 25;
                     m[ch].instr = b2;
@@ -184,13 +184,13 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
             if (b0 & 0x40) {
                 anothercommand:
                 if (b1 & 0x40) {
-                    if (ch < m_nChannels) {
+                    if (ch < legacy_m_nChannels) {
                         m[ch].volcmd = VOLCMD_VOLUME;
                         m[ch].vol = b1 & 0x3F;
                     }
                 } else {
                     b2 = p[i++];
-                    if (ch < m_nChannels) {
+                    if (ch < legacy_m_nChannels) {
                         UINT cmd = b1 & 0x3F;
                         if (cmd == 0x0C) {
                             m[ch].volcmd = VOLCMD_VOLUME;
@@ -253,13 +253,13 @@ BOOL CDecompressTrack::ReadAMS(LPCBYTE lpStream, DWORD dwMemLength)
             }
             if (b0 & 0x80) {
                 row++;
-                m += m_nChannels;
+                m += legacy_m_nChannels;
             }
         }
         dwMemPos += len;
     }
     // Read Samples
-    for (UINT iSmp = 1; iSmp <= m_nSamples; iSmp++)
+    for (UINT iSmp = 1; iSmp <= legacy_m_nSamples; iSmp++)
         if (Ins[iSmp].nLength) {
             if (dwMemPos >= dwMemLength - 9)
                 return TRUE;
@@ -352,18 +352,18 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
         return FALSE;
     dwMemPos += sizeof(AMS2SONGHEADER);
     if (pfh->titlelen) {
-        memcpy(m_szNames, pfh->szTitle, pfh->titlelen);
-        m_szNames[0][pfh->titlelen] = 0;
+        memcpy(legacy_m_szNames, pfh->szTitle, pfh->titlelen);
+        legacy_m_szNames[0][pfh->titlelen] = 0;
     }
-    m_nType = MOD_TYPE_AMS;
-    m_nChannels = 32;
-    m_nDefaultTempo = psh->bpm >> 8;
-    m_nDefaultSpeed = psh->speed;
-    m_nInstruments = psh->instruments;
-    m_nSamples = 0;
+    legacy_m_nType = MOD_TYPE_AMS;
+    legacy_m_nChannels = 32;
+    legacy_m_nDefaultTempo = psh->bpm >> 8;
+    legacy_m_nDefaultSpeed = psh->speed;
+    legacy_m_nInstruments = psh->instruments;
+    legacy_m_nSamples = 0;
     if (psh->flags & 0x40)
-        m_dwSongFlags |= SONG_LINEARSLIDES;
-    for (UINT nIns = 1; nIns <= m_nInstruments; nIns++) {
+        legacy_m_dwSongFlags |= SONG_LINEARSLIDES;
+    for (UINT nIns = 1; nIns <= legacy_m_nInstruments; nIns++) {
         UINT insnamelen = lpStream[dwMemPos];
         CHAR* pinsname = (CHAR*) (lpStream + dwMemPos + 1);
         dwMemPos += insnamelen + 1;
@@ -384,10 +384,10 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
         memset(smpmap, 0, sizeof(smpmap));
         memset(penv, 0, sizeof(INSTRUMENTHEADER));
         for (UINT ismpmap = 0; ismpmap < pins->samples; ismpmap++) {
-            if ((ismpmap >= 16) || (m_nSamples + 1 >= MAX_SAMPLES))
+            if ((ismpmap >= 16) || (legacy_m_nSamples + 1 >= MAX_SAMPLES))
                 break;
-            m_nSamples++;
-            smpmap[ismpmap] = m_nSamples;
+            legacy_m_nSamples++;
+            smpmap[ismpmap] = legacy_m_nSamples;
         }
         penv->nGlobalVol = 64;
         penv->nPan = 128;
@@ -436,7 +436,7 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
                 NULL;
             UINT smpnamelen = lpStream[dwMemPos];
             if ((psmp) && (smpnamelen) && (smpnamelen <= 22)) {
-                memcpy(m_szNames[smpmap[ismp]],
+                memcpy(legacy_m_szNames[smpmap[ismp]],
                     lpStream + dwMemPos + 1,
                     smpnamelen);
             }
@@ -468,12 +468,12 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
      {
         UINT composernamelen = lpStream[dwMemPos];
         if (composernamelen) {
-            m_lpszSongComments = new char[composernamelen + 1]; // changed from CHAR
-            if (m_lpszSongComments) {
-                memcpy(m_lpszSongComments,
+            legacy_m_lpszSongComments = new char[composernamelen + 1]; // changed from CHAR
+            if (legacy_m_lpszSongComments) {
+                memcpy(legacy_m_lpszSongComments,
                     lpStream + dwMemPos + 1,
                     composernamelen);
-                m_lpszSongComments[composernamelen] = 0;
+                legacy_m_lpszSongComments[composernamelen] = 0;
             }
         }
         dwMemPos += composernamelen + 1;
@@ -495,14 +495,14 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
         if (dwMemPos + 256 >= dwMemLength)
             return TRUE;
     }
-    // Order List
+    // legacy_Order List
      {
         for (UINT i = 0; i < MAX_ORDERS; i++) {
-            Order[i] = 0xFF;
+            legacy_Order[i] = 0xFF;
             if (dwMemPos + 2 >= dwMemLength)
                 return TRUE;
             if (i < psh->orders) {
-                Order[i] = lpStream[dwMemPos];
+                legacy_Order[i] = lpStream[dwMemPos];
                 dwMemPos += 2;
             }
         }
@@ -527,7 +527,7 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
                 SetPatternName(ipat, s);
             }
             PatternSize[ipat] = numrows;
-            Patterns[ipat] = AllocatePattern(numrows, m_nChannels);
+            Patterns[ipat] = AllocatePattern(numrows, legacy_m_nChannels);
             if (!Patterns[ipat])
                 return TRUE;
             // Unpack Pattern Data
@@ -535,7 +535,7 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
             UINT pos = 3 + patnamlen;
             UINT row = 0;
             while ((pos < packedlen) && (row < numrows)) {
-                MODCOMMAND* m = Patterns[ipat] + row* m_nChannels;
+                MODCOMMAND* m = Patterns[ipat] + row* legacy_m_nChannels;
                 UINT byte1 = psrc[pos++];
                 UINT ch = byte1 & 0x1F;
                 // Read Note + Instr
@@ -574,7 +574,7 @@ BOOL CDecompressTrack::ReadAMS2(LPCBYTE lpStream, DWORD dwMemLength)
         dwMemPos += packedlen;
     }
     // Read Samples
-    for (UINT iSmp = 1; iSmp <= m_nSamples; iSmp++)
+    for (UINT iSmp = 1; iSmp <= legacy_m_nSamples; iSmp++)
         if (Ins[iSmp].nLength) {
             if (dwMemPos >= dwMemLength - 9)
                 return TRUE;

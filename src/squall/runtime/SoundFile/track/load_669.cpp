@@ -66,16 +66,16 @@ BOOL CDecompressTrack::Read669(const BYTE* lpStream, DWORD dwMemLength)
         return FALSE;
 
     // That should be enough checking: this must be a 669 module.
-    m_nType = MOD_TYPE_669;
-    m_dwSongFlags |= SONG_LINEARSLIDES;
-    m_nMinPeriod = 28 << 2;
-    m_nMaxPeriod = 1712 << 3;
-    m_nDefaultTempo = 125;
-    m_nDefaultSpeed = 6;
-    m_nChannels = 8;
-    memcpy(m_szNames[0], pfh->songmessage, 16);
-    m_nSamples = pfh->samples;
-    for (UINT nins = 1; nins <= m_nSamples; nins++, psmp++) {
+    legacy_m_nType = MOD_TYPE_669;
+    legacy_m_dwSongFlags |= SONG_LINEARSLIDES;
+    legacy_m_nMinPeriod = 28 << 2;
+    legacy_m_nMaxPeriod = 1712 << 3;
+    legacy_m_nDefaultTempo = 125;
+    legacy_m_nDefaultSpeed = 6;
+    legacy_m_nChannels = 8;
+    memcpy(legacy_m_szNames[0], pfh->songmessage, 16);
+    legacy_m_nSamples = pfh->samples;
+    for (UINT nins = 1; nins <= legacy_m_nSamples; nins++, psmp++) {
         DWORD len = bswapLE32(*((DWORD*) (&psmp->length)));
         DWORD loopstart = bswapLE32(*((DWORD*) (&psmp->loopstart)));
         DWORD loopend = bswapLE32(*((DWORD*) (&psmp->loopend)));
@@ -92,20 +92,20 @@ BOOL CDecompressTrack::Read669(const BYTE* lpStream, DWORD dwMemLength)
         Ins[nins].nLoopEnd = loopend;
         if (loopend)
             Ins[nins].uFlags |= CHN_LOOP;
-        memcpy(m_szNames[nins], psmp->filename, 13);
+        memcpy(legacy_m_szNames[nins], psmp->filename, 13);
         Ins[nins].nVolume = 256;
         Ins[nins].nGlobalVol = 64;
         Ins[nins].nPan = 128;
     }
     // Song Message
-    m_lpszSongComments = new char[109];
-    memcpy(m_lpszSongComments, pfh->songmessage, 108);
-    m_lpszSongComments[108] = 0;
+    legacy_m_lpszSongComments = new char[109];
+    memcpy(legacy_m_lpszSongComments, pfh->songmessage, 108);
+    legacy_m_lpszSongComments[108] = 0;
     // Reading Orders
-    memcpy(Order, pfh->orders, 128);
-    m_nRestartPos = pfh->restartpos;
-    if (Order[m_nRestartPos] >= pfh->patterns)
-        m_nRestartPos = 0;
+    memcpy(legacy_Order, pfh->orders, 128);
+    legacy_m_nRestartPos = pfh->restartpos;
+    if (legacy_Order[legacy_m_nRestartPos] >= pfh->patterns)
+        legacy_m_nRestartPos = 0;
     // Reading Pattern Break Locations
     for (UINT npan = 0; npan < 8; npan++) {
         ChnSettings[npan].nPan = (npan & 1) ? 0x30 : 0xD0;
@@ -114,7 +114,7 @@ BOOL CDecompressTrack::Read669(const BYTE* lpStream, DWORD dwMemLength)
     // Reading Patterns
     dwMemPos = 0x1F1 + pfh->samples * 25;
     for (UINT npat = 0; npat < pfh->patterns; npat++) {
-        Patterns[npat] = AllocatePattern(64, m_nChannels);
+        Patterns[npat] = AllocatePattern(64, legacy_m_nChannels);
         if (!Patterns[npat])
             break;
         PatternSize[npat] = 64;
@@ -190,7 +190,7 @@ BOOL CDecompressTrack::Read669(const BYTE* lpStream, DWORD dwMemLength)
         dwMemPos += 0x600;
     }
     // Reading Samples
-    for (UINT n = 1; n <= m_nSamples; n++) {
+    for (UINT n = 1; n <= legacy_m_nSamples; n++) {
         UINT len = Ins[n].nLength;
         if (dwMemPos >= dwMemLength)
             break;

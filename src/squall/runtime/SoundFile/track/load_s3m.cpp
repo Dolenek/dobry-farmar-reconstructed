@@ -140,8 +140,8 @@ void CDecompressTrack::S3MSaveConvert(UINT *pcmd, UINT *pprm, BOOL bIT) const
     case CMD_POSITIONJUMP:		command = 'B'; break;
     case CMD_PATTERNBREAK:		command = 'C'; if (!bIT) param = ((param / 10) << 4) + (param % 10); break;
     case CMD_VOLUMESLIDE:		command = 'D'; break;
-    case CMD_PORTAMENTODOWN:	command = 'E'; if ((param >= 0xE0) && (m_nType & (MOD_TYPE_MOD|MOD_TYPE_XM))) param = 0xDF; break;
-    case CMD_PORTAMENTOUP:		command = 'F'; if ((param >= 0xE0) && (m_nType & (MOD_TYPE_MOD|MOD_TYPE_XM))) param = 0xDF; break;
+    case CMD_PORTAMENTODOWN:	command = 'E'; if ((param >= 0xE0) && (legacy_m_nType & (MOD_TYPE_MOD|MOD_TYPE_XM))) param = 0xDF; break;
+    case CMD_PORTAMENTOUP:		command = 'F'; if ((param >= 0xE0) && (legacy_m_nType & (MOD_TYPE_MOD|MOD_TYPE_XM))) param = 0xDF; break;
     case CMD_TONEPORTAMENTO:	command = 'G'; break;
     case CMD_VIBRATO:			command = 'H'; break;
     case CMD_TREMOR:			command = 'I'; break;
@@ -161,13 +161,13 @@ void CDecompressTrack::S3MSaveConvert(UINT *pcmd, UINT *pprm, BOOL bIT) const
     case CMD_GLOBALVOLSLIDE:	command = 'W'; break;
     case CMD_PANNING8:
         command = 'X';
-        if ((bIT) && (m_nType != MOD_TYPE_IT) && (m_nType != MOD_TYPE_XM))
+        if ((bIT) && (legacy_m_nType != MOD_TYPE_IT) && (legacy_m_nType != MOD_TYPE_XM))
         {
             if (param == 0xA4) { command = 'S'; param = 0x91; }	else
             if (param <= 0x80) { param <<= 1; if (param > 255) param = 255; } else
             command = param = 0;
         } else
-        if ((!bIT) && ((m_nType == MOD_TYPE_IT) || (m_nType == MOD_TYPE_XM)))
+        if ((!bIT) && ((legacy_m_nType == MOD_TYPE_IT) || (legacy_m_nType == MOD_TYPE_XM)))
         {
             param >>= 1;
         }
@@ -235,44 +235,44 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
     if (psfh.scrm != 0x4D524353)
         return FALSE;
     dwMemPos = 0x60;
-    m_nType = MOD_TYPE_S3M;
-    memset(m_szNames, 0, sizeof(m_szNames));
-    memcpy(m_szNames[0], psfh.name, 28);
+    legacy_m_nType = MOD_TYPE_S3M;
+    memset(legacy_m_szNames, 0, sizeof(legacy_m_szNames));
+    memcpy(legacy_m_szNames[0], psfh.name, 28);
     // Speed
-    m_nDefaultSpeed = psfh.speed;
-    if (m_nDefaultSpeed < 1)
-        m_nDefaultSpeed = 6;
-    if (m_nDefaultSpeed > 0x1F)
-        m_nDefaultSpeed = 0x1F;
+    legacy_m_nDefaultSpeed = psfh.speed;
+    if (legacy_m_nDefaultSpeed < 1)
+        legacy_m_nDefaultSpeed = 6;
+    if (legacy_m_nDefaultSpeed > 0x1F)
+        legacy_m_nDefaultSpeed = 0x1F;
     // Tempo
-    m_nDefaultTempo = psfh.tempo;
-    if (m_nDefaultTempo < 40)
-        m_nDefaultTempo = 40;
-    if (m_nDefaultTempo > 240)
-        m_nDefaultTempo = 240;
+    legacy_m_nDefaultTempo = psfh.tempo;
+    if (legacy_m_nDefaultTempo < 40)
+        legacy_m_nDefaultTempo = 40;
+    if (legacy_m_nDefaultTempo > 240)
+        legacy_m_nDefaultTempo = 240;
     // Global Volume
-    m_nDefaultGlobalVolume = psfh.globalvol << 2;
-    if ((!m_nDefaultGlobalVolume) || (m_nDefaultGlobalVolume > 256))
-        m_nDefaultGlobalVolume = 256;
-    m_nSongPreAmp = psfh.mastervol & 0x7F;
+    legacy_m_nDefaultGlobalVolume = psfh.globalvol << 2;
+    if ((!legacy_m_nDefaultGlobalVolume) || (legacy_m_nDefaultGlobalVolume > 256))
+        legacy_m_nDefaultGlobalVolume = 256;
+    legacy_m_nSongPreAmp = psfh.mastervol & 0x7F;
     // Channels
-    m_nChannels = 4;
+    legacy_m_nChannels = 4;
     for (UINT ich = 0; ich < 32; ich++) {
         ChnSettings[ich].nPan = 128;
         ChnSettings[ich].nVolume = 64;
 
         ChnSettings[ich].dwFlags = CHN_MUTE;
         if (psfh.channels[ich] != 0xFF) {
-            m_nChannels = ich + 1;
+            legacy_m_nChannels = ich + 1;
             UINT b = psfh.channels[ich] & 0x0F;
             ChnSettings[ich].nPan = (b & 8) ? 0xC0 : 0x40;
             ChnSettings[ich].dwFlags = 0;
         }
     }
-    if (m_nChannels < 4)
-        m_nChannels = 4;
+    if (legacy_m_nChannels < 4)
+        legacy_m_nChannels = 4;
     if ((psfh.cwtv < 0x1320) || (psfh.flags & 0x40))
-        m_dwSongFlags |= SONG_FASTVOLSLIDES;
+        legacy_m_dwSongFlags |= SONG_FASTVOLSLIDES;
     // Reading pattern order
     UINT iord = psfh.ordnum;
     if (iord < 1)
@@ -280,7 +280,7 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
     if (iord > MAX_ORDERS)
         iord = MAX_ORDERS;
     if (iord) {
-        memcpy(Order, lpStream + dwMemPos, iord);
+        memcpy(legacy_Order, lpStream + dwMemPos, iord);
         dwMemPos += iord;
     }
     if ((iord & 1) && (lpStream[dwMemPos] == 0xFF))
@@ -289,7 +289,7 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
     insnum = nins = psfh.insnum;
     if (insnum >= MAX_SAMPLES)
         insnum = MAX_SAMPLES - 1;
-    m_nSamples = insnum;
+    legacy_m_nSamples = insnum;
     patnum = npat = psfh.patnum;
     if (patnum > MAX_PATTERNS)
         patnum = MAX_PATTERNS;
@@ -308,7 +308,7 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
                 }
         }
     }
-    if (!m_nChannels)
+    if (!legacy_m_nChannels)
         return TRUE;
     // Reading instrument headers
     memset(insfile, 0, sizeof(insfile));
@@ -321,7 +321,7 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
         insflags[iSmp - 1] = s[0x1F];
         inspack[iSmp - 1] = s[0x1E];
         s[0x4C] = 0;
-        lstrcpy(m_szNames[iSmp], (LPCSTR) & s[0x30]);
+        lstrcpy(legacy_m_szNames[iSmp], (LPCSTR) & s[0x30]);
         if ((s[0] == 1) && (s[0x4E] == 'R') && (s[0x4F] == 'S')) {
             UINT j = bswapLE32(*((LPDWORD) (s + 0x10)));
             if (j > MAX_SAMPLE_LENGTH)
@@ -374,7 +374,7 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
         PatternSize[iPat] = 64;
         if ((!len) ||
             (nInd + len > dwMemLength - 6) ||
-            ((Patterns[iPat] = AllocatePattern(64, m_nChannels)) == NULL))
+            ((Patterns[iPat] = AllocatePattern(64, legacy_m_nChannels)) == NULL))
             continue;
         LPBYTE src = (LPBYTE) (lpStream + nInd);
         // Unpacking pattern
@@ -388,8 +388,8 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
                     break;
             } else {
                 UINT chn = b & 0x1F;
-                if (chn < m_nChannels) {
-                    MODCOMMAND* m =& p[row* m_nChannels + chn];
+                if (chn < legacy_m_nChannels) {
+                    MODCOMMAND* m =& p[row* legacy_m_nChannels + chn];
                     if (b & 0x20) {
                         m->note = src[j++];
                         if (m->note < 0xF0)
@@ -447,9 +447,9 @@ BOOL CDecompressTrack::ReadS3M(const BYTE* lpStream, DWORD dwMemLength)
                             (LPSTR) (lpStream + dwMemPos),
                             dwMemLength - dwMemPos);
         }
-    m_nMinPeriod = 64;
-    m_nMaxPeriod = 32767;
+    legacy_m_nMinPeriod = 64;
+    legacy_m_nMaxPeriod = 32767;
     if (psfh.flags & 0x10)
-        m_dwSongFlags |= SONG_AMIGALIMITS;
+        legacy_m_dwSongFlags |= SONG_AMIGALIMITS;
     return TRUE;
 }

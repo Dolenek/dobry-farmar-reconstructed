@@ -91,14 +91,14 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
     if ((pfh->id != 0x464d4444) || (!pfh->version) || (pfh->version & 0xF0))
         return FALSE;
     dwMemPos = 66;
-    memcpy(m_szNames[0], pfh->songname, 30);
-    m_szNames[0][30] = 0;
-    m_nType = MOD_TYPE_DMF;
-    m_nChannels = 0;
+    memcpy(legacy_m_szNames[0], pfh->songname, 30);
+    legacy_m_szNames[0][30] = 0;
+    legacy_m_nType = MOD_TYPE_DMF;
+    legacy_m_nChannels = 0;
 #ifdef DMFLOG
     Log("DMF version %d: \"%s\": %d bytes (0x%04X)\n",
         pfh->version,
-        m_szNames[0],
+        legacy_m_szNames[0],
         dwMemLength,
         dwMemLength);
 #endif
@@ -116,17 +116,17 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
             if ((psi->infosize > dwMemLength) ||
                 (psi->infosize + dwMemPos + 8 > dwMemLength))
                 goto dmfexit;
-            if ((psi->infosize >= 8) && (!m_lpszSongComments)) {
-                m_lpszSongComments = new char[psi->infosize]; // changed from CHAR
-                if (m_lpszSongComments) {
+            if ((psi->infosize >= 8) && (!legacy_m_lpszSongComments)) {
+                legacy_m_lpszSongComments = new char[psi->infosize]; // changed from CHAR
+                if (legacy_m_lpszSongComments) {
                     for (UINT i = 0; i < psi->infosize - 1; i++) {
                         CHAR c = lpStream[dwMemPos + 8 + i];
                         if ((i % 40) == 39)
-                            m_lpszSongComments[i] = 0x0d;
+                            legacy_m_lpszSongComments[i] = 0x0d;
                         else
-                            m_lpszSongComments[i] = (c < ' ') ? ' ' : c;
+                            legacy_m_lpszSongComments[i] = (c < ' ') ? ' ' : c;
                     }
-                    m_lpszSongComments[psi->infosize - 1] = 0;
+                    legacy_m_lpszSongComments[psi->infosize - 1] = 0;
                 }
             }
             dwMemPos += psi->infosize + 8 - 1;
@@ -142,16 +142,16 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                 if (nseq >= MAX_ORDERS - 1)
                     nseq = MAX_ORDERS - 1;
                 if (sequ->loopstart < nseq)
-                    m_nRestartPos = sequ->loopstart;
+                    legacy_m_nRestartPos = sequ->loopstart;
                 for (UINT i = 0; i < nseq; i++)
-                    Order[i] = (BYTE) sequ->sequ[i];
+                    legacy_Order[i] = (BYTE) sequ->sequ[i];
             }
             dwMemPos += sequ->seqsize + 8;
             break;
 
             // "PATT"
         case 0x54544150:
-            if (!m_nChannels) {
+            if (!legacy_m_nChannels) {
                 DMFPATT* patt = (DMFPATT*) (lpStream + dwMemPos);
                 UINT numpat;
                 DWORD dwPos = dwMemPos + 11;
@@ -161,13 +161,13 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                 numpat = patt->numpat;
                 if (numpat > MAX_PATTERNS)
                     numpat = MAX_PATTERNS;
-                m_nChannels = patt->tracks;
-                if (m_nChannels < patt->firstpatinfo)
-                    m_nChannels = patt->firstpatinfo;
-                if (m_nChannels > 32)
-                    m_nChannels = 32;
-                if (m_nChannels < 4)
-                    m_nChannels = 4;
+                legacy_m_nChannels = patt->tracks;
+                if (legacy_m_nChannels < patt->firstpatinfo)
+                    legacy_m_nChannels = patt->firstpatinfo;
+                if (legacy_m_nChannels > 32)
+                    legacy_m_nChannels = 32;
+                if (legacy_m_nChannels < 4)
+                    legacy_m_nChannels = 4;
                 for (UINT npat = 0; npat < numpat; npat++) {
                     DMFTRACK* pt = (DMFTRACK*) (lpStream + dwPos);
 #ifdef DMFLOG
@@ -190,7 +190,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                         break;
                     PatternSize[npat] = (WORD) ticks;
                     MODCOMMAND* m = AllocatePattern(PatternSize[npat],
-                                        m_nChannels);
+                                        legacy_m_nChannels);
                     if (!m)
                         goto dmfexit;
                     Patterns[npat] = m;
@@ -203,7 +203,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                     BOOL tempochange = (pt->beat & 0xf0) ? TRUE : FALSE;
                     memset(infobyte, 0, sizeof(infobyte));
                     for (UINT row = 0; row < ticks; row++) {
-                        MODCOMMAND* p =& m[row* m_nChannels];
+                        MODCOMMAND* p =& m[row* legacy_m_nChannels];
                         // Parse track global effects
                         if (!glbinfobyte) {
                             BYTE info = lpStream[d++];
@@ -393,7 +393,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                                     }
                                 }
                                 // Store effect
-                                if (i < m_nChannels)
+                                if (i < legacy_m_nChannels)
                                     p[i] = cmd;
                                 if (d > dwPos) {
 #ifdef DMFLOG
@@ -427,7 +427,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                                 speed,
                                 modtempo);
 #endif
-                            for (UINT ich = 0; ich < m_nChannels; ich++)
+                            for (UINT ich = 0; ich < legacy_m_nChannels; ich++)
                                 if (!p[ich].command) {
                                     if (speed) {
                                         p[ich].command = CMD_SPEED;
@@ -462,10 +462,10 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                 DMFSMPI* pds = (DMFSMPI*) (lpStream + dwMemPos);
                 if (pds->size <= dwMemLength - dwMemPos) {
                     DWORD dwPos = dwMemPos + 9;
-                    m_nSamples = pds->samples;
-                    if (m_nSamples >= MAX_SAMPLES)
-                        m_nSamples = MAX_SAMPLES - 1;
-                    for (UINT iSmp = 1; iSmp <= m_nSamples; iSmp++) {
+                    legacy_m_nSamples = pds->samples;
+                    if (legacy_m_nSamples >= MAX_SAMPLES)
+                        legacy_m_nSamples = MAX_SAMPLES - 1;
+                    for (UINT iSmp = 1; iSmp <= legacy_m_nSamples; iSmp++) {
                         UINT namelen = lpStream[dwPos];
                         smplflags[iSmp] = 0;
                         if (dwPos +
@@ -478,8 +478,8 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
                             break;
                         if (namelen) {
                             UINT rlen = (namelen < 32) ? namelen : 31;
-                            memcpy(m_szNames[iSmp], lpStream + dwPos + 1, rlen);
-                            m_szNames[iSmp][rlen] = 0;
+                            memcpy(legacy_m_szNames[iSmp], lpStream + dwPos + 1, rlen);
+                            legacy_m_szNames[iSmp][rlen] = 0;
                         }
                         dwPos += namelen + 1;
                         DMFSAMPLE* psh = (DMFSAMPLE*) (lpStream + dwPos);
@@ -503,7 +503,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
 #ifdef DMFLOG
                         Log("SMPI %d/%d: len=%d flags=0x%02X\n",
                             iSmp,
-                            m_nSamples,
+                            legacy_m_nSamples,
                             psmp->nLength,
                             psh->flags);
 #endif
@@ -518,14 +518,14 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
              {
                 DWORD dwPos = dwMemPos + 8;
                 UINT ismpd = 0;
-                for (UINT iSmp = 1; iSmp <= m_nSamples; iSmp++) {
+                for (UINT iSmp = 1; iSmp <= legacy_m_nSamples; iSmp++) {
                     ismpd++;
                     DWORD pksize;
                     if (dwPos + 4 >= dwMemLength) {
 #ifdef DMFLOG
                         Log("Unexpected EOF at sample %d/%d! (pos=%d)\n",
                             iSmp,
-                            m_nSamples,
+                            legacy_m_nSamples,
                             dwPos);
 #endif
                         break;
@@ -547,7 +547,7 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
 #endif
                         pksize = dwMemLength - dwPos;
                     }
-                    if ((pksize) && (iSmp <= m_nSamples)) {
+                    if ((pksize) && (iSmp <= legacy_m_nSamples)) {
                         UINT flags = (Ins[iSmp].uFlags& CHN_16BIT) ?
                             RS_PCM16S :
                             RS_PCM8S;
@@ -577,12 +577,12 @@ BOOL CDecompressTrack::ReadDMF(const BYTE* lpStream, DWORD dwMemLength)
         }
     }
     dmfexit:
-    if (!m_nChannels) {
-        if (!m_nSamples) {
-            m_nType = MOD_TYPE_NONE;
+    if (!legacy_m_nChannels) {
+        if (!legacy_m_nSamples) {
+            legacy_m_nType = MOD_TYPE_NONE;
             return FALSE;
         }
-        m_nChannels = 4;
+        legacy_m_nChannels = 4;
     }
     return TRUE;
 }

@@ -314,10 +314,11 @@ UINT CDecompressTrack::Read(LPVOID lpDestBuffer, UINT cbBuffer,
             X86_MonoFromStereo(MixSoundBuffer, lCount);
         }
         nStat++;
-        /*#ifndef NO_AGC
-                    // Automatic Gain Control
-                    if (gdwSoundSetup & SNDMIX_AGC) ProcessAGC(lSampleCount);
-            #endif*/
+        // Native1002a6e6..1002a6f7 retains the optional automatic limiter.
+#ifndef NO_AGC
+        if (gdwSoundSetup & SNDMIX_AGC)
+            ProcessAGC(lSampleCount);
+#endif
         UINT lTotalSampleCount = lSampleCount;
         // Perform clipping + VU-Meter
         DWORD size = X86_Convert32To16(lpBuffer,

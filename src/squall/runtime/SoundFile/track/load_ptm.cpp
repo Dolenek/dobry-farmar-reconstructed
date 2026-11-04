@@ -89,28 +89,28 @@ BOOL CDecompressTrack::ReadPTM(const BYTE* lpStream, DWORD dwMemLength)
         (SIZEOF_PTMFILEHEADER +
         pfh.nsamples * SIZEOF_PTMSAMPLE >= (int) dwMemLength))
         return FALSE;
-    memcpy(m_szNames[0], pfh.songname, 28);
-    m_szNames[0][28] = 0;
-    m_nType = MOD_TYPE_PTM;
-    m_nChannels = pfh.nchannels;
-    m_nSamples = (pfh.nsamples < MAX_SAMPLES) ?
+    memcpy(legacy_m_szNames[0], pfh.songname, 28);
+    legacy_m_szNames[0][28] = 0;
+    legacy_m_nType = MOD_TYPE_PTM;
+    legacy_m_nChannels = pfh.nchannels;
+    legacy_m_nSamples = (pfh.nsamples < MAX_SAMPLES) ?
         pfh.nsamples :
         MAX_SAMPLES -
         1;
     dwMemPos = SIZEOF_PTMFILEHEADER;
     nOrders = (pfh.norders < MAX_ORDERS) ? pfh.norders : MAX_ORDERS - 1;
-    memcpy(Order, pfh.orders, nOrders);
-    for (UINT ipan = 0; ipan < m_nChannels; ipan++) {
+    memcpy(legacy_Order, pfh.orders, nOrders);
+    for (UINT ipan = 0; ipan < legacy_m_nChannels; ipan++) {
         ChnSettings[ipan].nVolume = 64;
         ChnSettings[ipan].nPan = ((pfh.chnpan[ipan] & 0x0F) << 4) + 4;
     }
     for (UINT ismp = 0;
-        ismp < m_nSamples;
+        ismp < legacy_m_nSamples;
         ismp++, dwMemPos += SIZEOF_PTMSAMPLE) {
         MODINSTRUMENT* pins =& Ins[ismp + 1];
         PTMSAMPLE* psmp = (PTMSAMPLE*) (lpStream + dwMemPos);
 
-        lstrcpyn(m_szNames[ismp + 1], psmp->samplename, 28);
+        lstrcpyn(legacy_m_szNames[ismp + 1], psmp->samplename, 28);
         memcpy(pins->name, psmp->filename, 12);
         pins->name[12] = 0;
         pins->nGlobalVol = 64;
@@ -150,7 +150,7 @@ BOOL CDecompressTrack::ReadPTM(const BYTE* lpStream, DWORD dwMemLength)
         if ((!dwMemPos) || (dwMemPos >= dwMemLength))
             continue;
         PatternSize[ipat] = 64;
-        if ((Patterns[ipat] = AllocatePattern(64, m_nChannels)) == NULL)
+        if ((Patterns[ipat] = AllocatePattern(64, legacy_m_nChannels)) == NULL)
             break;
         //
         MODCOMMAND* m = Patterns[ipat];
@@ -202,7 +202,7 @@ BOOL CDecompressTrack::ReadPTM(const BYTE* lpStream, DWORD dwMemLength)
                 }
             } else {
                 row++;
-                m += m_nChannels;
+                m += legacy_m_nChannels;
             }
         }
     }
