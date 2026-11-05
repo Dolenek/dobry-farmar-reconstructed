@@ -1,0 +1,19 @@
+{
+  "status": "retained_unaccepted_source_offer_and_completed_fresh_paired_receipts",
+  "initial_report": ".local/contract-streak/20261105T214247557521Z/report.json",
+  "initial_report_sha256": "ed4891e8c85c1b4c5a7aae6b67f2d2c2c8b1ea623faaa4be29682232ac0d21d1",
+  "completed_initial_native_receipts": 1,
+  "initial_native_exit_code": 0,
+  "initial_source_cleanup_exit_code": 0,
+  "source_offer_remained_open_after_first_accept_click": true,
+  "source_counter_and_deposit_unchanged": true,
+  "cause_of_first_unaccepted_click_established": false,
+  "diagnostic_change": "Wait0.5s after completed offer transition;retry only while same offer remains shown and no task or deposit change occurred",
+  "acceptance_or_confirmation_retry_branch_exercised_in_successful_pair": false,
+  "successful_fresh_native_and_source_exit_codes": [
+    0,
+    0
+  ],
+  "production_changed": false,
+  "whole_game_complete": false
+}
