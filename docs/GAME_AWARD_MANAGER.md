@@ -1,5 +1,7 @@
 # Herní řídicí objekt ocenění
 
+[Podmínka15](HIGH_PRICE_SALE.md) vznikla po skutečném prodeji mléka za80 v obou celých EXE. Skutečný predikát je signed cena>79, přes historický klíč `Per40`. Celé source snímky odpovídají dvěma skutečným native variantám; jediný pixel původního páru a rozdílné adresní pořadí ikon zůstávají doložené bez normalizace. Celé23694bajtové saves mají samostatný audit i obousměrné obnovy. Otevřené zůstávají přirozené série20/40 zakázek, konečná podmínka a ostatní požadavky původního cíle.
+
 [Podmínka19](PLANNING_QUEUE.md) přirozeně vznikla po skutečném zadání32 prací během původní pauzy a následné řadě32 zorání. Native vektor i instrukční porovnání potvrzují práh30 čekajících úloh. Celý panel má480000 shodných RGB pixelů a čtyři celé15808bajtové přenosy zachovaly získané ocenění; obě source bez AV. Další zbývající podmínky a celý původní cíl pokračují.
 
 [Podmínky1/2/3/6](COUNTER_SUPPLY_PROGRESS.md) vznikly přirozeně v obou celých EXE po936 dalších sklizních a1005 výrobách, s konečnými čítači1036/1011. Čtyři celé panely mají1920000 shodných RGB pixelů. Nezávislé zásobovací a peněžní bilance, původní replay historie a čtyři celé23475/24115/23475/23475bajtové save přenosy jsou doložené samostatně; obě source obnovy bez AV. Série zakázek, drahý prodej, plánovaná fronta a konečná společná podmínka zůstávají otevřené.

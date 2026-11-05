@@ -1,0 +1,238 @@
+{
+  "status": "initial_one_pixel_assertion_resolved_by_two_actual_original_rendering_variants",
+  "initial_paired_full_frame_comparison": {
+    "compared_pixels": 480000,
+    "different_pixels": 1,
+    "difference_bounds": [
+      206,
+      83,
+      207,
+      84
+    ],
+    "exact": false
+  },
+  "actual_original_to_original_difference": {
+    "compared_pixels": 480000,
+    "different_pixels": 1,
+    "difference_bounds": [
+      206,
+      83,
+      207,
+      84
+    ],
+    "exact": false
+  },
+  "original_pixel_values": [
+    [
+      61,
+      75,
+      91
+    ],
+    [
+      62,
+      75,
+      91
+    ]
+  ],
+  "original_source_whole_frame_matches": [
+    {
+      "source_frame": ".local/high-price-sale/20261105T210000252460Z/1-award-0.png",
+      "source_sha256": "c2a2c124bdca328b8b459959265e214ca930643d052d959714b0034a15be7d0f",
+      "original_frame": ".local/high-price-pixels/20261105T210806790422Z/0-award-0.png",
+      "original_sha256": "c2a2c124bdca328b8b459959265e214ca930643d052d959714b0034a15be7d0f",
+      "entire_identical_rgb_pixels": 480000,
+      "normalizations": []
+    },
+    {
+      "source_frame": ".local/high-price-pixels/20261105T210806790422Z/1-award-0.png",
+      "source_sha256": "06c9a31500a3d420fbc4719e84907b04f93fd336d2287956e063e780037f8147",
+      "original_frame": ".local/high-price-sale/20261105T210000252460Z/0-award-0.png",
+      "original_sha256": "06c9a31500a3d420fbc4719e84907b04f93fd336d2287956e063e780037f8147",
+      "entire_identical_rgb_pixels": 480000,
+      "normalizations": []
+    }
+  ],
+  "live_scene_comparison": {
+    "status": "source_whole_frames_match_both_actual_original_rendering_variants",
+    "diagnostic_report": ".local/high-price-pixels-validation.json",
+    "diagnostic_report_sha256": "1b55df1e6097a508810e7f87d44e7757a5bc976c3be267b2d76349115ebc8fa8",
+    "original_to_original_raw_difference": {
+      "compared_pixels": 480000,
+      "different_pixels": 1,
+      "difference_bounds": [
+        206,
+        83,
+        207,
+        84
+      ],
+      "exact": false
+    },
+    "observed_original_pixel_values": [
+      [
+        61,
+        75,
+        91
+      ],
+      [
+        62,
+        75,
+        91
+      ]
+    ],
+    "whole_frame_original_source_matches": [
+      {
+        "source_frame": ".local/high-price-sale/20261105T210000252460Z/1-award-0.png",
+        "source_sha256": "c2a2c124bdca328b8b459959265e214ca930643d052d959714b0034a15be7d0f",
+        "original_frame": ".local/high-price-pixels/20261105T210806790422Z/0-award-0.png",
+        "original_sha256": "c2a2c124bdca328b8b459959265e214ca930643d052d959714b0034a15be7d0f",
+        "entire_identical_rgb_pixels": 480000,
+        "normalizations": []
+      },
+      {
+        "source_frame": ".local/high-price-pixels/20261105T210806790422Z/1-award-0.png",
+        "source_sha256": "06c9a31500a3d420fbc4719e84907b04f93fd336d2287956e063e780037f8147",
+        "original_frame": ".local/high-price-sale/20261105T210000252460Z/0-award-0.png",
+        "original_sha256": "06c9a31500a3d420fbc4719e84907b04f93fd336d2287956e063e780037f8147",
+        "entire_identical_rgb_pixels": 480000,
+        "normalizations": []
+      }
+    ],
+    "diagnostic_equal_depth_orders": [
+      {
+        "kind": "native",
+        "equal_depth": 3090,
+        "actual_draw_order": [
+          "awards/animation_14.jng",
+          "awards/animation_00.jng",
+          "awards/animation_02.jng",
+          "awards/animation_03.jng",
+          "awards/animation_01.jng",
+          "awards/animation_12.jng",
+          "awards/animation_13.jng",
+          "awards/animation_07.jng",
+          "awards/animation_17.jng",
+          "awards/animation_06.jng",
+          "awards/animation_16.jng"
+        ],
+        "actual_control_addresses": [
+          177386472,
+          177614312,
+          177650432,
+          177721920,
+          177751160,
+          177896832,
+          177901088,
+          178043992,
+          178082952,
+          178181352,
+          178407752
+        ],
+        "pointer_order_is_ascending": true
+      },
+      {
+        "kind": "source",
+        "equal_depth": 3090,
+        "actual_draw_order": [
+          "awards/animation_01.jng",
+          "awards/animation_00.jng",
+          "awards/animation_13.jng",
+          "awards/animation_16.jng",
+          "awards/animation_17.jng",
+          "awards/animation_12.jng",
+          "awards/animation_14.jng",
+          "awards/animation_06.jng",
+          "awards/animation_07.jng",
+          "awards/animation_02.jng",
+          "awards/animation_03.jng"
+        ],
+        "actual_control_addresses": [
+          152989576,
+          161715376,
+          663907368,
+          663908376,
+          663909384,
+          663910392,
+          663914928,
+          664162144,
+          664163656,
+          664213056,
+          664214112
+        ],
+        "pointer_order_is_ascending": true
+      }
+    ],
+    "identical_nonshader_pointer_sprite_words": 504,
+    "interpretation": "Actual original and source registries sort equal depths by real control address;opposite order of overlapping icons01/02 accounts for the observed reference-compatible one-channel-one-unit pixel variants",
+    "initial_pair_draw_order_captured": false,
+    "initial_pair_heap_order_attribution_is_inference": true,
+    "same_heap_addresses_or_equal_draw_order_claimed": false,
+    "images_modified": false,
+    "normalizations": []
+  },
+  "images_modified": false,
+  "normalizations": [],
+  "production_changed": false,
+  "primary_source_debugger_trace_captured": false,
+  "primary_native_and_source_normal_exit_codes": [
+    0,
+    0
+  ],
+  "diagnostic_native_and_source_normal_exit_codes": [
+    0,
+    0
+  ],
+  "initial_interop_diagnostic": {
+    "report": ".local/high-price-sale-interop/20261105T211309333986Z/report.json",
+    "sha256": "44c2990a6d16aa07b5d2a62d475d9578376ec7155db54d217f35236d81b46c70",
+    "actual_completed_processes": 4,
+    "source_debugger_traces": {
+      "2-crash-trace.jsonl": {
+        "sha256": "6e888dabe738249bc4db157ac44ef6c8a5646722e85fa379b3610742297f2fee",
+        "events": [
+          {
+            "event": "image",
+            "base": 11075584
+          },
+          {
+            "event": "ready",
+            "pid": 20096,
+            "game_memory_written": false
+          },
+          {
+            "event": "exit",
+            "exit_code": 0
+          }
+        ]
+      },
+      "5-crash-trace.jsonl": {
+        "sha256": "9c3781c80101c040990f08f0540d5a447c7388f9a07b7f0c73d4e5b6cdfabcfe",
+        "events": [
+          {
+            "event": "image",
+            "base": 11075584
+          },
+          {
+            "event": "ready",
+            "pid": 11904,
+            "game_memory_written": false
+          },
+          {
+            "event": "exit",
+            "exit_code": 0
+          }
+        ]
+      }
+    },
+    "rejected_assumption": "Serialized MSellTime10 infinity must remain infinity throughout the first1s of a reload",
+    "actual_original_parser_evidence": {
+      "path": "analysis/profile-floating-PC24-validation.json",
+      "sha256": "bc3bd05b0ac057af28c0408ca89734407020a8440997107ecb586ac06f3f86f9",
+      "literal": "1.#INF",
+      "actual_original_parsed_float": 1
+    },
+    "actual_source_cache_after_first_restore": "0.00126662",
+    "resolution": "Original old-CRT parser reads1.#INF as1;finite1s cache then expires and recalculates infinity at price99 without any sale",
+    "production_changed": false
+  },
+  "whole_game_complete": false
+}

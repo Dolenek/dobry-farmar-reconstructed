@@ -1,0 +1,93 @@
+{
+  "status": "passed_natural_price80_sale_award15_complete_save_encoding_and_four_cross_restores_only",
+  "recorded_at_utc": "2026-11-05T21:17:28.191476+00:00",
+  "recorder_sha256": "4f2004e93b117ba9de6baf9a097881359dec54cc697207b0fd0af9b8029aa802",
+  "reports": {
+    "high-price-sale-state-validation.json": "3ab0d17b51307f1349938cbe76cb2ac1a8be8628cad8e53641bb9e12a035be14",
+    "high-price-sale-rendering-observation.json": "178119e49d9c4782347f9c1e068448072e050c0aa320a60ef6d6cccf73eb7c77",
+    "high-price-sale-interop-validation.json": "3de0044d593e125b6ff9fb1e7e44c06f286589143abcdaac22a853ff2193120c"
+  },
+  "audit_files": {
+    "tools/audit_award_pixel_order.py": "5786312b73ef9ebe8672c0cccd1893ee1573675f221166c3807029ff19f9e025",
+    "tools/counter_save_audit.py": "25080e208dcd6f9b79f6300f6b533f2f5b79cef3e42e34b6ef749fbe025f9824",
+    "tools/validate_high_price_sale_state.py": "10c1c3b6a649ece313aa6ce6ea00e101832014b8c52d57768465ed5a20a78ff4"
+  },
+  "original_high_sale_predicate": "Market::absoluteStep signed sold>79;GameAwardManager004c8650 reads awHighSold",
+  "actual_sale_price": 80,
+  "actual_primary_sales_per_executable": 2,
+  "actual_primary_money_before": 3180,
+  "actual_primary_money_after": 3340,
+  "actual_primary_market_milk_before": 10,
+  "actual_primary_market_milk_after": 8,
+  "original_price_spike_game_time": 13380,
+  "original_award_index": 15,
+  "complete_expected_save_bytes": 23694,
+  "original_journal_note_added": 1,
+  "unchanged_coefficient_words": 383,
+  "paired_raw_pixels_different": 1,
+  "paired_raw_difference_normalized": false,
+  "original_native_runs_also_differ_by_same_pixel": true,
+  "entire_source_frames_matched_to_actual_original_frames": 2,
+  "exact_rgb_pixels_in_those_matches": 960000,
+  "captured_nonshader_pointer_sprite_words_equal": 504,
+  "original_equal_depth_pointer_order_preserved": true,
+  "actual_bidirectional_restores": 4,
+  "entire_identical_save_transfer_bytes": [
+    23694,
+    23694,
+    23694,
+    23694
+  ],
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "7b68ba4d0663e5102505d3910d6df3cb01196fe7f713353c4300095a034d8d57",
+      "events": [
+        {
+          "event": "image",
+          "base": 3407872
+        },
+        {
+          "event": "ready",
+          "pid": 27988,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "5a69f5c284f17e7b6c2d177c096b3e0975ad63bfe41a0b97546583658a7c5c5e",
+      "events": [
+        {
+          "event": "image",
+          "base": 3407872
+        },
+        {
+          "event": "ready",
+          "pid": 16648,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "independent_sale_timestamps_preserved": true,
+  "original_profile_fields_modified_by_probe": false,
+  "normalizations": [],
+  "production_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural20/40 contract streaks and final all-awards condition",
+    "Original paused warehouse click cause/source comparison",
+    "Remaining Squall ABI/behavior,JNG,uninstaller and whole original goal scopes"
+  ]
+}
