@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Aktivní trackerové hlasy](SQUALL.md) nově prošly v obou sestaveních: na sestavení128 skutečných tabulkových položek,9216 kernelových a8640 celých `CreateStereoMix` párů. Souhlasí8303616 guarded výstupních a28449792 skalárních bajtů.1/2/33 hlasy, loop/pingpong, ukončení, rampy i skutečný32kanálový limit s DirectToDisk výjimkou jsou přímo doložené. Produkce se neměnila; úplné loader/efektové/veřejné trackerové cesty a ostatní podmínky celého cíle pokračují.
+
 [Přirozené ocenění12 za vláhu](NO_DRY_AWARD.md) prošlo ve skutečném originálu i sestavené hře po71 drag/release operacích. Všech60 polí vydrželo nad prahem15 po1200 sekund; oba celé panely mají480000 shodných RGB pixelů. Původní203bajtová deníková událost356 je samostatně zakódovaná a celé výsledky15808 bajtů souhlasí. Čtyři další obousměrné obnovy jsou přesné, obě source bez AV. Produkce a17 původních souborů se neměnily; celý původní cíl pokračuje dalšími evidovanými oblastmi.
 
 [Souborové callbacky Squallu](SQUALL.md) mají nové skutečné porovnání obou sestavení: na sestavení24576 ukazatelových kombinací,98304 přesných dvojic uložených slotů,30720 guarded PCM čtení a1683456 shodných payload bajtů. Zachované callbacky readeru, duplicate/cache vlastnictví,18 řízených selhání a úklid souhlasí před Init/při DirectSound/po Free v PC53/PC24. Původní store i při návratu−4 je doložený instrukčně. Diagnostická změna FPU při přípravě stránek je odděleně evidovaná; produkce se neměnila. Úplné97 exportní signatury, další herní/DLL oblasti a celý původní cíl pokračují.

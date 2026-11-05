@@ -1,5 +1,17 @@
 # Rekonstrukce Squall
 
+## Aktivní hlasy a úplné řízení mixeru
+
+Obě aktuální DLL nově prošly všemi128 položkami skutečné obecné/rychlé tabulky na1004851c/1004861c. Jde o tabulkové položky včetně původních sdílených funkcí, nikoli tvrzení128 různých rutin. Na sestavení připadá9216 skutečných kernel párů: nenulové8/16bit mono/stereo vzorky, no/linear/spline/FIR interpolace, filtry, rampy, kladné/záporné inkrementy a zlomkové pozice v PC53/PC24. Souhlasí2359296 guarded destinací v bajtech a2322432 skalárních bajtů kanálu.
+
+Navazujících8640 párů na sestavení volá celý původní `CreateStereoMix`10017fe0 a jeho původní `GetSampleCount`10018280. Vlastněné dostatečně velké objekty používají obnovený původní layout; nejde o nahrazení mixeru ani o nebezpečnou původní tovární alokaci. Ověřené jsou0/7/64/257 framů,1/2/33 aktivních kanálů v obráceném pořadí, umlčení, forward/pingpong smyčky, pozice před/na/za hranicí, ramp completion, note fade, resampling volba a DirectToDisk. Souhlasí5944320 guarded výstupních bajtů a26127360 skalárních bajtů kanálů.
+
+Konkrétní33kanálový scénář nezávisle potvrzuje původní32kanálový limit. V běžném režimu má poslední kanál offset0/0, zatímco DirectToDisk přimíchá jeho−1784768/−1784768. Původní i rekonstruované celé buffery a stav odpovídají. Všechny vstupní sample bajty zůstaly beze změny, FPU přesnost každého skutečného volání se zachovala a okolní object/output guardy souhlasí. Jediné oddělené adresní pole je `pCurrentSample`; každý kernel ověří jeho zachování a úplný mixer porovná skutečný stav zachováno/vynulováno každého kanálu. PCM ani skalární hodnoty se nenormalizují.
+
+Celkem jde v každém sestavení o17856 call párů,8303616 guarded výstupních bajtů a28449792 skalárních bajtů. Nástroje jsou `tools/squall_tracker_voice_probe.cpp`, `tools/squall_tracker_active_mix_probe.cpp`, příslušné `validate_squall_tracker_voices.py` / `validate_squall_tracker_active_mix.py` a `record_squall_tracker_voices_verification.py`. Čtyři skutečné reports a přesné původní instrukce propojuje `analysis/squall-tracker-voices-regression.json`. Po přidání druhého diagnostického CMake targetu byly oba kernelové běhy zopakované se sjednocenými aktuálními snapshoty.
+
+Produkční zdroje a binárky se neměnily. Úplná předchozí102/102 regrese a skutečný herní zvuk se přenášejí jen přes ověřenou shodu aktuálních produkčních hashů; není tvrzený nový CTest/audio běh. Další úplné trackerové loadery, aktivní efekty, skutečná veřejná přehrávací cesta s původními továrními/fallback zvláštnostmi a ostatní rozsahy původního cíle pokračují. Bezpečnost původní poddimenzované továrny ani neinicializovaného fallbacku se tímto testem neoznačuje za vyřešenou.
+
 ## Souborové callbacky a jejich skuteční vlastníci
 
 `SQUALL_SetFileCallbacks`10003c10 validuje ukazatele v pořadí open/read/seek/close, ale i při návratu−4 vždy zavolá store100085a0 a zapíše všechny čtyři přesné hodnoty do10075990..1007599c. Zdroj tuto původní zvláštnost zachovává. Obě aktuální sestavení nově prošla v PC53/PC24 dohromady24576 kombinacemi null/A/B/1/−1/readable/noaccess/executable ukazatelů na sestavení a98304 přesnými dvojicemi kontrol uložených slotů. Neplatné uložené ukazatele se v tomto rozsahu nevolají; před načtením souborů se skutečně nastaví platná sada.

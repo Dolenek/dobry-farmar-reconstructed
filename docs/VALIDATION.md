@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Aktivní trackerový mixer](SQUALL.md): obě sestavení po17856 call párech,8303616 guarded výstupních bajtech a28449792 skalárních bajtech kanálů. Všechny128 tabulkové položky a celý1/2/33kanálový dispatch se smyčkami a rampami souhlasí. Konkrétní DirectToDisk scénář prokazuje skutečnou výjimku z32kanálového limitu; adresní pole jsou ověřená odděleně, nikoli normalizací PCM.
+
 [Skutečné dlouhodobé zavlažení](NO_DRY_AWARD.md): oba celé EXE71 přesunů,60 polí a přirozené ocenění po1200 sekundách bez resetu;480000 přesných RGB pixelů. Všech15808 save bajtů souhlasí s nezávisle zakódovanou původní deníkovou událostí. Čtyři další celé obousměrné přenosy prošly; obě source obnovy bez AV.
 
 [Skutečné souborové callbacky](SQUALL.md): každé ze dvou sestavení24576 kombinací,98304 přesných uložených slotů,30720 guarded PCM čtení/1683456 payload bajtů a18 řízených selhání. PC53/PC24 a tři lifecycle stavy mají samostatná měření FPU; původní neúspěšné diagnostiky se nevydávají za úspěch.

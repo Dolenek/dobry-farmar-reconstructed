@@ -1,0 +1,110 @@
+{
+  "status": "passed_actual_128_voice_table_entries_and_complete_active_mixer_in_both_builds_only",
+  "recorded_at_utc": "2026-11-05T04:37:17.336538+00:00",
+  "recorder_sha256": "4d6e5c2dc88e3e4c9040e66e3af6af53f379e747bc985f7bbb6d289432f86ca2",
+  "reports": {
+    "squall-tracker-voices-main-validation.json": "7b4c378149a308b2de80612b39e6436ffb7710a9fa80c567b5b202fdec1281b6",
+    "squall-tracker-active-mix-main-validation.json": "f384f9d54486e9c1a7eb839e20422a8336f6ff3f28dba0097351094950edacd6",
+    "squall-tracker-voices-fresh-validation.json": "4f054f19133a6bdd3430e1da71b26ff99ab5cf3de2f562ee99f4634302a2b2d0",
+    "squall-tracker-active-mix-fresh-validation.json": "2ed7f4ae1d9bf88dee92606c896401bae36d910807c3e8350489287ff7163184"
+  },
+  "native_instructions_sha256": "3db9d0468b5b13beb1eae265b6ece3c8cd6cede77caefb16cb30226b52bbdca9",
+  "original_addresses": {
+    "general_function_table": "1004851c",
+    "fast_function_table": "1004861c",
+    "create_stereo_mix": "10017fe0",
+    "sample_count": "10018280"
+  },
+  "function_table_entries_per_build": 128,
+  "kernel_case_pairs_per_build": 9216,
+  "complete_mixer_case_pairs_per_build": 8640,
+  "guarded_destination_bytes_per_build": 8303616,
+  "channel_scalar_bytes_per_build": 28449792,
+  "active_channel_counts": [
+    1,
+    2,
+    33
+  ],
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "actual_cap_observations": {
+    "main": {
+      "native": {
+        "normal_32_channel_cap_last_channel_offset": [
+          0,
+          0
+        ],
+        "direct_to_disk_33rd_channel_offset": [
+          -1784768,
+          -1784768
+        ],
+        "normal_buffer_sha256": "ab5bc859bc728be94b27d951966e0688056cebdb242e4d1e0458fdbd6d36f690",
+        "direct_to_disk_buffer_sha256": "b7796d5a71e05ac726cdaaf8fa1b89c4ef5da04ecbd5c8d63494d9610e617a48"
+      },
+      "source": {
+        "normal_32_channel_cap_last_channel_offset": [
+          0,
+          0
+        ],
+        "direct_to_disk_33rd_channel_offset": [
+          -1784768,
+          -1784768
+        ],
+        "normal_buffer_sha256": "ab5bc859bc728be94b27d951966e0688056cebdb242e4d1e0458fdbd6d36f690",
+        "direct_to_disk_buffer_sha256": "b7796d5a71e05ac726cdaaf8fa1b89c4ef5da04ecbd5c8d63494d9610e617a48"
+      }
+    },
+    "fresh": {
+      "native": {
+        "normal_32_channel_cap_last_channel_offset": [
+          0,
+          0
+        ],
+        "direct_to_disk_33rd_channel_offset": [
+          -1784768,
+          -1784768
+        ],
+        "normal_buffer_sha256": "ab5bc859bc728be94b27d951966e0688056cebdb242e4d1e0458fdbd6d36f690",
+        "direct_to_disk_buffer_sha256": "b7796d5a71e05ac726cdaaf8fa1b89c4ef5da04ecbd5c8d63494d9610e617a48"
+      },
+      "source": {
+        "normal_32_channel_cap_last_channel_offset": [
+          0,
+          0
+        ],
+        "direct_to_disk_33rd_channel_offset": [
+          -1784768,
+          -1784768
+        ],
+        "normal_buffer_sha256": "ab5bc859bc728be94b27d951966e0688056cebdb242e4d1e0458fdbd6d36f690",
+        "direct_to_disk_buffer_sha256": "b7796d5a71e05ac726cdaaf8fa1b89c4ef5da04ecbd5c8d63494d9610e617a48"
+      }
+    }
+  },
+  "read_only_input_samples_verified": true,
+  "address_fields_excluded": "Per-channel pCurrentSample raw address only;unchanged/cleared ownership state verified and compared for every call",
+  "original_heap_factory_scope_claimed_safe": false,
+  "original_loader_fallback_scope_claimed_safe": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "implementation_files": {
+    "FarmarSourceInterop.exe": "3e1acb3956ee6bef549e9c415696c75486a9d58b3e4c4daf0f8a4d7913db07b1",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977"
+  },
+  "candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "More complete tracker loaders,active effects and safe actual public playback scopes",
+    "Remaining original export signatures,codec and whole-game goal scopes"
+  ]
+}

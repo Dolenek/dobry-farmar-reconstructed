@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Aktivní trackerový mixer](docs/SQUALL.md) prošel v obou sestaveních po9216 kernelových a8640 celých mixerových párech. Všechny128 tabulkové položky,1/2/33 hlasy, smyčky, rampy a32kanálový limit mají přesné výstupy i stavy; produkce se neměnila. Další původní rozsahy pokračují.
+
 [Přirozené zavlažovací ocenění](docs/NO_DRY_AWARD.md) prošlo v obou celých hrách: všech60 polí,71 skutečných přesunů postřikovače na EXE, nepřerušených1200 sekund a480000 přesných RGB pixelů panelu. Čtyři další15808bajtové obousměrné přenosy prošly; celý původní cíl pokračuje.
 
 [Souborové callbacky Squallu](docs/SQUALL.md) prošly v obou sestaveních po24576 kombinacích ukazatelů a30720 skutečných PCM čteních. Ověřené je původní uložení ukazatelů i při chybě, zachování vlastníka readeru a úklid při selhání; produkce se neměnila a celý původní cíl pokračuje.
