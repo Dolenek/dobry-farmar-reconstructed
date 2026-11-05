@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Skutečné souborové callbacky](SQUALL.md): každé ze dvou sestavení24576 kombinací,98304 přesných uložených slotů,30720 guarded PCM čtení/1683456 payload bajtů a18 řízených selhání. PC53/PC24 a tři lifecycle stavy mají samostatná měření FPU; původní neúspěšné diagnostiky se nevydávají za úspěch.
+
 [Skutečný konec příběhu a časová smyčka](CAMPAIGN_LOOP.md): dva celé normálně ukončené procesy,13 kontrolních bodů na EXE, doložený přechod14400→11190 a383 bitově odvozených nových koeficientů v každém save. Sedm peněžních definic a celý trh jsou nezávisle kontrolované; čtyři další obousměrné15605bajtové přenosy souhlasí, obě source obnovy bez AV.
 
 [Pozdní časová osa a tříhodinové ocenění](LATE_TIMELINE.md): dva normálně ukončené celé procesy,13 kontrolních bodů na EXE,24 samostatně doložených peněžních událostí, shodný trh a480000 RGB pixelů ocenění. Saves14616/15906 bajtů uchovávají odlišné náhodné výsledky. Čtyři další obousměrné obnovy mají14616/15906/14616/14616 celých přesných bajtů; obě source obnovy skončily bez AV. Produkce je shodná s úplnou tracker-loaders regresí102/102; tato etapa neoznačuje starý CTest za nový běh.

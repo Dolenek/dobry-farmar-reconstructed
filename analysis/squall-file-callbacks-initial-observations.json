@@ -1,0 +1,54 @@
+{
+  "status": "diagnostic_fixture_allocation_fpu_change_identified_and_precision_scope_restored",
+  "failures": [
+    {
+      "work_directory": ".local/squall-file-callbacks/20261105T040127453736Z",
+      "report_sha256": "5fc116eaac2292bc3fe6c55b3c522539cc53ff2e639bb56a66366f3c8379fe31",
+      "source_snapshot_sha256": "3298a611ffb3d7c96cd6f7377b4cc7b8899df1caa30c60d579d252eba3097aae",
+      "driver_snapshot_sha256": "8b350c3f8a9b237d48b91ec0641360aad162bafe278713fe90ecd988238ba7f3",
+      "error": "AssertionError(('PC24', 1, 'Precision changed\\r\\n'))",
+      "recorded_as_production_failure": false,
+      "pc24_run_claimed_passed": false
+    },
+    {
+      "work_directory": ".local/squall-file-callbacks/20261105T040430252657Z",
+      "report_sha256": "ce57d7eea67ac0567afb2f8fa5ba83887927a8644b2480be278d887156f153b1",
+      "source_snapshot_sha256": "07b9c5f61b90debe53f501ea326a9892fea3ee7074e17f6597a91ac3590af3d1",
+      "driver_snapshot_sha256": "8b350c3f8a9b237d48b91ec0641360aad162bafe278713fe90ecd988238ba7f3",
+      "error": "AssertionError(('PC24', 1, 'phase-start pc=131072\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nbefore-native-init pc=65536\\r\\nafter-native-init pc=65536\\r\\nafter-source-init pc=65536\\r\\nphase-start pc=65536\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nafter-source-free pc=65536\\r\\nafter-native-free pc=65536\\r\\nphase-start pc=65536\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nPrecision changed\\r\\n'))",
+      "recorded_as_production_failure": false,
+      "pc24_run_claimed_passed": false
+    },
+    {
+      "work_directory": ".local/squall-file-callbacks/20261105T040523563203Z",
+      "report_sha256": "efb935fa4867dab91f7a3e20c6dc2d8720dd7b4ebe4ef37c885220a3a8a70426",
+      "source_snapshot_sha256": "2ddfca462a357b3b5091362dd0f1907ab1a45306e9f24f5f23ab685ea5a9a5b6",
+      "driver_snapshot_sha256": "8b350c3f8a9b237d48b91ec0641360aad162bafe278713fe90ecd988238ba7f3",
+      "error": "AssertionError(('PC24', 1, 'phase-start pc=131072\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nbefore-native-init pc=65536\\r\\nafter-native-init pc=65536\\r\\nafter-source-init pc=65536\\r\\nphase-start pc=65536\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nafter-source-free pc=65536\\r\\nafter-native-free pc=65536\\r\\nphase-start pc=65536\\r\\nafter-pointer-validity pc=65536\\r\\nafter-readers pc=65536\\r\\nphase-end pc=65536\\r\\nPrecision changed\\r\\n'))",
+      "recorded_as_production_failure": false,
+      "pc24_run_claimed_passed": false
+    },
+    {
+      "work_directory": ".local/squall-file-callbacks/20261105T040627225254Z",
+      "report_sha256": "db4e639e0a532991c95fc051499751c9ea0e2f85ac1f4e6831f156dd70c310b0",
+      "source_snapshot_sha256": "792bfbe43a7142683f1415cc11c4bcdec9b8eca631d9a30b5e405e765132e000",
+      "driver_snapshot_sha256": "8b350c3f8a9b237d48b91ec0641360aad162bafe278713fe90ecd988238ba7f3",
+      "error": "AssertionError(('PC24', 1, 'phase-start pc=131072 case=0\\r\\nbefore-pointer-pages pc=131072 case=0\\r\\nafter-pointer-pages pc=65536 case=0\\r\\nbefore-default-reset pc=65536 case=0\\r\\nafter-source-default-reset pc=65536 case=0\\r\\nafter-native-default-reset pc=65536 case=0\\r\\nafter-pointer-free pc=65536 case=0\\r\\nafter-pointer-validity pc=65536 case=0\\r\\nafter-readers pc=65536 case=0\\r\\nphase-end pc=65536 case=0\\r\\nbefore-native-init pc=65536 case=0\\r\\nafter-native-init pc=65536 case=0\\r\\nafter-source-init pc=65536 case=0\\r\\nphase-start pc=65536 case=0\\r\\nbefore-pointer-pages pc=65536 case=0\\r\\nafter-pointer-pages pc=65536 case=0\\r\\nbefore-default-reset pc=65536 case=0\\r\\nafter-source-default-reset pc=65536 case=0\\r\\nafter-native-default-reset pc=65536 case=0\\r\\nafter-pointer-free pc=65536 case=0\\r\\nafter-pointer-validity pc=65536 case=0\\r\\nafter-readers pc=65536 case=0\\r\\nphase-end pc=65536 case=0\\r\\nafter-source-free pc=65536 case=0\\r\\nafter-native-free pc=65536 case=0\\r\\nphase-start pc=65536 case=0\\r\\nbefore-pointer-pages pc=65536 case=0\\r\\nafter-pointer-pages pc=65536 case=0\\r\\nbefore-default-reset pc=65536 case=0\\r\\nafter-source-default-reset pc=65536 case=0\\r\\nafter-native-default-reset pc=65536 case=0\\r\\nafter-pointer-free pc=65536 case=0\\r\\nafter-pointer-validity pc=65536 case=0\\r\\nafter-readers pc=65536 case=0\\r\\nphase-end pc=65536 case=0\\r\\nPrecision changed\\r\\n'))",
+      "recorded_as_production_failure": false,
+      "pc24_run_claimed_passed": false
+    }
+  ],
+  "buffered_trace_sha256": "17f49b2e268309d27c4f476a1054fd52937c6cf94ec0e7af2a37349ee133ffe6",
+  "buffered_trace": "phase-start pc=131072 case=0\nbefore-pointer-pages pc=131072 case=0\nafter-pointer-pages pc=65536 case=0\nbefore-default-reset pc=65536 case=0\nafter-source-default-reset pc=65536 case=0\nafter-native-default-reset pc=65536 case=0\nafter-pointer-free pc=65536 case=0\nafter-pointer-validity pc=65536 case=0\nafter-readers pc=65536 case=0\nphase-end pc=65536 case=0\nbefore-native-init pc=65536 case=0\nafter-native-init pc=65536 case=0\nafter-source-init pc=65536 case=0\nphase-start pc=65536 case=0\nbefore-pointer-pages pc=65536 case=0\nafter-pointer-pages pc=65536 case=0\nbefore-default-reset pc=65536 case=0\nafter-source-default-reset pc=65536 case=0\nafter-native-default-reset pc=65536 case=0\nafter-pointer-free pc=65536 case=0\nafter-pointer-validity pc=65536 case=0\nafter-readers pc=65536 case=0\nphase-end pc=65536 case=0\nafter-source-free pc=65536 case=0\nafter-native-free pc=65536 case=0\nphase-start pc=65536 case=0\nbefore-pointer-pages pc=65536 case=0\nafter-pointer-pages pc=65536 case=0\nbefore-default-reset pc=65536 case=0\nafter-source-default-reset pc=65536 case=0\nafter-native-default-reset pc=65536 case=0\nafter-pointer-free pc=65536 case=0\nafter-pointer-validity pc=65536 case=0\nafter-readers pc=65536 case=0\nphase-end pc=65536 case=0\nPrecision changed\n",
+  "resolution": "Prepare three pointer-validity pages before selecting PC53/PC24;no control-word resets between measured original/source calls;check all12288 pointer cases and lifecycle boundaries per precision",
+  "allocation_side_effect_root_cause_claimed_known": false,
+  "production_changed": false,
+  "initial_map_path_error": {
+    "driver_sha256": "a1096a9ad89312aab380b5b690fc169b615813dec40dcdc3cadcebec1b6b1283",
+    "log_sha256": "7205b7e62df597bc4f08608e1450aed03f9684d82543d8aff8508f20af740de7",
+    "reference_probe_process_created": false
+  },
+  "initial_missing_string_header_build_log_sha256": "d9c4383ed83ff22b28aeac84081e7dffda48f477f4d14f9077c61263c191d3df",
+  "whole_squall_complete": false,
+  "whole_game_complete": false
+}

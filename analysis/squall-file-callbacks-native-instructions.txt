@@ -1,0 +1,107 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  10003C10: 53                 push        ebx
+  10003C11: 8B 5C 24 08        mov         ebx,dword ptr [esp+8]
+  10003C15: 55                 push        ebp
+  10003C16: 56                 push        esi
+  10003C17: 8B 35 34 80 04 10  mov         esi,dword ptr ds:[10048034h]
+  10003C1D: 57                 push        edi
+  10003C1E: 53                 push        ebx
+  10003C1F: BF 01 00 00 00     mov         edi,1
+  10003C24: FF D6              call        esi
+  10003C26: 8B 6C 24 20        mov         ebp,dword ptr [esp+20h]
+  10003C2A: 85 C0              test        eax,eax
+  10003C2C: 75 1D              jne         10003C4B
+  10003C2E: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10003C32: 50                 push        eax
+  10003C33: FF D6              call        esi
+  10003C35: 85 C0              test        eax,eax
+  10003C37: 75 12              jne         10003C4B
+  10003C39: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10003C3D: 51                 push        ecx
+  10003C3E: FF D6              call        esi
+  10003C40: 85 C0              test        eax,eax
+  10003C42: 75 07              jne         10003C4B
+  10003C44: 55                 push        ebp
+  10003C45: FF D6              call        esi
+  10003C47: 85 C0              test        eax,eax
+  10003C49: 74 05              je          10003C50
+  10003C4B: BF FC FF FF FF     mov         edi,0FFFFFFFCh
+  10003C50: 8B 54 24 18        mov         edx,dword ptr [esp+18h]
+  10003C54: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10003C58: 55                 push        ebp
+  10003C59: 52                 push        edx
+  10003C5A: 50                 push        eax
+  10003C5B: 53                 push        ebx
+  10003C5C: E8 3F 49 00 00     call        100085A0
+  10003C61: 83 C4 10           add         esp,10h
+  10003C64: 8B C7              mov         eax,edi
+  10003C66: 5F                 pop         edi
+  10003C67: 5E                 pop         esi
+  10003C68: 5D                 pop         ebp
+  10003C69: 5B                 pop         ebx
+  10003C6A: C3                 ret
+  10003C6B: 90                 nop
+  10003C6C: 90                 nop
+  10003C6D: 90                 nop
+  10003C6E: 90                 nop
+  10003C6F: 90                 nop
+  10003C70: E9 CB 41 00 00     jmp         10007E40
+  10003C75: 90                 nop
+  10003C76: 90                 nop
+  10003C77: 90                 nop
+  10003C78: 90                 nop
+  10003C79: 90                 nop
+  10003C7A: 90                 nop
+  10003C7B: 90                 nop
+  10003C7C: 90                 nop
+  10003C7D: 90                 nop
+  10003C7E: 90                 nop
+  10003C7F: 90                 nop
+  10003C80: 53                 push        ebx
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  100085A0: E8 AB FE FF FF     call        10008450
+  100085A5: E8 36 FA FF FF     call        10007FE0
+  100085AA: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  100085AE: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  100085B2: 8B 54 24 0C        mov         edx,dword ptr [esp+0Ch]
+  100085B6: A3 90 59 07 10     mov         dword ptr ds:[10075990h],eax
+  100085BB: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  100085BF: 89 0D 94 59 07 10  mov         dword ptr ds:[10075994h],ecx
+  100085C5: 89 15 98 59 07 10  mov         dword ptr ds:[10075998h],edx
+  100085CB: A3 9C 59 07 10     mov         dword ptr ds:[1007599Ch],eax
+  100085D0: E9 1B FA FF FF     jmp         10007FF0
+  100085D5: 90                 nop
+  100085D6: 90                 nop
+  100085D7: 90                 nop
+  100085D8: 90                 nop
+  100085D9: 90                 nop
+  100085DA: 90                 nop
+  100085DB: 90                 nop
+  100085DC: 90                 nop
+  100085DD: 90                 nop
+  100085DE: 90                 nop
+  100085DF: 90                 nop
+  100085E0: E8
+
+  Summary
+
+       47000 .text

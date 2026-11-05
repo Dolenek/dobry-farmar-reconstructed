@@ -2649,9 +2649,9 @@
       "ordinal": 93,
       "original_address": "10003c10",
       "status": "partially_compared",
-      "verified_scope": "Four recovered read-only callbacks used for all game samples; partial/null/custom cases unverified",
+      "verified_scope": "Both builds/PC53/PC24:24576 pointer combinations,exact stores even on invalid return,all16 A/B callback-generation combinations,retained readers,guarded PCM and controlled open/seek/read failures",
       "native_signature_fully_verified": false,
-      "loaded_DLL_verified_scope": "Recovered game read-only callbacks used before and after Init",
+      "loaded_DLL_verified_scope": "Both builds/PC53/PC24:24576 pointer combinations,exact stores even on invalid return,all16 A/B callback-generation combinations,retained readers,guarded PCM and controlled open/seek/read failures",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 4,
         "declared_stack_bytes": 16,
@@ -2676,6 +2676,11 @@
           "10003c54"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "file_callback_scope": {
+        "report": "analysis/squall-file-callbacks-regression.json",
+        "original_store_addresses": "10075990..1007599c",
+        "invalid_returns_still_store_exact_pointers": true
       }
     },
     {

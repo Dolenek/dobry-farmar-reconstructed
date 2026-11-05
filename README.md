@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Souborové callbacky Squallu](docs/SQUALL.md) prošly v obou sestaveních po24576 kombinacích ukazatelů a30720 skutečných PCM čteních. Ověřené je původní uložení ukazatelů i při chybě, zachování vlastníka readeru a úklid při selhání; produkce se neměnila a celý původní cíl pokračuje.
+
 [Konec příběhu a první opakování času](docs/CAMPAIGN_LOOP.md) prošly v obou celých EXE:13 kontrolních bodů, skutečný přechod14400→11190, nezávisle ověřených383 nových koeficientů na běh a čtyři přesné15605bajtové přenosy. Produkce se neměnila; další herní a DLL rozsahy pokračují.
 
 [Pozdní skutečná hra](docs/LATE_TIMELINE.md) prošla13 kontrolními body v každém celém EXE a přirozeným oceněním za tři hodiny. Souhlasí480000 RGB pixelů ocenění, celý trh a zničení poslední plodiny;24 peněžních událostí vysvětluje oba samostatné náhodné výsledky. Čtyři pozdní save přenosy14616/15906/14616/14616 bajtů jsou přesné; práce pokračuje ostatními podmínkami původního cíle.

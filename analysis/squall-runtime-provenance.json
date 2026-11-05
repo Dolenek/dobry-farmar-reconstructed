@@ -968,5 +968,10 @@
       "current_sha256": "d4fc2796e73c5aa9767c7e1e5486ab85fb7bd3677de2c3769d1f0b970ff97d5a",
       "verification_report": "analysis/squall-tracker-loaders-regression.json"
     }
-  ]
+  ],
+  "file_callback_behavior_verification": {
+    "report": "analysis/squall-file-callbacks-regression.json",
+    "production_implementation_changed": false,
+    "whole_squall_complete": false
+  }
 }

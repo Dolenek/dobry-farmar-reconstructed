@@ -1,0 +1,47 @@
+{
+  "status": "passed_file_callback_pointer_storage_actual_reader_ownership_and_guarded_decode_in_both_builds_only",
+  "recorded_at_utc": "2026-11-05T04:11:59.204804+00:00",
+  "recorder_sha256": "ec28b2ac93350ccf2fe73ce2d61cdb4660c58db7dd9be4c0d4cc55b42c7a7d0f",
+  "reports": {
+    "squall-file-callbacks-main-validation.json": "600f3aae137ba4c10f957c508ed38627e50b5d96438144ebc90eba362c7e86d1",
+    "squall-file-callbacks-fresh-validation.json": "6472106978b0935c4b072c712c150a58d8e88c588a3c39180c98882d044f3df2",
+    "squall-file-callbacks-initial-observations.json": "bc1ade36a98dd4f3410dc5978f3b84bdaebf01c9ae1d387921737514b40dc7c9"
+  },
+  "native_instructions_sha256": "d4846022183d35721f5524d4440f4a942014dfdb028a131d1876dab6990d2d04",
+  "original_addresses": {
+    "export": "10003c10",
+    "store": "100085a0",
+    "callback_slots": "10075990..1007599c"
+  },
+  "pointer_combinations_per_build": 24576,
+  "exact_pointer_store_pairs_per_build": 98304,
+  "actual_pcm_reads_per_build": 30720,
+  "guarded_pcm_bytes_per_build": 1683456,
+  "actual_file_callback_events_per_dll_per_build": 16020,
+  "successful_sample_loads_per_dll_per_build": 1182,
+  "controlled_initialization_failures_per_dll_per_build": 18,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "lifecycle_phases": [
+    "before_Init",
+    "actual_DirectSound_initialized",
+    "after_Free"
+  ],
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "production_implementation_changed": false,
+  "candidate_sha256": {
+    "main": "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "fresh": "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  },
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Invoked invalid callbacks and concurrent setter mutation",
+    "Remaining complete export signatures,codec and whole original goal scopes"
+  ]
+}
