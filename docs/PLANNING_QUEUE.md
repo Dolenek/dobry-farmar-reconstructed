@@ -1,5 +1,7 @@
 # Přirozené ocenění za plánování
 
+[Následné skutečné porovnání odloženého vstupu](PAUSED_DEEP_CLICK.md) již doložilo příčinu i shodné source chování původních skladových kliků při pauze. Historické neověřené poznámky níže popisují původní etapu; původní výsledky zůstávají zachované.
+
 Originál i rekonstruovaný EXE načetly stejný neupravený native profil z ověření vláhy:60 aktivních připravených travnatých polí, čítač sklizní44, náklad12, sklad40 a Money2504. Skutečný klik na nástroj změnil PCarry6→2. Původní Alt+Pause zastavil herní čas;32 dalších běžných kliků na různá pole vytvořilo postupně1..32 viditelných značek `person/mark.jng`. Native readonly měření navíc přímo ověřilo všech1..32 položek původního vektoru. Čas ani sklizně se během zadávání neposunuly. Profil, čítače, RNG ani paměť se nepřepisovaly.
 
 Instrukce `0045a900..0045a91d` načtou Person singleton `0065ff5c`, odečtou vector end+2830 od begin+282c, dělí16 a porovnají s30. Jde o skutečnou délku čekající fronty při začátku práce. Po normálním odblokování a skutečném Alt+Insert15× všechny32 zadané práce proběhly. Každé pole má doložený skutečný dokončený stav3 v průběžném snímku nebo závěrečném profilu; raná pole už přirozeně dorůstala zpět. Čítač `awAdecvClick` v obou dosáhl32, podmínka19 `004c8650` přirozeně aktivovala celý efekt, panel, OK a návrat. Celé panely mají480000 shodných RGB pixelů.
