@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Další trackerové loadery](SQUALL.md): každé sestavení88 procesů,44 loader-order párů,197524 skutečných alokovaných bajtů a3751968 inicializovaných objektových bajtů.71742 adresních slotů má samostatné null/relative kontroly;632bajtový DBM header i109bajtový669 komentář jsou podložené původními alokacemi. Aktuální FPU hranice jsou skutečně měřené.
+
 [Aktivní trackerový mixer](SQUALL.md): obě sestavení po17856 call párech,8303616 guarded výstupních bajtech a28449792 skalárních bajtech kanálů. Všechny128 tabulkové položky a celý1/2/33kanálový dispatch se smyčkami a rampami souhlasí. Konkrétní DirectToDisk scénář prokazuje skutečnou výjimku z32kanálového limitu; adresní pole jsou ověřená odděleně, nikoli normalizací PCM.
 
 [Skutečné dlouhodobé zavlažení](NO_DRY_AWARD.md): oba celé EXE71 přesunů,60 polí a přirozené ocenění po1200 sekundách bez resetu;480000 přesných RGB pixelů. Všech15808 save bajtů souhlasí s nezávisle zakódovanou původní deníkovou událostí. Čtyři další celé obousměrné přenosy prošly; obě source obnovy bez AV.

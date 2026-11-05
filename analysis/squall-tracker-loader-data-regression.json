@@ -1,0 +1,58 @@
+{
+  "status": "passed_eleven_additional_tracker_inputs_complete_initialized_objects_and_owned_data_in_both_builds_only",
+  "recorded_at_utc": "2026-11-05T05:01:56.699795+00:00",
+  "recorder_sha256": "710cc32454d3efa80dad43bfff780150a8e40226ca9722aacabdfb7fdbfb1c74",
+  "reports": {
+    "squall-tracker-loader-data-main-validation.json": "c70ccf7ca2f94c0ae22e3ba6154cef889bf656a1d0f1b4f68eb13acaed552a17",
+    "squall-tracker-loader-data-fresh-validation.json": "64b3e68d6a4ac2b8445bcf2f61e323e60dcc88102646fcae56ff3f3cff04a272",
+    "squall-tracker-loader-data-initial-observations.json": "53cbf35f4e5515746ed11349a623a14c5ee23986225f46b4d232e387154196db"
+  },
+  "original_instructions_sha256": "075df7fc6ebc2db0a6b83052d83cc49692132524d5050b0de1c26de754e85d72",
+  "format_inputs": [
+    "MTM",
+    "669",
+    "STM",
+    "ULT",
+    "FAR",
+    "OKT",
+    "DSM",
+    "PTM",
+    "DBM",
+    "AMF14",
+    "AMF0"
+  ],
+  "actual_processes_per_build": 88,
+  "loader_order_case_pairs_per_build": 44,
+  "complete_object_pairs_per_build": 66,
+  "initialized_storage_bytes_per_build": 3751968,
+  "explicit_address_slot_class_pairs_per_build": 71742,
+  "actual_allocated_bytes_per_build": 197524,
+  "actual_instrument_header_bytes": 632,
+  "actual_669_comment_allocation_bytes": 109,
+  "requested_precision_before_after_actual_calls_verified": true,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "excluded_address_slots": 1087,
+  "external_nonnull_pointer_contents_claimed_equal_only_for_dumped_allocations": true,
+  "native_factory_underallocation_claimed_safe": false,
+  "unsafe_title_cleanup_claimed_fixed": false,
+  "leaked_legacy_comment_cleanup_claimed_verified": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Remaining AMS/DMF/MDL/MED/MT2/PSM/UMX loaders and broader variants",
+    "Further tracker effects,public playback and original export signatures",
+    "Remaining whole original goal scopes"
+  ]
+}

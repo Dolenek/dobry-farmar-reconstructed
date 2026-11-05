@@ -1,0 +1,15 @@
+{
+  "status": "diagnostic_unused_pattern_allocation_assumption_rejected_then_repaired",
+  "initial_report_path": ".local/squall-tracker-loader-data/20261105T045617640951Z/report.json",
+  "initial_report_sha256": "6b67975a8a36cfa69b5dd971bd58eac14a8e651fa15e7241baaeec95c4fcc1b9",
+  "normal_processes": 8,
+  "diagnostic_exit1_processes": 80,
+  "actual_original_unused_pattern_size": 64,
+  "actual_original_unused_pattern_pointer": 0,
+  "resolution": "Copy second pattern only when its actual allocation pointer exists;row count alone is not allocation evidence",
+  "recorded_as_production_failure": false,
+  "production_changed": false,
+  "actual_requested_precision_scope": "Current probe selects precision after module/fixture preparation and captures before/after Create,OrderInfo,Destroy;older preliminary helper labels did not independently measure this boundary",
+  "whole_squall_complete": false,
+  "whole_game_complete": false
+}

@@ -1,5 +1,17 @@
 # Rekonstrukce Squall
 
+## Další skutečné loadery a úplné objektové snapshoty
+
+Vlastní nenulové MTM,669,STM,ULT,FAR,OKT,DSM,PTM,DBM a dvě odlišné větve AMF14/ASYLUM prošly v obou sestaveních skutečným `Create` a `CreateOrderInfo`. Každé sestavení má88 normálně ukončených procesů/44 loader-order párů v PC53/PC24. Patterny mají4/8/16 kanálů, skutečné noty a vlastní2048bajtový sample. MTM obsahuje druhý pattern, ULT používá RLE, PTM delta PCM a DBM svůj skutečný instrumentový header. Jde o konkrétní definované vstupy, nikoli automatickou shodu všech variant těchto formátů.
+
+Vedle197524 přesných skutečně alokovaných bajtů se nyní porovnává66 celých inicializovaných objektových snapshotů:56848 bajtů na objekt, celkem3751968 bajtů na sestavení.1087 výslovně popsaných potenciálně adresních DWORD slotů je oddělených;71742 dvojic kontroluje null/non-null nebo přesný relativní offset dovnitř vlastněného objektu. Opaque externí ukazatele se nevydávají za prokázanou shodu pointee obsahu. Obsah je samostatně přesný u dumpovaných patternů0/1, PCM sample1, DBM header1 a669 komentáře. Surové celé objekty i všechny skutečné alokované buffery zůstávají uchované.
+
+Velikost DBM headeru632 bajtů potvrzuje původní alokace0x278 v1001aa80;669 má původní109bajtový komentář z100187b0. Nová diagnostika vybírá požadovanou přesnost až po načtení DLL a přípravě fixture a měří ji bezprostředně před/po Create,OrderInfo aDestroy. Všechna aktuální volání v obou sestaveních zachovala skutečné PC53/PC24. Starší předběžný helper nastavoval precision před LoadLibrary, takže samotný jeho štítek neposkytoval takový důkaz.
+
+První rozšířený copier odmítl80 procesů kvůli chybnému diagnostickému předpokladu: původní Create nastaví i nealokovaným položkám PatternSize64, ale jejich ukazatel zůstává NULL. Osm MTM procesů mělo druhý pattern skutečně alokovaný a prošlo. Copier nyní druhý pattern kopíruje jen podle skutečné existence; původní neúspěšné reporty a zdrojové snapshoty jsou zachované. Produkční DLL se neměnila. Blank titul chrání jen známou konkrétní invalid-delete větev; poddimenzovaná původní továrna ani cleanup přes smíšené layouts se tím neprohlašují za obecně bezpečné.
+
+Nástroje jsou `tools/squall_tracker_more_fixtures.py`, `tools/squall_tracker_loader_data_probe.cpp`, jeho samostatný CMake projekt, `tools/validate_squall_tracker_loader_data.py` a `tools/record_squall_tracker_loader_data_verification.py`. Předběžné menší průchody zachovává `validate_squall_tracker_more_formats.py`. Důkazy, instrukce a oba kompletní aktuální průchody propojuje `analysis/squall-tracker-loader-data-regression.json`. Produkční hashe i17 původních souborů jsou nezměněné; dřívější úplná102/102 regrese se přenáší pouze přes tuto shodu. AMS/DMF/MDL/MED/MT2/PSM/UMX, další efektové/veřejné přehrávací větve a ostatní původní požadavky pokračují.
+
 ## Aktivní hlasy a úplné řízení mixeru
 
 Obě aktuální DLL nově prošly všemi128 položkami skutečné obecné/rychlé tabulky na1004851c/1004861c. Jde o tabulkové položky včetně původních sdílených funkcí, nikoli tvrzení128 různých rutin. Na sestavení připadá9216 skutečných kernel párů: nenulové8/16bit mono/stereo vzorky, no/linear/spline/FIR interpolace, filtry, rampy, kladné/záporné inkrementy a zlomkové pozice v PC53/PC24. Souhlasí2359296 guarded destinací v bajtech a2322432 skalárních bajtů kanálu.

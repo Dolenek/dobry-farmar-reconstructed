@@ -176,7 +176,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "dd726e4dfab7774b6e5c255bbc7fd4ba89b119cd076a236ff295ae5ac3e91e98",
+  "source_tree_sha256": "f9f6646dc589ba9d85acb0bfca95b30860ed830ddde8fb0316c88ec5b41624d4",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -560,7 +560,11 @@
     "analysis/squall-tracker-active-mix-main-validation.json",
     "analysis/squall-tracker-voices-fresh-validation.json",
     "analysis/squall-tracker-active-mix-fresh-validation.json",
-    "analysis/squall-tracker-voices-regression.json"
+    "analysis/squall-tracker-voices-regression.json",
+    "analysis/squall-tracker-loader-data-main-validation.json",
+    "analysis/squall-tracker-loader-data-fresh-validation.json",
+    "analysis/squall-tracker-loader-data-initial-observations.json",
+    "analysis/squall-tracker-loader-data-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108481,8 +108485,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-tracker-voices-regression.json",
-    "recorded_at_utc": "2026-11-05T04:37:17.336538+00:00",
+    "report": "analysis/squall-tracker-loader-data-regression.json",
+    "recorded_at_utc": "2026-11-05T05:01:56.699795+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108507,7 +108511,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/squall-tracker-voices-regression.json",
+  "source_tree_hash_as_of_report": "analysis/squall-tracker-loader-data-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
