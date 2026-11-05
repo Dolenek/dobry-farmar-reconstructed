@@ -1,0 +1,67 @@
+{
+  "status": "passed_twenty_two_controlled_tracker_loader_inputs_in_both_builds_only",
+  "recorded_at_utc": "2026-11-05T12:59:34.723221+00:00",
+  "recorder_sha256": "d31a55f20fa80fe7b8bf51281945a6b95523f15ee5d76132c916712a390e6f1b",
+  "reports": {
+    "squall-tracker-remaining-main-validation.json": "f22f926dc92780cac844d63fd6bf79258ae20ab5ad9d60183613bf64ebe9a1ec",
+    "squall-tracker-remaining-fresh-validation.json": "f964fb7b1dc6d530e80600121d862391d3af819ba2613e34b5ddc0ee2c18088f",
+    "squall-tracker-remaining-initial-observations.json": "a1ddedfde80df19863047a662b4a7c5d46282059a96697409216e341237e1bc6"
+  },
+  "original_instructions_sha256": "521f59dd6e598e39599292172e1b3d2948623433b89ea5832b09cba9d13bb3a7",
+  "format_inputs": [
+    "MTM",
+    "669",
+    "STM",
+    "ULT",
+    "FAR",
+    "OKT",
+    "DSM",
+    "PTM",
+    "DBM",
+    "AMF14",
+    "AMF0",
+    "UMX_IT",
+    "UMX_XM",
+    "UMX_S3M",
+    "UMX_MOD",
+    "MMD0",
+    "MMD1",
+    "MDL",
+    "PSM",
+    "DMF",
+    "MT2",
+    "AMS"
+  ],
+  "actual_processes_per_build": 176,
+  "loader_order_case_pairs_per_build": 88,
+  "complete_object_pairs_per_build": 132,
+  "initialized_storage_bytes_per_build": 7503936,
+  "explicit_address_slot_class_pairs_per_build": 143484,
+  "actual_allocated_bytes_per_build": 362932,
+  "ams_pattern_names_bytes_per_case": 32,
+  "requested_precision_before_after_actual_calls_verified": true,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "excluded_address_slots": 1087,
+  "external_pointer_contents_claimed_equal_only_for_dumped_allocations": true,
+  "native_factory_underallocation_claimed_safe": false,
+  "unsafe_title_cleanup_claimed_fixed": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Broader format variants including AMS2,compressed AMS/DMF and MT2 effects",
+    "Public tracker playback and unsafe original factory/layout boundaries",
+    "Complete independent export signature semantics and remaining whole original goal scopes"
+  ]
+}

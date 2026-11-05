@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Další trackerové větve Squallu](SQUALL.md) nyní prošly v obou sestaveních: MED/MMD0/MMD1, MDL, PSM, DMF, MT2, AMS a čtyři UMX větve společně s předchozími vstupy tvoří176 procesů na sestavení,7503936 přesných inicializovaných bajtů a362932 skutečně alokovaných bajtů. Původní AMS raw-copy větev dokládá skutečná instrukční tabulka; adresní chyba diagnostického souhrnu je zachovaná a opravená porovnáním vlastněných dat. Produkce ani17 originálů se neměnily. Širší varianty, veřejné trackerové přehrávání, úplné exportní signatury a celý původní cíl pokračují.
+
 [Dalších11 trackerových vstupů](SQUALL.md) prošlo v obou sestaveních po88 normálních procesech/44 loader-order párech. MTM/669/STM/ULT/FAR/OKT/DSM/PTM/DBM a obě AMF větve mají197524 přesných alokovaných bajtů a66 snapshotů/3751968 inicializovaných bajtů. Adresní sloty, vnitřní relativní adresy a skutečné PC53/PC24 hranice se měří samostatně. Neúspěšný copier nealokovaného druhého patternu je zachovaný; produkce se neměnila. Zbývajících sedm loaderů, další efektové/veřejné větve a celý původní cíl pokračují.
 
 [Aktivní trackerové hlasy](SQUALL.md) nově prošly v obou sestaveních: na sestavení128 skutečných tabulkových položek,9216 kernelových a8640 celých `CreateStereoMix` párů. Souhlasí8303616 guarded výstupních a28449792 skalárních bajtů.1/2/33 hlasy, loop/pingpong, ukončení, rampy i skutečný32kanálový limit s DirectToDisk výjimkou jsou přímo doložené. Produkce se neměnila; úplné loader/efektové/veřejné trackerové cesty a ostatní podmínky celého cíle pokračují.

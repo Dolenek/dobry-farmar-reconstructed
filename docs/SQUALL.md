@@ -1,5 +1,17 @@
 # Rekonstrukce Squall
 
+## MED, MDL, PSM, DMF, MT2, AMS a vložené UMX vstupy
+
+Aktuální sada přidává vlastní MMD0/MMD1, MDL, PSM, DMF, MT2, AMS a čtyři skutečné větve UMX ripperu (vložené IT/XM/S3M/MOD). Společně s předchozími jedenácti vstupy prošla v každém ze dvou nezávislých sestavení176 normálně ukončenými procesy: Create/CreateOrderInfo/Destroy v měřených PC53/PC24. Jde o konkrétní definované vstupy, nikoli úplné ověření všech variant souborových formátů nebo veřejného přehrávání.
+
+Na sestavení je přesných132 objektových párů/7503936 inicializovaných bajtů,143484 porovnání adresních tříd a362932 bajtů skutečných alokací. Každý vstup má nenulové příkazy patternu a skutečný2048bajtový nenulový sample; UMX MOD obsahuje31 sample záznamů, z nichž je jeden neprázdný. Porovnávají se i skutečné632bajtové instrumentové headery XM/MDL/MT2, druhý MTM pattern,109bajtové669 komentáře a nově všech32 bajtů AMS pattern-name alokace. Původní raw objekty/adresy zůstávají uchované; neprůhledné externí pointee se nevydávají za ověřené.
+
+První88procesový průchod hlásil čtyři AMS rozdíly jen proto, že skalární souhrn zahrnoval skutečnou heap adresu starého pattern-name pointeru. Raw inicializované bajty mimo adresní sloty i PCM již souhlasily. Diagnostika nyní porovnává adresní třídu a samostatně všech32 skutečně vlastněných bajtů. Původní pozorování, jeho zdrojové snapshoty a hashe zůstávají v `analysis/squall-tracker-remaining-initial-observations.json`; nejde o opravu produkční DLL.
+
+Instrukce originálu10019FEF–1001A02A předávají AMS8/16 flag0x11/0x15 do ReadSample1002CBB0. Jeho tabulka1002CFE0 skutečně směruje oba flagy na výchozí raw-copy1002CF86; stejný target má DMF8 flag0x13. AMS fixture přesně reprodukuje tuto konkrétní původní větev a vrácené PCM je shodné i s původním vstupním tělem. Úplná kompatibilita AMS komprese se netvrdí. DMF fixture výslovně zachovává původní seqsize posun a čtyřbajtové přeskočení neznámých dat; UMX vstupy ověřují původní ripper meze/signatury, nikoli úplnou Unreal package strukturu. AMS2, širší varianty a MT2 efekty zůstávají otevřené.
+
+Reprodukce: sestavit `build/squall-tracker-loader-data-probe-vs` v Release, spustit `tools/validate_squall_tracker_remaining_loaders.py` pro obě DLL s odpovídajícími mapami a poté `tools/record_squall_tracker_remaining_verification.py`. Report `analysis/squall-tracker-remaining-regression.json` propojuje oba úplné průchody a původní instrukce. Produkční zdroje i oba Squally se shodují s poslední úplnou102/102 regresí; nový úplný CTest běh se netvrdí. Všech17 originálních souborů je nezměněných. Původní poddimenzovaná továrna, title/cleanup layout chyby ani celý Squall se neprohlašují za vyřešené; práce na celém původním cíli pokračuje.
+
 ## Další skutečné loadery a úplné objektové snapshoty
 
 Vlastní nenulové MTM,669,STM,ULT,FAR,OKT,DSM,PTM,DBM a dvě odlišné větve AMF14/ASYLUM prošly v obou sestaveních skutečným `Create` a `CreateOrderInfo`. Každé sestavení má88 normálně ukončených procesů/44 loader-order párů v PC53/PC24. Patterny mají4/8/16 kanálů, skutečné noty a vlastní2048bajtový sample. MTM obsahuje druhý pattern, ULT používá RLE, PTM delta PCM a DBM svůj skutečný instrumentový header. Jde o konkrétní definované vstupy, nikoli automatickou shodu všech variant těchto formátů.

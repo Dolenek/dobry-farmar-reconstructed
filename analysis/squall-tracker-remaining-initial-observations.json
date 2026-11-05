@@ -1,0 +1,18 @@
+{
+  "status": "diagnostic_raw_pointer_scalar_comparison_replaced_with_address_class_and_actual_owned_bytes",
+  "initial_report_path": ".local/squall-tracker-remaining-loaders/20261105T125501875469Z/report.json",
+  "initial_report_sha256": "012c99114ef08f36fbfae3434d0433f8301f648289e5ae463ba88e2f07aa47e5",
+  "normal_processes": 88,
+  "ams_pointer_only_differences": 4,
+  "production_changed": false,
+  "resolution": "Retain raw addresses and snapshots;compare null/object-relative/external address classes and separately copy all32 owned AMS pattern-name bytes",
+  "original_ams_sample_flags": {
+    "RS_AMS8": 17,
+    "RS_AMS16": 21
+  },
+  "native_ReadSample": "0x1002CBB0",
+  "native_jump_table": "0x1002CFE0",
+  "actual_ams_default_copy_target": "0x1002CF86",
+  "general_ams_compression_claimed_verified": false,
+  "whole_squall_complete": false
+}

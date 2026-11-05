@@ -81,6 +81,9 @@ int wmain(int argc, wchar_t** argv) {
         // Read669's separately verified allocation is109 bytes. Other loader
         // comment extents require their own bounds before diagnostic copying.
         if(std::filesystem::path(argv[2]).extension()==L".669"&&word(0xd0dc))copy("legacy-comments.bin",word(0xd0dc),109);
+        // This fixture has exactly one AMS pattern-name record. Its pointer
+        // occupies the old D0E0 slot; compare the allocation, not ASLR addresses.
+        if(std::filesystem::path(argv[2]).extension()==L".ams")copy("legacy-pattern-names.bin",word(0xd0e0),32);
         std::cout << "{\"create_result\":" << result << ",\"object_base\":" << reinterpret_cast<std::uintptr_t>(object)
                   << ",\"object_size\":" << sizeof(CDecompressTrack) << ",\"instrument_header_size\":" << sizeof(INSTRUMENTHEADER)
                   << ",\"create_control_before\":" << createBefore << ",\"create_control_after\":" << createAfter;
