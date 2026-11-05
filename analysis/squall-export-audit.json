@@ -310,7 +310,7 @@
       "original_address": "100057a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -328,6 +328,16 @@
           "100057cf"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -388,7 +398,7 @@
       "original_address": "10006350",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared looping menu music channel",
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
@@ -407,6 +417,16 @@
           "10006373"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -445,7 +465,7 @@
       "original_address": "100064a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -463,6 +483,16 @@
           "100064d3"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -471,7 +501,7 @@
       "original_address": "100058d0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values",
       "caller_cleanup_abi_verified": {
@@ -490,6 +520,16 @@
           "100058ff"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -498,7 +538,7 @@
       "original_address": "10005a30",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "native_pointer_seed_scope": "10002180 ECX-pushed initial cursor;240 equal-address cases per precision, source pointer artifact explicit; raw independent addresses are not normalized as identical values",
       "caller_cleanup_abi_verified": {
@@ -517,6 +557,16 @@
           "10005a60"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -525,7 +575,7 @@
       "original_address": "10006210",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared priority 7 menu music channel",
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
@@ -544,6 +594,16 @@
           "10006233"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -580,7 +640,7 @@
       "original_address": "10005620",
       "status": "partially_compared",
       "verified_scope": "All -10000..0 inverse arithmetic values with native lookup and explicit COM getter fixture",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -598,6 +658,16 @@
           "10005650"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1059,7 +1129,7 @@
       "original_address": "10005310",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "integrated_game_audio_verified_scope": "Actual prepared and resumed music through cChannel with cursor progress",
       "loaded_DLL_group_verified_scope": "Three actual prepared ambient buffers per precision transition from public status3 into playback before individual pause",
       "caller_cleanup_abi_verified": {
@@ -1078,6 +1148,16 @@
           "10005333"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1086,7 +1166,7 @@
       "original_address": "100054b0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared channel and terminal stopped state; asynchronous intermediate stop duration not compared",
       "integrated_game_audio_verified_scope": "Real prepared/play/pause/resume/retirement observations",
       "loaded_DLL_group_verified_scope": "Actual prepared3, live1, paused2, transient stop-24 and retired0 in group scenarios",
@@ -1106,6 +1186,16 @@
           "100054d3"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1114,7 +1204,7 @@
       "original_address": "10005430",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual buffer stop return and bounded worker retirement",
       "integrated_game_audio_verified_scope": "Actual old shared music wrapper deletion before Loading selects and starts new music",
       "caller_cleanup_abi_verified": {
@@ -1133,6 +1223,16 @@
           "10005453"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-handle-signatures.json",
+        "argument": {
+          "argument": "Unchanged32-bit integer channel handle;actual resolver masks low8 index bits and arithmetic-shifts generation bits",
+          "pointer": false,
+          "bytes": 4
+        },
+        "return_role": "Complete32-bit numeric status/value word in EAX on every balanced C3 return;negative errors share that same integer word",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3099,5 +3199,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 22
+  "native_signature_semantics_verified_count": 32
 }

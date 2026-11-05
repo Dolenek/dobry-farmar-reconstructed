@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Deset celočíselných kanálových rozhraní
+
+`tools/audit_squall_scalar_handle_signatures.py` nově prokazuje Start/Stop/Status/GetVolume/GetFrequency/GetPlayPosition/GetPlayPositionMs/GetPriority/GetLoop/GetPan. Každý má jediný4bajtový číselný ChannelID předaný beze změny skutečnému resolveru10002480: index tvoří dolních8 bitů, generace se porovnává po aritmetickém posunu o8. Všech25 dosažitelných návratů má vyvážený stack, skutečné C3 a úplný32bitový integer/status v EAX. Samostatný datový průchod zneplatňuje volatile registry po každém call, sleduje zásobníkové lokály i uložené nonvolatile registry a nepovažuje neznámý DWORD load za doloženou číselnou návratovou hodnotu.
+
+Číselné getter výstupy mají vlastní důkazy: DirectSound sloty4/6/7/8 a SDK deklarace DWORD/LONG, přesný tok pointerů a store, původní pan/pozice aritmetiku i x87 `FISTP qword` a EDX:EAX načtení. Převod milisekund skutečně volá celočíselné64bitové multiply/divide pomocníky; oba celé grafy obsahují pouze celočíselné operace nad registry a zásobníkovými slovy. Priority+44 má nezávislý původní signed setter/store a stejný getter load; loop+48 je výslovně posunut a maskován na1 bit. Ověření číselné návratové role netvrdí, že původní interní outparam je inicializován v každém myslitelném stavu; caller lokály jsou v těchto veřejných funkcích skutečně inicializované. Záporné chyby a unsigned DWORD payload sdílejí stejný32bitový fyzický návrat.
+
+`analysis/squall-scalar-handle-signatures.json` obsahuje PE-ověřené bajty všech dosažitelných veřejných instrukcí, konkrétní privátní svědky, SDK hash i úplné návratové adresy. Aktuálně je doložené native ABI32/97, zbývá65. Produkce a17 originálů se neměnily, nový runtime/audio běh se netvrdí; behaviorální stav exportů zůstává částečný a celý původní cíl pokračuje.
+
 ## ABI worker callbacků
 
 `tools/audit_squall_worker_signatures.py` prokazuje `Listener_SetWorker10004cf0` a `Channel_SetWorker10005b10` přes skutečné setter sloty, IsBadCodePtr, uložené pointery, parametry a periodu až do thread callbacků. Listener má cdecl callback s jedním opaque userdata pointerem a ignorovaným registrovým výsledkem. Channel má cdecl callback s integer ChannelID a opaque userdata, caller odstraní8 bajtů a skutečně testuje celý EAX; nula zavolá původní smazání sound bufferu. Init předává skutečný context10075034 přes CreateThread do10002580, jeho+130/+134/+138 přímo odpovídají setter cache10075164/68/6c. Channel sloty+124/+128/+11c mají přímo doloženou stejnou vazbu.
