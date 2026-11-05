@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Veřejné souborové a paměťové callback ABI
+
+`tools/audit_squall_callback_signatures.py` nyní nezávisle prokazuje obě rozhraní `SetFileCallbacks` a `SetMemoryCallbacks` až po skutečné instrukce readeru. Veřejné pořadí souborových callbacků je Open/Seek/Read/Close. Původní wrapper `10003c50..10003c61` je záměrně přeskupí na interní Open/Read/Seek/Close, které `100085a0` uloží do10075990..1007599c. Reader bridge `1002dea0` tyto skutečné pointery předá konstruktoru `1002d470`; ten je uloží do+0/+4/+8/+c. Nezaměňují se názvy parametrů veřejného rozhraní s pořadím interní cache.
+
+Instrukčně se ověřují jednotlivá cdecl volání: open dostává úzký nulou ukončený název a vrací DWORD handle v EAX; seek tři DWORD argumenty a integer výsledek; read handle, skutečný zapisovaný buffer a velikost se zpětnou integer délkou; close jeden handle. Alokátor dostává počet bajtů, jeho EAX je skutečný ukazatel; free dostává tento ukazatel. Každý caller odstraní přesně4/12 bajtů parametrů. Návrat close/free nativní caller ignoruje, což odpovídá void callback deklaraci; původní formální C zdrojová deklarace se z absence použití návratu netvrdí. IsBadCodePtr a úplné skutečné transfery od veřejných slotů přes globály a reader nejsou odvozené pouze z publikovaného headeru. Oba veřejné exporty mají na všech návratech inicializované EAX1/−4 a C3.
+
+`analysis/squall-callback-signatures.json` obsahuje ověřené PE bajty i callback role a `analysis/squall-callback-signatures-native-instructions.txt` reprodukovatelné disassembly. Zdrojový header odpovídá; produkce se neměnila. Aktuálně je doložené native ABI20/97 exportů, zbývá77. Behaviorální stav všech exportů zůstává částečný; předchozí skutečné callback/PCM lifecycle regrese se nevydávají za nové spuštění ani za úplné chování DLL.
+
 ## Čtyři podepsané konfigurační argumenty
 
 `SetDevice`, `SetSpeakerMode`, `Set3DAlgorithm` a `SetBufferSize` mají nově nezávislé důkazy jednoho signed32 integer argumentu a všech devíti EAX/C3 návratů. Původní signed podmínky vymezují device0..count−1, speaker mode0..6, algorithm0..3 a buffer1..5000ms. Role nepochází jen z názvů: auditor kontroluje skutečný DWORD argumentový load, signed větvení, indexovanou tabulku/cíle switch nebo úplný cache store. Vyjmenované statusy v ESI jsou určitě inicializované na všech cestách a kompletně zkopírované do EAX před návratem.

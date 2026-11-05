@@ -2821,7 +2821,7 @@
       "original_address": "10003c10",
       "status": "partially_compared",
       "verified_scope": "Both builds/PC53/PC24:24576 pointer combinations,exact stores even on invalid return,all16 A/B callback-generation combinations,retained readers,guarded PCM and controlled open/seek/read failures",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Both builds/PC53/PC24:24576 pointer combinations,exact stores even on invalid return,all16 A/B callback-generation combinations,retained readers,guarded PCM and controlled open/seek/read failures",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 4,
@@ -2852,6 +2852,20 @@
         "report": "analysis/squall-file-callbacks-regression.json",
         "original_store_addresses": "10075990..1007599c",
         "invalid_returns_still_store_exact_pointers": true
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-callback-signatures.json",
+        "argument": {
+          "callback_parameters_in_public_order": [
+            "cdecl Open(const char*)->32bit opaque handle in EAX",
+            "cdecl Seek(32bit handle,32bit position,32bit mode)->32bit integer in EAX",
+            "cdecl Read(32bit handle,void* output buffer,32bit size)->32bit integer count in EAX",
+            "cdecl Close(32bit handle);return ignored by native caller"
+          ],
+          "independent_evidence": "IsBadCodePtr validation,exact public-to-global-to-reader pointer mapping,actual callback pushes,caller cleanup and EAX usage"
+        },
+        "return_role": "Initialized32-bit integer1 or-4 in EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2888,7 +2902,7 @@
       "original_address": "10003bd0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_memory_verified_scope": "Actual callback A/B/null/1/-1/readable/noaccess pointer pairs, pre-Init/DirectSound/post-Free, retained reader ownership, guarded sizes/order, filename/file-buffer allocation failure and successful retry; two builds and PC53/PC24",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -2908,6 +2922,18 @@
           "10003be6"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-callback-signatures.json",
+        "argument": {
+          "callback_parameters_in_public_order": [
+            "cdecl Allocate(32bit byte size)->void* in EAX",
+            "cdecl Free(void* allocation);return ignored by native caller"
+          ],
+          "independent_evidence": "IsBadCodePtr validation,exact public-to-global-to-reader pointer mapping,actual callback pushes,caller cleanup and EAX usage"
+        },
+        "return_role": "Initialized32-bit integer1 or-4 in EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3046,5 +3072,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 18
+  "native_signature_semantics_verified_count": 20
 }

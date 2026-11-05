@@ -1,0 +1,462 @@
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  10003C10: 53                 push        ebx
+  10003C11: 8B 5C 24 08        mov         ebx,dword ptr [esp+8]
+  10003C15: 55                 push        ebp
+  10003C16: 56                 push        esi
+  10003C17: 8B 35 34 80 04 10  mov         esi,dword ptr ds:[10048034h]
+  10003C1D: 57                 push        edi
+  10003C1E: 53                 push        ebx
+  10003C1F: BF 01 00 00 00     mov         edi,1
+  10003C24: FF D6              call        esi
+  10003C26: 8B 6C 24 20        mov         ebp,dword ptr [esp+20h]
+  10003C2A: 85 C0              test        eax,eax
+  10003C2C: 75 1D              jne         10003C4B
+  10003C2E: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10003C32: 50                 push        eax
+  10003C33: FF D6              call        esi
+  10003C35: 85 C0              test        eax,eax
+  10003C37: 75 12              jne         10003C4B
+  10003C39: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10003C3D: 51                 push        ecx
+  10003C3E: FF D6              call        esi
+  10003C40: 85 C0              test        eax,eax
+  10003C42: 75 07              jne         10003C4B
+  10003C44: 55                 push        ebp
+  10003C45: FF D6              call        esi
+  10003C47: 85 C0              test        eax,eax
+  10003C49: 74 05              je          10003C50
+  10003C4B: BF FC FF FF FF     mov         edi,0FFFFFFFCh
+  10003C50: 8B 54 24 18        mov         edx,dword ptr [esp+18h]
+  10003C54: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10003C58: 55                 push        ebp
+  10003C59: 52                 push        edx
+  10003C5A: 50                 push        eax
+  10003C5B: 53                 push        ebx
+  10003C5C: E8 3F 49 00 00     call        100085A0
+  10003C61: 83 C4 10           add         esp,10h
+  10003C64: 8B C7              mov         eax,edi
+  10003C66: 5F                 pop         edi
+  10003C67: 5E                 pop         esi
+  10003C68: 5D                 pop         ebp
+  10003C69: 5B                 pop         ebx
+  10003C6A: C3                 ret
+  10003C6B: 90                 nop
+  10003C6C: 90                 nop
+  10003C6D: 90                 nop
+  10003C6E: 90                 nop
+  10003C6F: 90                 nop
+  10003C70: E9 CB 41 00 00     jmp         10007E40
+  10003C75: 90                 nop
+  10003C76: 90                 nop
+  10003C77: 90                 nop
+  10003C78: 90                 nop
+  10003C79: 90                 nop
+  10003C7A: 90                 nop
+  10003C7B: 90                 nop
+  10003C7C: 90                 nop
+  10003C7D: 90                 nop
+  10003C7E: 90                 nop
+  10003C7F: 90                 nop
+  10003C80: 53                 push        ebx
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  100085A0: E8 AB FE FF FF     call        10008450
+  100085A5: E8 36 FA FF FF     call        10007FE0
+  100085AA: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  100085AE: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  100085B2: 8B 54 24 0C        mov         edx,dword ptr [esp+0Ch]
+  100085B6: A3 90 59 07 10     mov         dword ptr ds:[10075990h],eax
+  100085BB: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  100085BF: 89 0D 94 59 07 10  mov         dword ptr ds:[10075994h],ecx
+  100085C5: 89 15 98 59 07 10  mov         dword ptr ds:[10075998h],edx
+  100085CB: A3 9C 59 07 10     mov         dword ptr ds:[1007599Ch],eax
+  100085D0: E9 1B FA FF FF     jmp         10007FF0
+  100085D5: 90                 nop
+  100085D6: 90                 nop
+  100085D7: 90                 nop
+  100085D8: 90                 nop
+  100085D9: 90                 nop
+  100085DA: 90                 nop
+  100085DB: 90                 nop
+  100085DC: 90                 nop
+  100085DD: 90                 nop
+  100085DE: 90                 nop
+  100085DF: 90                 nop
+  100085E0: E8
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002D470: 8B 44 24 0C        mov         eax,dword ptr [esp+0Ch]
+  1002D474: 8B 54 24 10        mov         edx,dword ptr [esp+10h]
+  1002D478: 53                 push        ebx
+  1002D479: 55                 push        ebp
+  1002D47A: 8B E9              mov         ebp,ecx
+  1002D47C: C6 00 00           mov         byte ptr [eax],0
+  1002D47F: 8B 5C 24 0C        mov         ebx,dword ptr [esp+0Ch]
+  1002D483: 56                 push        esi
+  1002D484: 89 55 00           mov         dword ptr [ebp],edx
+  1002D487: 8B 54 24 20        mov         edx,dword ptr [esp+20h]
+  1002D48B: 8B 74 24 30        mov         esi,dword ptr [esp+30h]
+  1002D48F: 89 55 04           mov         dword ptr [ebp+4],edx
+  1002D492: 8B 54 24 24        mov         edx,dword ptr [esp+24h]
+  1002D496: 33 C0              xor         eax,eax
+  1002D498: 89 55 08           mov         dword ptr [ebp+8],edx
+  1002D49B: 8B 54 24 28        mov         edx,dword ptr [esp+28h]
+  1002D49F: 89 55 0C           mov         dword ptr [ebp+0Ch],edx
+  1002D4A2: 8B 54 24 2C        mov         edx,dword ptr [esp+2Ch]
+  1002D4A6: 83 C9 FF           or          ecx,0FFFFFFFFh
+  1002D4A9: 3B D8              cmp         ebx,eax
+  1002D4AB: 57                 push        edi
+  1002D4AC: 89 4D 34           mov         dword ptr [ebp+34h],ecx
+  1002D4AF: 89 45 24           mov         dword ptr [ebp+24h],eax
+  1002D4B2: 89 45 18           mov         dword ptr [ebp+18h],eax
+  1002D4B5: 89 45 28           mov         dword ptr [ebp+28h],eax
+  1002D4B8: 88 45 2C           mov         byte ptr [ebp+2Ch],al
+  1002D4BB: 89 45 30           mov         dword ptr [ebp+30h],eax
+  1002D4BE: 89 45 1C           mov         dword ptr [ebp+1Ch],eax
+  1002D4C1: 89 45 20           mov         dword ptr [ebp+20h],eax
+  1002D4C4: 89 55 10           mov         dword ptr [ebp+10h],edx
+  1002D4C7: 89 75 14           mov         dword ptr [ebp+14h],esi
+  1002D4CA: 0F 84 22 01 00 00  je          1002D5F2
+  1002D4D0: 8B FB              mov         edi,ebx
+  1002D4D2: F2 AE              repne scas  byte ptr es:[edi]
+  1002D4D4: F7 D1              not         ecx
+  1002D4D6: 49                 dec         ecx
+  1002D4D7: 8D 71 01           lea         esi,[ecx+1]
+  1002D4DA: 56                 push        esi
+  1002D4DB: FF D2              call        edx
+  1002D4DD: 83 C4 04           add         esp,4
+  1002D4E0: 89 45 1C           mov         dword ptr [ebp+1Ch],eax
+  1002D4E3: 85 C0              test        eax,eax
+  1002D4E5: 0F 84 07 01 00 00  je          1002D5F2
+  1002D4EB: 8B CE              mov         ecx,esi
+  1002D4ED: 8B F8              mov         edi,eax
+  1002D4EF: 8B C1              mov         eax,ecx
+  1002D4F1: 8B F3              mov         esi,ebx
+  1002D4F3: C1 E9 02           shr         ecx,2
+  1002D4F6: F3 A5              rep movs    dword ptr es:[edi],dword ptr [esi]
+  1002D4F8: 8B C8              mov         ecx,eax
+  1002D4FA: 33 C0              xor         eax,eax
+  1002D4FC: 83 E1 03           and         ecx,3
+  1002D4FF: F3 A4              rep movs    byte ptr es:[edi],byte ptr [esi]
+  1002D501: 8B 55 1C           mov         edx,dword ptr [ebp+1Ch]
+  1002D504: 83 CE FF           or          esi,0FFFFFFFFh
+  1002D507: 8B FA              mov         edi,edx
+  1002D509: 8B CE              mov         ecx,esi
+  1002D50B: F2 AE              repne scas  byte ptr es:[edi]
+  1002D50D: F7 D1              not         ecx
+  1002D50F: 49                 dec         ecx
+  1002D510: 33 FF              xor         edi,edi
+  1002D512: 3B CF              cmp         ecx,edi
+  1002D514: 7E 14              jle         1002D52A
+  1002D516: 80 3C 0A 2E        cmp         byte ptr [edx+ecx],2Eh
+  1002D51A: 74 07              je          1002D523
+  1002D51C: 49                 dec         ecx
+  1002D51D: 3B CF              cmp         ecx,edi
+  1002D51F: 7F F5              jg          1002D516
+  1002D521: EB 07              jmp         1002D52A
+  1002D523: 8D 4C 0A 01        lea         ecx,[edx+ecx+1]
+  1002D527: 89 4D 20           mov         dword ptr [ebp+20h],ecx
+  1002D52A: 53                 push        ebx
+  1002D52B: FF 55 00           call        dword ptr [ebp]
+  1002D52E: 83 C4 04           add         esp,4
+  1002D531: 3B C6              cmp         eax,esi
+  1002D533: 89 45 34           mov         dword ptr [ebp+34h],eax
+  1002D536: 0F 84 8E 00 00 00  je          1002D5CA
+  1002D53C: 6A 02              push        2
+  1002D53E: 57                 push        edi
+  1002D53F: 50                 push        eax
+  1002D540: FF 55 08           call        dword ptr [ebp+8]
+  1002D543: 83 C4 0C           add         esp,0Ch
+  1002D546: 3B C6              cmp         eax,esi
+  1002D548: 89 45 24           mov         dword ptr [ebp+24h],eax
+  1002D54B: 74 7D              je          1002D5CA
+  1002D54D: 8B 55 34           mov         edx,dword ptr [ebp+34h]
+  1002D550: 57                 push        edi
+  1002D551: 57                 push        edi
+  1002D552: 52                 push        edx
+  1002D553: FF 55 08           call        dword ptr [ebp+8]
+  1002D556: 8B 44 24 24        mov         eax,dword ptr [esp+24h]
+  1002D55A: 83 C4 0C           add         esp,0Ch
+  1002D55D: 3B C7              cmp         eax,edi
+  1002D55F: 74 4E              je          1002D5AF
+  1002D561: 8B 45 24           mov         eax,dword ptr [ebp+24h]
+  1002D564: 50                 push        eax
+  1002D565: FF 55 10           call        dword ptr [ebp+10h]
+  1002D568: 83 C4 04           add         esp,4
+  1002D56B: 3B C7              cmp         eax,edi
+  1002D56D: 89 45 18           mov         dword ptr [ebp+18h],eax
+  1002D570: 74 58              je          1002D5CA
+  1002D572: 8B 4D 24           mov         ecx,dword ptr [ebp+24h]
+  1002D575: 8B 55 34           mov         edx,dword ptr [ebp+34h]
+  1002D578: 51                 push        ecx
+  1002D579: 50                 push        eax
+  1002D57A: 52                 push        edx
+  1002D57B: FF 55 04           call        dword ptr [ebp+4]
+  1002D57E: 8B 4D 24           mov         ecx,dword ptr [ebp+24h]
+  1002D581: 83 C4 0C           add         esp,0Ch
+  1002D584: 3B C1              cmp         eax,ecx
+  1002D586: 75 42              jne         1002D5CA
+  1002D588: 8B 45 34           mov         eax,dword ptr [ebp+34h]
+  1002D58B: 50                 push        eax
+  1002D58C: FF 55 0C           call        dword ptr [ebp+0Ch]
+  1002D58F: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  1002D593: 83 C4 04           add         esp,4
+  1002D596: B8 01 00 00 00     mov         eax,1
+  1002D59B: 89 75 34           mov         dword ptr [ebp+34h],esi
+  1002D59E: 88 01              mov         byte ptr [ecx],al
+  1002D5A0: 89 45 28           mov         dword ptr [ebp+28h],eax
+  1002D5A3: 88 45 2C           mov         byte ptr [ebp+2Ch],al
+  1002D5A6: 5F                 pop         edi
+  1002D5A7: 8B C5              mov         eax,ebp
+  1002D5A9: 5E                 pop         esi
+  1002D5AA: 5D                 pop         ebp
+  1002D5AB: 5B                 pop         ebx
+  1002D5AC: C2 24 00           ret         24h
+  1002D5AF: 8B 54 24 1C        mov         edx,dword ptr [esp+1Ch]
+  1002D5B3: 5F                 pop         edi
+  1002D5B4: 8B C5              mov         eax,ebp
+  1002D5B6: 5E                 pop         esi
+  1002D5B7: C6 02 01           mov         byte ptr [edx],1
+  1002D5BA: C7 45 28 02 00 00  mov         dword ptr [ebp+28h],2
+            00
+  1002D5C1: C6 45 2C 00        mov         byte ptr [ebp+2Ch],0
+  1002D5C5: 5D                 pop         ebp
+  1002D5C6: 5B                 pop         ebx
+  1002D5C7: C2 24 00           ret         24h
+  1002D5CA: 8B 45 34           mov         eax,dword ptr [ebp+34h]
+  1002D5CD: 3B C6              cmp         eax,esi
+  1002D5CF: 74 0A              je          1002D5DB
+  1002D5D1: 50                 push        eax
+  1002D5D2: FF 55 0C           call        dword ptr [ebp+0Ch]
+  1002D5D5: 83 C4 04           add         esp,4
+  1002D5D8: 89 75 34           mov         dword ptr [ebp+34h],esi
+  1002D5DB: 8B 45 18           mov         eax,dword ptr [ebp+18h]
+  1002D5DE: 3B C7              cmp         eax,edi
+  1002D5E0: 74 0A              je          1002D5EC
+  1002D5E2: 50                 push        eax
+  1002D5E3: FF 55 14           call        dword ptr [ebp+14h]
+  1002D5E6: 83 C4 04           add         esp,4
+  1002D5E9: 89 7D 18           mov         dword ptr [ebp+18h],edi
+  1002D5EC: 89 7D 24           mov         dword ptr [ebp+24h],edi
+  1002D5EF: 89 7D 28           mov         dword ptr [ebp+28h],edi
+  1002D5F2: 5F                 pop         edi
+  1002D5F3: 8B C5              mov         eax,ebp
+  1002D5F5: 5E                 pop         esi
+  1002D5F6: 5D                 pop         ebp
+  1002D5F7: 5B                 pop         ebx
+  1002D5F8: C2 24 00           ret         24h
+  1002D5FB: 90                 nop
+  1002D5FC: 90                 nop
+  1002D5FD: 90                 nop
+  1002D5FE: 90                 nop
+  1002D5FF: 90                 nop
+  1002D600: 53                 push        ebx
+  1002D601: 56                 push        esi
+  1002D602: 8B F1              mov         esi,ecx
+  1002D604: 8B 46 34           mov         eax,dword ptr [esi+34h]
+  1002D607: 83 F8 FF           cmp         eax,0FFFFFFFFh
+  1002D60A: 74 0E              je          1002D61A
+  1002D60C: 50                 push        eax
+  1002D60D: FF 56 0C           call        dword ptr [esi+0Ch]
+  1002D610: 83 C4 04           add         esp,4
+  1002D613: C7 46 34 FF FF FF  mov         dword ptr [esi+34h],0FFFFFFFFh
+            FF
+  1002D61A: 8A 46 2C           mov         al,byte ptr [esi+2Ch]
+  1002D61D: 33 DB              xor         ebx,ebx
+  1002D61F: 3A C3              cmp         al,bl
+  1002D621: 74 11              je          1002D634
+  1002D623: 8B 46 18           mov         eax,dword ptr [esi+18h]
+  1002D626: 3B C3              cmp         eax,ebx
+  1002D628: 74 0A              je          1002D634
+  1002D62A: 50                 push        eax
+  1002D62B: FF 56 14           call        dword ptr [esi+14h]
+  1002D62E: 83 C4 04           add         esp,4
+  1002D631: 89 5E 18           mov         dword ptr [esi+18h],ebx
+  1002D634: 8B 46 1C           mov         eax,dword ptr [esi+1Ch]
+  1002D637: 3B C3              cmp         eax,ebx
+  1002D639: 74 0A              je          1002D645
+  1002D63B: 50                 push        eax
+  1002D63C: FF 56 14           call        dword ptr [esi+14h]
+  1002D63F: 83 C4 04           add         esp,4
+  1002D642: 89 5E 1C           mov         dword ptr [esi+1Ch],ebx
+  1002D645: 89 5E 24           mov         dword ptr [esi+24h],ebx
+  1002D648: 89 5E 28           mov         dword ptr [esi+28h],ebx
+  1002D64B: 89 5E 30           mov         dword ptr [esi+30h],ebx
+  1002D64E: 5E                 pop         esi
+  1002D64F: 5B                 pop         ebx
+  1002D650: C3                 ret
+  1002D651: 90                 nop
+  1002D652: 90                 nop
+  1002D653: 90                 nop
+  1002D654: 90                 nop
+  1002D655: 90                 nop
+  1002D656: 90                 nop
+  1002D657: 90                 nop
+  1002D658: 90                 nop
+  1002D659: 90                 nop
+  1002D65A: 90                 nop
+  1002D65B: 90                 nop
+  1002D65C: 90                 nop
+  1002D65D: 90                 nop
+  1002D65E: 90                 nop
+  1002D65F: 90                 nop
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  1002DEA0: 6A FF              push        0FFFFFFFFh
+  1002DEA2: 68 6B 71 04 10     push        1004716Bh
+  1002DEA7: 64 A1 00 00 00 00  mov         eax,dword ptr fs:[00000000h]
+  1002DEAD: 50                 push        eax
+  1002DEAE: 64 89 25 00 00 00  mov         dword ptr fs:[00000000h],esp
+            00
+  1002DEB5: 83 EC 08           sub         esp,8
+  1002DEB8: 56                 push        esi
+  1002DEB9: 8B F1              mov         esi,ecx
+  1002DEBB: 85 F6              test        esi,esi
+  1002DEBD: C6 44 24 07 00     mov         byte ptr [esp+7],0
+  1002DEC2: 75 14              jne         1002DED8
+  1002DEC4: 32 C0              xor         al,al
+  1002DEC6: 5E                 pop         esi
+  1002DEC7: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  1002DECB: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002DED2: 83 C4 14           add         esp,14h
+  1002DED5: C2 08 00           ret         8
+  1002DED8: 6A 38              push        38h
+  1002DEDA: E8 44 F6 00 00     call        1003D523
+  1002DEDF: 83 C4 04           add         esp,4
+  1002DEE2: 89 44 24 08        mov         dword ptr [esp+8],eax
+  1002DEE6: 85 C0              test        eax,eax
+  1002DEE8: C7 44 24 14 00 00  mov         dword ptr [esp+14h],0
+            00 00
+  1002DEF0: 74 42              je          1002DF34
+  1002DEF2: 8B 0D A4 59 07 10  mov         ecx,dword ptr ds:[100759A4h]
+  1002DEF8: 8B 15 A0 59 07 10  mov         edx,dword ptr ds:[100759A0h]
+  1002DEFE: 51                 push        ecx
+  1002DEFF: 8B 0D 9C 59 07 10  mov         ecx,dword ptr ds:[1007599Ch]
+  1002DF05: 52                 push        edx
+  1002DF06: 8B 15 98 59 07 10  mov         edx,dword ptr ds:[10075998h]
+  1002DF0C: 51                 push        ecx
+  1002DF0D: 8B 0D 94 59 07 10  mov         ecx,dword ptr ds:[10075994h]
+  1002DF13: 52                 push        edx
+  1002DF14: 8B 15 90 59 07 10  mov         edx,dword ptr ds:[10075990h]
+  1002DF1A: 51                 push        ecx
+  1002DF1B: 8D 4C 24 1B        lea         ecx,[esp+1Bh]
+  1002DF1F: 52                 push        edx
+  1002DF20: 8B 54 24 38        mov         edx,dword ptr [esp+38h]
+  1002DF24: 51                 push        ecx
+  1002DF25: 8B 4C 24 38        mov         ecx,dword ptr [esp+38h]
+  1002DF29: 52                 push        edx
+  1002DF2A: 51                 push        ecx
+  1002DF2B: 8B C8              mov         ecx,eax
+  1002DF2D: E8 3E F5 FF FF     call        1002D470
+  1002DF32: EB 02              jmp         1002DF36
+  1002DF34: 33 C0              xor         eax,eax
+  1002DF36: 89 46 04           mov         dword ptr [esi+4],eax
+  1002DF39: 8A 44 24 07        mov         al,byte ptr [esp+7]
+  1002DF3D: 84 C0              test        al,al
+  1002DF3F: C7 44 24 14 FF FF  mov         dword ptr [esp+14h],0FFFFFFFFh
+            FF FF
+  1002DF47: 8B CE              mov         ecx,esi
+  1002DF49: 74 0F              je          1002DF5A
+  1002DF4B: E8 70 F9 FF FF     call        1002D8C0
+  1002DF50: 84 C0              test        al,al
+  1002DF52: 88 44 24 07        mov         byte ptr [esp+7],al
+  1002DF56: 75 0B              jne         1002DF63
+  1002DF58: 8B CE              mov         ecx,esi
+  1002DF5A: E8 21 00 00 00     call        1002DF80
+  1002DF5F: 8A 44 24 07        mov         al,byte ptr [esp+7]
+  1002DF63: 8B 4C 24 0C        mov         ecx,dword ptr [esp+0Ch]
+  1002DF67: 5E                 pop         esi
+  1002DF68: 64 89 0D 00 00 00  mov         dword ptr fs:[00000000h],ecx
+            00
+  1002DF6F: 83 C4 14           add         esp,14h
+  1002DF72: C2 08 00           ret         8
+  1002DF75: 90                 nop
+  1002DF76: 90                 nop
+  1002DF77: 90                 nop
+  1002DF78: 90                 nop
+  1002DF79: 90                 nop
+  1002DF7A: 90                 nop
+  1002DF7B: 90                 nop
+  1002DF7C: 90                 nop
+  1002DF7D: 90                 nop
+  1002DF7E: 90                 nop
+  1002DF7F: 90                 nop
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file ..\farmář\Dobrý farmář\Squall.dll
+
+File Type: DLL
+
+  100085E0: E8 6B FE FF FF     call        10008450
+  100085E5: E8 F6 F9 FF FF     call        10007FE0
+  100085EA: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  100085EE: 8B 4C 24 08        mov         ecx,dword ptr [esp+8]
+  100085F2: A3 A0 59 07 10     mov         dword ptr ds:[100759A0h],eax
+  100085F7: 89 0D A4 59 07 10  mov         dword ptr ds:[100759A4h],ecx
+  100085FD: E9 EE F9 FF FF     jmp         10007FF0
+  10008602: 90                 nop
+  10008603: 90                 nop
+  10008604: 90                 nop
+  10008605: 90                 nop
+  10008606: 90                 nop
+  10008607: 90                 nop
+  10008608: 90                 nop
+  10008609: 90                 nop
+  1000860A: 90                 nop
+  1000860B: 90                 nop
+  1000860C: 90                 nop
+  1000860D: 90                 nop
+  1000860E: 90                 nop
+  1000860F: 90                 nop
+
+  Summary
+
+       47000 .text
