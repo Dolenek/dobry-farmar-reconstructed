@@ -1,12 +1,20 @@
 # Rekonstrukce Squall
 
+## Osm bezargumentových integer ABI signatur
+
+`Stop`, `GetDevice`, `GetSpeakerMode`, `Get3DAlgorithm`, `GetBufferSize`, `GetNumDevice`, `GetEAXVersion` a `Listener_Update` mají nově doložený nulový počet caller argumentů a úplně inicializovaný32bitový integer/status návrat v EAX ve všech13 dosažitelných C3 místech. Nezávislý ESP/EBP průchod zahrnuje všech pět switch cílů speaker mode i tail jump GetNumDevice10003c70→10007e40 s původním DWORD loadem počtu10007e45.
+
+Definite-assignment audit sleduje každou větev, na call zneplatní volatile EAX a vyžaduje úplný32bitový load nebo kopii již inicializovaného statusu před každým návratem. Standardní Win32 x86 zachování ESI/EBP přes direct/COM/Win32 volání je explicitní předpoklad ABI. Návrat se nepovažuje za floating ani za pointer pouze podle názvu exportu. Aktuální zdrojová `int(void)` deklarace musí přesně souhlasit. Důkazy a původní bajty jsou v `analysis/squall-noarg-signatures.json`, reprodukce v `tools/audit_squall_noarg_signatures.py`.
+
+Společně se šesti factor exporty je nyní doložené typové ABI14/97 exportů; zbývá83. Behaviorální status všech těchto řádků nadále zůstává `partially_compared`. Nový runtime/audio běh ani úplné chování se tímto statickým auditem netvrdí; produkce a17 originálních souborů se neměnily. Původní cíl i dlouhý skutečný herní zásobovací průchod pokračují.
+
 ## Nezávislé typové ABI šesti factor exportů
 
 `Listener_Set/GetDistanceFactor`, `Set/GetRolloffFactor` a `Set/GetDopplerFactor` mají nyní nezávisle doložené původní role argumentů i návratů. Auditor ověřuje skutečné PE bajty každé dosažené instrukce a pomocí původního ESP/EBP auditu jediný argumentový slot. Settery načítají argument skutečnými FLD m32 a porovnávají ho FComp m32; jde o jeden4bajtový binary32 argument. Gettery předají IsBadWritePtr přesně tento pointer a délku4 a zapíší jeden DWORD z téže float cache. Typ výstupu tedy nepochází jen z dodané hlavičky nebo z odlišného veřejného Squallu.
 
 Všech18 původních návratových míst má explicitní EAX←ESI a C3/caller cleanup. Veškeré in-body změny ESI jsou výslovně vyjmenované: success1 a původní záporné32bitové chyby. Žádný z šesti exportů nevrací floating hodnotu v ST0. Cache adresy1007510c/110/114 a skutečné vtable offsety2c/3c/30 spojují float vstupy, getter výstupy a DirectSound volání. Aktuální zdrojové deklarace přesně odpovídají doloženým argumentovým rolím. Předchozí samostatné behaviorální reporty obou sestavení zahrnují24962 výsledků/6240 skutečných guarded getterů na sestavení; nový audio běh se tímto statickým auditem netvrdí.
 
-Těchto šest řádků má v `analysis/squall-export-audit.json` nově `native_signature_fully_verified=true` pro ABI role/šířky/calling convention/návrat. Jejich behaviorální status zůstává `partially_compared`; například všechny2^32 float patterns, FP exception masky a libovolné pointery nejsou tímto prohlášeny za otestované. Zbývajících91 nativních typových signatur a celý Squall pokračují. `analysis/squall-listener-factor-signatures.json` obsahuje úplné instrukční důkazy a `tools/audit_squall_listener_factor_signatures.py` je reprodukuje bez načtení nebo spuštění původní DLL. Produkce ani17 originálů se neměnily.
+Těchto šest řádků má v `analysis/squall-export-audit.json` nově `native_signature_fully_verified=true` pro ABI role/šířky/calling convention/návrat. Jejich behaviorální status zůstává `partially_compared`; například všechny2^32 float patterns, FP exception masky a libovolné pointery nejsou tímto prohlášeny za otestované. Ostatní signatury mají následné samostatné důkazy; aktuální celkový počet je v exportním auditu. `analysis/squall-listener-factor-signatures.json` obsahuje úplné instrukční důkazy a `tools/audit_squall_listener_factor_signatures.py` je reprodukuje bez načtení nebo spuštění původní DLL. Produkce ani17 originálů se neměnily.
 
 ## Skutečné trackerové efekty a jejich dispatcher
 

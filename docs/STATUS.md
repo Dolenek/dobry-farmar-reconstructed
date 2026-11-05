@@ -1,5 +1,9 @@
 # Stav rekonstrukce
 
+Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
+
+[Typové ABI Squallu](SQUALL.md) je nyní doložené pro14/97 exportů: šest float/float-pointer factor rozhraní a osm bezargumentových integer rozhraní se všemi13 návraty. Zbývá83 signatur; behaviorální status zůstává částečný. Dlouhý herní průchod navazuje na skutečně uložený native checkpoint892/843, source zůstává od původního společného základu; úspěch celého rozsahu se ještě netvrdí.
+
 [Šest původních signatur Squallu](SQUALL.md) má nezávisle doložené float/float-pointer argumenty, rozsah4 bajty a všech18 návratů v EAX/C3. Native ABI příznak je nově ověřený pro Distance/Rolloff/Doppler Set/Get; behaviorální status zůstává částečný. Zbývá91 signatur a celý původní cíl. Souběžný dlouhý herní zásobovací průchod pokračuje; produkce se neměnila.
 
 [Delší zásobovací cyklus](COUNTER_SUPPLY_PROGRESS.md) právě pokračuje v obou EXE k1000 sklizním a1000 výrobám. Přípravný native-only pilot již doložil36 sklizní,102 výrob,94 prodejů mléka po2, placený level3 kravín za1300 a119 přesných bilančních stavů. Source porovnání ani delší rozsah tímto pilotem prohlášené za ověřené nejsou. Produkce se nemění; celý původní cíl pokračuje.

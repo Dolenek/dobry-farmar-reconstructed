@@ -1208,7 +1208,7 @@
       "original_address": "10003af0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
@@ -1223,6 +1223,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1231,7 +1240,7 @@
       "original_address": "10003b90",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
@@ -1246,6 +1255,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1280,7 +1298,7 @@
       "original_address": "10003770",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
@@ -1295,6 +1313,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1361,7 +1388,7 @@
       "original_address": "10003e00",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 0,
@@ -1375,6 +1402,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1411,7 +1447,7 @@
       "original_address": "10003c70",
       "status": "partially_compared",
       "verified_scope": "Real device count on this host; device details and switching unverified",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual device count on this host",
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
@@ -1426,6 +1462,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1434,7 +1479,7 @@
       "original_address": "10003970",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Actual initialized backend getter on this host",
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
@@ -1449,6 +1494,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2014,7 +2068,7 @@
       "original_address": "100049f0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 0,
@@ -2028,6 +2082,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2846,7 +2909,7 @@
       "original_address": "10003690",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "integrated_game_audio_verified_scope": "Actual group 1 UI clicks and group 2 music; bounded full worker retirement",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 0,
@@ -2860,6 +2923,15 @@
         "slots": [],
         "reference_instructions": [],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-noarg-signatures.json",
+        "argument": {
+          "argument": "none",
+          "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+        },
+        "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+        "whole_behavior_verified": false
       }
     }
   ],
@@ -2930,5 +3002,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 6
+  "native_signature_semantics_verified_count": 14
 }

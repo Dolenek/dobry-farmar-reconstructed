@@ -1,0 +1,526 @@
+{
+  "status": "passed_listed_native_argument_and_return_abi_semantics_only",
+  "recorded_at_utc": "2026-11-05T14:31:30.566572+00:00",
+  "auditor_sha256": "6c193697f4f5caf3d58a769d9b8afad34c520e88ab9de6c3d0660448f4278a6a",
+  "publisher_sha256": "b0c76ef2dc798e67c4db1f667cd1265e529a79a6b7966b7adb766f88cfca700e",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "exports": [
+    {
+      "name": "SQUALL_Stop",
+      "original_address": "10003690",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "100036f9"
+      ],
+      "definite_assignment_states": 40,
+      "instruction_evidence": [
+        {
+          "address": "10003692",
+          "instruction_bytes": "bd01000000",
+          "op": "mov",
+          "operands": "ebp,1"
+        },
+        {
+          "address": "100036a0",
+          "instruction_bytes": "83cdff",
+          "op": "or",
+          "operands": "ebp,0FFFFFFFFh"
+        },
+        {
+          "address": "100036b4",
+          "instruction_bytes": "a130510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[10075130h]"
+        },
+        {
+          "address": "100036c2",
+          "instruction_bytes": "a134510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[10075134h]"
+        },
+        {
+          "address": "100036d7",
+          "instruction_bytes": "a130510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[10075130h]"
+        },
+        {
+          "address": "100036f5",
+          "instruction_bytes": "8bc5",
+          "op": "mov",
+          "operands": "eax,ebp"
+        },
+        {
+          "address": "100036f9",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_GetDevice",
+      "original_address": "10003770",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "100037a9"
+      ],
+      "definite_assignment_states": 18,
+      "instruction_evidence": [
+        {
+          "address": "10003771",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "1000377f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003793",
+          "instruction_bytes": "8b351c510710",
+          "op": "mov",
+          "operands": "esi,dword ptr ds:[1007511Ch]"
+        },
+        {
+          "address": "100037a6",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100037a9",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_GetSpeakerMode",
+      "original_address": "10003970",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "100039ce",
+        "100039fb",
+        "10003a12",
+        "10003a29",
+        "10003a40",
+        "10003a57"
+      ],
+      "definite_assignment_states": 82,
+      "instruction_evidence": [
+        {
+          "address": "1000397a",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003988",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "100039a0",
+          "instruction_bytes": "a1d0500710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[100750D0h]"
+        },
+        {
+          "address": "100039bd",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "100039ca",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100039ce",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100039cf",
+          "instruction_bytes": "8b442404",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+4]"
+        },
+        {
+          "address": "100039ea",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "100039f7",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100039fb",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003a01",
+          "instruction_bytes": "be02000000",
+          "op": "mov",
+          "operands": "esi,2"
+        },
+        {
+          "address": "10003a0e",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003a12",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003a18",
+          "instruction_bytes": "be03000000",
+          "op": "mov",
+          "operands": "esi,3"
+        },
+        {
+          "address": "10003a25",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003a29",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003a2f",
+          "instruction_bytes": "be04000000",
+          "op": "mov",
+          "operands": "esi,4"
+        },
+        {
+          "address": "10003a3c",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003a40",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003a41",
+          "instruction_bytes": "be05000000",
+          "op": "mov",
+          "operands": "esi,5"
+        },
+        {
+          "address": "10003a53",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003a57",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Get3DAlgorithm",
+      "original_address": "10003af0",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "10003b29"
+      ],
+      "definite_assignment_states": 18,
+      "instruction_evidence": [
+        {
+          "address": "10003af1",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003aff",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003b13",
+          "instruction_bytes": "8b3544510710",
+          "op": "mov",
+          "operands": "esi,dword ptr ds:[10075144h]"
+        },
+        {
+          "address": "10003b26",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003b29",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_GetBufferSize",
+      "original_address": "10003b90",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "10003bc9"
+      ],
+      "definite_assignment_states": 18,
+      "instruction_evidence": [
+        {
+          "address": "10003b91",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003b9f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003bb3",
+          "instruction_bytes": "8b3538510710",
+          "op": "mov",
+          "operands": "esi,dword ptr ds:[10075138h]"
+        },
+        {
+          "address": "10003bc6",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003bc9",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_GetNumDevice",
+      "original_address": "10003c70",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "10007e4a"
+      ],
+      "definite_assignment_states": 4,
+      "instruction_evidence": [
+        {
+          "address": "10007e45",
+          "instruction_bytes": "a12c500710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[1007502Ch]"
+        },
+        {
+          "address": "10007e4a",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_GetEAXVersion",
+      "original_address": "10003e00",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "10003e39"
+      ],
+      "definite_assignment_states": 18,
+      "instruction_evidence": [
+        {
+          "address": "10003e01",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003e0f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003e23",
+          "instruction_bytes": "8b3538500710",
+          "op": "mov",
+          "operands": "esi,dword ptr ds:[10075038h]"
+        },
+        {
+          "address": "10003e36",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003e39",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_Update",
+      "original_address": "100049f0",
+      "calling_convention": "cdecl",
+      "argument_slots": 0,
+      "argument_role": {
+        "argument": "none",
+        "independent_type_evidence": "All reachable original ESP/EBP paths have no caller stack argument references"
+      },
+      "return_role": "Complete initialized32-bit integer/status in EAX on every reachable C3 return;no floating return",
+      "all_native_return_sites": [
+        "10004a3b"
+      ],
+      "definite_assignment_states": 29,
+      "instruction_evidence": [
+        {
+          "address": "100049f1",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "100049ff",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10004a13",
+          "instruction_bytes": "a1d4500710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[100750D4h]"
+        },
+        {
+          "address": "10004a26",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "10004a38",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004a3b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    }
+  ],
+  "current_candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+  "new_runtime_audio_test_claimed": false,
+  "production_changed": false,
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "details": {
+    "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+    "native_returns": 13,
+    "tail_jump_verified": "GetNumDevice10003C70 to10007E40;actual DWORD count load10007E45 and C3 at10007E4A",
+    "switch_table_verified": "GetSpeakerMode resolves all five10003A58 targets and error path",
+    "dataflow_assumption": "Standard Win32 x86 nonvolatile ESI/EBP preservation across native direct/COM/Win32 calls",
+    "scope": "Native machine-ABI-compatible declaration roles;behavioral coverage and arbitrary state remain separate"
+  }
+}
