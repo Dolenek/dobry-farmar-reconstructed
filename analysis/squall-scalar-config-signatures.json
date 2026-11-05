@@ -1,0 +1,487 @@
+{
+  "status": "passed_listed_native_argument_and_return_abi_semantics_only",
+  "recorded_at_utc": "2026-11-05T14:52:16.979970+00:00",
+  "auditor_sha256": "4865798cbca57db3a6d9f4af8e71f89804aa4a5f7eac4f7e7935d61caea5c6b1",
+  "publisher_sha256": "b0c76ef2dc798e67c4db1f667cd1265e529a79a6b7966b7adb766f88cfca700e",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "exports": [
+    {
+      "name": "SQUALL_SetDevice",
+      "original_address": "10003700",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Signed32 device index;negative rejected and index must be below actual device count",
+        "pointer": false,
+        "bytes": 4,
+        "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+      "all_native_return_sites": [
+        "1000374b",
+        "1000376e"
+      ],
+      "native_status_immediates": [
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "definite_assignment_states": 38,
+      "instruction_evidence": [
+        {
+          "address": "10003702",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003710",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003724",
+          "instruction_bytes": "8b7c240c",
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10003728",
+          "instruction_bytes": "85ff",
+          "op": "test",
+          "operands": "edi,edi"
+        },
+        {
+          "address": "1000372a",
+          "instruction_bytes": "7c09",
+          "op": "jl",
+          "operands": "10003735"
+        },
+        {
+          "address": "10003731",
+          "instruction_bytes": "3bf8",
+          "op": "cmp",
+          "operands": "edi,eax"
+        },
+        {
+          "address": "10003733",
+          "instruction_bytes": "7c17",
+          "op": "jl",
+          "operands": "1000374C"
+        },
+        {
+          "address": "1000373a",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "10003747",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "1000374b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "1000376a",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "1000376e",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_SetSpeakerMode",
+      "original_address": "100038b0",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Signed32 speaker-mode integer;bounds0..6 then actual five-target integer switch plus default",
+        "pointer": false,
+        "bytes": 4,
+        "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+      "all_native_return_sites": [
+        "100038f5",
+        "10003950"
+      ],
+      "native_status_immediates": [
+        "0FFFFFFE8h",
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "definite_assignment_states": 53,
+      "instruction_evidence": [
+        {
+          "address": "100038b1",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "100038bf",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "100038d3",
+          "instruction_bytes": "8b4c2408",
+          "op": "mov",
+          "operands": "ecx,dword ptr [esp+8]"
+        },
+        {
+          "address": "100038d7",
+          "instruction_bytes": "85c9",
+          "op": "test",
+          "operands": "ecx,ecx"
+        },
+        {
+          "address": "100038d9",
+          "instruction_bytes": "7c05",
+          "op": "jl",
+          "operands": "100038E0"
+        },
+        {
+          "address": "100038db",
+          "instruction_bytes": "83f906",
+          "op": "cmp",
+          "operands": "ecx,6"
+        },
+        {
+          "address": "100038de",
+          "instruction_bytes": "7e16",
+          "op": "jle",
+          "operands": "100038F6"
+        },
+        {
+          "address": "100038e5",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "100038f2",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100038f5",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100038f8",
+          "instruction_bytes": "49",
+          "op": "dec",
+          "operands": "ecx"
+        },
+        {
+          "address": "100038f9",
+          "instruction_bytes": "83f904",
+          "op": "cmp",
+          "operands": "ecx,4"
+        },
+        {
+          "address": "100038fe",
+          "instruction_bytes": "ff248d54390010",
+          "op": "jmp",
+          "operands": "dword ptr [ecx*4+10003954h]"
+        },
+        {
+          "address": "1000393b",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "1000394d",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003950",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Set3DAlgorithm",
+      "original_address": "10003a70",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Signed32 algorithm index;bounds0..3 then actual scaled integer support-table index",
+        "pointer": false,
+        "bytes": 4,
+        "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+      "all_native_return_sites": [
+        "10003ab5",
+        "10003ad8",
+        "10003aee"
+      ],
+      "native_status_immediates": [
+        "0FFFFFFF0h",
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "definite_assignment_states": 40,
+      "instruction_evidence": [
+        {
+          "address": "10003a71",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003a7f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003a93",
+          "instruction_bytes": "8b442408",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "10003a97",
+          "instruction_bytes": "85c0",
+          "op": "test",
+          "operands": "eax,eax"
+        },
+        {
+          "address": "10003a99",
+          "instruction_bytes": "7c05",
+          "op": "jl",
+          "operands": "10003AA0"
+        },
+        {
+          "address": "10003a9b",
+          "instruction_bytes": "83f803",
+          "op": "cmp",
+          "operands": "eax,3"
+        },
+        {
+          "address": "10003a9e",
+          "instruction_bytes": "7e16",
+          "op": "jle",
+          "operands": "10003AB6"
+        },
+        {
+          "address": "10003aa5",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "10003ab2",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003ab5",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003ab6",
+          "instruction_bytes": "8b0c8548510710",
+          "op": "mov",
+          "operands": "ecx,dword ptr [eax*4+10075148h]"
+        },
+        {
+          "address": "10003ad5",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003ad8",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003ad9",
+          "instruction_bytes": "bef0ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFF0h"
+        },
+        {
+          "address": "10003aeb",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003aee",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_SetBufferSize",
+      "original_address": "10003b30",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Signed32 buffer milliseconds;reject <=0 and >5000;store the complete DWORD value",
+        "pointer": false,
+        "bytes": 4,
+        "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+      "all_native_return_sites": [
+        "10003b73",
+        "10003b8d"
+      ],
+      "native_status_immediates": [
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "definite_assignment_states": 30,
+      "instruction_evidence": [
+        {
+          "address": "10003b31",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10003b3f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10003b4c",
+          "instruction_bytes": "8b44240c",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10003b53",
+          "instruction_bytes": "85c0",
+          "op": "test",
+          "operands": "eax,eax"
+        },
+        {
+          "address": "10003b55",
+          "instruction_bytes": "7e07",
+          "op": "jle",
+          "operands": "10003B5E"
+        },
+        {
+          "address": "10003b57",
+          "instruction_bytes": "3d88130000",
+          "op": "cmp",
+          "operands": "eax,1388h"
+        },
+        {
+          "address": "10003b5c",
+          "instruction_bytes": "7e16",
+          "op": "jle",
+          "operands": "10003B74"
+        },
+        {
+          "address": "10003b63",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "10003b70",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003b73",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10003b78",
+          "instruction_bytes": "a338510710",
+          "op": "mov",
+          "operands": "dword ptr ds:[10075138h],eax"
+        },
+        {
+          "address": "10003b8a",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10003b8d",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    }
+  ],
+  "current_candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+  "new_runtime_audio_test_claimed": false,
+  "production_changed": false,
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "details": {
+    "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+    "native_returns": 9,
+    "behavior_reports": [
+      "analysis/squall-config-validation.json",
+      "analysis/squall-config-fresh-validation.json"
+    ],
+    "behavior_report_hashes": [
+      "1991053097b387415dfc88b2b38291c303d25a48d23f66df3eff07bb0f4afa1e",
+      "066d0f0707c15c61f93b5de9e8afe70588cb033c6ea988f8b9250bae0304af62"
+    ],
+    "native_algorithm_support_table_mutation_preserved": true,
+    "new_runtime_audio_test_claimed": false,
+    "dataflow_assumption": "Standard Win32 x86 nonvolatile ESI preservation across native direct/COM/Win32 calls"
+  }
+}

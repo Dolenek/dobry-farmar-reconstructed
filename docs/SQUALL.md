@@ -1,12 +1,18 @@
 # Rekonstrukce Squall
 
+## Čtyři podepsané konfigurační argumenty
+
+`SetDevice`, `SetSpeakerMode`, `Set3DAlgorithm` a `SetBufferSize` mají nově nezávislé důkazy jednoho signed32 integer argumentu a všech devíti EAX/C3 návratů. Původní signed podmínky vymezují device0..count−1, speaker mode0..6, algorithm0..3 a buffer1..5000ms. Role nepochází jen z názvů: auditor kontroluje skutečný DWORD argumentový load, signed větvení, indexovanou tabulku/cíle switch nebo úplný cache store. Vyjmenované statusy v ESI jsou určitě inicializované na všech cestách a kompletně zkopírované do EAX před návratem.
+
+Důkaz zahrnuje i skutečný původní algorithm support-table index/store; neoznačuje jej za opravené nebo přepsané API chování. `analysis/squall-scalar-config-signatures.json` obsahuje instrukční svědky, `tools/audit_squall_scalar_config_signatures.py` je reprodukuje bez spuštění DLL. Nový runtime/audio test se netvrdí. Typové ABI je nyní doložené pro18/97 exportů, zbývá79; behaviorální status nadále zůstává částečný a celý původní cíl pokračuje.
+
 ## Osm bezargumentových integer ABI signatur
 
 `Stop`, `GetDevice`, `GetSpeakerMode`, `Get3DAlgorithm`, `GetBufferSize`, `GetNumDevice`, `GetEAXVersion` a `Listener_Update` mají nově doložený nulový počet caller argumentů a úplně inicializovaný32bitový integer/status návrat v EAX ve všech13 dosažitelných C3 místech. Nezávislý ESP/EBP průchod zahrnuje všech pět switch cílů speaker mode i tail jump GetNumDevice10003c70→10007e40 s původním DWORD loadem počtu10007e45.
 
 Definite-assignment audit sleduje každou větev, na call zneplatní volatile EAX a vyžaduje úplný32bitový load nebo kopii již inicializovaného statusu před každým návratem. Standardní Win32 x86 zachování ESI/EBP přes direct/COM/Win32 volání je explicitní předpoklad ABI. Návrat se nepovažuje za floating ani za pointer pouze podle názvu exportu. Aktuální zdrojová `int(void)` deklarace musí přesně souhlasit. Důkazy a původní bajty jsou v `analysis/squall-noarg-signatures.json`, reprodukce v `tools/audit_squall_noarg_signatures.py`.
 
-Společně se šesti factor exporty je nyní doložené typové ABI14/97 exportů; zbývá83. Behaviorální status všech těchto řádků nadále zůstává `partially_compared`. Nový runtime/audio běh ani úplné chování se tímto statickým auditem netvrdí; produkce a17 originálních souborů se neměnily. Původní cíl i dlouhý skutečný herní zásobovací průchod pokračují.
+Těchto osm důkazů rozšiřuje šest factor rozhraní; celkový aktuální počet je v `analysis/squall-export-audit.json`. Behaviorální status všech těchto řádků nadále zůstává `partially_compared`. Nový runtime/audio běh ani úplné chování se tímto statickým auditem netvrdí; produkce a17 originálních souborů se neměnily. Původní cíl i dlouhý skutečný herní zásobovací průchod pokračují.
 
 ## Nezávislé typové ABI šesti factor exportů
 

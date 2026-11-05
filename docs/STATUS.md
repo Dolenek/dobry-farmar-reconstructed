@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Další čtyři konfigurační ABI signatury Squallu](SQUALL.md) prokazují signed32 argumentové role a všech devět EAX/C3 návratů Device/Speaker/Algorithm/Buffer setterů. Aktuálně18/97, zbývá79; behaviorální rozsah se nenavyšuje. Originál mezitím dokončil1000-sklizňový/výrobní průchod a zdrojová hra z původního základu pokračuje; celý rozsah čeká na konečný audit a saves.
+
 [Typové ABI Squallu](SQUALL.md) je nyní doložené pro14/97 exportů: šest float/float-pointer factor rozhraní a osm bezargumentových integer rozhraní se všemi13 návraty. Zbývá83 signatur; behaviorální status zůstává částečný. Dlouhý herní průchod navazuje na skutečně uložený native checkpoint892/843, source zůstává od původního společného základu; úspěch celého rozsahu se ještě netvrdí.
 
 [Šest původních signatur Squallu](SQUALL.md) má nezávisle doložené float/float-pointer argumenty, rozsah4 bajty a všech18 návratů v EAX/C3. Native ABI příznak je nově ověřený pro Distance/Rolloff/Doppler Set/Get; behaviorální status zůstává částečný. Zbývá91 signatur a celý původní cíl. Souběžný dlouhý herní zásobovací průchod pokračuje; produkce se neměnila.

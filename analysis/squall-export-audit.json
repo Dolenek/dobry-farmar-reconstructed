@@ -2710,7 +2710,7 @@
       "original_address": "10003a70",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2728,6 +2728,17 @@
           "10003a93"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-config-signatures.json",
+        "argument": {
+          "argument": "Signed32 algorithm index;bounds0..3 then actual scaled integer support-table index",
+          "pointer": false,
+          "bytes": 4,
+          "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2736,7 +2747,7 @@
       "original_address": "10003b30",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2754,6 +2765,17 @@
           "10003b4c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-config-signatures.json",
+        "argument": {
+          "argument": "Signed32 buffer milliseconds;reject <=0 and >5000;store the complete DWORD value",
+          "pointer": false,
+          "bytes": 4,
+          "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2762,7 +2784,7 @@
       "original_address": "10003700",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2780,6 +2802,17 @@
           "10003724"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-config-signatures.json",
+        "argument": {
+          "argument": "Signed32 device index;negative rejected and index must be below actual device count",
+          "pointer": false,
+          "bytes": 4,
+          "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2883,7 +2916,7 @@
       "original_address": "100038b0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_configuration_verified_scope": "Actual pre-Init/DirectSound/post-Free, two precisions/two builds; buffer1..5000,3D support table,speaker bounds,36 raw HW flag pairs/device recreation without channels,scalar getters and guarded optional HW outputs",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2901,6 +2934,17 @@
           "100038d3"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-scalar-config-signatures.json",
+        "argument": {
+          "argument": "Signed32 speaker-mode integer;bounds0..6 then actual five-target integer switch plus default",
+          "pointer": false,
+          "bytes": 4,
+          "independent_type_evidence": "Actual DWORD argument load,signed conditional bounds and integer index/store operations"
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX from enumerated ESI values on all C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3002,5 +3046,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 14
+  "native_signature_semantics_verified_count": 18
 }
