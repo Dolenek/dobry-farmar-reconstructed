@@ -1,0 +1,125 @@
+{
+  "status": "passed_natural_planning_award32_actual_queued_jobs_and_four_complete_saves_only",
+  "recorded_at_utc": "2026-11-05T20:59:53.426084+00:00",
+  "recorder_sha256": "11e24eca274ff42809ba29007aef4c8a3a96c14194bcfd4589b13150f2c6552b",
+  "reports": {
+    "planning-queue-state-validation.json": "f85eedef774c4252c8bca595aae7640db7b19101b105f914a4971fb2505f0ad9",
+    "planning-queue-interop-validation.json": "5e3b4f8e41ace76b689779b4cd2146f5326ba83e07e8f91aa43ddb87a8a74a91",
+    "planning-queue-initial-observations.json": "906737da6e1e7fe4f6ef6762ccf0ece0efec172e408eb53c3d299e1e6a744d26"
+  },
+  "native_task_vector_begin_offset": "282c",
+  "native_task_vector_end_offset": "2830",
+  "native_task_bytes": 16,
+  "native_queue_threshold": 30,
+  "original_queue_threshold_instruction_evidence": [
+    {
+      "address": "0045a900",
+      "bytes": "a15cff6500",
+      "op": "mov",
+      "operands": "eax,dword ptr ds:[0065FF5Ch]"
+    },
+    {
+      "address": "0045a905",
+      "bytes": "8b882c280000",
+      "op": "mov",
+      "operands": "ecx,dword ptr [eax+0000282Ch]"
+    },
+    {
+      "address": "0045a90f",
+      "bytes": "8b8030280000",
+      "op": "mov",
+      "operands": "eax,dword ptr [eax+00002830h]"
+    },
+    {
+      "address": "0045a915",
+      "bytes": "2bc1",
+      "op": "sub",
+      "operands": "eax,ecx"
+    },
+    {
+      "address": "0045a917",
+      "bytes": "c1f804",
+      "op": "sar",
+      "operands": "eax,4"
+    },
+    {
+      "address": "0045a91a",
+      "bytes": "83f81e",
+      "op": "cmp",
+      "operands": "eax,1Eh"
+    },
+    {
+      "address": "0045a91d",
+      "bytes": "726d",
+      "op": "jb",
+      "operands": "0045A98C"
+    }
+  ],
+  "actual_queued_jobs_per_executable": 32,
+  "actual_final_planning_count": 32,
+  "original_dig_cost": 0,
+  "unchanged_money": 2504,
+  "unchanged_collected": 44,
+  "actual_award_index": 19,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "original_binary_save_entirely_unchanged_bytes": 15808,
+  "actual_bidirectional_transfers": 4,
+  "whole_identical_transfer_bytes": [
+    15808,
+    15808,
+    15808,
+    15808
+  ],
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "de609c8dcf1b1ffce18cf9e8773f0e9d82e8a719436c134210f3670f2422d62d",
+      "events": [
+        {
+          "event": "image",
+          "base": 16187392
+        },
+        {
+          "event": "ready",
+          "pid": 28372,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "d29556b9cc03f1760b975a426d57373f42a9bcecf9ca52badf8f694df2ad7261",
+      "events": [
+        {
+          "event": "image",
+          "base": 16187392
+        },
+        {
+          "event": "ready",
+          "pid": 28496,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "independent_world_timing_and_random_offer_differences_preserved": true,
+  "original_profile_fields_modified_by_probe": false,
+  "normalizations": [],
+  "production_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural20/40 contract streaks,high-price sale and final all-awards condition",
+    "Original paused warehouse click cause and source comparison remain unverified",
+    "Remaining Squall ABI/behavior,JNG,uninstaller and whole original goal scopes"
+  ]
+}

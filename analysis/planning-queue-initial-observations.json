@@ -1,0 +1,130 @@
+{
+  "status": "retained_original_input_observations_and_corrected_diagnostic_transition_gate",
+  "observations": [
+    {
+      "report": ".local/planning-queue/20261105T204758460055Z/report.json",
+      "sha256": "6399fddc864616de94a379161656ffe60bf98baae5f7680b2b870da6401853a2",
+      "original_store_clicks_not_enqueued": 3,
+      "actual_field_tasks_enqueued": 32,
+      "real_work_not_started": true,
+      "process_exit_code_captured": false,
+      "source_comparison_of_paused_warehouse_clicks_performed": false,
+      "cause_of_original_paused_warehouse_click_behavior_established": false,
+      "resolution": "Actual32 distinct digging tasks prove planning without interleaved inventory transfers",
+      "production_changed": false
+    },
+    {
+      "report": ".local/planning-queue/20261105T204922878437Z/report.json",
+      "sha256": "491bd2ba3ce493dc40d6af45e5c68d645c2c763690a7d92b6cd25043f8745774",
+      "original_store_clicks_not_enqueued": 3,
+      "actual_field_tasks_enqueued": 32,
+      "real_work_not_started": true,
+      "process_exit_code_captured": false,
+      "source_comparison_of_paused_warehouse_clicks_performed": false,
+      "cause_of_original_paused_warehouse_click_behavior_established": false,
+      "resolution": "Actual32 distinct digging tasks prove planning without interleaved inventory transfers",
+      "production_changed": false
+    },
+    {
+      "report": ".local/planning-queue-interop/20261105T205633135720Z/report.json",
+      "sha256": "8ec4330cb490a9c471e3830b3a7b6848a258422634ab677ffa4bfd111cbcd542",
+      "actual_completed_processes": 4,
+      "source_debugger_traces": {
+        "2-crash-trace.jsonl": {
+          "sha256": "67105cafc3a3506bd8ec95453b0787188ecf3fdbaee39fd8e2823f5e94321f7e",
+          "events": [
+            {
+              "event": "image",
+              "base": 2228224
+            },
+            {
+              "event": "ready",
+              "pid": 13956,
+              "game_memory_written": false
+            },
+            {
+              "event": "exit",
+              "exit_code": 0
+            }
+          ]
+        },
+        "5-crash-trace.jsonl": {
+          "sha256": "9d2a8313d5df86a4d0d756a24d5bfcb914a7be5c8e7f7c3762359d3e0a0a446e",
+          "events": [
+            {
+              "event": "image",
+              "base": 2228224
+            },
+            {
+              "event": "ready",
+              "pid": 21148,
+              "game_memory_written": false
+            },
+            {
+              "event": "exit",
+              "exit_code": 0
+            }
+          ]
+        }
+      },
+      "rejected_diagnostic_assumption": "Only dead-to-growing and growing-to-ready field transitions were allowed",
+      "actual_transition": {
+        "field": 38,
+        "before_ready": 1,
+        "after_growing": 0,
+        "before_water": "0.422783",
+        "after_water": "0"
+      },
+      "resolution": "Original ReadyAction0043da40/0043dee0 returns grass to growing when water reaches zero;require actual output water0",
+      "production_changed": false
+    }
+  ],
+  "diagnostic_paid_identifier_correction": "Original DigCost XML is empty;default0 and both actual Money2504 remain unchanged;no nonzero payment is claimed",
+  "original_instruction_file": ".local/planning-queue-native-instructions.txt",
+  "original_instruction_file_sha256": "85fd712f6d44cd5e82b2097670792bb4bf05275370b864c5abadfbd0c5b57f2f",
+  "original_queue_threshold_instruction_evidence": [
+    {
+      "address": "0045a900",
+      "bytes": "a15cff6500",
+      "op": "mov",
+      "operands": "eax,dword ptr ds:[0065FF5Ch]"
+    },
+    {
+      "address": "0045a905",
+      "bytes": "8b882c280000",
+      "op": "mov",
+      "operands": "ecx,dword ptr [eax+0000282Ch]"
+    },
+    {
+      "address": "0045a90f",
+      "bytes": "8b8030280000",
+      "op": "mov",
+      "operands": "eax,dword ptr [eax+00002830h]"
+    },
+    {
+      "address": "0045a915",
+      "bytes": "2bc1",
+      "op": "sub",
+      "operands": "eax,ecx"
+    },
+    {
+      "address": "0045a917",
+      "bytes": "c1f804",
+      "op": "sar",
+      "operands": "eax,4"
+    },
+    {
+      "address": "0045a91a",
+      "bytes": "83f81e",
+      "op": "cmp",
+      "operands": "eax,1Eh"
+    },
+    {
+      "address": "0045a91d",
+      "bytes": "726d",
+      "op": "jb",
+      "operands": "0045A98C"
+    }
+  ],
+  "whole_game_complete": false
+}
