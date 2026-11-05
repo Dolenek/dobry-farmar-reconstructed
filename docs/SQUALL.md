@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## ABI worker callbacků
+
+`tools/audit_squall_worker_signatures.py` prokazuje `Listener_SetWorker10004cf0` a `Channel_SetWorker10005b10` přes skutečné setter sloty, IsBadCodePtr, uložené pointery, parametry a periodu až do thread callbacků. Listener má cdecl callback s jedním opaque userdata pointerem a ignorovaným registrovým výsledkem. Channel má cdecl callback s integer ChannelID a opaque userdata, caller odstraní8 bajtů a skutečně testuje celý EAX; nula zavolá původní smazání sound bufferu. Init předává skutečný context10075034 přes CreateThread do10002580, jeho+130/+134/+138 přímo odpovídají setter cache10075164/68/6c. Channel sloty+124/+128/+11c mají přímo doloženou stejnou vazbu.
+
+Oba veřejné settery kontrolují nenulovou periodu jako unsigned32 a zachovají všechny bity. Vlastní channel scheduler10001ea0 pak používá signed JLE, zatímco listener scheduler10002671 unsigned JBE; tyto odlišné role se nezaměňují. Všech sedm C3 návratů má úplně inicializovaný integer EAX. `analysis/squall-worker-signatures.json` obsahuje PE-ověřené instrukce i source deklarace. ABI je aktuálně22/97, zbývá75. Produkce se neměnila, dřívější async behaviorální regrese nejsou nové běhy a celá Squall ani celý projekt tím nejsou dokončené.
+
 ## Veřejné souborové a paměťové callback ABI
 
 `tools/audit_squall_callback_signatures.py` nyní nezávisle prokazuje obě rozhraní `SetFileCallbacks` a `SetMemoryCallbacks` až po skutečné instrukce readeru. Veřejné pořadí souborových callbacků je Open/Seek/Read/Close. Původní wrapper `10003c50..10003c61` je záměrně přeskupí na interní Open/Read/Seek/Close, které `100085a0` uloží do10075990..1007599c. Reader bridge `1002dea0` tyto skutečné pointery předá konstruktoru `1002d470`; ten je uloží do+0/+4/+8/+c. Nezaměňují se názvy parametrů veřejného rozhraní s pořadím interní cache.

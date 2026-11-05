@@ -188,7 +188,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "7ae882be2fbe6ede01d1ad0d4ca79660fe668f40283d341cb3250e072832c8bc",
+  "source_tree_sha256": "898fb53bd5d8189d11902f6eb2d8478e9893e0a3fc20e006b93d78d7ffad9453",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -610,7 +610,8 @@
     "analysis/high-price-sale-regression.json",
     "analysis/squall-callback-signatures.json",
     "analysis/paused-deep-click-state-validation.json",
-    "analysis/paused-deep-click-regression.json"
+    "analysis/paused-deep-click-regression.json",
+    "analysis/squall-worker-signatures.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108531,8 +108532,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/paused-deep-click-regression.json",
-    "recorded_at_utc": "2026-11-05T21:26:17.151765+00:00",
+    "report": "analysis/squall-worker-signatures.json",
+    "recorded_at_utc": "2026-11-05T21:53:04.597886+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108557,7 +108558,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/paused-deep-click-regression.json",
+  "source_tree_hash_as_of_report": "analysis/squall-worker-signatures.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
@@ -108565,9 +108566,9 @@
     "scope": "Current tracker-loaders,late-timeline and campaign-loop reports;older records identify their original locally recorded bytes"
   },
   "native_squall_signature_semantics": {
-    "report": "analysis/squall-callback-signatures.json",
-    "verified_export_count": 20,
-    "remaining_export_count": 77,
+    "report": "analysis/squall-worker-signatures.json",
+    "verified_export_count": 22,
+    "remaining_export_count": 75,
     "whole_behavior_verified": false
   }
 }

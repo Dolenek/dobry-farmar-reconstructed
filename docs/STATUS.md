@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Worker callback ABI Squallu](SQUALL.md) nově dokládá listener/channel setter, skutečný1/2parametrový cdecl callback, opaque userdata, úplný channel EAX výsledek a všech sedm návratů. Původní unsigned setter perioda a odlišné signed/unsigned schedulery jsou výslovně rozlišené. Native ABI22/97, zbývá75; behaviorální rozsah se nenavyšuje a produkce se neměnila. Současný skutečný test série zakázek používá původní zásobovací GameInput příkaz a pokračuje v celých procesech; celý cíl zůstává aktivní.
+
 [Původní skladové kliky při pauze](PAUSED_DEEP_CLICK.md) jsou nyní vysvětlené i porovnané v obou celých EXE. Skladové XML má deep processing1, pole0; ověřené instrukce odloží stisk do dalšího enabledStep. Bez dalšího kliku po unpause skutečně uložil12 kusů. Přechod na immediate pole naopak čekající skladový vstup zrušil; následuje jedna sklizeň a normální uložení1. Obě větve mají osm skutečných snímků, sklad40→52→53, čítač44→45, Money2504 a celé15808bajtové saves beze změny. Dřívější otevřená příčina i source srovnání jsou tím uzavřené. Produkce a17 originálů se neměnily, celý cíl pokračuje.
 
 [Další dvě původní ABI signatury Squallu](SQUALL.md) mají úplný instrukční řetězec od veřejných slotů přes globály po skutečná callback volání readeru. Open/Seek/Read/Close veřejné pořadí a záměrné interní přeskupení jsou nezávisle doložené; stejně alokace/uvolnění, caller cleanup i oba EAX1/−4 návraty. Native ABI nyní20/97, zbývá77; behaviorální status se nenavyšuje. Produkce a17 originálů se neměnily, celý původní cíl pokračuje.

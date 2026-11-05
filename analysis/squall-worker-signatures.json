@@ -1,0 +1,552 @@
+{
+  "status": "passed_listed_native_argument_and_return_abi_semantics_only",
+  "recorded_at_utc": "2026-11-05T21:53:04.597886+00:00",
+  "auditor_sha256": "9d4a78494ff5216f87bf8a81e81ac99d30f3f2ffabb9acbe8665aabb9bb85867",
+  "publisher_sha256": "b0c76ef2dc798e67c4db1f667cd1265e529a79a6b7966b7adb766f88cfca700e",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "exports": [
+    {
+      "name": "SQUALL_Listener_SetWorker",
+      "original_address": "10004cf0",
+      "calling_convention": "cdecl",
+      "argument_slots": 3,
+      "argument_role": {
+        "arguments_in_public_order": [
+          "32-bit nullable code pointer;actual cdecl callback(void*),register result ignored",
+          "opaque32-bit userdata pointer stored and forwarded unchanged",
+          "unsigned32-bit period;zero rejected for nonnull callback"
+        ],
+        "independent_evidence": "Actual setter argument loads,code validation,storage and thread callback pushes/cleanup/result tests"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX on every C3 return",
+      "native_status_immediates": [
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "all_native_return_sites": [
+        "10004d3f",
+        "10004d69",
+        "10004d90"
+      ],
+      "definite_assignment_states": 51,
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Channel_SetWorker",
+      "original_address": "10005b10",
+      "calling_convention": "cdecl",
+      "argument_slots": 4,
+      "argument_role": {
+        "arguments_in_public_order": [
+          "32-bit integer channel handle consumed by actual resolver10002480",
+          "32-bit nullable code pointer;actual cdecl callback(int channel,void*) returns32-bit zero/nonzero in EAX",
+          "opaque32-bit userdata pointer stored and forwarded unchanged",
+          "unsigned32-bit setter period;zero rejected for nonnull callback"
+        ],
+        "independent_evidence": "Actual setter argument loads,code validation,storage and thread callback pushes/cleanup/result tests"
+      },
+      "return_role": "Complete initialized32-bit integer status in EAX on every C3 return",
+      "native_status_immediates": [
+        "0FFFFFFF4h",
+        "0FFFFFFFCh",
+        "0FFFFFFFFh",
+        "1"
+      ],
+      "all_native_return_sites": [
+        "10005b65",
+        "10005bb3",
+        "10005c10",
+        "10005c28"
+      ],
+      "definite_assignment_states": 85,
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    }
+  ],
+  "current_candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+  "new_runtime_audio_test_claimed": false,
+  "production_changed": false,
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "details": {
+    "instruction_file_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+    "instruction_evidence": [
+      {
+        "address": "10001eb3",
+        "bytes": "8b961c010000",
+        "op": "mov",
+        "operands": "edx,dword ptr [esi+0000011Ch]"
+      },
+      {
+        "address": "10001eb9",
+        "bytes": "3bca",
+        "op": "cmp",
+        "operands": "ecx,edx"
+      },
+      {
+        "address": "10001ebb",
+        "bytes": "7e2b",
+        "op": "jle",
+        "operands": "10001EE8"
+      },
+      {
+        "address": "10001ec3",
+        "bytes": "8b8624010000",
+        "op": "mov",
+        "operands": "eax,dword ptr [esi+00000124h]"
+      },
+      {
+        "address": "10001ecd",
+        "bytes": "8b9628010000",
+        "op": "mov",
+        "operands": "edx,dword ptr [esi+00000128h]"
+      },
+      {
+        "address": "10001ed3",
+        "bytes": "8b4e3c",
+        "op": "mov",
+        "operands": "ecx,dword ptr [esi+3Ch]"
+      },
+      {
+        "address": "10001ed6",
+        "bytes": "52",
+        "op": "push",
+        "operands": "edx"
+      },
+      {
+        "address": "10001ed7",
+        "bytes": "51",
+        "op": "push",
+        "operands": "ecx"
+      },
+      {
+        "address": "10001ed8",
+        "bytes": "ffd0",
+        "op": "call",
+        "operands": "eax"
+      },
+      {
+        "address": "10001eda",
+        "bytes": "83c408",
+        "op": "add",
+        "operands": "esp,8"
+      },
+      {
+        "address": "10001edd",
+        "bytes": "85c0",
+        "op": "test",
+        "operands": "eax,eax"
+      },
+      {
+        "address": "10001edf",
+        "bytes": "7507",
+        "op": "jne",
+        "operands": "10001EE8"
+      },
+      {
+        "address": "10001ee3",
+        "bytes": "e868f9ffff",
+        "op": "call",
+        "operands": "10001850"
+      },
+      {
+        "address": "10002583",
+        "bytes": "8b742410",
+        "op": "mov",
+        "operands": "esi,dword ptr [esp+10h]"
+      },
+      {
+        "address": "1000264f",
+        "bytes": "8b8630010000",
+        "op": "mov",
+        "operands": "eax,dword ptr [esi+00000130h]"
+      },
+      {
+        "address": "10002667",
+        "bytes": "8b8e38010000",
+        "op": "mov",
+        "operands": "ecx,dword ptr [esi+00000138h]"
+      },
+      {
+        "address": "1000266f",
+        "bytes": "3bc1",
+        "op": "cmp",
+        "operands": "eax,ecx"
+      },
+      {
+        "address": "10002671",
+        "bytes": "7618",
+        "op": "jbe",
+        "operands": "1000268B"
+      },
+      {
+        "address": "10002675",
+        "bytes": "8b8e34010000",
+        "op": "mov",
+        "operands": "ecx,dword ptr [esi+00000134h]"
+      },
+      {
+        "address": "10002681",
+        "bytes": "51",
+        "op": "push",
+        "operands": "ecx"
+      },
+      {
+        "address": "10002682",
+        "bytes": "ff9630010000",
+        "op": "call",
+        "operands": "dword ptr [esi+00000130h]"
+      },
+      {
+        "address": "10002688",
+        "bytes": "83c404",
+        "op": "add",
+        "operands": "esp,4"
+      },
+      {
+        "address": "100026b7",
+        "bytes": "8bf1",
+        "op": "mov",
+        "operands": "esi,ecx"
+      },
+      {
+        "address": "100026d8",
+        "bytes": "56",
+        "op": "push",
+        "operands": "esi"
+      },
+      {
+        "address": "100026d9",
+        "bytes": "6880250010",
+        "op": "push",
+        "operands": "10002580h"
+      },
+      {
+        "address": "100026e2",
+        "bytes": "ff1510800410",
+        "op": "call",
+        "operands": "dword ptr ds:[10048010h]"
+      },
+      {
+        "address": "100034a2",
+        "bytes": "b934500710",
+        "op": "mov",
+        "operands": "ecx,10075034h"
+      },
+      {
+        "address": "100034a7",
+        "bytes": "e804f2ffff",
+        "op": "call",
+        "operands": "100026B0"
+      },
+      {
+        "address": "10004cf2",
+        "bytes": "be01000000",
+        "op": "mov",
+        "operands": "esi,1"
+      },
+      {
+        "address": "10004d00",
+        "bytes": "83ceff",
+        "op": "or",
+        "operands": "esi,0FFFFFFFFh"
+      },
+      {
+        "address": "10004d14",
+        "bytes": "8b7c240c",
+        "op": "mov",
+        "operands": "edi,dword ptr [esp+0Ch]"
+      },
+      {
+        "address": "10004d3b",
+        "bytes": "8bc6",
+        "op": "mov",
+        "operands": "eax,esi"
+      },
+      {
+        "address": "10004d3f",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10004d40",
+        "bytes": "57",
+        "op": "push",
+        "operands": "edi"
+      },
+      {
+        "address": "10004d41",
+        "bytes": "ff1534800410",
+        "op": "call",
+        "operands": "dword ptr ds:[10048034h]"
+      },
+      {
+        "address": "10004d4b",
+        "bytes": "8b442414",
+        "op": "mov",
+        "operands": "eax,dword ptr [esp+14h]"
+      },
+      {
+        "address": "10004d4f",
+        "bytes": "85c0",
+        "op": "test",
+        "operands": "eax,eax"
+      },
+      {
+        "address": "10004d51",
+        "bytes": "7717",
+        "op": "ja",
+        "operands": "10004D6A"
+      },
+      {
+        "address": "10004d58",
+        "bytes": "befcffffff",
+        "op": "mov",
+        "operands": "esi,0FFFFFFFCh"
+      },
+      {
+        "address": "10004d65",
+        "bytes": "8bc6",
+        "op": "mov",
+        "operands": "eax,esi"
+      },
+      {
+        "address": "10004d69",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10004d6a",
+        "bytes": "8b4c2410",
+        "op": "mov",
+        "operands": "ecx,dword ptr [esp+10h]"
+      },
+      {
+        "address": "10004d6e",
+        "bytes": "893d64510710",
+        "op": "mov",
+        "operands": "dword ptr ds:[10075164h],edi"
+      },
+      {
+        "address": "10004d74",
+        "bytes": "890d68510710",
+        "op": "mov",
+        "operands": "dword ptr ds:[10075168h],ecx"
+      },
+      {
+        "address": "10004d7a",
+        "bytes": "a36c510710",
+        "op": "mov",
+        "operands": "dword ptr ds:[1007516Ch],eax"
+      },
+      {
+        "address": "10004d8c",
+        "bytes": "8bc6",
+        "op": "mov",
+        "operands": "eax,esi"
+      },
+      {
+        "address": "10004d90",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10005b13",
+        "bytes": "bd01000000",
+        "op": "mov",
+        "operands": "ebp,1"
+      },
+      {
+        "address": "10005b21",
+        "bytes": "83cdff",
+        "op": "or",
+        "operands": "ebp,0FFFFFFFFh"
+      },
+      {
+        "address": "10005b39",
+        "bytes": "8b442410",
+        "op": "mov",
+        "operands": "eax,dword ptr [esp+10h]"
+      },
+      {
+        "address": "10005b42",
+        "bytes": "50",
+        "op": "push",
+        "operands": "eax"
+      },
+      {
+        "address": "10005b43",
+        "bytes": "e838c9ffff",
+        "op": "call",
+        "operands": "10002480"
+      },
+      {
+        "address": "10005b53",
+        "bytes": "bdf4ffffff",
+        "op": "mov",
+        "operands": "ebp,0FFFFFFF4h"
+      },
+      {
+        "address": "10005b60",
+        "bytes": "8bc5",
+        "op": "mov",
+        "operands": "eax,ebp"
+      },
+      {
+        "address": "10005b65",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10005b66",
+        "bytes": "8b7c2414",
+        "op": "mov",
+        "operands": "edi,dword ptr [esp+14h]"
+      },
+      {
+        "address": "10005bae",
+        "bytes": "8bc5",
+        "op": "mov",
+        "operands": "eax,ebp"
+      },
+      {
+        "address": "10005bb3",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10005bb4",
+        "bytes": "57",
+        "op": "push",
+        "operands": "edi"
+      },
+      {
+        "address": "10005bb5",
+        "bytes": "ff1534800410",
+        "op": "call",
+        "operands": "dword ptr ds:[10048034h]"
+      },
+      {
+        "address": "10005bbf",
+        "bytes": "8b4c241c",
+        "op": "mov",
+        "operands": "ecx,dword ptr [esp+1Ch]"
+      },
+      {
+        "address": "10005bc3",
+        "bytes": "85c9",
+        "op": "test",
+        "operands": "ecx,ecx"
+      },
+      {
+        "address": "10005bc5",
+        "bytes": "764a",
+        "op": "jbe",
+        "operands": "10005C11"
+      },
+      {
+        "address": "10005bca",
+        "bytes": "8b1534510710",
+        "op": "mov",
+        "operands": "edx,dword ptr ds:[10075134h]"
+      },
+      {
+        "address": "10005bd0",
+        "bytes": "8b742418",
+        "op": "mov",
+        "operands": "esi,dword ptr [esp+18h]"
+      },
+      {
+        "address": "10005bd9",
+        "bytes": "8d0480",
+        "op": "lea",
+        "operands": "eax,[eax+eax*4]"
+      },
+      {
+        "address": "10005bdc",
+        "bytes": "8d0480",
+        "op": "lea",
+        "operands": "eax,[eax+eax*4]"
+      },
+      {
+        "address": "10005bdf",
+        "bytes": "c1e002",
+        "op": "shl",
+        "operands": "eax,2"
+      },
+      {
+        "address": "10005be2",
+        "bytes": "89bc1024010000",
+        "op": "mov",
+        "operands": "dword ptr [eax+edx+00000124h],edi"
+      },
+      {
+        "address": "10005bef",
+        "bytes": "89b41028010000",
+        "op": "mov",
+        "operands": "dword ptr [eax+edx+00000128h],esi"
+      },
+      {
+        "address": "10005bfc",
+        "bytes": "898c101c010000",
+        "op": "mov",
+        "operands": "dword ptr [eax+edx+0000011Ch],ecx"
+      },
+      {
+        "address": "10005c0b",
+        "bytes": "8bc5",
+        "op": "mov",
+        "operands": "eax,ebp"
+      },
+      {
+        "address": "10005c10",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      },
+      {
+        "address": "10005c11",
+        "bytes": "bdfcffffff",
+        "op": "mov",
+        "operands": "ebp,0FFFFFFFCh"
+      },
+      {
+        "address": "10005c23",
+        "bytes": "8bc5",
+        "op": "mov",
+        "operands": "eax,ebp"
+      },
+      {
+        "address": "10005c28",
+        "bytes": "c3",
+        "op": "ret",
+        "operands": ""
+      }
+    ],
+    "native_channel_scheduling_uses_signed_comparison": true,
+    "native_listener_scheduling_uses_unsigned_comparison": true,
+    "setter_millisecond_arguments_preserve_all32_bits": true,
+    "listener_callback_void_means_register_result_ignored": true,
+    "source_header_matches": true,
+    "new_runtime_audio_test_claimed": false,
+    "dataflow_assumption": "Standard Win32 x86 nonvolatile ESI/EBP preservation across native calls",
+    "behavior_reports": [
+      "analysis/squall-channel-worker-validation.json",
+      "analysis/squall-channel-worker-fresh-validation.json",
+      "analysis/squall-listener-worker-validation.json",
+      "analysis/squall-listener-worker-fresh-validation.json"
+    ]
+  }
+}
