@@ -1,5 +1,7 @@
 # Postřikovač a jeho vytvoření ve Farm
 
+[Navazující přirozené zavlažovací ocenění](NO_DRY_AWARD.md) už ověřilo všech60 aktivních polí, opakované skutečné přesuny jednoho kusu a nepřerušených1200 sekund. Oba celé panely a čtyři15808bajtové save přenosy souhlasí. Níže uvedená suchá neaktivní pole se vztahují k dřívější20polové etapě.
+
 Aktuální celý runtime už má skutečný Farm/Person/cField. `validate_game_irrigation.py` v obou celých EXE koupí tři postřikovače za600: Money5134→4534, pozice400/270,530/260,390/380 a všechny tři SPExist=true/SPStatus0. Jejich kruhy radius100 mají13/8/6 skutečných aktivních polí a sjednocení pokryje všech20 dostupných. Vláha se skutečně doplní nad118; po třetím nákupu původní UI další nabídku skryje a fyzické kliknutí už nic nekoupí.
 
 Další skutečný drag přesune první kus na stodolu120/100. Obě hry mají stejný červený spriteARGBff804040; neplatné uvolnění zachová SPStatus2 a původní uloženou pozici400/270. Kliknutí na platném130/280 jej položí s prázdným dosahem, bez další ceny. Původní pole14 skutečně ztrácí vodu. Normální drag/release zpět400/270 obnoví zavlažování. Všech17 pracovních kontrol na EXE má stejné peníze, držený nástroj, prázdný náklad a všechny příznaky/pozice postřikovačů. awNoDry zůstává false: dotaz zahrnuje i40 suchých neaktivních polí.

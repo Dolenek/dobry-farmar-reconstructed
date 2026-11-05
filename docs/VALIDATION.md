@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Skutečné dlouhodobé zavlažení](NO_DRY_AWARD.md): oba celé EXE71 přesunů,60 polí a přirozené ocenění po1200 sekundách bez resetu;480000 přesných RGB pixelů. Všech15808 save bajtů souhlasí s nezávisle zakódovanou původní deníkovou událostí. Čtyři další celé obousměrné přenosy prošly; obě source obnovy bez AV.
+
 [Skutečné souborové callbacky](SQUALL.md): každé ze dvou sestavení24576 kombinací,98304 přesných uložených slotů,30720 guarded PCM čtení/1683456 payload bajtů a18 řízených selhání. PC53/PC24 a tři lifecycle stavy mají samostatná měření FPU; původní neúspěšné diagnostiky se nevydávají za úspěch.
 
 [Skutečný konec příběhu a časová smyčka](CAMPAIGN_LOOP.md): dva celé normálně ukončené procesy,13 kontrolních bodů na EXE, doložený přechod14400→11190 a383 bitově odvozených nových koeficientů v každém save. Sedm peněžních definic a celý trh jsou nezávisle kontrolované; čtyři další obousměrné15605bajtové přenosy souhlasí, obě source obnovy bez AV.

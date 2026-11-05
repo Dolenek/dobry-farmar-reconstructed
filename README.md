@@ -1,5 +1,7 @@
 # Dobrý farmář — rekonstrukce
 
+[Přirozené zavlažovací ocenění](docs/NO_DRY_AWARD.md) prošlo v obou celých hrách: všech60 polí,71 skutečných přesunů postřikovače na EXE, nepřerušených1200 sekund a480000 přesných RGB pixelů panelu. Čtyři další15808bajtové obousměrné přenosy prošly; celý původní cíl pokračuje.
+
 [Souborové callbacky Squallu](docs/SQUALL.md) prošly v obou sestaveních po24576 kombinacích ukazatelů a30720 skutečných PCM čteních. Ověřené je původní uložení ukazatelů i při chybě, zachování vlastníka readeru a úklid při selhání; produkce se neměnila a celý původní cíl pokračuje.
 
 [Konec příběhu a první opakování času](docs/CAMPAIGN_LOOP.md) prošly v obou celých EXE:13 kontrolních bodů, skutečný přechod14400→11190, nezávisle ověřených383 nových koeficientů na běh a čtyři přesné15605bajtové přenosy. Produkce se neměnila; další herní a DLL rozsahy pokračují.

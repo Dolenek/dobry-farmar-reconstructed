@@ -67,7 +67,9 @@
       "analysis/late-timeline-state-validation.json",
       "analysis/late-timeline-interop-validation.json",
       "analysis/campaign-loop-state-validation.json",
-      "analysis/campaign-loop-interop-validation.json"
+      "analysis/campaign-loop-interop-validation.json",
+      "analysis/no-dry-award-state-validation.json",
+      "analysis/no-dry-award-interop-validation.json"
     ]
   },
   "build": {
@@ -174,7 +176,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "b42f3433d1b4d17d23c089ef0f14385e52de2c03786a273ba4f172725eae484a",
+  "source_tree_sha256": "df65cf0b3d65efe233fd6b1e3d01f783159ce1b4fc965c968ca3d35d1d54950c",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -550,7 +552,10 @@
     "analysis/squall-file-callbacks-main-validation.json",
     "analysis/squall-file-callbacks-fresh-validation.json",
     "analysis/squall-file-callbacks-initial-observations.json",
-    "analysis/squall-file-callbacks-regression.json"
+    "analysis/squall-file-callbacks-regression.json",
+    "analysis/no-dry-award-state-validation.json",
+    "analysis/no-dry-award-interop-validation.json",
+    "analysis/no-dry-award-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108471,8 +108476,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-file-callbacks-regression.json",
-    "recorded_at_utc": "2026-11-05T04:11:59.204804+00:00",
+    "report": "analysis/no-dry-award-regression.json",
+    "recorded_at_utc": "2026-11-05T04:24:22.826091+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108497,7 +108502,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/squall-file-callbacks-regression.json",
+  "source_tree_hash_as_of_report": "analysis/no-dry-award-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
