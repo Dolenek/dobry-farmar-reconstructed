@@ -1,0 +1,52 @@
+{
+  "status": "passed_eleven_direct_effect_methods_and_all32_actual_dispatch_commands_in_both_builds_only",
+  "recorded_at_utc": "2026-11-05T13:08:59.084858+00:00",
+  "recorder_sha256": "74888df407337280e5e8aaddff5216ba1856ea49a93bdc1a849a5300c82fea33",
+  "reports": {
+    "squall-tracker-effects-main-validation.json": "90dd117d3681d0ec5d2e1e437a5515cb82f41a7096c3fa37b0fb0fe2a69c0a54",
+    "squall-tracker-effects-fresh-validation.json": "174141db426ae9368bb151f24239573398dc938475c67d18508cd70e22f0feff"
+  },
+  "original_instructions_sha256": "39a537fd025656751d8ec9885f25e127c77a55fc57832c9552c01dfbb1381afa",
+  "actual_call_pairs_per_build": 1409024,
+  "complete_object_bytes_per_pair": 61196,
+  "initialized_object_bytes_compared_per_build": 86226632704,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "parameters": "all0..255",
+  "module_types": [
+    "MOD",
+    "S3M",
+    "IT",
+    "XM",
+    "MT2",
+    "STM",
+    "AMF",
+    "MOD|IT"
+  ],
+  "all_pointer_fields_zero_in_fixture": true,
+  "no_address_exclusions": true,
+  "no_original_factory_used": true,
+  "initial_manifest_observation": {
+    "directory": ".local/squall-tracker-effects/20261105T130404847891Z",
+    "failure": "Original preliminary manifest requested out-of-line source Vibrato,which optimization inlined;no probe executed",
+    "resolution": "Test actual production ProcessEffects dispatcher instead;no production flags or code changed"
+  },
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Active instrument/sample note lifecycle,volume-column commands and sequential effect histories",
+    "Public tracker playback and unsafe original factory/layout boundaries",
+    "Complete independent export signature semantics and remaining whole original goal scopes"
+  ]
+}

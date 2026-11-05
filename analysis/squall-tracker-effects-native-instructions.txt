@@ -1,0 +1,2138 @@
+Actual original tracker effects. Inline jump table bytes are data,not additional code.
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  10027870: 83 EC 2C           sub         esp,2Ch
+  10027873: 53                 push        ebx
+  10027874: 56                 push        esi
+  10027875: 57                 push        edi
+  10027876: 8B F9              mov         edi,ecx
+  10027878: 83 CA FF           or          edx,0FFFFFFFFh
+  1002787B: 83 C9 FF           or          ecx,0FFFFFFFFh
+  1002787E: 8B 9F 5C D0 00 00  mov         ebx,dword ptr [edi+0000D05Ch]
+  10027884: 83 C8 FF           or          eax,0FFFFFFFFh
+  10027887: 85 DB              test        ebx,ebx
+  10027889: 89 54 24 20        mov         dword ptr [esp+20h],edx
+  1002788D: 89 4C 24 24        mov         dword ptr [esp+24h],ecx
+  10027891: 89 44 24 30        mov         dword ptr [esp+30h],eax
+  10027895: 8D 77 08           lea         esi,[edi+8]
+  10027898: C7 44 24 10 00 00  mov         dword ptr [esp+10h],0
+            00 00
+  100278A0: 0F 86 13 0B 00 00  jbe         100283B9
+  100278A6: 55                 push        ebp
+  100278A7: 33 C0              xor         eax,eax
+  100278A9: 33 C9              xor         ecx,ecx
+  100278AB: 8A 86 F7 00 00 00  mov         al,byte ptr [esi+000000F7h]
+  100278B1: 8A 8E FA 00 00 00  mov         cl,byte ptr [esi+000000FAh]
+  100278B7: 89 44 24 18        mov         dword ptr [esp+18h],eax
+  100278BB: 33 D2              xor         edx,edx
+  100278BD: 8A 96 F8 00 00 00  mov         dl,byte ptr [esi+000000F8h]
+  100278C3: 33 C0              xor         eax,eax
+  100278C5: 8A 86 F9 00 00 00  mov         al,byte ptr [esi+000000F9h]
+  100278CB: 33 DB              xor         ebx,ebx
+  100278CD: 8A 9E FB 00 00 00  mov         bl,byte ptr [esi+000000FBh]
+  100278D3: 83 F9 04           cmp         ecx,4
+  100278D6: 89 54 24 2C        mov         dword ptr [esp+2Ch],edx
+  100278DA: 89 44 24 10        mov         dword ptr [esp+10h],eax
+  100278DE: 89 4C 24 38        mov         dword ptr [esp+38h],ecx
+  100278E2: 74 12              je          100278F6
+  100278E4: 83 F9 06           cmp         ecx,6
+  100278E7: 74 0D              je          100278F6
+  100278E9: 83 FA 0B           cmp         edx,0Bh
+  100278EC: C7 44 24 20 00 00  mov         dword ptr [esp+20h],0
+            00 00
+  100278F4: 75 08              jne         100278FE
+  100278F6: C7 44 24 20 01 00  mov         dword ptr [esp+20h],1
+            00 00
+  100278FE: 8B 56 24           mov         edx,dword ptr [esi+24h]
+  10027901: 33 ED              xor         ebp,ebp
+  10027903: 81 E2 FF FF FF FE  and         edx,0FEFFFFFFh
+  10027909: 83 F9 13           cmp         ecx,13h
+  1002790C: 89 6C 24 30        mov         dword ptr [esp+30h],ebp
+  10027910: 89 56 24           mov         dword ptr [esi+24h],edx
+  10027913: 74 05              je          1002791A
+  10027915: 83 F9 14           cmp         ecx,14h
+  10027918: 75 7E              jne         10027998
+  1002791A: 85 DB              test        ebx,ebx
+  1002791C: 75 11              jne         1002792F
+  1002791E: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],22h
+            22
+  10027925: 74 08              je          1002792F
+  10027927: 8A 9E E9 00 00 00  mov         bl,byte ptr [esi+000000E9h]
+  1002792D: EB 06              jmp         10027935
+  1002792F: 88 9E E9 00 00 00  mov         byte ptr [esi+000000E9h],bl
+  10027935: 8B C3              mov         eax,ebx
+  10027937: 25 F0 00 00 00     and         eax,0F0h
+  1002793C: 3D D0 00 00 00     cmp         eax,0D0h
+  10027941: 75 0B              jne         1002794E
+  10027943: 8B EB              mov         ebp,ebx
+  10027945: 83 E5 0F           and         ebp,0Fh
+  10027948: 89 6C 24 30        mov         dword ptr [esp+30h],ebp
+  1002794C: EB 4A              jmp         10027998
+  1002794E: 8B 97 78 D0 00 00  mov         edx,dword ptr [edi+0000D078h]
+  10027954: 85 D2              test        edx,edx
+  10027956: 75 40              jne         10027998
+  10027958: 83 F8 60           cmp         eax,60h
+  1002795B: 75 05              jne         10027962
+  1002795D: 83 F9 13           cmp         ecx,13h
+  10027960: 74 0C              je          1002796E
+  10027962: 3D B0 00 00 00     cmp         eax,0B0h
+  10027967: 75 1D              jne         10027986
+  10027969: 83 F9 14           cmp         ecx,14h
+  1002796C: 75 18              jne         10027986
+  1002796E: 8B C3              mov         eax,ebx
+  10027970: 8B CF              mov         ecx,edi
+  10027972: 83 E0 0F           and         eax,0Fh
+  10027975: 50                 push        eax
+  10027976: 56                 push        esi
+  10027977: E8 24 25 00 00     call        10029EA0
+  1002797C: 85 C0              test        eax,eax
+  1002797E: 7C 18              jl          10027998
+  10027980: 89 44 24 34        mov         dword ptr [esp+34h],eax
+  10027984: EB 12              jmp         10027998
+  10027986: 3D E0 00 00 00     cmp         eax,0E0h
+  1002798B: 75 0B              jne         10027998
+  1002798D: 8B CB              mov         ecx,ebx
+  1002798F: 83 E1 0F           and         ecx,0Fh
+  10027992: 89 8F 80 D0 00 00  mov         dword ptr [edi+0000D080h],ecx
+  10027998: 39 AF 78 D0 00 00  cmp         dword ptr [edi+0000D078h],ebp
+  1002799E: 0F 85 BA 02 00 00  jne         10027C5E
+  100279A4: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  100279A8: 33 C0              xor         eax,eax
+  100279AA: 8A 86 F6 00 00 00  mov         al,byte ptr [esi+000000F6h]
+  100279B0: 33 D2              xor         edx,edx
+  100279B2: 3B CA              cmp         ecx,edx
+  100279B4: 89 44 24 1C        mov         dword ptr [esp+1Ch],eax
+  100279B8: 74 06              je          100279C0
+  100279BA: 88 8E D7 00 00 00  mov         byte ptr [esi+000000D7h],cl
+  100279C0: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100005h
+            05 00 10 00
+  100279CA: 74 32              je          100279FE
+  100279CC: 3D FF 00 00 00     cmp         eax,0FFh
+  100279D1: 75 2B              jne         100279FE
+  100279D3: 8B 96 8C 00 00 00  mov         edx,dword ptr [esi+0000008Ch]
+  100279D9: 85 D2              test        edx,edx
+  100279DB: 74 0A              je          100279E7
+  100279DD: F6 42 04 01        test        byte ptr [edx+4],1
+  100279E1: 0F 85 B1 00 00 00  jne         10027A98
+  100279E7: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  100279EA: C7 46 74 00 00 00  mov         dword ptr [esi+74h],0
+            00
+  100279F1: 0D 00 00 00 01     or          eax,1000000h
+  100279F6: 89 46 24           mov         dword ptr [esi+24h],eax
+  100279F9: E9 02 02 00 00     jmp         10027C00
+  100279FE: 3B C2              cmp         eax,edx
+  10027A00: 0F 85 92 00 00 00  jne         10027A98
+  10027A06: 3B CA              cmp         ecx,edx
+  10027A08: 0F 84 8A 00 00 00  je          10027A98
+  10027A0E: 39 97 74 D0 00 00  cmp         dword ptr [edi+0000D074h],edx
+  10027A14: 74 55              je          10027A6B
+  10027A16: 8B 86 90 00 00 00  mov         eax,dword ptr [esi+00000090h]
+  10027A1C: 3B C2              cmp         eax,edx
+  10027A1E: 74 09              je          10027A29
+  10027A20: 33 C9              xor         ecx,ecx
+  10027A22: 66 8B 48 1E        mov         cx,word ptr [eax+1Eh]
+  10027A26: 89 4E 74           mov         dword ptr [esi+74h],ecx
+  10027A29: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10027A33: 74 4E              je          10027A83
+  10027A35: 89 96 94 00 00 00  mov         dword ptr [esi+00000094h],edx
+  10027A3B: 89 96 98 00 00 00  mov         dword ptr [esi+00000098h],edx
+  10027A41: 89 96 9C 00 00 00  mov         dword ptr [esi+0000009Ch],edx
+  10027A47: 89 96 BC 00 00 00  mov         dword ptr [esi+000000BCh],edx
+  10027A4D: 89 96 C0 00 00 00  mov         dword ptr [esi+000000C0h],edx
+  10027A53: 8B 56 24           mov         edx,dword ptr [esi+24h]
+  10027A56: 80 E6 FB           and         dh,0FBh
+  10027A59: C7 46 7C 00 00 01  mov         dword ptr [esi+7Ch],10000h
+            00
+  10027A60: 81 CA 00 00 00 01  or          edx,1000000h
+  10027A66: 89 56 24           mov         dword ptr [esi+24h],edx
+  10027A69: EB 18              jmp         10027A83
+  10027A6B: 81 F9 F0 00 00 00  cmp         ecx,0F0h
+  10027A71: 73 10              jae         10027A83
+  10027A73: C1 E1 06           shl         ecx,6
+  10027A76: 33 C0              xor         eax,eax
+  10027A78: 66 8B 84 39 66 51  mov         ax,word ptr [ecx+edi+00005166h]
+            00 00
+  10027A80: 89 46 74           mov         dword ptr [esi+74h],eax
+  10027A83: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],20h
+            20
+  10027A8A: 0F 84 70 01 00 00  je          10027C00
+  10027A90: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10027A94: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10027A98: 81 F9 F0 00 00 00  cmp         ecx,0F0h
+  10027A9E: 72 06              jb          10027AA6
+  10027AA0: 33 C9              xor         ecx,ecx
+  10027AA2: 89 4C 24 18        mov         dword ptr [esp+18h],ecx
+  10027AA6: 3D FE 00 00 00     cmp         eax,0FEh
+  10027AAB: 72 06              jb          10027AB3
+  10027AAD: 33 C9              xor         ecx,ecx
+  10027AAF: 89 4C 24 18        mov         dword ptr [esp+18h],ecx
+  10027AB3: 85 C0              test        eax,eax
+  10027AB5: 74 33              je          10027AEA
+  10027AB7: 3D 80 00 00 00     cmp         eax,80h
+  10027ABC: 77 2C              ja          10027AEA
+  10027ABE: 88 86 D6 00 00 00  mov         byte ptr [esi+000000D6h],al
+  10027AC4: 77 24              ja          10027AEA
+  10027AC6: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10027ACA: 85 C0              test        eax,eax
+  10027ACC: 75 1C              jne         10027AEA
+  10027ACE: 8B 4C 24 1C        mov         ecx,dword ptr [esp+1Ch]
+  10027AD2: 8B 54 24 18        mov         edx,dword ptr [esp+18h]
+  10027AD6: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10027ADA: 6A 00              push        0
+  10027ADC: 51                 push        ecx
+  10027ADD: 52                 push        edx
+  10027ADE: 50                 push        eax
+  10027ADF: 8B CF              mov         ecx,edi
+  10027AE1: E8 6A FA FF FF     call        10027550
+  10027AE6: 8B 4C 24 18        mov         ecx,dword ptr [esp+18h]
+  10027AEA: 85 C9              test        ecx,ecx
+  10027AEC: 74 50              je          10027B3E
+  10027AEE: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  10027AF2: 8B 54 24 18        mov         edx,dword ptr [esp+18h]
+  10027AF6: 8B AE 90 00 00 00  mov         ebp,dword ptr [esi+00000090h]
+  10027AFC: 6A 01              push        1
+  10027AFE: 6A 01              push        1
+  10027B00: 51                 push        ecx
+  10027B01: 52                 push        edx
+  10027B02: 56                 push        esi
+  10027B03: 8B CF              mov         ecx,edi
+  10027B05: E8 86 F1 FF FF     call        10026C90
+  10027B0A: C6 86 D7 00 00 00  mov         byte ptr [esi+000000D7h],0
+            00
+  10027B11: 8A 87 6C D0 00 00  mov         al,byte ptr [edi+0000D06Ch]
+  10027B17: A8 22              test        al,22h
+  10027B19: 74 23              je          10027B3E
+  10027B1B: 3B AE 90 00 00 00  cmp         ebp,dword ptr [esi+00000090h]
+  10027B21: 74 1B              je          10027B3E
+  10027B23: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10027B27: 85 C0              test        eax,eax
+  10027B29: 0F 84 D1 00 00 00  je          10027C00
+  10027B2F: 3D 80 00 00 00     cmp         eax,80h
+  10027B34: 73 08              jae         10027B3E
+  10027B36: C7 44 24 20 00 00  mov         dword ptr [esp+20h],0
+            00 00
+  10027B3E: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10027B42: 85 C0              test        eax,eax
+  10027B44: 0F 84 B6 00 00 00  je          10027C00
+  10027B4A: 8B 44 24 18        mov         eax,dword ptr [esp+18h]
+  10027B4E: 85 C0              test        eax,eax
+  10027B50: 75 44              jne         10027B96
+  10027B52: 8A 86 D7 00 00 00  mov         al,byte ptr [esi+000000D7h]
+  10027B58: 84 C0              test        al,al
+  10027B5A: 74 3A              je          10027B96
+  10027B5C: 81 7C 24 1C 80 00  cmp         dword ptr [esp+1Ch],80h
+            00 00
+  10027B64: 73 30              jae         10027B96
+  10027B66: 8B 8F 6C D0 00 00  mov         ecx,dword ptr [edi+0000D06Ch]
+  10027B6C: 8B 6C 24 20        mov         ebp,dword ptr [esp+20h]
+  10027B70: 81 E1 04 00 10 00  and         ecx,100004h
+  10027B76: F7 D9              neg         ecx
+  10027B78: 1B C9              sbb         ecx,ecx
+  10027B7A: 25 FF 00 00 00     and         eax,0FFh
+  10027B7F: 41                 inc         ecx
+  10027B80: 51                 push        ecx
+  10027B81: 6A 00              push        0
+  10027B83: 55                 push        ebp
+  10027B84: 50                 push        eax
+  10027B85: 56                 push        esi
+  10027B86: 8B CF              mov         ecx,edi
+  10027B88: E8 03 F1 FF FF     call        10026C90
+  10027B8D: C6 86 D7 00 00 00  mov         byte ptr [esi+000000D7h],0
+            00
+  10027B94: EB 04              jmp         10027B9A
+  10027B96: 8B 6C 24 20        mov         ebp,dword ptr [esp+20h]
+  10027B9A: 8B 97 6C D0 00 00  mov         edx,dword ptr [edi+0000D06Ch]
+  10027BA0: 8B 44 24 1C        mov         eax,dword ptr [esp+1Ch]
+  10027BA4: 81 E2 04 00 10 00  and         edx,100004h
+  10027BAA: 8B 4C 24 14        mov         ecx,dword ptr [esp+14h]
+  10027BAE: F7 DA              neg         edx
+  10027BB0: 1B D2              sbb         edx,edx
+  10027BB2: 42                 inc         edx
+  10027BB3: 52                 push        edx
+  10027BB4: 55                 push        ebp
+  10027BB5: 50                 push        eax
+  10027BB6: 51                 push        ecx
+  10027BB7: 8B CF              mov         ecx,edi
+  10027BB9: E8 52 F4 FF FF     call        10027010
+  10027BBE: 33 C0              xor         eax,eax
+  10027BC0: 3B E8              cmp         ebp,eax
+  10027BC2: 74 3C              je          10027C00
+  10027BC4: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10027BCE: 74 30              je          10027C00
+  10027BD0: 39 44 24 18        cmp         dword ptr [esp+18h],eax
+  10027BD4: 74 2A              je          10027C00
+  10027BD6: 8B 4E 24           mov         ecx,dword ptr [esi+24h]
+  10027BD9: 89 86 94 00 00 00  mov         dword ptr [esi+00000094h],eax
+  10027BDF: 81 C9 00 00 00 01  or          ecx,1000000h
+  10027BE5: 89 86 98 00 00 00  mov         dword ptr [esi+00000098h],eax
+  10027BEB: 89 4E 24           mov         dword ptr [esi+24h],ecx
+  10027BEE: 89 86 9C 00 00 00  mov         dword ptr [esi+0000009Ch],eax
+  10027BF4: 89 86 BC 00 00 00  mov         dword ptr [esi+000000BCh],eax
+  10027BFA: 89 86 C0 00 00 00  mov         dword ptr [esi+000000C0h],eax
+  10027C00: 8B 44 24 2C        mov         eax,dword ptr [esp+2Ch]
+  10027C04: 83 F8 01           cmp         eax,1
+  10027C07: 75 28              jne         10027C31
+  10027C09: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027C0D: 83 F8 40           cmp         eax,40h
+  10027C10: 76 05              jbe         10027C17
+  10027C12: B8 40 00 00 00     mov         eax,40h
+  10027C17: 8D 14 85 00 00 00  lea         edx,[eax*4+00000000h]
+            00
+  10027C1E: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  10027C21: 0D 00 00 00 01     or          eax,1000000h
+  10027C26: 89 56 74           mov         dword ptr [esi+74h],edx
+  10027C29: 89 46 24           mov         dword ptr [esi+24h],eax
+  10027C2C: E9 B9 01 00 00     jmp         10027DEA
+  10027C31: 83 F8 02           cmp         eax,2
+  10027C34: 75 24              jne         10027C5A
+  10027C36: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027C3A: 83 F8 40           cmp         eax,40h
+  10027C3D: 76 05              jbe         10027C44
+  10027C3F: B8 40 00 00 00     mov         eax,40h
+  10027C44: C1 E0 02           shl         eax,2
+  10027C47: 89 46 78           mov         dword ptr [esi+78h],eax
+  10027C4A: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  10027C4D: 0D 00 00 00 01     or          eax,1000000h
+  10027C52: 89 46 24           mov         dword ptr [esi+24h],eax
+  10027C55: E9 90 01 00 00     jmp         10027DEA
+  10027C5A: 8B 6C 24 30        mov         ebp,dword ptr [esp+30h]
+  10027C5E: 83 7C 24 2C 02     cmp         dword ptr [esp+2Ch],2
+  10027C63: 0F 86 81 01 00 00  jbe         10027DEA
+  10027C69: 39 AF 78 D0 00 00  cmp         dword ptr [edi+0000D078h],ebp
+  10027C6F: 0F 82 75 01 00 00  jb          10027DEA
+  10027C75: 8B 4C 24 2C        mov         ecx,dword ptr [esp+2Ch]
+  10027C79: 83 F9 0B           cmp         ecx,0Bh
+  10027C7C: 75 37              jne         10027CB5
+  10027C7E: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],20h
+            20
+  10027C85: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027C89: 74 19              je          10027CA4
+  10027C8B: 83 E0 0F           and         eax,0Fh
+  10027C8E: 33 C9              xor         ecx,ecx
+  10027C90: 8A 88 B0 E1 05 10  mov         cl,byte ptr [eax+1005E1B0h]
+  10027C96: 51                 push        ecx
+  10027C97: 56                 push        esi
+  10027C98: 8B CF              mov         ecx,edi
+  10027C9A: E8 41 0D 00 00     call        100289E0
+  10027C9F: E9 46 01 00 00     jmp         10027DEA
+  10027CA4: C1 E0 04           shl         eax,4
+  10027CA7: 50                 push        eax
+  10027CA8: 56                 push        esi
+  10027CA9: 8B CF              mov         ecx,edi
+  10027CAB: E8 30 0D 00 00     call        100289E0
+  10027CB0: E9 35 01 00 00     jmp         10027DEA
+  10027CB5: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027CB9: 85 C0              test        eax,eax
+  10027CBB: 74 08              je          10027CC5
+  10027CBD: 88 86 EA 00 00 00  mov         byte ptr [esi+000000EAh],al
+  10027CC3: EB 0C              jmp         10027CD1
+  10027CC5: 33 C0              xor         eax,eax
+  10027CC7: 8A 86 EA 00 00 00  mov         al,byte ptr [esi+000000EAh]
+  10027CCD: 89 44 24 10        mov         dword ptr [esp+10h],eax
+  10027CD1: 8D 41 FD           lea         eax,[ecx-3]
+  10027CD4: 83 F8 0A           cmp         eax,0Ah
+  10027CD7: 0F 87 0D 01 00 00  ja          10027DEA
+  10027CDD: FF 24 85 EC 84 02  jmp         dword ptr [eax*4+100284ECh]
+            10
+  10027CE4: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027CE8: 8B CF              mov         ecx,edi
+  10027CEA: C1 E0 04           shl         eax,4
+  10027CED: 50                 push        eax
+  10027CEE: 56                 push        esi
+  10027CEF: E8 DC 0E 00 00     call        10028BD0
+  10027CF4: E9 F1 00 00 00     jmp         10027DEA
+  10027CF9: 8B 54 24 10        mov         edx,dword ptr [esp+10h]
+  10027CFD: 8B CF              mov         ecx,edi
+  10027CFF: 52                 push        edx
+  10027D00: 56                 push        esi
+  10027D01: E8 CA 0E 00 00     call        10028BD0
+  10027D06: E9 DF 00 00 00     jmp         10027DEA
+  10027D0B: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],20h
+            20
+  10027D12: 74 23              je          10027D37
+  10027D14: 39 AF 78 D0 00 00  cmp         dword ptr [edi+0000D078h],ebp
+  10027D1A: 0F 85 CA 00 00 00  jne         10027DEA
+  10027D20: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027D24: 8B CF              mov         ecx,edi
+  10027D26: C1 E0 04           shl         eax,4
+  10027D29: 0C 0F              or          al,0Fh
+  10027D2B: 50                 push        eax
+  10027D2C: 56                 push        esi
+  10027D2D: E8 9E 0E 00 00     call        10028BD0
+  10027D32: E9 B3 00 00 00     jmp         10027DEA
+  10027D37: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027D3B: 8B CF              mov         ecx,edi
+  10027D3D: 50                 push        eax
+  10027D3E: 56                 push        esi
+  10027D3F: E8 6C 10 00 00     call        10028DB0
+  10027D44: E9 A1 00 00 00     jmp         10027DEA
+  10027D49: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],20h
+            20
+  10027D50: 74 1D              je          10027D6F
+  10027D52: 39 AF 78 D0 00 00  cmp         dword ptr [edi+0000D078h],ebp
+  10027D58: 0F 85 8C 00 00 00  jne         10027DEA
+  10027D5E: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027D62: 8B CF              mov         ecx,edi
+  10027D64: 0C F0              or          al,0F0h
+  10027D66: 50                 push        eax
+  10027D67: 56                 push        esi
+  10027D68: E8 63 0E 00 00     call        10028BD0
+  10027D6D: EB 7B              jmp         10027DEA
+  10027D6F: 8B 4C 24 10        mov         ecx,dword ptr [esp+10h]
+  10027D73: 51                 push        ecx
+  10027D74: 56                 push        esi
+  10027D75: 8B CF              mov         ecx,edi
+  10027D77: E8 94 10 00 00     call        10028E10
+  10027D7C: EB 6C              jmp         10027DEA
+  10027D7E: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027D82: 8B CF              mov         ecx,edi
+  10027D84: C1 E0 04           shl         eax,4
+  10027D87: 50                 push        eax
+  10027D88: 56                 push        esi
+  10027D89: E8 A2 0D 00 00     call        10028B30
+  10027D8E: EB 5A              jmp         10027DEA
+  10027D90: 8B 54 24 10        mov         edx,dword ptr [esp+10h]
+  10027D94: 8B CF              mov         ecx,edi
+  10027D96: 52                 push        edx
+  10027D97: 56                 push        esi
+  10027D98: E8 93 0D 00 00     call        10028B30
+  10027D9D: EB 4B              jmp         10027DEA
+  10027D9F: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027DA3: 8B CF              mov         ecx,edi
+  10027DA5: 50                 push        eax
+  10027DA6: 56                 push        esi
+  10027DA7: E8 24 0F 00 00     call        10028CD0
+  10027DAC: EB 3C              jmp         10027DEA
+  10027DAE: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027DB2: 8B CF              mov         ecx,edi
+  10027DB4: C1 E0 04           shl         eax,4
+  10027DB7: 50                 push        eax
+  10027DB8: 56                 push        esi
+  10027DB9: E8 12 0F 00 00     call        10028CD0
+  10027DBE: EB 2A              jmp         10027DEA
+  10027DC0: 8B 4C 24 10        mov         ecx,dword ptr [esp+10h]
+  10027DC4: 8D 14 8D 00 00 00  lea         edx,[ecx*4+00000000h]
+            00
+  10027DCB: 8B CF              mov         ecx,edi
+  10027DCD: 52                 push        edx
+  10027DCE: 56                 push        esi
+  10027DCF: E8 6C 08 00 00     call        10028640
+  10027DD4: EB 14              jmp         10027DEA
+  10027DD6: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10027DDA: 8D 0C 85 00 00 00  lea         ecx,[eax*4+00000000h]
+            00
+  10027DE1: 51                 push        ecx
+  10027DE2: 56                 push        esi
+  10027DE3: 8B CF              mov         ecx,edi
+  10027DE5: E8 E6 08 00 00     call        100286D0
+  10027DEA: 8B 44 24 38        mov         eax,dword ptr [esp+38h]
+  10027DEE: 85 C0              test        eax,eax
+  10027DF0: 0F 84 99 05 00 00  je          1002838F
+  10027DF6: 48                 dec         eax
+  10027DF7: 83 F8 1E           cmp         eax,1Eh
+  10027DFA: 0F 87 8F 05 00 00  ja          1002838F
+  10027E00: FF 24 85 18 85 02  jmp         dword ptr [eax*4+10028518h]
+            10
+  10027E07: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10027E0D: 85 C0              test        eax,eax
+  10027E0F: 0F 85 7A 05 00 00  jne         1002838F
+  10027E15: 83 FB 40           cmp         ebx,40h
+  10027E18: 73 16              jae         10027E30
+  10027E1A: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  10027E1D: C1 E3 02           shl         ebx,2
+  10027E20: 0D 00 00 00 01     or          eax,1000000h
+  10027E25: 89 5E 74           mov         dword ptr [esi+74h],ebx
+  10027E28: 89 46 24           mov         dword ptr [esi+24h],eax
+  10027E2B: E9 5F 05 00 00     jmp         1002838F
+  10027E30: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  10027E33: BB 00 01 00 00     mov         ebx,100h
+  10027E38: 0D 00 00 00 01     or          eax,1000000h
+  10027E3D: 89 5E 74           mov         dword ptr [esi+74h],ebx
+  10027E40: 89 46 24           mov         dword ptr [esi+24h],eax
+  10027E43: E9 47 05 00 00     jmp         1002838F
+  10027E48: 85 DB              test        ebx,ebx
+  10027E4A: 75 0D              jne         10027E59
+  10027E4C: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],1
+            01
+  10027E53: 0F 85 36 05 00 00  jne         1002838F
+  10027E59: 53                 push        ebx
+  10027E5A: 56                 push        esi
+  10027E5B: 8B CF              mov         ecx,edi
+  10027E5D: E8 DE 07 00 00     call        10028640
+  10027E62: E9 28 05 00 00     jmp         1002838F
+  10027E67: 85 DB              test        ebx,ebx
+  10027E69: 75 0D              jne         10027E78
+  10027E6B: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],1
+            01
+  10027E72: 0F 85 17 05 00 00  jne         1002838F
+  10027E78: 53                 push        ebx
+  10027E79: 56                 push        esi
+  10027E7A: 8B CF              mov         ecx,edi
+  10027E7C: E8 4F 08 00 00     call        100286D0
+  10027E81: E9 09 05 00 00     jmp         1002838F
+  10027E86: 85 DB              test        ebx,ebx
+  10027E88: 75 0D              jne         10027E97
+  10027E8A: 83 BF 6C D0 00 00  cmp         dword ptr [edi+0000D06Ch],1
+            01
+  10027E91: 0F 84 F8 04 00 00  je          1002838F
+  10027E97: 53                 push        ebx
+  10027E98: 56                 push        esi
+  10027E99: 8B CF              mov         ecx,edi
+  10027E9B: E8 30 0D 00 00     call        10028BD0
+  10027EA0: E9 EA 04 00 00     jmp         1002838F
+  10027EA5: 53                 push        ebx
+  10027EA6: 56                 push        esi
+  10027EA7: 8B CF              mov         ecx,edi
+  10027EA9: E8 32 0B 00 00     call        100289E0
+  10027EAE: E9 DC 04 00 00     jmp         1002838F
+  10027EB3: 85 DB              test        ebx,ebx
+  10027EB5: 75 09              jne         10027EC0
+  10027EB7: 83 BF 6C D0 00 00  cmp         dword ptr [edi+0000D06Ch],1
+            01
+  10027EBE: 74 09              je          10027EC9
+  10027EC0: 53                 push        ebx
+  10027EC1: 56                 push        esi
+  10027EC2: 8B CF              mov         ecx,edi
+  10027EC4: E8 07 0D 00 00     call        10028BD0
+  10027EC9: 6A 00              push        0
+  10027ECB: 56                 push        esi
+  10027ECC: 8B CF              mov         ecx,edi
+  10027ECE: E8 0D 0B 00 00     call        100289E0
+  10027ED3: E9 B7 04 00 00     jmp         1002838F
+  10027ED8: 53                 push        ebx
+  10027ED9: 56                 push        esi
+  10027EDA: 8B CF              mov         ecx,edi
+  10027EDC: E8 4F 0C 00 00     call        10028B30
+  10027EE1: E9 A9 04 00 00     jmp         1002838F
+  10027EE6: 85 DB              test        ebx,ebx
+  10027EE8: 75 09              jne         10027EF3
+  10027EEA: 83 BF 6C D0 00 00  cmp         dword ptr [edi+0000D06Ch],1
+            01
+  10027EF1: 74 09              je          10027EFC
+  10027EF3: 53                 push        ebx
+  10027EF4: 56                 push        esi
+  10027EF5: 8B CF              mov         ecx,edi
+  10027EF7: E8 D4 0C 00 00     call        10028BD0
+  10027EFC: 6A 00              push        0
+  10027EFE: 56                 push        esi
+  10027EFF: 8B CF              mov         ecx,edi
+  10027F01: E8 2A 0C 00 00     call        10028B30
+  10027F06: E9 84 04 00 00     jmp         1002838F
+  10027F0B: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10027F11: 85 C0              test        eax,eax
+  10027F13: 0F 85 76 04 00 00  jne         1002838F
+  10027F19: 53                 push        ebx
+  10027F1A: 8B CF              mov         ecx,edi
+  10027F1C: E8 BF 1E 00 00     call        10029DE0
+  10027F21: E9 69 04 00 00     jmp         1002838F
+  10027F26: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10027F2C: 85 C0              test        eax,eax
+  10027F2E: 0F 85 5B 04 00 00  jne         1002838F
+  10027F34: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],22h
+            22
+  10027F3B: 74 1F              je          10027F5C
+  10027F3D: 85 DB              test        ebx,ebx
+  10027F3F: 74 13              je          10027F54
+  10027F41: 53                 push        ebx
+  10027F42: 8B CF              mov         ecx,edi
+  10027F44: 88 9E EB 00 00 00  mov         byte ptr [esi+000000EBh],bl
+  10027F4A: E8 D1 1E 00 00     call        10029E20
+  10027F4F: E9 3B 04 00 00     jmp         1002838F
+  10027F54: 33 DB              xor         ebx,ebx
+  10027F56: 8A 9E EB 00 00 00  mov         bl,byte ptr [esi+000000EBh]
+  10027F5C: 53                 push        ebx
+  10027F5D: 8B CF              mov         ecx,edi
+  10027F5F: E8 BC 1E 00 00     call        10029E20
+  10027F64: E9 26 04 00 00     jmp         1002838F
+  10027F69: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10027F6F: 85 C0              test        eax,eax
+  10027F71: 0F 85 18 04 00 00  jne         1002838F
+  10027F77: 85 DB              test        ebx,ebx
+  10027F79: 74 08              je          10027F83
+  10027F7B: 88 9E EC 00 00 00  mov         byte ptr [esi+000000ECh],bl
+  10027F81: EB 08              jmp         10027F8B
+  10027F83: 33 DB              xor         ebx,ebx
+  10027F85: 8A 9E EC 00 00 00  mov         bl,byte ptr [esi+000000ECh]
+  10027F8B: 8A 86 F6 00 00 00  mov         al,byte ptr [esi+000000F6h]
+  10027F91: 33 C9              xor         ecx,ecx
+  10027F93: 8A AE ED 00 00 00  mov         ch,byte ptr [esi+000000EDh]
+  10027F99: 0B CB              or          ecx,ebx
+  10027F9B: C1 E1 08           shl         ecx,8
+  10027F9E: 84 C0              test        al,al
+  10027FA0: 74 5F              je          10028001
+  10027FA2: 3C 80              cmp         al,80h
+  10027FA4: 73 5B              jae         10028001
+  10027FA6: 8B 44 24 20        mov         eax,dword ptr [esp+20h]
+  10027FAA: 85 C0              test        eax,eax
+  10027FAC: 74 05              je          10027FB3
+  10027FAE: 89 4E 04           mov         dword ptr [esi+4],ecx
+  10027FB1: EB 03              jmp         10027FB6
+  10027FB3: 01 4E 04           add         dword ptr [esi+4],ecx
+  10027FB6: 8B 56 04           mov         edx,dword ptr [esi+4]
+  10027FB9: 8B 46 20           mov         eax,dword ptr [esi+20h]
+  10027FBC: 3B D0              cmp         edx,eax
+  10027FBE: 0F 82 CB 03 00 00  jb          1002838F
+  10027FC4: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10027FCE: 0F 85 BB 03 00 00  jne         1002838F
+  10027FD4: 8B 46 28           mov         eax,dword ptr [esi+28h]
+  10027FD7: 89 46 04           mov         dword ptr [esi+4],eax
+  10027FDA: 8A 87 58 D0 00 00  mov         al,byte ptr [edi+0000D058h]
+  10027FE0: A8 04              test        al,4
+  10027FE2: 0F 84 A7 03 00 00  je          1002838F
+  10027FE8: 8B 46 20           mov         eax,dword ptr [esi+20h]
+  10027FEB: 83 F8 04           cmp         eax,4
+  10027FEE: 0F 86 9B 03 00 00  jbe         1002838F
+  10027FF4: 8B C8              mov         ecx,eax
+  10027FF6: 83 E9 02           sub         ecx,2
+  10027FF9: 89 4E 04           mov         dword ptr [esi+4],ecx
+  10027FFC: E9 8E 03 00 00     jmp         1002838F
+  10028001: 3B 4E 20           cmp         ecx,dword ptr [esi+20h]
+  10028004: 0F 83 85 03 00 00  jae         1002838F
+  1002800A: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],20010h
+            10 00 02 00
+  10028014: 0F 84 75 03 00 00  je          1002838F
+  1002801A: 89 4E 04           mov         dword ptr [esi+4],ecx
+  1002801D: E9 6D 03 00 00     jmp         1002838F
+  10028022: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10028028: 85 C0              test        eax,eax
+  1002802A: 0F 85 5F 03 00 00  jne         1002838F
+  10028030: 8B 86 80 00 00 00  mov         eax,dword ptr [esi+00000080h]
+  10028036: 85 C0              test        eax,eax
+  10028038: 0F 84 51 03 00 00  je          1002838F
+  1002803E: 8A 86 D4 00 00 00  mov         al,byte ptr [esi+000000D4h]
+  10028044: 84 C0              test        al,al
+  10028046: 0F 84 43 03 00 00  je          1002838F
+  1002804C: 85 DB              test        ebx,ebx
+  1002804E: 75 0D              jne         1002805D
+  10028050: F6 87 6C D0 00 00  test        byte ptr [edi+0000D06Ch],22h
+            22
+  10028057: 0F 84 32 03 00 00  je          1002838F
+  1002805D: 85 DB              test        ebx,ebx
+  1002805F: C6 86 D8 00 00 00  mov         byte ptr [esi+000000D8h],1
+            01
+  10028066: 0F 84 23 03 00 00  je          1002838F
+  1002806C: 88 9E D9 00 00 00  mov         byte ptr [esi+000000D9h],bl
+  10028072: E9 18 03 00 00     jmp         1002838F
+  10028077: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028081: 74 26              je          100280A9
+  10028083: F6 C3 F0           test        bl,0F0h
+  10028086: 75 0E              jne         10028096
+  10028088: 8A 96 F1 00 00 00  mov         dl,byte ptr [esi+000000F1h]
+  1002808E: 81 E2 F0 00 00 00  and         edx,0F0h
+  10028094: 0B DA              or          ebx,edx
+  10028096: F6 C3 0F           test        bl,0Fh
+  10028099: 75 0B              jne         100280A6
+  1002809B: 8A 86 F1 00 00 00  mov         al,byte ptr [esi+000000F1h]
+  100280A1: 83 E0 0F           and         eax,0Fh
+  100280A4: 0B D8              or          ebx,eax
+  100280A6: 80 CF 01           or          bh,1
+  100280A9: 85 DB              test        ebx,ebx
+  100280AB: 74 18              je          100280C5
+  100280AD: 8B 4C 24 14        mov         ecx,dword ptr [esp+14h]
+  100280B1: 53                 push        ebx
+  100280B2: 51                 push        ecx
+  100280B3: 8B CF              mov         ecx,edi
+  100280B5: 88 9E F1 00 00 00  mov         byte ptr [esi+000000F1h],bl
+  100280BB: E8 20 19 00 00     call        100299E0
+  100280C0: E9 CA 02 00 00     jmp         1002838F
+  100280C5: 8B 4C 24 14        mov         ecx,dword ptr [esp+14h]
+  100280C9: 33 DB              xor         ebx,ebx
+  100280CB: 8A 9E F1 00 00 00  mov         bl,byte ptr [esi+000000F1h]
+  100280D1: 53                 push        ebx
+  100280D2: 51                 push        ecx
+  100280D3: 8B CF              mov         ecx,edi
+  100280D5: E8 06 19 00 00     call        100299E0
+  100280DA: E9 B0 02 00 00     jmp         1002838F
+  100280DF: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  100280E5: 85 C0              test        eax,eax
+  100280E7: 0F 85 A2 02 00 00  jne         1002838F
+  100280ED: 85 DB              test        ebx,ebx
+  100280EF: C6 86 D8 00 00 00  mov         byte ptr [esi+000000D8h],12h
+            12
+  100280F6: 0F 84 93 02 00 00  je          1002838F
+  100280FC: 88 9E F3 00 00 00  mov         byte ptr [esi+000000F3h],bl
+  10028102: E9 88 02 00 00     jmp         1002838F
+  10028107: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  1002810D: 85 C0              test        eax,eax
+  1002810F: 0F 85 7A 02 00 00  jne         1002838F
+  10028115: 83 BF 6C D0 00 00  cmp         dword ptr [edi+0000D06Ch],20h
+            20
+  1002811C: 74 02              je          10028120
+  1002811E: D1 E3              shl         ebx,1
+  10028120: 81 FB 80 00 00 00  cmp         ebx,80h
+  10028126: 76 05              jbe         1002812D
+  10028128: BB 80 00 00 00     mov         ebx,80h
+  1002812D: 8D 14 1B           lea         edx,[ebx+ebx]
+  10028130: 89 97 AC D0 00 00  mov         dword ptr [edi+0000D0ACh],edx
+  10028136: E9 54 02 00 00     jmp         1002838F
+  1002813B: 53                 push        ebx
+  1002813C: 8B CF              mov         ecx,edi
+  1002813E: E8 DD 1D 00 00     call        10029F20
+  10028143: E9 47 02 00 00     jmp         1002838F
+  10028148: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  1002814E: 85 C0              test        eax,eax
+  10028150: 0F 85 39 02 00 00  jne         1002838F
+  10028156: 8B 87 58 D0 00 00  mov         eax,dword ptr [edi+0000D058h]
+  1002815C: F6 C4 40           test        ah,40h
+  1002815F: 75 09              jne         1002816A
+  10028161: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  10028164: 80 E4 F7           and         ah,0F7h
+  10028167: 89 46 24           mov         dword ptr [esi+24h],eax
+  1002816A: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100024h
+            24 00 10 00
+  10028174: 74 13              je          10028189
+  10028176: 89 5E 78           mov         dword ptr [esi+78h],ebx
+  10028179: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  1002817C: 0D 00 00 00 01     or          eax,1000000h
+  10028181: 89 46 24           mov         dword ptr [esi+24h],eax
+  10028184: E9 06 02 00 00     jmp         1002838F
+  10028189: 81 FB 80 00 00 00  cmp         ebx,80h
+  1002818F: 77 16              ja          100281A7
+  10028191: 8D 04 1B           lea         eax,[ebx+ebx]
+  10028194: 89 46 78           mov         dword ptr [esi+78h],eax
+  10028197: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  1002819A: 0D 00 00 00 01     or          eax,1000000h
+  1002819F: 89 46 24           mov         dword ptr [esi+24h],eax
+  100281A2: E9 E8 01 00 00     jmp         1002838F
+  100281A7: 81 FB A4 00 00 00  cmp         ebx,0A4h
+  100281AD: 75 10              jne         100281BF
+  100281AF: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  100281B2: C7 46 78 80 00 00  mov         dword ptr [esi+78h],80h
+            00
+  100281B9: 80 CC 08           or          ah,8
+  100281BC: 89 46 24           mov         dword ptr [esi+24h],eax
+  100281BF: 81 4E 24 00 00 00  or          dword ptr [esi+24h],1000000h
+            01
+  100281C6: E9 C4 01 00 00     jmp         1002838F
+  100281CB: 53                 push        ebx
+  100281CC: 56                 push        esi
+  100281CD: 8B CF              mov         ecx,edi
+  100281CF: E8 FC 0A 00 00     call        10028CD0
+  100281D4: E9 B6 01 00 00     jmp         1002838F
+  100281D9: 53                 push        ebx
+  100281DA: 56                 push        esi
+  100281DB: 8B CF              mov         ecx,edi
+  100281DD: E8 8E 0C 00 00     call        10028E70
+  100281E2: E9 A8 01 00 00     jmp         1002838F
+  100281E7: 53                 push        ebx
+  100281E8: 56                 push        esi
+  100281E9: 8B CF              mov         ecx,edi
+  100281EB: E8 80 09 00 00     call        10028B70
+  100281F0: E9 9A 01 00 00     jmp         1002838F
+  100281F5: 8B 4C 24 14        mov         ecx,dword ptr [esp+14h]
+  100281F9: 53                 push        ebx
+  100281FA: 51                 push        ecx
+  100281FB: 8B CF              mov         ecx,edi
+  100281FD: E8 5E 0D 00 00     call        10028F60
+  10028202: E9 88 01 00 00     jmp         1002838F
+  10028207: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  1002820B: 53                 push        ebx
+  1002820C: 52                 push        edx
+  1002820D: 8B CF              mov         ecx,edi
+  1002820F: E8 2C 10 00 00     call        10029240
+  10028214: E9 76 01 00 00     jmp         1002838F
+  10028219: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  1002821F: 85 C0              test        eax,eax
+  10028221: 0F 85 68 01 00 00  jne         1002838F
+  10028227: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  1002822B: 8B CF              mov         ecx,edi
+  1002822D: 50                 push        eax
+  1002822E: E8 CD 1A 00 00     call        10029D00
+  10028233: E9 57 01 00 00     jmp         1002838F
+  10028238: 8B CB              mov         ecx,ebx
+  1002823A: 81 E1 F0 00 00 00  and         ecx,0F0h
+  10028240: 8D 41 F0           lea         eax,[ecx-10h]
+  10028243: 3D 90 00 00 00     cmp         eax,90h
+  10028248: 0F 87 41 01 00 00  ja          1002838F
+  1002824E: 33 D2              xor         edx,edx
+  10028250: 8A 90 A4 85 02 10  mov         dl,byte ptr [eax+100285A4h]
+  10028256: FF 24 95 94 85 02  jmp         dword ptr [edx*4+10028594h]
+            10
+  1002825D: 83 E3 0F           and         ebx,0Fh
+  10028260: 8B CF              mov         ecx,edi
+  10028262: 53                 push        ebx
+  10028263: 56                 push        esi
+  10028264: E8 37 06 00 00     call        100288A0
+  10028269: E9 21 01 00 00     jmp         1002838F
+  1002826E: 83 E3 0F           and         ebx,0Fh
+  10028271: 8B CF              mov         ecx,edi
+  10028273: 53                 push        ebx
+  10028274: 56                 push        esi
+  10028275: E8 C6 06 00 00     call        10028940
+  1002827A: E9 10 01 00 00     jmp         1002838F
+  1002827F: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10028283: 53                 push        ebx
+  10028284: 50                 push        eax
+  10028285: 8B CF              mov         ecx,edi
+  10028287: E8 B4 0F 00 00     call        10029240
+  1002828C: E9 FE 00 00 00     jmp         1002838F
+  10028291: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  10028297: 85 C0              test        eax,eax
+  10028299: 0F 85 F0 00 00 00  jne         1002838F
+  1002829F: 83 FB 40           cmp         ebx,40h
+  100282A2: 0F 87 E7 00 00 00  ja          1002838F
+  100282A8: 8B 46 24           mov         eax,dword ptr [esi+24h]
+  100282AB: 89 9E A8 00 00 00  mov         dword ptr [esi+000000A8h],ebx
+  100282B1: 0D 00 00 00 01     or          eax,1000000h
+  100282B6: 89 46 24           mov         dword ptr [esi+24h],eax
+  100282B9: E9 D1 00 00 00     jmp         1002838F
+  100282BE: 53                 push        ebx
+  100282BF: 56                 push        esi
+  100282C0: 8B CF              mov         ecx,edi
+  100282C2: E8 E9 0B 00 00     call        10028EB0
+  100282C7: E9 C3 00 00 00     jmp         1002838F
+  100282CC: 53                 push        ebx
+  100282CD: 56                 push        esi
+  100282CE: 8B CF              mov         ecx,edi
+  100282D0: E8 CB 08 00 00     call        10028BA0
+  100282D5: E9 B5 00 00 00     jmp         1002838F
+  100282DA: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  100282E0: 85 C0              test        eax,eax
+  100282E2: 0F 85 A7 00 00 00  jne         1002838F
+  100282E8: 8B 86 8C 00 00 00  mov         eax,dword ptr [esi+0000008Ch]
+  100282EE: 89 9E 94 00 00 00  mov         dword ptr [esi+00000094h],ebx
+  100282F4: 85 C0              test        eax,eax
+  100282F6: 89 9E 98 00 00 00  mov         dword ptr [esi+00000098h],ebx
+  100282FC: 89 9E 9C 00 00 00  mov         dword ptr [esi+0000009Ch],ebx
+  10028302: 0F 84 87 00 00 00  je          1002838F
+  10028308: 8B 4E 24           mov         ecx,dword ptr [esi+24h]
+  1002830B: 8B D0              mov         edx,eax
+  1002830D: F7 C1 00 00 40 00  test        ecx,400000h
+  10028313: 74 7A              je          1002838F
+  10028315: 8A 82 2D 02 00 00  mov         al,byte ptr [edx+0000022Dh]
+  1002831B: 84 C0              test        al,al
+  1002831D: 74 70              je          1002838F
+  1002831F: 25 FF 00 00 00     and         eax,0FFh
+  10028324: 33 ED              xor         ebp,ebp
+  10028326: 66 8B 6C 42 4A     mov         bp,word ptr [edx+eax*2+4Ah]
+  1002832B: 3B DD              cmp         ebx,ebp
+  1002832D: 76 60              jbe         1002838F
+  1002832F: 81 E1 FF FF BF FF  and         ecx,0FFBFFFFFh
+  10028335: 89 4E 24           mov         dword ptr [esi+24h],ecx
+  10028338: EB 55              jmp         1002838F
+  1002833A: 89 5C 24 28        mov         dword ptr [esp+28h],ebx
+  1002833E: EB 4F              jmp         1002838F
+  10028340: 89 5C 24 24        mov         dword ptr [esp+24h],ebx
+  10028344: EB 49              jmp         1002838F
+  10028346: 8B 87 78 D0 00 00  mov         eax,dword ptr [edi+0000D078h]
+  1002834C: 85 C0              test        eax,eax
+  1002834E: 75 3F              jne         1002838F
+  10028350: 81 FB 80 00 00 00  cmp         ebx,80h
+  10028356: 73 1B              jae         10028373
+  10028358: 33 C9              xor         ecx,ecx
+  1002835A: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  1002835E: 8A 8E FE 00 00 00  mov         cl,byte ptr [esi+000000FEh]
+  10028364: 53                 push        ebx
+  10028365: C1 E1 05           shl         ecx,5
+  10028368: 8D 94 39 CC B9 00  lea         edx,[ecx+edi+0000B9CCh]
+            00
+  1002836F: 52                 push        edx
+  10028370: 50                 push        eax
+  10028371: EB 15              jmp         10028388
+  10028373: 8B 54 24 14        mov         edx,dword ptr [esp+14h]
+  10028377: 83 E3 7F           and         ebx,7Fh
+  1002837A: C1 E3 05           shl         ebx,5
+  1002837D: 6A 00              push        0
+  1002837F: 8D 8C 3B CC BB 00  lea         ecx,[ebx+edi+0000BBCCh]
+            00
+  10028386: 51                 push        ecx
+  10028387: 52                 push        edx
+  10028388: 8B CF              mov         ecx,edi
+  1002838A: E8 01 14 00 00     call        10029790
+  1002838F: 8B 44 24 14        mov         eax,dword ptr [esp+14h]
+  10028393: 8B 8F 5C D0 00 00  mov         ecx,dword ptr [edi+0000D05Ch]
+  10028399: 40                 inc         eax
+  1002839A: 81 C6 00 01 00 00  add         esi,100h
+  100283A0: 3B C1              cmp         eax,ecx
+  100283A2: 89 44 24 14        mov         dword ptr [esp+14h],eax
+  100283A6: 0F 82 FB F4 FF FF  jb          100278A7
+  100283AC: 8B 54 24 24        mov         edx,dword ptr [esp+24h]
+  100283B0: 8B 4C 24 28        mov         ecx,dword ptr [esp+28h]
+  100283B4: 8B 44 24 34        mov         eax,dword ptr [esp+34h]
+  100283B8: 5D                 pop         ebp
+  100283B9: 8B B7 78 D0 00 00  mov         esi,dword ptr [edi+0000D078h]
+  100283BF: 85 F6              test        esi,esi
+  100283C1: 0F 85 00 01 00 00  jne         100284C7
+  100283C7: 85 C0              test        eax,eax
+  100283C9: 7C 33              jl          100283FE
+  100283CB: 8B 8F 9C D0 00 00  mov         ecx,dword ptr [edi+0000D09Ch]
+  100283D1: 89 87 90 D0 00 00  mov         dword ptr [edi+0000D090h],eax
+  100283D7: 89 8F A0 D0 00 00  mov         dword ptr [edi+0000D0A0h],ecx
+  100283DD: 8B 8F 80 D0 00 00  mov         ecx,dword ptr [edi+0000D080h]
+  100283E3: 85 C9              test        ecx,ecx
+  100283E5: 0F 84 DC 00 00 00  je          100284C7
+  100283EB: 40                 inc         eax
+  100283EC: 89 87 90 D0 00 00  mov         dword ptr [edi+0000D090h],eax
+  100283F2: 5F                 pop         edi
+  100283F3: 5E                 pop         esi
+  100283F4: B8 01 00 00 00     mov         eax,1
+  100283F9: 5B                 pop         ebx
+  100283FA: 83 C4 2C           add         esp,2Ch
+  100283FD: C3                 ret
+  100283FE: 85 D2              test        edx,edx
+  10028400: 7D 0A              jge         1002840C
+  10028402: 85 C9              test        ecx,ecx
+  10028404: 0F 8C BD 00 00 00  jl          100284C7
+  1002840A: EB 0F              jmp         1002841B
+  1002840C: 85 C9              test        ecx,ecx
+  1002840E: 7D 0B              jge         1002841B
+  10028410: 8B 8F 9C D0 00 00  mov         ecx,dword ptr [edi+0000D09Ch]
+  10028416: 41                 inc         ecx
+  10028417: 89 4C 24 24        mov         dword ptr [esp+24h],ecx
+  1002841B: 85 D2              test        edx,edx
+  1002841D: 7D 06              jge         10028425
+  1002841F: 33 D2              xor         edx,edx
+  10028421: 89 54 24 20        mov         dword ptr [esp+20h],edx
+  10028425: 8B 87 9C D0 00 00  mov         eax,dword ptr [edi+0000D09Ch]
+  1002842B: 3B C8              cmp         ecx,eax
+  1002842D: 7C 0A              jl          10028439
+  1002842F: 75 38              jne         10028469
+  10028431: 3B 97 94 D0 00 00  cmp         edx,dword ptr [edi+0000D094h]
+  10028437: 7F 30              jg          10028469
+  10028439: 8B 54 24 20        mov         edx,dword ptr [esp+20h]
+  1002843D: 8B 4C 24 24        mov         ecx,dword ptr [esp+24h]
+  10028441: 52                 push        edx
+  10028442: 8B 97 94 D0 00 00  mov         edx,dword ptr [edi+0000D094h]
+  10028448: 51                 push        ecx
+  10028449: 52                 push        edx
+  1002844A: 50                 push        eax
+  1002844B: 8B CF              mov         ecx,edi
+  1002844D: E8 8E 1B 00 00     call        10029FE0
+  10028452: 85 C0              test        eax,eax
+  10028454: 75 13              jne         10028469
+  10028456: 8B 87 C8 D0 00 00  mov         eax,dword ptr [edi+0000D0C8h]
+  1002845C: 85 C0              test        eax,eax
+  1002845E: 74 73              je          100284D3
+  10028460: 7E 07              jle         10028469
+  10028462: 48                 dec         eax
+  10028463: 89 87 C8 D0 00 00  mov         dword ptr [edi+0000D0C8h],eax
+  10028469: 8B 54 24 24        mov         edx,dword ptr [esp+24h]
+  1002846D: 81 FA 00 01 00 00  cmp         edx,100h
+  10028473: 7D 52              jge         100284C7
+  10028475: 8B 87 9C D0 00 00  mov         eax,dword ptr [edi+0000D09Ch]
+  1002847B: 3B D0              cmp         edx,eax
+  1002847D: 75 12              jne         10028491
+  1002847F: 8B 4C 24 20        mov         ecx,dword ptr [esp+20h]
+  10028483: 8B B7 94 D0 00 00  mov         esi,dword ptr [edi+0000D094h]
+  10028489: 3B CE              cmp         ecx,esi
+  1002848B: 74 3A              je          100284C7
+  1002848D: 3B D0              cmp         edx,eax
+  1002848F: 74 26              je          100284B7
+  10028491: 8B 8F 5C D0 00 00  mov         ecx,dword ptr [edi+0000D05Ch]
+  10028497: 33 C0              xor         eax,eax
+  10028499: 85 C9              test        ecx,ecx
+  1002849B: 76 1A              jbe         100284B7
+  1002849D: 8D 8F FD 00 00 00  lea         ecx,[edi+000000FDh]
+  100284A3: C6 01 00           mov         byte ptr [ecx],0
+  100284A6: 8B B7 5C D0 00 00  mov         esi,dword ptr [edi+0000D05Ch]
+  100284AC: 40                 inc         eax
+  100284AD: 81 C1 00 01 00 00  add         ecx,100h
+  100284B3: 3B C6              cmp         eax,esi
+  100284B5: 72 EC              jb          100284A3
+  100284B7: 89 97 A0 D0 00 00  mov         dword ptr [edi+0000D0A0h],edx
+  100284BD: 8B 54 24 20        mov         edx,dword ptr [esp+20h]
+  100284C1: 89 97 90 D0 00 00  mov         dword ptr [edi+0000D090h],edx
+  100284C7: 5F                 pop         edi
+  100284C8: 5E                 pop         esi
+  100284C9: B8 01 00 00 00     mov         eax,1
+  100284CE: 5B                 pop         ebx
+  100284CF: 83 C4 2C           add         esp,2Ch
+  100284D2: C3                 ret
+  100284D3: 8B 87 CC D0 00 00  mov         eax,dword ptr [edi+0000D0CCh]
+  100284D9: 89 87 C8 D0 00 00  mov         dword ptr [edi+0000D0C8h],eax
+  100284DF: 5F                 pop         edi
+  100284E0: 5E                 pop         esi
+  100284E1: B8 01 00 00 00     mov         eax,1
+  100284E6: 5B                 pop         ebx
+  100284E7: 83 C4 2C           add         esp,2Ch
+  100284EA: C3                 ret
+  100284EB: 90                 nop
+  100284EC: E4 7C              in          al,7Ch
+  100284EE: 02 10              add         dl,byte ptr [eax]
+  100284F0: F9                 stc
+  100284F1: 7C 02              jl          100284F5
+  100284F3: 10 0B              adc         byte ptr [ebx],cl
+  100284F5: 7D 02              jge         100284F9
+  100284F7: 10 49 7D           adc         byte ptr [ecx+7Dh],cl
+  100284FA: 02 10              add         dl,byte ptr [eax]
+  100284FC: 7E 7D              jle         1002857B
+  100284FE: 02 10              add         dl,byte ptr [eax]
+  10028500: 90                 nop
+  10028501: 7D 02              jge         10028505
+  10028503: 10 9F 7D 02 10 AE  adc         byte ptr [edi+AE10027Dh],bl
+  10028509: 7D 02              jge         1002850D
+  1002850B: 10 EA              adc         dl,ch
+  1002850D: 7D 02              jge         10028511
+  1002850F: 10 C0              adc         al,al
+  10028511: 7D 02              jge         10028515
+  10028513: 10 D6              adc         dh,dl
+  10028515: 7D 02              jge         10028519
+  10028517: 10 22              adc         byte ptr [edx],ah
+  10028519: 80 02 10           add         byte ptr [edx],10h
+  1002851C: 48                 dec         eax
+  1002851D: 7E 02              jle         10028521
+  1002851F: 10 67 7E           adc         byte ptr [edi+7Eh],ah
+  10028522: 02 10              add         dl,byte ptr [eax]
+  10028524: A5                 movs        dword ptr es:[edi],dword ptr [esi]
+  10028525: 7E 02              jle         10028529
+  10028527: 10 D8              adc         al,bl
+  10028529: 7E 02              jle         1002852D
+  1002852B: 10 B3 7E 02 10 E6  adc         byte ptr [ebx+E610027Eh],dh
+  10028531: 7E 02              jle         10028535
+  10028533: 10 D9              adc         cl,bl
+  10028535: 81 02 10 48 81 02  add         dword ptr [edx],2814810h
+  1002853B: 10 69 7F           adc         byte ptr [ecx+7Fh],ch
+  1002853E: 02 10              add         dl,byte ptr [eax]
+  10028540: 86 7E 02           xchg        bh,byte ptr [esi+2]
+  10028543: 10 3A              adc         byte ptr [edx],bh
+  10028545: 83 02 10           add         dword ptr [edx],10h
+  10028548: 07                 pop         es
+  10028549: 7E 02              jle         1002854D
+  1002854B: 10 40 83           adc         byte ptr [eax-7Dh],al
+  1002854E: 02 10              add         dl,byte ptr [eax]
+  10028550: 77 80              ja          100284D2
+  10028552: 02 10              add         dl,byte ptr [eax]
+  10028554: 0B 7F 02           or          edi,dword ptr [edi+2]
+  10028557: 10 26              adc         byte ptr [esi],ah
+  10028559: 7F 02              jg          1002855D
+  1002855B: 10 DF              adc         bh,bl
+  1002855D: 80 02 10           add         byte ptr [edx],10h
+  10028560: F5                 cmc
+  10028561: 81 02 10 07 82 02  add         dword ptr [edx],2820710h
+  10028567: 10 91 82 02 10 BE  adc         byte ptr [ecx+BE100282h],dl
+  1002856D: 82 02 10           add         byte ptr [edx],10h
+  10028570: 07                 pop         es
+  10028571: 81 02 10 3B 81 02  add         dword ptr [edx],2813B10h
+  10028577: 10 19              adc         byte ptr [ecx],bl
+  10028579: 82 02 10           add         byte ptr [edx],10h
+  1002857C: E7 81              out         81h,eax
+  1002857E: 02 10              add         dl,byte ptr [eax]
+  10028580: CC                 int         3
+  10028581: 82 02 10           add         byte ptr [edx],10h
+  10028584: 38 82 02 10 CB 81  cmp         byte ptr [edx+81CB1002h],al
+  1002858A: 02 10              add         dl,byte ptr [eax]
+  1002858C: DA 82 02 10 46 83  fiadd       dword ptr [edx+83461002h]
+  10028592: 02 10              add         dl,byte ptr [eax]
+  10028594: 5D                 pop         ebp
+  10028595: 82 02 10           add         byte ptr [edx],10h
+  10028598: 6E                 outs        dx,byte ptr [esi]
+  10028599: 82 02 10           add         byte ptr [edx],10h
+  1002859C: 7F 82              jg          10028520
+  1002859E: 02 10              add         dl,byte ptr [eax]
+  100285A0: 8F 83 02 10 00 03  pop         dword ptr [ebx+03001002h]
+  100285A6: 03 03              add         eax,dword ptr [ebx]
+  100285A8: 03 03              add         eax,dword ptr [ebx]
+  100285AA: 03 03              add         eax,dword ptr [ebx]
+  100285AC: 03 03              add         eax,dword ptr [ebx]
+  100285AE: 03 03              add         eax,dword ptr [ebx]
+  100285B0: 03 03              add         eax,dword ptr [ebx]
+  100285B2: 03 03              add         eax,dword ptr [ebx]
+  100285B4: 01 03              add         dword ptr [ebx],eax
+  100285B6: 03 03              add         eax,dword ptr [ebx]
+  100285B8: 03 03              add         eax,dword ptr [ebx]
+  100285BA: 03 03              add         eax,dword ptr [ebx]
+  100285BC: 03 03              add         eax,dword ptr [ebx]
+  100285BE: 03 03              add         eax,dword ptr [ebx]
+  100285C0: 03 03              add         eax,dword ptr [ebx]
+  100285C2: 03 03              add         eax,dword ptr [ebx]
+  100285C4: 03 03              add         eax,dword ptr [ebx]
+  100285C6: 03 03              add         eax,dword ptr [ebx]
+  100285C8: 03 03              add         eax,dword ptr [ebx]
+  100285CA: 03 03              add         eax,dword ptr [ebx]
+  100285CC: 03 03              add         eax,dword ptr [ebx]
+  100285CE: 03 03              add         eax,dword ptr [ebx]
+  100285D0: 03 03              add         eax,dword ptr [ebx]
+  100285D2: 03 03              add         eax,dword ptr [ebx]
+  100285D4: 03 03              add         eax,dword ptr [ebx]
+  100285D6: 03 03              add         eax,dword ptr [ebx]
+  100285D8: 03 03              add         eax,dword ptr [ebx]
+  100285DA: 03 03              add         eax,dword ptr [ebx]
+  100285DC: 03 03              add         eax,dword ptr [ebx]
+  100285DE: 03 03              add         eax,dword ptr [ebx]
+  100285E0: 03 03              add         eax,dword ptr [ebx]
+  100285E2: 03 03              add         eax,dword ptr [ebx]
+  100285E4: 02 03              add         al,byte ptr [ebx]
+  100285E6: 03 03              add         eax,dword ptr [ebx]
+  100285E8: 03 03              add         eax,dword ptr [ebx]
+  100285EA: 03 03              add         eax,dword ptr [ebx]
+  100285EC: 03 03              add         eax,dword ptr [ebx]
+  100285EE: 03 03              add         eax,dword ptr [ebx]
+  100285F0: 03 03              add         eax,dword ptr [ebx]
+  100285F2: 03 03              add         eax,dword ptr [ebx]
+  100285F4: 02 03              add         al,byte ptr [ebx]
+  100285F6: 03 03              add         eax,dword ptr [ebx]
+  100285F8: 03 03              add         eax,dword ptr [ebx]
+  100285FA: 03 03              add         eax,dword ptr [ebx]
+  100285FC: 03 03              add         eax,dword ptr [ebx]
+  100285FE: 03 03              add         eax,dword ptr [ebx]
+  10028600: 03 03              add         eax,dword ptr [ebx]
+  10028602: 03 03              add         eax,dword ptr [ebx]
+  10028604: 02 03              add         al,byte ptr [ebx]
+  10028606: 03 03              add         eax,dword ptr [ebx]
+  10028608: 03 03              add         eax,dword ptr [ebx]
+  1002860A: 03 03              add         eax,dword ptr [ebx]
+  1002860C: 03 03              add         eax,dword ptr [ebx]
+  1002860E: 03 03              add         eax,dword ptr [ebx]
+  10028610: 03 03              add         eax,dword ptr [ebx]
+  10028612: 03 03              add         eax,dword ptr [ebx]
+  10028614: 03 03              add         eax,dword ptr [ebx]
+  10028616: 03 03              add         eax,dword ptr [ebx]
+  10028618: 03 03              add         eax,dword ptr [ebx]
+  1002861A: 03 03              add         eax,dword ptr [ebx]
+  1002861C: 03 03              add         eax,dword ptr [ebx]
+  1002861E: 03 03              add         eax,dword ptr [ebx]
+  10028620: 03 03              add         eax,dword ptr [ebx]
+  10028622: 03 03              add         eax,dword ptr [ebx]
+  10028624: 02 03              add         al,byte ptr [ebx]
+  10028626: 03 03              add         eax,dword ptr [ebx]
+  10028628: 03 03              add         eax,dword ptr [ebx]
+  1002862A: 03 03              add         eax,dword ptr [ebx]
+  1002862C: 03 03              add         eax,dword ptr [ebx]
+  1002862E: 03 03              add         eax,dword ptr [ebx]
+  10028630: 03 03              add         eax,dword ptr [ebx]
+  10028632: 03 03              add         eax,dword ptr [ebx]
+  10028634: 02 90 90 90 90 90  add         dl,byte ptr [eax+90909090h]
+  1002863A: 90                 nop
+  1002863B: 90                 nop
+  1002863C: 90                 nop
+  1002863D: 90                 nop
+  1002863E: 90                 nop
+  1002863F: 90                 nop
+  10028640: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028644: 56                 push        esi
+  10028645: 85 C0              test        eax,eax
+  10028647: 74 0C              je          10028655
+  10028649: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  1002864D: 88 86 DC 00 00 00  mov         byte ptr [esi+000000DCh],al
+  10028653: EB 0C              jmp         10028661
+  10028655: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  10028659: 33 C0              xor         eax,eax
+  1002865B: 8A 86 DC 00 00 00  mov         al,byte ptr [esi+000000DCh]
+  10028661: F7 81 6C D0 00 00  test        dword ptr [ecx+0000D06Ch],122h
+            22 01 00 00
+  1002866B: 74 3B              je          100286A8
+  1002866D: 8B D0              mov         edx,eax
+  1002866F: 81 E2 F0 00 00 00  and         edx,0F0h
+  10028675: 81 FA E0 00 00 00  cmp         edx,0E0h
+  1002867B: 72 2B              jb          100286A8
+  1002867D: 83 E0 0F           and         eax,0Fh
+  10028680: 74 3D              je          100286BF
+  10028682: 81 FA F0 00 00 00  cmp         edx,0F0h
+  10028688: 75 0B              jne         10028695
+  1002868A: 50                 push        eax
+  1002868B: 56                 push        esi
+  1002868C: E8 CF 00 00 00     call        10028760
+  10028691: 5E                 pop         esi
+  10028692: C2 08 00           ret         8
+  10028695: 81 FA E0 00 00 00  cmp         edx,0E0h
+  1002869B: 75 22              jne         100286BF
+  1002869D: 50                 push        eax
+  1002869E: 56                 push        esi
+  1002869F: E8 FC 01 00 00     call        100288A0
+  100286A4: 5E                 pop         esi
+  100286A5: C2 08 00           ret         8
+  100286A8: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]
+  100286AE: F6 C6 10           test        dh,10h
+  100286B1: 75 0C              jne         100286BF
+  100286B3: F7 D8              neg         eax
+  100286B5: C1 E0 02           shl         eax,2
+  100286B8: 50                 push        eax
+  100286B9: 56                 push        esi
+  100286BA: E8 41 15 00 00     call        10029C00
+  100286BF: 5E                 pop         esi
+  100286C0: C2 08 00           ret         8
+  100286C3: 90                 nop
+  100286C4: 90                 nop
+  100286C5: 90                 nop
+  100286C6: 90                 nop
+  100286C7: 90                 nop
+  100286C8: 90                 nop
+  100286C9: 90                 nop
+  100286CA: 90                 nop
+  100286CB: 90                 nop
+  100286CC: 90                 nop
+  100286CD: 90                 nop
+  100286CE: 90                 nop
+  100286CF: 90                 nop
+  100286D0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  100286D4: 56                 push        esi
+  100286D5: 85 C0              test        eax,eax
+  100286D7: 74 0C              je          100286E5
+  100286D9: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  100286DD: 88 86 DC 00 00 00  mov         byte ptr [esi+000000DCh],al
+  100286E3: EB 0C              jmp         100286F1
+  100286E5: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  100286E9: 33 C0              xor         eax,eax
+  100286EB: 8A 86 DC 00 00 00  mov         al,byte ptr [esi+000000DCh]
+  100286F1: F7 81 6C D0 00 00  test        dword ptr [ecx+0000D06Ch],122h
+            22 01 00 00
+  100286FB: 74 3B              je          10028738
+  100286FD: 8B D0              mov         edx,eax
+  100286FF: 81 E2 F0 00 00 00  and         edx,0F0h
+  10028705: 81 FA E0 00 00 00  cmp         edx,0E0h
+  1002870B: 72 2B              jb          10028738
+  1002870D: 83 E0 0F           and         eax,0Fh
+  10028710: 74 3B              je          1002874D
+  10028712: 81 FA F0 00 00 00  cmp         edx,0F0h
+  10028718: 75 0B              jne         10028725
+  1002871A: 50                 push        eax
+  1002871B: 56                 push        esi
+  1002871C: E8 DF 00 00 00     call        10028800
+  10028721: 5E                 pop         esi
+  10028722: C2 08 00           ret         8
+  10028725: 81 FA E0 00 00 00  cmp         edx,0E0h
+  1002872B: 75 20              jne         1002874D
+  1002872D: 50                 push        eax
+  1002872E: 56                 push        esi
+  1002872F: E8 0C 02 00 00     call        10028940
+  10028734: 5E                 pop         esi
+  10028735: C2 08 00           ret         8
+  10028738: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]
+  1002873E: F6 C6 10           test        dh,10h
+  10028741: 75 0A              jne         1002874D
+  10028743: C1 E0 02           shl         eax,2
+  10028746: 50                 push        eax
+  10028747: 56                 push        esi
+  10028748: E8 B3 14 00 00     call        10029C00
+  1002874D: 5E                 pop         esi
+  1002874E: C2 08 00           ret         8
+  10028751: 90                 nop
+  10028752: 90                 nop
+  10028753: 90                 nop
+  10028754: 90                 nop
+  10028755: 90                 nop
+  10028756: 90                 nop
+  10028757: 90                 nop
+  10028758: 90                 nop
+  10028759: 90                 nop
+  1002875A: 90                 nop
+  1002875B: 90                 nop
+  1002875C: 90                 nop
+  1002875D: 90                 nop
+  1002875E: 90                 nop
+  1002875F: 90                 nop
+  10028760: 56                 push        esi
+  10028761: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  10028765: 57                 push        edi
+  10028766: 8B F9              mov         edi,ecx
+  10028768: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028772: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10028776: 74 14              je          1002878C
+  10028778: 85 C0              test        eax,eax
+  1002877A: 74 08              je          10028784
+  1002877C: 88 86 DD 00 00 00  mov         byte ptr [esi+000000DDh],al
+  10028782: EB 08              jmp         1002878C
+  10028784: 33 C0              xor         eax,eax
+  10028786: 8A 86 DD 00 00 00  mov         al,byte ptr [esi+000000DDh]
+  1002878C: 8B 8F 58 D0 00 00  mov         ecx,dword ptr [edi+0000D058h]
+  10028792: F6 C5 10           test        ch,10h
+  10028795: 74 64              je          100287FB
+  10028797: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  1002879D: 85 D2              test        edx,edx
+  1002879F: 74 5A              je          100287FB
+  100287A1: 85 C0              test        eax,eax
+  100287A3: 74 56              je          100287FB
+  100287A5: F6 C1 10           test        cl,10h
+  100287A8: 74 2D              je          100287D7
+  100287AA: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  100287B4: 75 21              jne         100287D7
+  100287B6: 83 E0 0F           and         eax,0Fh
+  100287B9: 68 00 00 01 00     push        10000h
+  100287BE: 8B 04 85 80 F8 05  mov         eax,dword ptr [eax*4+1005F880h]
+            10
+  100287C5: 50                 push        eax
+  100287C6: 52                 push        edx
+  100287C7: E8 64 1D 00 00     call        1002A530
+  100287CC: 83 C4 0C           add         esp,0Ch
+  100287CF: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  100287D5: EB 0F              jmp         100287E6
+  100287D7: 8D 0C 85 00 00 00  lea         ecx,[eax*4+00000000h]
+            00
+  100287DE: 2B D1              sub         edx,ecx
+  100287E0: 89 96 80 00 00 00  mov         dword ptr [esi+00000080h],edx
+  100287E6: 8B 8E 80 00 00 00  mov         ecx,dword ptr [esi+00000080h]
+  100287EC: B8 01 00 00 00     mov         eax,1
+  100287F1: 3B C8              cmp         ecx,eax
+  100287F3: 7D 06              jge         100287FB
+  100287F5: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  100287FB: 5F                 pop         edi
+  100287FC: 5E                 pop         esi
+  100287FD: C2 08 00           ret         8
+  10028800: 56                 push        esi
+  10028801: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  10028805: 57                 push        edi
+  10028806: 8B F9              mov         edi,ecx
+  10028808: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028812: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10028816: 74 14              je          1002882C
+  10028818: 85 C0              test        eax,eax
+  1002881A: 74 08              je          10028824
+  1002881C: 88 86 DD 00 00 00  mov         byte ptr [esi+000000DDh],al
+  10028822: EB 08              jmp         1002882C
+  10028824: 33 C0              xor         eax,eax
+  10028826: 8A 86 DD 00 00 00  mov         al,byte ptr [esi+000000DDh]
+  1002882C: 8B 8F 58 D0 00 00  mov         ecx,dword ptr [edi+0000D058h]
+  10028832: F6 C5 10           test        ch,10h
+  10028835: 74 5E              je          10028895
+  10028837: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  1002883D: 85 D2              test        edx,edx
+  1002883F: 74 54              je          10028895
+  10028841: 85 C0              test        eax,eax
+  10028843: 74 50              je          10028895
+  10028845: F6 C1 10           test        cl,10h
+  10028848: 74 2D              je          10028877
+  1002884A: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028854: 75 21              jne         10028877
+  10028856: 83 E0 0F           and         eax,0Fh
+  10028859: 68 00 00 01 00     push        10000h
+  1002885E: 8B 04 85 80 F4 05  mov         eax,dword ptr [eax*4+1005F480h]
+            10
+  10028865: 50                 push        eax
+  10028866: 52                 push        edx
+  10028867: E8 C4 1C 00 00     call        1002A530
+  1002886C: 83 C4 0C           add         esp,0Ch
+  1002886F: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028875: EB 09              jmp         10028880
+  10028877: 8D 0C 82           lea         ecx,[edx+eax*4]
+  1002887A: 89 8E 80 00 00 00  mov         dword ptr [esi+00000080h],ecx
+  10028880: 8B 8E 80 00 00 00  mov         ecx,dword ptr [esi+00000080h]
+  10028886: B8 FF FF 00 00     mov         eax,0FFFFh
+  1002888B: 3B C8              cmp         ecx,eax
+  1002888D: 7E 06              jle         10028895
+  1002888F: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028895: 5F                 pop         edi
+  10028896: 5E                 pop         esi
+  10028897: C2 08 00           ret         8
+  1002889A: 90                 nop
+  1002889B: 90                 nop
+  1002889C: 90                 nop
+  1002889D: 90                 nop
+  1002889E: 90                 nop
+  1002889F: 90                 nop
+  100288A0: 56                 push        esi
+  100288A1: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  100288A5: 57                 push        edi
+  100288A6: 8B F9              mov         edi,ecx
+  100288A8: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  100288B2: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  100288B6: 74 14              je          100288CC
+  100288B8: 85 C0              test        eax,eax
+  100288BA: 74 08              je          100288C4
+  100288BC: 88 86 DD 00 00 00  mov         byte ptr [esi+000000DDh],al
+  100288C2: EB 08              jmp         100288CC
+  100288C4: 33 C0              xor         eax,eax
+  100288C6: 8A 86 DD 00 00 00  mov         al,byte ptr [esi+000000DDh]
+  100288CC: 8B 8F 58 D0 00 00  mov         ecx,dword ptr [edi+0000D058h]
+  100288D2: F6 C5 10           test        ch,10h
+  100288D5: 74 5D              je          10028934
+  100288D7: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  100288DD: 85 D2              test        edx,edx
+  100288DF: 74 53              je          10028934
+  100288E1: 85 C0              test        eax,eax
+  100288E3: 74 4F              je          10028934
+  100288E5: F6 C1 10           test        cl,10h
+  100288E8: 74 2D              je          10028917
+  100288EA: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  100288F4: 75 21              jne         10028917
+  100288F6: 83 E0 0F           and         eax,0Fh
+  100288F9: 68 00 00 01 00     push        10000h
+  100288FE: 8B 04 85 40 F4 05  mov         eax,dword ptr [eax*4+1005F440h]
+            10
+  10028905: 50                 push        eax
+  10028906: 52                 push        edx
+  10028907: E8 24 1C 00 00     call        1002A530
+  1002890C: 83 C4 0C           add         esp,0Ch
+  1002890F: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028915: EB 08              jmp         1002891F
+  10028917: 2B D0              sub         edx,eax
+  10028919: 89 96 80 00 00 00  mov         dword ptr [esi+00000080h],edx
+  1002891F: 8B 8E 80 00 00 00  mov         ecx,dword ptr [esi+00000080h]
+  10028925: B8 01 00 00 00     mov         eax,1
+  1002892A: 3B C8              cmp         ecx,eax
+  1002892C: 7D 06              jge         10028934
+  1002892E: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028934: 5F                 pop         edi
+  10028935: 5E                 pop         esi
+  10028936: C2 08 00           ret         8
+  10028939: 90                 nop
+  1002893A: 90                 nop
+  1002893B: 90                 nop
+  1002893C: 90                 nop
+  1002893D: 90                 nop
+  1002893E: 90                 nop
+  1002893F: 90                 nop
+  10028940: 56                 push        esi
+  10028941: 8B 74 24 08        mov         esi,dword ptr [esp+8]
+  10028945: 57                 push        edi
+  10028946: 8B F9              mov         edi,ecx
+  10028948: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028952: 8B 44 24 10        mov         eax,dword ptr [esp+10h]
+  10028956: 74 14              je          1002896C
+  10028958: 85 C0              test        eax,eax
+  1002895A: 74 08              je          10028964
+  1002895C: 88 86 DD 00 00 00  mov         byte ptr [esi+000000DDh],al
+  10028962: EB 08              jmp         1002896C
+  10028964: 33 C0              xor         eax,eax
+  10028966: 8A 86 DD 00 00 00  mov         al,byte ptr [esi+000000DDh]
+  1002896C: 8B 8F 58 D0 00 00  mov         ecx,dword ptr [edi+0000D058h]
+  10028972: F6 C5 10           test        ch,10h
+  10028975: 74 5D              je          100289D4
+  10028977: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  1002897D: 85 D2              test        edx,edx
+  1002897F: 74 53              je          100289D4
+  10028981: 85 C0              test        eax,eax
+  10028983: 74 4F              je          100289D4
+  10028985: F6 C1 10           test        cl,10h
+  10028988: 74 2D              je          100289B7
+  1002898A: F7 87 6C D0 00 00  test        dword ptr [edi+0000D06Ch],100004h
+            04 00 10 00
+  10028994: 75 21              jne         100289B7
+  10028996: 83 E0 0F           and         eax,0Fh
+  10028999: 68 00 00 01 00     push        10000h
+  1002899E: 8B 04 85 00 F4 05  mov         eax,dword ptr [eax*4+1005F400h]
+            10
+  100289A5: 50                 push        eax
+  100289A6: 52                 push        edx
+  100289A7: E8 84 1B 00 00     call        1002A530
+  100289AC: 83 C4 0C           add         esp,0Ch
+  100289AF: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  100289B5: EB 08              jmp         100289BF
+  100289B7: 03 D0              add         edx,eax
+  100289B9: 89 96 80 00 00 00  mov         dword ptr [esi+00000080h],edx
+  100289BF: 8B 8E 80 00 00 00  mov         ecx,dword ptr [esi+00000080h]
+  100289C5: B8 FF FF 00 00     mov         eax,0FFFFh
+  100289CA: 3B C8              cmp         ecx,eax
+  100289CC: 7E 06              jle         100289D4
+  100289CE: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  100289D4: 5F                 pop         edi
+  100289D5: 5E                 pop         esi
+  100289D6: C2 08 00           ret         8
+  100289D9: 90                 nop
+  100289DA: 90                 nop
+  100289DB: 90                 nop
+  100289DC: 90                 nop
+  100289DD: 90                 nop
+  100289DE: 90                 nop
+  100289DF: 90                 nop
+  100289E0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  100289E4: 53                 push        ebx
+  100289E5: 56                 push        esi
+  100289E6: 8B 74 24 0C        mov         esi,dword ptr [esp+0Ch]
+  100289EA: 85 C0              test        eax,eax
+  100289EC: 74 09              je          100289F7
+  100289EE: C1 E0 02           shl         eax,2
+  100289F1: 89 86 B8 00 00 00  mov         dword ptr [esi+000000B8h],eax
+  100289F7: 8B 56 24           mov         edx,dword ptr [esi+24h]
+  100289FA: 81 CA 00 00 08 00  or          edx,80000h
+  10028A00: 89 56 24           mov         dword ptr [esi+24h],edx
+  10028A03: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  10028A09: 85 D2              test        edx,edx
+  10028A0B: 0F 84 17 01 00 00  je          10028B28
+  10028A11: 8B 86 88 00 00 00  mov         eax,dword ptr [esi+00000088h]
+  10028A17: 85 C0              test        eax,eax
+  10028A19: 0F 84 09 01 00 00  je          10028B28
+  10028A1F: 8B 99 58 D0 00 00  mov         ebx,dword ptr [ecx+0000D058h]
+  10028A25: F6 C7 10           test        bh,10h
+  10028A28: 0F 85 FA 00 00 00  jne         10028B28
+  10028A2E: 3B D0              cmp         edx,eax
+  10028A30: 7D 7D              jge         10028AAF
+  10028A32: 8B 86 B8 00 00 00  mov         eax,dword ptr [esi+000000B8h]
+  10028A38: F6 C3 10           test        bl,10h
+  10028A3B: 74 49              je          10028A86
+  10028A3D: F7 81 6C D0 00 00  test        dword ptr [ecx+0000D06Ch],100004h
+            04 00 10 00
+  10028A47: 75 3D              jne         10028A86
+  10028A49: C1 F8 02           sar         eax,2
+  10028A4C: 3D FF 00 00 00     cmp         eax,0FFh
+  10028A51: 76 05              jbe         10028A58
+  10028A53: B8 FF 00 00 00     mov         eax,0FFh
+  10028A58: 8B 0C 85 80 F4 05  mov         ecx,dword ptr [eax*4+1005F480h]
+            10
+  10028A5F: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  10028A65: 68 00 00 01 00     push        10000h
+  10028A6A: 51                 push        ecx
+  10028A6B: 52                 push        edx
+  10028A6C: E8 BF 1A 00 00     call        1002A530
+  10028A71: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  10028A77: 83 C4 0C           add         esp,0Ch
+  10028A7A: 2B C2              sub         eax,edx
+  10028A7C: 83 F8 01           cmp         eax,1
+  10028A7F: 7D 05              jge         10028A86
+  10028A81: B8 01 00 00 00     mov         eax,1
+  10028A86: 8B 9E 80 00 00 00  mov         ebx,dword ptr [esi+00000080h]
+  10028A8C: 03 D8              add         ebx,eax
+  10028A8E: 8B 86 88 00 00 00  mov         eax,dword ptr [esi+00000088h]
+  10028A94: 8B CB              mov         ecx,ebx
+  10028A96: 89 9E 80 00 00 00  mov         dword ptr [esi+00000080h],ebx
+  10028A9C: 3B C8              cmp         ecx,eax
+  10028A9E: 0F 8E 84 00 00 00  jle         10028B28
+  10028AA4: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028AAA: 5E                 pop         esi
+  10028AAB: 5B                 pop         ebx
+  10028AAC: C2 08 00           ret         8
+  10028AAF: 7E 77              jle         10028B28
+  10028AB1: 8B 96 B8 00 00 00  mov         edx,dword ptr [esi+000000B8h]
+  10028AB7: 8B C2              mov         eax,edx
+  10028AB9: F7 D8              neg         eax
+  10028ABB: F6 C3 10           test        bl,10h
+  10028ABE: 74 48              je          10028B08
+  10028AC0: F7 81 6C D0 00 00  test        dword ptr [ecx+0000D06Ch],100004h
+            04 00 10 00
+  10028ACA: 75 3C              jne         10028B08
+  10028ACC: C1 FA 02           sar         edx,2
+  10028ACF: 81 FA FF 00 00 00  cmp         edx,0FFh
+  10028AD5: 76 05              jbe         10028ADC
+  10028AD7: BA FF 00 00 00     mov         edx,0FFh
+  10028ADC: 8B 04 95 80 F8 05  mov         eax,dword ptr [edx*4+1005F880h]
+            10
+  10028AE3: 8B 8E 80 00 00 00  mov         ecx,dword ptr [esi+00000080h]
+  10028AE9: 68 00 00 01 00     push        10000h
+  10028AEE: 50                 push        eax
+  10028AEF: 51                 push        ecx
+  10028AF0: E8 3B 1A 00 00     call        1002A530
+  10028AF5: 8B 96 80 00 00 00  mov         edx,dword ptr [esi+00000080h]
+  10028AFB: 83 C4 0C           add         esp,0Ch
+  10028AFE: 2B C2              sub         eax,edx
+  10028B00: 83 F8 FF           cmp         eax,0FFFFFFFFh
+  10028B03: 7E 03              jle         10028B08
+  10028B05: 83 C8 FF           or          eax,0FFFFFFFFh
+  10028B08: 8B 9E 80 00 00 00  mov         ebx,dword ptr [esi+00000080h]
+  10028B0E: 03 D8              add         ebx,eax
+  10028B10: 8B 86 88 00 00 00  mov         eax,dword ptr [esi+00000088h]
+  10028B16: 8B CB              mov         ecx,ebx
+  10028B18: 89 9E 80 00 00 00  mov         dword ptr [esi+00000080h],ebx
+  10028B1E: 3B C8              cmp         ecx,eax
+  10028B20: 7D 06              jge         10028B28
+  10028B22: 89 86 80 00 00 00  mov         dword ptr [esi+00000080h],eax
+  10028B28: 5E                 pop         esi
+  10028B29: 5B                 pop         ebx
+  10028B2A: C2 08 00           ret         8
+  10028B2D: 90                 nop
+  10028B2E: 90                 nop
+  10028B2F: 90                 nop
+  10028B30: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028B34: 8B 4C 24 04        mov         ecx,dword ptr [esp+4]
+  10028B38: A8 0F              test        al,0Fh
+  10028B3A: 74 0E              je          10028B4A
+  10028B3C: 8A D0              mov         dl,al
+  10028B3E: 80 E2 0F           and         dl,0Fh
+  10028B41: C0 E2 02           shl         dl,2
+  10028B44: 88 91 E2 00 00 00  mov         byte ptr [ecx+000000E2h],dl
+  10028B4A: A8 F0              test        al,0F0h
+  10028B4C: 74 0B              je          10028B59
+  10028B4E: C1 E8 04           shr         eax,4
+  10028B51: 24 0F              and         al,0Fh
+  10028B53: 88 81 E1 00 00 00  mov         byte ptr [ecx+000000E1h],al
+  10028B59: 81 49 24 00 00 01  or          dword ptr [ecx+24h],10000h
+            00
+  10028B60: C2 08 00           ret         8
+  10028B63: 90                 nop
+  10028B64: 90                 nop
+  10028B65: 90                 nop
+  10028B66: 90                 nop
+  10028B67: 90                 nop
+  10028B68: 90                 nop
+  10028B69: 90                 nop
+  10028B6A: 90                 nop
+  10028B6B: 90                 nop
+  10028B6C: 90                 nop
+  10028B6D: 90                 nop
+  10028B6E: 90                 nop
+  10028B6F: 90                 nop
+  10028B70: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028B74: 8B 4C 24 04        mov         ecx,dword ptr [esp+4]
+  10028B78: A8 0F              test        al,0Fh
+  10028B7A: 74 0B              je          10028B87
+  10028B7C: 8A D0              mov         dl,al
+  10028B7E: 80 E2 0F           and         dl,0Fh
+  10028B81: 88 91 E2 00 00 00  mov         byte ptr [ecx+000000E2h],dl
+  10028B87: A8 F0              test        al,0F0h
+  10028B89: 74 0B              je          10028B96
+  10028B8B: C1 E8 04           shr         eax,4
+  10028B8E: 24 0F              and         al,0Fh
+  10028B90: 88 81 E1 00 00 00  mov         byte ptr [ecx+000000E1h],al
+  10028B96: 81 49 24 00 00 01  or          dword ptr [ecx+24h],10000h
+            00
+  10028B9D: C2 08 00           ret         8
+  10028BA0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028BA4: 8B 4C 24 04        mov         ecx,dword ptr [esp+4]
+  10028BA8: A8 0F              test        al,0Fh
+  10028BAA: 74 0B              je          10028BB7
+  10028BAC: 8A D0              mov         dl,al
+  10028BAE: 80 E2 0F           and         dl,0Fh
+  10028BB1: 88 91 E8 00 00 00  mov         byte ptr [ecx+000000E8h],dl
+  10028BB7: A8 F0              test        al,0F0h
+  10028BB9: 74 0B              je          10028BC6
+  10028BBB: C1 E8 04           shr         eax,4
+  10028BBE: 24 0F              and         al,0Fh
+  10028BC0: 88 81 E7 00 00 00  mov         byte ptr [ecx+000000E7h],al
+  10028BC6: 81 49 24 00 00 04  or          dword ptr [ecx+24h],40000h
+            00
+  10028BCD: C2 08 00           ret         8
+  10028BD0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028BD4: 53                 push        ebx
+  10028BD5: 55                 push        ebp
+  10028BD6: 56                 push        esi
+  10028BD7: 85 C0              test        eax,eax
+  10028BD9: 57                 push        edi
+  10028BDA: 74 0C              je          10028BE8
+  10028BDC: 8B 6C 24 14        mov         ebp,dword ptr [esp+14h]
+  10028BE0: 88 85 DA 00 00 00  mov         byte ptr [ebp+000000DAh],al
+  10028BE6: EB 0C              jmp         10028BF4
+  10028BE8: 8B 6C 24 14        mov         ebp,dword ptr [esp+14h]
+  10028BEC: 33 C0              xor         eax,eax
+  10028BEE: 8A 85 DA 00 00 00  mov         al,byte ptr [ebp+000000DAh]
+  10028BF4: 8B 99 6C D0 00 00  mov         ebx,dword ptr [ecx+0000D06Ch]
+  10028BFA: 8B 75 74           mov         esi,dword ptr [ebp+74h]
+  10028BFD: F7 C3 22 09 00 00  test        ebx,922h
+  10028C03: 74 66              je          10028C6B
+  10028C05: 8B F8              mov         edi,eax
+  10028C07: 83 E7 0F           and         edi,0Fh
+  10028C0A: 83 FF 0F           cmp         edi,0Fh
+  10028C0D: 75 2A              jne         10028C39
+  10028C0F: A8 F0              test        al,0F0h
+  10028C11: 74 11              je          10028C24
+  10028C13: C1 E8 04           shr         eax,4
+  10028C16: 50                 push        eax
+  10028C17: 55                 push        ebp
+  10028C18: E8 93 01 00 00     call        10028DB0
+  10028C1D: 5F                 pop         edi
+  10028C1E: 5E                 pop         esi
+  10028C1F: 5D                 pop         ebp
+  10028C20: 5B                 pop         ebx
+  10028C21: C2 08 00           ret         8
+  10028C24: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]
+  10028C2A: F6 C6 10           test        dh,10h
+  10028C2D: 74 3C              je          10028C6B
+  10028C2F: F6 C2 02           test        dl,2
+  10028C32: 75 37              jne         10028C6B
+  10028C34: 83 EE 3C           sub         esi,3Ch
+  10028C37: EB 32              jmp         10028C6B
+  10028C39: 8B D0              mov         edx,eax
+  10028C3B: 81 E2 F0 00 00 00  and         edx,0F0h
+  10028C41: 80 FA F0           cmp         dl,0F0h
+  10028C44: 75 25              jne         10028C6B
+  10028C46: 85 FF              test        edi,edi
+  10028C48: 74 0E              je          10028C58
+  10028C4A: 57                 push        edi
+  10028C4B: 55                 push        ebp
+  10028C4C: E8 BF 01 00 00     call        10028E10
+  10028C51: 5F                 pop         edi
+  10028C52: 5E                 pop         esi
+  10028C53: 5D                 pop         ebp
+  10028C54: 5B                 pop         ebx
+  10028C55: C2 08 00           ret         8
+  10028C58: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]
+  10028C5E: F6 C6 10           test        dh,10h
+  10028C61: 74 08              je          10028C6B
+  10028C63: F6 C2 02           test        dl,2
+  10028C66: 75 03              jne         10028C6B
+  10028C68: 83 C6 3C           add         esi,3Ch
+  10028C6B: 8B 89 58 D0 00 00  mov         ecx,dword ptr [ecx+0000D058h]
+  10028C71: F6 C5 10           test        ch,10h
+  10028C74: 74 05              je          10028C7B
+  10028C76: F6 C1 02           test        cl,2
+  10028C79: 74 22              je          10028C9D
+  10028C7B: 8B C8              mov         ecx,eax
+  10028C7D: 83 E1 0F           and         ecx,0Fh
+  10028C80: 74 07              je          10028C89
+  10028C82: F7 D9              neg         ecx
+  10028C84: 8D 34 8E           lea         esi,[esi+ecx*4]
+  10028C87: EB 08              jmp         10028C91
+  10028C89: C1 E8 02           shr         eax,2
+  10028C8C: 83 E0 3C           and         eax,3Ch
+  10028C8F: 03 F0              add         esi,eax
+  10028C91: F6 C3 01           test        bl,1
+  10028C94: 74 07              je          10028C9D
+  10028C96: 81 4D 24 00 00 00  or          dword ptr [ebp+24h],1000000h
+            01
+  10028C9D: 85 F6              test        esi,esi
+  10028C9F: 7D 0C              jge         10028CAD
+  10028CA1: 33 F6              xor         esi,esi
+  10028CA3: 5F                 pop         edi
+  10028CA4: 89 75 74           mov         dword ptr [ebp+74h],esi
+  10028CA7: 5E                 pop         esi
+  10028CA8: 5D                 pop         ebp
+  10028CA9: 5B                 pop         ebx
+  10028CAA: C2 08 00           ret         8
+  10028CAD: 81 FE 00 01 00 00  cmp         esi,100h
+  10028CB3: 7E 05              jle         10028CBA
+  10028CB5: BE 00 01 00 00     mov         esi,100h
+  10028CBA: 89 75 74           mov         dword ptr [ebp+74h],esi
+  10028CBD: 5F                 pop         edi
+  10028CBE: 5E                 pop         esi
+  10028CBF: 5D                 pop         ebp
+  10028CC0: 5B                 pop         ebx
+  10028CC1: C2 08 00           ret         8
+  10028CC4: 90                 nop
+  10028CC5: 90                 nop
+  10028CC6: 90                 nop
+  10028CC7: 90                 nop
+  10028CC8: 90                 nop
+  10028CC9: 90                 nop
+  10028CCA: 90                 nop
+  10028CCB: 90                 nop
+  10028CCC: 90                 nop
+  10028CCD: 90                 nop
+  10028CCE: 90                 nop
+  10028CCF: 90                 nop
+  10028CD0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028CD4: 56                 push        esi
+  10028CD5: 85 C0              test        eax,eax
+  10028CD7: 57                 push        edi
+  10028CD8: 8B F1              mov         esi,ecx
+  10028CDA: 74 0C              je          10028CE8
+  10028CDC: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  10028CE0: 88 87 DE 00 00 00  mov         byte ptr [edi+000000DEh],al
+  10028CE6: EB 0C              jmp         10028CF4
+  10028CE8: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  10028CEC: 33 C0              xor         eax,eax
+  10028CEE: 8A 87 DE 00 00 00  mov         al,byte ptr [edi+000000DEh]
+  10028CF4: F7 86 6C D0 00 00  test        dword ptr [esi+0000D06Ch],122h
+            22 01 00 00
+  10028CFE: 74 64              je          10028D64
+  10028D00: 8B D0              mov         edx,eax
+  10028D02: 83 E2 0F           and         edx,0Fh
+  10028D05: 83 FA 0F           cmp         edx,0Fh
+  10028D08: 75 1D              jne         10028D27
+  10028D0A: A8 F0              test        al,0F0h
+  10028D0C: 74 19              je          10028D27
+  10028D0E: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  10028D14: F6 C5 10           test        ch,10h
+  10028D17: 0F 84 8C 00 00 00  je          10028DA9
+  10028D1D: C1 E8 02           shr         eax,2
+  10028D20: 83 E0 3C           and         eax,3Ch
+  10028D23: F7 D8              neg         eax
+  10028D25: EB 60              jmp         10028D87
+  10028D27: 8B C8              mov         ecx,eax
+  10028D29: 81 E1 F0 00 00 00  and         ecx,0F0h
+  10028D2F: 80 F9 F0           cmp         cl,0F0h
+  10028D32: 75 18              jne         10028D4C
+  10028D34: 85 D2              test        edx,edx
+  10028D36: 74 14              je          10028D4C
+  10028D38: 8B 86 58 D0 00 00  mov         eax,dword ptr [esi+0000D058h]
+  10028D3E: F6 C4 10           test        ah,10h
+  10028D41: 74 66              je          10028DA9
+  10028D43: 8D 04 95 00 00 00  lea         eax,[edx*4+00000000h]
+            00
+  10028D4A: EB 3B              jmp         10028D87
+  10028D4C: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  10028D52: F6 C5 10           test        ch,10h
+  10028D55: 75 52              jne         10028DA9
+  10028D57: 85 D2              test        edx,edx
+  10028D59: 74 C2              je          10028D1D
+  10028D5B: 8D 04 95 00 00 00  lea         eax,[edx*4+00000000h]
+            00
+  10028D62: EB 23              jmp         10028D87
+  10028D64: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  10028D6A: F6 C5 10           test        ch,10h
+  10028D6D: 75 3A              jne         10028DA9
+  10028D6F: 8B C8              mov         ecx,eax
+  10028D71: 83 E1 0F           and         ecx,0Fh
+  10028D74: 74 0B              je          10028D81
+  10028D76: 8D 04 8D 00 00 00  lea         eax,[ecx*4+00000000h]
+            00
+  10028D7D: F7 D8              neg         eax
+  10028D7F: EB 06              jmp         10028D87
+  10028D81: C1 E8 02           shr         eax,2
+  10028D84: 83 E0 3C           and         eax,3Ch
+  10028D87: 85 C0              test        eax,eax
+  10028D89: 74 1E              je          10028DA9
+  10028D8B: 03 47 78           add         eax,dword ptr [edi+78h]
+  10028D8E: 79 0A              jns         10028D9A
+  10028D90: 33 C0              xor         eax,eax
+  10028D92: 89 47 78           mov         dword ptr [edi+78h],eax
+  10028D95: 5F                 pop         edi
+  10028D96: 5E                 pop         esi
+  10028D97: C2 08 00           ret         8
+  10028D9A: 3D 00 01 00 00     cmp         eax,100h
+  10028D9F: 7E 05              jle         10028DA6
+  10028DA1: B8 00 01 00 00     mov         eax,100h
+  10028DA6: 89 47 78           mov         dword ptr [edi+78h],eax
+  10028DA9: 5F                 pop         edi
+  10028DAA: 5E                 pop         esi
+  10028DAB: C2 08 00           ret         8
+  10028DAE: 90                 nop
+  10028DAF: 90                 nop
+  10028DB0: 8B 54 24 08        mov         edx,dword ptr [esp+8]
+  10028DB4: 85 D2              test        edx,edx
+  10028DB6: 74 0C              je          10028DC4
+  10028DB8: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  10028DBC: 88 90 DB 00 00 00  mov         byte ptr [eax+000000DBh],dl
+  10028DC2: EB 0C              jmp         10028DD0
+  10028DC4: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  10028DC8: 33 D2              xor         edx,edx
+  10028DCA: 8A 90 DB 00 00 00  mov         dl,byte ptr [eax+000000DBh]
+  10028DD0: 56                 push        esi
+  10028DD1: 8B B1 58 D0 00 00  mov         esi,dword ptr [ecx+0000D058h]
+  10028DD7: F7 C6 00 10 00 00  test        esi,1000h
+  10028DDD: 74 2C              je          10028E0B
+  10028DDF: 8B 70 74           mov         esi,dword ptr [eax+74h]
+  10028DE2: C1 E2 02           shl         edx,2
+  10028DE5: 03 F2              add         esi,edx
+  10028DE7: 8B D6              mov         edx,esi
+  10028DE9: 89 70 74           mov         dword ptr [eax+74h],esi
+  10028DEC: 81 FA 00 01 00 00  cmp         edx,100h
+  10028DF2: 7E 07              jle         10028DFB
+  10028DF4: C7 40 74 00 01 00  mov         dword ptr [eax+74h],100h
+            00
+  10028DFB: F6 81 6C D0 00 00  test        byte ptr [ecx+0000D06Ch],1
+            01
+  10028E02: 74 07              je          10028E0B
+  10028E04: 81 48 24 00 00 00  or          dword ptr [eax+24h],1000000h
+            01
+  10028E0B: 5E                 pop         esi
+  10028E0C: C2 08 00           ret         8
+  10028E0F: 90                 nop
+  10028E10: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028E14: 85 C0              test        eax,eax
+  10028E16: 74 0C              je          10028E24
+  10028E18: 8B 54 24 04        mov         edx,dword ptr [esp+4]
+  10028E1C: 88 82 DB 00 00 00  mov         byte ptr [edx+000000DBh],al
+  10028E22: EB 0C              jmp         10028E30
+  10028E24: 8B 54 24 04        mov         edx,dword ptr [esp+4]
+  10028E28: 33 C0              xor         eax,eax
+  10028E2A: 8A 82 DB 00 00 00  mov         al,byte ptr [edx+000000DBh]
+  10028E30: 56                 push        esi
+  10028E31: 8B B1 58 D0 00 00  mov         esi,dword ptr [ecx+0000D058h]
+  10028E37: F7 C6 00 10 00 00  test        esi,1000h
+  10028E3D: 74 26              je          10028E65
+  10028E3F: 8B 72 74           mov         esi,dword ptr [edx+74h]
+  10028E42: F7 D8              neg         eax
+  10028E44: C1 E0 02           shl         eax,2
+  10028E47: 03 F0              add         esi,eax
+  10028E49: 89 72 74           mov         dword ptr [edx+74h],esi
+  10028E4C: 79 07              jns         10028E55
+  10028E4E: C7 42 74 00 00 00  mov         dword ptr [edx+74h],0
+            00
+  10028E55: F6 81 6C D0 00 00  test        byte ptr [ecx+0000D06Ch],1
+            01
+  10028E5C: 74 07              je          10028E65
+  10028E5E: 81 4A 24 00 00 00  or          dword ptr [edx+24h],1000000h
+            01
+  10028E65: 5E                 pop         esi
+  10028E66: C2 08 00           ret         8
+  10028E69: 90                 nop
+  10028E6A: 90                 nop
+  10028E6B: 90                 nop
+  10028E6C: 90                 nop
+  10028E6D: 90                 nop
+  10028E6E: 90                 nop
+  10028E6F: 90                 nop
+  10028E70: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028E74: 8B 4C 24 04        mov         ecx,dword ptr [esp+4]
+  10028E78: A8 0F              test        al,0Fh
+  10028E7A: 74 0E              je          10028E8A
+  10028E7C: 8A D0              mov         dl,al
+  10028E7E: 80 E2 0F           and         dl,0Fh
+  10028E81: C0 E2 02           shl         dl,2
+  10028E84: 88 91 E5 00 00 00  mov         byte ptr [ecx+000000E5h],dl
+  10028E8A: A8 F0              test        al,0F0h
+  10028E8C: 74 0B              je          10028E99
+  10028E8E: C1 E8 04           shr         eax,4
+  10028E91: 24 0F              and         al,0Fh
+  10028E93: 88 81 E4 00 00 00  mov         byte ptr [ecx+000000E4h],al
+  10028E99: 81 49 24 00 00 02  or          dword ptr [ecx+24h],20000h
+            00
+  10028EA0: C2 08 00           ret         8
+  10028EA3: 90                 nop
+  10028EA4: 90                 nop
+  10028EA5: 90                 nop
+  10028EA6: 90                 nop
+  10028EA7: 90                 nop
+  10028EA8: 90                 nop
+  10028EA9: 90                 nop
+  10028EAA: 90                 nop
+  10028EAB: 90                 nop
+  10028EAC: 90                 nop
+  10028EAD: 90                 nop
+  10028EAE: 90                 nop
+  10028EAF: 90                 nop
+  10028EB0: 8B 44 24 08        mov         eax,dword ptr [esp+8]
+  10028EB4: 56                 push        esi
+  10028EB5: 85 C0              test        eax,eax
+  10028EB7: 57                 push        edi
+  10028EB8: 8B F1              mov         esi,ecx
+  10028EBA: 74 0C              je          10028EC8
+  10028EBC: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  10028EC0: 88 87 DF 00 00 00  mov         byte ptr [edi+000000DFh],al
+  10028EC6: EB 0C              jmp         10028ED4
+  10028EC8: 8B 7C 24 0C        mov         edi,dword ptr [esp+0Ch]
+  10028ECC: 33 C0              xor         eax,eax
+  10028ECE: 8A 87 DF 00 00 00  mov         al,byte ptr [edi+000000DFh]
+  10028ED4: 8B D0              mov         edx,eax
+  10028ED6: 83 E2 0F           and         edx,0Fh
+  10028ED9: 83 FA 0F           cmp         edx,0Fh
+  10028EDC: 75 14              jne         10028EF2
+  10028EDE: A8 F0              test        al,0F0h
+  10028EE0: 74 10              je          10028EF2
+  10028EE2: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  10028EE8: F6 C5 10           test        ch,10h
+  10028EEB: 74 6B              je          10028F58
+  10028EED: C1 E8 04           shr         eax,4
+  10028EF0: EB 3D              jmp         10028F2F
+  10028EF2: 8B C8              mov         ecx,eax
+  10028EF4: 81 E1 F0 00 00 00  and         ecx,0F0h
+  10028EFA: 80 F9 F0           cmp         cl,0F0h
+  10028EFD: 75 15              jne         10028F14
+  10028EFF: 85 D2              test        edx,edx
+  10028F01: 74 11              je          10028F14
+  10028F03: 8B 86 58 D0 00 00  mov         eax,dword ptr [esi+0000D058h]
+  10028F09: F6 C4 10           test        ah,10h
+  10028F0C: 74 4A              je          10028F58
+  10028F0E: F7 DA              neg         edx
+  10028F10: 8B C2              mov         eax,edx
+  10028F12: EB 1B              jmp         10028F2F
+  10028F14: 8B 8E 58 D0 00 00  mov         ecx,dword ptr [esi+0000D058h]
+  10028F1A: F6 C5 10           test        ch,10h
+  10028F1D: 75 39              jne         10028F58
+  10028F1F: 85 D2              test        edx,edx
+  10028F21: 74 06              je          10028F29
+  10028F23: F7 DA              neg         edx
+  10028F25: 8B C2              mov         eax,edx
+  10028F27: EB 06              jmp         10028F2F
+  10028F29: C1 E8 04           shr         eax,4
+  10028F2C: 83 E0 0F           and         eax,0Fh
+  10028F2F: 85 C0              test        eax,eax
+  10028F31: 74 25              je          10028F58
+  10028F33: 03 87 A8 00 00 00  add         eax,dword ptr [edi+000000A8h]
+  10028F39: 79 0D              jns         10028F48
+  10028F3B: 33 C0              xor         eax,eax
+  10028F3D: 89 87 A8 00 00 00  mov         dword ptr [edi+000000A8h],eax
+  10028F43: 5F                 pop         edi
+  10028F44: 5E                 pop         esi
+  10028F45: C2 08 00           ret         8
+  10028F48: 83 F8 40           cmp         eax,40h
+  10028F4B: 7E 05              jle         10028F52
+  10028F4D: B8 40 00 00 00     mov         eax,40h
+  10028F52: 89 87 A8 00 00 00  mov         dword ptr [edi+000000A8h],eax
+  10028F58: 5F                 pop         edi
+  10028F59: 5E                 pop         esi
+  10028F5A: C2 08 00           ret         8
+  10028F5D: 90                 nop
+  10028F5E: 90                 nop
+  10028F5F: 90                 nop
+
+  Summary
+
+       47000 .text
+
+Microsoft (R) COFF/PE Dumper Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\Users\thesa\Desktop\farmĂˇĹ™\farmĂˇĹ™ - decompile\farmĂˇĹ™\DobrĂ˝ farmĂˇĹ™\Squall.dll
+
+File Type: DLL
+
+  10029DE0: 8B 91 6C D0 00 00  mov         edx,dword ptr [ecx+0000D06Ch]
+  10029DE6: 8B C2              mov         eax,edx
+  10029DE8: 83 E8 20           sub         eax,20h
+  10029DEB: F7 D8              neg         eax
+  10029DED: 1B C0              sbb         eax,eax
+  10029DEF: 24 80              and         al,80h
+  10029DF1: 05 00 01 00 00     add         eax,100h
+  10029DF6: F6 C2 02           test        dl,2
+  10029DF9: 8B 54 24 04        mov         edx,dword ptr [esp+4]
+  10029DFD: 74 0E              je          10029E0D
+  10029DFF: 81 FA 80 00 00 00  cmp         edx,80h
+  10029E05: 76 06              jbe         10029E0D
+  10029E07: 81 EA 80 00 00 00  sub         edx,80h
+  10029E0D: 85 D2              test        edx,edx
+  10029E0F: 74 0A              je          10029E1B
+  10029E11: 3B D0              cmp         edx,eax
+  10029E13: 77 06              ja          10029E1B
+  10029E15: 89 91 88 D0 00 00  mov         dword ptr [ecx+0000D088h],edx
+  10029E1B: C2 04 00           ret         4
+  10029E1E: 90                 nop
+  10029E1F: 90                 nop
+  10029E20: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  10029E24: 83 F8 20           cmp         eax,20h
+  10029E27: 73 5F              jae         10029E88
+  10029E29: 8B D0              mov         edx,eax
+  10029E2B: 81 E2 F0 00 00 00  and         edx,0F0h
+  10029E31: 80 FA 10           cmp         dl,10h
+  10029E34: 75 29              jne         10029E5F
+  10029E36: 8B 91 8C D0 00 00  mov         edx,dword ptr [ecx+0000D08Ch]
+  10029E3C: 83 E0 0F           and         eax,0Fh
+  10029E3F: D1 E0              shl         eax,1
+  10029E41: 03 D0              add         edx,eax
+  10029E43: 8B C2              mov         eax,edx
+  10029E45: 89 91 8C D0 00 00  mov         dword ptr [ecx+0000D08Ch],edx
+  10029E4B: 3D FF 00 00 00     cmp         eax,0FFh
+  10029E50: 76 3C              jbe         10029E8E
+  10029E52: C7 81 8C D0 00 00  mov         dword ptr [ecx+0000D08Ch],0FFh
+            FF 00 00 00
+  10029E5C: C2 04 00           ret         4
+  10029E5F: 8B 91 8C D0 00 00  mov         edx,dword ptr [ecx+0000D08Ch]
+  10029E65: 83 E0 0F           and         eax,0Fh
+  10029E68: F7 D8              neg         eax
+  10029E6A: D1 E0              shl         eax,1
+  10029E6C: 03 D0              add         edx,eax
+  10029E6E: 8B C2              mov         eax,edx
+  10029E70: 89 91 8C D0 00 00  mov         dword ptr [ecx+0000D08Ch],edx
+  10029E76: 83 F8 20           cmp         eax,20h
+  10029E79: 7D 13              jge         10029E8E
+  10029E7B: C7 81 8C D0 00 00  mov         dword ptr [ecx+0000D08Ch],20h
+            20 00 00 00
+  10029E85: C2 04 00           ret         4
+  10029E88: 89 81 8C D0 00 00  mov         dword ptr [ecx+0000D08Ch],eax
+  10029E8E: C2 04 00           ret         4
+  10029E91: 90                 nop
+  10029E92: 90                 nop
+  10029E93: 90                 nop
+  10029E94: 90                 nop
+  10029E95: 90                 nop
+  10029E96: 90                 nop
+  10029E97: 90                 nop
+  10029E98: 90                 nop
+  10029E99: 90                 nop
+  10029E9A: 90                 nop
+  10029E9B: 90                 nop
+  10029E9C: 90                 nop
+  10029E9D: 90                 nop
+  10029E9E: 90                 nop
+  10029E9F: 90                 nop
+  10029EA0: 53                 push        ebx
+  10029EA1: 8B 5C 24 0C        mov         ebx,dword ptr [esp+0Ch]
+  10029EA5: 85 DB              test        ebx,ebx
+  10029EA7: 56                 push        esi
+  10029EA8: 74 59              je          10029F03
+  10029EAA: 8B 74 24 0C        mov         esi,dword ptr [esp+0Ch]
+  10029EAE: 8A 86 F5 00 00 00  mov         al,byte ptr [esi+000000F5h]
+  10029EB4: 84 C0              test        al,al
+  10029EB6: 74 12              je          10029ECA
+  10029EB8: FE C8              dec         al
+  10029EBA: 88 86 F5 00 00 00  mov         byte ptr [esi+000000F5h],al
+  10029EC0: 75 34              jne         10029EF6
+  10029EC2: 5E                 pop         esi
+  10029EC3: 83 C8 FF           or          eax,0FFFFFFFFh
+  10029EC6: 5B                 pop         ebx
+  10029EC7: C2 08 00           ret         8
+  10029ECA: 8D 41 08           lea         eax,[ecx+8]
+  10029ECD: 8B 89 5C D0 00 00  mov         ecx,dword ptr [ecx+0000D05Ch]
+  10029ED3: 33 D2              xor         edx,edx
+  10029ED5: 85 C9              test        ecx,ecx
+  10029ED7: 76 17              jbe         10029EF0
+  10029ED9: 3B C6              cmp         eax,esi
+  10029EDB: 74 09              je          10029EE6
+  10029EDD: 80 B8 F5 00 00 00  cmp         byte ptr [eax+000000F5h],0
+            00
+  10029EE4: 75 2D              jne         10029F13
+  10029EE6: 42                 inc         edx
+  10029EE7: 05 00 01 00 00     add         eax,100h
+  10029EEC: 3B D1              cmp         edx,ecx
+  10029EEE: 72 E9              jb          10029ED9
+  10029EF0: 88 9E F5 00 00 00  mov         byte ptr [esi+000000F5h],bl
+  10029EF6: 33 C0              xor         eax,eax
+  10029EF8: 8A 86 F4 00 00 00  mov         al,byte ptr [esi+000000F4h]
+  10029EFE: 5E                 pop         esi
+  10029EFF: 5B                 pop         ebx
+  10029F00: C2 08 00           ret         8
+  10029F03: 8A 81 94 D0 00 00  mov         al,byte ptr [ecx+0000D094h]
+  10029F09: 8B 4C 24 0C        mov         ecx,dword ptr [esp+0Ch]
+  10029F0D: 88 81 F4 00 00 00  mov         byte ptr [ecx+000000F4h],al
+  10029F13: 5E                 pop         esi
+  10029F14: 83 C8 FF           or          eax,0FFFFFFFFh
+  10029F17: 5B                 pop         ebx
+  10029F18: C2 08 00           ret         8
+  10029F1B: 90                 nop
+  10029F1C: 90                 nop
+  10029F1D: 90                 nop
+  10029F1E: 90                 nop
+  10029F1F: 90                 nop
+  10029F20: 8B 44 24 04        mov         eax,dword ptr [esp+4]
+  10029F24: 85 C0              test        eax,eax
+  10029F26: 74 08              je          10029F30
+  10029F28: 89 81 BC D0 00 00  mov         dword ptr [ecx+0000D0BCh],eax
+  10029F2E: EB 06              jmp         10029F36
+  10029F30: 8B 81 BC D0 00 00  mov         eax,dword ptr [ecx+0000D0BCh]
+  10029F36: 8B D0              mov         edx,eax
+  10029F38: 56                 push        esi
+  10029F39: 83 E2 0F           and         edx,0Fh
+  10029F3C: 83 FA 0F           cmp         edx,0Fh
+  10029F3F: 75 16              jne         10029F57
+  10029F41: A8 F0              test        al,0F0h
+  10029F43: 74 12              je          10029F57
+  10029F45: 8B 91 58 D0 00 00  mov         edx,dword ptr [ecx+0000D058h]
+  10029F4B: F6 C6 10           test        dh,10h
+  10029F4E: 74 7F              je          10029FCF
+  10029F50: C1 E8 04           shr         eax,4
+  10029F53: D1 E0              shl         eax,1
+  10029F55: EB 25              jmp         10029F7C
+  10029F57: 8B F0              mov         esi,eax
+  10029F59: 81 E6 F0 00 00 00  and         esi,0F0h
+  10029F5F: 81 FE F0 00 00 00  cmp         esi,0F0h
+  10029F65: 75 38              jne         10029F9F
+  10029F67: 85 D2              test        edx,edx
+  10029F69: 74 34              je          10029F9F
+  10029F6B: 8B 81 58 D0 00 00  mov         eax,dword ptr [ecx+0000D058h]
+  10029F71: F6 C4 10           test        ah,10h
+  10029F74: 74 59              je          10029FCF
+  10029F76: F7 DA              neg         edx
+  10029F78: D1 E2              shl         edx,1
+  10029F7A: 8B C2              mov         eax,edx
+  10029F7C: 85 C0              test        eax,eax
+  10029F7E: 74 4F              je          10029FCF
+  10029F80: 83 B9 6C D0 00 00  cmp         dword ptr [ecx+0000D06Ch],20h
+            20
+  10029F87: 74 02              je          10029F8B
+  10029F89: 03 C0              add         eax,eax
+  10029F8B: 03 81 AC D0 00 00  add         eax,dword ptr [ecx+0000D0ACh]
+  10029F91: 79 2A              jns         10029FBD
+  10029F93: 33 C0              xor         eax,eax
+  10029F95: 5E                 pop         esi
+  10029F96: 89 81 AC D0 00 00  mov         dword ptr [ecx+0000D0ACh],eax
+  10029F9C: C2 04 00           ret         4
+  10029F9F: 57                 push        edi
+  10029FA0: 8B B9 58 D0 00 00  mov         edi,dword ptr [ecx+0000D058h]
+  10029FA6: F7 C7 00 10 00 00  test        edi,1000h
+  10029FAC: 5F                 pop         edi
+  10029FAD: 75 20              jne         10029FCF
+  10029FAF: 85 F6              test        esi,esi
+  10029FB1: 74 C3              je          10029F76
+  10029FB3: C1 E8 04           shr         eax,4
+  10029FB6: 83 E0 0F           and         eax,0Fh
+  10029FB9: D1 E0              shl         eax,1
+  10029FBB: EB BF              jmp         10029F7C
+  10029FBD: 3D 00 01 00 00     cmp         eax,100h
+  10029FC2: 7E 05              jle         10029FC9
+  10029FC4: B8 00 01 00 00     mov         eax,100h
+  10029FC9: 89 81 AC D0 00 00  mov         dword ptr [ecx+0000D0ACh],eax
+  10029FCF: 5E                 pop         esi
+  10029FD0: C2 04 00           ret         4
+  10029FD3: 90                 nop
+  10029FD4: 90                 nop
+  10029FD5: 90                 nop
+  10029FD6: 90                 nop
+  10029FD7: 90                 nop
+  10029FD8: 90                 nop
+  10029FD9: 90                 nop
+  10029FDA: 90                 nop
+  10029FDB: 90                 nop
+  10029FDC: 90                 nop
+  10029FDD: 90                 nop
+  10029FDE: 90                 nop
+  10029FDF: 90                 nop
+
+  Summary
+
+       47000 .text

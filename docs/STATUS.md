@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Trackerové efekty a celý dispatcher](SQUALL.md) prošly v každém sestavení1409024 skutečnými páry volání bez rozdílů celých61196bajtových stavů, guardů, návratů nebo PC53/PC24. Rozsah zahrnuje11 přímých metod a všech32 příkazů ProcessEffects, všechny parametry0..255; aktivní pointerové note lifecycle a veřejné přehrávání pokračují. Produkce zůstává nezměněná a celý původní cíl není dokončený.
+
 [Další trackerové větve Squallu](SQUALL.md) nyní prošly v obou sestaveních: MED/MMD0/MMD1, MDL, PSM, DMF, MT2, AMS a čtyři UMX větve společně s předchozími vstupy tvoří176 procesů na sestavení,7503936 přesných inicializovaných bajtů a362932 skutečně alokovaných bajtů. Původní AMS raw-copy větev dokládá skutečná instrukční tabulka; adresní chyba diagnostického souhrnu je zachovaná a opravená porovnáním vlastněných dat. Produkce ani17 originálů se neměnily. Širší varianty, veřejné trackerové přehrávání, úplné exportní signatury a celý původní cíl pokračují.
 
 [Dalších11 trackerových vstupů](SQUALL.md) prošlo v obou sestaveních po88 normálních procesech/44 loader-order párech. MTM/669/STM/ULT/FAR/OKT/DSM/PTM/DBM a obě AMF větve mají197524 přesných alokovaných bajtů a66 snapshotů/3751968 inicializovaných bajtů. Adresní sloty, vnitřní relativní adresy a skutečné PC53/PC24 hranice se měří samostatně. Neúspěšný copier nealokovaného druhého patternu je zachovaný; produkce se neměnila. Zbývajících sedm loaderů, další efektové/veřejné větve a celý původní cíl pokračují.

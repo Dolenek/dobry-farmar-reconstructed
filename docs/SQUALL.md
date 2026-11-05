@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Skutečné trackerové efekty a jejich dispatcher
+
+V obou sestaveních nově prošlo1409024 párů skutečných volání:11 samostatných efektových metod a celý ProcessEffects10027870 pro všech32 původních command hodnot0..31. V každém rozsahu je32768 kombinací: všechny parametry0..255, osm module-type kontextů, PC53/PC24 a osm kombinací FIRSTTICK/LINEARSLIDES/FASTVOLSLIDES se skutečnými nulovými/hraničními/aktivními periodami, hlasitostí, panoramou a tempem. Porovnává se všech61196 inicializovaných bajtů objektu po každém volání včetně návratu dispatcheru, vnější guardy a FPU control před/po. Nejsou vyjmuté žádné adresní sloty; tato fixture má všechny pointery nulové. Na sestavení souhlasí86226632704 porovnaných objektových bajtů.
+
+Několik menších source metod optimalizátor inlineuje. První příprava manifestu proto skončila před spuštěním sondy na chybějícím out-of-line Vibrato symbolu; nyní je ověřuje skutečný produkční dispatcher, bez změny produkčních flags nebo náhradní kopie implementace. Aktivní instrument/sample note lifecycle, volume column a navazující historie nejsou tímto bezpointerovým rozsahem ověřené. Instrukce a oba průchody spojuje `analysis/squall-tracker-effects-regression.json`; reprodukční nástroje jsou `tools/squall_tracker_effects_probe.cpp`, jeho vlastní CMake projekt, `tools/validate_squall_tracker_effects.py` a `tools/record_squall_tracker_effects_verification.py`. Produkce a17 originálních souborů se neměnily; poslední úplná102/102 regrese se přenáší přes stejné produkční hashe, nikoli novým během. Celý původní cíl pokračuje.
+
 ## MED, MDL, PSM, DMF, MT2, AMS a vložené UMX vstupy
 
 Aktuální sada přidává vlastní MMD0/MMD1, MDL, PSM, DMF, MT2, AMS a čtyři skutečné větve UMX ripperu (vložené IT/XM/S3M/MOD). Společně s předchozími jedenácti vstupy prošla v každém ze dvou nezávislých sestavení176 normálně ukončenými procesy: Create/CreateOrderInfo/Destroy v měřených PC53/PC24. Jde o konkrétní definované vstupy, nikoli úplné ověření všech variant souborových formátů nebo veřejného přehrávání.
