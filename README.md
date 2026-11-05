@@ -1,6 +1,8 @@
 # Dobrý farmář — rekonstrukce
 
-[Pozdní skutečná hra](docs/LATE_TIMELINE.md) prošla13 kontrolními body v každém celém EXE a přirozeným oceněním za tři hodiny. Souhlasí480000 RGB pixelů ocenění, celý trh a zničení poslední plodiny;24 peněžních událostí vysvětluje oba samostatné náhodné výsledky. Čtyři pozdní save přenosy14616/15906/14616/14616 bajtů jsou přesné; pokračují a ostatní podmínky původního cíle.
+[Konec příběhu a první opakování času](docs/CAMPAIGN_LOOP.md) prošly v obou celých EXE:13 kontrolních bodů, skutečný přechod14400→11190, nezávisle ověřených383 nových koeficientů na běh a čtyři přesné15605bajtové přenosy. Produkce se neměnila; další herní a DLL rozsahy pokračují.
+
+[Pozdní skutečná hra](docs/LATE_TIMELINE.md) prošla13 kontrolními body v každém celém EXE a přirozeným oceněním za tři hodiny. Souhlasí480000 RGB pixelů ocenění, celý trh a zničení poslední plodiny;24 peněžních událostí vysvětluje oba samostatné náhodné výsledky. Čtyři pozdní save přenosy14616/15906/14616/14616 bajtů jsou přesné; práce pokračuje ostatními podmínkami původního cíle.
 
 [Další trackerové loadery a nenulový mixer](docs/SQUALL.md) mají obnovené původní pohledy polí, AGC, útlum a převod PCM. Obě sestavení prošla9088 mixer/AGC případy,288 ukončeními kanálu a32 páry skutečných konstruktorů MOD/XM/IT/S3M. Nová úplná regrese102/102 za499,88s, obě zvukové regrese a čtyři celé obousměrné save obnovy prošly. Širší trackerové větve, pozdější herní průběh a celý původní cíl pokračují.
 

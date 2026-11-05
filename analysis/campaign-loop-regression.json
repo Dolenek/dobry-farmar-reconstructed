@@ -1,0 +1,241 @@
+{
+  "status": "passed_actual_main_story_end_clock_wrap_regeneration_and_four_bidirectional_transfers_only",
+  "recorded_at_utc": "2026-11-05T04:00:58.477176+00:00",
+  "recorder_sha256": "f3cf993d4c8fed8acb7be9b4abc9d6a5dc0f6eaecfff6f4a2a4e3e3aa510a0d9",
+  "reports": {
+    "campaign-loop-state-validation.json": "b0383a0685e146ec4db5890cf9fe37c69ee864fd77b2a9448543a9da3cda8925",
+    "campaign-loop-interop-validation.json": "218226d7ad6a341d5221ac0b444dbdc8242a7c4eb718cc833b6b68d3aa8c3a5e"
+  },
+  "runtime_processes": 2,
+  "further_bidirectional_restores": 4,
+  "timeline_checkpoints_per_executable": 13,
+  "main_game_end_event": 312,
+  "main_game_end_time": 11190,
+  "clock_wrap_from": 14400,
+  "clock_wrap_to": 11190,
+  "new_saved_coefficient_rng_audits": [
+    {
+      "kind": "native",
+      "verified_complete_coefficient_words": 383,
+      "nonzero_range_observations": 22,
+      "recovered_rng_start_low31": 654064670,
+      "recovered_rng_end_low31": 1833769399,
+      "highest_rng_bit_unobservable": true,
+      "underlying_rng_state_claimed_captured": false,
+      "arithmetic_precision": "PC24",
+      "rand_reference_address": "00581021",
+      "randomization_reference_address": "004ae570",
+      "original_memory_or_profile_written": false
+    },
+    {
+      "kind": "source",
+      "verified_complete_coefficient_words": 383,
+      "nonzero_range_observations": 22,
+      "recovered_rng_start_low31": 1000828852,
+      "recovered_rng_end_low31": 1107915909,
+      "highest_rng_bit_unobservable": true,
+      "underlying_rng_state_claimed_captured": false,
+      "arithmetic_precision": "PC24",
+      "rand_reference_address": "00581021",
+      "randomization_reference_address": "004ae570",
+      "original_memory_or_profile_written": false
+    }
+  ],
+  "original_rng_start_high_bit_unobservable": true,
+  "matched_rng_claimed": false,
+  "money_event_ledger": [
+    {
+      "kind": "native",
+      "initial_money": 3054,
+      "events": [
+        {
+          "index": 306,
+          "time": 10561,
+          "value": -250,
+          "raw_probability": "0.7",
+          "parsed_probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 311,
+          "time": 10921,
+          "value": -300,
+          "raw_probability": "1.0",
+          "parsed_probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 319,
+          "time": 11490,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 333,
+          "time": 12210,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 344,
+          "time": 12690,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 360,
+          "time": 13410,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 382,
+          "time": 14400,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        }
+      ],
+      "expected_final_money": 2504,
+      "actual_final_money": 2504
+    },
+    {
+      "kind": "source",
+      "initial_money": 3054,
+      "events": [
+        {
+          "index": 306,
+          "time": 10561,
+          "value": -250,
+          "raw_probability": "0.7",
+          "parsed_probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 311,
+          "time": 10921,
+          "value": -300,
+          "raw_probability": "1.0",
+          "parsed_probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 319,
+          "time": 11490,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 333,
+          "time": 12210,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 344,
+          "time": 12690,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 360,
+          "time": 13410,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        },
+        {
+          "index": 382,
+          "time": 14400,
+          "value": -300,
+          "raw_probability": "0,5",
+          "parsed_probability": 0.0,
+          "taken": false
+        }
+      ],
+      "expected_final_money": 2504,
+      "actual_final_money": 2504
+    }
+  ],
+  "branch_save_bytes": [
+    15605,
+    15605
+  ],
+  "complete_cross_restore_bytes": [
+    15605,
+    15605,
+    15605,
+    15605
+  ],
+  "normalizations": [],
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "5802ea71d3e125612630ae693eeab146803c9d3e0f634b70759e41f2f4b5490f",
+      "events": [
+        {
+          "event": "image",
+          "base": 6094848
+        },
+        {
+          "event": "ready",
+          "pid": 25340,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "e6c8efe4c812211e801bcd7feb7ae59a03e2ffbec1d6c90b3268c2afb4f8eb37",
+      "events": [
+        {
+          "event": "image",
+          "base": 6094848
+        },
+        {
+          "event": "ready",
+          "pid": 19300,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "production_implementation_changed": false,
+  "implementation_files": {
+    "FarmarSourceInterop.exe": "3e1acb3956ee6bef549e9c415696c75486a9d58b3e4c4daf0f8a4d7913db07b1",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977"
+  },
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Remaining natural awards and contract streak",
+    "Later repeated loops and cumulative contract requirements in actual dialogs",
+    "Remaining complete Squall/JNG/uninstaller scopes"
+  ]
+}

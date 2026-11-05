@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Skutečný konec příběhu a časová smyčka](CAMPAIGN_LOOP.md): dva celé normálně ukončené procesy,13 kontrolních bodů na EXE, doložený přechod14400→11190 a383 bitově odvozených nových koeficientů v každém save. Sedm peněžních definic a celý trh jsou nezávisle kontrolované; čtyři další obousměrné15605bajtové přenosy souhlasí, obě source obnovy bez AV.
+
 [Pozdní časová osa a tříhodinové ocenění](LATE_TIMELINE.md): dva normálně ukončené celé procesy,13 kontrolních bodů na EXE,24 samostatně doložených peněžních událostí, shodný trh a480000 RGB pixelů ocenění. Saves14616/15906 bajtů uchovávají odlišné náhodné výsledky. Čtyři další obousměrné obnovy mají14616/15906/14616/14616 celých přesných bajtů; obě source obnovy skončily bez AV. Produkce je shodná s úplnou tracker-loaders regresí102/102; tato etapa neoznačuje starý CTest za nový běh.
 
 Aktuální tracker-loader reporty se zapisují jako UTF-8 bajty s LF, stejně jako jejich Git pravidla. To opravuje konkrétní chybu přenositelnosti: Windows textový zápis zaváděl CRLF, které Git při commitu odstranil a tím změnil mezireportové SHA-256. Všech13 scoped a14 regresních odkazů bylo po novém zápisu ověřeno nad skutečnými LF bajty. Starší záznamy ponechávají své původní místní byte hashe; nejsou zpětně vydávané za nově spuštěné testy. Vrchní hash zdrojového stromu je znovu spočítaný a označený příslušným reportem.

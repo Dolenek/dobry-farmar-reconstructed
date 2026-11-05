@@ -16,4 +16,4 @@ První dva dlouhé diagnostické pokusy byly neúspěšné kvůli pevnému180000
 
 Produkční herní zdroje a binárky se v této etapě neměnily. Úplná regrese102/102 za499,88s z `analysis/squall-tracker-loaders-regression.json` se přenáší jen přes ověřenou shodu produkčních zdrojů a binárek; není vydávaná za nový běh. Originální17 souborů zůstává přesně nezměněných.
 
-Otevřené zůstávají konec hlavního příběhu, opakující se pozdní časová osa a její nové koeficienty, zbývající přirozená ocenění a série zakázek i další evidované rozsahy Squall/JNG/odinstalátoru. Tento rozsah nedokončuje celý původní projekt.
+[Navazující skutečný konec příběhu a první opakování osy](CAMPAIGN_LOOP.md) už ověřily nové koeficienty i čtyři další přenosy. Další opakování, zbývající přirozená ocenění a série zakázek i další evidované rozsahy Squall/JNG/odinstalátoru zůstávají otevřené. Tento rozsah nedokončuje celý původní projekt.

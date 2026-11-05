@@ -1,0 +1,15 @@
+# Konec hlavního příběhu a opakování času
+
+Oba celé programy samostatně načetly stejný neupravený původní pozdní profil a běžným Alt+Insert zapnuly15× čas. Každý prošel13 body RunTime11200..16000. Událost312 v původním GameTime11190 nastavila skutečný profilový příznak `MainGame=false`. Oba procesy potom skutečně přešly přes konec plánované osy14400 a vrátily GameTime k11190; RunTime pokračoval souvisle. Poslední pozorování před přetočením i první po něm jsou uložená. Oba procesy skončily normálně, bez watchdog ukončení.
+
+Plánovač `004b5c60` používá konec poslední události14400 a odlišný čas End11190: výsledkem je `GameTime - 14400 + 11190`. Nezačíná novou hru. Skutečný hlavní EXE provádí obnovenou randomizaci `004ae570`, nově generuje383 uložitelných koeficientů a pokračuje v pozdních zakázkách. RNG rutina je původní CRT `00581021`.
+
+`tools/gameplay_coefficient_audit.py` nezávisle kontroluje všech383 surových DWORD koeficientů každého výsledku. Pro22 nenulových rozsahů odvodí skutečné15bitové hodnoty rand z přesné aritmetiky PC24 a najde jedinou odpovídající sekvenci dolních31 bitů stavu. Z ní znovu vytvoří úplný vektor včetně361 nulových rozsahů a ověří každý bit. Nejvyšší RNG bit tato pozorování nerozlišují; report výslovně netvrdí zachycení celého původního interního stavu. Do RNG, profilu ani hodin se nezapisuje. Oba samostatné běhy mají různé nové sekvence; nejsou uměle synchronizované. Výchozí společný vektor rovněž prošel kontrolou a odpovídá původnímu startu1 v dolních31 bitech.
+
+Všech19 cen je v každém bodě nezávisle odvozených z původních událostí před i po přetočení. Sedm pozdních peněžních definic se kontroluje proti skutečnému binárnímu deníku. Pět původních atributů `RandomFactor="0,5"` se načítá původním C locale jako0, nikoli jako dodatečně opravené0.5. Obě skutečné větve skončily s2504. Všech60 polí je aktivních a prázdných, tři zavlažovače, náklad6, dvě růže a dřívější ocenění zůstaly zachované.
+
+Oba binární výsledky mají15605 bajtů a uchovávají své různé koeficienty. Další čtyři skutečné obousměrné obnovy mají všech15605 bajtů přesných v každém přenosu bez normalizace, včetně obnovení `MainGame=false`. Obě source obnovy mají čtecí exception trace s normálním exit0 bez AV. Shodná velikost obou nezávislých výsledků se nevydává za jejich shodný obsah.
+
+Ovládání provádí `tools/validate_game_campaign_loop.py`, nezávislý audit `tools/validate_campaign_loop_state.py` a přenosy `tools/validate_game_campaign_loop_interop.py`. Metadata zaznamenává `tools/record_campaign_loop_verification.py`. Důkazy jsou `analysis/campaign-loop-state-validation.json`, `analysis/campaign-loop-interop-validation.json` a `analysis/campaign-loop-regression.json`.
+
+Produkční zdroje ani binárky se neměnily. Dřívější úplná regrese102/102 za499,88s je přenesená přes ověřenou shodu všech394 produkčních zdrojů a aktuálních programových hashů, není označená za nový CTest běh.17 původních souborů zůstalo přesně nezměněných. Další opakování, skutečné dialogy kumulativně pozměněných zakázek, zbývající přirozená ocenění a ostatní požadavky na celý projekt zůstávají otevřené.
