@@ -73,7 +73,10 @@
       "analysis/demolition-award-state-validation.json",
       "analysis/demolition-award-interop-validation.json",
       "analysis/harvest-hundred-state-validation.json",
-      "analysis/harvest-hundred-interop-validation.json"
+      "analysis/harvest-hundred-interop-validation.json",
+      "analysis/counter-supply-state-validation.json",
+      "analysis/counter-quiescence-state-validation.json",
+      "analysis/counter-supply-interop-validation.json"
     ]
   },
   "build": {
@@ -180,7 +183,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "12515a87ec8a0c024ca2b0467fa6441f6e117346ffddd174db99e34762b02aaf",
+  "source_tree_sha256": "8148d45295eb9a24f40b4bc1a10d07da6a36863b9f90aab0cf831d0071f46ce0",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -586,7 +589,12 @@
     "analysis/harvest-hundred-regression.json",
     "analysis/squall-listener-factor-signatures.json",
     "analysis/squall-noarg-signatures.json",
-    "analysis/squall-scalar-config-signatures.json"
+    "analysis/squall-scalar-config-signatures.json",
+    "analysis/counter-supply-state-validation.json",
+    "analysis/counter-quiescence-state-validation.json",
+    "analysis/counter-supply-interop-validation.json",
+    "analysis/counter-supply-initial-observations.json",
+    "analysis/counter-supply-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108507,8 +108515,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-scalar-config-signatures.json",
-    "recorded_at_utc": "2026-11-05T14:52:16.979970+00:00",
+    "report": "analysis/counter-supply-regression.json",
+    "recorded_at_utc": "2026-11-05T15:27:09.547701+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108533,7 +108541,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/squall-scalar-config-signatures.json",
+  "source_tree_hash_as_of_report": "analysis/counter-supply-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",

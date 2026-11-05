@@ -80,8 +80,18 @@ def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wa
         select_scene(500);click(hwnd,400,250);time.sleep(.12)
         before=ledger(label+'-before-feed')
         if before['grass'] and before['loaded']<capacity:
-            probe.move(hwnd,round(slider[0]),round(slider[1]));mouse(2);time.sleep(.08);probe.move(hwnd,round(slider[0]+50),round(slider[1]));time.sleep(.12);mouse(4);time.sleep(.08)
-            after=ledger(label+'-after-slider-feed');assert after['grass']<before['grass'],('Actual bulk load slider did not take grass',before,after)
+            end=time.monotonic()+8;attempt=0
+            while True:
+                probe.move(hwnd,round(slider[0]),round(slider[1]));mouse(2);time.sleep(.08);probe.move(hwnd,round(slider[0]+50),round(slider[1]));time.sleep(.12);mouse(4);time.sleep(.08)
+                after=ledger(label+'-after-slider-feed')
+                if after['grass']<before['grass']:break
+                # Retain finite no-change observations rather than inferring a
+                # loader/game failure from one short input sampling interval.
+                session.setdefault('feed_retry_observations',[]).append(dict(label=label,attempt=attempt,before=before,after=after,
+                    foreground=int(u.GetForegroundWindow()),owned_window=int(hwnd.value),tutorial=observer.step(),dialogs=probe.errors(observer.pid)))
+                probe.capture(f'{label}-feed-no-change-{attempt}.png')
+                assert time.monotonic()<end,('Actual bulk load slider did not take grass within8s',before,after)
+                select_scene(500);click(hwnd,400,250);time.sleep(.2);attempt+=1
         return ledger(label+'-after-manufacture')
     def key(code,down):
         focus();event=INPUT();event.type=1;event.keyboard=KEY(0,code&0x7f,8|(1 if code&0x80 else 0)|(0 if down else 2),0,0)

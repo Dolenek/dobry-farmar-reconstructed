@@ -1,5 +1,7 @@
 # Herní řídicí objekt ocenění
 
+[Podmínky1/2/3/6](COUNTER_SUPPLY_PROGRESS.md) vznikly přirozeně v obou celých EXE po936 dalších sklizních a1005 výrobách, s konečnými čítači1036/1011. Čtyři celé panely mají1920000 shodných RGB pixelů. Nezávislé zásobovací a peněžní bilance, původní replay historie a čtyři celé23475/24115/23475/23475bajtové save přenosy jsou doložené samostatně; obě source obnovy bez AV. Série zakázek, drahý prodej, plánovaná fronta a konečná společná podmínka zůstávají otevřené.
+
 [Podmínka0](HARVEST_HUNDRED.md) vznikla přirozeně v obou celých hrách po skutečném čítači44→100.61 obchodních stavů na EXE přesně ověřilo náklad16/sklad100 a56 sklizní; celý panel má480000 shodných RGB pixelů. Čtyři celé15808bajtové obousměrné obnovy prošly. Hraniční dorůstání a nesynchronizovaná náhodná nabídka jsou výslovně evidované; další čítače a celý původní cíl pokračují.
 
 [Podmínka10](DEMOLITION_AWARD.md) nyní vznikla přirozeně v obou celých EXE po skutečných20 demolicích, sedmi nových placených náhradách a Money5234→4534. Celý panel má480000 přesných RGB pixelů a čtyři další celé4252bajtové obousměrné obnovy zachovaly čítač i oba flagy. Původní text100 budov se zachovává vedle doloženého skutečného prahu20.

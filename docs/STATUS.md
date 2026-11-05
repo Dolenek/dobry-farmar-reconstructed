@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Skutečné1000-sklizňové a výrobní průchody](COUNTER_SUPPLY_PROGRESS.md) dokončily v každém EXE936 dalších sklizní a1005 výrob, čítače1036/1011 a čtyři přirozená ocenění1/2/3/6. Čtyři celé panely mají1920000 přesných RGB pixelů. Bilance,383 koeficientů,19 cen a13 nových zpráv jsou samostatně ověřené. Native pokračoval z neupraveného checkpointu892/843, source celý rozsah od společného původního základu. Původní replay historie800→730 prodejů přesně vysvětluje source save24675→24115 bajtů; následné čtyři celé23475/24115/23475/23475bajtové přenosy jsou shodné, obě source bez AV. Výsledky i omezení propojuje `analysis/counter-supply-regression.json`; produkce a17 originálů se neměnily. Celý původní cíl pokračuje.
+
 [Další čtyři konfigurační ABI signatury Squallu](SQUALL.md) prokazují signed32 argumentové role a všech devět EAX/C3 návratů Device/Speaker/Algorithm/Buffer setterů. Aktuálně18/97, zbývá79; behaviorální rozsah se nenavyšuje. Originál mezitím dokončil1000-sklizňový/výrobní průchod a zdrojová hra z původního základu pokračuje; celý rozsah čeká na konečný audit a saves.
 
 [Typové ABI Squallu](SQUALL.md) je nyní doložené pro14/97 exportů: šest float/float-pointer factor rozhraní a osm bezargumentových integer rozhraní se všemi13 návraty. Zbývá83 signatur; behaviorální status zůstává částečný. Dlouhý herní průchod navazuje na skutečně uložený native checkpoint892/843, source zůstává od původního společného základu; úspěch celého rozsahu se ještě netvrdí.

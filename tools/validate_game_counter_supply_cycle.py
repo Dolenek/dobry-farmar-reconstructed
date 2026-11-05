@@ -12,6 +12,7 @@ parser.add_argument('--fixture-report',type=Path,default=r/'analysis/harvest-hun
 parser.add_argument('--harvest-target',type=int,default=1032)
 parser.add_argument('--production-target',type=int,default=1000)
 parser.add_argument('--backends',nargs='+',choices=['native','source'],default=['native','source'])
+parser.add_argument('--resume-native-report',type=Path,help='Continue the unedited native profile saved after a bounded diagnostic input failure;retain the original prefix evidence')
 args=parser.parse_args();assert args.harvest_target>=100 and args.production_target>=6
 launcher_path=args.launcher.resolve(strict=True)
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/counter-supply-cycle'/stamp;work.mkdir(parents=True)
@@ -66,6 +67,26 @@ report['source_files']['tools/game_counter_cycle.py']=digest(r/'tools/game_count
 report['source_file_snapshots']={'tools/validate_game_counter_supply_cycle.py':(work/'driver.py').relative_to(r).as_posix(),'tools/game_counter_cycle.py':(work/'counter-cycle.py').relative_to(r).as_posix()}
 report['baseline_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report))
 report['requested_targets']=dict(harvest=args.harvest_target,production=args.production_target)
+native_resume=None
+if args.resume_native_report:
+ prior_path=args.resume_native_report.resolve(strict=True);prior=json.loads(prior_path.read_text(encoding='utf-8'));prior_work=r/prior['work_directory']
+ assert prior['status']=='failed' and len(prior['sessions'])==1 and prior['sessions'][0]['kind']=='native'
+ assert 'Actual bulk load slider did not take grass' in prior['error']
+ assert prior['baseline_report']['sha256']==digest(args.fixture_report)
+ for name,value in prior['source_files'].items():
+  old_path=r/prior['source_file_snapshots'][name] if name in prior.get('source_file_snapshots',{}) else r/name
+  assert digest(old_path)==value,name
+ for name,value in prior['implementation_files'].items():assert digest(runtime/name)==value,name
+ native_resume=r/prior['sessions'][0]['common_directory']/'Profiles'
+ properties={node.get('Name'):node.get('Val') for node in ET.parse(native_resume/'00000001.xml').getroot()}
+ count=int(properties['awQCollect']);processed=int(properties['awQProcess']);grass=int(properties['WGoodCount0']);carry=int(properties['PCC0']);loaded=int(properties['ProdCount0'])
+ milk=int(properties['WGoodCount10']);market=int(properties['MGoodCount10']);money=int(properties['Money']);sold=(money-1204)//2
+ assert count==892 and processed==843 and properties['Upgrade0']=='3' and properties['ProdType0']=='2'
+ assert 69+count-100==grass+carry+loaded+processed-6 and 5+processed-6==milk+market+sold and money==1204+2*sold
+ report['retained_native_prefix']=dict(report=prior_path.relative_to(r).as_posix(),report_sha256=digest(prior_path),
+  ordinary_shutdown_profile_directory=native_resume.relative_to(r).as_posix(),files={p.name:digest(p) for p in native_resume.iterdir() if p.is_file()},
+  source_snapshot_paths=prior['source_file_snapshots'],source_hashes=prior['source_files'],actual_collected=count,actual_processed=processed,
+  original_counter_and_inventory_conservation_rechecked=True,checkpoint_profile_fields_modified=False,prefix_process_exit_code_captured=False)
 from PIL import Image
 prior=json.loads((r/'.local/application-runtime-validation.json').read_text(encoding='utf-8'))
 expected_hud=roi(Image.open(r/prior['work_directory']/'0-04-game.png'),(10,8,55,28))
@@ -96,7 +117,7 @@ def observe(step,name,style=None):
 try:
  for cycle,(kind,variant,seed_from) in enumerate([(backend,'counter-supply',None) for backend in args.backends]):
   name=None;shared=work/f'{cycle}-shared';common=shared/'VirtualFarm';common.mkdir(parents=True)
-  seed_profiles=baseline if seed_from is None else work/f'{seed_from}-persisted/Profiles'
+  seed_profiles=native_resume if kind=='native' and native_resume is not None else baseline if seed_from is None else work/f'{seed_from}-persisted/Profiles'
   shutil.copytree(seed_profiles,common/'Profiles')
   settings=resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0');(common/'sys').mkdir();ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
   session=dict(kind=kind,variant=variant,seed_from=seed_from,common_directory=common.relative_to(r).as_posix(),actions=[]);report['sessions'].append(session);launcher=None
@@ -240,6 +261,9 @@ try:
  report['status']='explored_actual_counter_supply_cycle_only'
 except Exception as e:
  report['status']='failed';report['error']=repr(e)
+ try:
+  if probe.process and probe.process.poll() is None and probe.hwnd:capture(f'{cycle}-diagnostic-failure.png')
+ except Exception as capture_error:report['diagnostic_failure_capture_error']=repr(capture_error)
  import traceback;report['traceback']=traceback.format_exc()
 finally:
  unchanged();report['reference_files_unchanged']=17

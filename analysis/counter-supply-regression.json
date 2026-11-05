@@ -1,0 +1,95 @@
+{
+  "status": "passed_actual_thousand_harvest_production_income_awards_and_four_rich_saves_only",
+  "recorded_at_utc": "2026-11-05T15:27:09.547701+00:00",
+  "recorder_sha256": "87c9d304ee3d3883af08ad5af9cc80546431e557b14a2df8f10a7dd070356d31",
+  "reports": {
+    "counter-supply-state-validation.json": "ef2e34fc3794e569c1b730abd1e410e526a99e939b0c06eecbcec7e9e1c763dd",
+    "counter-quiescence-state-validation.json": "ea774f6e3764228fd84cc68b3342b2b07833c2f049798d70f0b1642eb2709105",
+    "counter-supply-interop-validation.json": "c48a3c9a36c702e30e21b412cc804fcea190a9547d58059f41888d593abb77fe",
+    "counter-supply-initial-observations.json": "27e07f8df9f7616254ace112cde38c192ff9cd18c5b964f2a5fd60216aee44bc"
+  },
+  "original_award_predicates": "004c8650:awQCollect>99/>999;awQProcess>99/>999;awEarn",
+  "original_sale_replay": "0040c337 successor-skipping erase;restore replays actual records before restoring saved cutoff",
+  "actual_harvest_actions_per_executable": 936,
+  "actual_productions_per_executable": 1005,
+  "final_counters": [
+    1036,
+    1011
+  ],
+  "complete_award_panel_exact_rgb_pixels": 1920000,
+  "actual_new_award_indices": [
+    1,
+    2,
+    3,
+    6
+  ],
+  "paid_cowshed_level3_cost": 1300,
+  "exact_grass_milk_money_conservation": true,
+  "independent_final_outcomes_preserved": {
+    "native_money": 3180,
+    "source_money": 3200,
+    "native_market_milk": 10,
+    "source_market_milk": 0
+  },
+  "native_resumed_real_unmodified_checkpoint": true,
+  "native_prefix_exit_code_captured": false,
+  "source_completed_full_continuous_original_baseline_workload": true,
+  "quiescent_source_save_original_replay_removed_sales": 70,
+  "actual_bidirectional_transfers": 4,
+  "whole_identical_save_bytes": [
+    23475,
+    24115,
+    23475,
+    23475
+  ],
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "a5e456e9bdfe413b69a1013b2206f4b0b9d8933f9e75323acda481c6ae1f9fa2",
+      "events": [
+        {
+          "event": "image",
+          "base": 720896
+        },
+        {
+          "event": "ready",
+          "pid": 13624,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "21b3dbd3331cc417ccdf5a86088a0016c510e441bc6058a870c757ff6c75d213",
+      "events": [
+        {
+          "event": "image",
+          "base": 720896
+        },
+        {
+          "event": "ready",
+          "pid": 17316,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "normalizations": [],
+  "production_implementation_changed": false,
+  "original_files_unchanged": 17,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural20/40 contract streaks,high-price sale,planning queue and final all-awards condition",
+    "Remaining native ABI semantics for79 Squall exports and broader behavior",
+    "Remaining JNG/uninstaller and whole original goal scopes"
+  ]
+}
