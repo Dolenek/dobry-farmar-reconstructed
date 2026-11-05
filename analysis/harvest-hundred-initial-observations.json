@@ -1,0 +1,71 @@
+{
+  "status": "completed_original_and_source_restores_followed_by_rejected_inherited_no_dry_assumption",
+  "initial_report": ".local/harvest-hundred-interop/20261105T133448523283Z/report.json",
+  "initial_report_sha256": "d3b1e8ecabf1d19daa64ec72bf90735b575ebe7a8fa81083eb5ad660c35df966",
+  "completed_processes": 4,
+  "source_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "be23ae25efae6e9b20b60ff4dfa11a3c0448d3ccdbdc6d862afef4ced9f30825",
+      "events": [
+        {
+          "event": "image",
+          "base": 4653056
+        },
+        {
+          "event": "ready",
+          "pid": 15660,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "df7e7281b8f78efae016000a7466a49e8fe9345a8e83a17578a14be30ab1563e",
+      "events": [
+        {
+          "event": "image",
+          "base": 4653056
+        },
+        {
+          "event": "ready",
+          "pid": 19680,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "original_awNoDry": false,
+  "already_earned_award12": true,
+  "resolution": "Compare transient awNoDry to its actual saved baseline;water below15 clears transient flag/time without revoking earned award12",
+  "recorded_as_game_failure": false,
+  "production_changed": false,
+  "actual_independent_regrowth_differences": [
+    {
+      "field": 20,
+      "native_progress": 0,
+      "source_seconds_remaining": 1.80549
+    },
+    {
+      "field": 22,
+      "native_progress": 0,
+      "source_seconds_remaining": 0.931493
+    }
+  ],
+  "actual_independent_random_offer_difference": {
+    "event_index": 370,
+    "probability": 0.5,
+    "native_offer": true,
+    "source_offer": false,
+    "actual_rng_stream_equality_claimed": false
+  },
+  "matched_rng_stream_or_identical_world_timing_claimed": false,
+  "normalizations": [],
+  "whole_game_complete": false
+}

@@ -1,0 +1,77 @@
+{
+  "status": "passed_actual56_harvests_natural100_award_capacity_boundaries_and_bidirectional_saves_only",
+  "recorded_at_utc": "2026-11-05T13:38:48.612458+00:00",
+  "recorder_sha256": "1abc05bbe5d3d88cc6db46d92fb1f042b204dd5afed319e544fb77a0f787906e",
+  "reports": {
+    "harvest-hundred-state-validation.json": "9863488f9be354fc32f200e0086c8b4a0f6c37fc1c3927851cab2dbbfef9849a",
+    "harvest-hundred-interop-validation.json": "3559df2174c677229a9d834c3d0bfb4e3d3f0b43e5418812db7f8d5754bdfcdc",
+    "harvest-hundred-initial-observations.json": "6dc382b330882938fc31cbc063217364bdbdaffa2811d3554f7e780d51c88bbf"
+  },
+  "original_counter_increment": "0045BFA0",
+  "original_award_predicate": "004C8650:awQCollect>99",
+  "harvest_count_before": 44,
+  "harvest_count_after": 100,
+  "actual_harvests_per_executable": 56,
+  "business_snapshots_per_executable": 61,
+  "actual_field_snapshots_per_executable": 3660,
+  "carried_capacity": 16,
+  "warehouse_capacity": 100,
+  "final_carried_grass": 8,
+  "final_stored_grass": 61,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "actual_panel_glyphs": 40,
+  "complete_identical_save_bytes": 15808,
+  "entire_save_unchanged_from_native_baseline": true,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "b9d6113bba1e573fe50e066d5b91e93c4a6a12cc68755311ef7ca9c3f27ef518",
+      "events": [
+        {
+          "event": "image",
+          "base": 14024704
+        },
+        {
+          "event": "ready",
+          "pid": 27184,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "bac695dd76aa4e8ba17b7854211ab62600d691c4eb2aa316b5bdbaa1e9f1db29",
+      "events": [
+        {
+          "event": "image",
+          "base": 14024704
+        },
+        {
+          "event": "ready",
+          "pid": 27948,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "independent_random_offer_and_regrowth_differences_preserved": true,
+  "matched_rng_stream_claimed": false,
+  "original_profile_fields_modified_by_probe": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural1000 harvest and100/1000 production counters,20/40 contract streaks and remaining awards",
+    "Whole Squall97/JNG/uninstaller and remaining original goal scopes"
+  ]
+}

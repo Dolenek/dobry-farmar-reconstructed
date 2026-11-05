@@ -71,7 +71,9 @@
       "analysis/no-dry-award-state-validation.json",
       "analysis/no-dry-award-interop-validation.json",
       "analysis/demolition-award-state-validation.json",
-      "analysis/demolition-award-interop-validation.json"
+      "analysis/demolition-award-interop-validation.json",
+      "analysis/harvest-hundred-state-validation.json",
+      "analysis/harvest-hundred-interop-validation.json"
     ]
   },
   "build": {
@@ -178,7 +180,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "2019cd387494dce0ef32a0c2e7c43210911e5413ed6909f10a234807a180340f",
+  "source_tree_sha256": "c927ff820395561fa18f822cb0d78cc7eeec67e83f62a26a0868d8b266cf182a",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -577,7 +579,11 @@
     "analysis/demolition-award-state-validation.json",
     "analysis/demolition-award-interop-validation.json",
     "analysis/demolition-award-initial-observations.json",
-    "analysis/demolition-award-regression.json"
+    "analysis/demolition-award-regression.json",
+    "analysis/harvest-hundred-state-validation.json",
+    "analysis/harvest-hundred-interop-validation.json",
+    "analysis/harvest-hundred-initial-observations.json",
+    "analysis/harvest-hundred-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108498,8 +108504,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/demolition-award-regression.json",
-    "recorded_at_utc": "2026-11-05T13:20:34.125252+00:00",
+    "report": "analysis/harvest-hundred-regression.json",
+    "recorded_at_utc": "2026-11-05T13:38:48.612458+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108524,7 +108530,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/demolition-award-regression.json",
+  "source_tree_hash_as_of_report": "analysis/harvest-hundred-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
