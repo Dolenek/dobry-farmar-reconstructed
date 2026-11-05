@@ -1,7 +1,7 @@
 {
   "status": "passed_native_only_paid_grass_milk_sale_supply_pilot_source_comparison_in_progress",
-  "recorded_at_utc": "2026-11-05T14:00:21.793730+00:00",
-  "recorder_sha256": "4782319440d5d0f4938120a60085bbb399006481114111d43e6d275e8616c479",
+  "recorded_at_utc": "2026-11-05T14:14:35.878374+00:00",
+  "recorder_sha256": "837a1c68c4dbe5922e61be6700cadec263ac19cc9ad4627154cb3f709c8098c1",
   "runtime_report": ".local/counter-supply-cycle/20261105T135229432937Z/report.json",
   "runtime_report_sha256": "72d85fd40b5689229a76c2e9cbcd0c783638e5bdacd4bc1f20a247c2c0c168fb",
   "source_snapshot_hashes": {
@@ -330,6 +330,13 @@
       "sha256": "8c290745601819e5406c6f4b9440ee34d06096344b1bc41a8d23f570a447dbe3",
       "error": "AssertionError(('Actual bulk load slider did not take grass', {'collected': 100, 'processed': 6, 'grass': 61, 'carried': 8, 'milk': 0, 'market_milk': 4, 'loaded': 0, 'money': 1206, 'label': 'cycle-0-before-feed', 'harvested': 0, 'produced': 0, 'milk_sold': 1, 'game_time': 13836.6455078125, 'run_time': 17438.818359375, 'stable_read_attempts': 1}, {'collected': 100, 'processed': 6, 'grass': 61, 'carried': 8, 'milk': 0, 'market_milk': 4, 'loaded': 0, 'money': 1206, 'label': 'cycle-0-after-slider-feed', 'harvested': 0, 'produced': 0, 'milk_sold': 1, 'game_time': 13836.6455078125, 'run_time': 17438.818359375, 'stable_read_attempts': 1}))",
       "diagnostic_cause": "Diagnostic copied Pause0xC5 instead of Insert0xD2;game clock and enabled slider stopped",
+      "production_failure_claimed": false
+    },
+    {
+      "report": ".local/counter-supply-cycle/20261105T135721064806Z/report.json",
+      "sha256": "3f4b7f6efd4cbedcb950435bbb132fe1eca9dc2361509d03a3cafe8492e22411",
+      "error": "RuntimeError(('Catalog timeout', 'cycle-6-stored', {'tutorial': -1, 'money': 1394, 'held': 6, 'carried': 12, 'stock': 24, 'milk': 15, 'building_level': 3, 'building_loaded': 0, 'building_progress': 0.0, 'processed': 111, 'task': -1, 'task_remaining': 0.0, 'seed_available': 1, 'game_time': 12912.529296875, 'crop': 0, 'field_state': 0, 'water': 0.0, 'fertility': 44.43769836425781, 'crop_progress': 19.325565338134766, 'farm_level': 3, 'farm_available': 3}))",
+      "diagnostic_cause": "New actual production100 award intercepted farm navigation;after Return the previous manufacture scene remained selected,so warehouse coordinates did not enqueue Store",
       "production_failure_claimed": false
     }
   ],

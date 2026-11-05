@@ -5,7 +5,17 @@ from windows_game_gui import INPUT,KEY,MOUSE,u
 def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wait_for,service_award,service_tip,session,args):
     val=observer.property
     def drain_modals():
-        while service_award() or service_tip():focus();check_process()
+        handled=False
+        while service_award() or service_tip():handled=True;focus();check_process()
+        return handled
+    def select_scene(nav_x):
+        # A newly earned award can intercept a navigation click while the
+        # background factory completes its next unit. Returning restores the
+        # previous scene,so repeat the requested ordinary navigation afterward.
+        for _ in range(5):
+            drain_modals();click(hwnd,nav_x,550);time.sleep(.65)
+            if not drain_modals():return
+        raise RuntimeError(('Scene navigation repeatedly intercepted by actual modals',nav_x))
     def stocks():return [val('uints',f'WGoodCount{n}') for n in range(19)]
     initial=dict(collected=val('uints','awQCollect'),processed=val('uints','awQProcess'),grass=val('uints','WGoodCount0'),
         carried=val('uints','PCC0'),milk=val('uints','WGoodCount10'),market_milk=val('uints','MGoodCount10'),money=val('ints','Money'))
@@ -34,7 +44,7 @@ def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wa
     market=resource('UI/gameUI/Market.xml');milk_place=list(market.find('ProductPlaces'))[10]
     mx,my=map(float,milk_place.get('pos').split());dx,dy=map(float,market.find('ProductLine').find('IncAllQtyButton').get('position').split())
     def sell_milk(label):
-        drain_modals();click(hwnd,300,550);time.sleep(.65);drain_modals();before=ledger(label+'-before-milk-transfer')
+        select_scene(300);before=ledger(label+'-before-milk-transfer')
         if before['milk']:
             delivered_before=before['produced']-before['milk']
             target=delivered_before+before['milk'];deadline=time.monotonic()+15
@@ -44,7 +54,7 @@ def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wa
                 assert time.monotonic()<deadline,('Actual milk all-quantity button did not transfer',before,after)
         return ledger(label+'-after-market')
     sell_milk('initial')
-    click(hwnd,500,550);time.sleep(.65);drain_modals()
+    select_scene(500)
     costs=[int(x.text) for x in list(resource('Game.xml').find('Costs'))[2]]
     if val('ints','Upgrade0')==-1:
         assert all(val('ints',f'Upgrade{n}')==-1 for n in range(20))
@@ -67,7 +77,7 @@ def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wa
     def mouse(flags):
         focus();event=INPUT();event.type=0;event.mouse=MOUSE(0,0,0,flags,0,0);assert u.SendInput(1,C.byref(event),C.sizeof(event))==1
     def feed(label):
-        drain_modals();click(hwnd,500,550);time.sleep(.65);drain_modals();click(hwnd,400,250);time.sleep(.12)
+        select_scene(500);click(hwnd,400,250);time.sleep(.12)
         before=ledger(label+'-before-feed')
         if before['grass'] and before['loaded']<capacity:
             probe.move(hwnd,round(slider[0]),round(slider[1]));mouse(2);time.sleep(.08);probe.move(hwnd,round(slider[0]+50),round(slider[1]));time.sleep(.12);mouse(4);time.sleep(.08)
@@ -89,7 +99,7 @@ def run_cycle(*,hwnd,probe,observer,resource,button,click,focus,check_process,wa
         drain_modals();current=ledger(f'cycle-{cycle}-start')
         if current['collected']>=args.harvest_target and current['processed']>=args.production_target:break
         sell_milk(f'cycle-{cycle}');feed(f'cycle-{cycle}')
-        click(hwnd,400,550);time.sleep(.65);drain_modals()
+        select_scene(400)
         before=ledger(f'cycle-{cycle}-before-store')
         if before['carried']:
             click(hwnd,120,100)

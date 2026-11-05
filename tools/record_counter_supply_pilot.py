@@ -28,9 +28,13 @@ def main():
     wraps=[dict(before=a['game_time'],after=b['game_time']) for a,b in zip(steps,steps[1:]) if b['game_time']<a['game_time']]
     assert len(wraps)==1
     failures=[]
-    for folder,reason in [('20261105T135004841275Z','Diagnostic mouse helper received float coordinates'),('20261105T135052312671Z','Diagnostic copied Pause0xC5 instead of Insert0xD2;game clock and enabled slider stopped')]:
+    for folder,reason in [('20261105T135004841275Z','Diagnostic mouse helper received float coordinates'),('20261105T135052312671Z','Diagnostic copied Pause0xC5 instead of Insert0xD2;game clock and enabled slider stopped'),
+        ('20261105T135721064806Z','New actual production100 award intercepted farm navigation;after Return the previous manufacture scene remained selected,so warehouse coordinates did not enqueue Store')]:
         p=ROOT/'.local/counter-supply-cycle'/folder/'report.json';v=read(p);assert v['status']=='failed'
         failures.append(dict(report=p.relative_to(ROOT).as_posix(),sha256=digest(p),error=v['error'],diagnostic_cause=reason,production_failure_claimed=False))
+        if folder=='20261105T135721064806Z':
+            session0=v['sessions'][0];assert len(session0['awards'])==1 and session0['conservation_steps'][-1]['collected']==172 and session0['conservation_steps'][-1]['carried']==12
+            assert any((row.get('texture') or '').lower()=='manufacture/cowshed/animation_04.jng' for row in session0['timeout_scene'])
     full=read(ROOT/'analysis/squall-tracker-loaders-regression.json')
     assert all(digest(ROOT/name)==sha for name,sha in full['production_source_files'].items())
     for row in read(ROOT/'analysis/inventory.json')['files']:assert digest(ROOT.parent/'farmář/Dobrý farmář'/row['path'])==row['sha256']

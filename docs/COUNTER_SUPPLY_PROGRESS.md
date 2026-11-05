@@ -6,6 +6,8 @@ Ve skutečném originálu přirozeně vzniklo ocenění1 za100 výrob, jeho pane
 
 Dva předchozí diagnostické pokusy zůstávají zachované: float místo celočíselných souřadnic myši a kód Pause0xC5 převzatý z pause-interop šablony místo Insert0xD2. Druhý zastavil clock, takže slider nemohl enabled-stepovat; nešlo o doloženou herní chybu. Opravený pilot již používá skutečné Alt+Insert15×.
 
+První delší native průchod při172 sklizních nově doložil souběh výroby100 a navigačního kliku. Nové modální ocenění klik zachytilo; po Return zůstala otevřená předchozí Manufacture scéna. Driver proto čekal na Store po kliku do pozadí této scény. Uchovaný readonly seznam spritů obsahuje skutečný level3 kravín a BuildButton; nejde o ztracené zásoby nebo doložený herní pád. Nové `select_scene` zopakuje běžný požadovaný navigační klik po obsluze zasahující modality. Opakovaný dlouhý průchod již pokračoval přes tuto hranici; celý rozsah ještě čeká na dokončení obou procesů a audit.
+
 `tools/validate_game_counter_supply_cycle.py` a `tools/game_counter_cycle.py` nyní provádějí delší nezávislé průchody obou celých EXE k nejméně1000 sklizním a1000 výrobám. Používají běžné harvest/warehouse/market/build/upgrade/slider akce; žádné cheats ani přepisování profilových čítačů. Každý přesun má vlastní bilanční kontrolu a nové modální ocenění se skutečně obsluhuje. Explicitní1800sekundový native watchdog a1700sekundová diagnostická mez zabraňují nekonečnému běhu.
 
 Dokud neprojdou oba procesy, samostatný audit a obousměrné saves, delší rozsah se neoznačuje za ověřený. Produkční implementace ani17 originálních souborů se neměnily. Celý původní cíl pokračuje.
