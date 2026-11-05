@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Nezávislé typové ABI šesti factor exportů
+
+`Listener_Set/GetDistanceFactor`, `Set/GetRolloffFactor` a `Set/GetDopplerFactor` mají nyní nezávisle doložené původní role argumentů i návratů. Auditor ověřuje skutečné PE bajty každé dosažené instrukce a pomocí původního ESP/EBP auditu jediný argumentový slot. Settery načítají argument skutečnými FLD m32 a porovnávají ho FComp m32; jde o jeden4bajtový binary32 argument. Gettery předají IsBadWritePtr přesně tento pointer a délku4 a zapíší jeden DWORD z téže float cache. Typ výstupu tedy nepochází jen z dodané hlavičky nebo z odlišného veřejného Squallu.
+
+Všech18 původních návratových míst má explicitní EAX←ESI a C3/caller cleanup. Veškeré in-body změny ESI jsou výslovně vyjmenované: success1 a původní záporné32bitové chyby. Žádný z šesti exportů nevrací floating hodnotu v ST0. Cache adresy1007510c/110/114 a skutečné vtable offsety2c/3c/30 spojují float vstupy, getter výstupy a DirectSound volání. Aktuální zdrojové deklarace přesně odpovídají doloženým argumentovým rolím. Předchozí samostatné behaviorální reporty obou sestavení zahrnují24962 výsledků/6240 skutečných guarded getterů na sestavení; nový audio běh se tímto statickým auditem netvrdí.
+
+Těchto šest řádků má v `analysis/squall-export-audit.json` nově `native_signature_fully_verified=true` pro ABI role/šířky/calling convention/návrat. Jejich behaviorální status zůstává `partially_compared`; například všechny2^32 float patterns, FP exception masky a libovolné pointery nejsou tímto prohlášeny za otestované. Zbývajících91 nativních typových signatur a celý Squall pokračují. `analysis/squall-listener-factor-signatures.json` obsahuje úplné instrukční důkazy a `tools/audit_squall_listener_factor_signatures.py` je reprodukuje bez načtení nebo spuštění původní DLL. Produkce ani17 originálů se neměnily.
+
 ## Skutečné trackerové efekty a jejich dispatcher
 
 V obou sestaveních nově prošlo1409024 párů skutečných volání:11 samostatných efektových metod a celý ProcessEffects10027870 pro všech32 původních command hodnot0..31. V každém rozsahu je32768 kombinací: všechny parametry0..255, osm module-type kontextů, PC53/PC24 a osm kombinací FIRSTTICK/LINEARSLIDES/FASTVOLSLIDES se skutečnými nulovými/hraničními/aktivními periodami, hlasitostí, panoramou a tempem. Porovnává se všech61196 inicializovaných bajtů objektu po každém volání včetně návratu dispatcheru, vnější guardy a FPU control před/po. Nejsou vyjmuté žádné adresní sloty; tato fixture má všechny pointery nulové. Na sestavení souhlasí86226632704 porovnaných objektových bajtů.

@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "138a4d94ed5d3f016185e6f999456d33aa228b739cd4f37e350590d77fd2cc43",
+  "rebuilt_sha256": "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -1569,7 +1569,7 @@
       "original_address": "100046c0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1587,6 +1587,18 @@
           "100046e4"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "Writable pointer to one IEEE754 binary32 value",
+          "pointer": true,
+          "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+          "output_or_cache_bytes": 4,
+          "cache_address": "1007510c"
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1595,7 +1607,7 @@
       "original_address": "10004960",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1613,6 +1625,18 @@
           "10004984"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "Writable pointer to one IEEE754 binary32 value",
+          "pointer": true,
+          "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+          "output_or_cache_bytes": 4,
+          "cache_address": "10075114"
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1681,7 +1705,7 @@
       "original_address": "10004810",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1699,6 +1723,18 @@
           "10004834"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "Writable pointer to one IEEE754 binary32 value",
+          "pointer": true,
+          "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+          "output_or_cache_bytes": 4,
+          "cache_address": "10075110"
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1733,7 +1769,7 @@
       "original_address": "10004600",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1755,6 +1791,19 @@
           "1000469d"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "IEEE754 binary32 value in one4-byte stack slot",
+          "pointer": false,
+          "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+          "output_or_cache_bytes": 4,
+          "cache_address": "1007510c",
+          "directsound_vtable_byte_offset": 44
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1763,7 +1812,7 @@
       "original_address": "100048a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1785,6 +1834,19 @@
           "1000493d"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "IEEE754 binary32 value in one4-byte stack slot",
+          "pointer": false,
+          "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+          "output_or_cache_bytes": 4,
+          "cache_address": "10075114",
+          "directsound_vtable_byte_offset": 48
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1853,7 +1915,7 @@
       "original_address": "10004750",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "ordered_factor_verified_scope": "PC53/PC24 before Init, actual DirectSound listener, after Free;1040 input bit patterns per setter/lifecycle, cached factors and output guards; NaNs rejected with -4",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1875,6 +1937,19 @@
           "100047ed"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-factor-signatures.json",
+        "argument": {
+          "argument": "IEEE754 binary32 value in one4-byte stack slot",
+          "pointer": false,
+          "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+          "output_or_cache_bytes": 4,
+          "cache_address": "10075110",
+          "directsound_vtable_byte_offset": 60
+        },
+        "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2850,5 +2925,10 @@
   "sample_selection_reports": [
     "analysis/squall-sample-selection-validation.json",
     "analysis/squall-sample-selection-fresh-validation.json"
-  ]
+  ],
+  "current_contract_reports": [
+    "analysis/squall-tracker-loaders-abi.json",
+    "analysis/squall-tracker-loaders-fresh-abi.json"
+  ],
+  "native_signature_semantics_verified_count": 6
 }

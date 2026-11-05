@@ -1,0 +1,1081 @@
+{
+  "status": "passed_six_native_listener_factor_argument_and_return_abi_semantics_only",
+  "recorded_at_utc": "2026-11-05T14:15:59.301992+00:00",
+  "auditor_sha256": "2856b6ec8a9d2d0ac4ae8c44ccd46bb147e30a94e68ba268c9a304dd876ce13b",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+  "exports": [
+    {
+      "name": "SQUALL_Listener_SetDistanceFactor",
+      "original_address": "10004600",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "IEEE754 binary32 value in one4-byte stack slot",
+        "pointer": false,
+        "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+        "output_or_cache_bytes": 4,
+        "cache_address": "1007510c",
+        "directsound_vtable_byte_offset": 44
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "fffffff8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "10004656",
+        "1000467a",
+        "100046bf"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "10004600",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "1000461c",
+          "instruction_bytes": "d944240c",
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004630",
+          "instruction_bytes": "d9442408",
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "10004681",
+          "instruction_bytes": "d85c2408",
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "1000468c",
+          "instruction_bytes": "8b442408",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "10004690",
+          "instruction_bytes": "a30c510710",
+          "op": "mov",
+          "operands": "dword ptr ds:[1007510Ch],eax"
+        },
+        {
+          "address": "1000469c",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "1000469d",
+          "instruction_bytes": "8b44240c",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100046a1",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "100046a2",
+          "instruction_bytes": "51",
+          "op": "push",
+          "operands": "ecx"
+        },
+        {
+          "address": "100046a3",
+          "instruction_bytes": "ff522c",
+          "op": "call",
+          "operands": "dword ptr [edx+2Ch]"
+        },
+        {
+          "address": "10004601",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10004646",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "1000466a",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "100046aa",
+          "instruction_bytes": "bef8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFF8h"
+        },
+        {
+          "address": "1000460f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10004653",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004655",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "10004656",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004677",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004679",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000467a",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100046bc",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100046be",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100046bf",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_GetDistanceFactor",
+      "original_address": "100046c0",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Writable pointer to one IEEE754 binary32 value",
+        "pointer": true,
+        "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+        "output_or_cache_bytes": 4,
+        "cache_address": "1007510c"
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "1000470b",
+        "1000472b",
+        "10004744"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "100046c0",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "100046e4",
+          "instruction_bytes": "8b7c240c",
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100046e8",
+          "instruction_bytes": "6a04",
+          "op": "push",
+          "operands": "4"
+        },
+        {
+          "address": "100046ea",
+          "instruction_bytes": "57",
+          "op": "push",
+          "operands": "edi"
+        },
+        {
+          "address": "100046eb",
+          "instruction_bytes": "ff1530800410",
+          "op": "call",
+          "operands": "dword ptr ds:[10048030h]"
+        },
+        {
+          "address": "1000472c",
+          "instruction_bytes": "a10c510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[1007510Ch]"
+        },
+        {
+          "address": "10004731",
+          "instruction_bytes": "8907",
+          "op": "mov",
+          "operands": "dword ptr [edi],eax"
+        },
+        {
+          "address": "100046c2",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "100046fa",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "1000471a",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "100046d0",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10004707",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004709",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "1000470a",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000470b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004727",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004729",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "1000472a",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000472b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004740",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004742",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "10004743",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "10004744",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_SetRolloffFactor",
+      "original_address": "10004750",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "IEEE754 binary32 value in one4-byte stack slot",
+        "pointer": false,
+        "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+        "output_or_cache_bytes": 4,
+        "cache_address": "10075110",
+        "directsound_vtable_byte_offset": 60
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "fffffff8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "100047a6",
+        "100047ca",
+        "1000480f"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "10004750",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "1000476c",
+          "instruction_bytes": "d944240c",
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004780",
+          "instruction_bytes": "d9442408",
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "100047d1",
+          "instruction_bytes": "d85c2408",
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "100047dc",
+          "instruction_bytes": "8b442408",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "100047e0",
+          "instruction_bytes": "a310510710",
+          "op": "mov",
+          "operands": "dword ptr ds:[10075110h],eax"
+        },
+        {
+          "address": "100047ec",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "100047ed",
+          "instruction_bytes": "8b44240c",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100047f1",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "100047f2",
+          "instruction_bytes": "51",
+          "op": "push",
+          "operands": "ecx"
+        },
+        {
+          "address": "100047f3",
+          "instruction_bytes": "ff523c",
+          "op": "call",
+          "operands": "dword ptr [edx+3Ch]"
+        },
+        {
+          "address": "10004751",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "10004796",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "100047ba",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "100047fa",
+          "instruction_bytes": "bef8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFF8h"
+        },
+        {
+          "address": "1000475f",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "100047a3",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100047a5",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100047a6",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100047c7",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100047c9",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100047ca",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "1000480c",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "1000480e",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000480f",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_GetRolloffFactor",
+      "original_address": "10004810",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Writable pointer to one IEEE754 binary32 value",
+        "pointer": true,
+        "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+        "output_or_cache_bytes": 4,
+        "cache_address": "10075110"
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "1000485b",
+        "1000487b",
+        "10004894"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "10004810",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "10004834",
+          "instruction_bytes": "8b7c240c",
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004838",
+          "instruction_bytes": "6a04",
+          "op": "push",
+          "operands": "4"
+        },
+        {
+          "address": "1000483a",
+          "instruction_bytes": "57",
+          "op": "push",
+          "operands": "edi"
+        },
+        {
+          "address": "1000483b",
+          "instruction_bytes": "ff1530800410",
+          "op": "call",
+          "operands": "dword ptr ds:[10048030h]"
+        },
+        {
+          "address": "1000487c",
+          "instruction_bytes": "a110510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[10075110h]"
+        },
+        {
+          "address": "10004881",
+          "instruction_bytes": "8907",
+          "op": "mov",
+          "operands": "dword ptr [edi],eax"
+        },
+        {
+          "address": "10004812",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "1000484a",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "1000486a",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "10004820",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "10004857",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004859",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "1000485a",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000485b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004877",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004879",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "1000487a",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000487b",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004890",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004892",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "10004893",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "10004894",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_SetDopplerFactor",
+      "original_address": "100048a0",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "IEEE754 binary32 value in one4-byte stack slot",
+        "pointer": false,
+        "independent_type_evidence": "Native FLD m32/FComp m32 on the actual argument and cached bits;not inferred from the source header",
+        "output_or_cache_bytes": 4,
+        "cache_address": "10075114",
+        "directsound_vtable_byte_offset": 48
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "fffffff8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "100048f6",
+        "1000491a",
+        "1000495f"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "100048a0",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "100048bc",
+          "instruction_bytes": "d944240c",
+          "op": "fld",
+          "operands": "dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "100048d0",
+          "instruction_bytes": "d9442408",
+          "op": "fld",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "10004921",
+          "instruction_bytes": "d85c2408",
+          "op": "fcomp",
+          "operands": "dword ptr [esp+8]"
+        },
+        {
+          "address": "1000492c",
+          "instruction_bytes": "8b442408",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+8]"
+        },
+        {
+          "address": "10004930",
+          "instruction_bytes": "a314510710",
+          "op": "mov",
+          "operands": "dword ptr ds:[10075114h],eax"
+        },
+        {
+          "address": "1000493c",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "1000493d",
+          "instruction_bytes": "8b44240c",
+          "op": "mov",
+          "operands": "eax,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004941",
+          "instruction_bytes": "50",
+          "op": "push",
+          "operands": "eax"
+        },
+        {
+          "address": "10004942",
+          "instruction_bytes": "51",
+          "op": "push",
+          "operands": "ecx"
+        },
+        {
+          "address": "10004943",
+          "instruction_bytes": "ff5230",
+          "op": "call",
+          "operands": "dword ptr [edx+30h]"
+        },
+        {
+          "address": "100048a1",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "100048e6",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "1000490a",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "1000494a",
+          "instruction_bytes": "bef8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFF8h"
+        },
+        {
+          "address": "100048af",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "100048f3",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100048f5",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100048f6",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "10004917",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "10004919",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000491a",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "1000495c",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "1000495e",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "1000495f",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    },
+    {
+      "name": "SQUALL_Listener_GetDopplerFactor",
+      "original_address": "10004960",
+      "calling_convention": "cdecl",
+      "argument_slots": 1,
+      "argument_role": {
+        "argument": "Writable pointer to one IEEE754 binary32 value",
+        "pointer": true,
+        "independent_type_evidence": "Actual IsBadWritePtr(argument,4),one DWORD write,and same cache proven binary32 by paired setter FLD/FComp",
+        "output_or_cache_bytes": 4,
+        "cache_address": "10075114"
+      },
+      "return_role": "signed32 status in EAX;success1 or enumerated negative errors,no floating return",
+      "return_status_bits": [
+        "00000001",
+        "fffffffc",
+        "ffffffe8",
+        "ffffffff"
+      ],
+      "all_native_return_sites": [
+        "100049ab",
+        "100049cb",
+        "100049e4"
+      ],
+      "instruction_evidence": [
+        {
+          "address": "10004960",
+          "instruction_bytes": "56",
+          "op": "push",
+          "operands": "esi"
+        },
+        {
+          "address": "10004984",
+          "instruction_bytes": "8b7c240c",
+          "op": "mov",
+          "operands": "edi,dword ptr [esp+0Ch]"
+        },
+        {
+          "address": "10004988",
+          "instruction_bytes": "6a04",
+          "op": "push",
+          "operands": "4"
+        },
+        {
+          "address": "1000498a",
+          "instruction_bytes": "57",
+          "op": "push",
+          "operands": "edi"
+        },
+        {
+          "address": "1000498b",
+          "instruction_bytes": "ff1530800410",
+          "op": "call",
+          "operands": "dword ptr ds:[10048030h]"
+        },
+        {
+          "address": "100049cc",
+          "instruction_bytes": "a114510710",
+          "op": "mov",
+          "operands": "eax,dword ptr ds:[10075114h]"
+        },
+        {
+          "address": "100049d1",
+          "instruction_bytes": "8907",
+          "op": "mov",
+          "operands": "dword ptr [edi],eax"
+        },
+        {
+          "address": "10004962",
+          "instruction_bytes": "be01000000",
+          "op": "mov",
+          "operands": "esi,1"
+        },
+        {
+          "address": "1000499a",
+          "instruction_bytes": "befcffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFFCh"
+        },
+        {
+          "address": "100049ba",
+          "instruction_bytes": "bee8ffffff",
+          "op": "mov",
+          "operands": "esi,0FFFFFFE8h"
+        },
+        {
+          "address": "10004970",
+          "instruction_bytes": "83ceff",
+          "op": "or",
+          "operands": "esi,0FFFFFFFFh"
+        },
+        {
+          "address": "100049a7",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100049a9",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "100049aa",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100049ab",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100049c7",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100049c9",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "100049ca",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100049cb",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        },
+        {
+          "address": "100049e0",
+          "instruction_bytes": "8bc6",
+          "op": "mov",
+          "operands": "eax,esi"
+        },
+        {
+          "address": "100049e2",
+          "instruction_bytes": "5f",
+          "op": "pop",
+          "operands": "edi"
+        },
+        {
+          "address": "100049e3",
+          "instruction_bytes": "5e",
+          "op": "pop",
+          "operands": "esi"
+        },
+        {
+          "address": "100049e4",
+          "instruction_bytes": "c3",
+          "op": "ret",
+          "operands": ""
+        }
+      ],
+      "native_signature_fully_verified": true,
+      "whole_behavior_fully_verified": false
+    }
+  ],
+  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+  "dependency_source_hashes": {
+    "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb",
+    "tools/audit_squall_native_arguments.py": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a",
+    "tools/record_live_production_verification.py": "f9fbf205bcb0775681eef2324613e5a845e841eae60b23fa13d98af806377b97"
+  },
+  "current_candidate_sha256": [
+    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
+    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+  ],
+  "prior_behavioral_evidence": [
+    "analysis/squall-listener-factors-validation.json",
+    "analysis/squall-listener-factors-fresh-validation.json"
+  ],
+  "prior_behavioral_report_sha256": [
+    "8e742a3cbffdee5ee33dabca9c9c9a8d7b95edad046444a2cc351f8f1287bc91",
+    "4c13d72ee67107313c877b5b9c2ee72021e3cc7b342a4ad761a9353e89cff8e2"
+  ],
+  "new_runtime_audio_test_claimed": false,
+  "all97_native_signatures_verified": false,
+  "production_changed": false,
+  "original_files_unchanged": 17,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Remaining91 native signature semantic proofs",
+    "Broader runtime behavior and remaining original goal scopes"
+  ]
+}
