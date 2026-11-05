@@ -38,7 +38,10 @@ BOOL CALLBACK closeWindow(HWND w,LPARAM pid){DWORD owner=0;GetWindowThreadProces
 int wmain(int argc,wchar_t** argv) {
  PROCESS_INFORMATION process{};bool debug=false;HANDLE eventThread=nullptr;
  try {
-  need(argc==4,"Expected original-exe isolated-working-dir isolated-common-root");const auto exe=std::filesystem::absolute(argv[1]);const auto cwd=std::filesystem::absolute(argv[2]);const auto common=std::filesystem::absolute(argv[3]);
+  need(argc==4||argc==5,"Expected original-exe isolated-working-dir isolated-common-root [timeout-seconds]");
+  DWORD timeoutMs=180000;
+  if(argc==5){std::wstring text(argv[4]);size_t used=0;auto seconds=std::stoul(text,&used,10);need(used==text.size()&&seconds>=30&&seconds<=1800,"Diagnostic timeout must be30..1800 whole seconds");timeoutMs=DWORD(seconds*1000);}
+  const auto exe=std::filesystem::absolute(argv[1]);const auto cwd=std::filesystem::absolute(argv[2]);const auto common=std::filesystem::absolute(argv[3]);
   need(exe.filename()==L"Dobrý farmář.exe","Expected original executable basename");Image image(exe);const auto iatRva=image.folderIAT();
   std::filesystem::create_directories(cwd);std::filesystem::create_directories(common);BOOL fallback=FALSE;
   int length=WideCharToMultiByte(CP_ACP,WC_NO_BEST_FIT_CHARS,common.c_str(),-1,nullptr,0,nullptr,&fallback);need(length>0&&length<MAX_PATH&&!fallback,"Shared path ANSI conversion");std::string folder(length,'\0');WideCharToMultiByte(CP_ACP,WC_NO_BEST_FIT_CHARS,common.c_str(),-1,folder.data(),length,nullptr,&fallback);need(!fallback,"Shared path ANSI loss");
@@ -70,9 +73,10 @@ int wmain(int argc,wchar_t** argv) {
    need(ContinueDebugEvent(e.dwProcessId,e.dwThreadId,action),"ContinueDebugEvent");
   }
   need(DebugActiveProcessStop(process.dwProcessId),"Detach original diagnostic");debug=false;
-  std::cout<<"{\"event\":\"ready\",\"pid\":"<<process.dwProcessId<<",\"image_base\":"<<base<<",\"iat_rva\":"<<iatRva<<",\"original_entry_point_executed\":true,\"only_os_common_folder_import_redirected\":true}"<<std::endl;
-  DWORD wait=WaitForSingleObject(process.hProcess,180000);if(wait==WAIT_TIMEOUT){EnumWindows(closeWindow,process.dwProcessId);wait=WaitForSingleObject(process.hProcess,15000);}
+  std::cout<<"{\"event\":\"ready\",\"pid\":"<<process.dwProcessId<<",\"image_base\":"<<base<<",\"iat_rva\":"<<iatRva<<",\"timeout_ms\":"<<timeoutMs<<",\"original_entry_point_executed\":true,\"only_os_common_folder_import_redirected\":true}"<<std::endl;
+  DWORD wait=WaitForSingleObject(process.hProcess,timeoutMs);bool watchdog=wait==WAIT_TIMEOUT;
+  if(watchdog){std::cout<<"{\"event\":\"timeout_close\",\"pid\":"<<process.dwProcessId<<",\"timeout_ms\":"<<timeoutMs<<"}"<<std::endl;EnumWindows(closeWindow,process.dwProcessId);wait=WaitForSingleObject(process.hProcess,15000);}
   if(wait!=WAIT_OBJECT_0){TerminateProcess(process.hProcess,124);throw std::runtime_error("Owned diagnostic process timed out");}
-  DWORD result=0;need(GetExitCodeProcess(process.hProcess,&result),"Read exit code");CloseHandle(process.hThread);CloseHandle(process.hProcess);process={};std::cout<<"{\"event\":\"exit\",\"exit_code\":"<<result<<"}"<<std::endl;return result==0?0:1;
+  DWORD result=0;need(GetExitCodeProcess(process.hProcess,&result),"Read exit code");CloseHandle(process.hThread);CloseHandle(process.hProcess);process={};std::cout<<"{\"event\":\"exit\",\"exit_code\":"<<result<<",\"watchdog_triggered\":"<<(watchdog?"true":"false")<<"}"<<std::endl;return result==0?0:1;
  }catch(const std::exception& error){std::cerr<<error.what()<<'\n';if(eventThread)CloseHandle(eventThread);if(process.hProcess){TerminateProcess(process.hProcess,125);if(debug)DebugActiveProcessStop(process.dwProcessId);WaitForSingleObject(process.hProcess,5000);CloseHandle(process.hThread);CloseHandle(process.hProcess);}return 1;}
 }

@@ -1,0 +1,66 @@
+{
+  "status": "diagnostic_three_minute_watchdog_identified_and_bounded_timeout_made_explicit",
+  "old_launcher_archive_manifest": {
+    "tools/native_process/launcher.cpp": "27819d6255aebc03d803dd9ebb2ec5f7dcc5fd0cfbb71297e37358580d63afa7",
+    "tools/native_process/CMakeLists.txt": "10b1bdc2a64a0f87c3089e53b354a4550db2b4482c72d590998bf4180edecc7a",
+    "build/native-process/Release/native-process-launcher.exe": "fff597f3f6cc1c1bbdc241a2a91f9aa879e40918e6bb5cc49a179a21c068301a"
+  },
+  "failures": [
+    {
+      "work_directory": ".local/late-timeline/20261104T194208073047Z",
+      "report_sha256": "78960cb863d49bd5858775daddf89f9491a1487860fa5502a61656b10a5a4445",
+      "driver_sha256": "d7f0047e740930d4eceee4678f16be90d43cc6a2e7a30bbe37afd8d64795d915",
+      "error": "AssertionError(('Foreground was unavailable throughout diagnostic deadline', 'run-time-6600'))",
+      "recorded_as_game_failure": false,
+      "original_process_exit_code": null,
+      "explanation": "Old diagnostic launcher closes its owned reference process after180000ms; first driver masked process exit as lost foreground"
+    },
+    {
+      "work_directory": ".local/late-timeline/20261104T195816215800Z",
+      "report_sha256": "d299bba9ff9ceef00acd7886326c4391e3646162d5846b06989b51007a34b705",
+      "driver_sha256": "77f70af41eb6735bd4f80e3ad689ec1ae77eb5d6bfa644cdea3379161e3a7531",
+      "error": "RuntimeError('Application exited unexpectedly: 0')",
+      "recorded_as_game_failure": false,
+      "original_process_exit_code": 0,
+      "explanation": "Old diagnostic launcher closes its owned reference process after180000ms; first driver masked process exit as lost foreground"
+    }
+  ],
+  "invalid_timeout_cases": [
+    {
+      "argument": "0",
+      "exit_code": 1,
+      "stderr": "Diagnostic timeout must be30..1800 whole seconds Win32=0\r\n",
+      "reference_process_created": false
+    },
+    {
+      "argument": "1801",
+      "exit_code": 1,
+      "stderr": "Diagnostic timeout must be30..1800 whole seconds Win32=0\r\n",
+      "reference_process_created": false
+    },
+    {
+      "argument": "not-a-number",
+      "exit_code": 1,
+      "stderr": "invalid stoul argument\r\n",
+      "reference_process_created": false
+    }
+  ],
+  "default_timeout_ms": 180000,
+  "explicit_timeout_seconds_range": [
+    30,
+    1800
+  ],
+  "actual_long_run_timeout_ms": 1200000,
+  "current_launcher_sha256": "adbc2e541b945a256203b5aa802193ee4bbf7162008d4f6bcc937be77bf9baf2",
+  "initial_interop_audit": {
+    "report_path": ".local/late-timeline-interop/20261105T034150065501Z/report.json",
+    "report_sha256": "2e86b05f803223493d0df05d516937acb8be414f09da47ea318b31c0ab0ddf13",
+    "error": "AssertionError((1, 3, {'GameTime': [('Float', '10439'), ('Float', '10440.1')], 'RunTime': [('Float', '10830.8'), ('Float', '10831.9')], 'letTime1': [('Float', '121.42'), ('Float', '120.26')], 'MEffPrice10': [('Int', '4'), ('Int', '10')], 'MEffPrice14': [('Int', '16'), ('Int', '22')], 'MEffPrice17': [('Int', '8'), ('Int', '16')], 'MEffPrice2': [('Int', '15'), ('Int', '30')], 'MEffPrice4': [('Int', '12'), ('Int', '24')], 'MEffPrice7': [('Int', '2'), ('Int', '10')]}))",
+    "all_four_processes_exited_normally": true,
+    "recorded_as_game_failure": false,
+    "resolution": "Verify actual crossed popularity event303 at GameTime10440,all19 prices and zero saved coefficient; no profile edits"
+  },
+  "launcher_build_log_sha256": "e59aec60c8c67dc387ec46f08404710e353ae28f23445762e33a3f8e63c4b967",
+  "production_implementation_changed": false,
+  "whole_game_complete": false
+}

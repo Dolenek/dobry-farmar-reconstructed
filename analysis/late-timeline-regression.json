@@ -1,0 +1,450 @@
+{
+  "status": "passed_actual_late_world_three_hour_award_and_four_bidirectional_transfers_only",
+  "recorded_at_utc": "2026-11-05T03:45:34.067872+00:00",
+  "recorder_sha256": "667fe3ef1176ee63f958dc792da6c9fd6e0775f68033ed7f9d9329fa281efdb8",
+  "reports": {
+    "late-timeline-state-validation.json": "28a776a66580cced6f077c5cfa944d530e7e8179862d1cd40f5257ea141920bd",
+    "late-timeline-interop-validation.json": "12243956e737d7aae0d9a963b40f3256416456d4eee8d4bd6ffbdb63ec50303c",
+    "late-timeline-watchdog-observation.json": "8a21738bba75de5befe93129659a360390faf1be4b7ff6a6a168307feaeba6ce"
+  },
+  "runtime_processes": 2,
+  "further_bidirectional_restores": 4,
+  "timeline_checkpoints_per_executable": 13,
+  "money_event_ledger": [
+    {
+      "kind": "native",
+      "initial_money": 2904,
+      "events": [
+        {
+          "index": 122,
+          "time": 3721,
+          "value": 200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 126,
+          "time": 3860,
+          "value": -150,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 135,
+          "time": 4090,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 139,
+          "time": 4321,
+          "value": 250,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 144,
+          "time": 4441,
+          "value": 400,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 149,
+          "time": 4561,
+          "value": -75,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 156,
+          "time": 4741,
+          "value": -250,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 161,
+          "time": 5041,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 166,
+          "time": 5281,
+          "value": 150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 175,
+          "time": 5701,
+          "value": -75,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 181,
+          "time": 6001,
+          "value": -75,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 190,
+          "time": 6325,
+          "value": 500,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 202,
+          "time": 6601,
+          "value": 300,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 209,
+          "time": 6901,
+          "value": -50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 219,
+          "time": 7320,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 229,
+          "time": 7681,
+          "value": -50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 239,
+          "time": 8041,
+          "value": -50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 247,
+          "time": 8341,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 252,
+          "time": 8641,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 258,
+          "time": 8881,
+          "value": -150,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 270,
+          "time": 9301,
+          "value": -150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 277,
+          "time": 9541,
+          "value": -200,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 291,
+          "time": 9901,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 298,
+          "time": 10261,
+          "value": -250,
+          "probability": 0.7,
+          "taken": false
+        }
+      ],
+      "expected_final_money": 3054,
+      "actual_final_money": 3054
+    },
+    {
+      "kind": "source",
+      "initial_money": 2904,
+      "events": [
+        {
+          "index": 122,
+          "time": 3721,
+          "value": 200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 126,
+          "time": 3860,
+          "value": -150,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 135,
+          "time": 4090,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 139,
+          "time": 4321,
+          "value": 250,
+          "probability": 0.5,
+          "taken": false
+        },
+        {
+          "index": 144,
+          "time": 4441,
+          "value": 400,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 149,
+          "time": 4561,
+          "value": -75,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 156,
+          "time": 4741,
+          "value": -250,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 161,
+          "time": 5041,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 166,
+          "time": 5281,
+          "value": 150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 175,
+          "time": 5701,
+          "value": -75,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 181,
+          "time": 6001,
+          "value": -75,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 190,
+          "time": 6325,
+          "value": 500,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 202,
+          "time": 6601,
+          "value": 300,
+          "probability": 0.5,
+          "taken": true
+        },
+        {
+          "index": 209,
+          "time": 6901,
+          "value": -50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 219,
+          "time": 7320,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 229,
+          "time": 7681,
+          "value": -50,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 239,
+          "time": 8041,
+          "value": -50,
+          "probability": 0.7,
+          "taken": false
+        },
+        {
+          "index": 247,
+          "time": 8341,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 252,
+          "time": 8641,
+          "value": -100,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 258,
+          "time": 8881,
+          "value": -150,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 270,
+          "time": 9301,
+          "value": -150,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 277,
+          "time": 9541,
+          "value": -200,
+          "probability": 0.7,
+          "taken": true
+        },
+        {
+          "index": 291,
+          "time": 9901,
+          "value": -200,
+          "probability": 1.0,
+          "taken": true
+        },
+        {
+          "index": 298,
+          "time": 10261,
+          "value": -250,
+          "probability": 0.7,
+          "taken": true
+        }
+      ],
+      "expected_final_money": 1929,
+      "actual_final_money": 1929
+    }
+  ],
+  "actual_natural_award": 14,
+  "actual_later_crop_destruction": [
+    {
+      "index": 189,
+      "time": 6301,
+      "quantity": 4,
+      "probability": 1.0
+    },
+    {
+      "index": 266,
+      "time": 9120,
+      "quantity": 4,
+      "probability": 1.0
+    }
+  ],
+  "identical_award_text_rgb_pixels": 18000,
+  "identical_whole_award_rgb_pixels": 480000,
+  "branch_save_bytes": [
+    14616,
+    15906
+  ],
+  "complete_cross_restore_bytes": [
+    14616,
+    15906,
+    14616,
+    14616
+  ],
+  "normalizations": [],
+  "matched_rng_and_particle_timing_verified": false,
+  "production_implementation_changed": false,
+  "implementation_files": {
+    "FarmarSourceInterop.exe": "3e1acb3956ee6bef549e9c415696c75486a9d58b3e4c4daf0f8a4d7913db07b1",
+    "JNGLoad.dll": "984314bb423720c1f742e3979e684919022d9f770f705567b6d4387e348e2a69",
+    "Squall.dll": "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977"
+  },
+  "current_full_ctest_source_hashes_match": true,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "d72d88a51d3da8a179f4d90f9fd875456bc2d8580169b7660f690f873a7fc685",
+      "events": [
+        {
+          "event": "image",
+          "base": 5701632
+        },
+        {
+          "event": "ready",
+          "pid": 10560,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "5f0b0d847c5040cf062b7b4366210808250935918e87af363e7ba7443e242f38",
+      "events": [
+        {
+          "event": "image",
+          "base": 5701632
+        },
+        {
+          "event": "ready",
+          "pid": 27520,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Remaining natural awards and contract streak",
+    "MainGame ending, post-campaign loop and remaining gameplay",
+    "Remaining complete Squall/JNG/uninstaller scopes"
+  ]
+}
