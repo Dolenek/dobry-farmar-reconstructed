@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Delší zásobovací cyklus](COUNTER_SUPPLY_PROGRESS.md) právě pokračuje v obou EXE k1000 sklizním a1000 výrobám. Přípravný native-only pilot již doložil36 sklizní,102 výrob,94 prodejů mléka po2, placený level3 kravín za1300 a119 přesných bilančních stavů. Source porovnání ani delší rozsah tímto pilotem prohlášené za ověřené nejsou. Produkce se nemění; celý původní cíl pokračuje.
+
 [Přirozených100 sklizní](HARVEST_HUNDRED.md) nově prošlo v obou celých EXE:56 dalších skutečných akcí,61 skladových stavů a3660 field snapshotů na běh, náklad16/sklad100 a celý panel ocenění0/480000 přesných RGB pixelů. Čtyři celé15808bajtové obousměrné obnovy zachovaly náklad8 a plný sklad; source procesy skončily0 bez AV. Dvě hraniční readiness odlišnosti a náhodná nabídka370 se zachovávají bez normalizace, chybný zděděný awNoDry audit je doložený. Produkce se neměnila;1000 sklizní, výroba, série zakázek a celý původní cíl pokračují.
 
 [Přirozené ocenění za demolice](DEMOLITION_AWARD.md) nově vzniklo v obou skutečných EXE po čítači13→20 a sedmi placených náhradách za700. Původní text uvádí100, původní podmínka skutečně20; nesoulad je zachovaný.17 pracovních stavů na EXE a celý panel/480000 RGB pixelů souhlasí. Čtyři celé4252bajtové obousměrné obnovy prošly, oba source procesy bez AV. Dvě chyby driveru kolem modálního panelu a délky textu jsou zachované; produkce se neměnila. Další čítače, série zakázek a celý původní cíl pokračují.
