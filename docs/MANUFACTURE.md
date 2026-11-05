@@ -1,5 +1,7 @@
 # Manufacture – obnovená výrobní scéna a propojení nákupu
 
+[Dalších sedm skutečných demolic a placených náhrad](DEMOLITION_AWARD.md) nově přivedlo oba celé EXE k původnímu prahu20 a skutečnému ocenění10. Money5234→4534, sedm opakovaných nákupů inkubátoru, celý panel/480000 RGB pixelů a čtyři celé4252bajtové obousměrné obnovy souhlasí. Alokačně odvozené aliasové klíče a obě chyby driveru jsou samostatně evidované; produkce se neměnila.
+
 ## Jeden profil se všemi jedenácti typy a přirozeným oceněním8
 
 `validate_game_factory_history.py` navazuje na sedm skutečných kravínů. Sedmkrát zboří poslední budovu a normálně koupí typy4..10; odečte1850, Money7084→5234, awQDestroy6→13. Šest kravínů a poslední mlýn zůstanou na úrovni0. Původní `004c8650` vyhodnotí všech jedenáct `awManDepotBuild` a sám udělí ocenění8. Názvy ocenění i české blahopřání mluví o upgradech, ale ověřená podmínka vyžaduje historii typů. Žádný award příkaz ani zápis do paměti se nepoužije.

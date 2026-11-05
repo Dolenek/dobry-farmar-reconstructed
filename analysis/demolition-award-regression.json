@@ -1,0 +1,78 @@
+{
+  "status": "passed_actual_paid_demolitions_natural20_threshold_award10_and_bidirectional_saves_only",
+  "recorded_at_utc": "2026-11-05T13:20:34.125252+00:00",
+  "recorder_sha256": "7c8e8bca11865bac13f2d2ac548a79174991e5f8273f0f6edd19ea46f7e53434",
+  "reports": {
+    "demolition-award-state-validation.json": "3052b0f7720feac5e906ffbfe6a2c5623ec4143d10be37cb218d679c45fda21a",
+    "demolition-award-interop-validation.json": "4565babe4c3fb1a8141f67fb3722d3762b05acbe89bdc1d1096329b01d770217",
+    "demolition-award-initial-observations.json": "4fe859662bee9725958b2277378de7e43d628a4c10c5a6ac71bc679663997b77"
+  },
+  "original_predicate": "004c8650: awQDestroy>19;00499630 increments on actual Manufacture removal",
+  "original_display_description": "100 depots",
+  "actual_original_threshold": 20,
+  "demolition_count_before": 13,
+  "demolition_count_after": 20,
+  "paid_rebuild_type": 7,
+  "paid_rebuild_count": 7,
+  "paid_cost": 700,
+  "money_before": 5234,
+  "money_after": 4534,
+  "business_snapshots_per_executable": 17,
+  "actual_alias_word_snapshots": 98,
+  "alias_padding_claimed_equal": false,
+  "actual_award_panel_exact_rgb_pixels": 480000,
+  "actual_panel_glyphs": 36,
+  "actual_panel_rows": 2,
+  "complete_identical_save_bytes": 4252,
+  "entire_save_unchanged_from_native_baseline": true,
+  "full_process_bidirectional_transfers": 4,
+  "source_restore_debugger_traces": {
+    "2-crash-trace.jsonl": {
+      "sha256": "bbf03697a0201f976bd06206eb337708279c475cd5657b4be3b95129e02f052c",
+      "events": [
+        {
+          "event": "image",
+          "base": 12320768
+        },
+        {
+          "event": "ready",
+          "pid": 25948,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    },
+    "5-crash-trace.jsonl": {
+      "sha256": "3462945d87048d7cc29ae49d3ef566a12e4370ca70f91f0ce8d31231740bb4f9",
+      "events": [
+        {
+          "event": "image",
+          "base": 12320768
+        },
+        {
+          "event": "ready",
+          "pid": 26728,
+          "game_memory_written": false
+        },
+        {
+          "event": "exit",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "original_profile_fields_modified_by_probe": false,
+  "production_implementation_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-tracker-loaders-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "pending": [
+    "Natural100/1000 harvesting and production counters,20/40 contract streaks and remaining awards",
+    "Whole Squall97/JNG/uninstaller and remaining original goal scopes"
+  ]
+}

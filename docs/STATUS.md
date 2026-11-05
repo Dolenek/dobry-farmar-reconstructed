@@ -1,5 +1,7 @@
 # Stav rekonstrukce
 
+[Přirozené ocenění za demolice](DEMOLITION_AWARD.md) nově vzniklo v obou skutečných EXE po čítači13→20 a sedmi placených náhradách za700. Původní text uvádí100, původní podmínka skutečně20; nesoulad je zachovaný.17 pracovních stavů na EXE a celý panel/480000 RGB pixelů souhlasí. Čtyři celé4252bajtové obousměrné obnovy prošly, oba source procesy bez AV. Dvě chyby driveru kolem modálního panelu a délky textu jsou zachované; produkce se neměnila. Další čítače, série zakázek a celý původní cíl pokračují.
+
 [Trackerové efekty a celý dispatcher](SQUALL.md) prošly v každém sestavení1409024 skutečnými páry volání bez rozdílů celých61196bajtových stavů, guardů, návratů nebo PC53/PC24. Rozsah zahrnuje11 přímých metod a všech32 příkazů ProcessEffects, všechny parametry0..255; aktivní pointerové note lifecycle a veřejné přehrávání pokračují. Produkce zůstává nezměněná a celý původní cíl není dokončený.
 
 [Další trackerové větve Squallu](SQUALL.md) nyní prošly v obou sestaveních: MED/MMD0/MMD1, MDL, PSM, DMF, MT2, AMS a čtyři UMX větve společně s předchozími vstupy tvoří176 procesů na sestavení,7503936 přesných inicializovaných bajtů a362932 skutečně alokovaných bajtů. Původní AMS raw-copy větev dokládá skutečná instrukční tabulka; adresní chyba diagnostického souhrnu je zachovaná a opravená porovnáním vlastněných dat. Produkce ani17 originálů se neměnily. Širší varianty, veřejné trackerové přehrávání, úplné exportní signatury a celý původní cíl pokračují.

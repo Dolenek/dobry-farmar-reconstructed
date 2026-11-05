@@ -1,5 +1,7 @@
 # Herní řídicí objekt ocenění
 
+[Podmínka10](DEMOLITION_AWARD.md) nyní vznikla přirozeně v obou celých EXE po skutečných20 demolicích, sedmi nových placených náhradách a Money5234→4534. Celý panel má480000 přesných RGB pixelů a čtyři další celé4252bajtové obousměrné obnovy zachovaly čítač i oba flagy. Původní text100 budov se zachovává vedle doloženého skutečného prahu20.
+
 [Podmínka12](NO_DRY_AWARD.md) nyní přirozeně prošla v obou celých EXE nad skutečnými60 poli,71 přesuny postřikovače a nepřerušeným čítačem1200 sekund. [Podmínka14](LATE_TIMELINE.md) také vznikla skutečným tříhodinovým hraním. Každý celý panel má480000 přesných RGB pixelů a oba nové rozsahy mají samostatné obousměrné save přenosy; nenahrazují zbývající požadavky na celý projekt.
 
 Podmínky11 a13 nově vznikly přirozeně v obou celých hrách při [obnově pěti dalších plodin](SEED_RUNTIME.md). Readonly snapshot potvrzuje skutečně všech8 současně zralých druhů s vláhou, nikoli pouze starou bitovou masku; po posledním ananasu se udělí11. Původní15× zkratka během růstu přivede RunTime k1800 a dříve udělí13. Oba celé panely mají960000 přesných RGB pixelů. Následují skutečné sklizně a šest dalších obnov: dvě pro sklizeň, čtyři pro finální5439bajtové saves. Časově rozdílné ceny/tutorial49 po růstu a hraniční expirace dopisu jsou výslovně zachované v reports; při úspěšném konečném1598 souhlasí všechny diskrétní vlastnosti.

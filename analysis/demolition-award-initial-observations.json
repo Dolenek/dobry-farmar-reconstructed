@@ -1,0 +1,22 @@
+{
+  "status": "two_driver_assumptions_rejected_then_actual_modal_and36_glyph_award_verified",
+  "initial_reports": [
+    {
+      "report": ".local/demolition-award/20261105T131015064323Z/report.json",
+      "sha256": "7ee40945fbc3867ff407115d4a8f0234207152ce378def6b0cad739d9130cea4",
+      "error": "AssertionError((7, [{'address': 175940760, 'geometry': [317.0000915527344, 124.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1129906182, 1103101952, 4294967295, 1137737731, 1103101952, 4294967295, 1129906182, 1130364928, 4294967295, 1137737731, 1130364928, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}, {'address': 175983584, 'geometry': [481.9982604980469, 124.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1136590791, 1103101952, 4294967295, 1141997540, 1103101952, 4294967295, 1136590791, 1130364928, 4294967295, 1141997540, 1130364928, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}, {'address': 176026640, 'geometry': [235.00038146972656, 269.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1124532249, 1126760448, 4294967295, 1135050764, 1126760448, 4294967295, 1124532249, 1136164864, 4294967295, 1135050764, 1136164864, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}, {'address': 176069696, 'geometry': [399.9991149902344, 269.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1133903843, 1126760448, 4294967295, 1140457443, 1126760448, 4294967295, 1133903843, 1136164864, 4294967295, 1140457443, 1136164864, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}, {'address': 176112752, 'geometry': [563.9973754882812, 269.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1139277738, 1126760448, 4294967295, 1143341013, 1126760448, 4294967295, 1139277738, 1136164864, 4294967295, 1143341013, 1136164864, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}, {'address': 176155808, 'geometry': [317.0000915527344, 414.0, 200.0, 200.0], 'deep': -699.0, 'texture': 'manufacture/cowshed/animation_01.jng', 'sprite': [1129906182, 1134362624, 4294967295, 1137737731, 1134362624, 4294967295, 1129906182, 1140883456, 4294967295, 1137737731, 1140883456, 4294967295, 1, 0, 0, 0, 1048576000, 1048576000, 0], 'flags': 0}]))",
+      "last_actual_demolition_count": 20
+    },
+    {
+      "report": ".local/demolition-award/20261105T131204450281Z/report.json",
+      "sha256": "94a93080dcbac4403f22193d1f32b931f21b8beb9ef2649bae98aa94a0261230",
+      "error": "RuntimeError('Award congratulation did not create visible text lines after transition')",
+      "last_actual_demolition_count": 20
+    }
+  ],
+  "first_resolution": "Handle actual20-demolition modal before attempting the seventh rebuild;the purchase ghost cannot exist while award blocks input",
+  "second_resolution": "Use actual36 glyphs on two rows for award10;award8 fixture79 glyphs on four rows were a wrong diagnostic assumption",
+  "production_changed": false,
+  "recorded_as_production_failure": false,
+  "whole_game_complete": false
+}
