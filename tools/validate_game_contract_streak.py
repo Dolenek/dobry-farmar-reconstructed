@@ -12,6 +12,7 @@ parser.add_argument('--backends',nargs='+',choices=['native','source'],default=[
 parser.add_argument('--fixture-report',type=Path,default=r/'analysis/no-dry-award-state-validation.json')
 parser.add_argument('--target',type=int,default=1)
 args=parser.parse_args();assert 0<args.target<=40;launcher_path=args.launcher.resolve(strict=True)
+args.fixture_report=args.fixture_report.resolve(strict=True)
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/contract-streak'/stamp;work.mkdir(parents=True)
 shutil.copyfile(__file__,work/'driver.py')
 from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
@@ -58,7 +59,7 @@ report=dict(status='running',work_directory=work.relative_to(r).as_posix(),sessi
 for n in ['tools/validate_game_contract_streak.py','tools/windows_game_memory.py','tools/game_runtime_layout.cpp','CMakeLists.txt','tools/cmake/SquallCandidate.cmake','tools/windows_game_gui.py','tools/native_process/launcher.cpp','tools/native_process/CMakeLists.txt']:report['source_files'][n]=digest(r/n)
 # Use an already native-created first-farm baseline, independently for each run.
 fixture=json.loads(args.fixture_report.read_text(encoding='utf-8'))
-assert fixture['status'] in ['passed_actual_all60_fields_maintained_and_natural_no_dry_award_only','explored_actual_contract_streak_with_original_supply_command_only']
+assert fixture['status'] in ['passed_actual_all60_fields_maintained_and_natural_no_dry_award_only','explored_actual_contract_streak_with_original_supply_command_only','passed_for_actual_contract_streak_receipts_with_original_supply_fixture_only']
 fixture_work=r/fixture['work_directory']
 report['baseline_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report))
 report['requested_target']=args.target

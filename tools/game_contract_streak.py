@@ -51,6 +51,8 @@ def run_streak(env):
     last_time = val('floats','GameTime')
     deadline = time.monotonic()+1700
     fast = False
+    paused = False
+    paused_state = None
     initial_streak = val('uints','awQTask')
     assert initial_streak < target <= 40
     assert all(val('ints',f'task{n}') == -1 for n in range(3))
@@ -67,6 +69,8 @@ def run_streak(env):
         check()
         assert time.monotonic() < deadline,'Bounded contract phase exceeded1700seconds'
         now = val('floats','GameTime')
+        if paused:
+            assert now == paused_state['game_time'] and val('floats','taskTime0') == paused_state['remaining'],('Original pause did not preserve actual contract clock',paused_state,now,val('floats','taskTime0'))
         if last_time-now > 1000:
             words = live.coefficients()
             apply(words)
@@ -95,7 +99,22 @@ def run_streak(env):
         fast = value
         clock()
 
+    def pause(value):
+        nonlocal paused,paused_state
+        if paused == value:
+            return
+        key(0x38,True);key(0xc5,True);key(0xc5,False);key(0x38,False)
+        paused = value
+        if value:
+            paused_state = dict(game_time=val('floats','GameTime'),remaining=val('floats','taskTime0'))
+            session.setdefault('actual_supply_pause_intervals',[]).append(dict(start=paused_state.copy()))
+        else:
+            session['actual_supply_pause_intervals'][-1]['end'] = dict(game_time=val('floats','GameTime'),remaining=val('floats','taskTime0'))
+        clock()
+
     def drain():
+        if paused:
+            return False
         handled = False
         while env['service_award']() or env['service_tip']():
             handled = True;clock()
@@ -105,6 +124,11 @@ def run_streak(env):
                    400:resource('UI/gameUI/farm.xml').find('Background').find('Picture').get('Picture').lower()}
 
     def select_scene(x):
+        if paused:
+            assert x == 300
+            scene=observer.visible_scene(hwnd)
+            assert any((r['texture'] or '').lower()==backgrounds[x] and abs(r['geometry'][0]-400)<.01 for r in scene)
+            return
         limit = time.monotonic()+15
         while True:
             drain();click(hwnd,x,550);time.sleep(.7)
@@ -142,7 +166,14 @@ def run_streak(env):
     def complete(accepted):
         model = accepted['model']
         if not live.dialog('confirm')['shown']:
-            return False
+            ready=all(val('uints',f"WGoodCount{req['product']}")>=req['count'] for req in model['requirements'])
+            if not ready:
+                return False
+            pause(False)
+            limit=time.monotonic()+8
+            while not live.dialog('confirm')['shown']:
+                focus();clock();assert time.monotonic()<limit,('Actual stocked contract did not open its ready dialog',accepted,snapshot());time.sleep(.05)
+        pause(False)
         speed(False)
         limit = time.monotonic()+8
         while live.dialog('confirm')['transition'][2] != 0:
@@ -223,13 +254,15 @@ def run_streak(env):
             select_scene(300)
             if complete(accepted):
                 done=True;break
+            pause(True)
             for product,(x,y) in enumerate(places):
                 if product in keep or not val('uints',f'WGoodCount{product}'):
                     continue
                 if complete(accepted):
                     done=True;break
                 before_transfer=snapshot();quantity=before_transfer['stock'][product]
-                click(hwnd,round(x+transfer[0]),round(y+transfer[1]))
+                # GameGui.click already performs the closed-loop pointer move.
+                probe.click(hwnd,round(x+transfer[0]),round(y+transfer[1]))
                 limit=time.monotonic()+5
                 while val('uints',f'WGoodCount{product}'):
                     focus();clock();assert time.monotonic()<limit,('Actual market transfer did not clear product',product);time.sleep(.05)
