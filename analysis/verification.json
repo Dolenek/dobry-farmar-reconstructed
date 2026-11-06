@@ -84,7 +84,9 @@
       "analysis/paused-deep-click-state-validation.json",
       "analysis/contract-streak-pilot-state-validation.json",
       "analysis/contract-streak-paused-supply-state-validation.json",
-      "analysis/contract-streak-retained-prefix-state-validation.json"
+      "analysis/contract-streak-retained-prefix-state-validation.json",
+      "analysis/contract-streak-source-restored-ten-state-validation.json",
+      "analysis/contract-streak-native-active-restore-state-validation.json"
     ]
   },
   "build": {
@@ -191,7 +193,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "d6fe3cc44517b5e40c7de2d770fd16495ec7833de0949578cb5f2a1160223bee",
+  "source_tree_sha256": "1232208072c484886471ed5cb23f9caab157d91df85de1d0c78de31635698af1",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -625,7 +627,14 @@
     "analysis/contract-streak-retained-prefix-state-validation.json",
     "analysis/contract-streak-retained-prefix-regression.json",
     "analysis/squall-control-signatures.json",
-    "analysis/squall-hardware-signatures.json"
+    "analysis/squall-hardware-signatures.json",
+    "analysis/contract-streak-source-restored-ten-state-validation.json",
+    "analysis/contract-streak-source-restored-ten-regression.json",
+    "analysis/contract-streak-native-active-restore-state-validation.json",
+    "analysis/contract-streak-native-active-restore-regression.json",
+    "analysis/contract-streak-ten-checkpoints.json",
+    "analysis/contract-streak-active-restore-comparison.json",
+    "analysis/contract-streak-checkpoint-metadata-observations.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108546,8 +108555,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-hardware-signatures.json",
-    "recorded_at_utc": "2026-11-06T18:17:21.234573+00:00",
+    "report": "analysis/contract-streak-active-restore-comparison.json",
+    "recorded_at_utc": "2026-11-06T18:26:07.485863+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108572,7 +108581,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/squall-hardware-signatures.json",
+  "source_tree_hash_as_of_report": "analysis/contract-streak-active-restore-comparison.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",

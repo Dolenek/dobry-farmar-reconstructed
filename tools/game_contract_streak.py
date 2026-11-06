@@ -49,7 +49,7 @@ def run_streak(env):
 
     apply(initial_coefficients)
     last_time = val('floats','GameTime')
-    deadline = time.monotonic()+1700
+    deadline = time.monotonic()+env['args'].phase_seconds
     fast = False
     paused = False
     paused_state = None
@@ -69,7 +69,7 @@ def run_streak(env):
     def clock():
         nonlocal last_time
         check()
-        assert time.monotonic() < deadline,'Bounded contract phase exceeded1700seconds'
+        assert time.monotonic() < deadline,('Bounded contract phase exceeded',env['args'].phase_seconds)
         now = val('floats','GameTime')
         if paused:
             assert now == paused_state['game_time'] and val('floats','taskTime0') == paused_state['remaining'],('Original pause did not preserve actual contract clock',paused_state,now,val('floats','taskTime0'))

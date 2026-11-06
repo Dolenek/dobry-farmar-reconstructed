@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Source série10 a křížová obnova aktivní zakázky](CONTRACT_STREAK.md) nově prošly: pět skutečných dokončení5→10,36 zásobovacích příkazů/613 převodů, Money8124 a celý16194bajtový save. Originál stejný zdrojový task341 obnovil a skutečně dokončil stejně na6/Money5884 se29 růžemi a bonusem940; původní kumulativní33/1070 před uložením se neopravují. Oba vlastní checkpointy10 jsou neměnně propojené, další pár běží10→15 před20/40. Limit launcheru i omylem přepsaná a přesně obnovená metadata jsou výslovně evidované; profily, produkce a17 originálů zůstaly neměnné. Celý původní cíl pokračuje.
+
 [Hardware ABI Squallu](SQUALL.md) nově sleduje oba celé integer příznaky přes cache a skutečné5./7. privátní argumenty k zero/nonzero testům bufferů; oba volitelné4bajtové output pointery a všechny3 EAX/C3 návraty souhlasí. Native ABI48/97, zbývá49; původní nekánonické bity i nezávislé pointery se zachovávají, behaviorální rozsah se nenavyšuje. Produkce a17 originálů se nemění; celá rekonstrukce pokračuje.
 
 [Šest dalších řídicích ABI Squallu](SQUALL.md) má skutečné Boolean/group/signed preset/frequency/table-index argumenty a všech8 vyvážených integer EAX/C3 návratů. Původní chybějící skupinový volume guard je výslovně zachovaný; native ABI46/97, zbývá51. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se neměnily. Zdrojová hra dále pokračuje z vlastní běžně uložené zakázky, celý původní cíl pokračuje.

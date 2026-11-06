@@ -1,0 +1,28 @@
+{
+  "status": "restored_exact_original_checkpoint_metadata_and_retained_launcher_argument_failure",
+  "recorder_sha256": "09ee2ba53ba885fca66933c86570d57abddd26dadcc4dcf7d914c0541b4cda6d",
+  "startup_report": ".local/contract-streak/20261106T182123042718Z/report.json",
+  "startup_report_sha256": "268c49e457fad81a9d139c7a962f2396b9343837d989e7c12dcbef0aa291d7e8",
+  "startup_failed_before_launcher_ready": true,
+  "invalid_requested_watchdog_seconds": 3700,
+  "native_maximum_watchdog_seconds": 1800,
+  "subsequent_phases_use_five_contract_increments": true,
+  "metadata_rewrite_cause": "Recorder rerun changed only publication timestamp and recorder hash after a live driver captured original metadata hash",
+  "metadata_changed_keys": [
+    "recorded_at_utc",
+    "recorder_sha256"
+  ],
+  "original_complete_bytes": 2083,
+  "original_sha256": "ee9a4ce5bd3e349183461a00d62889858ef95e4170b300488b4805fe09f41f2d",
+  "restored_current_sha256": "ee9a4ce5bd3e349183461a00d62889858ef95e4170b300488b4805fe09f41f2d",
+  "original_metadata_snapshot": ".local/contract-streak-ten-checkpoints-original.json",
+  "rewritten_metadata_snapshot": ".local/contract-streak-ten-checkpoints-rewritten.json",
+  "rewritten_sha256": "5ea89ced1223ab0ca7a7882ee5ac3150f6f98d72654d90b3e8fe1f5ba70c8ff9",
+  "original_recorder_snapshot": ".local/contract-streak-ten-checkpoint-original-recorder.py",
+  "original_recorder_sha256": "9c89f1a8ff97af70ba04a009dac42bb0ed4ad2119ebc8712157460f8f87e9290",
+  "exact_original_timestamp_recovered_against_preexisting_sha256": true,
+  "profile_sets_changed": false,
+  "profiles_or_counters_written": false,
+  "existing_checkpoint_metadata_now_immutable": true,
+  "whole_game_complete": false
+}

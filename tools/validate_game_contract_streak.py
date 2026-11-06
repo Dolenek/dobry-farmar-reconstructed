@@ -12,7 +12,11 @@ parser.add_argument('--backends',nargs='+',choices=['native','source'],default=[
 parser.add_argument('--fixture-report',type=Path,default=r/'analysis/no-dry-award-state-validation.json')
 parser.add_argument('--target',type=int,default=1)
 parser.add_argument('--resume-retained',action='store_true',help='Use a normally closed failure checkpoint, including its real active task')
-args=parser.parse_args();assert 0<args.target<=40;launcher_path=args.launcher.resolve(strict=True)
+parser.add_argument('--seed-backend',choices=['native','source'],help='Restore the other real executable checkpoint for a controlled save comparison')
+parser.add_argument('--phase-seconds',type=int,default=1700,help='Bounded actual process phase;native watchdog allows100s more')
+args=parser.parse_args();assert 0<args.target<=40 and 60<=args.phase_seconds<=7200
+assert 'native' not in args.backends or args.phase_seconds<=1700,'Native launcher watchdog maximum1800s includes100s cleanup allowance'
+launcher_path=args.launcher.resolve(strict=True)
 args.fixture_report=args.fixture_report.resolve(strict=True)
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/contract-streak'/stamp;work.mkdir(parents=True)
 shutil.copyfile(__file__,work/'driver.py')
@@ -72,10 +76,11 @@ fixture=json.loads(args.fixture_report.read_text(encoding='utf-8'))
 if args.resume_retained:
  assert fixture['status']=='failed' and 'Injected pointer missed owned window target' in fixture['error']
 else:
- assert fixture['status'] in ['passed_actual_all60_fields_maintained_and_natural_no_dry_award_only','explored_actual_contract_streak_with_original_supply_command_only','passed_for_actual_contract_streak_receipts_with_original_supply_fixture_only','passed_actual_paired_contract_receipts_and_complete_ledgers_only']
+ assert fixture['status'] in ['passed_actual_all60_fields_maintained_and_natural_no_dry_award_only','explored_actual_contract_streak_with_original_supply_command_only','passed_for_actual_contract_streak_receipts_with_original_supply_fixture_only','passed_actual_paired_contract_receipts_and_complete_ledgers_only','verified_actual_contract_streak_checkpoint_profiles']
 fixture_work=r/fixture['work_directory']
 report['baseline_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report))
 report['requested_target']=args.target
+report['requested_phase_seconds']=args.phase_seconds
 report['source_file_snapshots']={'tools/validate_game_contract_streak.py':(work/'driver.py').relative_to(r).as_posix()}
 for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py']:
  path=r/name;archived=work/path.name;shutil.copyfile(path,archived);report['source_files'][name]=digest(path);report['source_file_snapshots'][name]=archived.relative_to(r).as_posix()
@@ -113,19 +118,26 @@ def observe(step,name,style=None):
 try:
  for cycle,(kind,variant,seed_from) in enumerate([(backend,'planning',None) for backend in args.backends]):
   name=None;shared=work/f'{cycle}-shared';common=shared/'VirtualFarm';common.mkdir(parents=True)
-  seed_index=0 if fixture['status']=='passed_actual_all60_fields_maintained_and_natural_no_dry_award_only' else next(n for n,row in enumerate(fixture['sessions']) if row['kind']==kind)
-  prior_session=fixture['sessions'][seed_index] if args.resume_retained else None
-  if prior_session is not None and prior_session.get('status')!='completed':
-   assert prior_session['failure_cleanup_exit_code']==0
-   seed_profiles=fixture_work/f'{seed_index}-failure-persisted/Profiles'
-  else:seed_profiles=fixture_work/f'{seed_index}-persisted/Profiles'
+  prior_session=None
+  if fixture['status']=='verified_actual_contract_streak_checkpoint_profiles':
+   seed=next(row for row in fixture['profile_sets'] if row['kind']==(args.seed_backend or kind))
+   seed_profiles=r/seed['profile_directory'];seed_index=seed['source_session_index']
+   assert digest(r/seed['source_report'])==seed['source_report_sha256']
+   assert {p.name:digest(p) for p in seed_profiles.iterdir() if p.is_file()}==seed['files']
+  else:
+   seed_index=0 if fixture['status']=='passed_actual_all60_fields_maintained_and_natural_no_dry_award_only' else next(n for n,row in enumerate(fixture['sessions']) if row['kind']==(args.seed_backend or kind))
+   prior_session=fixture['sessions'][seed_index] if args.resume_retained else None
+   if prior_session is not None and prior_session.get('status')!='completed':
+    assert prior_session['failure_cleanup_exit_code']==0
+    seed_profiles=fixture_work/f'{seed_index}-failure-persisted/Profiles'
+   else:seed_profiles=fixture_work/f'{seed_index}-persisted/Profiles'
   shutil.copytree(seed_profiles,common/'Profiles')
   settings=resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0');(common/'sys').mkdir();ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
   session=dict(kind=kind,variant='actual-contract-streak',seed_from=seed_index,common_directory=common.relative_to(r).as_posix(),actions=[],input_profile_files={p.name:digest(p) for p in seed_profiles.iterdir() if p.is_file()});report['sessions'].append(session);launcher=None
   session['seed_profile_directory']=seed_profiles.relative_to(r).as_posix()
   session['normally_closed_failure_checkpoint']=bool(prior_session is not None and prior_session.get('status')!='completed')
   if kind=='native':
-   launcher=subprocess.Popen([str(launcher_path),str(data.parent/'Dobrý farmář.exe'),str(runtime),str(shared),'1800'],cwd=r,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+   launcher=subprocess.Popen([str(launcher_path),str(data.parent/'Dobrý farmář.exe'),str(runtime),str(shared),str(args.phase_seconds+100)],cwd=r,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
    line=launcher.stdout.readline();assert line,('Native launcher failed',launcher.communicate());event=json.loads(line);assert event['event']=='ready',event;session['launcher']=event;p=Child(event['pid'])
   else:p=subprocess.Popen([str(runtime/'FarmarSourceInterop.exe'),'--data',str(data),'--common-dir',str(common)],cwd=runtime,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
   probe.process=p;observer=TutorialMemory(p.pid,kind,r)

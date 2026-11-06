@@ -1,0 +1,33 @@
+{
+  "status": "passed_original_and_source_actual_restore_and_completion_of_identical_active_contract_only",
+  "recorded_at_utc": "2026-11-06T18:26:07.485863+00:00",
+  "recorder_sha256": "09ee2ba53ba885fca66933c86570d57abddd26dadcc4dcf7d914c0541b4cda6d",
+  "reports": {
+    "analysis/contract-streak-retained-prefix-state-validation.json": "487b44b4f22f5ac766396bb5b6a393a2c986f74cca7154de5cf1ab90b68b5cff",
+    "analysis/contract-streak-source-restored-ten-state-validation.json": "149eeaf33b8cf970f8b1f58611c51cb806697d7ad85ed0f9563691721d94766e",
+    "analysis/contract-streak-native-active-restore-state-validation.json": "2e18fbed1eb02b0fddf7ce79eee12c592d3dfad09ced494f9fdb46c381094ea9"
+  },
+  "identical_input_profile_files": {
+    "00000001.save": "e2c73bef894bb7122cc94d9677b4196a33c4599312ad216fd4e68febe28188cb",
+    "00000001.xml": "33da73de6acb018b3742e6e7d29dc15f65e930f7562b7c94a433b6c3478fe046",
+    "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+  },
+  "offer": 341,
+  "original_paid_deposit_before_restore": 430,
+  "cumulative_quantity_before_restore": 33,
+  "quantity_after_actual_restore_both": 29,
+  "cumulative_bonus_before_restore": 1070,
+  "bonus_after_actual_restore_both": 940,
+  "model_penalty_after_restore_both": 380,
+  "additional_deposit_charged_on_restore": 0,
+  "actual_money_before_completion": 4944,
+  "actual_money_after_completion": 5884,
+  "final_streak_both": 6,
+  "all19_stock_and_market_words_identical_after_completion": true,
+  "entire_native15991_byte_save_unchanged": true,
+  "source_intermediate_binary_save_claimed_captured": false,
+  "source_completed_five_receipts_to_streak10": true,
+  "production_changed": false,
+  "normalizations": [],
+  "whole_game_complete": false
+}

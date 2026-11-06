@@ -1,0 +1,45 @@
+{
+  "status": "verified_actual_contract_streak_checkpoint_profiles",
+  "recorded_at_utc": "2026-11-06T18:20:05.318803+00:00",
+  "recorder_sha256": "9c89f1a8ff97af70ba04a009dac42bb0ed4ad2119ebc8712157460f8f87e9290",
+  "work_directory": ".",
+  "profile_sets": [
+    {
+      "kind": "native",
+      "profile_directory": ".local/contract-streak/20261105T220925966446Z/0-persisted/Profiles",
+      "files": {
+        "00000001.save": "4b3a4e6c4a8e2fc683198f0c3cfa24c13ab43aea0d1ad4b413109cbacfe9d256",
+        "00000001.xml": "d9df7d4c66f4e8748bef5493e11bd8133d2f41e41a137b95c5bfcbf4497e3914",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      },
+      "source_session_index": 0,
+      "source_report": "analysis/contract-streak-retained-prefix-state-validation.json",
+      "source_report_sha256": "487b44b4f22f5ac766396bb5b6a393a2c986f74cca7154de5cf1ab90b68b5cff",
+      "streak": 10,
+      "money": 8274,
+      "complete_expected_saved_bytes": 16194
+    },
+    {
+      "kind": "source",
+      "profile_directory": ".local/contract-streak/20261106T180919220301Z/0-persisted/Profiles",
+      "files": {
+        "00000001.save": "efb95a657e116ddf380251273611a3eed49ab29b959c3b30e26ad1d1951c91d7",
+        "00000001.xml": "fe483a5e7d46c7480b707ba6139d6b4d7607466a5b1b55c42db215eff669e2df",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      },
+      "source_session_index": 0,
+      "source_report": "analysis/contract-streak-source-restored-ten-state-validation.json",
+      "source_report_sha256": "149eeaf33b8cf970f8b1f58611c51cb806697d7ad85ed0f9563691721d94766e",
+      "streak": 10,
+      "money": 8124,
+      "complete_expected_saved_bytes": 16194
+    }
+  ],
+  "ordinary_farming_supply_claimed": false,
+  "profile_or_counter_fields_written": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "source_includes_actual_restore_and_completion_of_its_retained_active_contract": true,
+  "native_and_source_random_streams_claimed_matched": false,
+  "normalizations": []
+}
