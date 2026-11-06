@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Délky a frekvence dekodérů
+
+`audit_squall_length_signatures.py` prokazuje pět Channel/Sample dotazů na délku, délku v ms a frekvenci. Všech12 veřejných C3 návratů má vyvážený stack a integer EAX; argumentem je integer handle/ID. Původní factory a konstruktory vedou na všech8 konkrétních virtuálních tabulek se slotem5 pro počet frames. Audit ověřuje jejich skutečné PE bajty, celé getter grafy, Ogg64 součet i celočíselné64bitové násobení/dělení při převodu na ms. WAVEFORMATEX sample rate je DWORD+4 podle SDK a původních instrukcí. Track constructor entry1002bdb0 je opravená hranice lineárního disassembly za jump table, potvrzená přímým CALL a skutečnými bajty6aff; produkční kód se tím nemění.
+
+WMA původně nekontroluje HRESULT duration getteru; inicializace payloadu při všech interních chybách není tímto ABI důkazem prohlášená za ověřenou. Ogg64 výsledek se ve veřejném DWORD rozhraní zkracuje na32 bitů. `analysis/squall-length-signatures.json` obsahuje svědky, osm tabulek a přesnou hranici důkazu. Native ABI86/97, zbývá11; nový runtime codec/audio test se netvrdí a celý behaviorální status zůstává částečný.
+
 ## Načítání sample a smíšené defaults
 
 `tools/audit_squall_sample_load_default_signatures.py` prokazuje Sample_LoadFile/SetDefault/GetDefault. LoadFile skutečně přijímá úzký NUL-terminated byte název,32bitový memory-mode word a volitelný28bajtový default pointer. Původní první-byte kontrola názvu se nevydává za ověření celé délky CString. Loader předá memory word beze změny a vrací integer SampleID; všechna3 normální backend návratová místa jsou samostatně projitá jako integer, včetně konkrétního složení generačního bajtu<<16 a nízkého16bitového indexu. Resolver používá stejnou16bitovou masku a generační byte porovnání, nejde o vrácený heap pointer.

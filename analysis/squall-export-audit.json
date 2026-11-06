@@ -474,7 +474,7 @@
       "original_address": "10006020",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared menu music channel",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -492,6 +492,15 @@
           "10006043"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-length-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "encoded integer channel handle;returns decoded frame count",
+          "source_header_matches": true
+        },
+        "return_role": "Integer32 frame/millisecond/rate value or negative error in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -500,7 +509,7 @@
       "original_address": "100060a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared menu music channel",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -518,6 +527,15 @@
           "100060c8"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-length-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "encoded integer channel handle;returns frames*1000/rate using integer64 helpers",
+          "source_header_matches": true
+        },
+        "return_role": "Integer32 frame/millisecond/rate value or negative error in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3202,7 +3220,7 @@
       "original_address": "10007470",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample rates",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All 45 game samples",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -3220,6 +3238,15 @@
           "10007470"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-length-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "encoded integer sample ID;returns WAVEFORMATEX DWORD sample rate",
+          "source_header_matches": true
+        },
+        "return_role": "Integer32 frame/millisecond/rate value or negative error in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3228,7 +3255,7 @@
       "original_address": "100073e0",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample frame lengths",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All 45 game samples",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -3246,6 +3273,15 @@
           "100073e0"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-length-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "encoded integer sample ID;returns decoded frame count",
+          "source_header_matches": true
+        },
+        "return_role": "Integer32 frame/millisecond/rate value or negative error in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3254,7 +3290,7 @@
       "original_address": "10007410",
       "status": "partially_compared",
       "verified_scope": "All 45 valid loaded sample millisecond lengths",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All 45 game samples",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -3272,6 +3308,15 @@
           "10007410"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-length-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "encoded integer sample ID;returns frames*1000/rate using integer64 helpers",
+          "source_header_matches": true
+        },
+        "return_role": "Integer32 frame/millisecond/rate value or negative error in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -4008,5 +4053,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 81
+  "native_signature_semantics_verified_count": 86
 }

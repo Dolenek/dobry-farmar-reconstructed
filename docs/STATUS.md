@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Skutečná série25](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení na větev,53/42 zásobovacích příkazů,928/724 převodů, přesné19produktové bilance a celé16763/16797bajtové saves. Oba procesy běžně skončily0; další skutečný pár navazuje25→30. [Pět délkových ABI Squallu](SQUALL.md) navíc dokládá všech12 veřejných návratů, všech8 konkrétních dekodérových tabulek a integer frame/rate/ms operace. ABI86/97, zbývá11; behaviorální úplnost DLL se netvrdí. Produkce a17 originálů jsou stejné a celý původní cíl pokračuje.
+
 [Tři sample load/default ABI](SQUALL.md) prokazují byte CString, skutečný memory-mode word, smíšené28bajtové default pointery,5 veřejných návratů i3 normální integer backend návraty se skutečným SampleID bitovým složením. Native ABI81/97, zbývá16; původní writability/filename hranice se zachovávají a behaviorální rozsah se nenavyšuje. Produkce a17 originálů jsou stejné. Skutečný pár pokračuje20→25 před40 a celý původní cíl zůstává aktivní.
 
 [Skutečné série20, ocenění4 a celé křížové saves](CONTRACT_STREAK.md) prošly v obou EXE:5 dalších potvrzení,50/49 zásobovacích příkazů,865/846 převodů, Money14214/13854 a celé16580/16597bajtové saves. Oba celé panely mají480000 shodných RGB pixelů; čtyři skutečné obousměrné obnovy16580/16597/16580/16580 bajtů jsou přesné, obě source stopy mají exit0 bez AV. Cena99, všech19 skladových/tržních slov, counter20 i získané ocenění se zachovaly. Další skutečný pár běží20→25 před40; produkce a17 originálů se neměnily a celý cíl pokračuje.
