@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Dvě cone ABI Squallu](SQUALL.md) mají doložené mixed integer/float-vector argumenty, nullable integer úhly, skutečný FISTP volume výstup a oba integer EAX/C3 návraty. Původní input IsBadWritePtr i nechráněný poslední getter store se zachovávají; fault větev se označuje jako instrukční inference. Native ABI69/97, zbývá28; behaviorální rozsah se nenavyšuje, produkce a17 originálů jsou stejné. Skutečné série15→20 i celý cíl pokračují.
+
 [Skutečné série15 a doslovný WinNote](CONTRACT_STREAK.md) mají po5 dalších potvrzeních,47/56 zásobovacích příkazech a813/961 převodech úplné bilance i celé16377/16394bajtové saves. Zdrojová nabídka326 správně přidala doslovné přečtené `+ 750$`, přestože skutečná odměna je880. Původní PE svědci rozlišují peníze od textu; první neúplný audit je zachovaný a opravený, produkce se neměnila. Award17 už byl ve vstupu získaný, nový panel se netvrdí. Další skutečný pár běží15→20 s čekáním na dokončené threshold UI; celý původní cíl pokračuje.
 
 [Tři informační ABI Squallu](SQUALL.md) prokazují signed device index/kapacitu byte názvu, skutečný NUL byte,12bajtový caps a24bajtový šestipočítadlový výstup i všech10 EAX/C3 návratů. Nová Win32 sonda sestavila metadata13 veřejných layoutů; native shodu všech13 samotná sonda netvrdí. Native ABI67/97, zbývá30. Produkce a17 originálů jsou stejné, behaviorální rozsah se nemění; skutečná hra pokračuje ke kontrolnímu bodu15 a celý původní cíl zůstává aktivní.

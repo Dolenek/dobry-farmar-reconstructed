@@ -262,7 +262,7 @@
       "original_address": "10006ba0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 5,
@@ -292,6 +292,20 @@
           "10006c7f"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-cone-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID",
+            "12-byte pointer to three binary32 orientation floats;original checks writability even for setter input",
+            "Two4-byte integer output pointers,independently optional",
+            "4-byte integer volume output pointer;unconditional final write on successful private getter"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit status in EAX on each balanced C3 return;invalid final output may instead fault in the original",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -860,7 +874,7 @@
       "original_address": "10006aa0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 5,
@@ -886,6 +900,20 @@
           "10006b25"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-cone-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID",
+            "12-byte pointer to three binary32 orientation floats;original checks writability even for setter input",
+            "Two signed32 integer angles0..360",
+            "Signed32 volume0..100,converted by actual integer table index"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit status in EAX on each balanced C3 return;invalid final output may instead fault in the original",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3822,5 +3850,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 67
+  "native_signature_semantics_verified_count": 69
 }

@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Dvě smíšená cone rozhraní
+
+`tools/audit_squall_cone_signatures.py` prokazuje Set/GetConeParameters: skutečný integer handle,12bajtový float orientation vector a dva integer úhly/volume. Settery mají signed0..360/0..100 podmínky a původní volume table index; privátní10001a70 skutečně používá FLD/FCOMP m32 pro cache+78/+7c/+80 a DWORD integer operace pro úhly+70/+74 a volume+84. Getter používá stejný vector a dva4bajtové samostatně volitelné integer angle outputy. OutsideVolume je4bajtový integer výstup z původního FILD/pow/FISTP převodu, nikoli float návrat.
+
+Výslovně se zachovávají dvě původní zvláštnosti: input Orientation setteru se kontroluje přes IsBadWritePtr, a úspěšný getter nakonec bez další nulové podmínky zapisuje OutsideVolume. Neplatný poslední pointer tedy může po nulování směřovat do fault větve; to je zde inference z konkrétních ověřených instrukcí, nový runtime fault test se netvrdí. Obě funkce mají po jednom vyváženém C3 návratu s úplným integer EAX statusem. `analysis/squall-cone-signatures.json` uchovává všechny veřejné bajty, konkrétní privátní svědky i tuto hranici důkazu. Native ABI69/97, zbývá28; produkce a17 originálů se nemění a behaviorální stav zůstává částečný.
+
 ## Tři informační exporty a kompilátorové layouty
 
 `tools/audit_squall_device_info_signatures.py` prokazuje GetDeviceName/GetDeviceCaps/GetChannelsInfo. Původní device index i velikost názvu mají skutečné signed kontroly; IsBadWritePtr dostává původní počet bajtů, jméno se skenuje po jednotlivých bytech, kopíruje nejvýše Size−1 a zapisuje skutečný NUL byte. Nejde o wide string a UTF8 se netvrdí. Caps má přesně12 zapisovaných bajtů: integer flags+0, hardware count+4 a3D hardware count+8. ChannelsInfo se kontroluje na24 bajtů, nuluje jako6 DWORD a má šest skutečných integer INC na0/4/8/c/10/14. Všech10 návratových míst má úplně inicializovaný integer EAX, C3 a vyvážený stack.
