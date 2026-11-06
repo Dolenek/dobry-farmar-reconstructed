@@ -252,7 +252,8 @@ def main():
     parser.add_argument('--allow-retained-failure', action='store_true')
     args = parser.parse_args()
     report, branches = audit(args.runtime_report, args.allow_retained_failure)
-    full = read(ROOT / 'analysis/squall-tracker-loaders-regression.json')
+    from current_production_regression import current_regression
+    full_name, full = current_regression()
     assert all(digest(ROOT / name) == sha for name, sha in full['production_source_files'].items())
     for row in read(ROOT / 'analysis/inventory.json')['files']:
         assert digest(ROOT.parent / 'farm\u00e1\u0159/Dobr\u00fd farm\u00e1\u0159' / row['path']) == row['sha256']
@@ -274,7 +275,7 @@ def main():
         actual_receipts_per_executable=[len(b['actual_receipts']) for b in branches],
         complete_expected_saved_bytes=[b['complete_expected_saved_bytes'] for b in branches],
         production_changed=False, current_full_ctest_source_hashes_match=True,
-        current_full_ctest_report='analysis/squall-tracker-loaders-regression.json', new_full_ctest_run=False,
+        current_full_ctest_report=full_name, new_full_ctest_run=False,
         original_files_unchanged=17, whole_game_complete=False)
     write(ROOT / 'analysis' / regression_name, result)
     verification = read(ROOT / 'analysis/verification.json')
