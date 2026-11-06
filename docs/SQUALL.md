@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Osm celočíselných kanálových setterů
+
+`tools/audit_squall_channel_setter_signatures.py` nezávisle dokládá Pause/SetVolume/SetFrequency/SetPlayPosition/SetPlayPositionMs/SetPriority/SetLoop/SetPan. Oba4bajtové sloty jsou skutečně použité. ChannelID jde z jediného původního slotu beze změny do resolveru10002480. Druhé argumenty mají konkrétní číselné role: pause testuje zero/nonzero v10002260, volume/pan mají signed rozsah0..100, frequency100..100000, priority nesmí být záporná; loop maskuje nízký bit a vloží jej do bitových polí. Sample position se skutečně přičítá do číselné pozice; milliseconds jsou signed IMUL a celočíselně dělené1000. Tyto role nepocházejí jen z názvů nebo publikované hlavičky.
+
+Všech23 C3 návratů má úplně inicializovaný EAX status z explicitně vyjmenovaných konstant v ESI/EDI. Kontrola každou jinou změnu status registru odmítá, po call zneplatní EAX a vyžaduje vyvážený stack. Původní obrácený test úspěchu privátního SetPlayPosition u ms varianty se zachovává; tento audit jej neprohlašuje za opravený. `analysis/squall-channel-setter-signatures.json` obsahuje PE bajty všech dosažitelných veřejných instrukcí i konkrétní privátní svědky. Aktuálně native ABI40/97, zbývá57; behaviorální status zůstává částečný, produkce se nemění a nový audio běh se netvrdí.
+
 ## Deset celočíselných kanálových rozhraní
 
 `tools/audit_squall_scalar_handle_signatures.py` nově prokazuje Start/Stop/Status/GetVolume/GetFrequency/GetPlayPosition/GetPlayPositionMs/GetPriority/GetLoop/GetPan. Každý má jediný4bajtový číselný ChannelID předaný beze změny skutečnému resolveru10002480: index tvoří dolních8 bitů, generace se porovnává po aritmetickém posunu o8. Všech25 dosažitelných návratů má vyvážený stack, skutečné C3 a úplný32bitový integer/status v EAX. Samostatný datový průchod zneplatňuje volatile registry po každém call, sleduje zásobníkové lokály i uložené nonvolatile registry a nepovažuje neznámý DWORD load za doloženou číselnou návratovou hodnotu.

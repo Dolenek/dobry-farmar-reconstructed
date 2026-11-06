@@ -676,7 +676,7 @@
       "original_address": "100053a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "integrated_game_audio_verified_scope": "Actual cChannel pause/resume status and frozen cursor",
       "loaded_DLL_group_verified_scope": "Three actual started ambient buffers per precision enter paused public status2 before group operations",
       "caller_cleanup_abi_verified": {
@@ -697,6 +697,19 @@
           "100053ec"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "32-bit Boolean integer consumed as zero/nonzero by actual private pause method"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -828,7 +841,7 @@
       "original_address": "100056f0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,100,22050,44100,88200,-1,100001",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -848,6 +861,19 @@
           "1000573c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "Signed32 integer frequency;bounds100..100000"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -856,7 +882,7 @@
       "original_address": "10006280",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -876,6 +902,19 @@
           "100062ed"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "32-bit integer loop flag;only low bit retained and inserted into channel bit fields"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -914,7 +953,7 @@
       "original_address": "100063d0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,49,50,51,99,100,-1,101",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -934,6 +973,19 @@
           "1000641c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "Signed32 integer pan;bounds0..100 then actual private numeric pan conversion"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -942,7 +994,7 @@
       "original_address": "10005840",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Three frame positions including near-end loop wrap; full physical buffers compared",
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
@@ -963,6 +1015,19 @@
           "1000588c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "32-bit integer sample position;forwarded unchanged then added into numeric position cache"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -971,7 +1036,7 @@
       "original_address": "10005970",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -991,6 +1056,19 @@
           "100059db"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "Signed32 integer milliseconds;actual signed IMUL and64-bit integer division by1000"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -999,7 +1077,7 @@
       "original_address": "10006170",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_channel_ranges_verified_scope": "PC53/PC24 guarded ranges, selected paused seeks, loop/priority boundaries and invalid IDs; detailed independent/equal-address scopes in channel-range reports",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -1019,6 +1097,19 @@
           "100061b4"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "Signed32 integer priority;negative rejected and complete DWORD stored in priority cache"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1055,7 +1146,7 @@
       "original_address": "10005570",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Prepared ambient channel; setter/getter boundaries 0,1,43,99,100,-1,101",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -1075,6 +1166,19 @@
           "100055b8"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-setter-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer ChannelID;actual bit/generation resolver",
+            "Signed32 integer volume;bounds0..100 then scaled four-byte table index"
+          ],
+          "integer_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status from enumerated nonvolatile register values into EAX on every C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3199,5 +3303,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 32
+  "native_signature_semantics_verified_count": 40
 }

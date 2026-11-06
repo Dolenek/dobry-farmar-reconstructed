@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Osm dalších kanálových setter ABI](SQUALL.md) prokazuje oba původní integer sloty, unchanged handle resolver, konkrétní signed/Boolean/bitové/pozicové operace a všech23 EAX/C3 návratů. Native ABI40/97, zbývá57; původní ms-setter odchylka se zachovává a behaviorální rozsah se nenavyšuje. Produkce a17 originálů se neměnily; skutečná párová série zakázek i celý původní cíl pokračují.
+
 [Deset dalších kanálových ABI Squallu](SQUALL.md) má doložený nezměněný číselný handle, skutečné resolver bitové operace, numeric getter/cache/DirectSound toky a všech25 vyvážených integer EAX/C3 návratů. Native ABI32/97, zbývá65; behaviorální status se nemění, produkce a17 originálů jsou stejné. Probíhající skutečný párový průchod zakázkami pokračuje, celý původní cíl není dokončený.
 
 [Druhá skutečná zakázka a pauzované zásobování](CONTRACT_STREAK.md) mají nezávisle ověřené všechny19 materiálové bilance, dalších6 zásobovacích příkazů a102 převodů na EXE. Nabídka370 spotřebovala9 vajec/13 zmrzlin, záloha220 a odměna910 dávají Money3164→3854 a čítač1→2. Každá operace zásobování zachovala přesně GameTime i zbývajících179 sekund. Oba celé15808bajtové saves jsou beze změny, procesy skončily0; produkce a17 originálů se neměnily. Dlouhý další pár pokračuje k10 a následně20/40, celý cíl pokračuje.
