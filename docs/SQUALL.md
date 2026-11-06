@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Šest skalárních řídicích rozhraní
+
+`tools/audit_squall_control_signatures.py` prokazuje global Pause, Listener_EAX_SetPreset a čtyři ChannelGroup Pause/Stop/SetVolume/SetFrequency. Skutečné argumenty jsou32bitová čísla: group se porovnává s DWORD cache+40, Boolean pause se beze změny předá do zero/nonzero testu10002260, preset se zvýší a kontroluje signed0..26, frequency signed100..100000. Skupinový volume skutečně indexuje původní tabulku celým argumentem; zde nemá guard0..100 z jednotlivého channel setteru. Audit tuto původní nebezpečnou odlišnost zachovává a neoznačuje neplatné indexy za bezpečně podporované.
+
+Všech8 návratových míst má C3, vyvážený stack a kompletně inicializovaný integer status. Samostatný průchod sleduje přesný caller lokál na entryESP−4, u preset ESI, a po každém call zneplatní EAX; nepřebírá náhodný volatile výsledek privátního volání. `analysis/squall-control-signatures.json` obsahuje PE bajty všech dosažitelných veřejných instrukcí i privátní svědky. Aktuálně native ABI46/97, zbývá51. Produkce ani17 originálů se nemění, nový runtime/audio běh se netvrdí a behaviorální stav zůstává částečný.
+
 ## Osm celočíselných kanálových setterů
 
 `tools/audit_squall_channel_setter_signatures.py` nezávisle dokládá Pause/SetVolume/SetFrequency/SetPlayPosition/SetPlayPositionMs/SetPriority/SetLoop/SetPan. Oba4bajtové sloty jsou skutečně použité. ChannelID jde z jediného původního slotu beze změny do resolveru10002480. Druhé argumenty mají konkrétní číselné role: pause testuje zero/nonzero v10002260, volume/pan mají signed rozsah0..100, frequency100..100000, priority nesmí být záporná; loop maskuje nízký bit a vloží jej do bitových polí. Sample position se skutečně přičítá do číselné pozice; milliseconds jsou signed IMUL a celočíselně dělené1000. Tyto role nepocházejí jen z názvů nebo publikované hlavičky.

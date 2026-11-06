@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Šest dalších řídicích ABI Squallu](SQUALL.md) má skutečné Boolean/group/signed preset/frequency/table-index argumenty a všech8 vyvážených integer EAX/C3 návratů. Původní chybějící skupinový volume guard je výslovně zachovaný; native ABI46/97, zbývá51. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se neměnily. Zdrojová hra dále pokračuje z vlastní běžně uložené zakázky, celý původní cíl pokračuje.
+
 [Zachovaná skutečná série zakázek](CONTRACT_STREAK.md) má native2→10,8 potvrzení/79 zásobovacích příkazů/1369 převodů a source2→5 se3 potvrzeními/35 příkazy/616 převody včetně části task341. Source sonda odmítla nesprávnou polohu ukazatele před klikem; běžný exit0 uložil aktivní task299s a již zaplacenou zálohu430. Všech19 bilancí, obě koeficientové epochy,2/1 nové zprávy a celé16194/15991bajtové saves souhlasí. Dlouhý pár k10 není označený za dokončený; nové pokračování zdrojové hry již aktivní zakázku skutečně dokončilo na6 a dál běží. Produkce a17 originálů se neměnily, celý cíl pokračuje.
 
 [Osm dalších kanálových setter ABI](SQUALL.md) prokazuje oba původní integer sloty, unchanged handle resolver, konkrétní signed/Boolean/bitové/pozicové operace a všech23 EAX/C3 návratů. Native ABI40/97, zbývá57; původní ms-setter odchylka se zachovává a behaviorální rozsah se nenavyšuje. Produkce a17 originálů se neměnily; skutečná párová série zakázek i celý původní cíl pokračují.

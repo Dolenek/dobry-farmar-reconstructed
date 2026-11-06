@@ -9,7 +9,7 @@
       "original_address": "10007100",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_group_verified_scope": "Real groups17/-7; prepared no-op; actual start/pause/resume with0,1,-1,2; unrelated group preserved; empty contexts before/after Init/Free",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -29,6 +29,16 @@
           "10007141"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "Integer group equality selector and32-bit Boolean pause forwarded unchanged",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -37,7 +47,7 @@
       "original_address": "100072c0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_group_verified_scope": "Actual groups and public getters across-1,0,99,100,22050,44100,88200,100000,100001,INT_MAX; unrelated group preserved",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -57,6 +67,16 @@
           "10007318"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "Integer group equality selector and signed32 frequency100..100000",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -65,7 +85,7 @@
       "original_address": "10007220",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "integrated_game_audio_verified_scope": "Real SoundManager/Options groups 1/2, integer/fractional volume and music inverse getter",
       "loaded_DLL_group_verified_scope": "Actual groups and public getters for table indices0,1,43,99,100,101,255; invalid volumes only with no live matching channels",
       "caller_cleanup_abi_verified": {
@@ -86,6 +106,16 @@
           "10007261"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "Integer group equality selector and integer volume table index;original has no per-channel0..100 guard here",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -94,7 +124,7 @@
       "original_address": "10007190",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_group_verified_scope": "Real groups17/-7, unrelated group preserved, bounded original-24/0 asynchronous retirement and empty contexts",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -112,6 +142,16 @@
           "100071cc"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "32-bit integer group equality selector",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1785,7 +1825,7 @@
       "original_address": "10004c30",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -1804,6 +1844,16 @@
           "10004c62"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "Signed32 preset;increment then signed bounds0..26,public ordinary range-1..25",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2330,7 +2380,7 @@
       "original_address": "10003610",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "integrated_game_audio_verified_scope": "Actual playing/paused/resumed music cursor and status through SoundManager",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2348,6 +2398,16 @@
           "1000364c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-control-signatures.json",
+        "argument": {
+          "arguments": "32-bit Boolean integer;unchanged channel Pause argument consumed as zero/nonzero",
+          "integer_word_bytes": 4,
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status into EAX on all balanced C3 returns",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3303,5 +3363,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 40
+  "native_signature_semantics_verified_count": 46
 }
