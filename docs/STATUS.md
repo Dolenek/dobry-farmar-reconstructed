@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Čtyři fragmentová ABI Squallu](SQUALL.md) mají doložené signed integer endpointy, oba volitelné4bajtové výstupy a jejich osm nulových větví, původní64bitové ms převody i všech10 vyvážených EAX/C3 návratů. Původní reuse argumentového slotu se zachovává; native ABI64/97, zbývá33. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se nemění. Skutečný párový herní průchod i celý původní cíl pokračují.
+
 [Šest channel geometry ABI](SQUALL.md) prokazuje přesné handle/vector/float sloty,12/4bajtové pointer kontroly, skutečné7./8. privátní float argumenty a všech21 původních integer EAX/C3 návratů. Native ABI60/97, zbývá37; původní odlišné chyby se zachovávají a behaviorální rozsah se nenavyšuje. Produkce a17 originálů jsou stejné. Originál již skutečně dokončil sérii15; zdrojová větev navazuje a celý cíl pokračuje.
 
 [Šest listener vector ABI](SQUALL.md) má přímo doložené12bajtové float pointery, všechny FLD/FCOMP a getter cache kopie, skutečné pořadí4 vektorů i osm nezávislých null-skip větví. Všech14 integer EAX/C3 návratů souhlasí; native ABI54/97, zbývá43. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se nemění. Dlouhý skutečný pár pokračuje10→15 před20/40; celý cíl zůstává aktivní.

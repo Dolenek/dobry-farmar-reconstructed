@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Čtyři integer fragmentová rozhraní
+
+`tools/audit_squall_fragment_signatures.py` prokazuje Set/GetFragment a Set/GetFragmentMs. Každý má skutečný nezměněný integer handle a dva další DWORD sloty. Settery odmítají záporné či stejné signed endpointy;10002300 je následně omezí skutečnou délkou, seřadí a zapíše do integer cache+28/+2c. Gettery mají dva samostatně4bajtově kontrolované volitelné integer pointery; osm konkrétních null/nonzero větví dokládá nezávislé výstupy a požadavek alespoň jednoho platného. Milisekundy používají původní64bitové integer násobení/dělení s1000 a vzorkovací frekvencí.
+
+Všech10 EAX/C3 návratů má úplně inicializovaný status a vyvážený stack. Nový sdílený `squall_native_status.py` sleduje vyhrazený nonvolatile registr nebo přesný vlastní status lokál, po call i partial EAX zápisu hodnotu zneplatní a každou nevyjmenovanou status změnu odmítne. Původní GetFragmentMs používá slot caller argumentu jako číselný mezivýsledek po zachování pointeru v registru; nesmí se zaměnit s vlastním status lokálem nebo označit za změněný veřejný typ. `analysis/squall-fragment-signatures.json` obsahuje původní bajty i odkazy na úplné integer helper grafy. Native ABI64/97, zbývá33; produkce a17 originálů se nemění, behaviorální rozsah se nenavyšuje a nový audio běh se netvrdí.
+
 ## Šest prostorových channel rozhraní
 
 `tools/audit_squall_channel_geometry_signatures.py` prokazuje Set/Get3DPosition, Set/GetVelocity a Set/GetMinMaxDistance. ChannelID se beze změny načítá ze skutečného veřejného slotu do bit/generation resolveru. Vector pointery mají přesnou12bajtovou IsBadReadPtr/IsBadWritePtr kontrolu a správné1./2. místo mezi9 setter/8 getter privátními argumenty. Privátní10001a70 používá každé slovo vektorů skutečným FLD/FCOMP m32 proti float cache+58/+5c/+60 a+64/+68/+6c;10001c10 kopíruje stejné cache do tří výstupních slov.
