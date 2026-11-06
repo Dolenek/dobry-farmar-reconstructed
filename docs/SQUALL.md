@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Hardware integer příznaky a výstupy
+
+`tools/audit_squall_hardware_signatures.py` dokládá Set/GetHardwareAcceleration. Setter uchová oba celé32bitové příznaky v cache10075158/5c bez převodu na0/1. Skutečný context10075034 je načítá na+124/+128; instrukční stack průchod sleduje nezměněný příznak přes vnitřní volání až do5./7. parametru CreateSoundBuffer10001490/Create3DSoundBuffer100015e0. Tam se původní slovo skutečně testuje jako zero/nonzero a mění hardware/software flags. Typ příznaku tedy nepochází jen z deklarovaného headeru.
+
+Getter má dva nezávisle volitelné4bajtové integer output pointery. Každý samostatně projde IsBadWritePtr se skutečnou délkou4; následný store zapisuje celé odpovídající cache slovo. Není vyžadováno, aby byly oba pointery nenulové, a původní nekánonické Boolean bity se zachovávají. Všech3 veřejných návratů má úplně inicializovaný integer EAX, C3 a vyvážený stack. `analysis/squall-hardware-signatures.json` obsahuje PE-ověřené veřejné instrukce i úplné mezilehlé stack svědky. Aktuálně native ABI48/97, zbývá49; produkce a17 originálů se nemění, behaviorální rozsah ani nový audio běh se netvrdí.
+
 ## Šest skalárních řídicích rozhraní
 
 `tools/audit_squall_control_signatures.py` prokazuje global Pause, Listener_EAX_SetPreset a čtyři ChannelGroup Pause/Stop/SetVolume/SetFrequency. Skutečné argumenty jsou32bitová čísla: group se porovnává s DWORD cache+40, Boolean pause se beze změny předá do zero/nonzero testu10002260, preset se zvýší a kontroluje signed0..26, frequency signed100..100000. Skupinový volume skutečně indexuje původní tabulku celým argumentem; zde nemá guard0..100 z jednotlivého channel setteru. Audit tuto původní nebezpečnou odlišnost zachovává a neoznačuje neplatné indexy za bezpečně podporované.
