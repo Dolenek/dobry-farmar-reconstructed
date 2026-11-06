@@ -3164,7 +3164,7 @@
       "original_address": "100074e0",
       "status": "partially_compared",
       "verified_scope": "All 28 default bytes for 45 valid loaded samples",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All 28 default bytes for 45 valid samples",
       "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
       "caller_cleanup_abi_verified": {
@@ -3185,6 +3185,15 @@
           "10007500"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-sample-load-default-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Encoded32-bit integer sample ID and writable28-byte mixed default output pointer copied as7 DWORD",
+          "source_header_matches": true
+        },
+        "return_role": "Complete32-bit integer sample ID/status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3271,7 +3280,7 @@
       "original_address": "10007370",
       "status": "partially_compared",
       "verified_scope": "All 45 original Vorbis files with memory flag 1, null defaults and real game callbacks",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All 45 game samples in memory mode 1, null defaults, and initialized menu music",
       "integrated_game_audio_verified_scope": "Actual game file callbacks and memory mode 1/defaults null while preloading both complete shipped resource logs, including all 45 sounds",
       "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
@@ -3296,6 +3305,15 @@
           "1000739b"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-sample-load-default-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "NUL-terminated byte filename pointer(first byte checked),32-bit memory-mode word forwarded unchanged,optional readable28-byte mixed default structure",
+          "source_header_matches": true
+        },
+        "return_role": "Complete32-bit integer sample ID/status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3497,7 +3515,7 @@
       "original_address": "100074a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "sample_default_verified_scope": "PC53/PC24 actual loaded sample; all7 fields,2130 normalizations per precision, protected pointer cases and selected explicit LoadFile defaults; ordered positive distance required",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -3517,6 +3535,15 @@
           "100074c4"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-sample-load-default-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Encoded32-bit integer sample ID and28-byte mixed input pointer;original requires writability even though normalizer copies into library record",
+          "source_header_matches": true
+        },
+        "return_role": "Complete32-bit integer sample ID/status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3981,5 +4008,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 78
+  "native_signature_semantics_verified_count": 81
 }

@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Načítání sample a smíšené defaults
+
+`tools/audit_squall_sample_load_default_signatures.py` prokazuje Sample_LoadFile/SetDefault/GetDefault. LoadFile skutečně přijímá úzký NUL-terminated byte název,32bitový memory-mode word a volitelný28bajtový default pointer. Původní první-byte kontrola názvu se nevydává za ověření celé délky CString. Loader předá memory word beze změny a vrací integer SampleID; všechna3 normální backend návratová místa jsou samostatně projitá jako integer, včetně konkrétního složení generačního bajtu<<16 a nízkého16bitového indexu. Resolver používá stejnou16bitovou masku a generační byte porovnání, nejde o vrácený heap pointer.
+
+Defaults mají přesných28 bajtů:5 integer slov a2 binary32 vzdálenosti. Aktuální Win32 kompilátorové offsety souhlasí s původní7-DWORD kopií, integer normalizací i FLD/FCOMP na+14/+18. Setter input se původně kontroluje přes IsBadWritePtr; normalizer kopíruje do vnitřního library záznamu. Getter kopíruje těchto7 slov do samostatně kontrolovaného výstupu. Všech5 veřejných C3 návratů má vyvážený stack a kompletní integer EAX. `analysis/squall-sample-load-default-signatures.json` obsahuje veřejné/privátní bajty, kompilátorový layout i konzervativní numeric-word průchod. Native ABI81/97, zbývá16; produkce a17 originálů se nemění, nový loader/audio běh se netvrdí a behaviorální rozsah zůstává částečný.
+
 ## Smíšený Init a dvě sample řízení
 
 `tools/audit_squall_init_sample_control_signatures.py` prokazuje Init, Sample_Pause a Sample_Stop. Init dostává jediný pointer na přesnou52bajtovou konfiguraci; kompilátorové offsety všech13 členů odpovídají původnímu normalizeru100030a0. Window+0 se předává skutečnému IsWindow; Device a devět integer/Boolean voleb mají DWORD signed nebo zero/nonzero operace, zatímco faktory+28/+2c/+30 skutečné FLD/FCOMP m32. Normalizer ověří52 bajtů, kopíruje13 DWORD do privátního stack lokálu a neplatný/null vstup místo toho nuluje a doplní původní defaults; caller strukturu nepřepisuje.
