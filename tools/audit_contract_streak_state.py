@@ -48,9 +48,13 @@ def binary_expected(before, notes, coefficients):
     return data
 
 
-def audit(report_path):
+def audit(report_path, allow_retained_failure=False):
     report = read(report_path)
-    assert report['status'] == 'explored_actual_contract_streak_with_original_supply_command_only'
+    failed = report['status'] == 'failed'
+    if failed:
+        assert allow_retained_failure and 'Injected pointer missed owned window target' in report['error']
+    else:
+        assert report['status'] == 'explored_actual_contract_streak_with_original_supply_command_only'
     work = ROOT / report['work_directory']
     for name, sha in report['source_files'].items():
         path = ROOT / report.get('source_file_snapshots', {}).get(name, name)
@@ -65,12 +69,19 @@ def audit(report_path):
     events = list(resource('Gameplay/gameplay.xml').find('Events'))
     events.sort(key=seconds)
     branches = []
+    assert len(report['sessions']) in [1, 2] and len({s['kind'] for s in report['sessions']}) == len(report['sessions'])
     for index, session in enumerate(report['sessions']):
-        assert session['kind'] == ['native', 'source'][index]
-        assert session['status'] == 'completed' and session['exit_code'] == 0
-        if index == 0:
+        retained = session.get('status') != 'completed'
+        if retained:
+            assert failed and session['failure_cleanup_exit_code'] == 0
+        else:
+            assert session['exit_code'] == 0
+        suffix = 'failure-persisted' if retained else 'persisted'
+        saved = work / f'{index}-{suffix}/Profiles/00000001.save'
+        values = props(work / f'{index}-{suffix}/Profiles/00000001.xml')
+        if session['kind'] == 'native' and not retained:
             assert json.loads(session['launcher_completion']) == dict(event='exit', exit_code=0, watchdog_triggered=False)
-        base = ROOT / baseline['work_directory'] / f"{session['seed_from']}-persisted/Profiles"
+        base = ROOT / session['seed_profile_directory'] if 'seed_profile_directory' in session else ROOT / baseline['work_directory'] / f"{session['seed_from']}-persisted/Profiles"
         for name, sha in session['input_profile_files'].items():
             assert digest(base / name) == sha
         before_values = props(base / '00000001.xml')
@@ -78,7 +89,7 @@ def audit(report_path):
         epochs = session['coefficient_epochs']
         assert epochs[0]['words'] == before_save['coefficient_bits']
         coefficient_audits = [audit_coefficients(row['words'], events) for row in epochs]
-        assert session['final_coefficient_words'] == epochs[-1]['words']
+        assert (load_save(saved)['coefficient_bits'] if retained else session['final_coefficient_words']) == epochs[-1]['words']
         initial = int(before_values['awQTask'][1])
         assert session['initial_streak'] == initial
         start_stock = [int(before_values[f'WGoodCount{n}'][1]) for n in range(19)]
@@ -117,11 +128,20 @@ def audit(report_path):
             assert events[offer].get('Type') == '5'
             expected = model_for(events[offer], [row['words'][offer] for row in epochs[:epoch + 1]])
             assert receipt['model'] == dict(index=offer, **expected)
-            accepted, ready, done = [receipt[k] for k in ['before_acceptance', 'before_completion', 'after_completion']]
-            assert accepted['tasks'] == [-1] * 3 and ready['tasks'] == [offer, -1, -1] and done['tasks'] == [-1] * 3
+            restored = receipt['before_acceptance'] is None
+            accepted = receipt['restored_active_state'] if restored else receipt['before_acceptance']
+            ready, done = [receipt[k] for k in ['before_completion', 'after_completion']]
+            if restored:
+                assert counter == initial and int(before_values['task0'][1]) == offer
+                assert receipt['acceptance_and_deposit_occurred_before_this_process']
+                assert accepted['tasks'] == [offer, -1, -1]
+            else:
+                assert accepted['tasks'] == [-1] * 3
+            assert ready['tasks'] == [offer, -1, -1] and done['tasks'] == [-1] * 3
             assert accepted['streak'] == ready['streak'] == counter and done['streak'] == counter + 1
-            assert accepted['money'] == money and ready['money'] == money - expected['penalty']
-            money += expected['bonus'] - expected['penalty']
+            deposit = 0 if restored else expected['penalty']
+            assert accepted['money'] == money and ready['money'] == money - deposit
+            money += expected['bonus'] - deposit
             assert done['money'] == money and ready['market'] == done['market']
             remaining = ready['stock'].copy()
             for req in expected['requirements']:
@@ -135,19 +155,42 @@ def audit(report_path):
                 timeline += [epochs[last_epoch]['before'], epochs[last_epoch]['game_time']]
             timeline += [accepted['game_time'], ready['game_time'], done['game_time']]
             receipt_rows.append(dict(offer=offer, epoch=epoch, counter_before=counter, counter_after=counter + 1,
-                                     deposit=expected['penalty'], bonus=expected['bonus'], requirements=expected['requirements']))
-        assert initial + len(receipt_rows) == report['requested_target']
-        final = session['final_streak_state']
-        assert final['money'] == money and final['streak'] == report['requested_target'] and final['tasks'] == [-1] * 3
+                                     deposit_charged_this_process=deposit, model_penalty=expected['penalty'],
+                                     acceptance_occurred_before_this_process=restored,
+                                     bonus=expected['bonus'], requirements=expected['requirements']))
+        retained_active = None
+        if retained:
+            # The failed operation asserted before sending its mouse button.
+            # The immediately preceding successful transfer is fully recorded;
+            # compare its complete state with the actual normal-close profile.
+            final = session['market_transfers'][-1]['after']
+            active = final['tasks'][0]
+            assert active >= 0 and final['tasks'][1:] == [-1, -1]
+            model = model_for(events[active], [epoch['words'][active] for epoch in epochs])
+            money -= model['penalty']
+            retained_active = dict(offer=active, model=model, paid_deposit=model['penalty'],
+                                   acceptance_snapshot_captured=False, completion_claimed=False)
+            assert int(values['task0'][1]) == active and int(values['task1'][1]) == int(values['task2'][1]) == -1
+            assert float(values['taskTime0'][1]) == final['remaining'][0]
+            assert session['failure_live_state']['task'] == active
+            assert session['failure_live_state']['game_time'] == final['game_time']
+        else:
+            final = session['final_streak_state']
+            assert final['streak'] == report['requested_target'] and final['tasks'] == [-1] * 3
+        assert initial + len(receipt_rows) == final['streak'] and final['money'] == money
         assert final['stock'] == [start_stock[n] + additions[n] - transfers[n] - consumed[n] for n in range(19)]
         assert final['market'] == [start_market[n] + transfers[n] for n in range(19)]
         pauses = session.get('actual_supply_pause_intervals', [])
-        for pause in pauses:
-            assert pause['start'] == pause['end'] and pause['start']['remaining'] > 0
+        for pindex, pause in enumerate(pauses):
+            assert pause['start']['remaining'] > 0
+            if 'end' in pause:
+                assert pause['start'] == pause['end']
+            else:
+                assert retained and pindex == len(pauses) - 1
+                assert pause['start'] == dict(game_time=final['game_time'], remaining=final['remaining'][0])
         for row in session['supply_commands'] + session['market_transfers']:
             assert any(row['before']['game_time'] == row['after']['game_time'] == p['start']['game_time'] and
                        row['before']['remaining'][0] == row['after']['remaining'][0] == p['start']['remaining'] for p in pauses)
-        values = props(work / f'{index}-persisted/Profiles/00000001.xml')
         for key, wanted in [('awQTask', ('UInt', str(final['streak']))), ('Money', ('Int', str(money)))]:
             assert values[key] == wanted
         for n in range(19):
@@ -162,16 +205,16 @@ def audit(report_path):
         assert len(wraps) == len(epochs) - 1
         assert all(values[key] == value for key, value in prices.items())
         expected_binary = binary_expected(before_save, notes, epochs[-1]['words'])
-        saved = work / f'{index}-persisted/Profiles/00000001.save'
         assert saved.read_bytes() == expected_binary, ('Complete saved binary differs', session['kind'])
         branches.append(dict(kind=session['kind'], initial_streak=initial, final_streak=final['streak'],
+            process_closed_normally=True, requested_target_reached=not retained, retained_active_contract=retained_active,
             actual_receipts=receipt_rows, supply_commands=len(session['supply_commands']), market_transfers=len(session['market_transfers']),
             actual_pause_intervals=pauses, all_19_product_ledgers=True, final_money=money,
             additions=additions, transferred=transfers, consumed=consumed, final_stock=final['stock'], final_market=final['market'],
             coefficient_epochs=coefficient_audits, clock_wraps=wraps, clock_rounding=rounding,
             independently_expected_notes=len(notes), complete_expected_saved_bytes=len(expected_binary),
+            complete_saved_sha256=digest(saved), saved_profile_sha256=digest(work / f'{index}-{suffix}/Profiles/00000001.xml'),
             entire_binary_unchanged=saved.read_bytes() == (base / '00000001.save').read_bytes(), normalizations=[]))
-    assert len(branches) == 2
     return report, branches
 
 
@@ -179,15 +222,20 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--runtime-report', type=Path, required=True)
     parser.add_argument('--prefix', required=True)
+    parser.add_argument('--allow-retained-failure', action='store_true')
     args = parser.parse_args()
-    report, branches = audit(args.runtime_report)
+    report, branches = audit(args.runtime_report, args.allow_retained_failure)
     full = read(ROOT / 'analysis/squall-tracker-loaders-regression.json')
     assert all(digest(ROOT / name) == sha for name, sha in full['production_source_files'].items())
     for row in read(ROOT / 'analysis/inventory.json')['files']:
         assert digest(ROOT.parent / 'farm\u00e1\u0159/Dobr\u00fd farm\u00e1\u0159' / row['path']) == row['sha256']
     state_name = args.prefix + '-state-validation.json'
     regression_name = args.prefix + '-regression.json'
-    report.update(status='passed_actual_paired_contract_receipts_and_complete_ledgers_only',
+    original_runtime_status = report['status']
+    scope_status = ('passed_retained_completed_prefix_and_active_contract_ledgers_only' if original_runtime_status == 'failed' else
+                    'passed_actual_paired_contract_receipts_and_complete_ledgers_only' if len(branches) == 2 else
+                    'passed_actual_single_contract_receipts_and_complete_ledgers_only')
+    report.update(status=scope_status, original_runtime_status=original_runtime_status,
         auditor_sha256=digest(__file__), runtime_report_sha256=digest(args.runtime_report),
         comparison=dict(branches=branches, ordinary_farming_supply_claimed=False,
                         supply_commands_are_original_diagnostic_fixture=True, original_memory_or_profile_written=False,

@@ -55,7 +55,9 @@ def run_streak(env):
     paused_state = None
     initial_streak = val('uints','awQTask')
     assert initial_streak < target <= 40
-    assert all(val('ints',f'task{n}') == -1 for n in range(3))
+    active_task = val('ints','task0')
+    assert all(val('ints',f'task{n}') == -1 for n in [1,2])
+    assert active_task == -1 or session.get('normally_closed_failure_checkpoint')
     assert all(val('ints',f'Upgrade{n}') == -1 for n in range(20))
     session['initial_streak'] = initial_streak
     session['supply_fixture_policy'] = 'Only actual original WM_CHAR cheatproduct;no award command or direct counter/profile/memory write'
@@ -197,54 +199,66 @@ def run_streak(env):
             expected[req['product']] -= req['count']
         assert after['stock'] == expected and after['market'] == before['market']
         assert after['money'] == before['money']+model['bonus']
-        assert before['money'] == accepted['before']['money']-model['penalty']
+        assert before['money'] == accepted['before']['money']-(0 if accepted.get('restored_active') else model['penalty'])
         assert all(t == -1 for t in after['tasks'])
         receipt = dict(offer=accepted['offer'],model=model,epoch=accepted['epoch'],
-            before_acceptance=accepted['before'],before_completion=before,after_completion=after)
+            before_acceptance=None if accepted.get('restored_active') else accepted['before'],before_completion=before,after_completion=after)
+        if accepted.get('restored_active'):
+            receipt['restored_active_state']=accepted['before']
+            receipt['acceptance_and_deposit_occurred_before_this_process']=True
         session['contract_receipts'].append(receipt)
         print(json.dumps(dict(kind=env['kind'],event='actual_contract_completed',offer=accepted['offer'],streak=after['streak'],money=after['money']),ensure_ascii=True),flush=True)
         drain()
         return True
 
+    restored_pending = None
+    if active_task != -1:
+        restored_pending = dict(offer=active_task,model=json.loads(json.dumps(models[active_task])),
+            before=snapshot(),epoch=0,restored_active=True)
+        session['restored_active_contract']=json.loads(json.dumps(restored_pending))
     while val('uints','awQTask') < target:
-        drain();select_scene(400);speed(True)
-        while True:
-            focus();now=clock();drain()
-            options=[]
-            for slot in range(3):
-                offer = val('ints',f'letter{slot}')
-                if offer < 0:
-                    continue
-                model = models[offer]
-                if sum(req['count'] for req in model['requirements']) <= 100 and model['penalty'] <= val('ints','Money'):
-                    options.append((slot,offer))
-            if options:
-                break
-            if time.monotonic()-last_progress > 5:
-                progress=dict(kind=env['kind'],event='waiting_actual_offer',game_time=now,streak=val('uints','awQTask'),epochs=len(session['coefficient_epochs']))
-                session['live_progress'].append(progress);print(json.dumps(progress),flush=True);last_progress=time.monotonic()
-            time.sleep(.1)
-        speed(False)
-        slot,offer=options[0]
-        if val('ints',f'letter{slot}') != offer:
-            continue
-        click(hwnd,*letters[slot]);limit=time.monotonic()+8
-        while not live.dialog('provide')['shown'] or live.dialog('provide')['transition'][2] != 0:
-            focus();clock();assert time.monotonic()<limit,('Actual offer dialog did not open',offer);time.sleep(.05)
-        # Copy the actual coefficient-derived model, not a mutable future epoch.
-        model=json.loads(json.dumps(models[offer]));before=snapshot()
-        accepted=dict(offer=offer,model=model,before=before,epoch=len(session['coefficient_epochs'])-1)
-        time.sleep(.5)
-        click(hwnd,*button('Gameplay/ContractProvide.xml','YesButton'));limit=time.monotonic()+8;retry_at=time.monotonic()+1
-        while val('ints','task0') != offer:
-            if time.monotonic()>=retry_at:
-                current=snapshot()
-                assert live.dialog('provide')['shown'] and current['tasks']==[-1]*3 and current['money']==before['money']
-                session.setdefault('acceptance_input_retries',[]).append(dict(offer=offer,state=current,dialog=live.dialog('provide')))
-                capture(f"{env['cycle']}-offer-{offer}-acceptance-retry-{len(session['acceptance_input_retries'])}.png")
-                click(hwnd,*button('Gameplay/ContractProvide.xml','YesButton'));retry_at=time.monotonic()+1
-            focus();clock();assert time.monotonic()<limit,('Actual offer was not accepted',offer,snapshot());time.sleep(.05)
-        assert val('ints','Money') == before['money']-model['penalty']
+        if restored_pending is not None:
+            accepted=restored_pending;restored_pending=None
+            offer,model=accepted['offer'],accepted['model']
+        else:
+            drain();select_scene(400);speed(True)
+            while True:
+                focus();now=clock();drain()
+                options=[]
+                for slot in range(3):
+                    offer = val('ints',f'letter{slot}')
+                    if offer < 0:
+                        continue
+                    model = models[offer]
+                    if sum(req['count'] for req in model['requirements']) <= 100 and model['penalty'] <= val('ints','Money'):
+                        options.append((slot,offer))
+                if options:
+                    break
+                if time.monotonic()-last_progress > 5:
+                    progress=dict(kind=env['kind'],event='waiting_actual_offer',game_time=now,streak=val('uints','awQTask'),epochs=len(session['coefficient_epochs']))
+                    session['live_progress'].append(progress);print(json.dumps(progress),flush=True);last_progress=time.monotonic()
+                time.sleep(.1)
+            speed(False)
+            slot,offer=options[0]
+            if val('ints',f'letter{slot}') != offer:
+                continue
+            click(hwnd,*letters[slot]);limit=time.monotonic()+8
+            while not live.dialog('provide')['shown'] or live.dialog('provide')['transition'][2] != 0:
+                focus();clock();assert time.monotonic()<limit,('Actual offer dialog did not open',offer);time.sleep(.05)
+            # Copy the actual coefficient-derived model, not a mutable future epoch.
+            model=json.loads(json.dumps(models[offer]));before=snapshot()
+            accepted=dict(offer=offer,model=model,before=before,epoch=len(session['coefficient_epochs'])-1)
+            time.sleep(.5)
+            click(hwnd,*button('Gameplay/ContractProvide.xml','YesButton'));limit=time.monotonic()+8;retry_at=time.monotonic()+1
+            while val('ints','task0') != offer:
+                if time.monotonic()>=retry_at:
+                    current=snapshot()
+                    assert live.dialog('provide')['shown'] and current['tasks']==[-1]*3 and current['money']==before['money']
+                    session.setdefault('acceptance_input_retries',[]).append(dict(offer=offer,state=current,dialog=live.dialog('provide')))
+                    capture(f"{env['cycle']}-offer-{offer}-acceptance-retry-{len(session['acceptance_input_retries'])}.png")
+                    click(hwnd,*button('Gameplay/ContractProvide.xml','YesButton'));retry_at=time.monotonic()+1
+                focus();clock();assert time.monotonic()<limit,('Actual offer was not accepted',offer,snapshot());time.sleep(.05)
+            assert val('ints','Money') == before['money']-model['penalty']
         keep={r['product'] for r in model['requirements']}
         done=False
         for supply_pass in range(60):
