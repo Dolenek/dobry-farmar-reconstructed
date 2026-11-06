@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Tři informační exporty a kompilátorové layouty
+
+`tools/audit_squall_device_info_signatures.py` prokazuje GetDeviceName/GetDeviceCaps/GetChannelsInfo. Původní device index i velikost názvu mají skutečné signed kontroly; IsBadWritePtr dostává původní počet bajtů, jméno se skenuje po jednotlivých bytech, kopíruje nejvýše Size−1 a zapisuje skutečný NUL byte. Nejde o wide string a UTF8 se netvrdí. Caps má přesně12 zapisovaných bajtů: integer flags+0, hardware count+4 a3D hardware count+8. ChannelsInfo se kontroluje na24 bajtů, nuluje jako6 DWORD a má šest skutečných integer INC na0/4/8/c/10/14. Všech10 návratových míst má úplně inicializovaný integer EAX, C3 a vyvážený stack.
+
+Nová samostatná `tools/squall_public_layout.cpp` nic z DLL nenačítá ani nevolá. MSVC Win32 přímo vypíše velikost, alignment, offset, byte-size, počet prvků a kategorii každého členu13 veřejných typů: core structs, obě EAX union a jejich1/2/3 podstruktury. Pro tyto dva výstupní typy přesně souhlasí původní12/24bajtové layouty. Native shoda ostatních11 layoutů se samotným výpisem netvrdí; následující ABI audity je používají jako aktuální kompilátorová metadata. Reprodukce: `cmake -S tools/squall_layout -B build/squall-public-layout-vs -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808"`, sestavení Release a spuštění `squall-public-layout.exe`.
+
+`analysis/squall-device-info-signatures.json` obsahuje PE bajty i hash/source aktuální metadata sondy. Native ABI67/97, zbývá30. Produkce a17 originálů se nemění; behaviorální stav zůstává částečný, nový runtime/audio ani úplný CTest běh se netvrdí.
+
 ## Čtyři integer fragmentová rozhraní
 
 `tools/audit_squall_fragment_signatures.py` prokazuje Set/GetFragment a Set/GetFragmentMs. Každý má skutečný nezměněný integer handle a dva další DWORD sloty. Settery odmítají záporné či stejné signed endpointy;10002300 je následně omezí skutečnou délkou, seřadí a zapíše do integer cache+28/+2c. Gettery mají dva samostatně4bajtově kontrolované volitelné integer pointery; osm konkrétních null/nonzero větví dokládá nezávislé výstupy a požadavek alespoň jednoho platného. Milisekundy používají původní64bitové integer násobení/dělení s1000 a vzorkovací frekvencí.

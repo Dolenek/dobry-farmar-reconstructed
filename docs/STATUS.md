@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Tři informační ABI Squallu](SQUALL.md) prokazují signed device index/kapacitu byte názvu, skutečný NUL byte,12bajtový caps a24bajtový šestipočítadlový výstup i všech10 EAX/C3 návratů. Nová Win32 sonda sestavila metadata13 veřejných layoutů; native shodu všech13 samotná sonda netvrdí. Native ABI67/97, zbývá30. Produkce a17 originálů jsou stejné, behaviorální rozsah se nemění; skutečná hra pokračuje ke kontrolnímu bodu15 a celý původní cíl zůstává aktivní.
+
 [Čtyři fragmentová ABI Squallu](SQUALL.md) mají doložené signed integer endpointy, oba volitelné4bajtové výstupy a jejich osm nulových větví, původní64bitové ms převody i všech10 vyvážených EAX/C3 návratů. Původní reuse argumentového slotu se zachovává; native ABI64/97, zbývá33. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se nemění. Skutečný párový herní průchod i celý původní cíl pokračují.
 
 [Šest channel geometry ABI](SQUALL.md) prokazuje přesné handle/vector/float sloty,12/4bajtové pointer kontroly, skutečné7./8. privátní float argumenty a všech21 původních integer EAX/C3 návratů. Native ABI60/97, zbývá37; původní odlišné chyby se zachovávají a behaviorální rozsah se nenavyšuje. Produkce a17 originálů jsou stejné. Originál již skutečně dokončil sérii15; zdrojová větev navazuje a celý cíl pokračuje.

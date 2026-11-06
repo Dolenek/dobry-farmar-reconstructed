@@ -1654,7 +1654,7 @@
       "original_address": "10003e40",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Complete empty initialized channel counts",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -1672,6 +1672,15 @@
           "10003e69"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-device-info-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Writable24-byte structure of six consecutive32-bit integer counters,zeroed then independently incremented",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1712,7 +1721,7 @@
       "original_address": "10003d30",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All device capability fields on this host",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -1732,6 +1741,15 @@
           "10003d59"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-device-info-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Signed32 device index0..count-1,writable12-byte structure:integer flags+0,hardware count+4,3D hardware count+8",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1740,7 +1758,7 @@
       "original_address": "10003c80",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "All device name output bytes in 512-byte guarded buffers on this host",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 3,
@@ -1762,6 +1780,15 @@
           "10003cac"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-device-info-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Signed32 device index0..count-1,writable byte buffer with original NUL terminator,signed positive byte capacity",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3795,5 +3822,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 64
+  "native_signature_semantics_verified_count": 67
 }
