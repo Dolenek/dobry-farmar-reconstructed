@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Zjištěná odchylka pořadí neplatných3D čtení
+
+Nová skutečná public API sonda provedla270 izolovaných procesů:90 případů přes originál a obě zdrojové DLL, nastavení PC53/PC24, čtyři3D play exporty a cone getter. Position zahrnuje null, adresu1, NOACCESS,11bajtovou hranici, readonly a přesnou12bajtovou hranici; Velocity má také null/bad/NOACCESS a běžný kontrolní vstup. Cone OutsideVolume zahrnuje null/bad/NOACCESS/readonly i writable kontrolu. Všech120 očekávaných fault procesů po zachycení skutečného SEH explicitně ukončí pouze vlastní sondu;150 běžných kontrol provede cleanup. Tyto fault procesy se nevydávají za běžně ukončenou hru.
+
+Bylo zjištěno64 přesných odchylek: originál po nulování neplatného Position čte nejdřív Z/adresu8, oba zdrojové buildy Y/adresu4. Exception code, access druh a všechny ostatní porovnávané výsledky a cache words souhlasí. Původní cone write fault na0 je skutečně potvrzený. Instruction RVA každé odlišně sestavené DLL je samostatně zachované; žádná fault byte adresa se nenormalizuje. `analysis/squall-pointer-faults-before.json` uchovává všechny výsledky, neměnný raw report a přesné source/binary snapshots. Oprava a nový průchod teprve následují. Připravený `run_squall_pointer_regression.py` zatím není vydávaný za vykonanou regresi.
+
 ## Fyzické ABI všech97 exportů
 
 Zbývající Free/Unload/UnloadAll ověřuje `audit_squall_void_signatures.py`:0/1/0 veřejných argumentů, původní unchanged integer SampleID až do generačního resolveru, skutečný tail jump UnloadAll a všech3 vyvážených C3 návratů. Původní herní import thunky a call sites00535441/0053470c nezávisle dokládají zahazování EAX při Free/Unload. UnloadAll původní hra neimportuje. ABI97/97 je nyní doložené fyzické rozhraní, nikoli tvrzení o původním zdrojovém klíčovém slovu: strojový kód neumí jednoznačně odlišit void od nepoužitého návratu. Pro tyto tři exporty se proto nepřisuzuje žádný veřejný EAX status ani konkrétní hodnota.

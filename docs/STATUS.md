@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Nová pointer sonda Squallu](SQUALL.md) skutečně porovnala270 izolovaných procesů a zjistila64 odchylek stejného3D read pořadí: native Z/adresa8, oba source Y/adresa4. Ostatní sledovaná exception/output slova souhlasí; cone null write je přímo potvrzený. Předopravový stav i všechny zdrojové/binární vstupy jsou zachované. Produkční oprava a regrese následují po aktuálním živém herním průchodu. ABI97/97 tím není behaviorální úplností a celý projekt pokračuje.
+
 [Fyzické ABI všech97 exportů Squallu](SQUALL.md) je doložené. Poslední3 cleanup rozhraní mají vyvážené návraty, správné argumenty i skutečné native herní call sites zahazující EAX. Původní C deklarace void není ze stroje jednoznačně obnovitelná; důkaz proto výslovně nepřisuzuje žádný EAX návratový status. Behaviorální status celé DLL zůstává částečný, další runtime a herní porovnání pokračují. Produkce a17 originálů se nemění a celý původní cíl není dokončený.
 
 [Osm play ABI Squallu](SQUALL.md) nyní dokládá přesné předávání všech veřejných argumentů,3D vector/scalar float operace, integer volby a channel ID i všech14 veřejných/privátních návratů. Native ABI94/97, zbývají3 void rozhraní. Původní nebezpečné vstupní/default větve se evidují a jejich úplná bezpečnost se netvrdí. Produkce a17 originálů se nemění, nový playback test se netvrdí. Další skutečné zakázky pokračují25→30; celý původní cíl zůstává aktivní.
