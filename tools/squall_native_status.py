@@ -31,6 +31,7 @@ def prove_status(audit, start, register=None):
             if register is not None and args == register:defined = False
             if args == 'eax':eax_status = False
         elif op == 'add' and parts[0] == 'esp':sp += number(parts[1])
+        elif op == 'sub' and parts[0] == 'esp':sp -= number(parts[1])
         elif register is not None and op == 'mov' and parts[0] == register:
             assert re.fullmatch(r'[0-9A-F]+h|[0-9]+', parts[1]), (hex(address), row)
             defined = True

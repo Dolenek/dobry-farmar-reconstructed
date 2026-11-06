@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Init a dvě sample control ABI](SQUALL.md) prokazují všech13 členů smíšené52bajtové konfigurace, skutečné Window/int/float operace a původní lokální defaultování neplatného vstupu. Obě sample řízení mají integer equality selector, Pause zero/nonzero argument a všechny3 EAX/C3 návraty. Závislé statické audity byly znovu ověřené po doplnění Init rámce. Native ABI78/97, zbývá19; produkce a17 originálů jsou stejné, behaviorální rozsah se nenavyšuje. Obě skutečné herní větve pokračují k20 a celý původní cíl zůstává aktivní.
+
 [Šest EAX/ZOOMFX aggregate ABI](SQUALL.md) prokazuje112/72/52bajtové veřejné payloady, původní version/support rozdíly a všech27 EAX/C3 návratů. V obou skutečných DLL je navíc208 přesných bajtů původních wire-size/property-ID/GUID tabulek. Výklad jednotlivých opaque členů ani nový provider běh se netvrdí. Native ABI75/97, zbývá22; produkce a17 originálů jsou stejné. Originál už získal ocenění za skutečnou sérii20, zdrojová větev navazuje; celý cíl pokračuje.
 
 [Dvě cone ABI Squallu](SQUALL.md) mají doložené mixed integer/float-vector argumenty, nullable integer úhly, skutečný FISTP volume výstup a oba integer EAX/C3 návraty. Původní input IsBadWritePtr i nechráněný poslední getter store se zachovávají; fault větev se označuje jako instrukční inference. Native ABI69/97, zbývá28; behaviorální rozsah se nenavyšuje, produkce a17 originálů jsou stejné. Skutečné série15→20 i celý cíl pokračují.

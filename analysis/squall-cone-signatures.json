@@ -1,6 +1,6 @@
 {
   "status": "passed_listed_native_argument_and_return_abi_semantics_only",
-  "recorded_at_utc": "2026-11-06T18:55:16.542570+00:00",
+  "recorded_at_utc": "2026-11-06T19:06:09.753423+00:00",
   "auditor_sha256": "fbd2641043f8a14c9e8091f8413d7992ab8770b8d4adf5e86f0cc84108567b04",
   "publisher_sha256": "b0c76ef2dc798e67c4db1f667cd1265e529a79a6b7966b7adb766f88cfca700e",
   "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
@@ -1300,7 +1300,7 @@
         "operands": "eax,dword ptr [ebp-0Ch]"
       }
     ],
-    "status_proof_sha256": "44291f45f34cf1f6cfb76bfb326397e65024b0243c2ec7f1c0a37fff9f91775c",
+    "status_proof_sha256": "a86d7eb8246d0c5e4fe63fceaa30ccd2a80c11aa7e2bdcb9d35807a54cf32641",
     "native_setter_uses_IsBadWritePtr_for_input_orientation": true,
     "native_getter_unconditionally_writes_successful_outside_volume": true,
     "native_null_final_output_fault_path_inferred_from_instructions": true,

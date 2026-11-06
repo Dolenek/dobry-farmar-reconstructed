@@ -2028,7 +2028,7 @@
       "original_address": "10003280",
       "status": "partially_compared",
       "verified_scope": "Normalizer and all 256 volume table words only; backend initialization unverified",
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_verified_scope": "Successful actual DirectSound initialization with game parameter values and hidden HWND",
       "integrated_game_audio_verified_scope": "Actual game SoundSetup with null HWND and backend-owned window in both precisions",
       "caller_cleanup_abi_verified": {
@@ -2047,6 +2047,15 @@
           "100032f1"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-init-sample-control-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "Input pointer to52-byte mixed structure:32-bit Window handle,nine signed integer/Boolean settings,three binary32 factors;invalid/null input uses original defaults in private local copy",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3295,7 +3304,7 @@
       "original_address": "10007750",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -3315,6 +3324,15 @@
           "100077a3"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-init-sample-control-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "32-bit integer sample equality selector against channel cache+4c,then32-bit zero/nonzero Pause passed unchanged",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3507,7 +3525,7 @@
       "original_address": "100077e0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_sample_play_verified_scope": "Actual DirectSound2D/3D; singleton groups17/-7/0; all16 raw loop/start0/1/-1/2 pairs; default/explicit parameters and guarded cached getters; prepared/playing same-sample pause/stop preserves different ID sharing its file; two builds and PC53/PC24. Multi-member selection, invalid3D pointer faults and device failures pending.",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -3525,6 +3543,15 @@
           "1000781c"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-init-sample-control-signatures.json",
+        "argument": {
+          "arguments_in_public_order": "32-bit integer sample equality selector against channel cache+4c;matching active channels invoke actual stop",
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3954,5 +3981,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 75
+  "native_signature_semantics_verified_count": 78
 }

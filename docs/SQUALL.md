@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Smíšený Init a dvě sample řízení
+
+`tools/audit_squall_init_sample_control_signatures.py` prokazuje Init, Sample_Pause a Sample_Stop. Init dostává jediný pointer na přesnou52bajtovou konfiguraci; kompilátorové offsety všech13 členů odpovídají původnímu normalizeru100030a0. Window+0 se předává skutečnému IsWindow; Device a devět integer/Boolean voleb mají DWORD signed nebo zero/nonzero operace, zatímco faktory+28/+2c/+30 skutečné FLD/FCOMP m32. Normalizer ověří52 bajtů, kopíruje13 DWORD do privátního stack lokálu a neplatný/null vstup místo toho nuluje a doplní původní defaults; caller strukturu nepřepisuje.
+
+Sample_Pause/Stop nepovažují SampleID za pointer: porovnají jeho celé32bitové slovo s channel cache+4c a pracují jen s odpovídajícími aktivními kanály. Pause navíc předá nezměněný integer do původního zero/nonzero testu10002260. Všech3 návratů má úplně inicializovaný EAX a vyvážený C3. Sdílený statusový průchod nyní explicitně zahrnuje i skutečný SUB ESP rámec Init; čtyři předchozí závislé audity byly po této změně znovu ověřené a jejich hashe navázané v pořadí závislostí. `analysis/squall-init-sample-control-signatures.json` obsahuje původní bajty i všechny kompilátorové členy. Native ABI78/97, zbývá19; produkce a17 originálů jsou stejné, nový inicializační/audio běh se netvrdí a behaviorální status zůstává částečný.
+
 ## Šest EAX/ZOOMFX aggregate rozhraní
 
 `tools/audit_squall_effect_property_signatures.py` prokazuje Listener/Channel EAX Set/GetProperties a Channel ZOOMFX Set/GetProperties. Původní veřejné pointer kontroly i celé cache kopie mají vždy112/72/52 bajtů, včetně starších verzí EAX; nejde jen o16bajtové eax1 pole. Aktuální Win32 public union layouty přesně odpovídají těmto rozsahům. Backend následně používá jiné skutečné wire velikosti: listener0/16/56/112, channel0/4/52/72. Původní helper číselně kombinuje Type a Version, vybere velikost/property ID/GUID a zavolá příslušný IKsPropertySet slot. Veřejný caller s těmito payloady zachází jako s opaque property bytes; sám neprokazuje výklad každého jejich jednotlivého členu.
