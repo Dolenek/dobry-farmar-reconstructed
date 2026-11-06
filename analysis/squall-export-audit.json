@@ -1977,7 +1977,7 @@
       "original_address": "100041a0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 4,
@@ -2003,6 +2003,86 @@
           "10004250"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Position",
+            "Front",
+            "Top",
+            "Velocity"
+          ],
+          "pointer_direction": "output",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": true,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_word": "100750dc",
+              "actual_copy_load": "10004236",
+              "pointer_operand": "dword ptr [ebp]"
+            },
+            {
+              "cache_word": "100750e0",
+              "actual_copy_load": "1000423f",
+              "pointer_operand": "dword ptr [ebp+4]"
+            },
+            {
+              "cache_word": "100750e4",
+              "actual_copy_load": "10004248",
+              "pointer_operand": "dword ptr [ebp+8]"
+            },
+            {
+              "cache_word": "100750f4",
+              "actual_copy_load": "10004258",
+              "pointer_operand": "dword ptr [eax]"
+            },
+            {
+              "cache_word": "100750f8",
+              "actual_copy_load": "10004260",
+              "pointer_operand": "dword ptr [eax+4]"
+            },
+            {
+              "cache_word": "100750fc",
+              "actual_copy_load": "10004269",
+              "pointer_operand": "dword ptr [eax+8]"
+            },
+            {
+              "cache_word": "10075100",
+              "actual_copy_load": "10004276",
+              "pointer_operand": "dword ptr [ebx]"
+            },
+            {
+              "cache_word": "10075104",
+              "actual_copy_load": "1000427e",
+              "pointer_operand": "dword ptr [ebx+4]"
+            },
+            {
+              "cache_word": "10075108",
+              "actual_copy_load": "10004286",
+              "pointer_operand": "dword ptr [ebx+8]"
+            },
+            {
+              "cache_word": "100750e8",
+              "actual_copy_load": "10004293",
+              "pointer_operand": "dword ptr [edi]"
+            },
+            {
+              "cache_word": "100750ec",
+              "actual_copy_load": "1000429b",
+              "pointer_operand": "dword ptr [edi+4]"
+            },
+            {
+              "cache_word": "100750f0",
+              "actual_copy_load": "100042a3",
+              "pointer_operand": "dword ptr [edi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2011,7 +2091,7 @@
       "original_address": "10004560",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2029,6 +2109,38 @@
           "1000457d"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Position"
+          ],
+          "pointer_direction": "output",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": false,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_word": "100750dc",
+              "actual_copy_load": "100045cc",
+              "pointer_operand": "dword ptr [edi]"
+            },
+            {
+              "cache_word": "100750e0",
+              "actual_copy_load": "100045d3",
+              "pointer_operand": "dword ptr [edi+4]"
+            },
+            {
+              "cache_word": "100750e4",
+              "actual_copy_load": "100045dc",
+              "pointer_operand": "dword ptr [edi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2075,7 +2187,7 @@
       "original_address": "100043d0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2093,6 +2205,38 @@
           "100043ed"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Velocity"
+          ],
+          "pointer_direction": "output",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": false,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_word": "100750e8",
+              "actual_copy_load": "1000443c",
+              "pointer_operand": "dword ptr [edi]"
+            },
+            {
+              "cache_word": "100750ec",
+              "actual_copy_load": "10004443",
+              "pointer_operand": "dword ptr [edi+4]"
+            },
+            {
+              "cache_word": "100750f0",
+              "actual_copy_load": "1000444c",
+              "pointer_operand": "dword ptr [edi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2187,7 +2331,7 @@
       "original_address": "10003f80",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 4,
@@ -2213,6 +2357,86 @@
           "1000410d"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Position",
+            "Front",
+            "Top",
+            "Velocity"
+          ],
+          "pointer_direction": "input",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": true,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_float": "100750dc",
+              "actual_float_load": "1000401c",
+              "pointer_operand": "dword ptr [edi]"
+            },
+            {
+              "cache_float": "100750e0",
+              "actual_float_load": "1000402b",
+              "pointer_operand": "dword ptr [edi+4]"
+            },
+            {
+              "cache_float": "100750e4",
+              "actual_float_load": "1000403b",
+              "pointer_operand": "dword ptr [edi+8]"
+            },
+            {
+              "cache_float": "100750f4",
+              "actual_float_load": "100040be",
+              "pointer_operand": "dword ptr [ebp]"
+            },
+            {
+              "cache_float": "100750f8",
+              "actual_float_load": "100040ce",
+              "pointer_operand": "dword ptr [ebp+4]"
+            },
+            {
+              "cache_float": "100750fc",
+              "actual_float_load": "100040de",
+              "pointer_operand": "dword ptr [ebp+8]"
+            },
+            {
+              "cache_float": "10075100",
+              "actual_float_load": "10004115",
+              "pointer_operand": "dword ptr [edx]"
+            },
+            {
+              "cache_float": "10075104",
+              "actual_float_load": "10004124",
+              "pointer_operand": "dword ptr [edx+4]"
+            },
+            {
+              "cache_float": "10075108",
+              "actual_float_load": "10004134",
+              "pointer_operand": "dword ptr [edx+8]"
+            },
+            {
+              "cache_float": "100750e8",
+              "actual_float_load": "1000406d",
+              "pointer_operand": "dword ptr [esi]"
+            },
+            {
+              "cache_float": "100750ec",
+              "actual_float_load": "1000407c",
+              "pointer_operand": "dword ptr [esi+4]"
+            },
+            {
+              "cache_float": "100750f0",
+              "actual_float_load": "1000408c",
+              "pointer_operand": "dword ptr [esi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2221,7 +2445,7 @@
       "original_address": "10004470",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2239,6 +2463,38 @@
           "1000448d"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Position"
+          ],
+          "pointer_direction": "input",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": false,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_float": "100750dc",
+              "actual_float_load": "100044e1",
+              "pointer_operand": "dword ptr [esi]"
+            },
+            {
+              "cache_float": "100750e0",
+              "actual_float_load": "100044f0",
+              "pointer_operand": "dword ptr [esi+4]"
+            },
+            {
+              "cache_float": "100750e4",
+              "actual_float_load": "10004500",
+              "pointer_operand": "dword ptr [esi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2290,7 +2546,7 @@
       "original_address": "100042d0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "listener_vector_verified_scope": "PC53/PC24 actual immediate/deferred listener, pre-Init/post-Free,11 triples including NaNs,16 input-presence masks,21 guarded/aliased output arrangements; returns and exact cached words",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 1,
@@ -2308,6 +2564,38 @@
           "100042ed"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-listener-vector-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Velocity"
+          ],
+          "pointer_direction": "input",
+          "pointer_payload": "3 consecutive binary32 float words per vector",
+          "bytes_per_vector": 12,
+          "pointers_independently_optional": false,
+          "original_float_load_and_cache_evidence": [
+            {
+              "cache_float": "100750e8",
+              "actual_float_load": "10004341",
+              "pointer_operand": "dword ptr [esi]"
+            },
+            {
+              "cache_float": "100750ec",
+              "actual_float_load": "10004350",
+              "pointer_operand": "dword ptr [esi+4]"
+            },
+            {
+              "cache_float": "100750f0",
+              "actual_float_load": "10004360",
+              "pointer_operand": "dword ptr [esi+8]"
+            }
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Initialized32-bit integer status in EAX on every balanced C3 return,never a floating-point return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3383,5 +3671,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 48
+  "native_signature_semantics_verified_count": 54
 }

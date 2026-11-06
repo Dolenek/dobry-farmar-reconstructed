@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Šest listener float-vector rozhraní
+
+`tools/audit_squall_listener_vector_signatures.py` prokazuje Set/GetPosition, Set/GetVelocity a Set/GetParameters. Každý vector pointer je kontrolovaný přesně na12 bajtů. Native settery skutečně používají `FLD m32` a `FCOMP m32` pro každé ze tří slov; gettery kopírují přesně stejné tři cache hodnoty. Position cache je100750dc/e0/e4, Velocitye8/ec/f0, Frontf4/f8/fc a Top10075100/104/108. Čtyřparametrové varianty mají skutečné pořadí Position/Front/Top/Velocity a osm explicitně ověřených null-skip větví pro nezávisle volitelné pointery. Nezaměňují se12bajtové float vektory s opaque byte bufferem jen podle velikosti.
+
+Všech14 návratů má úplně inicializovaný integer EAX, C3 a vyvážený stack. Audit rozlišuje vlastní status lokál entryESP−4 od nulování caller argumentových slotů; zneplatňuje volatile EAX po call i partial AX zápisech `FNSTSW`. Důkazy všech původních veřejných instrukcí a konkrétních float load/cache kopií jsou v `analysis/squall-listener-vector-signatures.json`. Native ABI nyní54/97, zbývá43. Produkce a17 originálů se nemění; všechny float bit patterns ani nový runtime/audio běh se tímto auditem netvrdí, behaviorální stav zůstává částečný.
+
 ## Hardware integer příznaky a výstupy
 
 `tools/audit_squall_hardware_signatures.py` dokládá Set/GetHardwareAcceleration. Setter uchová oba celé32bitové příznaky v cache10075158/5c bez převodu na0/1. Skutečný context10075034 je načítá na+124/+128; instrukční stack průchod sleduje nezměněný příznak přes vnitřní volání až do5./7. parametru CreateSoundBuffer10001490/Create3DSoundBuffer100015e0. Tam se původní slovo skutečně testuje jako zero/nonzero a mění hardware/software flags. Typ příznaku tedy nepochází jen z deklarovaného headeru.

@@ -193,7 +193,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "1232208072c484886471ed5cb23f9caab157d91df85de1d0c78de31635698af1",
+  "source_tree_sha256": "d0a17bbd552ff4bd041a539b405e0ce31c0716bacf9f254ced2ba8d7c4e6183f",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -634,7 +634,8 @@
     "analysis/contract-streak-native-active-restore-regression.json",
     "analysis/contract-streak-ten-checkpoints.json",
     "analysis/contract-streak-active-restore-comparison.json",
-    "analysis/contract-streak-checkpoint-metadata-observations.json"
+    "analysis/contract-streak-checkpoint-metadata-observations.json",
+    "analysis/squall-listener-vector-signatures.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108555,8 +108556,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/contract-streak-active-restore-comparison.json",
-    "recorded_at_utc": "2026-11-06T18:26:07.485863+00:00",
+    "report": "analysis/squall-listener-vector-signatures.json",
+    "recorded_at_utc": "2026-11-06T18:29:48.040569+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108581,7 +108582,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/contract-streak-active-restore-comparison.json",
+  "source_tree_hash_as_of_report": "analysis/squall-listener-vector-signatures.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
@@ -108589,9 +108590,9 @@
     "scope": "Current tracker-loaders,late-timeline and campaign-loop reports;older records identify their original locally recorded bytes"
   },
   "native_squall_signature_semantics": {
-    "report": "analysis/squall-hardware-signatures.json",
-    "verified_export_count": 48,
-    "remaining_export_count": 49,
+    "report": "analysis/squall-listener-vector-signatures.json",
+    "verified_export_count": 54,
+    "remaining_export_count": 43,
     "whole_behavior_verified": false
   }
 }
