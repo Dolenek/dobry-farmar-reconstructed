@@ -160,7 +160,7 @@
       "original_address": "10006dd0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -183,6 +183,24 @@
           "10006e55"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "int",
+            "squall_eax_channel_t*"
+          ],
+          "aggregate_bytes": 72,
+          "direction": "output",
+          "public_payload_is_full_union_even_for_earlier_version": true,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 72,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -191,7 +209,7 @@
       "original_address": "10006cc0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -214,6 +232,24 @@
           "10006d48"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "int",
+            "squall_eax_channel_t*"
+          ],
+          "aggregate_bytes": 72,
+          "direction": "input",
+          "public_payload_is_full_union_even_for_earlier_version": true,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 72,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1537,7 +1573,7 @@
       "original_address": "10006ff0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -1558,6 +1594,23 @@
           "10007063"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "squall_zoomfx_channel_t*"
+          ],
+          "aggregate_bytes": 52,
+          "direction": "output",
+          "public_payload_is_full_union_even_for_earlier_version": false,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 52,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1566,7 +1619,7 @@
       "original_address": "10006ef0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -1587,6 +1640,23 @@
           "10006f66"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "squall_zoomfx_channel_t*"
+          ],
+          "aggregate_bytes": 52,
+          "direction": "input",
+          "public_payload_is_full_union_even_for_earlier_version": false,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 52,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1985,7 +2055,7 @@
       "original_address": "10004b30",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -2006,6 +2076,23 @@
           "10004b87"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "squall_eax_listener_t*"
+          ],
+          "aggregate_bytes": 112,
+          "direction": "output",
+          "public_payload_is_full_union_even_for_earlier_version": true,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 112,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -2051,7 +2138,7 @@
       "original_address": "10004a40",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_extensions_verified_scope": "Actual EAX0 unsupported host only; pre-Init/empty/real2D/real3D/post-Free, eight version boundaries,32 presets,five channel IDs,six guarded/null/bad/read-only/cross-page/noaccess pointers; exact errors and unchanged complete caller buffers; two builds and PC53/PC24. Supported property paths explicitly pending.",
       "diagnostic_COM_boundary_verified_scope": "Actual exported wrappers with isolated private context bytes, instruction-backed context/channel offsets and restored bytes before cleanup; supported/negative flags,versions/IDs/ambient+positioned,exact GUID/property/instance/size/payload,COM success/set failure/get failure/short write+reported0/null interface,preset bytes for all27 presets in EAX1/2/3; two builds and PC53/PC24. Actual supported hardware remains unverified.",
       "caller_cleanup_abi_verified": {
@@ -2072,6 +2159,23 @@
           "10004a97"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-effect-property-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "int",
+            "squall_eax_listener_t*"
+          ],
+          "aggregate_bytes": 112,
+          "direction": "input",
+          "public_payload_is_full_union_even_for_earlier_version": true,
+          "source_header_matches": true,
+          "independent_original_payload_size_and_copy_bytes": 112,
+          "backend_wire_tables_exact_in_both_builds": true
+        },
+        "return_role": "Complete initialized32-bit status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3850,5 +3954,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 69
+  "native_signature_semantics_verified_count": 75
 }

@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Šest EAX/ZOOMFX aggregate rozhraní
+
+`tools/audit_squall_effect_property_signatures.py` prokazuje Listener/Channel EAX Set/GetProperties a Channel ZOOMFX Set/GetProperties. Původní veřejné pointer kontroly i celé cache kopie mají vždy112/72/52 bajtů, včetně starších verzí EAX; nejde jen o16bajtové eax1 pole. Aktuální Win32 public union layouty přesně odpovídají těmto rozsahům. Backend následně používá jiné skutečné wire velikosti: listener0/16/56/112, channel0/4/52/72. Původní helper číselně kombinuje Type a Version, vybere velikost/property ID/GUID a zavolá příslušný IKsPropertySet slot. Veřejný caller s těmito payloady zachází jako s opaque property bytes; sám neprokazuje výklad každého jejich jednotlivého členu.
+
+V obou skutečných současných DLL se přesně shoduje všech208 bajtů čtyř původních datových tabulek:8 velikostí,8 property ID,8 EAX GUID a ZOOMFX GUID. Zdrojové adresy jsou nezávisle vyhledané v obou linker map a tabulkové bajty jsou porovnané proti původnímu PE; shoda veřejné publikované verze se nepředpokládá. Listener má skutečný public signed range1..3, channel0..3; odlišná polarita support testů se výslovně zachovává a podpora backend Version0 se netvrdí. Původní privátní ZOOMFX getter vrací1 i po nulovém interface/COM neúspěchu; tento detail se také nezaměňuje s nově ověřeným runtime provider chováním.
+
+Všech27 veřejných návratů má úplně inicializovaný integer EAX, C3 a vyvážený stack. `analysis/squall-effect-property-signatures.json` obsahuje veřejné i privátní instrukce, originální tabulky, obě skutečné source datové shody a jasnou hranici opaque payload důkazu. Native ABI75/97, zbývá22; produkce a17 originálů se nemění, nový provider/audio test se netvrdí a behaviorální rozsah zůstává částečný.
+
 ## Dvě smíšená cone rozhraní
 
 `tools/audit_squall_cone_signatures.py` prokazuje Set/GetConeParameters: skutečný integer handle,12bajtový float orientation vector a dva integer úhly/volume. Settery mají signed0..360/0..100 podmínky a původní volume table index; privátní10001a70 skutečně používá FLD/FCOMP m32 pro cache+78/+7c/+80 a DWORD integer operace pro úhly+70/+74 a volume+84. Getter používá stejný vector a dva4bajtové samostatně volitelné integer angle outputy. OutsideVolume je4bajtový integer výstup z původního FILD/pow/FISTP převodu, nikoli float návrat.
