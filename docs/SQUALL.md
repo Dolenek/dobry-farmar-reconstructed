@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Osm přehrávacích signatur
+
+`audit_squall_play_signatures.py` sleduje každé původní veřejné stack slovo přes kopie registrů, lokální defaults, null větve a skutečné call cleanup až do backendu10004da0/10005010. Ověřuje4/8/6/11 parametrů Sample a stejné čtveřice SampleGroup, celkem8 veřejných EAX/C3 návratů a6 privátních. Group selector porovnává integer skupinu a vrací skutečně složené SampleID; channel návrat pochází z integer generačního bajtu a indexu přes cache+3c. Loop používá bit0, Start zero/nonzero, skupina a priorita integer cache, volume tabulkový index, frequency a pan původní integer metody.
+
+Oba3D pointery jsou původně čtené12bajtovou IsBadReadPtr kontrolou a jejich souřadnice mají skutečné binary32 FCOMP/FSUB operace. Dvě samostatné scalar vzdálenosti se přesně předávají do původních FLD m32 slotů. Audit uchovává i cesty s nevyplněnými lokálními defaults při selhání a s nulovým Position. Původní3D backend dereferencuje Position před následným vytvořením kanálu; bezpečnost všech těchto chybných vstupů se neprohlašuje za ověřenou. `analysis/squall-play-signatures.json` dokládá konkrétní argumentové mapy, instrukce i backend stacky. Native ABI94/97, zbývají3 void rozhraní; nový runtime playback test se netvrdí a behaviorální pokrytí je stále částečné.
+
 ## Délky a frekvence dekodérů
 
 `audit_squall_length_signatures.py` prokazuje pět Channel/Sample dotazů na délku, délku v ms a frekvenci. Všech12 veřejných C3 návratů má vyvážený stack a integer EAX; argumentem je integer handle/ID. Původní factory a konstruktory vedou na všech8 konkrétních virtuálních tabulek se slotem5 pro počet frames. Audit ověřuje jejich skutečné PE bajty, celé getter grafy, Ogg64 součet i celočíselné64bitové násobení/dělení při převodu na ms. WAVEFORMATEX sample rate je DWORD+4 podle SDK a původních instrukcí. Track constructor entry1002bdb0 je opravená hranice lineárního disassembly za jump table, potvrzená přímým CALL a skutečnými bajty6aff; produkční kód se tím nemění.

@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Osm play ABI Squallu](SQUALL.md) nyní dokládá přesné předávání všech veřejných argumentů,3D vector/scalar float operace, integer volby a channel ID i všech14 veřejných/privátních návratů. Native ABI94/97, zbývají3 void rozhraní. Původní nebezpečné vstupní/default větve se evidují a jejich úplná bezpečnost se netvrdí. Produkce a17 originálů se nemění, nový playback test se netvrdí. Další skutečné zakázky pokračují25→30; celý původní cíl zůstává aktivní.
+
 [Skutečná série25](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení na větev,53/42 zásobovacích příkazů,928/724 převodů, přesné19produktové bilance a celé16763/16797bajtové saves. Oba procesy běžně skončily0; další skutečný pár navazuje25→30. [Pět délkových ABI Squallu](SQUALL.md) navíc dokládá všech12 veřejných návratů, všech8 konkrétních dekodérových tabulek a integer frame/rate/ms operace. ABI86/97, zbývá11; behaviorální úplnost DLL se netvrdí. Produkce a17 originálů jsou stejné a celý původní cíl pokračuje.
 
 [Tři sample load/default ABI](SQUALL.md) prokazují byte CString, skutečný memory-mode word, smíšené28bajtové default pointery,5 veřejných návratů i3 normální integer backend návraty se skutečným SampleID bitovým složením. Native ABI81/97, zbývá16; původní writability/filename hranice se zachovávají a behaviorální rozsah se nenavyšuje. Produkce a17 originálů jsou stejné. Skutečný pár pokračuje20→25 před40 a celý původní cíl zůstává aktivní.
