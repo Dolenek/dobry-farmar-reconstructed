@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Fyzické ABI všech97 exportů
+
+Zbývající Free/Unload/UnloadAll ověřuje `audit_squall_void_signatures.py`:0/1/0 veřejných argumentů, původní unchanged integer SampleID až do generačního resolveru, skutečný tail jump UnloadAll a všech3 vyvážených C3 návratů. Původní herní import thunky a call sites00535441/0053470c nezávisle dokládají zahazování EAX při Free/Unload. UnloadAll původní hra neimportuje. ABI97/97 je nyní doložené fyzické rozhraní, nikoli tvrzení o původním zdrojovém klíčovém slovu: strojový kód neumí jednoznačně odlišit void od nepoužitého návratu. Pro tyto tři exporty se proto nepřisuzuje žádný veřejný EAX status ani konkrétní hodnota.
+
+`analysis/squall-void-signatures.json` uchovává tento limit i všechny původní bajty. Veškerých97 implementací a exportů existuje ve zdrojích obou sestavení, ale behaviorální status všech rozhraní zůstává výslovně částečný. Důkazy ABI neznamenají úplnost Squallu, úspěch všech chybových/konkurenčních cest ani dokončení celé hry. Produkce a17 originálů jsou nezměněné; nový cleanup/audio runtime běh se netvrdí.
+
 ## Osm přehrávacích signatur
 
 `audit_squall_play_signatures.py` sleduje každé původní veřejné stack slovo přes kopie registrů, lokální defaults, null větve a skutečné call cleanup až do backendu10004da0/10005010. Ověřuje4/8/6/11 parametrů Sample a stejné čtveřice SampleGroup, celkem8 veřejných EAX/C3 návratů a6 privátních. Group selector porovnává integer skupinu a vrací skutečně složené SampleID; channel návrat pochází z integer generačního bajtu a indexu přes cache+3c. Loop používá bit0, Start zero/nonzero, skupina a priorita integer cache, volume tabulkový index, frequency a pan původní integer metody.
