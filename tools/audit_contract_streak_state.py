@@ -48,6 +48,28 @@ def binary_expected(before, notes, coefficients):
     return data
 
 
+def timeline_with_contract_notes(timeline, successful_notes, baseline, events):
+    """Keep timed notes and the XML success strings in actual receipt order.
+
+    WinNote is a literal string, not the coefficient-adjusted reward. It is
+    delivered read=true by native ContractStatus::fail (the success path).
+    """
+    cursor = dict(baseline)
+    prices, notes, wraps, rounding = {}, [], [], []
+    begin = 0
+    for position, text in successful_notes + [(len(timeline) - 1, None)]:
+        values = timeline[begin:position + 1]
+        if values:
+            changes, timed, loops, rounded = audit_timeline(values, cursor, events)
+            prices.update(changes);notes.extend(timed);wraps.extend(loops);rounding.extend(rounded)
+            cursor.update(changes)
+            cursor['GameTime'] = ('Float', repr(values[-1]))
+        if text is not None:
+            notes.append(dict(read=1, text=text))
+        begin = position + 1
+    return prices, notes, wraps, rounding
+
+
 def audit(report_path, allow_retained_failure=False):
     report = read(report_path)
     failed = report['status'] == 'failed'
@@ -121,6 +143,7 @@ def audit(report_path, allow_retained_failure=False):
             transfers[n] += quantity
         money = int(before_values['Money'][1])
         timeline = []
+        successful_notes = []
         last_epoch = 0
         receipt_rows = []
         for counter, receipt in enumerate(session['contract_receipts'], initial):
@@ -154,6 +177,9 @@ def audit(report_path, allow_retained_failure=False):
                 last_epoch += 1
                 timeline += [epochs[last_epoch]['before'], epochs[last_epoch]['game_time']]
             timeline += [accepted['game_time'], ready['game_time'], done['game_time']]
+            win_note = events[offer].find('Data').findtext('WinNote')
+            if win_note:
+                successful_notes.append((len(timeline) - 1, win_note))
             receipt_rows.append(dict(offer=offer, epoch=epoch, counter_before=counter, counter_after=counter + 1,
                                      deposit_charged_this_process=deposit, model_penalty=expected['penalty'],
                                      acceptance_occurred_before_this_process=restored,
@@ -201,7 +227,7 @@ def audit(report_path, allow_retained_failure=False):
             last_epoch += 1
             timeline += [epochs[last_epoch]['before'], epochs[last_epoch]['game_time']]
         timeline += [final['game_time'], float(values['GameTime'][1])]
-        prices, notes, wraps, rounding = audit_timeline(timeline, before_values, events)
+        prices, notes, wraps, rounding = timeline_with_contract_notes(timeline, successful_notes, before_values, events)
         assert len(wraps) == len(epochs) - 1
         assert all(values[key] == value for key, value in prices.items())
         expected_binary = binary_expected(before_save, notes, epochs[-1]['words'])
@@ -213,6 +239,7 @@ def audit(report_path, allow_retained_failure=False):
             additions=additions, transferred=transfers, consumed=consumed, final_stock=final['stock'], final_market=final['market'],
             coefficient_epochs=coefficient_audits, clock_wraps=wraps, clock_rounding=rounding,
             independently_expected_notes=len(notes), complete_expected_saved_bytes=len(expected_binary),
+            independently_expected_contract_win_notes=len(successful_notes),
             complete_saved_sha256=digest(saved), saved_profile_sha256=digest(work / f'{index}-{suffix}/Profiles/00000001.xml'),
             entire_binary_unchanged=saved.read_bytes() == (base / '00000001.save').read_bytes(), normalizations=[]))
     return report, branches

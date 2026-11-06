@@ -1,0 +1,79 @@
+{
+  "status": "retained_incomplete_audit_then_verified_literal_contract_win_note",
+  "recorder_sha256": "08e518fa62a18d4b4bf5e72c0421d7e571bf2933e39382653f5cdfdfda487e46",
+  "raw_runtime_report": ".local/contract-streak/20261106T182154720921Z/report.json",
+  "raw_runtime_report_sha256": "9a2bfc9a07036d5bf90b03198b1bf8ed710095be644f07fabfa3c67516df396d",
+  "initial_audit_log": ".local/contract-streak-fifteen-audit.log",
+  "initial_audit_log_sha256": "4f4fd8c39ca09bc924c51f335fe1f6632f6f1e3bcd97b86d70dce44823975b2b",
+  "incomplete_expected_source_save": ".local/contract15-expected-1.save",
+  "incomplete_expected_source_save_sha256": "77173697df663f14d10df367234a662ae60cdf586f45991bcc91f21d911ee6e3",
+  "incomplete_expected_bytes": 16377,
+  "actual_and_correctly_expected_bytes": 16394,
+  "missing_record": {
+    "read": 1,
+    "text": "+ 750$"
+  },
+  "original_xml_event": 326,
+  "actual_coefficient_adjusted_reward": 880,
+  "actual_original_instruction_evidence": [
+    {
+      "address": "004bbf80",
+      "bytes": "8b576c",
+      "meaning": "mov edx,[edi+6c] active event"
+    },
+    {
+      "address": "004bbf83",
+      "bytes": "8b4a44",
+      "meaning": "mov ecx,[edx+44] actual Bonus"
+    },
+    {
+      "address": "004bbf86",
+      "bytes": "03c8",
+      "meaning": "add ecx,eax current money"
+    },
+    {
+      "address": "004bc0cb",
+      "bytes": "7414",
+      "meaning": "je004bc0e1 skip empty WinNote"
+    },
+    {
+      "address": "004bc0cd",
+      "bytes": "8b4f6c",
+      "meaning": "mov ecx,[edi+6c] active event"
+    },
+    {
+      "address": "004bc0d0",
+      "bytes": "83c168",
+      "meaning": "add ecx,68 literal WinNote string"
+    },
+    {
+      "address": "004bc0d3",
+      "bytes": "6a01",
+      "meaning": "push1 read flag"
+    },
+    {
+      "address": "004bc0d5",
+      "bytes": "51",
+      "meaning": "push ecx WinNote pointer"
+    },
+    {
+      "address": "004bc0d6",
+      "bytes": "8b0d40f76500",
+      "meaning": "mov ecx,[65f740] actual GameMenu"
+    },
+    {
+      "address": "004bc0dc",
+      "bytes": "e8bf830000",
+      "meaning": "call004c44a0 GameMenu::notify"
+    }
+  ],
+  "actual_native_runtime_receipt326_in_this_pair": false,
+  "static_native_literal_win_note_dispatch_verified": true,
+  "native_and_source_baselines_already_owned_award17": true,
+  "new_award17_panel_claimed": false,
+  "changed_production": false,
+  "incomplete_auditor_assumption": "Only timed notes were included;actual success WinNote was omitted",
+  "auditor_correction": "Interleave original literal read=true WinNote after its actual completion,without replacing text with adjusted bonus",
+  "normalizations": [],
+  "whole_game_complete": false
+}

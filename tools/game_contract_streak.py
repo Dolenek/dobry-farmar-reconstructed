@@ -301,6 +301,21 @@ def run_streak(env):
         assert done,('Contract supplies exhausted60 bounded passes',offer,snapshot())
         assert val('uints','awQTask') == initial_streak+len(session['contract_receipts'])
     speed(False);drain()
+    thresholds = [(4,'Award04Make20Task')] if target >= 20 else []
+    if target >= 40:
+        thresholds.append((5,'Award05Make40Task'))
+    for ordinal,owned_key in thresholds:
+        shown_key=f'awardShow{ordinal}'
+        observed=dict(ordinal=ordinal,streak=val('uints','awQTask'),
+            before_owned=val('booleans',owned_key),before_shown=val('booleans',shown_key))
+        session.setdefault('threshold_award_waits',[]).append(observed)
+        limit=time.monotonic()+60
+        while not (val('booleans',owned_key) and val('booleans',shown_key)):
+            drain();focus();clock()
+            assert time.monotonic()<limit,('Actual contract threshold award did not finish',ordinal,snapshot())
+            time.sleep(.1)
+        drain()
+        observed.update(after_owned=val('booleans',owned_key),after_shown=val('booleans',shown_key),game_time=clock())
     session['final_streak_state']=snapshot()
     assert session['final_streak_state']['streak']==target
     session['final_coefficient_words']=live.coefficients()
