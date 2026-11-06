@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Šest prostorových channel rozhraní
+
+`tools/audit_squall_channel_geometry_signatures.py` prokazuje Set/Get3DPosition, Set/GetVelocity a Set/GetMinMaxDistance. ChannelID se beze změny načítá ze skutečného veřejného slotu do bit/generation resolveru. Vector pointery mají přesnou12bajtovou IsBadReadPtr/IsBadWritePtr kontrolu a správné1./2. místo mezi9 setter/8 getter privátními argumenty. Privátní10001a70 používá každé slovo vektorů skutečným FLD/FCOMP m32 proti float cache+58/+5c/+60 a+64/+68/+6c;10001c10 kopíruje stejné cache do tří výstupních slov.
+
+Obě float vzdálenosti jdou ze skutečných veřejných slotů do7./8. privátního argumentu a původní FLD m32 je načítá na skutečných entryESP+1c/+20. Getter kontroluje oba pointery na4 bajty, dovolí jeden samostatný výstup a kopíruje stejné float cache+88/+8c. Všech21 veřejných EAX/C3 návratů má úplně inicializovaný integer status, včetně původně odlišných chyb getterů pozice/rychlosti; žádná se nenormalizuje. PE bajty veřejných instrukcí i privátní svědci jsou v `analysis/squall-channel-geometry-signatures.json`. Native ABI60/97, zbývá37. Produkce a17 originálů se nemění, behaviorální status zůstává částečný a nový audio běh se netvrdí.
+
 ## Šest listener float-vector rozhraní
 
 `tools/audit_squall_listener_vector_signatures.py` prokazuje Set/GetPosition, Set/GetVelocity a Set/GetParameters. Každý vector pointer je kontrolovaný přesně na12 bajtů. Native settery skutečně používají `FLD m32` a `FCOMP m32` pro každé ze tří slov; gettery kopírují přesně stejné tři cache hodnoty. Position cache je100750dc/e0/e4, Velocitye8/ec/f0, Frontf4/f8/fc a Top10075100/104/108. Čtyřparametrové varianty mají skutečné pořadí Position/Front/Top/Velocity a osm explicitně ověřených null-skip větví pro nezávisle volitelné pointery. Nezaměňují se12bajtové float vektory s opaque byte bufferem jen podle velikosti.

@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Šest channel geometry ABI](SQUALL.md) prokazuje přesné handle/vector/float sloty,12/4bajtové pointer kontroly, skutečné7./8. privátní float argumenty a všech21 původních integer EAX/C3 návratů. Native ABI60/97, zbývá37; původní odlišné chyby se zachovávají a behaviorální rozsah se nenavyšuje. Produkce a17 originálů jsou stejné. Originál již skutečně dokončil sérii15; zdrojová větev navazuje a celý cíl pokračuje.
+
 [Šest listener vector ABI](SQUALL.md) má přímo doložené12bajtové float pointery, všechny FLD/FCOMP a getter cache kopie, skutečné pořadí4 vektorů i osm nezávislých null-skip větví. Všech14 integer EAX/C3 návratů souhlasí; native ABI54/97, zbývá43. Behaviorální rozsah se nenavyšuje, produkce a17 originálů se nemění. Dlouhý skutečný pár pokračuje10→15 před20/40; celý cíl zůstává aktivní.
 
 [Source série10 a křížová obnova aktivní zakázky](CONTRACT_STREAK.md) nově prošly: pět skutečných dokončení5→10,36 zásobovacích příkazů/613 převodů, Money8124 a celý16194bajtový save. Originál stejný zdrojový task341 obnovil a skutečně dokončil stejně na6/Money5884 se29 růžemi a bonusem940; původní kumulativní33/1070 před uložením se neopravují. Oba vlastní checkpointy10 jsou neměnně propojené, další pár běží10→15 před20/40. Limit launcheru i omylem přepsaná a přesně obnovená metadata jsou výslovně evidované; profily, produkce a17 originálů zůstaly neměnné. Celý původní cíl pokračuje.

@@ -222,7 +222,7 @@
       "original_address": "10006660",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -242,6 +242,18 @@
           "100066b0"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Writable12-byte pointer to three binary32 float coordinates"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -475,7 +487,7 @@
       "original_address": "100069b0",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 3,
@@ -497,6 +509,18 @@
           "10006a1f"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Two independently optional writable4-byte binary32 float output pointers;at least one valid output required"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -652,7 +676,7 @@
       "original_address": "10006830",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -672,6 +696,18 @@
           "10006880"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Writable12-byte pointer to three binary32 float coordinates"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -758,7 +794,7 @@
       "original_address": "10006570",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -778,6 +814,18 @@
           "100065c6"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Readable12-byte pointer to three binary32 float coordinates"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -963,7 +1011,7 @@
       "original_address": "10006910",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 3,
@@ -985,6 +1033,18 @@
           "1000696a"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Two binary32 float value arguments;actual private argument7/8 FLD m32 and float cache"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -1158,7 +1218,7 @@
       "original_address": "10006740",
       "status": "partially_compared",
       "verified_scope": null,
-      "native_signature_fully_verified": false,
+      "native_signature_fully_verified": true,
       "loaded_DLL_3d_channel_verified_scope": "PC53/PC24 real prepared mono channels with algorithm1, immediate/deferred listeners;108 vector patterns,19x19 distances,512 cone tuples and guarded pointers per context; C3 and raw sNaN copy repair; separate same-address byte fixtures record COM boundary",
       "caller_cleanup_abi_verified": {
         "declared_argument_count": 2,
@@ -1178,6 +1238,18 @@
           "10006796"
         ],
         "scope": "Independent original ESP/EBP analysis, native direct-callee RET pop bytes, eight explicit COM call push contracts and Win32 import contracts. All reachable tracked returns balance. Pointer/return semantics remain separately audited."
+      },
+      "native_signature_semantic_evidence": {
+        "report": "analysis/squall-channel-geometry-signatures.json",
+        "argument": {
+          "arguments_in_public_order": [
+            "Unchanged32-bit integer channel handle consumed by actual index/generation resolver",
+            "Readable12-byte pointer to three binary32 float coordinates"
+          ],
+          "source_header_matches": true
+        },
+        "return_role": "Complete initialized32-bit integer status in EAX on every balanced C3 return",
+        "whole_behavior_verified": false
       }
     },
     {
@@ -3671,5 +3743,5 @@
     "analysis/squall-tracker-loaders-abi.json",
     "analysis/squall-tracker-loaders-fresh-abi.json"
   ],
-  "native_signature_semantics_verified_count": 54
+  "native_signature_semantics_verified_count": 60
 }
