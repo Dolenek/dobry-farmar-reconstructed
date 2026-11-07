@@ -1,6 +1,6 @@
 {
   "status": "audited_existing_actual_tutorial_stage_coverage_remaining_warning_paths_not_yet_verified",
-  "recorded_at_utc": "2026-11-07T20:12:42.173594+00:00",
+  "recorded_at_utc": "2026-11-07T21:10:45.458592+00:00",
   "recorder_sha256": "4b4ee6714263fbbd05ba987d0f3d72b310b4c1d532f47f40bf9f31332e546bba",
   "reports": {
     "analysis/contract-runtime-validation.json": "5c4318f5b467c396db689eca84cd8d26dec7d7103ee819db170d11d1985e75da",
@@ -21,7 +21,8 @@
     "analysis/tomato-contract-state-validation.json": "83226d969199368a3885199d19163560a668c72b5c742c64108fdf75e3ccbb02",
     "analysis/tomato-harvest-state-validation.json": "aa2168143122a3318ae1883d2432f01d7fa004588db20b90974f2f4155fd7e89",
     "analysis/tool-upgrades-state-validation.json": "ad805ab6e0cc8e46a21b9f82dd00af7651aa570cf2bb4a080978b419314a5081",
-    "analysis/tutorial-runtime-validation.json": "30588e73405d5653b09fbf43f6d9b8d55af23d7453a31859f268bb55a5f73b99"
+    "analysis/tutorial-runtime-validation.json": "30588e73405d5653b09fbf43f6d9b8d55af23d7453a31859f268bb55a5f73b99",
+    "analysis/tutorial-warning-first-pair-regression.json": "19dac1f2dacdd65311da43a27fcbb72ba045c9aefd863d77a3a4c69d4495f6f3"
   },
   "actual_observed_indices": [
     1,
@@ -62,6 +63,8 @@
     37,
     38,
     39,
+    40,
+    42,
     43,
     45,
     46,
@@ -682,14 +685,36 @@
         "kind": "source",
         "screenshot": "1-19-return-button.png"
       }
+    ],
+    "40": [
+      {
+        "report": "analysis/tutorial-warning-first-pair-regression.json",
+        "kind": "native",
+        "screenshot": "0-full_carry-warning-40.png"
+      },
+      {
+        "report": "analysis/tutorial-warning-first-pair-regression.json",
+        "kind": "source",
+        "screenshot": "2-full_carry-warning-40.png"
+      }
+    ],
+    "42": [
+      {
+        "report": "analysis/tutorial-warning-first-pair-regression.json",
+        "kind": "native",
+        "screenshot": "1-poor_contract-warning-42.png"
+      },
+      {
+        "report": "analysis/tutorial-warning-first-pair-regression.json",
+        "kind": "source",
+        "screenshot": "3-poor_contract-warning-42.png"
+      }
     ]
   },
   "missing_indices": [
     0,
     10,
-    40,
     41,
-    42,
     44
   ],
   "non_json_registry_entries": [

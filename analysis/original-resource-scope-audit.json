@@ -1,0 +1,1587 @@
+{
+  "status": "passed_shipped_xml_uses_no_mesh_animation_factories_and_only_supported_click_masks",
+  "recorded_at_utc": "2026-11-07T21:06:10.472435+00:00",
+  "recorder_sha256": "07c0dfe7b598cba252e8519ab3ec21c520e1f2b8b4ba8ec9bb93c9f48cbc121e",
+  "archives": {
+    "Data.pack": "a5c79f24252ae20b678b098e1788e49dc22f4f0152f37ace1b43292ccfcace4f",
+    "cz.pack": "00b8318790a97fe8df4e8c1d1082dc74a15ed3dcd5f2f33e36850d8db2761814"
+  },
+  "effective_xml_count": 66,
+  "effective_xml_files": {
+    "effects/hoseeffect.xml": {
+      "archive": "Data.pack",
+      "entry": "Effects/HoseEffect.xml",
+      "sha256": "0c745bfcbb1c4948ce4e171157373a2abd6a12466d20f7dd1dcbe4c2af0753a5"
+    },
+    "effects/newcontroleffect.xml": {
+      "archive": "Data.pack",
+      "entry": "Effects/NewControlEffect.xml",
+      "sha256": "abae9db888e4860e2f5deea6086c93b93f4bfb5c3d5d80b9921484df8e08d859"
+    },
+    "effects/sprinkleeffect.xml": {
+      "archive": "Data.pack",
+      "entry": "Effects/SprinkleEffect.xml",
+      "sha256": "edbc99b0f3ce49250205cf20ae3b8bf673e1777b69081133a24c16f0025692e8"
+    },
+    "farm/actionareas/digbuilding.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/DigBuilding.xml",
+      "sha256": "722ee70100f71cea087c0b1ad7df2c4fa3447962383fd1260dd6f5bcd8a2fa22"
+    },
+    "farm/actionareas/farmfield.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/FarmField.xml",
+      "sha256": "6c9a33d291597fd4218cb89a399ed23d02a038144b7c1d557dfbc54f3184f57f"
+    },
+    "farm/actionareas/mowbuilding.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/MowBuilding.xml",
+      "sha256": "fca56c5b24ad6ccad334e8cc3333730dafbad53c2dc8937a185a5b6f3c7d232e"
+    },
+    "farm/actionareas/seedpackage.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/SeedPackage.xml",
+      "sha256": "51962ab13bde18d1270b7791fa7d4f89e72d0674cbfa8365309778b1ebea3d86"
+    },
+    "farm/actionareas/sprinkle.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/Sprinkle.xml",
+      "sha256": "b7a970340296e190b6306297ea3dbcef831c9a111ca3f3d54349e181d6811cab"
+    },
+    "farm/actionareas/warehouse.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/WareHouse.xml",
+      "sha256": "6a42747749d6e5fe869c7067bc94e307695214b80e6e0949fa369cae1090c4b9"
+    },
+    "farm/actionareas/watersource.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ActionAreas/WaterSource.xml",
+      "sha256": "1c4e8e115eb5d8dc19aa2e9cb1c096a265f288a1e853012f97d3511132fde683"
+    },
+    "farm/elasticanimation.xml": {
+      "archive": "Data.pack",
+      "entry": "Farm/ElasticAnimation.xml",
+      "sha256": "158fdc0e80169517071f5deef8480a99e2dae9372d5ec79a0b0a3e04140238e4"
+    },
+    "game.xml": {
+      "archive": "Data.pack",
+      "entry": "Game.xml",
+      "sha256": "e313d292e9ecb5e7f12f8da0fa718a8ec4dfd9bbae8d56fb220001dbea68208b"
+    },
+    "gameplay/contractaim.xml": {
+      "archive": "Data.pack",
+      "entry": "Gameplay/ContractAim.xml",
+      "sha256": "4b9e1e73b9a225ef816daad9cc14d18ff54197b8b285e52c91db47c87cd1d1de"
+    },
+    "gameplay/contractfail.xml": {
+      "archive": "Data.pack",
+      "entry": "Gameplay/ContractFail.xml",
+      "sha256": "966ed98a7a780508a3a5a7c7d05bc662a11f5c1e9febfda1b99a259a36fc7a32"
+    },
+    "gameplay/contractpassconfirm.xml": {
+      "archive": "Data.pack",
+      "entry": "Gameplay/ContractPassConfirm.xml",
+      "sha256": "3d8ec4b82fef6a1629779cea6cef1a2cbf710330b20bdbd0d7a9095210d8c3c6"
+    },
+    "gameplay/contractprovide.xml": {
+      "archive": "Data.pack",
+      "entry": "Gameplay/ContractProvide.xml",
+      "sha256": "00512fb1a74bd524d73d63cea4934e5b620080e0fb5f7125238c1427fef65900"
+    },
+    "gameplay/gameplay.xml": {
+      "archive": "Data.pack",
+      "entry": "Gameplay/gameplay.xml",
+      "sha256": "a09927bb004f6a37c891d820ce4a49787af01717844a4f75f3182f5a2e3474e4"
+    },
+    "gamereslog.xml": {
+      "archive": "Data.pack",
+      "entry": "gamereslog.xml",
+      "sha256": "f82980adec80d5661da1371a125eece31304f4b626b5dd60bef0a0cc939bf494"
+    },
+    "manufacture/bakery.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/Bakery.xml",
+      "sha256": "6aad00e04f00e660a73dbfe25231332e98af001af24479f9229e95f7ef303766"
+    },
+    "manufacture/cheesedairy.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/CheeseDairy.xml",
+      "sha256": "b7e21a383037a2cf55879df5d70efc0a979a8b926520a3136bca71776ac76c37"
+    },
+    "manufacture/cowshed.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/CowShed.xml",
+      "sha256": "dd07031b74298fee654a19fe114148112c6d994843fcb5239ee9124519464770"
+    },
+    "manufacture/creamery.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/Creamery.xml",
+      "sha256": "bc51960e2d1277247b4e0c11ff132bf56a12c358a0736753e31818a17fe7a0d1"
+    },
+    "manufacture/depotexplos.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/depotExplos.xml",
+      "sha256": "12b842833f7eb7f143c85a3ae134a53bdd20e86af32a9767e308e46bdd1f50a5"
+    },
+    "manufacture/henhouse.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/HenHouse.xml",
+      "sha256": "61943151d71ce6490dcde1a441b29e707ed6c8d0515b029ed098e58bc3261c6c"
+    },
+    "manufacture/incubator.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/Incubator.xml",
+      "sha256": "fe83507db3dd80c34f06f07c3a5df44805a5025cff4dce337b74002db0ec7df4"
+    },
+    "manufacture/mill.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/Mill.xml",
+      "sha256": "3d986a2e6ef6ae47f564f632ba51180119df031bb64e80a6b495d18beed7ab58"
+    },
+    "manufacture/pigpen.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/PigPen.xml",
+      "sha256": "28ba9fe472b829ab4c960188a40337a826df9c619f7293271bf7a5d206b56544"
+    },
+    "manufacture/sheepfold.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/SheepFold.xml",
+      "sha256": "23336f55fbc6c6a2a4589edf3906b312dc4705ddf6ced02c73e0ed965bc6a2e4"
+    },
+    "manufacture/textiledep.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/TextileDep.xml",
+      "sha256": "578f024263ec52c1fff68017438ff1539e8a62f586eced71a2bd03b2320441c1"
+    },
+    "manufacture/weavery.xml": {
+      "archive": "Data.pack",
+      "entry": "Manufacture/Weavery.xml",
+      "sha256": "62715fab5ed33efd15a83742f1c116f4675584fce4257978c606f5f154f79c1c"
+    },
+    "menureslog.xml": {
+      "archive": "Data.pack",
+      "entry": "menureslog.xml",
+      "sha256": "92faa46472892b0c95e41c5bb602464a3a397e663ec0cacfbd9ea7966b607596"
+    },
+    "person/person.xml": {
+      "archive": "Data.pack",
+      "entry": "Person/person.xml",
+      "sha256": "cd096f5666db0a3ed15eacbedaf9d0780cf64432226b4f942e6ef1eed3cc185d"
+    },
+    "sys/settings.xml": {
+      "archive": "cz.pack",
+      "entry": "Sys/settings.xml",
+      "sha256": "be8e37ee534827999876bff5371e7fdb4ca901a8a9aeb63a8ec5879afbee0c2f"
+    },
+    "sys/strings.xml": {
+      "archive": "cz.pack",
+      "entry": "Sys/strings.xml",
+      "sha256": "ba983929d2a6c1469e77001c3885c68439ea1b61b7283d02e9ef25aa8c348455"
+    },
+    "tutorial/actiontip.xml": {
+      "archive": "Data.pack",
+      "entry": "Tutorial/ActionTip.xml",
+      "sha256": "138a4b4e1a28e7f66d8f7d8fc66bc675f0793b0bf3f0f59e3df5b58c52132ebc"
+    },
+    "tutorial/arrowhelptip.xml": {
+      "archive": "Data.pack",
+      "entry": "Tutorial/ArrowHelpTip.xml",
+      "sha256": "8027d0d33bfbea4413726f37b90d1efe46df2a79ba81ebc11985cbc71fe148e8"
+    },
+    "tutorial/commonhelptip.xml": {
+      "archive": "Data.pack",
+      "entry": "Tutorial/CommonHelpTip.xml",
+      "sha256": "fcd116aa68daacc5f6a8c8440bed00caaaa1922d11f08f6157aef5c9aa8f8300"
+    },
+    "tutorial/tutorial.xml": {
+      "archive": "Data.pack",
+      "entry": "Tutorial/Tutorial.xml",
+      "sha256": "f1ad85802aa27c2c13aa537b142b135269534c536f361bcddd32b4c4460a961f"
+    },
+    "ui/awardpanel.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/AwardPanel.xml",
+      "sha256": "974f5d2f4b7719cdb61c257f5e43910977ae46d0a600ee7a01e15930913c6979"
+    },
+    "ui/awards.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/Awards.xml",
+      "sha256": "6eee7b67541f527b5d0b3c5eaca121872b5a53c1f0647767d6dff71189a60286"
+    },
+    "ui/awardtip.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/AwardTip.xml",
+      "sha256": "f79009e783ff4e4b8b6f69a30b529354a40a993770ad2394d38f8d1fd42418eb"
+    },
+    "ui/credits.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/Credits.xml",
+      "sha256": "fd147451c045d1fcfd347f70c166af51a041ef82b9bd78d5ea13ade52aeff596"
+    },
+    "ui/fixedback.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/FixedBack.xml",
+      "sha256": "e77ad0aeffa8cef703ad7224e6db274ef019e8fbc9a7b3f3263538431e5a9358"
+    },
+    "ui/flyproductexpence.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/FlyProductExpence.xml",
+      "sha256": "d56e6e180522ead2e288cb067fdbd8c4aec61df445143f2e22b8fbc6d463a31a"
+    },
+    "ui/flytextexpence.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/FlyTextExpence.xml",
+      "sha256": "573202c299cc6ef99aad2ad25c80e56923060de58a69d30c48ee2a352922a23a"
+    },
+    "ui/flytextincome.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/FlyTextIncome.xml",
+      "sha256": "dc0c851ef28379bb9fbbfe480985917904b27cd72d18a852493f2d4ad5bf6104"
+    },
+    "ui/gameui/buybuilding.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/BuyBuilding.xml",
+      "sha256": "2cff6311cf476e36c272a1d484743fbf8e52520573795a0f0c6ea968a7a14a94"
+    },
+    "ui/gameui/buyseeds.xml": {
+      "archive": "cz.pack",
+      "entry": "UI/GameUI/BuySeeds.xml",
+      "sha256": "a251622f7142564b39b1710712d6e719f90421b7ecf768c5a59349db2d28c326"
+    },
+    "ui/gameui/contractstatus.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/ContractStatus.xml",
+      "sha256": "651531341fc1bd59afdb572ad1d369bee5fafdc33702e9f6499e2839306a724e"
+    },
+    "ui/gameui/farm.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/Farm.xml",
+      "sha256": "fd952e8295ba07955505eedb5217cbcc7afce857e3023aadea1ab575974f5261"
+    },
+    "ui/gameui/farm/contractletterslot.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/Farm/ContractLetterSlot.xml",
+      "sha256": "b99cf42ef45209508677892c635ea42d4567479429fa52bd12acaa8539086282"
+    },
+    "ui/gameui/farmfieldtip.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/FarmFieldTip.xml",
+      "sha256": "cd9926bb588eeb3578515e440b4e9f92621549c5d0944ddba5f1e68b2a19d1e3"
+    },
+    "ui/gameui/gamemenu.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/GameMenu.xml",
+      "sha256": "51bc269c9e493b3709bee57a075216d1515b417fb9bf414345e5e15bbc557be5"
+    },
+    "ui/gameui/journal.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/Journal.xml",
+      "sha256": "22e75808df6d8520304b85263f81178ca380e3a16ecc83d993b2ce54a0b10307"
+    },
+    "ui/gameui/manufacture.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/Manufacture.xml",
+      "sha256": "f4f1abb06ec8697b85f0267bffcf2f55fc715ee03061dcefbcdc35e249e703e0"
+    },
+    "ui/gameui/market.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/Market.xml",
+      "sha256": "c1d241529d65d7189ac4e670fcb0d52f649cbd1201fe068e8973649ace8e3e1b"
+    },
+    "ui/gameui/waredetail.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/gameUI/WareDetail.xml",
+      "sha256": "9630f4b67e4c112d23a15dbab8fe77fb22b14c5fdfa4c795e1013258fd6f0bdb"
+    },
+    "ui/helpview.xml": {
+      "archive": "cz.pack",
+      "entry": "UI/HelpView.xml",
+      "sha256": "56bdc6c9088fe12843b91d6901cf948916c3836f76251e698bc3d60923e0cc03"
+    },
+    "ui/load.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/Load.xml",
+      "sha256": "c91d6179a141ff3d9b033bd918d33338916bf88acdbdf162247f9fb691bf9388"
+    },
+    "ui/mainmenu.xml": {
+      "archive": "cz.pack",
+      "entry": "UI/MainMenu.xml",
+      "sha256": "49c3b5176d93a59a496f4e2b6a21c7c061b16ec7b81fa4505bc40bb2ecfd0589"
+    },
+    "ui/menu.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/Menu.xml",
+      "sha256": "03f153cdacd83aea35f490364a9c4df2dd370933f4cc7adb4bf541d9b9031abe"
+    },
+    "ui/newuser.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/NewUser.xml",
+      "sha256": "9ffbc6021efc6836615e21d3b097ec80c09bfeef1dbe8dbaeee60163d5d7fe26"
+    },
+    "ui/options.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/Options.xml",
+      "sha256": "779e277ccd72aaa8a4aed824927a42cce8c265249245a6ccf50b58bc995ea447"
+    },
+    "ui/selectuser.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/SelectUser.xml",
+      "sha256": "3e5c6a96ff984c169c66407fca96f393ab73ca8f3138984a1d46d7612078b89a"
+    },
+    "ui/yesno.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/YesNo.xml",
+      "sha256": "791b8ebd2700269086aa2586d4f4c4460b1fe4eab7f4928825832a6fc9e52cd6"
+    },
+    "ui/yesnoexit.xml": {
+      "archive": "Data.pack",
+      "entry": "UI/YesNoExit.xml",
+      "sha256": "1bfd03ba4f5c9737c1b78c9cf782afd8ccef0ff8e8d8043d66a29a058a748d44"
+    }
+  },
+  "parse_errors": [],
+  "nonempty_mesh_attributes": [],
+  "nonempty_animation_attributes": [],
+  "click_mask_references": [
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "UpgradeButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "Up0",
+      "entry": "Farm/ActionAreas/Dig/a01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "02a7eb3451317302dfad74fad908d1a964ff401211f8fdf55b060421fdfe87c8"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Dig/a011.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "570e47af4bfd7c03972a589114f150eea160cb1a06b27db8dd13b3570e53e062"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "Up1",
+      "entry": "Farm/ActionAreas/Dig/a02.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "f207c080c76c070f44a966ddfac6d6d60df1400ff71ef76ece2b76a15b5bc88b"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Dig/a01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "02a7eb3451317302dfad74fad908d1a964ff401211f8fdf55b060421fdfe87c8"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "Up2",
+      "entry": "Farm/ActionAreas/Dig/a03.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "e9307bfe0e4bd372aab82ca5d7c32e26f5a23a9acb1fb803a67944e957def461"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Dig/a031.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "b563fd10a5946dc22c2287b118fd2b7365212291f18b145c96e61bdcf39a58f4"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "Up3",
+      "entry": "Farm/ActionAreas/Dig/a04.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "2ce00336d097ca68bb4dc9c4d60f653c219135c1cef2e93ce727dbb1dda85e13"
+    },
+    {
+      "xml": "Farm/ActionAreas/DigBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Dig/a041.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "2c7d33bd7af9e0c7c685de43a28ea0fb6bec120c6ff7ecfc4294ac9c5798f617"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "FarmField",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "GRASS",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "TOMATOES",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "MELON",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "CUCUMBERS",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "ROSE",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "WATERMELON",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "PINEAPPLE",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/FarmField.xml",
+      "tag": "WHEAT",
+      "entry": "Farm/ActionAreas/Field/field_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "aadbdc130ab7edafdfc8de12d11879b8d6efb15ea15948958a725c4fc27dbdd8"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "UpgradeButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "Up0",
+      "entry": "Farm/ActionAreas/Mow/a01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "4e8bc7aa1344b73364beb4216e0c778912b9d97b3c21b02cac751673ee547364"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Mow/a011.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8034eb4edf55e1e5217eafcaa06419072b4cb44b769a7e532605829e6d187e1a"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "Up1",
+      "entry": "Farm/ActionAreas/Mow/a02.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "fba5fdcebcbf97f03984b2ab1020a420694ee54624e776baaae06eed46a4a60e"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Mow/a021.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "ac25c1d81bb378e48dac73449a1a1443eb333316eab7f0a4c0331c1db9bd5206"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "Up2",
+      "entry": "Farm/ActionAreas/Mow/a03.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "d75fcb1692649f36635c9b41194e7761760eb998cee346d6eeba03875693d0f6"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Mow/a0341.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "5d152b407d10b57aba2a088a0fc722ffe4f431d3627eaca953d13dc8e02242d2"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "Up3",
+      "entry": "Farm/ActionAreas/Mow/a04.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "0dcaa7601e23b4f19930c12c4a951b21458784fb8056523963dce1cd7cc243b6"
+    },
+    {
+      "xml": "Farm/ActionAreas/MowBuilding.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Mow/a0341.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "5d152b407d10b57aba2a088a0fc722ffe4f431d3627eaca953d13dc8e02242d2"
+    },
+    {
+      "xml": "Farm/ActionAreas/SeedPackage.xml",
+      "tag": "SeedPackage",
+      "entry": "Farm/ActionAreas/SeedPackage/seed_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "0f2df047b9346fd29e962a7a1e8c81e82410f591d9077e3034b67e885fa3c9f1"
+    },
+    {
+      "xml": "Farm/ActionAreas/Sprinkle.xml",
+      "tag": "Sprinkle",
+      "entry": "Farm/ActionAreas/Sprinkle/default_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8cf4db1c1a4283d7edd2286132aac37afbb2a04b1c7a33f6a7ff339ea6b8d3c5"
+    },
+    {
+      "xml": "Farm/ActionAreas/WareHouse.xml",
+      "tag": "UpgradeButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "Farm/ActionAreas/WareHouse.xml",
+      "tag": "Up0",
+      "entry": "Farm/ActionAreas/Warehouse/house_mask1.tga",
+      "archive": "Data.pack",
+      "format": "TGA32",
+      "sha256": "e9f71522c4bb2e915f47a786e4637973373bf5e240885631e2976b205d274d3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WareHouse.xml",
+      "tag": "Up1",
+      "entry": "Farm/ActionAreas/Warehouse/house_mask1.tga",
+      "archive": "Data.pack",
+      "format": "TGA32",
+      "sha256": "e9f71522c4bb2e915f47a786e4637973373bf5e240885631e2976b205d274d3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WareHouse.xml",
+      "tag": "Up2",
+      "entry": "Farm/ActionAreas/Warehouse/house_mask1.tga",
+      "archive": "Data.pack",
+      "format": "TGA32",
+      "sha256": "e9f71522c4bb2e915f47a786e4637973373bf5e240885631e2976b205d274d3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WareHouse.xml",
+      "tag": "Up3",
+      "entry": "Farm/ActionAreas/Warehouse/house_mask1.tga",
+      "archive": "Data.pack",
+      "format": "TGA32",
+      "sha256": "e9f71522c4bb2e915f47a786e4637973373bf5e240885631e2976b205d274d3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "SprinkleButton",
+      "entry": "Farm/ActionAreas/Sprinkle/water_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "3e03fa44231b1cecbb76ddae6a8fbd8b14b816e19de839153b343db77f022c67"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "UpgradeButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "Up0",
+      "entry": "Farm/ActionAreas/Water/a01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "afaf71dd09c30b6145f638bc5b8f536d1371b491f78db9eed7cfdf5f3f7fed3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Water/a01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "afaf71dd09c30b6145f638bc5b8f536d1371b491f78db9eed7cfdf5f3f7fed3c"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "Up1",
+      "entry": "Farm/ActionAreas/Water/a02.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9b51c1cdd1fcab2eba042a68e0863bbb1189d735f8c98b2c324584823bf2e408"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Water/a02.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9b51c1cdd1fcab2eba042a68e0863bbb1189d735f8c98b2c324584823bf2e408"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "Up2",
+      "entry": "Farm/ActionAreas/Water/a03.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "2ee6cbcb102eae310132a497d9c4f61f0c70578b6d25229bb77945da3f88b413"
+    },
+    {
+      "xml": "Farm/ActionAreas/WaterSource.xml",
+      "tag": "NoInstrument",
+      "entry": "Farm/ActionAreas/Water/a03.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "2ee6cbcb102eae310132a497d9c4f61f0c70578b6d25229bb77945da3f88b413"
+    },
+    {
+      "xml": "Gameplay/ContractAim.xml",
+      "tag": "OkButton",
+      "entry": "UI/gameUI/main_menu_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "14ef1043503f0b8e0b3d17f7e82e285b03081450143eb82c26bec6cdd0a409ef"
+    },
+    {
+      "xml": "Gameplay/ContractFail.xml",
+      "tag": "OkButton",
+      "entry": "UI/gameUI/main_menu_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "14ef1043503f0b8e0b3d17f7e82e285b03081450143eb82c26bec6cdd0a409ef"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Bakery",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Bakery.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "CheeseDairy",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CheeseDairy.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "CowShed",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/CowShed.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Creamery",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Creamery.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "HenHouse",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/HenHouse.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Incubator",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Incubator.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Mill",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Mill.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "PigPen",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/PigPen.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "SheepFold",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/SheepFold.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "TextileDep",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/TextileDep.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Weavery",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Up0",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Up1",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Up2",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Up3",
+      "entry": "Manufacture/building_mask.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "55a6530569ed5c4e98207122dd4a0cb0a28b23e81d5350ab3c4e94bbaba30a22"
+    },
+    {
+      "xml": "Manufacture/Weavery.xml",
+      "tag": "Slider",
+      "entry": "Manufacture/slider/01_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "8e3d4a16681e4d27c18238ca1abf9cc3e837d680a8a546bf07bb8182db11e5a5"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_00.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "3260534c3472d3851949adf29d67f16782f31ed7c81452a9fcaaa04009603309"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_01.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "2a4ca71fd3bb18f57dadcce5912e0ad9e2462c97f6eba511cb41436d889bbeae"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_02.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "b2ae8542be1c089b7cecf813b29745772575e9fcdd1f8be409999c65ee7045f2"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_03.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "fc9e211a56f1346eafcd7ee3000a369eed051977ebb5d55473371996e37fe8cd"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_04.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "da6b1339efa1e4882917a389d86d14aedcada29a5d282955e47f2b42cb2030f5"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_05.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "6abb98f597361620813203789cde2929d042da9df6829262971cf9c2601c5b38"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_06.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "f1d840d0abdd08ec3b77208243c519cb5114ec820090d0cc13c89db36b85a2bc"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_07.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "3f4f9c80b77b68ba3056ce1af38db9ac77d07ea64e1f5dbc747d5a19ee3728dd"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_08.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "022bf53d449fad6617607c1220432b7bc9688175faba51cb8b0662419224bf36"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_09.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "83b0f94f810a36f14c3a538ad1a8d9dad772b5238c082ccda04d1072323274b5"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_10.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "0529ddc9324c0ecc19a2c1f2baf9e17b283c6252595f3c42fba08ee6afe918c0"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_11.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "4386a1a9b073cc82d58273b348432783f748256822d4bbf8b37e5693baadce82"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_12.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "872accf918ffccd2840f9fd3433006da45e2c3a7074ada622a3160f4a2e151c2"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_13.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "12fb2817bd1b3292ae977e6c1f0317e487d1bb2cbaba9a52c0fa2fb5362f2d4d"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_14.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "df6f2c83caeaa2e18ecf29838b19e5532342c3929ffb568a486da886f15922e1"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_15.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "bd0892836e81254cc7efc46f1cc5792da5f9b3aa831530b4d67dfe847c1d1214"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_16.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "c90a6038940713a16f14e7f2efee7b7310ea5d49c8c4dc33f309f3b224019ed8"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_17.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "d9240a44784bbbabba55fb435c5d7e879e05152e56f593f8c6d23706ad170aca"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_18.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "b5eba137dd364e7aab9b2d604e89cdd0c3bf3b4169bdd2cda4a4a5cff97bcbd5"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_19.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "6be090ceda2a978cbf1a5e97e6236f1cb85deeab1c13851d211a0ce4e5baf149"
+    },
+    {
+      "xml": "UI/Awards.xml",
+      "tag": "Button",
+      "entry": "awards/mask_20.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "6fbe43d547571540b5a2251a1ec0de7e19cfc5d7629a34703fc6d92b4062321b"
+    },
+    {
+      "xml": "UI/gameUI/ContractStatus.xml",
+      "tag": "GoalButton",
+      "entry": "Gameplay/button_cont.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "f61eaad94a4a43044faebfd9cf748f1646af3bf3644f27682e5662f151334a56"
+    },
+    {
+      "xml": "UI/gameUI/Farm/ContractLetterSlot.xml",
+      "tag": "ContractLetterSlot",
+      "entry": "UI/gameUI/Farm/letter_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "58c7c000a22b7217f01a9429869f894d350a5d1d1e3e0987aac253a606f08ecc"
+    },
+    {
+      "xml": "UI/gameUI/Farm/ContractLetterSlot.xml",
+      "tag": "Pic",
+      "entry": "UI/gameUI/Farm/letter_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "58c7c000a22b7217f01a9429869f894d350a5d1d1e3e0987aac253a606f08ecc"
+    },
+    {
+      "xml": "UI/gameUI/GameMenu.xml",
+      "tag": "MarketButton",
+      "entry": "UI/gameUI/market_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "a464d2fd21e95bdb423d4ca7b13cd8b9d1fdfb81ec05bbab4fa19c7c8f56b571"
+    },
+    {
+      "xml": "UI/gameUI/GameMenu.xml",
+      "tag": "FarmButton",
+      "entry": "UI/gameUI/farm_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "72dd94795d293c5f655401dce856d9942dd1249beb898b61a2b4fb98d5d72dec"
+    },
+    {
+      "xml": "UI/gameUI/GameMenu.xml",
+      "tag": "ProducingButton",
+      "entry": "UI/gameUI/market_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "a464d2fd21e95bdb423d4ca7b13cd8b9d1fdfb81ec05bbab4fa19c7c8f56b571"
+    },
+    {
+      "xml": "UI/gameUI/GameMenu.xml",
+      "tag": "JournalButton",
+      "entry": "UI/MainMenu/small_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "967a0075ea203ead3615d66882179ea0324e8fcac8e45c2b884c1cbd81503cd1"
+    },
+    {
+      "xml": "UI/gameUI/Manufacture.xml",
+      "tag": "DestroyButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "UI/gameUI/Manufacture.xml",
+      "tag": "UpgradeButton",
+      "entry": "UI/MainMenu/upgrade_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "9de0018e025a354cbb89c613bc460f554657d320bb8fa8e6dd96dd1c0c8c390e"
+    },
+    {
+      "xml": "UI/gameUI/Market.xml",
+      "tag": "DecPriceButton",
+      "entry": "UI/gameUI/Market/score_button_up_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "ce8d27ee537672b653391dda8ffa8e72993e7d4b9b120ce34322885247ad2db0"
+    },
+    {
+      "xml": "UI/gameUI/Market.xml",
+      "tag": "IncPriceButton",
+      "entry": "UI/gameUI/Market/score_button_down_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "3dd50ea948f645224304db0760ed1a497ea34ffccc809583124a1c199e6477f3"
+    },
+    {
+      "xml": "UI/HelpView.xml",
+      "tag": "OkButton",
+      "entry": "UI/gameUI/main_menu_button_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "14ef1043503f0b8e0b3d17f7e82e285b03081450143eb82c26bec6cdd0a409ef"
+    },
+    {
+      "xml": "UI/MainMenu.xml",
+      "tag": "StartButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/MainMenu.xml",
+      "tag": "CreditsButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/MainMenu.xml",
+      "tag": "Options",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/MainMenu.xml",
+      "tag": "ExitButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/MainMenu.xml",
+      "tag": "AwardsButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/Menu.xml",
+      "tag": "ContinueButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/Menu.xml",
+      "tag": "AwardsButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/Menu.xml",
+      "tag": "OptionsButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/Menu.xml",
+      "tag": "MainMenuButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    },
+    {
+      "xml": "UI/Menu.xml",
+      "tag": "HelpButton",
+      "entry": "UI/MenuButton/button_menu_a.jng",
+      "archive": "Data.pack",
+      "format": "JNG",
+      "sha256": "761a2971fa6639e406205a16a08997692e2f97854cf9f560e246d7f098c4f561"
+    }
+  ],
+  "implementation_files": {
+    "src/game/graphics/ClickMask.cpp": "1d747ff0d68a0f0dd02950019263343015b6edf4351e8b6d4592aa7e68f8d554",
+    "src/game/resources/AnimableAppearance.cpp": "0edde5107827f36bcd3953524bd076f5d0053ebe0ce607a92c0893704156fb4f",
+    "src/game/ui/Control.cpp": "f5d6442d2f9766480b94d2d516986141cef9194c41b66c8c6f7579864f9c3b83",
+    "src/game/graphics/NativeImage.cpp": "02e0f5edba5b9410b8760e51d5f9229713f790deebf5f3667901fce9f82bae8e",
+    "src/game/graphics/ImageTexture.cpp": "2347c290ea59ffd332afcbe3df7e28b1e735e28654ef27cd892db48bb3a46caa"
+  },
+  "production_changed": false,
+  "explicitly_unrecovered_optional_branches": [
+    "3D Mesh/Animation factories and rendering",
+    "Non-BGRA native click-mask D3DX conversion",
+    "Native image types outside reconstructed formats",
+    "D3DX texture-format fallback on incompatible graphics devices"
+  ],
+  "optional_branches_claimed_implemented": false,
+  "whole_game_complete": false
+}

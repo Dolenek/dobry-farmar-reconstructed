@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-07T20:56:58.216454+00:00",
+  "recorded_at_utc": "2026-11-07T21:10:46.364556+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "active_integrated_source_reconstruction_remaining_original_goal_checks",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "0138a1e539dd8629a464a2f61a805b71f91cbb6610f14f4206da3cbf10354db3",
+  "source_tree_sha256": "f82b7b8d1d772ee9905b50c5a49e2af054fda92b4c76306b02c50077d5cd2d81",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -753,7 +753,12 @@
     "analysis/contract-streak-forty-regression.json",
     "analysis/current-tutorial-runtime-coverage.json",
     "analysis/native-tracker-fidelity-decision.json",
-    "analysis/current-awards-runtime-regression.json"
+    "analysis/current-awards-runtime-regression.json",
+    "analysis/tutorial-native-callers-audit.json",
+    "analysis/original-resource-scope-audit.json",
+    "analysis/tutorial-warning-capacity-observations.json",
+    "analysis/tutorial-warning-observer-observations.json",
+    "analysis/tutorial-warning-first-pair-regression.json"
   ],
   "full_reconstruction_pending": [
     "Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10",

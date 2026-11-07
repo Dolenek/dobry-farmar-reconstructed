@@ -1,0 +1,29 @@
+{
+  "status": "recorded_incorrect_diagnostic_full_capacity_assumption_original_game_behaved_correctly",
+  "recorded_at_utc": "2026-11-07T20:49:28.333399+00:00",
+  "runtime_report": {
+    "path": ".local/tutorial-warning-runtime/20261107T204153294483Z/report.json",
+    "sha256": "f0d1cefef46d5266b93918e8e801f6dd7c6d32cd6e3a517aa310032c9b23dc48"
+  },
+  "original_driver_status": "failed",
+  "normal_native_exit_code": 0,
+  "original_resource": {
+    "archive": "Data.pack",
+    "entry": "Farm/ActionAreas/MowBuilding.xml",
+    "sha256": "fca56c5b24ad6ccad334e8cc3333730dafbad53c2dc8937a185a5b6f3c7d232e",
+    "mower_capacities": [
+      3,
+      4,
+      8,
+      16
+    ]
+  },
+  "initial_carried": 12,
+  "actual_carried_after_one_harvest": 13,
+  "actual_harvest_counter_increment": 1,
+  "actual_warning40_processed": false,
+  "production_defect_inferred": false,
+  "production_changed": false,
+  "correction": "Read original ProductionNum for actual mower level;queue real harvests to reach16 before the additional blocked attempt",
+  "whole_game_complete": false
+}

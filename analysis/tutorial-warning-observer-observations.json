@@ -1,0 +1,20 @@
+{
+  "status": "recorded_two_warning_observer_errors_not_production_differences",
+  "recorded_at_utc": "2026-11-07T21:05:30.082659+00:00",
+  "runtime_reports": {
+    ".local/tutorial-warning-runtime/20261107T204730832686Z/report.json": "5a07e09a0275355de935225c8751bdc9b9d89e041b6ffac3386944a42db20c7a",
+    ".local/tutorial-warning-runtime/20261107T205553498473Z/report.json": "5742970814e13f0d626948439fbce49e226f3ddde49d6571696af21d844b6981"
+  },
+  "first_error": "MultilineText container depth/menu font incorrectly used instead of original XML TextLine prototype font/depth",
+  "second_error": "Equal-depth glyph traversal order depends on allocated control addresses;canonical full geometry and sprite multiset is exact",
+  "source_and_native_warning40_glyphs_exact": 41,
+  "all_three_second_run_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "two_native_sessions_completed": true,
+  "source_warning40_resolved_claimed": false,
+  "production_changed": false,
+  "whole_game_complete": false
+}

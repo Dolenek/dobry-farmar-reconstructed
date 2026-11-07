@@ -1,5 +1,7 @@
 # Správce tutoriálu a propojení s HUD
 
+Současný celý herní svět používá tohoto správce se skutečnými objekty. Audit nalysis/current-tutorial-runtime-coverage.json doložil44 indexů v běžně ukončených celých procesech; doplňují se skutečné výstrahy40/41/42/44. nalysis/tutorial-native-callers-audit.json nově prověřil všech44 původních volání všech pěti show metod, včetně větvení ke sdíleným call místům a nezávislého skenu relativních E8 instrukcí. Přesné argumenty pokrývají48 indexů1..9 a11..49. Záznamy0/10 nemají běžného kompilovaného volajícího; všech50 záznamů zůstává implementovaných a samostatně porovnaných. V původním PE se nevyskytuje ani absolutní pointer na těchto pět entry, ani tail jump na ně. Následující starší popis izolovaného oracle zachovává svůj tehdejší rozsah.
+
 `src/game/ui/TutorialManager.cpp` obnovuje správce se singletonem `0065f73c`, původní velikostí `0xc20` a padesáti 60bajtovými záznamy. Konstruktor vytváří Common, Arrow, Action, DisabledAnchor a RepeatedAction v původním pořadí, načítá jejich skutečné XML a `Tutorial/Tutorial.xml`, potom instaluje 29 podmínek. Herní svět musí dodávat skutečné objekty a primitivní operace prostřednictvím povinného `TutorialWorld`; rozhraní nemá výchozí implementace.
 
 | Adresy | Chování |
