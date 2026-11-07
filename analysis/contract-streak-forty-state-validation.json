@@ -1,0 +1,405 @@
+{
+  "status": "passed_independently_completed_real40_receipts_ledgers_and_award5_full_pixels_only",
+  "checkpoints": {
+    "path": "analysis/contract-streak-forty-checkpoints.json",
+    "sha256": "faab13eb8d9d514d5f786fcb74dc136ab4961c430bc18a3a48db9167cea25c80"
+  },
+  "branches": [
+    {
+      "kind": "native",
+      "initial_streak": 39,
+      "final_streak": 40,
+      "process_closed_normally": true,
+      "requested_target_reached": true,
+      "driver_session_completed": false,
+      "completed_target_saved_after_driver_deadline": true,
+      "persisted_profile_directory": ".local/contract-streak/20261107T153240356025Z/0-failure-persisted/Profiles",
+      "retained_active_contract": null,
+      "independently_reconciled_timeout_transfer": null,
+      "actual_receipts": [
+        {
+          "offer": 377,
+          "epoch": 0,
+          "counter_before": 39,
+          "counter_after": 40,
+          "deposit_charged_this_process": 0,
+          "model_penalty": 200,
+          "acceptance_occurred_before_this_process": true,
+          "bonus": 800,
+          "requirements": [
+            {
+              "product": 1,
+              "initial_count": 18,
+              "count": 18
+            },
+            {
+              "product": 15,
+              "initial_count": 18,
+              "count": 18
+            }
+          ]
+        }
+      ],
+      "supply_commands": 3,
+      "market_transfers": 34,
+      "actual_pause_intervals": [
+        {
+          "start": {
+            "game_time": 14260.00390625,
+            "remaining": 110.0
+          },
+          "end": {
+            "game_time": 14260.00390625,
+            "remaining": 110.0
+          }
+        }
+      ],
+      "all_19_product_ledgers": true,
+      "final_money": 25714,
+      "additions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "transferred": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        0,
+        4,
+        8,
+        8
+      ],
+      "consumed": [
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0
+      ],
+      "final_stock": [
+        2,
+        6,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        2,
+        2
+      ],
+      "final_market": [
+        755,
+        699,
+        549,
+        703,
+        718,
+        626,
+        680,
+        751,
+        753,
+        701,
+        703,
+        753,
+        664,
+        690,
+        671,
+        584,
+        636,
+        748,
+        594
+      ],
+      "coefficient_epochs": [
+        {
+          "verified_complete_coefficient_words": 383,
+          "nonzero_range_observations": 22,
+          "recovered_rng_start_low31": 146337560,
+          "recovered_rng_end_low31": 37829817,
+          "highest_rng_bit_unobservable": true,
+          "underlying_rng_state_claimed_captured": false,
+          "arithmetic_precision": "PC24",
+          "rand_reference_address": "00581021",
+          "randomization_reference_address": "004ae570",
+          "original_memory_or_profile_written": false
+        }
+      ],
+      "clock_wraps": [],
+      "clock_rounding": [],
+      "independently_expected_notes": 0,
+      "complete_expected_saved_bytes": 17369,
+      "independently_expected_contract_win_notes": 0,
+      "complete_saved_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+      "saved_profile_sha256": "60d02cc2fc31abccf014847cc9e5e293ddb78134a979456e2b9930f6168f698a",
+      "entire_binary_unchanged": true,
+      "normalizations": []
+    },
+    {
+      "kind": "source",
+      "initial_streak": 39,
+      "final_streak": 40,
+      "process_closed_normally": true,
+      "requested_target_reached": true,
+      "driver_session_completed": true,
+      "completed_target_saved_after_driver_deadline": false,
+      "persisted_profile_directory": ".local/contract-streak/20261107T155822061443Z/0-persisted/Profiles",
+      "retained_active_contract": null,
+      "independently_reconciled_timeout_transfer": null,
+      "actual_receipts": [
+        {
+          "offer": 377,
+          "epoch": 0,
+          "counter_before": 39,
+          "counter_after": 40,
+          "deposit_charged_this_process": 0,
+          "model_penalty": 200,
+          "acceptance_occurred_before_this_process": true,
+          "bonus": 800,
+          "requirements": [
+            {
+              "product": 1,
+              "initial_count": 18,
+              "count": 18
+            },
+            {
+              "product": 15,
+              "initial_count": 18,
+              "count": 18
+            }
+          ]
+        }
+      ],
+      "supply_commands": 3,
+      "market_transfers": 34,
+      "actual_pause_intervals": [
+        {
+          "start": {
+            "game_time": 14265.4052734375,
+            "remaining": 107.0
+          },
+          "end": {
+            "game_time": 14265.4052734375,
+            "remaining": 107.0
+          }
+        }
+      ],
+      "all_19_product_ledgers": true,
+      "final_money": 25714,
+      "additions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "transferred": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        0,
+        4,
+        8,
+        8
+      ],
+      "consumed": [
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0
+      ],
+      "final_stock": [
+        2,
+        6,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        2,
+        2,
+        2
+      ],
+      "final_market": [
+        755,
+        699,
+        549,
+        703,
+        718,
+        626,
+        680,
+        751,
+        753,
+        701,
+        703,
+        753,
+        664,
+        690,
+        671,
+        584,
+        636,
+        748,
+        594
+      ],
+      "coefficient_epochs": [
+        {
+          "verified_complete_coefficient_words": 383,
+          "nonzero_range_observations": 22,
+          "recovered_rng_start_low31": 146337560,
+          "recovered_rng_end_low31": 37829817,
+          "highest_rng_bit_unobservable": true,
+          "underlying_rng_state_claimed_captured": false,
+          "arithmetic_precision": "PC24",
+          "rand_reference_address": "00581021",
+          "randomization_reference_address": "004ae570",
+          "original_memory_or_profile_written": false
+        }
+      ],
+      "clock_wraps": [],
+      "clock_rounding": [],
+      "independently_expected_notes": 0,
+      "complete_expected_saved_bytes": 17369,
+      "independently_expected_contract_win_notes": 0,
+      "complete_saved_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+      "saved_profile_sha256": "97b9d1ea06fdd3729590cd5051442d8798f49beaea4377de2c27850470240063",
+      "entire_binary_unchanged": true,
+      "normalizations": []
+    }
+  ],
+  "actual_threshold_award_panel": {
+    "award_index": 5,
+    "compared_rgb_pixels": 480000,
+    "different_pixels": 0,
+    "difference_bounds": null,
+    "exact": true,
+    "files": {
+      ".local/contract-streak/20261107T153240356025Z/0-award-0.png": "38f114433006abf02897306fc7e66a2ae86c76702102bee9ea54c039069450ba",
+      ".local/contract-streak/20261107T155822061443Z/0-award-0.png": "38f114433006abf02897306fc7e66a2ae86c76702102bee9ea54c039069450ba"
+    },
+    "masks": [],
+    "normalizations": []
+  },
+  "original_and_source_contexts": [
+    {
+      "streak": 40,
+      "money": 25714,
+      "task20_owned": true,
+      "task40_owned": false,
+      "market_owned": true,
+      "game_time": 14260.025390625
+    },
+    {
+      "streak": 40,
+      "money": 25714,
+      "task20_owned": true,
+      "task40_owned": false,
+      "market_owned": true,
+      "game_time": 14265.4482421875
+    }
+  ],
+  "identical_unmodified_input_profiles": true,
+  "controlled_final_receipt_and_all19_ledgers_exact": true,
+  "ordinary_farming_supply_claimed": false,
+  "original_memory_or_profile_written": false,
+  "whole_game_complete": false
+}

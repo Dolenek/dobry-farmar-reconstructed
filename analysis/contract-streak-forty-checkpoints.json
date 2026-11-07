@@ -1,0 +1,47 @@
+{
+  "status": "verified_actual_contract_streak_checkpoint_profiles",
+  "recorded_at_utc": "2026-11-07T16:14:29.273716+00:00",
+  "recorder_sha256": "6a51f5911926636606b507724dec58870e789ffce9fe7d47e29bd7c37ec3e6be",
+  "work_directory": ".",
+  "requested_target": 40,
+  "profile_sets": [
+    {
+      "kind": "native",
+      "profile_directory": ".local/contract-streak/20261107T153240356025Z/0-failure-persisted/Profiles",
+      "files": {
+        "00000001.save": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "00000001.xml": "60d02cc2fc31abccf014847cc9e5e293ddb78134a979456e2b9930f6168f698a",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      },
+      "source_session_index": 0,
+      "source_report": ".local/contract-streak/20261107T153240356025Z/report.json",
+      "source_report_sha256": "300e971d262e278280417100c205124d15867234eb76d84be64b7361b6fa0c4c",
+      "original_driver_status": "failed",
+      "independently_audited_target_saved_after_driver_deadline": true,
+      "streak": 40,
+      "money": 25714,
+      "complete_expected_saved_bytes": 17369
+    },
+    {
+      "kind": "source",
+      "profile_directory": ".local/contract-streak/20261107T155822061443Z/0-persisted/Profiles",
+      "files": {
+        "00000001.save": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "00000001.xml": "97b9d1ea06fdd3729590cd5051442d8798f49beaea4377de2c27850470240063",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      },
+      "source_session_index": 0,
+      "source_report": ".local/contract-streak/20261107T155822061443Z/report.json",
+      "source_report_sha256": "22a242d28e663d4387e44bf568bf3c33eecd37b488c72e0697afe1606ff7e340",
+      "original_driver_status": "explored_actual_contract_streak_with_original_supply_command_only",
+      "independently_audited_target_saved_after_driver_deadline": false,
+      "streak": 40,
+      "money": 25714,
+      "complete_expected_saved_bytes": 17369
+    }
+  ],
+  "profile_or_counter_fields_written": false,
+  "native_and_source_random_streams_claimed_matched": false,
+  "normalizations": [],
+  "whole_game_complete": false
+}

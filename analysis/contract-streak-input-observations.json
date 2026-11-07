@@ -1,7 +1,7 @@
 {
-  "status": "recorded_native_saved40_after_driver_deadline_and_two_rejected_source_input_attempts_only",
-  "recorded_at_utc": "2026-11-07T15:55:16.714355+00:00",
-  "recorder_sha256": "46aceb25ca9a6aaf93a8e11f340cb29b630bb9184efb2f0e990b3185567620b2",
+  "status": "recorded_native_saved40_input_failures_and_partial_cross_restores_only",
+  "recorded_at_utc": "2026-11-07T19:45:02.916592+00:00",
+  "recorder_sha256": "7b3f1c3bf79ebc0cb88b41c663d0a98f3c147ec88a630f25828d4bd4961f84f0",
   "source_failures": [
     {
       "mode": "rejected_batched_motion",
@@ -58,6 +58,104 @@
       "all19_stock_and_market_words_unchanged": true,
       "seed_money_and_streak_unchanged": true,
       "production_defect_inferred": false
+    },
+    {
+      "mode": "precise_motion_navigation_retries",
+      "runtime_report": ".local/contract-streak/20261107T155351262076Z/report.json",
+      "sha256": "d198084b0fb179e88ed302f0b02e76f867e95e0ddec62adc769f0cab822729b0",
+      "original_driver_status": "failed",
+      "error": "AssertionError(('Actual navigation did not reach its requested scene', 300))",
+      "normal_cleanup_exit_code": 0,
+      "slow_driver_api_calls": [
+        {
+          "api": "SendInput",
+          "seconds": 20.01045130006969,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        },
+        {
+          "api": "SendInput",
+          "seconds": 20.008763700025156,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        },
+        {
+          "api": "SendInput",
+          "seconds": 20.009482500026934,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        },
+        {
+          "api": "SendInput",
+          "seconds": 20.005947700003162,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        },
+        {
+          "api": "SendInput",
+          "seconds": 20.007347500068136,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        },
+        {
+          "api": "SendInput",
+          "seconds": 20.0110453000525,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        }
+      ],
+      "actual_receipts": 0,
+      "all19_stock_and_market_words_unchanged": true,
+      "seed_money_and_streak_unchanged": true,
+      "production_defect_inferred": false
+    },
+    {
+      "mode": "held_menu_snapshot_before_game_manager_existed",
+      "runtime_report": ".local/contract-streak/20261107T155726217033Z/report.json",
+      "sha256": "e09544e2fbeb092db6519320dcc3667e0d5d38c40d3938c96b938b5aca4c99f5",
+      "original_driver_status": "failed",
+      "error": "OSError(299, 'ReadProcessMemory')",
+      "normal_cleanup_exit_code": 0,
+      "slow_driver_api_calls": [
+        {
+          "api": "SendInput",
+          "seconds": 20.001872800057754,
+          "input_types": [
+            0
+          ],
+          "input_flags": [
+            2
+          ]
+        }
+      ],
+      "actual_receipts": 0,
+      "all19_stock_and_market_words_unchanged": true,
+      "seed_money_and_streak_unchanged": true,
+      "production_defect_inferred": false
     }
   ],
   "native_report": {
@@ -71,6 +169,48 @@
     "independent_audit": {
       "path": "analysis/contract-streak-forty-native-state-validation.json",
       "sha256": "965446e75cd63d0a95e8c1f489f69390a3814594e3c0543b5c33d3b1913d076d"
+    }
+  },
+  "partial_cross_restore_attempt": {
+    "runtime_report": ".local/contract-streak-interop/20261107T161452437163Z/report.json",
+    "sha256": "989e2a590052712a95374bf02ab1cb7c9ff1d5e61720c468a2e640931850e8c4",
+    "original_driver_status": "failed",
+    "three_actual_restores": [
+      {
+        "before": 0,
+        "after": 2,
+        "complete_identical_binary_bytes": 17369,
+        "input_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "output_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae"
+      },
+      {
+        "before": 1,
+        "after": 3,
+        "complete_identical_binary_bytes": 17369,
+        "input_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "output_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae"
+      },
+      {
+        "before": 2,
+        "after": 4,
+        "complete_identical_binary_bytes": 17369,
+        "input_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "output_sha256": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae"
+      }
+    ],
+    "fourth_source_stayed_in_menu": true,
+    "fourth_game_restore_claimed": false,
+    "source_process_traces": {
+      "2-crash-trace.jsonl": {
+        "sha256": "63991fa60a3c76c11f77a2af66e51fef96b4680e83e94e5d191149a5dad9a70a",
+        "exit_code": 0,
+        "access_violations": 0
+      },
+      "5-crash-trace.jsonl": {
+        "sha256": "763ebfb08457e3aef3febd56286963e1500522e2e00d61c7dbece1aa304fe986",
+        "exit_code": 0,
+        "access_violations": 0
+      }
     }
   },
   "production_changed": false,

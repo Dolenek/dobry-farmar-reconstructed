@@ -10,13 +10,25 @@ parser.add_argument('--launcher',type=Path,default=r/'build/native-process/Relea
 parser.add_argument('--validate-prefix-only',action='store_true',help='Check immutable native panels and saved ownership without launching a game')
 parser.add_argument('--native-prefix-report',type=Path,help='Reuse normally closed native prefix with stable panels and persisted owned flags')
 parser.add_argument('--input-api-timings',action='store_true',help='Measure this driver Windows API latency without changing arguments')
+parser.add_argument('--mouse-hold-seconds',type=float,default=.1,help='Physical mouse-down interval after SendInput returns')
 parser.add_argument('--output',type=Path,default=r/'.local/game-awards-runtime-validation.json')
 args=parser.parse_args();launcher_path=args.launcher.resolve(strict=True)
+assert .1<=args.mouse_hold_seconds<=5
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/game-awards-runtime'/stamp;work.mkdir(parents=True)
 shutil.copyfile(__file__,work/'executed-driver.py')
-from windows_game_gui import GameGui,u,k,INPUT,KEY
+from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
 from windows_game_memory import TutorialMemory
-probe=GameGui(work,data)
+class AwardGui(GameGui):
+ def click(self,hwnd,x,y):
+  self.move(hwnd,x,y)
+  item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,2,0,0)
+  assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+  try:time.sleep(args.mouse_hold_seconds)
+  finally:
+   item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,4,0,0)
+   assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+   time.sleep(.1)
+probe=AwardGui(work,data)
 button=probe.button
 capture=probe.capture
 check_process=probe.check_process
@@ -53,6 +65,7 @@ report=dict(status='running',work_directory=work.relative_to(r).as_posix(),sessi
 for n in ['tools/validate_game_awards_runtime.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake','tools/windows_game_gui.py','tools/windows_game_memory.py','tools/game_runtime_layout.cpp','tools/native_process/launcher.cpp','tools/native_process/CMakeLists.txt']:report['source_files'][n]=digest(r/n)
 report['source_file_snapshots']={'tools/validate_game_awards_runtime.py':(work/'executed-driver.py').relative_to(r).as_posix()}
 report['physical_mouse_mode']='legacy_six_relative'
+report['mouse_hold_seconds_after_SendInput_return']=args.mouse_hold_seconds
 if args.input_api_timings:
  from windows_game_input_timings import record_input_api_timings
  report['input_api_timings']=[];record_input_api_timings(report['input_api_timings'])
@@ -64,6 +77,9 @@ baseline=r/fixture['work_directory']/'0-persisted/Profiles'
 from PIL import Image
 prior=json.loads((r/'.local/application-runtime-validation.json').read_text(encoding='utf-8'))
 expected_hud=roi(Image.open(r/prior['work_directory']/'0-04-game.png'),(10,8,55,28))
+menu_template=r/prior['work_directory']/'0-03-menu.png'
+menu_marker=roi(Image.open(menu_template),(5,5,70,70));assert len(set(menu_marker))>20
+report['startup_menu_template']=dict(path=menu_template.relative_to(r).as_posix(),sha256=digest(menu_template),rect=[5,5,70,70])
 award_indices=list(range(21))
 commands='a01..a20; final collect-all award automatically after20 committed conditions'
 award_regions={};native_start=0;native_baseline=baseline
@@ -141,7 +157,14 @@ try:
     focus()
     for ch in name:assert u.PostMessageW(hwnd,0x102,ord(ch),0);time.sleep(.035)
     scan(0x1c);time.sleep(1);header=common/'Profiles/profiles.xml';assert header.exists() and name in header.read_bytes().decode('utf-16'),'Native/source profile not persisted'
-   settle(f'{cycle}-03-menu.png');click(hwnd,*button('ui/mainmenu.xml','StartButton'));start=time.monotonic()
+   settle(f'{cycle}-03-menu.png');start=time.monotonic();last_start_click=-100
+   while not observer.manager():
+    focus();check_process();assert time.monotonic()-start<90,'Actual main menu Start did not construct game'
+    frame=capture(f'{cycle}-03a-startup-progress.png')
+    if roi(frame,(5,5,70,70))==menu_marker and time.monotonic()-last_start_click>=3:
+     if observer.manager():break
+     click(hwnd,*button('ui/mainmenu.xml','StartButton'));last_start_click=time.monotonic()
+    else:time.sleep(.1)
    if expected_hud is None:
     deadline=start+60
     while time.monotonic()<deadline and not list(common.rglob('*.save')):check_process();time.sleep(.2)

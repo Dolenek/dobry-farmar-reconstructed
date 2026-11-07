@@ -22,7 +22,7 @@ def main():
     assert descriptor['status'] == 'verified_actual_contract_streak_checkpoint_profiles'
     assert descriptor['requested_target'] == 40 and not descriptor['profile_or_counter_fields_written']
     assert len(descriptor['profile_sets']) == 2
-    branches, contexts, pictures, directories = [], [], [], []
+    branches, contexts, pictures, directories, sessions = [], [], [], [], []
     implementations = None
     for kind in ['native', 'source']:
         row = next(s for s in descriptor['profile_sets'] if s['kind'] == kind)
@@ -69,6 +69,13 @@ def main():
         branches.append(branch)
         contexts.append(context)
         directories.append(directory)
+        sessions.append(session)
+    controlled = sessions[0]['input_profile_files'] == sessions[1]['input_profile_files']
+    if controlled:
+        assert len(branches[0]['actual_receipts']) == len(branches[1]['actual_receipts']) == 1
+        for name in ['actual_receipts', 'supply_commands', 'market_transfers', 'final_money',
+                     'additions', 'transferred', 'consumed', 'final_stock', 'final_market']:
+            assert branches[0][name] == branches[1][name], name
     a, b = [Image.open(p).convert('RGB') for p in pictures]
     assert a.size == b.size == (800, 600)
     assert a.tobytes() == b.tobytes(), ImageChops.difference(a, b).getbbox()
@@ -117,6 +124,7 @@ def main():
     state = dict(status='passed_independently_completed_real40_receipts_ledgers_and_award5_full_pixels_only',
         checkpoints=dict(path=descriptor_path.relative_to(ROOT).as_posix(), sha256=digest(descriptor_path)),
         branches=branches, actual_threshold_award_panel=panel, original_and_source_contexts=contexts,
+        identical_unmodified_input_profiles=controlled, controlled_final_receipt_and_all19_ledgers_exact=controlled,
         ordinary_farming_supply_claimed=False, original_memory_or_profile_written=False, whole_game_complete=False)
     write(ROOT / 'analysis' / state_name, state)
     interop_name = 'contract-streak-forty-interop-validation.json'
@@ -128,6 +136,7 @@ def main():
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), recorder_sha256=digest(__file__),
         reports={n: digest(ROOT / 'analysis' / n) for n in [state_name, interop_name]}, final_streak=40,
         exact_award_rgb_pixels=480000, actual_receipts_in_final_processes=[len(b['actual_receipts']) for b in branches],
+        identical_unmodified_input_profiles=controlled, controlled_final_receipt_and_all19_ledgers_exact=controlled,
         final_money=[b['final_money'] for b in branches], four_cross_restore_bytes=saved_sizes,
         source_restore_processes_without_access_violation=2, original_files_unchanged=17,
         current_full_ctest_source_hashes_match=True, current_full_ctest_report=full_name,

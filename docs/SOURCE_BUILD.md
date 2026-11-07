@@ -15,11 +15,13 @@ python tools/fetch_direct3d_headers.py
 python tools/fetch_squall_codecs.py
 python tools/fetch_nsis.py
 python tools/extract_game_icon.py
-cmake -S . -B build/production -G "Visual Studio 17 2022" -A Win32 -DBUILD_TESTING=OFF -DBUILD_SQUALL_CANDIDATE=ON -DBUILD_SQUALL_REFERENCE_LAYOUT=OFF
+cmake -S . -B build/production -G "Visual Studio 17 2022" -A Win32 -T "v143,version=14.43.34808" -DCMAKE_SYSTEM_VERSION=10.0.26100.0 -DBUILD_TESTING=OFF -DBUILD_SQUALL_CANDIDATE=ON -DBUILD_SQUALL_REFERENCE_LAYOUT=OFF
 cmake --build build/production --config Release --target DobryFarmar JNGLoad SquallCandidate FarmarUninstall --parallel 4
 ```
 
 Výstup `build/production/Release` obsahuje `Dobrý farmář.exe`, `JNGLoad.dll`, `Squall.dll` a `Uninstall.exe`. EXE potřebuje obě DLL ve stejném adresáři. Hru lze spustit s `--data "cesta/k/původním/Data" --common-dir "cesta/k/vlastnímu/profilu"`. Data a ikona jsou původní média; původní EXE/DLL nejsou implementační závislostí. `extract_game_icon.py` jednorázově čte původní ikonu a lze jej nahradit dodáním již vytaženého `.local/game-artwork/game.ico`. NSIS kompilátor, runtime i pluginy se sestavují ze zdrojů. Originální odinstalátor nespouštějte v instalované hře pro diagnostické účely.
+
+Toolset verze v příkazu označuje instalační adresář MSVC14.43.34808; samotný ověřený překladač hlásí19.43.34810. Skutečné v4 generované projekty používají `WindowsTargetPlatformVersion=10.0.26100.0`. Je vhodné tyto verze při reprodukci zadat výslovně, aby novější nainstalovaný toolset/SDK nepřevzal konfiguraci. Binární shoda různých verzí překladače se tím netvrdí.
 
 `analysis/production-source-only-build.json` dokládá skutečné sestavení všech čtyř PE32 cílů z odděleného stromu `work/production-source-20261107-v3`, bez zpřístupněného originálního herního adresáře a bez referenčního stromu Squall1.48. Testy byly vypnuté, zdrojové závislosti zůstaly připnuté. Čistá konfigurace před opravou selhala kvůli generování herního RC uvnitř `BUILD_TESTING`; RC se nyní připravuje i pro samotnou produkci.
 

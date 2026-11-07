@@ -1,0 +1,38 @@
+{
+  "status": "passed_real40_award5_full_pixels_and_four_whole_cross_restores_only",
+  "recorded_at_utc": "2026-11-07T19:45:08.244852+00:00",
+  "recorder_sha256": "75a73e289d38f9e9773ff272627ed9d40371b0a6627c99684afebfe39b893a7d",
+  "reports": {
+    "contract-streak-forty-state-validation.json": "a255ddb469cc1b41c0db11e1a6fdf8b55f2b1fc65e04a7016dfb92bca14b6e3f",
+    "contract-streak-forty-interop-validation.json": "98972101246f0f86307d455bde13272a92dbeefcc7c8f68e5c72ccf5be819fcd"
+  },
+  "final_streak": 40,
+  "exact_award_rgb_pixels": 480000,
+  "actual_receipts_in_final_processes": [
+    1,
+    1
+  ],
+  "identical_unmodified_input_profiles": true,
+  "controlled_final_receipt_and_all19_ledgers_exact": true,
+  "final_money": [
+    25714,
+    25714
+  ],
+  "four_cross_restore_bytes": [
+    17369,
+    17369,
+    17369,
+    17369
+  ],
+  "source_restore_processes_without_access_violation": 2,
+  "original_files_unchanged": 17,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run": false,
+  "production_changed": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Current final all-awards lifecycle comparison",
+    "Recorded native undefined tracker allocation fidelity decision"
+  ]
+}

@@ -291,6 +291,8 @@ def main():
     parser.add_argument('--runtime-report', type=Path, required=True)
     parser.add_argument('--prefix', required=True)
     parser.add_argument('--allow-retained-failure', action='store_true')
+    parser.add_argument('--compact-input-diagnostics', action='store_true',
+        help='Keep full held-input memory trees in immutable raw report;publish their indices and hashes instead of duplicating them')
     args = parser.parse_args()
     report, branches = audit(args.runtime_report, args.allow_retained_failure)
     from current_production_regression import current_regression
@@ -311,6 +313,18 @@ def main():
         comparison=dict(branches=branches, ordinary_farming_supply_claimed=False,
                         supply_commands_are_original_diagnostic_fixture=True, original_memory_or_profile_written=False,
                         normalizations=[]), whole_game_complete=False)
+    if args.compact_input_diagnostics:
+        for session in report['sessions']:
+            observations=session.pop('held_mouse_observations',[])
+            if observations:
+                session['held_mouse_observation_manifest']=[dict(raw_observation_index=index,
+                    target=row['target'],hold_seconds=row['hold_seconds'],screenshot=row['screenshot'],
+                    visible_scene_nodes=len(row['scene']) if row['scene'] is not None else None,
+                    complete_raw_observation_sha256=hashlib.sha256(json.dumps(row,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode('utf8')).hexdigest())
+                    for index,row in enumerate(observations)]
+        report['input_diagnostic_storage']=dict(complete_raw_runtime_report=args.runtime_report.resolve().relative_to(ROOT).as_posix(),
+            complete_raw_runtime_report_sha256=digest(args.runtime_report),
+            full_held_input_memory_trees_retained_in_raw=True,game_receipt_ledger_or_save_bytes_changed=False)
     write(ROOT / 'analysis' / state_name, report)
     result = dict(status='passed_real_contract_receipts_paused_fixture_supply_and_whole_save_audit_only',
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), recorder_sha256=digest(__file__),

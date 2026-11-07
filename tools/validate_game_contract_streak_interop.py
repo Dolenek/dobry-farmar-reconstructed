@@ -12,15 +12,27 @@ parser.add_argument('--crash-trace',type=Path,help='Attach source-only read-only
 parser.add_argument('--fixture-report',type=Path,default=r/'analysis/contract-streak-twenty-state-validation.json')
 parser.add_argument('--suite',choices=['contract-streak-interop'],default='contract-streak-interop')
 parser.add_argument('--expected-streak',type=int,default=20)
+parser.add_argument('--mouse-hold-seconds',type=float,default=.1,help='Physical mouse-down interval after SendInput returns')
 args=parser.parse_args();assert 0<args.expected_streak<=40;args.fixture_report=args.fixture_report.resolve(strict=True);launcher_path=args.launcher.resolve(strict=True)
+assert .1<=args.mouse_hold_seconds<=5
 if args.crash_trace:args.crash_trace=args.crash_trace.resolve(strict=True)
 if args.output is None:args.output=r/'.local'/f'{args.suite}-validation.json'
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local'/args.suite/stamp;work.mkdir(parents=True)
 shutil.copyfile(__file__,work/'driver.py')
-from windows_game_gui import GameGui,u,k,INPUT,KEY
+from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
 from windows_game_memory import TutorialMemory
 from stable_live_scene import read_stable_scene
-probe=GameGui(work,data)
+class RestoreGui(GameGui):
+ def click(self,hwnd,x,y):
+  self.move(hwnd,x,y)
+  item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,2,0,0)
+  assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+  try:time.sleep(args.mouse_hold_seconds)
+  finally:
+   item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,4,0,0)
+   assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+   time.sleep(.1)
+probe=RestoreGui(work,data)
 button=probe.button
 capture=probe.capture
 check_process=probe.check_process
@@ -65,6 +77,7 @@ if fixture.get('profile_sets'):
  assert len(fixture['profile_sets'])==2 and all(row['streak']==args.expected_streak for row in fixture['profile_sets'])
 else:assert fixture['requested_target']==args.expected_streak
 report['fixture_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report));report['expected_streak']=args.expected_streak
+report['mouse_hold_seconds_after_SendInput_return']=args.mouse_hold_seconds
 fixture_work=r/fixture['work_directory'];active_fields=list(range(60))
 def location(index):
  if index<2 and fixture.get('profile_sets'):

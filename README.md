@@ -2,10 +2,11 @@
 
 Upravitelná Win32 rekonstrukce hlavního herního EXE, JNGLoad.dll, Squall.dll a odinstalátoru. Všechny čtyři programy se skutečně sestavují ze zdrojů; poslední oddělené sestavení je `build/production-source-standalone-v4/Release`. Původní herní EXE/DLL slouží pouze jako testovací reference. Hra používá původní datová média a vlastní profilový adresář.
 
-Celý původní cíl zůstává aktivní. Probíhá skutečná návaznost checkpointu37 k ocenění za40 zakázek a aktuální ověření finálního award lifecycle. Známý rozdíl dostatečné trackerové alokace proti původní chybě haldy je výslovně předložený k upřesnění věrnosti. Rozsah ostatních neověřených codec/device/error cest je evidovaný, nikoli vydávaný za úplnou behaviorální shodu.
+Celý původní cíl zůstává aktivní. Obě skutečné verze dosáhly40 zakázek a uložily ocenění: poslední stejná zakázka, všech19 bilancí, Money25714 i480000 RGB pixelů panelu jsou přesné. Čtyři celé17369bajtové křížové obnovy prošly, obě zdrojové výjimkové stopy končí0 bez AV. Právě pokračuje aktuální finální award lifecycle. Známý rozdíl dostatečné trackerové alokace proti původní chybě haldy je výslovně předložený k upřesnění věrnosti. Rozsah ostatních neověřených codec/device/error cest je evidovaný, nikoli vydávaný za úplnou behaviorální shodu.
 
 * [Sestavení všech čtyř programů a spuštění s vlastními profily](docs/SOURCE_BUILD.md)
 * [Kontrola všech původních podmínek dokončení](docs/COMPLETION_AUDIT.md)
+* [Konkrétní hranice ověření a otevřené rozdíly](docs/VERIFICATION_LIMITS.md)
 * [Aktuální průběžný stav](docs/STATUS.md) a [skutečné zakázky](docs/CONTRACT_STREAK.md)
 * [Squall, jeho97 exportů a konkrétní původní chyby](docs/SQUALL.md), [JNGLoad](docs/JNGLOAD.md), [odinstalátor](docs/UNINSTALL.md)
 * Strojově čitelná evidence: `analysis/verification.json`, `analysis/production-source-only-build-v4.json`, `analysis/squall-loader-regression.json`, `analysis/jng-loader-regression.json`.
