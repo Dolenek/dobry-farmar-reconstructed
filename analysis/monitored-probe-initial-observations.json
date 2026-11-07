@@ -1,0 +1,79 @@
+{
+  "status": "recorded_bounded_DWM_counter_false_alarm_and_two_safe_foreground_refusals",
+  "recorded_at_utc": "2026-11-07T22:21:52.245799+00:00",
+  "recorder_sha256": "863128cafaef08ebf8babbff94b11d870b4ebcb17779858b14652519bf7c8cd8",
+  "trials": [
+    {
+      "run_directory": ".local/monitored-host-runtime/source-startup-20261107T2202008646470Z",
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-startup-20261107T2202008646470Z/probe-report.json",
+        "sha256": "fa7e36835243fea718f732d888b4060696092ce34ac02e68c78a5968f5d976f8"
+      },
+      "original_driver_status": "failed",
+      "original_error": "AssertionError('DWM counters did not advance during animated startup')",
+      "actual_game_exit": 0,
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-startup-20261107T2202008646470Z/watchdog.jsonl",
+        "sha256": "2a4c9e901a1828182a855e1aef03d391f3008c5389a43afd7295d54cbfedc106"
+      },
+      "orphaned_live_owned_processes": 0,
+      "passed": false,
+      "bounded250ms_WM_NULL_deadline_miss_indices": [
+        0
+      ],
+      "correction": "Per-probe-process frame counters reset;use advancing vblank timestamps without claiming physical display proof"
+    },
+    {
+      "run_directory": ".local/monitored-host-runtime/source-restore-20261107T2214266094620Z",
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261107T2214266094620Z/source-restore/report.json",
+        "sha256": "5922a369183aaa8a058088ee3f632e7a670eef699d30827a5da682c1beed294e"
+      },
+      "original_driver_status": "failed",
+      "original_error": "AssertionError('Source application lost foreground; no global input was injected')",
+      "actual_game_exit": 0,
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261107T2214266094620Z/watchdog.jsonl",
+        "sha256": "b62ace9428d2236d1c6f2b270728baaafa9af97f8a0e8ec4ab1210218a9c351b"
+      },
+      "orphaned_live_owned_processes": 0,
+      "passed": false,
+      "input_api_timings": [
+        {
+          "api": "SetForegroundWindow",
+          "seconds": 0.0
+        }
+      ],
+      "input_injected": false,
+      "foreground_refusal_not_bypassed": true
+    },
+    {
+      "run_directory": ".local/monitored-host-runtime/source-restore-20261107T2217088150954Z",
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261107T2217088150954Z/source-restore/report.json",
+        "sha256": "95fbab251a3e12620d8829e41e2b62fd0c14e03c6b44941a52bea2c98cfabc2b"
+      },
+      "original_driver_status": "failed",
+      "original_error": "AssertionError('Source application lost foreground; no global input was injected')",
+      "actual_game_exit": 0,
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261107T2217088150954Z/watchdog.jsonl",
+        "sha256": "1cf66fd5c91772e2b4bf8664f5132b2a72cfa13ca2e3adae578121cf6a8ae8a3"
+      },
+      "orphaned_live_owned_processes": 0,
+      "passed": false,
+      "input_api_timings": [
+        {
+          "api": "SetForegroundWindow",
+          "seconds": 0.0,
+          "returned": 0
+        }
+      ],
+      "input_injected": false,
+      "foreground_refusal_not_bypassed": true
+    }
+  ],
+  "production_changed": false,
+  "host_freeze_root_cause_proven": false,
+  "whole_game_complete": false
+}

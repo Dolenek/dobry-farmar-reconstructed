@@ -70,7 +70,7 @@ def main():
     pending=[]
     host_hold=ROOT/'.local/desktop-runtime-hold.json'
     if host_hold.exists() and read(host_hold).get('active',True):
-        pending.append('Resolve reported host Windows/display freeze and validate revised observer/runtime paths in an isolated guest;host interactive tests are held')
+        pending.append('Resolve reported host Windows/display freeze and validate revised observer/runtime paths under the independently monitored host authorization;unmonitored host interactive tests are held')
     if not contracts:
         pending.extend(['Finish actual40-contract award in both complete executable processes from genuine retained checkpoints',
             'Verify four complete checkpoint40 cross-restores with both current source DLLs'])

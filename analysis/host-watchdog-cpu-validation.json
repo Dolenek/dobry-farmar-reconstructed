@@ -1,0 +1,132 @@
+{
+  "status": "passed_CPU_only_watchdog_healthy_progress_stall_absolute_timeout_and_guardian_death_tree_cleanup",
+  "recorded_at_utc": "2026-11-07T21:59:49.155383+00:00",
+  "work_directory": ".local/monitored-host-runtime/cpu-selftest-20261107T215944780514Z",
+  "source_files": {
+    "tools/host_test_watchdog.cpp": "4fcbf13c939b008ff75d1e1762d6aeda0b14e9d7e59e694febb0e1d685547efe",
+    "tools/host_test_watchdog/CMakeLists.txt": "f94b1d9ac52d9bf312ec11963c4eb00cc2788abe0845db2118c69302a95698fc",
+    "tools/host_watchdog_cpu_worker.py": "3f5f2706305020c5cf08de023d524dcb735fa55994eb39f6dd10d68eeb9787e1",
+    "tools/desktop_runtime_hold.py": "9a03bbfb69ee18fb8028b4ef4e3ddfa294bf3c3f50260a26ca8ed082133767f5",
+    "tools/validate_host_watchdog_cpu.py": "e0159bb27491117bb7f175a0deb4463d6c10e7dbdbfe290407dafb1d752e9a87"
+  },
+  "watchdog_sha256": "caff3663a592003ab633dc9440a22d7d96409869c63f1196f30278f8d9f7e49e",
+  "cases": [
+    {
+      "mode": "healthy",
+      "return_code": 0,
+      "stdout": "{\"watchdog_exit_code\":0,\"driver_exit_code\":0}\n",
+      "stderr": "Live owned PID=10856 image=\n",
+      "log": {
+        "path": ".local/monitored-host-runtime/cpu-selftest-20261107T215944780514Z/healthy/watchdog.jsonl",
+        "sha256": "879b65553d59a1eb76eec1e7c485a24a5b9666141b8cedbced1951a5f2261517"
+      },
+      "events": [
+        {
+          "event": "started",
+          "guardian_pid": 17608,
+          "driver_pid": 5992,
+          "maximum_seconds": 4,
+          "stale_progress_ms": 1500
+        },
+        {
+          "event": "finished",
+          "driver_exit_code": 0,
+          "watchdog_exit_code": 0,
+          "owned_processes_before_final_close": 1,
+          "live_owned_processes_before_final_close": 0
+        }
+      ]
+    },
+    {
+      "mode": "stall",
+      "return_code": 125,
+      "stdout": "{\"watchdog_exit_code\":125,\"driver_exit_code\":125}\n",
+      "stderr": "",
+      "log": {
+        "path": ".local/monitored-host-runtime/cpu-selftest-20261107T215944780514Z/stall/watchdog.jsonl",
+        "sha256": "68bd96f4c7996cce687e96918e4d70bf1f5c61e077fa3b2be8545d0a10ffa36c"
+      },
+      "events": [
+        {
+          "event": "started",
+          "guardian_pid": 17720,
+          "driver_pid": 21348,
+          "maximum_seconds": 5,
+          "stale_progress_ms": 1000
+        },
+        {
+          "event": "health",
+          "elapsed_ms": 1110,
+          "progress_age_ms": 891,
+          "host_cpu_percent": 10.4673,
+          "host_available_physical_bytes": 5112827904,
+          "owned_active_processes": 3,
+          "owned_peak_job_memory_bytes": 16793600
+        },
+        {
+          "event": "terminated_owned_job",
+          "reason": "driver_progress_stalled"
+        },
+        {
+          "event": "finished",
+          "driver_exit_code": 125,
+          "watchdog_exit_code": 125,
+          "owned_processes_before_final_close": 0,
+          "live_owned_processes_before_final_close": 0
+        }
+      ]
+    },
+    {
+      "mode": "heartbeat",
+      "return_code": 124,
+      "stdout": "{\"watchdog_exit_code\":124,\"driver_exit_code\":124}\n",
+      "stderr": "",
+      "log": {
+        "path": ".local/monitored-host-runtime/cpu-selftest-20261107T215944780514Z/heartbeat/watchdog.jsonl",
+        "sha256": "30148c035f799baef5d74be8cc933102a4a4dcfb1de420beba17a0ab6f810cb3"
+      },
+      "events": [
+        {
+          "event": "started",
+          "guardian_pid": 6132,
+          "driver_pid": 22904,
+          "maximum_seconds": 2,
+          "stale_progress_ms": 1000
+        },
+        {
+          "event": "health",
+          "elapsed_ms": 1078,
+          "progress_age_ms": 0,
+          "host_cpu_percent": 11.7428,
+          "host_available_physical_bytes": 5122330624,
+          "owned_active_processes": 2,
+          "owned_peak_job_memory_bytes": 10973184
+        },
+        {
+          "event": "terminated_owned_job",
+          "reason": "absolute_time_limit"
+        },
+        {
+          "event": "finished",
+          "driver_exit_code": 124,
+          "watchdog_exit_code": 124,
+          "owned_processes_before_final_close": 0,
+          "live_owned_processes_before_final_close": 0
+        }
+      ]
+    },
+    {
+      "mode": "guardian_exit",
+      "actual_owned_processes_confirmed_exited": [
+        23308,
+        21524
+      ],
+      "guardian_exit_code": 1,
+      "job_kill_on_close_verified": true
+    }
+  ],
+  "games_or_graphics_devices_started": false,
+  "physical_input_injected": false,
+  "host_freeze_root_cause_proven": false,
+  "whole_game_complete": false
+}

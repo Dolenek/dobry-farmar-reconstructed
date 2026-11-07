@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(DesktopTimingProbe LANGUAGES CXX)
+add_executable(desktop-timing-probe ../desktop_timing_probe.cpp)
+target_compile_features(desktop-timing-probe PRIVATE cxx_std_17)
+target_compile_options(desktop-timing-probe PRIVATE /utf-8)
+set_property(TARGET desktop-timing-probe PROPERTY MSVC_RUNTIME_LIBRARY MultiThreaded)
+target_link_libraries(desktop-timing-probe PRIVATE dwmapi)

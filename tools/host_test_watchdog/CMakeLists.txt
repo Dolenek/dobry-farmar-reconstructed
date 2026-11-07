@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(HostTestWatchdog LANGUAGES CXX)
+add_executable(host-test-watchdog ../host_test_watchdog.cpp)
+target_compile_features(host-test-watchdog PRIVATE cxx_std_17)
+target_compile_options(host-test-watchdog PRIVATE /utf-8)
+set_property(TARGET host-test-watchdog PROPERTY MSVC_RUNTIME_LIBRARY MultiThreaded)

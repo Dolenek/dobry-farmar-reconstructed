@@ -1,0 +1,16 @@
+{
+  "status": "passed_four_CPU_only_mocked_input_latency_foreground_ack_denial_and_manual_activation_checks",
+  "recorded_at_utc": "2026-11-07T22:25:52.555534+00:00",
+  "source_files": {
+    "tools/windows_game_gui.py": "55b88dd3587bb5c2a2ef833b925d92f0129fb93ee816ae9d227c65cc5899b851",
+    "tests/test_watchdog_input_telemetry.py": "7eeaee7e7de8ba24f0af0c9054280d1ca92bb14234a6b1752db3e10785b9e2f0"
+  },
+  "test_log": {
+    "path": ".local/host-watchdog-input-telemetry-tests.log",
+    "sha256": "340f72a0084d6e9c58d199ba9855e5344833326a4be8613160fdd44f46b3e71d"
+  },
+  "actual_input_or_foreground_APIs_invoked": false,
+  "games_started": false,
+  "physical_input_injected": false,
+  "whole_game_complete": false
+}

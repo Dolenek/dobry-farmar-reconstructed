@@ -1,5 +1,7 @@
 # Zamrznutí obrazu při herním testování
 
+Současný stav: uživatel následně výslovně schválil pokračování na tomto počítači s průběžným sledováním. Přesná odpověď je v `analysis/host-runtime-monitoring-authorization.json`. Níže popsané původní zastavení bylo nahrazené výhradně hlídanými krátkými pokusy; incident se nadále nepovažuje za vyřešený.
+
 Uživatel7.11.2026 oznámil zamrznutí celých Windows vyžadující restart; následně
 upřesnil, že mohl zamrznout obraz, zatímco session pokračovala. Další interaktivní
 testy na běžném desktopu jsou zastavené. Při kontrole po restartu nezůstaly nalezené
@@ -44,3 +46,15 @@ Původní cíl zůstává aktivní. Analýza instrukcí, zdroje, sestavení a ko
 grafického zařízení pokračují. Celý CTest se na hostu neopakuje, protože zahrnuje
 grafické testy. Případný další experiment na běžném desktopu vyžaduje výslovný
 souhlas uživatele s konkrétním předem popsaným experimentem.
+
+## Nezávislý dohled po souhlasu uživatele
+
+`host-test-watchdog` vytváří vlastní pojmenovanou procesovou skupinu Job s automatickým ukončením jejích procesů při zániku hlídače. Hlídač neotevírá grafické zařízení a neodesílá vstup. Sleduje změny souboru postupu, absolutní čas, zátěž CPU, volnou RAM a vlastní procesy. Překročení limitů ukončí pouze tuto skupinu. CPU zkoušky ověřily normální dokončení, zastavený postup, absolutní limit i úklid dvou skutečných dětí po násilném ukončení hlídače. Viz `analysis/host-watchdog-cpu-validation.json`.
+
+Místní pojistka zůstává aktivní. Samotná proměnná prostředí není povolení: ověřuje se PID testu, platnost lease, živý správný hlídač a skutečné členství testu v jeho Job. Vstupní API mají záznam před voláním a dobu návratu; pomalé volání zastaví další interakci po dokončení párového uvolnění. Při skutečně nevracejícím se volání zasahuje nezávislý hlídač.
+
+Osmisekundový source startup bez vstupu skončil0 pod20s limitem. Má24 pozorování okna: první dotaz překročil250ms, dalších23 odpovědělo. Všechny časové značky DWM vertical blank rostly; CPU bylo4,76–19,48% a volná fyzická paměť nejméně5736873984 bajtů. Čítače samy nejsou důkazem fyzického obrazu. První kratší pokus nesprávně kontroloval per-process čítače DWM, které se při každém spuštění čtecí sondy resetují; je zachovaný jako selhání testu.
+
+Dva navazující pokusy o obnovu skončily před vstupem kvůli fokusu. Poslední přesně zaznamenal SetForegroundWindow=0, žádné SendInput se neprovedlo, oba herní procesy skončily0 a nezůstal živý vlastní proces. Asynchronní aktivace se nově potvrzuje omezeným WM_NULL; odmítnutí Windows se neobchází. Připravený je nanejvýš20s interval pro skutečnou aktivaci okna uživatelem, pouze na výslovnou volbu konkrétního hlídaného pokusu. Viz `analysis/monitored-probe-initial-observations.json`.
+
+Tyto výsledky neuzavírají příčinu původního zamrznutí, skutečné nové čtení farmářské scény ani další herní výstrahy. Hlídač nezaručuje obnovu po tvrdém pádu grafického ovladače nebo jádra Windows.

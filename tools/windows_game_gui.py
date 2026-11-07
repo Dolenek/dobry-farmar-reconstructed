@@ -1,5 +1,5 @@
 """Shared Windows desktop probe for isolated game processes; physical input requires owned foreground."""
-import ctypes as C,time,xml.etree.ElementTree as ET
+import ctypes as C,time,xml.etree.ElementTree as ET,json,os
 from ctypes import wintypes as W
 from pathlib import Path
 from desktop_runtime_hold import require_desktop_runtime_available
@@ -14,6 +14,8 @@ u.GetWindowTextW.argtypes = [W.HWND, W.LPWSTR, C.c_int]
 u.PostMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.restype = W.LPARAM
+u.SendMessageTimeoutW.argtypes=[W.HWND,W.UINT,W.WPARAM,W.LPARAM,W.UINT,W.UINT,C.POINTER(C.c_size_t)]
+u.SendMessageTimeoutW.restype=W.LPARAM
 u.SetForegroundWindow.argtypes = [W.HWND]
 u.GetClientRect.argtypes = [W.HWND, C.POINTER(W.RECT)]
 u.ClientToScreen.argtypes = [W.HWND, C.POINTER(W.POINT)]
@@ -51,14 +53,48 @@ u.GetWindowDpiAwarenessContext.argtypes=[W.HWND]
 u.GetWindowDpiAwarenessContext.restype=C.c_void_p
 u.SetThreadDpiAwarenessContext.argtypes=[C.c_void_p]
 u.SetThreadDpiAwarenessContext.restype=C.c_void_p
+_unwrapped_input_apis={}
 class GameGui:
 
     def __init__(self, work, data_root):
-        require_desktop_runtime_available()
+        self._runtime_watchdog=require_desktop_runtime_available()
+        self._last_progress=None;self._last_progress_time=0
         self.work = Path(work)
         self.data_root = Path(data_root)
         self.process = None
         self.hwnd = None
+        self._slow_input_call=None
+        if self._runtime_watchdog:self._install_input_monitoring()
+
+    def _install_input_monitoring(self):
+        for name in ['SendInput','SetCursorPos','SetForegroundWindow']:
+            original=_unwrapped_input_apis.setdefault(name,getattr(u,name))
+            def measured(*args,_name=name,_original=original):
+                values={}
+                if _name=='SendInput':
+                    count=int(args[0]);assert 0<=count<=64
+                    events=C.cast(args[1],C.POINTER(INPUT))
+                    values['input_flags']=[events[n].mouse.flags if events[n].type==0 else events[n].keyboard.flags for n in range(count)]
+                self.progress('before-'+_name,**values);start=time.monotonic()
+                result=_original(*args);seconds=time.monotonic()-start
+                event=dict(api=_name,seconds=seconds,returned=int(result),**values)
+                with (self._runtime_watchdog['directory']/'input-api-timings.jsonl').open('a',encoding='utf-8') as output:
+                    output.write(json.dumps(event)+'\n')
+                self.progress('after-'+_name,seconds=seconds)
+                if seconds>1:self._slow_input_call=event
+                return result
+            setattr(u,name,measured)
+
+    def progress(self,label,**values):
+        if not self._runtime_watchdog:return
+        now=time.monotonic()
+        if label==self._last_progress and now-self._last_progress_time<.2:return
+        directory=self._runtime_watchdog['directory'];path=directory/'progress.json'
+        event=dict(driver_pid=os.getpid(),monotonic=now,label=label,**values)
+        temporary=path.with_suffix('.tmp');temporary.write_bytes((json.dumps(event)+'\n').encode('utf-8'));temporary.replace(path)
+        if label!=self._last_progress or now-self._last_progress_time>=1:
+            with (directory/'driver-events.jsonl').open('a',encoding='utf-8') as output:output.write(json.dumps(event)+'\n')
+        self._last_progress=label;self._last_progress_time=now
 
     def scan(self, code):
         self.focus()
@@ -143,6 +179,7 @@ class GameGui:
         return output
 
     def screenshot(self, hwnd, name):
+        self.progress('before-window-capture',file=name)
         self.adopt_window_dpi(hwnd)
         from PIL import Image
         rect = W.RECT()
@@ -177,13 +214,33 @@ class GameGui:
             assert u.SetThreadDpiAwarenessContext(context), 'Cannot adopt owned window DPI context'
 
     def focus(self):
+        self.progress('before-owned-window-focus')
+        if self._slow_input_call:
+            raise RuntimeError(('Stopping after slow input API;no further interaction',self._slow_input_call))
         self.adopt_window_dpi()
         if u.GetForegroundWindow() != self.hwnd.value:
             u.SetForegroundWindow(self.hwnd)
-            time.sleep(0.1)
+            # Foreground activation across input queues is asynchronous. Wait
+            # for the owned window to process that notification, with a bound;
+            # never attach input queues to force synchronous activation.
+            self.progress('before-bounded-foreground-notification')
+            result=C.c_size_t()
+            assert u.SendMessageTimeoutW(self.hwnd,0,0,0,2|32,1500,C.byref(result)), \
+                'Owned window did not process its foreground notification within1500ms'
         # Never join another application's UI input queue to force focus.
         # A denied foreground request stops the test before sending input.
+        if u.GetForegroundWindow()!=self.hwnd.value and self._runtime_watchdog:
+            request=self._runtime_watchdog['directory']/'manual-focus-request.json'
+            if request.exists():
+                settings=json.loads(request.read_text(encoding='utf-8'))
+                assert settings['driver_pid']==os.getpid() and 0<settings['seconds']<=20
+                deadline=time.monotonic()+settings['seconds']
+                while u.GetForegroundWindow()!=self.hwnd.value and time.monotonic()<deadline:
+                    self.progress('waiting-for-user-owned-window-activation')
+                    self.check_process();time.sleep(.05)
         assert u.GetForegroundWindow() == self.hwnd.value, 'Source application lost foreground; no global input was injected'
+        if self._slow_input_call:
+            raise RuntimeError(('Stopping after slow foreground API;no input was injected',self._slow_input_call))
 
     def resource(self, name):
         import zipfile
