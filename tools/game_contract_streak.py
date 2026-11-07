@@ -292,17 +292,27 @@ def run_streak(env):
                         continue
                     if complete(accepted):
                         done=True;break
+                    timing_start=time.perf_counter()
                     before_transfer=snapshot();quantity=before_transfer['stock'][product]
+                    timing_snapshot=time.perf_counter()
                     # GameGui.click already performs the closed-loop pointer move.
                     probe.click(hwnd,round(x+transfer[0]),round(y+transfer[1]))
+                    timing_click=time.perf_counter()
                     limit=time.monotonic()+5
                     while val('uints',f'WGoodCount{product}'):
                         focus();clock();assert time.monotonic()<limit,('Actual market transfer did not clear product',product);time.sleep(.05)
                     after_transfer=snapshot()
+                    timing_after=time.perf_counter()
                     expected=before_transfer['stock'].copy();expected[product]=0
                     expected_market=before_transfer['market'].copy();expected_market[product]+=quantity
                     assert after_transfer['stock']==expected and after_transfer['market']==expected_market and after_transfer['money']==before_transfer['money']
                     session['market_transfers'].append(dict(product=product,quantity=quantity,before=before_transfer,after=after_transfer))
+                    timing=dict(product=product,before_snapshot_seconds=timing_snapshot-timing_start,
+                        physical_click_seconds=timing_click-timing_snapshot,
+                        receipt_and_snapshot_seconds=timing_after-timing_click)
+                    session.setdefault('market_transfer_durations',[]).append(timing)
+                    if timing_after-timing_start>5:
+                        print(json.dumps(dict(kind=env['kind'],event='slow_actual_market_transfer',**timing)),flush=True)
                     drain()
             if done:
                 break
