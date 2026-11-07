@@ -1,7 +1,7 @@
 {
   "status": "passed_exact_silent_native_sequential_constructor_observations_only",
-  "recorded_at_utc": "2026-11-07T09:01:28.652315+00:00",
-  "recorder_sha256": "3a9a29c851916e4b952e5e41ac3ab21e0bf07502b3880a5378349a5ee8b09bf3",
+  "recorded_at_utc": "2026-11-07T09:16:11.536144+00:00",
+  "recorder_sha256": "22c6aaa9783ba58e05d955045f4f487d9a260c13ea29c9f7808dae07157ce433",
   "report": "analysis/squall-tracker-stream-validation.json",
   "report_sha256": "753f59dd1545553d28f814d546927f01fb8a5fa06937c8376de4cf85fbd1f43e",
   "isolated_processes": 36,
@@ -9,6 +9,8 @@
   "exact_guarded_output_bytes_per_candidate": 18923520,
   "actual_nonzero_PCM_bytes": 0,
   "actual_returned_frames_for_five_orders": 0,
+  "requested_precision_reapplied_after_both_DLL_loads": true,
+  "historical_constructor_probe_precision_limit": "Older ctor probe set PC before LoadLibrary;native startup could replace PC24 with PC53. This new probe reapplies and measures PC after both loads and constructor.",
   "native_factory_used": false,
   "code_or_IAT_written": false,
   "active_tracker_playback_proved": false,

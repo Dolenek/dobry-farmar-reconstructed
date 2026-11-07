@@ -73,8 +73,9 @@ def timeline_with_contract_notes(timeline, successful_notes, baseline, events):
 def audit(report_path, allow_retained_failure=False):
     report = read(report_path)
     failed = report['status'] == 'failed'
+    timeout_after_transfer = failed and 'Bounded contract phase exceeded' in report['error'] and 'after_transfer=snapshot()' in report.get('traceback','')
     if failed:
-        assert allow_retained_failure and 'Injected pointer missed owned window target' in report['error']
+        assert allow_retained_failure and ('Injected pointer missed owned window target' in report['error'] or timeout_after_transfer)
     else:
         assert report['status'] == 'explored_actual_contract_streak_with_original_supply_command_only'
     work = ROOT / report['work_directory']
@@ -185,11 +186,26 @@ def audit(report_path, allow_retained_failure=False):
                                      acceptance_occurred_before_this_process=restored,
                                      bonus=expected['bonus'], requirements=expected['requirements']))
         retained_active = None
+        reconciled_timeout_transfer = None
         if retained:
             # The failed operation asserted before sending its mouse button.
             # The immediately preceding successful transfer is fully recorded;
             # compare its complete state with the actual normal-close profile.
-            final = session['market_transfers'][-1]['after']
+            final = json.loads(json.dumps(session['market_transfers'][-1]['after']))
+            if timeout_after_transfer:
+                # A post-click timeout prevented appending the final transfer.
+                # Reconcile exactly one full-stock move against both actual
+                # saved ledgers; do not invent an event or change the raw log.
+                stock=[int(values[f'WGoodCount{n}'][1]) for n in range(19)]
+                market=[int(values[f'MGoodCount{n}'][1]) for n in range(19)]
+                changed=[n for n in range(19) if (stock[n],market[n])!=(final['stock'][n],final['market'][n])]
+                assert len(changed)==1,('Timeout tail must be one transfer',changed)
+                product=changed[0];quantity=final['stock'][product]
+                assert quantity>0 and stock[product]==0 and market[product]==final['market'][product]+quantity
+                assert values['Money']==('Int',str(final['money'])) and values['awQTask']==('UInt',str(final['streak']))
+                reconciled_timeout_transfer=dict(product=product,quantity=quantity,
+                    evidence='Exact saved warehouse/market ledgers and preserved post-click timeout site;not an appended runtime event')
+                transfers[product]+=quantity;final['stock']=stock;final['market']=market
             active = final['tasks'][0]
             assert active >= 0 and final['tasks'][1:] == [-1, -1]
             model = model_for(events[active], [epoch['words'][active] for epoch in epochs])
@@ -234,6 +250,7 @@ def audit(report_path, allow_retained_failure=False):
         assert saved.read_bytes() == expected_binary, ('Complete saved binary differs', session['kind'])
         branches.append(dict(kind=session['kind'], initial_streak=initial, final_streak=final['streak'],
             process_closed_normally=True, requested_target_reached=not retained, retained_active_contract=retained_active,
+            independently_reconciled_timeout_transfer=reconciled_timeout_transfer,
             actual_receipts=receipt_rows, supply_commands=len(session['supply_commands']), market_transfers=len(session['market_transfers']),
             actual_pause_intervals=pauses, all_19_product_ledgers=True, final_money=money,
             additions=additions, transferred=transfers, consumed=consumed, final_stock=final['stock'], final_market=final['market'],

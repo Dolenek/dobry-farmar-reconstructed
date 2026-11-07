@@ -30,6 +30,8 @@ def main():
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),recorder_sha256=digest(__file__),
         report=name,report_sha256=digest(ROOT/name),isolated_processes=36,blocks_per_process=128,
         exact_guarded_output_bytes_per_candidate=total_bytes,actual_nonzero_PCM_bytes=0,actual_returned_frames_for_five_orders=0,
+        requested_precision_reapplied_after_both_DLL_loads=True,
+        historical_constructor_probe_precision_limit='Older ctor probe set PC before LoadLibrary;native startup could replace PC24 with PC53. This new probe reapplies and measures PC after both loads and constructor.',
         native_factory_used=False,code_or_IAT_written=False,active_tracker_playback_proved=False,
         initial_failed_nonzero_assumption=dict(report=failed.relative_to(ROOT).as_posix(),sha256=digest(failed),native_observation=native),
         interpretation='Original five-order constructor reports7056000 samples but sequential reads return0 and silence; both sources preserve it. Original one-order constructor reports0 total samples and initially returns4096-frame silent blocks. This does not replace the separately verified active mixer kernels.',

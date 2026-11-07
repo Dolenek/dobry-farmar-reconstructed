@@ -1,5 +1,9 @@
 # Samostatné produkční sestavení
 
+Nejnovější zdrojový strom po opravě JNGLoad je `work/production-source-20261107-v4` a jeho sestavení `build/production-source-standalone-v4`. `analysis/production-source-only-build-v4.json` dokládá všechny4 produkční PE32 cíle bez testů a bez původních programových binárek, oba původní DLL exportní kontrakty,48 dalších loader procesů/96 cyklů a skutečný nový profil i restart farmy s normálními výstupy0. Odinstalátor je znovu bajtově totožný s izolovaně ověřeným zdrojovým odinstalátorem.
+
+Opakovaný v4 test deníku narazil na tutoriál1 již v první relaci: deník se ve skutečnosti neotevřel, přesto animace splnila starou slabou podmínku rozdílných pixelů. Neúspěšný report a oba snímky zůstávají zachované. Úspěšná v4 kontrola je proto označená `startup-only` a neprohlašuje nové ověření deníku; předchozí v3 skutečný panel/menu/help důkaz má přesně stejné herní zdroje, což recorder ověřuje. Tutoriál a celá herní integrace mají další samostatné skutečné native/source scénáře. Tento rozdíl rozsahu se nezakrývá změnou produkce ani úpravou profilových tip flagů.
+
 Potřebné jsou Windows, Python3, CMake3.20+, Visual Studio2022 s C++ Win32 nástroji a Windows SDK. Ověřeno: MSVC19.43.34810, SDK10.0.26100.0. Před konfigurací připravte zdrojové závislosti ověřované připnutými hashi:
 
 ```powershell

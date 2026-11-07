@@ -1,0 +1,3463 @@
+{
+  "status": "passed_current_standalone_source_DLL_loader_state48_processes_only",
+  "recorded_at_utc": "2026-11-07T09:12:08.922007+00:00",
+  "driver_sha256": "0843f55b0f9bb6f31b350901db5ccf1f9471dafa606dea0860c11ac847b0452c",
+  "work_directory": ".local/production-source-standalone-v4-loader",
+  "stage_manifest_sha256": "a8da425cf3077953fa3e8eaa5d2f6defacb9e268bbd8c3bed3c6667af6e0f777",
+  "source_files": {
+    "CMakeLists.txt": "e401538b8c0ed830b6aa1e9a7516eaf6eebb617c46fe60017739ef25eaebc27e",
+    "src/game/audio/Channel.cpp": "62b126fe8d52a00263de3f23b5ffe99124374f817025e59268933756a2e64a76",
+    "src/game/audio/Channel.h": "2819950c23ff00e59e112788bdb7f03da8989252b9c6ddd50eed02a5acfa37a9",
+    "src/game/audio/MusicPlayback.cpp": "f8a3caf512559a23ed111b7440352de5ea7dac403db23abc026036908e53166e",
+    "src/game/audio/MusicPlayback.h": "a05e63dc4876b44657b96e754f2dbd55d3aa1ee9a922b636c1d2c5b30d439e69",
+    "src/game/audio/Sound.cpp": "4d71f4d4aee05d57b24add8d761b695f3a6e8456e5d5cf8eb78347da4e2513cf",
+    "src/game/audio/Sound.h": "c1b1c145146851f96134369b31b957962b071a6b1976d8f69ce88f030179672a",
+    "src/game/audio/SoundApi.h": "a72ca2f5c26052d1a2ae4a3b7ca4161d2c77e2e42648ec2e95b689a44bbef80b",
+    "src/game/audio/SoundFiles.cpp": "493aecfdc110825d710f457131284118d08971d433d6a279e819cb9a446e25b9",
+    "src/game/audio/SoundFiles.h": "98c018b22d245167596156e480aa64674f86513f8309934d7d9571b21639b11a",
+    "src/game/audio/SoundManager.cpp": "b12a01972e65eba1ddfa8084c0cbab49271444d4852117666d285db22284fb33",
+    "src/game/audio/SoundManager.h": "45ede6393073c309778535eed3380bddf893caeaafc67e4e56e2d75266ac73f4",
+    "src/game/audio/SoundVolume.cpp": "8c8179e0679855f3de6b022cc668127d20da50686908a59cb7fd102029315505",
+    "src/game/audio/SoundVolume.h": "f5369900f1a2c7d1ed4544286b6b9f5d41226a5d6570977c625be37935f0b137",
+    "src/game/audio/SquallSoundApi.cpp": "36267e43a3d0210bfed5be4dfbda3fc935504b913632ba4e3103cefec53836bb",
+    "src/game/audio/SquallSoundApi.h": "dbdaf8aea5c5a9342f67576c40c2a2ebf6272b77e76389131ed6a959cc666f1c",
+    "src/game/audio/UiSound.cpp": "d2826d17eed7776d933ab5fdc352d437856a1e0162704ea10f62460edc7129d3",
+    "src/game/audio/UiSound.h": "7ea21308e01ea99d5718eba0c146ac4e497e99197027762a2fbcf8703cabea95",
+    "src/game/core/Color.cpp": "82a707d7566316c2698d3fd18bb99030ce5c9c41daeb89d0e7e6b23082a6b5c4",
+    "src/game/core/GameColor.h": "1b5c3c45c3903c1e7dad406450848e793892a5ee97c2657d98281e3b2611fff5",
+    "src/game/core/GameString.h": "6e94644f0dbdea7e98036c7c8fe171218b1dcfde2c4dd40e432880275ab25190",
+    "src/game/core/GameWString.h": "3cc6cb54ba028293539e20bcb16d8be3ee454bacab4d2c6199a1903f87373a46",
+    "src/game/core/OriginalArithmetic.h": "86d2a4a6d19cfc3af51209cba2e7e85c9b545bec7cda9c8c08f3e88a3515cef4",
+    "src/game/core/String.cpp": "734da9efea543ca5a10379e8242ab524b67900aa5e5d9b694cf6838eff7fb2c6",
+    "src/game/core/StringConversion.cpp": "2b41b8e34b9205881b4dae3cac961a52db4f3c99da96e6a5ec969d25f8ee430d",
+    "src/game/core/StringConversion.h": "c96cf4d4bb54001fa3ebf7c48e8c6acb21a5962765c98328a64b71fa0dedf738",
+    "src/game/core/WString.cpp": "2493ca3fb867735f4b01484b93a1d17e1cf7e3bd474e109b388506cf45a4bcd2",
+    "src/game/engine/Game.cpp": "2d4f4bd466a77a0fb714740f9e8cd6054b7bd532f1af2c1df97f8b220db8b71b",
+    "src/game/engine/Game.h": "273d56dc726fdfae230dab31e76fd29441475fe4e57b89704d48490290ce132d",
+    "src/game/engine/GameAction.cpp": "2e38566152b5fb3b29681770a6f074f706014fad1995fdc403981ca91743a23e",
+    "src/game/engine/GameAction.h": "81197506d2e2a1209c5ed6d88715278fa1bc86b9210e7f24d045ded6aed920b8",
+    "src/game/engine/GameApplication.cpp": "59f43b63e07bd6804281aabb309bdec377c28884c322abca7155a5959150b6c7",
+    "src/game/engine/GameApplication.h": "3e523fc4ec77bbce426ee4466751789ead87ade51b73d56c9216d0d4370ca9a9",
+    "src/game/engine/GameConfiguration.cpp": "658bdeab27ecfb87fa532b6deb6252b0a9453e719566773cc89f6bbbd81974a3",
+    "src/game/engine/GameConfiguration.h": "3aab2d571a7a562f9449fb38864a40b39f1db8cc45721e8aed374779233151d4",
+    "src/game/engine/GameCursor.cpp": "fcdb4c554a961a74a66aadcef3b458d5b5e962fde7fae980cad823e034880ed4",
+    "src/game/engine/GameCursor.h": "75f1513cbdd694ac0e055c3a507787d05e56c4f180c6b25336e730575359da46",
+    "src/game/engine/GameEffects.cpp": "76778af23be20be5af448f63b97a18035448e1b2c684cebb3b8389bd05353b2e",
+    "src/game/engine/GameEffects.h": "75060fba42d36d3ef9215449cbc974421c3bc9714784c2b3133a6b6b6b4e22e4",
+    "src/game/engine/GameFileSystem.cpp": "13693a4509c3428fda4293bf754acab5ef58f0cbe211c5b16d0fd94da96a4d0e",
+    "src/game/engine/GameFileSystem.h": "ec9e7e2543de2cd7fe2ae8606a286e055e5f2154ba188dc15e49af570c71144b",
+    "src/game/engine/GameInput.cpp": "b8342503963c20abe97f95d8fe0f67cc0bb3b7ad1854aae1d312ecd77d6364d6",
+    "src/game/engine/GameInput.h": "426e93197cc3489ebd511ea5881bfa4d5febc5f746d8b1fae78098fbb8408f5a",
+    "src/game/engine/GamePersistence.cpp": "01c4f5f7fc52502d28715bc28f33bb010622ec44b1d2b88849363762a96a9036",
+    "src/game/engine/GamePersistence.h": "4a82071375119dd196cef8fd3b9d54c98f1743f2ca717aa6c631cd1475b1c7a8",
+    "src/game/engine/GameRandom.h": "dfff1ec2887dcb2d8d3d9c97a21aa7c20055eb0ed91d3cc0cd56715a49d52ffe",
+    "src/game/engine/GameTimer.cpp": "b1504f4fa6fc934687d152ed085b16a5fe147395a1c1dde720b2cdb8d40eb3da",
+    "src/game/engine/GameTimer.h": "0eba231ea7db0b105d44d17948faf0b9ca4a1b6ee0bebff2acfa93871748968d",
+    "src/game/engine/GameWindow.cpp": "013c420a1bb12d198c99838bed178489044ec528855a0e877684a5b977fc71fc",
+    "src/game/engine/GameWindow.h": "abb8382fc1fbf9a0d986c45d1c8b9def35bb020df93905466a71505ebb4dd2a6",
+    "src/game/engine/Gameplay.cpp": "747502f32eb81d8797012c984733c333b0d3075f4c172a8dcf4bd58957b307e3",
+    "src/game/engine/Gameplay.h": "2fde9528dfbb00eddc3e84b107c579d3a04b7d461632e987c9ad57be45632af5",
+    "src/game/engine/GameplayEvents.cpp": "6dba985827e3cb308acbeea2d661be71e18e1a579fdef59141c13c9ea48daf0b",
+    "src/game/engine/GameplayEvents.h": "69a516faf6072ba236541f6c133baf068bf6cc5d0762fef894a1f4e382ec7431",
+    "src/game/engine/GameplayTime.cpp": "2eed82d4d420d58703c09a397369f449e507cd571472a976cd5825cece890973",
+    "src/game/engine/GameplayTime.h": "f221930eb388f2750b72ebf7e837e8b35e5861643ad80a95cfe13e6e19827b9c",
+    "src/game/engine/LogicShortcuts.cpp": "dd16ea9e4b432f363232c2689eae78b4c4a183df3a83f4ba025098cf023c6444",
+    "src/game/engine/LogicShortcuts.h": "eb0317eb9dc071a30dea71f0d32cb98bd59e4e2e66c4a0c03216bce34eccb767",
+    "src/game/engine/ProductionKinds.h": "c57bb42b773dbefbc2c26e2d30d2310d470f6c2778f4fe948ec4f5cfb08ef61b",
+    "src/game/engine/ProductionLevel.cpp": "cce8e93bcb3b03980e8e5bbfade4363e610ef1e9348d0aba15da2f1e7589531b",
+    "src/game/engine/ProductionLevel.h": "bc7424cc3548f7c9f068778bee3894f1f67d9159ab1eae3a8200066aa3bf004d",
+    "src/game/engine/SalesHistory.cpp": "5fad47074a619750e30ae3550dc38c3f3ee4f0749276eadf6c8fc1e062d9c0e1",
+    "src/game/engine/SalesHistory.h": "17a980b903f4e707ee76a99bfddc66f540523f9cc0bb6f288196ed2c8e68ce4c",
+    "src/game/engine/Upgrade.cpp": "3be4954c591ef13a555c37837d7ad8fe6016a0123ff64398e05899ecf4c3e118",
+    "src/game/engine/Upgrade.h": "2b07158588b07566b756b500fc2aa23e4d283b06ce761dc67c7863e0f3c16ab4",
+    "src/game/file_manager/FileIndex.cpp": "04ba7c36438e72240693ac155ab4049a6505f78e80ed014b720515c4abfd2ea0",
+    "src/game/file_manager/FileIndex.h": "9ccff1dd77a24d114bae2a5a1b5e85f6b850423acacc674af91808f46cda4a13",
+    "src/game/file_manager/PathNames.cpp": "db2e55f8fa2f29858ef3e4384e15260f5e6ab784f0f7e4475328cd2127722ed6",
+    "src/game/file_manager/PathNames.h": "0f68d34386d60be105a1f891f2ff3318d5f235b0528d846c40c007ba2d9d9b3f",
+    "src/game/file_manager/RealFile.cpp": "560fe39a1b1430679b3446334ca7e95183def3d0edeccd7904f5b030eda3daa5",
+    "src/game/file_manager/RealFile.h": "da920a605ca3809894763219c06b6a5fd53c3cb4da39ba10ecd9920a1fd15213",
+    "src/game/file_manager/ZipFile.cpp": "2d8c13df96f1a81487e5379cff75a27014620ddf535d66c410b69511c0f6fa73",
+    "src/game/file_manager/ZipFile.h": "0e40309b41a7ec29d7abcd286e342ffda81570b40f1ed7a055e320aee506263a",
+    "src/game/graphics/ClickMask.cpp": "1d747ff0d68a0f0dd02950019263343015b6edf4351e8b6d4592aa7e68f8d554",
+    "src/game/graphics/ClickMask.h": "ed22aadfb1a922fe1d060904fbde17b3dc165f3c1d734b67cdf321d9025eb220",
+    "src/game/graphics/Direct3D8.h": "2e1f917d945b0b763b8a6c70006d0ceb712c9fdb25c627e3810aabae6ccbae31",
+    "src/game/graphics/GameMatrix.h": "6fc1d462ce5ceef74d97204ed08a4e7e26ac81b9c17fcf3e69aa84e5d810227b",
+    "src/game/graphics/GraphicsPresentation.cpp": "5de009773ae909fd73b7315c7b0e8f7b606eef704e2c238d695f4deed01af142",
+    "src/game/graphics/GraphicsPresentation.h": "f9dc7910919a90a10105ddf4623756238401d99ba21af6f3fd3eaeb877da07c4",
+    "src/game/graphics/GraphicsRenderState.cpp": "b114b1e224ef7f2656374346fd83d1da7aa19e6c7c75820fc65e7d95cc1b8f69",
+    "src/game/graphics/GraphicsRenderState.h": "8789351a78b63a362ca7f2f4e1db1490d7c1134ed2c5ff006a4ecc65458c3083",
+    "src/game/graphics/GraphicsScreenshot.cpp": "c2f838ced29c4d4963e99467b2552150dedeebb857fb511d46b2ec35931ce257",
+    "src/game/graphics/GraphicsScreenshot.h": "80555da58bd817501fcfe366041526775d6187a48dd5fdc0fc475fb8b00d39cf",
+    "src/game/graphics/ImageTexture.cpp": "2347c290ea59ffd332afcbe3df7e28b1e735e28654ef27cd892db48bb3a46caa",
+    "src/game/graphics/ImageTexture.h": "34815089466fa272b4e42ec9a185d033e76d0e77914b685025aed7e96c03cf28",
+    "src/game/graphics/JngTexture.cpp": "46795d1aeffae681ca679dcb5ddbb925028cbb9d93f2acda9dc69faf45dba36e",
+    "src/game/graphics/JngTexture.h": "6f72a178202f9924009ed14bc006dbdd41b8efc3acd0d5cecb50b61a71f6b9da",
+    "src/game/graphics/JpegColor.cpp": "642c229a0ceed1955dd8485e7c67273e0c40e5e8ffe91868c13a37b956b488a6",
+    "src/game/graphics/JpegColor.h": "8d640103414882faf63b97d1bd0f5d431d9e22574f57b8d2cf582cbd24c258e2",
+    "src/game/graphics/Matrix.cpp": "daf474a2f001fd017d1554fd77db804599da6be03da3e1cf8843e72bde64d9b2",
+    "src/game/graphics/NativeImage.cpp": "02e0f5edba5b9410b8760e51d5f9229713f790deebf5f3667901fce9f82bae8e",
+    "src/game/graphics/NativeImage.h": "996fce04cb177756d4fef1de646fe86257d4d139dcdab189037acae79bfc5907",
+    "src/game/graphics/NativeJpeg.cpp": "0ab26d2f4af33fc4853c715e7bab929053ff4daa1212dd5473018caca9d97e83",
+    "src/game/graphics/SpriteBatches.cpp": "cc5b614204dbb569f0f952eb92f7f3a44064b4207190eff089bf980075a9ec83",
+    "src/game/graphics/SpriteBatches.h": "e17f81d5a0ad20d8e6433d51617ed58f3f908ebdcea25985585ac790654710c2",
+    "src/game/graphics/SpriteBuffers.cpp": "ceda9d03d7b4ceb146d03a15d454021a811a25b79bd141ea286d6aac564d9fdc",
+    "src/game/graphics/SpriteBuffers.h": "7a5e24c684145a8f46c90c2b6caa9378cb772c384714acb214362ac62f5e1316",
+    "src/game/graphics/SpriteGeometry.cpp": "9997342d661829c656b4a4b5610add95d1c93159965b52c4b02a0155bff65adf",
+    "src/game/graphics/SpriteGeometry.h": "b04fd5b97977f084d1d6cf3c008a44f6fa430988291ffa3b523f2699bf21c5a7",
+    "src/game/main.cpp": "0c47c4bff02fd32c2e2ec5b652aef674e4439f50c1f4a5c1f61b0b6640481e05",
+    "src/game/profiles/GameProfileDefaults.cpp": "b85f29974c2a5f988a84f0776c344ef63abc2939a5b6cb36e807f241fd6ae2ca",
+    "src/game/profiles/GameProfileDefaults.h": "073f894f77f9cab67dfafd18432eaf5aeb39bcca5d611d1874f28e7599eaffa8",
+    "src/game/profiles/LegacyProfileFormat.cpp": "ab7f22436a58eadb41496c24179633dbeb06a0db2ea2c7b1ac582a846d61b0c2",
+    "src/game/profiles/LegacyProfileFormat.h": "ad9abc9477c7ae92d49e4bf24ad39ca5a344cdcf8d269e73e9c427e4d39c942e",
+    "src/game/profiles/LegacyProfileParse.cpp": "008dc36ee110a75426f58b3c087e15f90e5556cdf993f80ad944cd13c867ebae",
+    "src/game/profiles/LegacyProfileParse.h": "699ac0d2ac7d617f57a36561ceffd9c5c1cfd2f69c7370da6d183252fc64b532",
+    "src/game/profiles/Profile.cpp": "bcdc74c201119f952dd719f6b3f30cc54b9dc718bfa84cb7329b3797db55e17b",
+    "src/game/profiles/Profile.h": "c2175854209a28664a81e650c0255712709e6b624562fcce97a6645d8118c529",
+    "src/game/profiles/ProfileHeaders.cpp": "13b8175a3916de33532df9de1a0658de2ecd4a7ebd65ab1e3bc53a46327e5e86",
+    "src/game/profiles/ProfileHeaders.h": "670efbffaa5277bcbb5e08355da052aa3797de241ab06a7d3d5ed5b69855a569",
+    "src/game/profiles/ProfileProperties.cpp": "bb2bd9549aa17c5cb79356d5b39e6e41ed89c373e2834fad9b37983532cd9139",
+    "src/game/profiles/ProfileProperties.h": "ea0f8026e20ec281480151432129557f7958b55329b9e5b3d5317a893aa1920d",
+    "src/game/resources/AnimableAppearance.cpp": "0edde5107827f36bcd3953524bd076f5d0053ebe0ce607a92c0893704156fb4f",
+    "src/game/resources/AnimableAppearance.h": "698a3b8991a90112a7b1f8ad1ac236bb3c5d52f70beac32d44b7da745c766657",
+    "src/game/resources/Font.cpp": "a2c842a812ff887cf7870383bfaae16a96bee6807d2203fc98f7cfce674c2465",
+    "src/game/resources/Font.h": "f4042393509c51438e61338ed2f162f096bee54d43a5d4369f52fa856e405310",
+    "src/game/resources/Resource.cpp": "c90d171722e328ab52a6a21d635625659f5e66a66b05981db66b041b128a4970",
+    "src/game/resources/Resource.h": "9332bcaf94923f0540f7bd9c78e94029c7ba7d15e24beaf9755077d942ced98f",
+    "src/game/resources/ResourceManager.cpp": "2c8332a65a50cc3e0d1df6a7dfad89d6020dc9f592b48bd98276e3c1decf62b0",
+    "src/game/resources/ResourceManager.h": "f48d54431ed03c8b7ea37a08ce84d081166f24a56923517ac66c284c225dd4ff",
+    "src/game/resources/Shader.cpp": "9f4111918eb00a0312f18eded755d36a04b977404b8de68dd1b9b674b4144610",
+    "src/game/resources/Shader.h": "8b8d48c094d45b235e173f83ccc441871eb9eb34e8b6b18402cc7e509d1aee92",
+    "src/game/resources/Texture.cpp": "711675af8aef41155d84186a1b9ae3327c0a7ffd9f1418876c71334c534d3ea8",
+    "src/game/resources/Texture.h": "277dadc8ef5f97ab056e64406ca93b13b67ef71bc33b07b1789f12881be6f7d3",
+    "src/game/resources/XmlResource.h": "eed15d7808c6aede9d2979c41b98fc5c15dc1d97ae8ae19f770c950b9e05628a",
+    "src/game/settings/Settings.cpp": "c0ca27c8940621646d8f668a005649bd21ecd732152440ddb6b0fcf9ca721714",
+    "src/game/settings/Settings.h": "841252e29290f0e2bb87431880d2d4a34c3e41d355da475adb70647d8e08c0ba",
+    "src/game/ui/ActionArea.cpp": "cbf9e677fb625d9e6a4c7b94f01bbedfa62e3bc6cae275c80f9a2aaec317bafe",
+    "src/game/ui/ActionArea.h": "f38d21300c886a97b5da137e3d8444d96fa45f50caeda2b9f7f4abc552e29241",
+    "src/game/ui/AwardButton.cpp": "89fb6bc0fe15ce809d241db0a558f23ae3a884f0ec497ba577f1ca1a89af503c",
+    "src/game/ui/AwardButton.h": "66cc9a48878ca357772c815ba374a83c970d85e68e673fbb3b8b15ca158c5cb2",
+    "src/game/ui/AwardEffect.cpp": "58762c96f5f1866dd4cdbded9eb0e02bc068e9532b2a138f100890f6da86685c",
+    "src/game/ui/AwardEffect.h": "912c6bfb6ec83d83cd19717991dcc81667c4f21ea3360351b3515ba766aabda3",
+    "src/game/ui/AwardPanel.cpp": "9dd962c3a32f71fa2a482325f17508a9c1910c9c195559beea64cd9ddb3f9ab2",
+    "src/game/ui/AwardPanel.h": "da46f258d2ed3d2f434f36dbf764bb5346a3b5d5f6069a160a5accedf579d75c",
+    "src/game/ui/Awards.cpp": "2fb2ab693f1c1aa30de8de95009d13c9ea1b8f6bcb6bbb395e7b0d30cf0b0faf",
+    "src/game/ui/Awards.h": "909d6d6ea69ce60341dbfdcb71681e00b14ecc962a4a91119c4a31482c6b7814",
+    "src/game/ui/Button.cpp": "b4d12a93067fc9a800b4f6e3ef975ec6f1f5c9b1094b0e6ac26df303973dd9f0",
+    "src/game/ui/Button.h": "00b5388f3a91c732353a3fc068d143c7e95c4d3619aa0e94ee9fe7c2fd384a9e",
+    "src/game/ui/ButtonText.cpp": "01c294f0902cb0ae39064b460ff036d1e40f18e2f09b35efe06abfc41185163d",
+    "src/game/ui/ButtonText.h": "351f15996b39d7178439b7df38d202b411b7b2fa4fa5722cd3a79023ec41a775",
+    "src/game/ui/BuyBuilding.cpp": "d5a4874640f0305cdd1349beff1b4c79009d8887de588464642efe2f1ca86f80",
+    "src/game/ui/BuyBuilding.h": "4aa30fab86443e0475bb691d7647b204583e566c916cc9754ab24444afa6a5e0",
+    "src/game/ui/BuySeeds.cpp": "43394b003304c69688d9f1ffa733a9f01d159691481e774cfebff4c34b443a1f",
+    "src/game/ui/BuySeeds.h": "d69853753f501aef18cf19c7111fc41342af7ac13d7cecd98295ae41eb154c08",
+    "src/game/ui/CheckBox.cpp": "3738d49016878639d40e205c74743c17943f76f3678b7eeb2b8ea394816963b1",
+    "src/game/ui/CheckBox.h": "c72e54ec62c51d8ee36cefef0fbc47cda6cdf42c56b16396f48b49147d78f857",
+    "src/game/ui/ContractDialogs.cpp": "41283bfaa258aa25be87369bbb60de45d7921649591a3d5769ce747981b6ae49",
+    "src/game/ui/ContractDialogs.h": "a1c96c1034c87e5bead25824c07e4e838cd30fe943bd5b504349a1d5a2590c90",
+    "src/game/ui/ContractLetterSlot.cpp": "79af5a23523c7ab9eb5776a74a8368ea487dfb4fef7d764d5f76f6361906627e",
+    "src/game/ui/ContractLetterSlot.h": "944321f108db2ef0c4016c8ae215c26eecac40c833226332b0a3965169fc841e",
+    "src/game/ui/ContractProvide.cpp": "f4cbd605acd2a1d7ed347144feec12a1e8d069262c9fd257d73d5f7fedc8add6",
+    "src/game/ui/ContractProvide.h": "ff7f7aada17f8df6bd9670ba88442e9591532f2c3b162b15ebbe6d032d0584cf",
+    "src/game/ui/ContractStatus.cpp": "d282db9e8e0dbc4859a25c4e42f0c0146fb80e80d7dff1dcea37210c916de648",
+    "src/game/ui/ContractStatus.h": "110345eee20a8de54d1b408e96599779c955b76a3b0b7c78972b6886448f7a13",
+    "src/game/ui/Control.cpp": "f5d6442d2f9766480b94d2d516986141cef9194c41b66c8c6f7579864f9c3b83",
+    "src/game/ui/Control.h": "3e21acf6b00c063c35231d8335cfe551b0ea700a4a77852df2f65dd87d31fed9",
+    "src/game/ui/ControlAnimation.cpp": "0a6618f5165bcabacd55781394e02989c23f9c821051d09c9f300f81ab6108cd",
+    "src/game/ui/ControlAnimation.h": "ed32e783eb6fa13c4ff6aa433a64aec34a946552388b2039cf02c94beac90ab5",
+    "src/game/ui/ControlSprite.cpp": "4007c8e03b860bad9ca25a518ea4860a0b373bb5d72ae78c18866960dc15cb03",
+    "src/game/ui/ControlSprite.h": "04f1d022c7f80132e3eb88222d37e98b6cb3bb64f5d2bba898cb4692e68d83ab",
+    "src/game/ui/Credits.cpp": "eba01e8dd7f064c276e812657e1312c65eeb888e84a0ea0ce0c2bfcc0e5c20d7",
+    "src/game/ui/Credits.h": "06dd0207a06113b31c2313c92ee654d78149dc96ce09f863ac57ce988a367a02",
+    "src/game/ui/DigBuilding.cpp": "f901338f6fc7fdaefb6c077ba029da635c3cf2257a7f268324f25914351702ed",
+    "src/game/ui/DigBuilding.h": "c2472d33787923a7875c3b307cd5c66db45d50150badc21554a6f07549334ac0",
+    "src/game/ui/EditBox.cpp": "a4add1426300cae36cdbc2aa22fca2787f9e1c9bfd0a0cb3e88b5baffe9e825a",
+    "src/game/ui/EditBox.h": "081f73409e4ea37b0c312a1e0f031062c6b97b4ba0efa9b8bf47ff919bf71c78",
+    "src/game/ui/ElasticAnimation.cpp": "b8a962d95d05a0c91be6a9f7c0d6cfb50894fe302d5aae198484d3c2dd051233",
+    "src/game/ui/ElasticAnimation.h": "541980304f74880e265e79183b9c05c868064fdd5ab6facbfd7b954a50314ec2",
+    "src/game/ui/ExitDialog.cpp": "159935f2d22665ac0c081ec79e7cc8359b8427ac64af759a77a3d9b7a536a103",
+    "src/game/ui/ExitDialog.h": "4c29a8a6eb24c6f62c99d5053f01ce4adf97645bcb86241bc8e5669f44fe1c14",
+    "src/game/ui/ExtendedTextButton.cpp": "e9c271fd04ada993d22ebda5bc0d4991f9c5ab5aa2347f772c3a8b831785f319",
+    "src/game/ui/ExtendedTextButton.h": "bc8b24107d7fa9bb3f8fceba078886f1aac2d31e7f9b34546b6875ac28d53bc4",
+    "src/game/ui/Farm.cpp": "1508f5446aa6864939f5df2070b9dc11ac88870e1d0eb2ab62197adf0bf06ffe",
+    "src/game/ui/Farm.h": "3acc0c1c2434cd03df6a1304571aef29012d1d4f7c5e0586ba0a328b834837e6",
+    "src/game/ui/FarmAreas.cpp": "0a95b1c33e1d8a18ca6a392dff0c149f52e4d32c859dd9a8c1bea21773a219e2",
+    "src/game/ui/FarmAreas.h": "0fe63a5bc6bd8854adcd906cf32f90a11f63182cb5766e983707daf5f35b25c6",
+    "src/game/ui/FarmField.cpp": "f37fe0e8bcaab17eb1e09fadc0418fbec5f023889cafc4c420542f5075b616ab",
+    "src/game/ui/FarmField.h": "83c0ec2d7aace3fd20bf4a7a34e20a28fbe36aafc7860b47d4a2168f6b2adc64",
+    "src/game/ui/FarmFieldActions.cpp": "219b6352e5eb01686acb7c99a9ebd5ee9747a23e95a76285a7096b26408e874c",
+    "src/game/ui/FieldObject.cpp": "b8feae7eb237b640720148ed8df6c9ec1228ab01f568dfa5730b21dd496fbe7b",
+    "src/game/ui/FieldObject.h": "171d04fd649beff8dbc3c2f1946556a091b08db73a4cea7d4b6d84d459e9e790",
+    "src/game/ui/FieldTip.cpp": "1bf4a493abd5ae982959e5a5128010f2f5d43ae165be20d5a19880b492b612bf",
+    "src/game/ui/FieldTip.h": "21deacf680d1fdcf0ca574daf039d828497b7f35884102b8313751d2824f6bdc",
+    "src/game/ui/FlyingText.cpp": "0078e2e1d8b249e0a01ad386db1cb9c20369a2b7a2164a34ff2fd586d8d4c932",
+    "src/game/ui/FlyingText.h": "a82c0faebe9cd1f25467446e4f646c5f35bb8d7eda860041f07577b5fb3166d7",
+    "src/game/ui/GameAwardManager.cpp": "7d4cbb3282f741fc852bd028bfc4894a0e3e42e164c5da9d2594f88497307443",
+    "src/game/ui/GameAwardManager.h": "8133807c54c67a8a73751a4e2339b9253d61dc9137971fa786105ff144057e7d",
+    "src/game/ui/GameMenu.cpp": "68408f603395873d38beff51f9e9219bfb0ec4324e004dd67f7a9a241d6828ee",
+    "src/game/ui/GameMenu.h": "888550b4938d132a25229d541b0dadddb145ffcc8d38d3cb1f526b0550dcd4da",
+    "src/game/ui/GamePauseMenu.cpp": "b3de790f30b36549b5e9b64cfc676c164eaaedb9e9cfe35fd14ba97d42345787",
+    "src/game/ui/GamePauseMenu.h": "06ddcac2ae2d852e765989349e364afa9aa3c4f019c8c3df152abdef996cc724",
+    "src/game/ui/HelpView.cpp": "c4ee8b63b87727b0543e325e1f5ae8f9901f01aa2691b03c5717983239e43a3b",
+    "src/game/ui/HelpView.h": "c4d5a4861e9813ea42ce96ecbbbe3339266416ed8d756e2ac947bb904d336d49",
+    "src/game/ui/Histogram.cpp": "584dbd5282b09fe46ed51d301915c75c9205599e83326f21ec4b8ad2a509432e",
+    "src/game/ui/Histogram.h": "741fdbf541dc64778f3ea548d605d07f949ef521747719f080178d0924c9e55b",
+    "src/game/ui/InputBindings.cpp": "d84010bacee95cc6c9de508bb6b4ade7ca391d5a5911d01b4c5ed2f0c1d5f968",
+    "src/game/ui/InputBindings.h": "728c4fa29c2cbe073e8bdf7ebe7b25d57fa2d0a64481fbc71217d77f77ca7f1c",
+    "src/game/ui/InputDevices.cpp": "839f380d8d9d73b54031baecaf3f4ceaaa96cca2dd9a6ab5bb02279da4f1feb9",
+    "src/game/ui/InputDevices.h": "a1599f191895b418014c9381081e46af76a54721fd51a5b89cfc07c3fb7a114a",
+    "src/game/ui/Journal.cpp": "15ca1601742d5f547a31150c4580aef74ab407742ce87e76083af5bad4d8f3b2",
+    "src/game/ui/Journal.h": "94ea43f448cdb811ee79c63595552d4f1754014f538d28311574a400e93c4190",
+    "src/game/ui/LetterSprite.cpp": "a4d418c4fa5e2e5ff1cc478bc7b68aa4f8c2fdf2dea4754cd20f402bb2f2a725",
+    "src/game/ui/LetterSprite.h": "2626d5d11649986a286ec245db4ed2483dc1c1d17575e1e1ca61d44a59495973",
+    "src/game/ui/ListBox.cpp": "83db5993c7c1928bca7fcbd031affffdebe318261212024b737adc52c7d4c672",
+    "src/game/ui/ListBox.h": "37c62a9cffa21b00ee0465b8ca35d9872685ee0c7e21d75a2e167c0d2fbf84bf",
+    "src/game/ui/LoadingFromLog.cpp": "9baecc879530f32cec14b621d0c6fe58679329200417f127be967f04f5f5e0e4",
+    "src/game/ui/LoadingFromLog.h": "d90b96d88abdf72465483289886b9ebd064cc00faea36477ce76a6175c78ee91",
+    "src/game/ui/MainMenu.cpp": "df2d92eaf325851f6e9ade8ecb56dcc2165a02af5d28cbe1d0f5814f773b74e4",
+    "src/game/ui/MainMenu.h": "95fb74bff12172ed5ce50fe45dea7ce0a1f5aca2386657a7ba7f5c6bcb0d81ba",
+    "src/game/ui/MainMenuContent.cpp": "70017a0ebf20a172cc61a2639a46941dd0821e41ad0bd4f9dfde61b70634a743",
+    "src/game/ui/MainMenuContent.h": "f448ca88aa5687bd11d51e4ea1dcc230aced7c28c3e94d85cadf1a979acd2b59",
+    "src/game/ui/Manufacture.cpp": "c6b426fffc4f979297e43adbefa0f2f4b5c0b0879e7251634c220b68f0cca6e8",
+    "src/game/ui/Manufacture.h": "019242e6107f71fd8e08ce1557122273facd9e42e5962a99f8234e797f2761ea",
+    "src/game/ui/Market.cpp": "2ff5e2639a67be42a20755f9e8e9b40e845ce44b8cfc25814f9f534b510e0e0e",
+    "src/game/ui/Market.h": "71f56e31816a96b4cd94b3cda8f98afee09444a566f2849fd9a79201d6490191",
+    "src/game/ui/MenuView.cpp": "5c0f6ff47762eb25338b77e106da73dcd04c9650d3621044cc88802e35eaf79d",
+    "src/game/ui/MenuView.h": "f13b91a43d082b6659719a7a2d0ec46c9e1bf152105ba5bfe743a82e06589980",
+    "src/game/ui/MovableUnion.cpp": "a43595bc8de8288e23b985ce8f2b336bded56074b03275c9e60bf07b6750b70b",
+    "src/game/ui/MovableUnion.h": "fafb6e2963f468428b1d0aa962d12e301bfd4bb0dda837b6225b5963951c5254",
+    "src/game/ui/MowBuilding.cpp": "d3bbd9761bfe70c8394a670fddf8072423bafee227390bbccb44a89623576c2f",
+    "src/game/ui/MowBuilding.h": "027c2204d1991ce4855c2b8928a7a3b402915cf12a6f2db43eff94bcd8aa3d4d",
+    "src/game/ui/MultilineText.cpp": "6ac371e88d5bba79c4fd5aa0e09d3fce9e47b1fd58991c595ac48fc690824ca2",
+    "src/game/ui/MultilineText.h": "69526ee28001765ad3ea5756fe96cc9049accc368b3141a4ff4e1410d6853011",
+    "src/game/ui/NewUser.cpp": "4f19d83c14293d84e1cea3c42c1d950a7816ccae00888947a64e8efca328e6c6",
+    "src/game/ui/NewUser.h": "2d34e1e50046e16fcdd53a25f2ce3d153d5da6f87ebed9a86317d5e8450509f1",
+    "src/game/ui/Options.cpp": "0306e1fad99341d10387490e8417c58c0c334bb14f0124eeb9ad80f34036d7f8",
+    "src/game/ui/Options.h": "9b773f76c2b33c8d887143a18703f4a50d6e9675be2cd6be0815379c02ba9cfa",
+    "src/game/ui/Person.cpp": "22f200c75659c5ebd1641e254a85b7e51c641ee0991ff617bfb06c34b4bfce44",
+    "src/game/ui/Person.h": "5293ce363ff3451b09796f0c455427f1278603ccd63009f47c2e0cdbeaa0b3c6",
+    "src/game/ui/PersonActions.cpp": "6f55c2d5bce0ac5d0d76e7846147ace56b459cc76d51b0f6da200e0598e979b7",
+    "src/game/ui/PersonSounds.cpp": "511f8d8aebcb147880016b1b260c7061ef67a0dbb528644d4d65119d22456657",
+    "src/game/ui/PersonSounds.h": "269577388dc286b4e5de4648736dd3774811a8117133c29c26c76b2fa28bc16e",
+    "src/game/ui/PersonTasks.cpp": "d11ffff2156b2e2688911ecc94309d15fb7e5142c262dce511ef5a8af9e83bae",
+    "src/game/ui/PersonTasks.h": "7968b0ce3359c592010aa128a6c17d824b7a7b0a23627ba608f229ee2534a116",
+    "src/game/ui/PersonVehicleWalk.cpp": "e1f4d3dd4ddc384039ddf8cbc35aa971238e028fafd6510a4a9a15b7535c30db",
+    "src/game/ui/PersonVehicleWalk.h": "1a51455a95f2d1f316da52deb18075b0289f304a6703eaf4429525c5e13117ca",
+    "src/game/ui/PersonVisuals.cpp": "7fd9ad4c68235c7db8259c59af9eca7b465fbfa07e332acb23071d07e77b045b",
+    "src/game/ui/PersonVisuals.h": "73bac5c211e47bdc1e7bff91f7c83621dc63d638d1dd77e357dc8ad9673fd9a2",
+    "src/game/ui/PersonWalk.cpp": "696ae74ead7041679ed66a38d987ddecf3b27c66a6312a8017bde9a2637c91db",
+    "src/game/ui/PersonWalk.h": "7df13de3b696302a3fc8298f24fe6a74484f95c0ae7b4bcb5cff250533719cbb",
+    "src/game/ui/PictureButton.cpp": "62326a543f010696595cdf4b7eeef61722d62d465d0b1b280790484675ed4eb7",
+    "src/game/ui/PictureButton.h": "10095e21d807c5e99c0257f962e842b5bf1a91f57cd6492defaef949be2de16d",
+    "src/game/ui/PriceText.cpp": "3b84e943d4d531ec4b90c67e5c551207248e28a606d727a27c292a2a80324c5c",
+    "src/game/ui/PriceText.h": "f86263dbb615c08667efb15d4fd94bab14ca01e176963e05c71060b39ca084c7",
+    "src/game/ui/ProductionBuilding.cpp": "f96708760d6477b9c8618b4d3b605013b2afcb48e1ef68f95510c590cc4212a5",
+    "src/game/ui/ProductionBuilding.h": "633d9f8afa50ab8070657551905ebeabf30d5205323d60b5ea49ccf86b3a6989",
+    "src/game/ui/ProductionControls.cpp": "2c1cf63fa705e53e22c8c0bd03bc50060a8682278022c2af9eaad10d0c082b13",
+    "src/game/ui/ProductionControls.h": "1710f197341d0f41daafb5b11f473de5efad3f6677d08a08cd67f276d6a91060",
+    "src/game/ui/ProductionPlacement.cpp": "9ea17e818cd8dd2934d704d369764a4f66238037ca30ccfed9cdda7fa79fc623",
+    "src/game/ui/ProductionPlacement.h": "3e7dac769a318bc98748528f98906aa5dd0a821c7c01eae10772781295e9efc7",
+    "src/game/ui/ProfileSession.cpp": "39823ce254d1e4bc2d69add05221fc879b1e7b17facb33ab9f279128599595a3",
+    "src/game/ui/ProfileSession.h": "3d9bbc2d1ba6a728b232f55cdbf40ec6c0230f4777a870a204f1f357bd3bd53f",
+    "src/game/ui/ProgressBar.cpp": "8cc039c9043e37222146f3500f1cd497c8f6bb65e1f1126315fa591af0393f20",
+    "src/game/ui/ProgressBar.h": "40f08dc1d79aba39e880d25f9149a7d3d266d851b5718d7edb2ee6164b43a2c9",
+    "src/game/ui/ProgressDiscrete.cpp": "1d9dde4d35037dc0be99720fc5f6467d03efb7e46509b763e66e2f998f606f12",
+    "src/game/ui/ProgressDiscrete.h": "6b16047e3b2d39e6fec04c188c914a16f507275eb5504308b107731851e2e814",
+    "src/game/ui/ProgressSprite.cpp": "d95281df17547defb1e5328d041b5ee401be9328e737edf59c162451fa494c9e",
+    "src/game/ui/ProgressSprite.h": "9832b10833febe48d17d3516f05472d8c8580fabe8877e05039fcedcda29ea02",
+    "src/game/ui/SeedPackage.cpp": "cf9bb51c22758a1ea96608d9f848caa4df7a76075052b5aa2fa68806f829479e",
+    "src/game/ui/SeedPackage.h": "84b90abe3f1024a24937be992cd8b2e3fa75e5b216e64467e63f1dcc16efb7ca",
+    "src/game/ui/SelectProfile.cpp": "f283e80a0f2bcc57998e4d23d845c63320684e59abd9588cb68ecf8f5c8b906c",
+    "src/game/ui/SelectProfile.h": "48ed02a3f1883d6ac0746ebf5b95678bbd5526083abbc610c5629f5740d93c30",
+    "src/game/ui/Slider.cpp": "1f1d3ce5516729e72839047be8157239fc3482e5d11676188963434fa7832bd4",
+    "src/game/ui/Slider.h": "8eaf74a296a5a7cbfcf1d731cf8c0e76a56ae8f4f8d43d241ae74de73c8cf899",
+    "src/game/ui/Sprinkle.cpp": "5285d7eb0996bef49855e5b2226ce043ccd229049efbdb63f71039693895688d",
+    "src/game/ui/Sprinkle.h": "66ec0d28ac8006d8dbe7b212cd097672ef864c83be382964a653642d8c757799",
+    "src/game/ui/StartupView.cpp": "ecc689f9a48433027a237cc71d2ab20e33f0ec23c29b87ae21f7971d6bf1d200",
+    "src/game/ui/StartupView.h": "21407e4acd8f56383cb3a0b92a497eb13c86cb6e4ab12aa3aa1fe57f0d6dd26d",
+    "src/game/ui/StateView.cpp": "ce03be71a0a8736ba57d46c503c1209c224c0550b79386d5308dbb7567daf5e4",
+    "src/game/ui/StateView.h": "f176d000fef9aa6f81db9c54bd56fb32a0f1626189382ccd67d8289f6f7c1457",
+    "src/game/ui/StringManager.cpp": "4610abf65df3995ccbdd41e309573fb32aa4c6f5a5f6e8b1d49816f5266cffff",
+    "src/game/ui/StringManager.h": "b619672b6d7d820392cc1bc98e99fca251457ece4dac77d2c3eb245b146abb05",
+    "src/game/ui/TextLine.cpp": "0bc3c72716e259987bef92f4aa0ee44af563dbbac467eb66188af8d60c0a56ca",
+    "src/game/ui/TextLine.h": "5b766a6e11fa7c815b7e6f84f51b9f89a27054012dfa2baafac6b1071be6fcf7",
+    "src/game/ui/TextLineLayout.cpp": "8186674115f4ec03e28c23a9384a3c655027fcfa39b0fb0815151f0b39a9ad3a",
+    "src/game/ui/TextLineLayout.h": "8bb0c54bf302d61b27da10994810d478321811e5b7576105d61e7d993f9c081d",
+    "src/game/ui/TooltipFrame.cpp": "cdf482d42fb29062bf8fc533131d7b83c59acbbe6ce3bc7dbce919d4c1e7d1f6",
+    "src/game/ui/TooltipFrame.h": "0a12d9785576ca7348803b81fd055ff889bee6f2dc7d28f2b0c2cb60305ea7c2",
+    "src/game/ui/TutorialManager.cpp": "6617fc0fb836670cf376dff697180e55fd18f6dd92e9ee6d17096b3ab4c6a851",
+    "src/game/ui/TutorialManager.h": "43396093b04a4a96b187977e99247f03da43824371e22d055221f2c4b7bd94d6",
+    "src/game/ui/TutorialTips.cpp": "59d2d3f161f982ad66d35706658709016e9a8f98cba55ab7b414e008bafe4529",
+    "src/game/ui/TutorialTips.h": "5560aac0fbdfea5698bc4a2224a35c6827a7fb986ad9db9822b3e06e1d8a63ee",
+    "src/game/ui/View.cpp": "415c82f83420f4c60ece5b78f829a1b77cfddd592f7e964c46c86f002749f1ab",
+    "src/game/ui/View.h": "3ada58e8310d1c1eee8a4b377fd02f792cbf170f571f8840898747cbc45a36cc",
+    "src/game/ui/Warehouse.cpp": "da0e6f0e6e8b5f665cbfc4bde45cf9937cc0d27cc65d88c5949a864aaad24bea",
+    "src/game/ui/Warehouse.h": "587d074c36144aa4eb1585bbc2ad912f342041f2c001eff552b3b34778fd8828",
+    "src/game/ui/WarehouseTip.cpp": "0a8fbd03b3928e3c24bfab8cf1b241cccd367189548d0c821f9acc969a9906b1",
+    "src/game/ui/WarehouseTip.h": "148fd51e7f7ac6dc7b2e973dcc7b7fd076d9d430fa6ea7f7bc779f14208e48d5",
+    "src/game/ui/WaterEmitters.cpp": "e88afa7d7463543af563ea2faba195d512a8e6df7d3cede6745cce8028f4cce4",
+    "src/game/ui/WaterEmitters.h": "44c030d9e9bc410d257e2538f37633cccc4abfdc071ba33c649654689c5cb139",
+    "src/game/ui/WaterParticles.cpp": "f2fab28b6f7dfd8060f630feef4c10c2b3cb140ed5a0019df4f3a6726d92e565",
+    "src/game/ui/WaterParticles.h": "ef248497ca31aa9d0b20d41452dce8885477164dc8a3bf3a9883155af4f3bd5f",
+    "src/game/ui/WaterSource.cpp": "31e7d8e0062937d75f96af0e7f4ec7f22d8bc07015e04f099caccfbbf6bceccb",
+    "src/game/ui/WaterSource.h": "d007ea5b8d220888b169fcc2cbd0f994877da0f8d1cfba925318b777f996a054",
+    "src/game/ui/YesNoDialog.cpp": "ecfa881f8b3dc27632c34553a0cbf9dc8dbad80ea2f40efe21ae05b35e8d61fa",
+    "src/game/ui/YesNoDialog.h": "7439c7fe76f162e95af29c17306b321c7e11c03e96adbe4b8d0020816f6e1f40",
+    "src/game/xml/XmlDocument.cpp": "0c4f6efc2fcd86e1ac4d9a244c71d86d90cfe29cf207ce999a2bcf2e5c0204ea",
+    "src/game/xml/XmlDocument.h": "7fe6f74034f67a8fc4d8ba2099a81c319f7d3bc28f1a5cc705800c4db6394fb0",
+    "src/jngload/Initialization.cpp": "d1c7fe3c136ae4c9c3e1e6ec69021948ef9087fe7f9001eb50edfcba99c9d6c7",
+    "src/jngload/JNGLoad.cpp": "81558ad85e2e1f4941f478fbdf7d7de7aa4acff2daf42aa57f39d8a19c3c2de8",
+    "src/jngload/JNGLoad.def": "5f073481f932b10e3107e2d96e44e07de1b676e52f6c5560e909182780609df4",
+    "src/jngload/JNGLoad.h": "da3b8c584240135122794cb4cac93f2e27c00cc3e5a92467935fa34942edc2c4",
+    "src/squall/Parameters.cpp": "9abfb8dd6d3d2bea9d5391663996947a65d6169604dec638ef79a8b3f1e98508",
+    "src/squall/Parameters.h": "650bd4c9310d124691d15218ef000c92d8d916ac356f6c96b4306b91af29a04d",
+    "src/squall/VolumeTable.cpp": "04c6167fa910bd6716db4e44221dcf6465d79bc594dd39f2201cea48ae96b0d1",
+    "src/squall/VolumeTable.h": "1155d5e75cfc5cc592d9b7af3c670e66314c576f62afae9b3ab49e49201a87da",
+    "src/squall/codecs/vorbis/COPYING": "045268414de7e90eb43968f749e99b9d463d64a4c3b2029087043e2686eccec6",
+    "src/squall/codecs/vorbis/NativeButterfly.c": "bfff72d15cddaedbea2e6ad6b5ba6bebbafbf0b0bf7c7fb6084947e0561d37b1",
+    "src/squall/codecs/vorbis/mdct.c": "8a4fcfde0ad92eb87e1d32bec640b1635ff94f6db3e9c318130efe71e4cfde77",
+    "src/squall/codecs/vorbis/mdct.h": "2fdd40c7471d4237ef20f0c408ae69616ffb8fdef51b6b4ebecee31c62619b93",
+    "src/squall/runtime/Abi.cpp": "43dca618461f58af0c4b4ff479a1690a892fdd2ad04fa85ce3619e6dbeacd7e6",
+    "src/squall/runtime/Initialization.cpp": "0119db6f8b7d37f7a6f0ab3ed67b5a9adb199225daab5cd9544a7aee02bd5716",
+    "src/squall/runtime/LICENSE": "8b2ee763bd48e9d0ba84de84433b3b921cb666e75d5ba2949c78b11677e06ef2",
+    "src/squall/runtime/SoundEngine/Channels.cpp": "64eef2c7ebbaeacc411d9f9ccf60864544f0b18ba108b479909220141b2c4ce7",
+    "src/squall/runtime/SoundEngine/Channels.h": "6dd5939b4803ac975b799796fcd2ea9a0a78db8cbb7a4cc8fd944d1181e90523",
+    "src/squall/runtime/SoundEngine/Context.cpp": "8260b5fc606371d67294d52a9d03c8f83586933a77cf06756c1ae9e31aeb321a",
+    "src/squall/runtime/SoundEngine/Context.h": "42828bfb0c74a184522301a0fabf59665cbe35e4da1a1411da08b3407d8c9085",
+    "src/squall/runtime/SoundEngine/DirectSound.cpp": "f29ef7b766b79a53944626a294954426a633e7336e69ab67bfe68b29c78f492b",
+    "src/squall/runtime/SoundEngine/DirectSound.h": "e6a0f2f65ec962f2e2a2527923f80204acd795ed2db37ef948d84c569a41fc50",
+    "src/squall/runtime/SoundEngine/HiddenWindow.cpp": "9d934ba23bc5f6c3d7724d8ea1c57d57144a0259523a37abf801ca840fef203a",
+    "src/squall/runtime/SoundEngine/HiddenWindow.h": "ac836554d6b9d993207beb11c074f379dafa024a2375764330572cefb96c8ced",
+    "src/squall/runtime/SoundEngine/Squall.cpp": "2852671b248f0d7275c1b30d1f2c9eedc30fbbd2fc860b0112c60365bb1970f9",
+    "src/squall/runtime/SoundEngine/SquallApi.cpp": "7255ec4b310457f362be8e27b9fc5aa766d9097b0526970a11703dcbe90c9905",
+    "src/squall/runtime/SoundEngine/SquallApi.h": "2f7e061abaa9ce09004db088967cebc308049c299e9d7458ce7a31b216bfa30b",
+    "src/squall/runtime/SoundEngine/ext/Eax.cpp": "720c3db7cc29dbe25ad996641fb360003d5a0e70830e39705d2e1738c9f8a48e",
+    "src/squall/runtime/SoundEngine/ext/Eax.h": "fd6d846e6cb7ca046ed3728bb4d41b60445b659e544f90dce333d5b0458f4d8d",
+    "src/squall/runtime/SoundEngine/ext/Eax1_api.h": "d5085cada87bc30984f0d85823cc0619e64b20c0ca3344ee10fdab3fb3bc2cf2",
+    "src/squall/runtime/SoundEngine/ext/Eax2_api.h": "818a938b1cbb24b157bd3845728c220c350bddee21afd2d1b0e3a72a6bf4d7ac",
+    "src/squall/runtime/SoundEngine/ext/Eax3_api.h": "b97b9365ab466a8493a708e644de44d717600b73eb6abc392a4ac737f5eaf68d",
+    "src/squall/runtime/SoundEngine/ext/Eax4_api.h": "38ef376a59d4d2d0d2e6ffa79037537ed8e12e45e78d5483143b53f74dc7c39d",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.cpp": "8373265fa08618d1820a0a443558ef2fee284fbe5f5d126143db959a16bbd394",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX.h": "ff2424d9490cf8bfe1895eb47acc75bdae60e0b6924382f0da9c9e618a151662",
+    "src/squall/runtime/SoundEngine/ext/ZoomFX_api.h": "280fa94f07fcc36609f0052b4d9dd1751554dd49ec831257a8a89a5e8fe73f65",
+    "src/squall/runtime/SoundEngine/ext/dsound.h": "b075a0ef62d2e57bfdefe13a34f80e2d151496494d446aac6807e6c3ee7fe7cb",
+    "src/squall/runtime/SoundFile/AbstractDecoder.h": "14aa1e2391c826eb05ffd0b836bb6704ceb906eeb30864b5cbc917e7f12d007f",
+    "src/squall/runtime/SoundFile/AbstractSoundFile.h": "caa21195ed9a16467eb950d27f84400ddff71aba8669e5e8db8526c379a03b09",
+    "src/squall/runtime/SoundFile/ExternFunction.h": "0a26502443b3daeaf33f8544bfc7f5a0499e139797c7ebe08e7a73480ab94bcb",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.cpp": "49dee53da239f1ebe8b6b27a7f1d099e4fe4b5298c36dc421a943a483e779b6b",
+    "src/squall/runtime/SoundFile/MP3/MpegDecoder.h": "ad59a3f2271cb0ef5f8c43027ff8b7f3c869bc4f3cc2a53ac6fa64d1ef737dc5",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.cpp": "6871d9cd2ce09e0f7941cfe0562a9d581e1abc341464163531b2e400158f43ea",
+    "src/squall/runtime/SoundFile/MP3/MpegFile.h": "8d19d3389baa7ff9a9cb75186c6bf11ac69901f17cccc1cd3af14bdf26c4df7d",
+    "src/squall/runtime/SoundFile/MP3/MpegHuff.h": "d8d95e2d816ec1f33b820205e9fa3ccdc72271411f3f72835b8530f32f7dd003",
+    "src/squall/runtime/SoundFile/MP3/NativeMpegMath.h": "1802bfc7781c19c5e1ccad9d12976ed968e21c3035fe6f6c3a7186e6c848ae43",
+    "src/squall/runtime/SoundFile/MP3/l1dec.cpp": "f92b9558a3a1c6c54b1585d4ea8c6d26ac56798ce562f690d1d7266990c1d37c",
+    "src/squall/runtime/SoundFile/MP3/l2dec.cpp": "9375b9526db2980488de376060f08f2e199975b75955c998a02362207edc8050",
+    "src/squall/runtime/SoundFile/MP3/l3dec.cpp": "98e683e464b9a1ae11fa9299e1b41fb0cbbc730367be62daa4d0544ce480c958",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.cpp": "d89ad6dd34da011c201de78136917d40dc235ce5e1147e1de860bbe00affc278",
+    "src/squall/runtime/SoundFile/Ogg/OggDecoder.h": "e6d45770383d57303b90e3f997bf59051cc283f2f45755dd7eef17710c7a6fb3",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.cpp": "d49eebf359d7ea4e3272369242c2d5dfd45dc285597876571375041e027f60b9",
+    "src/squall/runtime/SoundFile/Ogg/OggFile.h": "c4cbd6c255bfced2161bf8c96997fb94ac359947d45d6d1ae1ab55fc9a730a43",
+    "src/squall/runtime/SoundFile/Reader.cpp": "6b7472df022b418253a53f90faeacb5e3520e23db06a09d111503dd09fa4cbcc",
+    "src/squall/runtime/SoundFile/Reader.h": "a571cea98527a89749dd4fdbd512c85b19bf76b5f0cca5311b451058fb219370",
+    "src/squall/runtime/SoundFile/SoundFile.cpp": "69556cbef3a02c22ae600072da62bfe06c79ec1233ff317e34ed82df82ef2ae5",
+    "src/squall/runtime/SoundFile/SoundFile.h": "8a6824dc321c9ca74daf0090840195169f44ce147f0f4b2b48fadeadbbcfa874",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.cpp": "af6024b9f16896e861343f7e391c4ec6c1074376e3a0959d676fc3e5fc345723",
+    "src/squall/runtime/SoundFile/WAV/ImaAdpcmDecoder.h": "6861f858d8ef8c7462ffc4382cd987e9861d9c3e718809ffbeac65b6c595d86e",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.cpp": "8bdd746b4db2eb4d8fe913dca4aef6d3fd3f4f73c3fb0707d2113534b7c5da39",
+    "src/squall/runtime/SoundFile/WAV/MsAdpcmDecoder.h": "c8cfe5c03e61f150e8fedd6163b1d6dbf037d1a93ee1acfb5fa4c598a09b5366",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.cpp": "e2480f56803c311a654b6793bcdd5eb42c3dcbca0002d5e6951560230e044993",
+    "src/squall/runtime/SoundFile/WAV/PcmDecoder.h": "b955ca1d813845101b7dc551f0e80befe08834c26d96d88f68aa99b5ac124fc0",
+    "src/squall/runtime/SoundFile/WAV/WavFile.cpp": "af0b87a8f10bd66897aae08943e8f4fce76280654d46bfade932d59d52bcf3a8",
+    "src/squall/runtime/SoundFile/WAV/WavFile.h": "89ec2d63432f0208bd9d8bf5c5d237237cc0c64e530b8a4f168296ecf7ece7f4",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.cpp": "e5857408b02b95e523288fbbaf6c06a349843b2ec9ab821915ac4ad61200ee24",
+    "src/squall/runtime/SoundFile/Wma/WmaDecoder.h": "639b2694930bbcb4939c836e39167fb7e1df5dd5c8fa5f69f58bcfe97bce01b9",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.cpp": "abe058cbd0f15b275b76d8329db185232fbea4aef335f437949788fcf6f5bfaa",
+    "src/squall/runtime/SoundFile/Wma/WmaFile.h": "ba1123bd5cb9b451fc4ef4c6de3515fc7af4ee0ca59ede8cdb6fc35fe25b8e56",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.cpp": "dd4669f757ed0e7925a2cd3d93222675f02a65c6e488407c90e307260c3ba404",
+    "src/squall/runtime/SoundFile/track/TrackDecoder.h": "4683abc920286c0a308c1a0b0217d27b597f4c3082876919f5b48fc3e10e9cb3",
+    "src/squall/runtime/SoundFile/track/TrackFile.cpp": "c607a631943154f99c08bdea52d40c5c0611f63726a513ea3a182685d5d9f7ba",
+    "src/squall/runtime/SoundFile/track/TrackFile.h": "89ba39fc7213ea56923a78c2616d4041cd64951fc68615701617866600d27e2a",
+    "src/squall/runtime/SoundFile/track/fastmix.cpp": "684ae14158a536fa0ca75a08e3988014c79ebc59edc8f9641b49d50448f9f784",
+    "src/squall/runtime/SoundFile/track/it_defs.h": "b491d689343c4d3f970852087502c6b4a0272d65500772f4e6195c6f80cb0698",
+    "src/squall/runtime/SoundFile/track/load_669.cpp": "d02d70f4a8528df5b6ba4c79b667023a5aff273c6521d85a477496cb5798bfc9",
+    "src/squall/runtime/SoundFile/track/load_amf.cpp": "4de8093af34b63db19877c60b9afc4358f563beb4ffd5da7f1dab5c4182151f9",
+    "src/squall/runtime/SoundFile/track/load_ams.cpp": "b26e38b6d109f769cdd7d7cd44f5a73306fbb8b1d8a1cfa0f10456a6a14e85cb",
+    "src/squall/runtime/SoundFile/track/load_dbm.cpp": "2ab9e894b537c34930823ae3382508ed15d4bc1f738e1201ea41b7cccddbef1e",
+    "src/squall/runtime/SoundFile/track/load_dmf.cpp": "7c264ad8983be772bfc7bc4b34c3838269fe6752985505aa4e9400073d3841ef",
+    "src/squall/runtime/SoundFile/track/load_dsm.cpp": "e67303acb2c768f62922e9607de74d8d63792dee59bb837ba3a4226dd7a7d642",
+    "src/squall/runtime/SoundFile/track/load_far.cpp": "07c537e94e2ae250724370e6301251a294ae39f3787d94b85023eb99314c0e71",
+    "src/squall/runtime/SoundFile/track/load_it.cpp": "a769cd3e072021e671a32b3ff341c0557da485db69d5151b61814be22f4209dc",
+    "src/squall/runtime/SoundFile/track/load_mdl.cpp": "8d14b355d147c8efbb94412a541ca2f052ad3d8cdfa30589323a9306b990fc97",
+    "src/squall/runtime/SoundFile/track/load_med.cpp": "c8f3fb032d56e504b848a07fb8aff83564f6a9ec9cea243d1e82601dbe038c1b",
+    "src/squall/runtime/SoundFile/track/load_mod.cpp": "d78dbd349406d4f269b66c78877e2605bbe370a911c8e3c62ca4f73862e8d3c4",
+    "src/squall/runtime/SoundFile/track/load_mt2.cpp": "3e9e90f74c4a4570f32670cda72fa18eaf946feea6179073afa2fa482e00acdd",
+    "src/squall/runtime/SoundFile/track/load_mtm.cpp": "ba3b731525d0a3a44bbbc05a81df5e2e99debd034d5293d480e205d9de973c11",
+    "src/squall/runtime/SoundFile/track/load_okt.cpp": "d8752ce97baedb13ceb75c146dd4d29d4ede94be034b28a7329faaf93dced22a",
+    "src/squall/runtime/SoundFile/track/load_psm.cpp": "4662dc0140c6bbcd817f4c551318dc43f6470f67f397e15e1ce00fb4aaa89927",
+    "src/squall/runtime/SoundFile/track/load_ptm.cpp": "ffaa4b3dc8f467e7d46fb8f80579ed461ad557758b4a53be7a0efc65badb1ab2",
+    "src/squall/runtime/SoundFile/track/load_s3m.cpp": "28a22e293d57610bfd324cb5e539bbef31d110c7bc0e9da2be764c80dc7f90bc",
+    "src/squall/runtime/SoundFile/track/load_stm.cpp": "b9f3aa47abc49de2854ead657be6ef8570a8f153533e1fcb1888acb8539e3952",
+    "src/squall/runtime/SoundFile/track/load_ult.cpp": "c3bb85203b95b615d0aea53b2dd38a1a981a53896c542100db8f557f4e1b5dd7",
+    "src/squall/runtime/SoundFile/track/load_umx.cpp": "ba895cdf5c262c0331024b7bbae1a6388d075ecb5d90bc065baef559020269ad",
+    "src/squall/runtime/SoundFile/track/load_xm.cpp": "ae296c041957e537b9277bda3f576b1ad90c34a7404ff77c0564d596f4d6d562",
+    "src/squall/runtime/SoundFile/track/snd_fx.cpp": "25d99e70d2d15bcab39d16bf63acaaa55242fbb6d40286b05dc7b85c4081bc36",
+    "src/squall/runtime/SoundFile/track/sndmix.cpp": "d4fc2796e73c5aa9767c7e1e5486ab85fb7bd3677de2c3769d1f0b970ff97d5a",
+    "src/squall/runtime/SoundFile/track/stdafx.h": "5fce14591f4cffd1c710605e9ab04d236aa0887ced6cbde333453a6e412adc2c",
+    "src/squall/runtime/SoundFile/track/tables.cpp": "4505da9e3a3c9267df8b1ffb0c6a179f7689ad02dd07f741c3b52113fad01001",
+    "src/squall/runtime/Squall.def": "11adf81ca9722174ab945f02ebf9af8e60cf79832518d297b94ca6d3963a0d98",
+    "src/squall/runtime/Squall.h": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
+    "src/uninstall/NSIS-COPYING": "998499f0ae40d6a70277194e0eedf3f12cd56eb6d86c96670a202c17e1923459",
+    "src/uninstall/original_removal.nsh": "eaa055d436a43bffe394506326d15604741813587fcd46b84ef9e9e281e22b25",
+    "src/uninstall/reconstructed_uninstall.nsi": "025d6d511893b3270b2954986756dd6e329254f0622544cd78f0307b1e95ca45",
+    "src/uninstall/special_offer_page.ini": "6fee6605b9f65ae442205315b9fd48d96e9e8f7df86d88b162ca8a7cbfdf0430",
+    "src/uninstall/uninstall.ico": "a8b69799a78626652da8f5e6ce377e113754b825ee59adfa35b3f591d7928801",
+    "tools/action_area_oracle_cases.inc": "eed26ab7db1ae092d352cd0e52368dc97b2c745a845439a7bffcc2f02be95579",
+    "tools/action_area_oracle_services.h": "e6165995b2ed1a084be2310fb2a65fe02847b60056a45fabdfcaf433d0d92bfb",
+    "tools/analyze.py": "2a4ea5d90ca8ac71829ce56e0c051f7736a4f83ae139e664eb2c870750c02c81",
+    "tools/audit_award_pixel_order.py": "5786312b73ef9ebe8672c0cccd1893ee1573675f221166c3807029ff19f9e025",
+    "tools/audit_contract_streak_state.py": "539f9ef5eabd3e4dd581223856388b2a64354cc10d86263f949907e87259aee6",
+    "tools/audit_squall_callback_signatures.py": "6c0682f961d117ae4251a8edc234ab5a19efb73db4d64417fd196854665078f6",
+    "tools/audit_squall_channel_geometry_signatures.py": "ea2729862aa092a2d10dd64d1d18b3e2c301446206afd6ddc29ee5c9b841d174",
+    "tools/audit_squall_channel_setter_signatures.py": "57f1444f621c73d0465b2b3529e1823b986444f9beed73c4abfeb83861a59cf9",
+    "tools/audit_squall_cone_signatures.py": "fbd2641043f8a14c9e8091f8413d7992ab8770b8d4adf5e86f0cc84108567b04",
+    "tools/audit_squall_control_signatures.py": "b92a8aa0cad1ecb96f0f03b45067245b6798e1fed0c92e95511e777d083e975a",
+    "tools/audit_squall_device_info_signatures.py": "0536d0ee0b359b1c7af5e96112f952e0656fa3d9d95c018a376abf1a4c36d3a7",
+    "tools/audit_squall_effect_property_signatures.py": "b2e56f784fce3ff3ad0cb7625f9aaeedb834d9bfbe25e31bec1e519bd496cb9b",
+    "tools/audit_squall_fragment_signatures.py": "91198b64f3d5e3abe336f5472f02a4d93c3b775b89d14074888a7be645888bb9",
+    "tools/audit_squall_hardware_signatures.py": "29e14c066c7aa90592c2014a87d151924f5a512f667c29ae8812bfc127472255",
+    "tools/audit_squall_init_sample_control_signatures.py": "6ab3f09a471ddd85328eb5d1f736e44cb64a9b492798f9e1574ff942eb9249a5",
+    "tools/audit_squall_length_signatures.py": "c7f6fbb1121daa0dd7398136c8aa3d7b5228ed9a88d462cb9a25f7c9be8b5f59",
+    "tools/audit_squall_listener_factor_signatures.py": "361b6756f431401ff0378a5c59ff068c98f2eed62bd9781fcf19c73504a9b4d7",
+    "tools/audit_squall_listener_vector_signatures.py": "a49ec35f1b80cf344395f19fb18ff210ec055401cd351da74d4df9632bd62b18",
+    "tools/audit_squall_native_arguments.py": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a",
+    "tools/audit_squall_noarg_signatures.py": "6c193697f4f5caf3d58a769d9b8afad34c520e88ab9de6c3d0660448f4278a6a",
+    "tools/audit_squall_play_signatures.py": "df6023d2131fb4340911593977c5badc8bb00ff8c2531228dd9d9f6856942cb3",
+    "tools/audit_squall_sample_load_default_signatures.py": "055bb48cda53f14193be57ef19a190ea0597ec7bc6e6906acf89bfec1530713d",
+    "tools/audit_squall_scalar_config_signatures.py": "4865798cbca57db3a6d9f4af8e71f89804aa4a5f7eac4f7e7935d61caea5c6b1",
+    "tools/audit_squall_scalar_handle_signatures.py": "9217171bae20d928681c69ef25d762a65691a4c0edb3f5adaae9313bb4cbc7ef",
+    "tools/audit_squall_tracker_loader_offsets.py": "aec53210cbf790a7de64a45aeb866e35386760ac9a6f12a89d38dda3cd2b4922",
+    "tools/audit_squall_void_signatures.py": "6db64897012ae95a5279153dce8ea6b7d5a6fcf1484c0902f17c6bacf636e4f2",
+    "tools/audit_squall_worker_signatures.py": "9d4a78494ff5216f87bf8a81e81ac99d30f3f2ffabb9acbe8665aabb9bb85867",
+    "tools/award_effect_oracle_cases.inc": "01423711126f24779718c8c541c4a8327b0e7dad0809f25f274157b260fac3d2",
+    "tools/award_panel_oracle_cases.inc": "3ee4a2da8646b08488b34f36d60ac19f66b68d6d91c30bdbd8dfe0fe542abafd",
+    "tools/awards_oracle_cases.inc": "4a8a8678c257a32be8b7901ef01e06b6076550fa83ea0a1133b3cbe8bdc47d8b",
+    "tools/awards_oracle_services.h": "18735ebc9aaf5df55d45a664b4afbd935edcd85089eefd85c44365df6387ea60",
+    "tools/build_jng_diagnostic.py": "dc87a6e268b3c699db97edeacc0ffc37097e5ef2d03a92551d854ad9df5431af",
+    "tools/build_sprite_oracle_fixups.py": "3ef01e3c08331681ef7a842be2b9f8db6deb07400332f503adff7a472baa2f6f",
+    "tools/button_reference_test.cpp": "10dbf5f158ce5596b599f9e04ecbe99c03a3a1dff3aed84cb41347032327d67e",
+    "tools/button_state_oracle_fixups.inc": "be13925629197d4c34cf47aeb15cd7a9d3fc6c5136f165ed5c6c770bdf2f7e03",
+    "tools/button_text_oracle_fixups.inc": "e769160b7c22012a01124780d8fc768d6a43b9bc49a934a0a67a0df4d7d08b2d",
+    "tools/button_text_reference_test.cpp": "fdede5f17d0ecb0683fcd43e9d65da525d0ee0dc92742ba152636adf9e46f84f",
+    "tools/buy_building_oracle_cases.inc": "cde43a7d44d50f41a37022488d7172bdf615cf7b34cc77283db1a4a94469324d",
+    "tools/buy_building_oracle_services.h": "f15c49c76dd27faaa58cb3a08d14b63dc6443366773605a2944a9f956fc6ef70",
+    "tools/buy_seeds_oracle_cases.inc": "978c4182bb358527d204bce633a1c9fc14d39f3c98247cd8abef1d26e21f26c1",
+    "tools/buy_seeds_oracle_services.h": "e19ae91271bbb26e51a7c8f34a1da3eb0354b85240f781c28e1f3fda6114df2d",
+    "tools/click_mask_oracle_fixups.inc": "9b524175b56c01354b08b34ea59910ccfa8225956423dc78de1ecba8698b8981",
+    "tools/click_mask_reference_test.cpp": "c5f699576c723de8f4b7a0f274720962434009b106cc8cd0511498f59b422466",
+    "tools/cmake/Nsis228.cmake": "d59b0f3d5f035d95bba1ab6b5512c464b31120ed7adc9f8de1ef28e6cc9d8d72",
+    "tools/cmake/OriginalCodecs.cmake": "5cb87a3ee7b157e1b6c80cc71c1b8725d43adc1e666094a1e11d4f40df2a5420",
+    "tools/cmake/SquallCandidate.cmake": "31abf303fd394dfbe12b5c9b4c03538f728d0d67d591d9fa669855f968eb4c41",
+    "tools/color_reference_test.cpp": "8714c7147cc349a5d988fc47df50c21ab0a92c9ff0d1e129540189f01f323817",
+    "tools/contract_dialog_oracle_cases.inc": "91ee9df271274e9dda94330fec863ca6ec7356dd3ff0f4ad2923e47206d46990",
+    "tools/contract_letter_oracle_cases.inc": "03c57621da55ed0d334fe0a155290a6dfe37451a4917ff57fb4d2f4a4df9ce58",
+    "tools/contract_offer_pixels.py": "7c03420e6974c775019729a8edbb63ecd4fff0024f426526c3f66d101d056642",
+    "tools/contract_provide_oracle_cases.inc": "f95fed297208932a49bf5e62d2a8236d0cc8b7327cea4c9c31edfa62cd777b36",
+    "tools/contract_provide_oracle_services.h": "a814db76752d9e3a052a8e4e35dede9d2c0dae9035910473bd1d49c3a4747119",
+    "tools/contract_status_oracle_cases.inc": "70c981bdece80abd2ea390e5bf7d8ff183e8d4eb89bfb74be7ec15133d577f45",
+    "tools/contract_status_oracle_services.h": "25c2ef4af5423ede68caa732653b4014fd5c1a2a015c48d22544dffac5457388",
+    "tools/control_oracle_fixups.inc": "d94f23c278810a4d662fbd5775d86005cb8c88599d815e532b7d1f30f23acfb0",
+    "tools/control_reference_test.cpp": "81ad96ba14bca94f268aa2ec7a315051941394b8da8b2b7360560ed5788bb00f",
+    "tools/control_sprite_reference_test.cpp": "00a906a9b715241f580a9f705cbefdb1844d87f42d3dfc6fb7bcd46a5819548b",
+    "tools/control_state_oracle_fixups.inc": "fb6afae3805d4e99e37e958ca4f22889d124df1ed9e9de51f5662ccbc7772954",
+    "tools/counter_save_audit.py": "25080e208dcd6f9b79f6300f6b533f2f5b79cef3e42e34b6ef749fbe025f9824",
+    "tools/credits_oracle_cases.inc": "d54477d175ee7937a6a9ed8954b418f05f67aade717c37af2d11d55777bf8098",
+    "tools/current_production_regression.py": "91605a16a133473404014854fc0618ce54960e4b2da31e5ff156c0bf068b0cd9",
+    "tools/cursor_oracle_fixups.inc": "87b6ee48bbd67c2928a2d6fff8965f0d266100c08eac81c8b0a4844465d47596",
+    "tools/cursor_reference_test.cpp": "d23d2050c123edca85725e7fa6a5e0547b05a1704db12ae616fb35915cedf087",
+    "tools/diagnose_game_award_history.py": "14cbed0141f73534cf3a451de8bc57ea3ef0a6922cfdd022af846bb8a9e27a24",
+    "tools/diagnose_game_contract_note.py": "3fc4f66e8e6220926f5e6448a685284222b105229d8547fb3e4bec4ac5afafe5",
+    "tools/diagnose_game_high_price_pixels.py": "f39538baf9b5c15fe517c4524108938d819bfaec0b8bbaca9a066d67847d3db3",
+    "tools/dig_building_oracle_cases.inc": "417123687491b3f92777fdc42f1edc09a1a6ccbbe01db90cfa6b3791276bba09",
+    "tools/dig_building_oracle_services.h": "2a66e1462d63c1b3847f9b45f951a0d7754a094475f74671c3a87c6092f7eaf1",
+    "tools/elastic_animation_oracle_cases.inc": "f2a44e103679305d73c38e964cfacf1bfb8e8e0e0446267e3020429cfa9bd390",
+    "tools/emit_nsis_uninstaller.py": "bef06d2f4772c6018d5ca33f727f4349d180ce2bcadb840142b71941430d6e82",
+    "tools/exit_oracle_cases.inc": "dcd7d5c79a951ee40bd6005bae0de8941814a5ef63bcd76758ade3dab5b348a8",
+    "tools/extended_button_oracle_cases.inc": "dc2278ae4d44a26558f6ed54d302ce7af9d9ccd1238f13fa0864b95776fb5a18",
+    "tools/extended_button_oracle_run.inc": "c2d6d549c766fb2b762d2da86900c8c4b31ce08fb6f508f3f823e599af5e1fc7",
+    "tools/extract_game_icon.py": "2969df9b294da09efeb5449526794068fbbc0b106e686222d5fa1ea9d039c299",
+    "tools/farm_field_oracle_cases.inc": "b2112dd754d22f3b93c0ac99e87cf4c3cc01fbcc06454be28b8a0ec2d4619336",
+    "tools/farm_field_oracle_services.h": "e0ec55b63b04ad2a308ace5f4c66701391a637149b0e28f25327773aca636e57",
+    "tools/farm_scene_oracle_cases.inc": "572312e1019339d856aa26093bbab10757ff6223ba4f04b8f624918498990d50",
+    "tools/fetch_audio_fixture_encoder.py": "e37e4bfba199aea82f4187f53ea77653e216c2efca689982f87aad19a2145e23",
+    "tools/fetch_codecs.py": "20f0fbe1edfbf693640c209807664024d6ea61318b00bdf3a093f8b0694873bf",
+    "tools/fetch_direct3d_headers.py": "744f034be9897d6624f80faa655bf23fd7e6d952e750c01a7d9ac88d5fb587a2",
+    "tools/fetch_expat.py": "9d0d04e2a7a91313987dffad0ca9758ef80200212d5d283dd1bc49ba88941c1c",
+    "tools/fetch_libmng.py": "ca2bcd04af6500ad8d3197cba4eeaae9d819067f1948fc92debcd061458193e8",
+    "tools/fetch_minizip.py": "9467052f1074629206243a00699620962c1a1bc6ce7f8755c7d92dd80eab1a8f",
+    "tools/fetch_nsis.py": "6dce596d608422c4d1c03c7cf504eaeaae65bf7b538f0cdc3d7c5c59160e9b0e",
+    "tools/fetch_squall_codecs.py": "cd6da391e1d94ccc07c5888b931a216a5d401f1b121f7183fc6d57aada881e45",
+    "tools/field_sprinkle_oracle_cases.inc": "a8dff7bc3c4e5226935d8e57168478b4d03e6483c0fdd9931e6f001d810a1667",
+    "tools/file_index_test.cpp": "beb1c978fc3f64f34faeb68f139f874433b04e58c0986f25123ad129f8ff81e5",
+    "tools/file_system_bootstrap_test.cpp": "24f9c3622538cf220a3f545de019485f2480b0f0de8557c4c28161d7996ed946",
+    "tools/flying_market_oracle_cases.inc": "26def045930a353e9e29af1fd27f151c8ab445aab0b5ab71edeed0787840e6bc",
+    "tools/flying_market_oracle_setup.inc": "f32a03dd5beffac34a366752b45fc5a69949d5445b18756e05fd198fe9be4839",
+    "tools/flying_text_oracle_cases.inc": "47b992be26cc1fd37cf181b1d98afad7a4821f5017be55fa0ddac83a79bb4d22",
+    "tools/font_oracle_fixups.inc": "626f87ab104bdfd05b9efb98a007ee381c95dc028104a667853cfd0d8123e8d6",
+    "tools/font_reference_test.cpp": "00188f2f985b1a8b28a3eef7afe2dcc49578561820426697bf4bcaeb3dc94d16",
+    "tools/game_audio_reference_test.cpp": "04a757456492d945a0e0d56b2267f1c9519ffc3650d83a1e29eeaefbf1b4d3dc",
+    "tools/game_award_manager_oracle_cases.inc": "cecad31933d2a398693a6337be3b73fb62275d51eeefe3749895c23e9f3b045a",
+    "tools/game_configuration_oracle_cases.inc": "fa77f9de9de093e8972f7e34d15ca3d4c1c33cef57443a21969caecf24d98f96",
+    "tools/game_configuration_oracle_services.h": "19906449c48fe3fb1bee8baa9e9af77be8f86dd9d935934231b9d6063e7b4575",
+    "tools/game_contract_streak.py": "eddeeecb2fddad24f1ec74c0db31e37b2cd87e17dafc4c7e211afbc1a7c43d1a",
+    "tools/game_counter_cycle.py": "5a9c33c38b08f2348f89d723603a8c5dddf99a87898005861ef7b7cbf2a62458",
+    "tools/game_input_oracle_fixups.inc": "036b495ad99db273b546d368ab340b62f7ca5b6c0d49d9648c7090d3d78f3202",
+    "tools/game_input_reference_test.cpp": "0d0011f7dc69ab8223ff233429c198deecfacb14c53587f9ea0bf67b12fc3035",
+    "tools/game_menu_oracle_cases.inc": "44c00b121ca136dc794b6eb2cacca20227f6ba8b04a90e8e14d0468ddb720aaf",
+    "tools/game_menu_oracle_services.h": "2932a2be9c8dffa86890b656b896f052bca2ac54232ef5a97ec4f76cb6834d15",
+    "tools/game_pause_oracle_cases.inc": "91cfc1be420503f63181520a5e0d52a4f0fca25c99500365e7390b8cae951c55",
+    "tools/game_pause_oracle_services.h": "740c9b92f0d3af5372089ce6b3362198264d78c2ca92b5375a9f0170c8d4b5e0",
+    "tools/game_runtime_layout.cpp": "a604824ed1974f7f4913306ab363c5f8c1a5d220fde6c315d9e924327c821f08",
+    "tools/game_save_state.py": "0d38c748f9ad6f7a9256636fa6d0103bae8a675aa7e0df5115a50b08e6bef0a0",
+    "tools/game_source_runtime_test.cpp": "8d987bea3252a45741201db40e3bc5feee4730d9d6166c84ce298ff1437a43c1",
+    "tools/gameplay_coefficient_audit.py": "ae15952ee4938b02daa053e0c3a5f7226f17bcf84262128ac2cf1f24628aa492",
+    "tools/gameplay_layout/CMakeLists.txt": "78ae8cdbac34e9c7f4e8e21ee1c20d5ffe5af5ab644004a3f2b0ce3c8a68a3c3",
+    "tools/gameplay_oracle_cases.inc": "d6272c09b72320e9ae717bfab0cec4f3850daa8ae9e32478ccc20764af4f812f",
+    "tools/gameplay_oracle_services.h": "abc24729d282908c7784a28ca6e03aa08c3b93c63dccf607e749d028c7b2c934",
+    "tools/gameplay_runtime_layout.cpp": "e619e420a14a620f45b6fc2e07e3512a0e2ae2f0ed419e124bf6e4de12acbc6a",
+    "tools/gameplay_runtime_oracle_cases.inc": "93bd1e444ee98a6d72499f04883922b6f9aa4fd6e87f4fbc519648950fde7641",
+    "tools/gameplay_runtime_oracle_services.h": "e0eb2159475e3d998bcc27d24809b6b3f8357a075297d864b16373696ba9b393",
+    "tools/ghidra/ExportReconstruction.java": "15b90088006c16c256a2f2aa9b4b7ee2deca0bce93eeedb69e6d52f69fdf18dd",
+    "tools/ghidra/RepairGameFlow.java": "15167436f99a4b3cf0e78a554ecf143b7dddcf0b5404c3ecda2bb20a43904a69",
+    "tools/graphics_presentation_test.cpp": "a23070fd1717e3c595a4c6d2d97ddfb3478d4c6dea4d7458e5c0263db1fb012c",
+    "tools/help_view_oracle_cases.inc": "2637f4747f1dd8cc45ec9cca71254d9f0d47b9679563cab5e0b2c3f15fa72aaa",
+    "tools/histogram_oracle_cases.inc": "e0d3a3f5d861061c11f7dc7545290b277c94f3cd1c30dee0ee49dd19e6c67e80",
+    "tools/input_bindings_oracle_fixups.inc": "e127d62436956d701c71254e64b51675c300ffcd815c5568daeb9a4ca2b7d934",
+    "tools/input_bindings_reference_test.cpp": "31a3fbdf406151d5ef8eb45eacd04b3feb16fcafa144f511d60e1e770a056b00",
+    "tools/inspect_menu_data.py": "47b7af0ea0a83ef32bf19d1f112407f3d52a74032fe0426dd5fc960ef5a7a131",
+    "tools/inspect_squall.py": "44a8cc6a67209ccbfee18d3f9c8505284d9515d5f22aba5f8097666b19c69d3b",
+    "tools/inspect_ui_resource.py": "512a5914d972123adf581764e7196fe5341c7cee14d8a608ffecf839d4a6cab3",
+    "tools/inventory.py": "5f93ebf41ef25f28ba0630b0dc079f63e682a995732381f63e31da388bb7bc4d",
+    "tools/jng_decode.cpp": "eb5db867088327bfeea59369bd51ba7519c515b43dd7d2f0b61d6a26ef8e1b6e",
+    "tools/jng_error_probe.cpp": "d18f1906385352e0aa3b0c27887856d199e51158d1e481fa2f10a12b007c4845",
+    "tools/jng_reference_decode.cpp": "4cfb537cc8ec682066b6bf7da61d7e5ac4e8feafb0736fd696dc918f19e764db",
+    "tools/journal_oracle_cases.inc": "eac2f16d26f2cb2b376f5ac626e9551f3b62de3e1b9881059cdf7d6633ff7bdb",
+    "tools/jpeg_reference_test.cpp": "89b6dc82d6f9c44cdfe30f91b1f2ee2a5068c5609f6fdd170b1494f8a81f71ab",
+    "tools/letter_oracle_fixups.inc": "40befa08072ba9ac66b8eede915bd1f43c1f277a51d872b684347bbb61d9168e",
+    "tools/live_farm_field_layout.cpp": "b67bda82a767b760bef5537bf47ed3c6e3c68c06543aa118e3db8eea31aa5e9c",
+    "tools/live_farm_field_layout/CMakeLists.txt": "b05de42a7c2b0025042e80da33a8e7fd7a4ad21ef053aca218c171a392a0c6b0",
+    "tools/live_farm_fields.py": "c43774e956a54619685f259c5abf2dec7180283466e4ab935c9058b9d1044e4a",
+    "tools/live_gameplay_state.py": "756129311f3c72ba3647e33e02be67c8e9d3d6df375c627a7c6672055a8d3e3f",
+    "tools/loading_audio_cases.inc": "6cc1a32f7fc4d5e2b805bb5aee22bbfa5eb1099a47528081db2fadfd46f33784",
+    "tools/loading_oracle_cases.inc": "a6390715d7529e3697f25903cad9864ba813d179603d44ed49a37a0140f821ee",
+    "tools/loading_oracle_services.h": "31ba463d7534dd3f752d1b2e76dbf4d65a78058d6fa5f1a05d9fc7e82b1b2f3f",
+    "tools/logic_shortcuts_oracle_fixups.inc": "bb47fd9aadf08d60d7555880f2351ed7cd27ba0cf282ec88fcb17f54121e658a",
+    "tools/logic_shortcuts_reference_test.cpp": "c046e6ce4406038b37e5ef5a707da4d81a78132600b037a7c67ea0ebb0e8db39",
+    "tools/main_menu_oracle_cases.inc": "fae4ed715dfc51782c6d1ede56a4d8a15e3602a03b8e4e5e42483f01d3fa6c2e",
+    "tools/main_menu_oracle_services.h": "67f13ad9c007326dd63378419524c3c1dba6be3f937547db476905427a87105c",
+    "tools/manufacture_oracle_cases.inc": "a50422e5e82e49cd11debfe5502a0bb027bef51746838867ee1437dbe19af3a8",
+    "tools/market_oracle_cases.inc": "b683bdee82bff5fe7f8f4877adf66ac148738709a64d50ba78db28ca613053a8",
+    "tools/market_oracle_services.h": "2f3a322102ded8f441296e366238ec80f8b29cc15558aac343cf807b62240dee",
+    "tools/market_price_forecast_oracle_cases.inc": "b38aad3a5472867c1389f72734450e9f81bce30af5c84ca0d7db04c3110421f6",
+    "tools/matrix_reference_test.cpp": "6cec0db73f59b5dedea5903cbf1306db9a72d8132c9caaad269e77f9fc6e81bd",
+    "tools/monotonic_ui_test_heap.h": "db8d9ef89572442705b9602b9b1aa9451b71aba11e6d7842c4f9a46ca6b4715f",
+    "tools/movable_union_oracle_cases.inc": "35882322498d67608218cc16eda72a3cb911dc0e4fd6622f5186be61b2655ec8",
+    "tools/mow_building_oracle_cases.inc": "eb67eaa375514bfe5d76f43822a8acce357bf8876a1feaf3ff6ef708c5cf1fb7",
+    "tools/mow_building_oracle_services.h": "0ae4203f3bdb65e78262cec5bc495fe8ee157da5089ba1e987eeb8bba4219a55",
+    "tools/native_image_reference_test.cpp": "a88a3e1698130b867de7e4b3e5a88272129357df6c653680e9367331f06f7026",
+    "tools/native_process/CMakeLists.txt": "10b1bdc2a64a0f87c3089e53b354a4550db2b4482c72d590998bf4180edecc7a",
+    "tools/native_process/launcher.cpp": "40fe0e6c2a7502a77ef510ebf1b3f0802b82175538f4cc11287f0c01bf818069",
+    "tools/native_profile_trace/CMakeLists.txt": "f5d01ded2ad38e7d53422493c5f35d99c0e8d9c037598f4fe247c4305a5fb0be",
+    "tools/native_profile_trace/trace.cpp": "21cd0ac090649ba3141bdfd8935a11a7089ee82182576be4fc71b9fbc1f247f7",
+    "tools/native_upgrade_trace/CMakeLists.txt": "6f92162733981759dc34c4115d0bf5b228e17baf8f83f7adafdf6bf73c5f4eec",
+    "tools/native_upgrade_trace/trace.cpp": "63975f0c2e261291f9eef5c793d3ca9e4aec47c921b5f8d3ea70f8c52ab19102",
+    "tools/new_user_oracle_cases.inc": "2a7f644a5b1cfb0f0a4c4b8c3d0238e28fd3cb6b3114e091cc280e5a53097918",
+    "tools/nsis_extract.py": "aaae5772e84c1ebea59901dbe2be41fac6ff0f62fc176c484729017c625441c5",
+    "tools/nsis_solid.py": "54fda7782fb291b1df7b963802eaabbf4bfda4a5fd5efb6b66a22c5d6e507275",
+    "tools/options_oracle_cases.inc": "59cf91914ea6a662dd4191e9a551dc72b19ab7c64368faf624644e83a459dd35",
+    "tools/oracle_precision.py": "a8efdf961eaba51bd309e31fdde3ede942f0b2b6c0e1eb42c001ea2a219249af",
+    "tools/pack_decode.cpp": "dc1d23fa65c58dcd8c2fb11a45e8bd17c9a5c1d623b0ff6c037de5a507c32236",
+    "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb",
+    "tools/person_controller_oracle_cases.inc": "aa09cf1cc52d6f2b41d90c3538d494386ab8aa740c3c4b4b91c5957faef6b26d",
+    "tools/person_flows_oracle_cases.inc": "803eb88a48c26fe9d4297668a597c666b64b639e0ec9ccd7ed3073ed4e0dd236",
+    "tools/person_seed_scene_oracle_cases.inc": "fba2d8f1065d5d969be84fbc0ae114eef83db119e7b580a18474eb3ad073b078",
+    "tools/person_sounds_oracle_fixups.inc": "bda777ae13783ee95668c92e89891d095e8a0852f1001a87d66ae00470933a02",
+    "tools/person_sounds_reference_test.cpp": "1a0bfad760b10658d3a572de55f280c48b2f3fe06dc9a5a7a330b3ff64543946",
+    "tools/person_tasks_oracle_cases.inc": "d461a6393508de06d23545e37ca6b7f567ecf0552169d8c8c8c1ee5a13c3727e",
+    "tools/person_vehicle_oracle_cases.inc": "feae9fa393373fda266af08c90b6f9171e8670e6e232300f5637b991a5a3488e",
+    "tools/person_visuals_oracle_cases.inc": "afa4d9b1b904147a3148bfbe3299ee405525bab2e0288693a2d0fa0d959b5bee",
+    "tools/person_walk_oracle_cases.inc": "27e8de3abd14349e2e5b158f01d4139b036d60bb16e87682be2a14ba5716650d",
+    "tools/plan_factory_placement.py": "bfd640c1ddf97ce730ed5a94994bc1bb83540c4c395084051cfa3ddb5f26c22f",
+    "tools/prepare_nsis_toolchain.py": "d326842454b0b5b201f2be11b98d2aebd3b3c398d7dc07ccb6bbdb1c27586598",
+    "tools/prepare_runtime.py": "b1dc2896607014bde7c0944a6b202b0714fb2ada7cef916879646ff1022214c6",
+    "tools/price_text_oracle_cases.inc": "4d8563f866fbe431adf086dac1f5a96024c4aabd2776a97d4a88427aadb6a8ea",
+    "tools/production_house_oracle_cases.inc": "0fce4d893f4980369707cb96aa27382f06dc58f1109a5e676c36dfef808c84ac",
+    "tools/production_house_oracle_services.h": "267bfe81d13ec6e7d453135e858188ccdf4de02cbe534765520d393c6a527514",
+    "tools/production_placement_oracle_cases.inc": "1f32c55497c47fcd11bf05eee10f1395fb0ad5247261c60b3135b09e806beaa5",
+    "tools/profile_floating_probe.cpp": "f4006dae56abe4f30c1d312dc95af4bd0aa28835d1b7b9e91b013b2676da3ffc",
+    "tools/profile_headers_oracle_fixups.inc": "13939582d66a563e4fa0cec2b44035294d96b3e4b2ecfde92fa05cbe00f56f39",
+    "tools/profile_headers_reference_test.cpp": "e2c3228907961754d05a075093075c6df57217c5efdd782c38248cbeb3124189",
+    "tools/profile_lifecycle_oracle_fixups.inc": "dab280ca322f8b5abb93c806a98a2840d5b3e31666db234b71d691451fb5d234",
+    "tools/profile_lifecycle_reference_test.cpp": "02e50b8f32880e9e64e5e94cc1417385780e296e2b356018ec8d2b82d5eefabd",
+    "tools/profile_properties_oracle.h": "0a1573486d45291ab5c846f393fa8a5186ea3c4eb88521cad4baf90ef33a1851",
+    "tools/profile_properties_oracle_fixups.inc": "2d9d2d0ccb7d76a6f793b5827a63611faeb1b7091fa990b64e7b0ee76bb798ea",
+    "tools/profile_properties_reference_test.cpp": "2d8b3265634061c3d8230b0b845b54d96a82ec34065eda3710257e52d0ad259c",
+    "tools/progress_oracle_cases.inc": "cd867c23bb6e30f2034f9946f5fbfca7ad892746f3a9c6d3aabdaa64889d7758",
+    "tools/progress_sprite_oracle_fixups.inc": "698421c24ec7579380e75fe93c7ef265f479c1aeceabada4e3995f484c81c463",
+    "tools/progress_sprite_reference_test.cpp": "61aea4cfa812356c7faa1071e6697c0618ec3d08d9a6328a0eaa0955a20b39be",
+    "tools/read_function.py": "c6167f5c64eb16d8edf8f5f6d993a129287bbb04e6e5b099026a336917e15c9b",
+    "tools/read_vtable.py": "e6b61ab4e72d33b2cf3773c294f3c189231451cccbb3dd625eaa580842b9549f",
+    "tools/record_campaign_loop_verification.py": "f3cf993d4c8fed8acb7be9b4abc9d6a5dc0f6eaecfff6f4a2a4e3e3aa510a0d9",
+    "tools/record_contract_delay_verification.py": "c4e91980567ececaf069b737c07ac10548c594063e3235f963ff8eb3db1c0faf",
+    "tools/record_contract_expiry_verification.py": "abd503a8fcb6b2d753725241b3c99c2e58041931281a811dc0ec9af0788999b8",
+    "tools/record_contract_fifteen.py": "08e518fa62a18d4b4bf5e72c0421d7e571bf2933e39382653f5cdfdfda487e46",
+    "tools/record_contract_streak_checkpoint.py": "09ee2ba53ba885fca66933c86570d57abddd26dadcc4dcf7d914c0541b4cda6d",
+    "tools/record_contract_streak_pilot.py": "9b2c2a6645a50d9148cc53ba4fe819976288967a1e942ded90fbbcf6d3c1a3e9",
+    "tools/record_contract_twenty.py": "86ece87f39a9d327c7dfe22bf8dcd465c65adcdf219ea54c1d9d903f5e8b7728",
+    "tools/record_counter_supply_pilot.py": "837a1c68c4dbe5922e61be6700cadec263ac19cc9ad4627154cb3f709c8098c1",
+    "tools/record_counter_supply_verification.py": "87c9d304ee3d3883af08ad5af9cc80546431e557b14a2df8f10a7dd070356d31",
+    "tools/record_cowshed_capacities_verification.py": "e4b6a3cbdbce7e406a58a912d41a06c8e3d93185d1559aa45d0ab4432a7ededb",
+    "tools/record_demolition_award_verification.py": "7c8e8bca11865bac13f2d2ac548a79174991e5f8273f0f6edd19ea46f7e53434",
+    "tools/record_factory_catalog_verification.py": "ba8d376e22b5745eb5a29b3c0c244f4adf8b359ce6bc4a167acc407829649eb1",
+    "tools/record_factory_history_verification.py": "797e57ab8d2a16f1ef9fa126e25bc94cc80fd0db473a4c3eed5d4b8d301005dc",
+    "tools/record_factory_levels_verification.py": "da0c3ec0b9ac78662c0b54f23b7ef3f440cfb6bf2f9e99ecc1882b6371ed4721",
+    "tools/record_farm_expansions_verification.py": "65ec9cbb72fcbc210d7fdf1a9699b12c4eb10b6a06219ea00850ce470d880db6",
+    "tools/record_field_disasters_verification.py": "ea67457310671b74aadd68c8c10d4954d92aeef11e6557c606a7c9d2fcd64ffb",
+    "tools/record_focused_full_regression.py": "152c003947c54da6ef7c90b124336e49786f02ddcb1a12a3a4cc46d250be7329",
+    "tools/record_focused_view_upgrade_verification.py": "1b1fd20cc43c47407194b9664b66a06847411f966fda9881fccea5004b2f6e3c",
+    "tools/record_harvest_hundred_verification.py": "1abc05bbe5d3d88cc6db46d92fb1f042b204dd5afed319e544fb77a0f787906e",
+    "tools/record_high_price_sale_verification.py": "4f2004e93b117ba9de6baf9a097881359dec54cc697207b0fd0af9b8029aa802",
+    "tools/record_inflight_production_verification.py": "61bd5dc4b15910cc0f4da5769c254a5094d8267f93bd310a3421bd9445fa6cda",
+    "tools/record_irrigation_verification.py": "a9917b1d8232eabe93306914ccb6d791fa8fabac4da77fe3d7d0587b1a7399e3",
+    "tools/record_jng_error_abi.py": "67bcc38b3d89527d66470ecb1cad25169968e0c6c17d92a020e35fad1669940c",
+    "tools/record_jng_loader_regression.py": "d1076c85b82e317ed1ea2687fc41dd80fbfe377ce860d64b585f67de891da724",
+    "tools/record_late_timeline_verification.py": "667fe3ef1176ee63f958dc792da6c9fd6e0775f68033ed7f9d9329fa281efdb8",
+    "tools/record_live_production_verification.py": "f9fbf205bcb0775681eef2324613e5a845e841eae60b23fa13d98af806377b97",
+    "tools/record_market_assortment_verification.py": "8f45e94cd0178b9a79fc320d0cee2895790f11213eff70739331c05465b403ed",
+    "tools/record_no_dry_award_verification.py": "a6c93ae022cfba2d0d689643ded56d8d6fed603f159c2b0e8670da19e6090968",
+    "tools/record_paused_deep_click_verification.py": "05ab560cfe02e2c4b1bc3f2d9a2eb420c8e3fb220bc085570dbd4962b478ef0f",
+    "tools/record_planning_queue_verification.py": "11e24eca274ff42809ba29007aef4c8a3a96c14194bcfd4589b13150f2c6552b",
+    "tools/record_profile_floating_verification.py": "b56bae5b5159f0a44badc9b9a31a16095aa57ada5618aca2e949819b118d0048",
+    "tools/record_remaining_crops_completion.py": "7f1da3a3451ce9e027f095b477df8d26e6b34455bb0f1d2d33581fd8fde67a81",
+    "tools/record_remaining_crops_sowing_verification.py": "5a74b93edf763845d46fb70f56b5db374893d0d2f3f1f98768ed10c5839806bc",
+    "tools/record_seven_factories_verification.py": "da6164aeb0278df0ca942f4bb17a0f56494e32a82c132b15c5b30b3c71b0486f",
+    "tools/record_seven_inflight_verification.py": "12c26918cb57bb6a682a9a028b69dff26a86a52f6e09451c230141479869b1bf",
+    "tools/record_source_only_build.py": "adcf886ea019337ff14338413ed8c30fd21a4c2082e7c1cc34f5d229f8fbaa9b",
+    "tools/record_squall_channel_vectors_verification.py": "127bbf00b444c903dc7426cea9211b5de903565748721069140df672c3bf88b6",
+    "tools/record_squall_channel_worker_verification.py": "12fb612d041d0bbc6f7f283433f45af4795879e89ebdbffba2970d58ee462d03",
+    "tools/record_squall_config_verification.py": "aa86f89905bfaf7cefe97fe7a16f4b6b53a64270880b9abffff7584e6d734570",
+    "tools/record_squall_export_stack_verification.py": "05d4732e809182c47ee23af309edba61491ffe098fe84d33c137e0d44c927da9",
+    "tools/record_squall_extension_boundary_verification.py": "312dce7b2975995e5a0eb453a79958c359a86870b9248878a44da15d9cebd9df",
+    "tools/record_squall_extensions_verification.py": "df4077dc310e00f46d2bf6009695b97a94dae10d6887e37b94ed3d8e963e9284",
+    "tools/record_squall_file_callbacks_verification.py": "ec28b2ac93350ccf2fe73ce2d61cdb4660c58db7dd9be4c0d4cc55b42c7a7d0f",
+    "tools/record_squall_group_verification.py": "fc982e54b6a43aeaaf3fd968d79af2935737adf5c000a8fa7324bee297ac37e8",
+    "tools/record_squall_listener_verification.py": "9a846e102baed6894c4905df714658977eb1f4af46e2154d8573e0d49237da0d",
+    "tools/record_squall_loader_baseline.py": "6e9ca74d6a80c7ec2c4a078721fd0108ad242132b26833c6cbe3ab685e49bdb8",
+    "tools/record_squall_loader_interop.py": "22338cad52902cb8f5bcc5533a7132710a113ddd2057ecdf461338f12726df56",
+    "tools/record_squall_loader_regression.py": "e8c5bc61fe537d79628b50934ab5bc56631f254bb71909df8c1a339997e024c2",
+    "tools/record_squall_memory_verification.py": "4e3911bfd7ecc0bbdd95a8cc72ad1ecea4e16bf03bfdd3eb42512cfdd824392a",
+    "tools/record_squall_mpeg_observations.py": "04b9b89c4d3ca49e0b7c6dbf736dc90fd77301989de1a76a32620bfeb138d0c8",
+    "tools/record_squall_mpeg_regression.py": "d8b8095c6cabd074795880df6116f9e8da3bd632fa1d82f66f11d3e46a177ddc",
+    "tools/record_squall_mpeg_scope.py": "787524d30cb934fbfdf8de50bebef2dd8ee6d3a43b06d557a1d30f53fa41e59b",
+    "tools/record_squall_native_arguments.py": "0548663d6bc9bc6760f294093da30d6e460fe8894aa6ad76df21c613ab22c60b",
+    "tools/record_squall_pcm_eof_verification.py": "49606bf839c0859fa5fb6bcacef0c5a258c582f4aa0e879be079d903bc13eb7d",
+    "tools/record_squall_pointer_baseline.py": "eb14277fdb6de055a329b41708316e0b78fbdcb7ae051d3d23bd70e751b6d15f",
+    "tools/record_squall_pointer_interop.py": "68bfb9bede55d5cd7e6ffccb2c42270fed3ecd4c726f34b8854c4b238d1909e6",
+    "tools/record_squall_pointer_regression.py": "f649eadaef400d137a031d616e08aaced8dc56a599142caef13312a981b92fbd",
+    "tools/record_squall_position_verification.py": "0eaa77298e3b26d781cb37854d77cd0e4fed18d223a6c9b1946fab2a5c8abd64",
+    "tools/record_squall_sample_play_verification.py": "55f820d2ab4b0ce5b417f8633450bb51d1124dcd1ad37f607e1cc89bae95cdac",
+    "tools/record_squall_sample_selection.py": "3f41cd897bcbdf47e30a70149aac28346bf9555bff5c49fa6f4b702a9b9d05b2",
+    "tools/record_squall_sample_verification.py": "98b90ffdd343f55b782399887ab6508d9b809e14e4bd4bb98522987fe9da4162",
+    "tools/record_squall_tracker_effects_verification.py": "74888df407337280e5e8aaddff5216ba1856ea49a93bdc1a849a5300c82fea33",
+    "tools/record_squall_tracker_loader_data_verification.py": "710cc32454d3efa80dad43bfff780150a8e40226ca9722aacabdfb7fdbfb1c74",
+    "tools/record_squall_tracker_loaders.py": "2bba99e111ba9c354a54f5530fbc80ab9c7bc1a0c7b6728ec93b4f0cc2272139",
+    "tools/record_squall_tracker_loaders_regression.py": "b13c180d59b85cfe24e171f3e63556a4b767d28415cc395ee94836968f347596",
+    "tools/record_squall_tracker_observations.py": "218160779af9f4080891185404782e9c2a239d52ccc0a050f55399dd0c5f7b31",
+    "tools/record_squall_tracker_reconstruction.py": "022c9ea5527d6fdece69ebe202090ca6241bca0e2c3f2a9df1cf8d8f2b7ce65f",
+    "tools/record_squall_tracker_regression.py": "31deea35955757b60fd8a5ed025513752aa0fc25cbac51d7a27956e356b1ce90",
+    "tools/record_squall_tracker_remaining_verification.py": "d31a55f20fa80fe7b8bf51281945a6b95523f15ee5d76132c916712a390e6f1b",
+    "tools/record_squall_tracker_stream.py": "3a9a29c851916e4b952e5e41ac3ab21e0bf07502b3880a5378349a5ee8b09bf3",
+    "tools/record_squall_tracker_voices_verification.py": "4d6e5c2dc88e3e4c9040e66e3af6af53f379e747bc985f7bbb6d289432f86ca2",
+    "tools/record_squall_vectors_verification.py": "f2f1cc07fa81809c6ffd524e585a215ecc7a5013653088f5878689f5cb5e5579",
+    "tools/record_squall_wma_explicit_left.py": "6ab9d7028ffc64d89a1ecdf4750ed58323a699bd3cf70bdb90d4a07c251ec631",
+    "tools/record_squall_wma_observations.py": "811e04108cbca9cdbd8b095f1d848a8fb985000e42a429b944e33f81612b4541",
+    "tools/record_squall_wma_runtime.py": "b9fca059b4c1b9e1c2a06f62aaece4523b4af5bb3c3c796a46529dc382628dc6",
+    "tools/record_tool_upgrades_verification.py": "5f4bf9da0613559865da640bd0887c926e813c1164c87501b378e973afd97420",
+    "tools/record_verification.py": "0212472da7d81ebf4acd1cdf690663de9fd61f464a9c231b60e6aa3cce6f892f",
+    "tools/reference_image.h": "ed9e7911d3ca2c06a03449b23f065577b49f7a72047e71624285e7f766ba007a",
+    "tools/reference_reservation.cpp": "9847acbc83e9f1392b4803ccf095de8203fa850094ee8cb5092cf68ecc2960e8",
+    "tools/resource_inspect.cpp": "7db34ce53fd58e4658a8d9167e537c30ffc8a09f8be17b5ef05639d34fcdc50e",
+    "tools/resource_log_oracle_cases.inc": "c353c303d2e078f30b1758baa85439d67d1844d2b92b22d03e4e846d211d50d3",
+    "tools/resource_log_oracle_services.h": "66f22001208c6880a53ff394368ee4ad48286242479f05804e9bcd411fd03f35",
+    "tools/resource_manager_test.cpp": "e7bff740e8efa13e0b032662f291676d05b82c6f30a55905e8227f5654ff36a5",
+    "tools/run_jng_loader_regression.py": "e597212bc935187e8468709a4126f3703e4334e50824a2d457da5a86e71cd4bb",
+    "tools/run_squall_loader_regression.py": "a35722f3be8e64a362c175d75143dfe4cd4a0fad505047de6d95bc3927ac9450",
+    "tools/run_squall_mpeg_regression.py": "7176a0920288eee3dfe55ab67f65044b742468939414a3db04103a822ab9d27b",
+    "tools/run_squall_pointer_regression.py": "1a314cd755d90348aa1273583b69bea5edd4bcbf9e462afc3be80616979c12a1",
+    "tools/run_squall_tracker_loaders_regression.py": "d7c51d8e61a6864303a330937237224694f90f9a0ab7fd1d9c179bd02496f1c3",
+    "tools/run_squall_tracker_regression.py": "b9b4bb2f4f56ec13067136f9e62242d7aa200cbfdb08e614ca24afc6dfdf7c24",
+    "tools/sales_history_oracle_cases.inc": "25497d5fc9e4618e9293da9d96920800cd06fc4a4c718f5dc97f62870ed01694",
+    "tools/sales_history_oracle_setup.inc": "ec5f9712a2680f1adda7bb3076cc00c40bdf2c6c9e196d54b9f0d03e7a4a32f7",
+    "tools/seed_package_controller_oracle_cases.inc": "ca504d3068e0473c1066c5a193968145ed7dc58175f3a531f6523d02f8082a17",
+    "tools/seed_package_oracle_cases.inc": "65bce934460c5b946ec67c4c5c7b26b048eeb4140e531b9a5d8c431a72c6df4c",
+    "tools/select_profile_oracle_cases.inc": "1c824923d98f1ce11c204c7fb756cfa6e33821999e58493c33a3e17b58204a22",
+    "tools/select_profile_oracle_services.h": "55826c4e1ea73d17e491cc3afb98d754545a169e466f0b65c33fe675fbfe21d5",
+    "tools/settings_test.cpp": "cefd21691f90124b861e6697021310c346ba9e933332fd9591fab8f13be1cbfa",
+    "tools/slider_oracle_cases.inc": "4655f216d12c256df8bba8e14711981b5e28a9c77da67f63bcb5a7283fa22842",
+    "tools/sound_manager_api_cases.inc": "da482507a783ca04d911c32350fd168402d44c5e74333ece23043ef7616cc43f",
+    "tools/sound_manager_oracle_fixups.inc": "59e1871b111e71bc4ff1a8d7a0871d8fa1d0ae47fa07d613089662708ba3870a",
+    "tools/sound_manager_reference_test.cpp": "c513dee40272d9f04fd4e3f8996c2097a6ca3e081db6da41ad71432be47fe328",
+    "tools/source_crash_trace/CMakeLists.txt": "e72c7a33351ebc3828e263ce928842be0d084761e16eb2a17767c10f9b75de5e",
+    "tools/source_crash_trace/trace.cpp": "6c79a2bfa4166b3ebdfdbdea0e632d7bd6a5102828d6e39a531920d57db227da",
+    "tools/sprinkle_oracle_cases.inc": "0543f7f4b691abaf039a26e8c903f73cfc4c14c68e518c4a51a3a8e149694723",
+    "tools/sprinkle_oracle_services.h": "321752e142ce9f960fcdd68fcbbe5d7d2718779afa3928fc0660b68ef5375459",
+    "tools/sprite_device_trace.h": "db8dadf3b5b35f401082b3de3d9e7b810b72b46b45dfdaa6778c5fd5b0c9b806",
+    "tools/sprite_draw_oracle_fixups.inc": "6077b807537b3caad6184ca454744c8fc1cd5837200a8db5f1b47d6443fafcd0",
+    "tools/sprite_draw_reference_test.cpp": "21c9df56bb120e14bdb39e42b2c7f008021e23189a4382ba787ef5bf9450eb7f",
+    "tools/sprite_geometry_reference_test.cpp": "0c3bf801073b93d4f136748b4241325622a1f87678192e7e0eb554fd28951fad",
+    "tools/sprite_oracle_fixups.inc": "e42edb4df1712352393b14e0d9a5a576803d972a53545f00f2d4dbb886ad095c",
+    "tools/squall_channel_ranges_reference_test.cpp": "8a42db38e96337d5561498c756790de6ef72eefbcd4888301966d42c124cf701",
+    "tools/squall_channel_vectors_probe/CMakeLists.txt": "165c5c6e2dd56f1d65b35e729ace7bb27768e4d0aa6a67f6057ded675cee31df",
+    "tools/squall_channel_vectors_reference_test.cpp": "4c33b2c31c7398258d0bafe9e46a461bd7b53090ec7bcb9247f500d4a95aed55",
+    "tools/squall_channel_worker_probe/CMakeLists.txt": "b95acd34772d73148049b83d38eae593d91393397e1ed3db6c43a65d823777a4",
+    "tools/squall_channel_worker_reference_test.cpp": "de949c254ac7ae2ae091d785d7025a51adb584098b47c0038e34420003a42bba",
+    "tools/squall_config_probe/CMakeLists.txt": "37747d1d76b5d9c73afad80e13dbbe71a301ad462e976aa1986c0d05b8041f4d",
+    "tools/squall_config_reference_test.cpp": "60bd5f9b30e2fba878b0221c9f5116547baf79814cef66abe9fde1acac3b5abf",
+    "tools/squall_dll_reference_test.cpp": "cf5f9b7b7d10cbe43e98ef0ef63f232d023e82ac7bcd4606c78ed6c42e3425c6",
+    "tools/squall_export_stack_probe/CMakeLists.txt": "0653780719a9afa823544b4dd23a7a3432a4fcfa9a1e6f2780da138a0b52e0cd",
+    "tools/squall_export_stack_reference_test.cpp": "7cd50d6e8c2735fa38a94127aa4e4a968152c5c4bfbb9b952385891782ee5cb4",
+    "tools/squall_exports.inc": "c44a64e39599a53f5772fa0ea277e6517139f72f19d4a490e110284b5bb43411",
+    "tools/squall_extension_boundary_probe/CMakeLists.txt": "efba485fd5bb5dcbfd3a8a8f6cd47390bf621cecfb93ef4b45cc68cc05aa880b",
+    "tools/squall_extension_boundary_reference_test.cpp": "4424bb7d0fde29e1ba94f14c9f51f66216f3a6a60f851bf01344aadc485a01e4",
+    "tools/squall_extensions_probe/CMakeLists.txt": "4b2bd52728e54d2c0914e196fa0b4db15c48922b19a16cc5032718b69c3fbcf0",
+    "tools/squall_extensions_reference_test.cpp": "29f576a236fa211ebd8842016888e5d82e7805ecb990632547f98dee8c562dd1",
+    "tools/squall_file_callbacks_probe/CMakeLists.txt": "297fa470943e0b3762cef3fb56463bd23ebfc70d5525891466967f4d72e51200",
+    "tools/squall_file_callbacks_reference_test.cpp": "270b990820ba919cd5389a438a719a8cc40e4c4ce548f9cc278534678425ea9d",
+    "tools/squall_groups_reference_test.cpp": "a0caf2393c3ac4476ac3cc287de92a599ba61e31fdf93fb47d7aacdbc25015ed",
+    "tools/squall_integer_word_flow.py": "6ede888a5d35c987bff084878c11a4976dbbdaf0cdad3eaa779d95cabdaca448",
+    "tools/squall_layout/CMakeLists.txt": "5f2e3fdf2b2e1c522a98892838053c84eab734ada6f8dcb4267e56fb45ee94dc",
+    "tools/squall_listener_factors_reference_test.cpp": "b9b9b36a5273b1c4b1f4808383e43528ec12ec607931948e084fefd9e3a8d7cb",
+    "tools/squall_listener_probe/CMakeLists.txt": "31c480b5a8e1c8f355b0b260658d80d6733d04bef3db8bf43eb41d13782ebc24",
+    "tools/squall_listener_vectors_reference_test.cpp": "dd169f99ce22212f9dcac7b3271a3e7011208b60f73797ec7865214a21f366df",
+    "tools/squall_listener_worker_reference_test.cpp": "f578dfd707376f53fad34ed3645e49ff41af890153b9c65fa9489f67d1dd9d76",
+    "tools/squall_load_fpu_probe.cpp": "2244cedbe258d86cfc6d653587c8339c43702cbd7ea31d45ccb1b6979899cdb7",
+    "tools/squall_load_fpu_probe/CMakeLists.txt": "d02ee89ea292d7bae77d2e190cdf3757da36d0cbf5f5498d112f2f5b060d2ff9",
+    "tools/squall_memory_probe/CMakeLists.txt": "79cc03b60fee4f64587b0e25bda536fe6dc2edc0af143fba0e31e918f41746e7",
+    "tools/squall_memory_reference_test.cpp": "63a224a567aa90f011794763ed3b125f62850e00bc471d9bd874d2c6722fe348",
+    "tools/squall_mpeg_fixtures.py": "610c63aa7682c67741fd62a66a242fcd77a3a1d5287172e121779cb06989e583",
+    "tools/squall_mpeg_formats_probe/CMakeLists.txt": "d2c560f7b01cf3c4dbed80422c6d3a1c1ec66e4a31a534923f53fcba437c63a4",
+    "tools/squall_mpeg_formats_reference_test.cpp": "fddefef5c0a71b5b2768c04543151fa81a5fd2ff3b12e19be8d07540a132d9fd",
+    "tools/squall_mpeg_kernel_probe.cpp": "098d77c51c38328af0f5947115640e6725759d39adf178bf97478849a5759f3b",
+    "tools/squall_mpeg_math_probe.cpp": "2d8ab36915b1aa9e9ff6edcbeb0696047cf4a820b832bcb21f22a868a11f6730",
+    "tools/squall_mpeg_seek_probe.cpp": "6cd968d450a4d61acd189b6daad1760d2d118f6bf2c5efddc61b8d31d6c3efd2",
+    "tools/squall_mpeg_state_probe.cpp": "ef8ae1235d78b116ee675616ad2075c4a81ca43aa6fedd6d1ab4eee3691cb424",
+    "tools/squall_native_status.py": "a86d7eb8246d0c5e4fe63fceaa30ccd2a80c11aa7e2bdcb9d35807a54cf32641",
+    "tools/squall_ogg_failure_probe.cpp": "a6ba09e7ac5805de1177d6564038af8849e4b1278541ec22adb491f36503e83a",
+    "tools/squall_parameters_reference_test.cpp": "fb2c3e0a40d249e169f80c5c9d6b46819aa0d5f5d5f236971a0a7f78e7ef8275",
+    "tools/squall_pcm_eof_probe/CMakeLists.txt": "5582655ceaaa46e2449b26578488d53b16b166aa1330be442fd90a56df0d1a2a",
+    "tools/squall_pcm_eof_reference_test.cpp": "f90a2c413657b5d9e47e1c884b348b8a62e238f770e0315c6eae237b1335ffdf",
+    "tools/squall_pointer_fault_probe.cpp": "f94048c082c597ba9fcc5326a196eb914896b8bccc31ef782d84afb8d40c7099",
+    "tools/squall_pointer_fault_probe/CMakeLists.txt": "adb5bbaa121ad08fdf9fdfe7a703094e3cab675f409e3187a62937b24f796242",
+    "tools/squall_preemption_probe.cpp": "58da40779242a5a04834ec0388f4ac0a204cb0bc0a7e43aba91b22d6e7dc48de",
+    "tools/squall_preemption_probe/CMakeLists.txt": "b43134e9250709325beab798fe40a9d2c5aa2f23a856d874aec04d02e969fc6c",
+    "tools/squall_public_layout.cpp": "8727e6c4181e9c6a02cadfeaef9127dd1a1544ee43c0540b3224502292fc0892",
+    "tools/squall_reference_layout.cpp": "2961113d15fe52fe22962cc274360f514731b89733cc5b93d6a3d8d2b76cba75",
+    "tools/squall_runtime_reference_test.cpp": "6f86a64d16696a63fa7c80e7b362f86d46c81523e8dfd36fdead7db6ecdc57ab",
+    "tools/squall_sample_defaults_reference_test.cpp": "9d81ea96378d6bab66804c9aae9e76c6b6836dd09f9cf9eedbc95c173f02eb0d",
+    "tools/squall_sample_play_probe/CMakeLists.txt": "bae39dc4256ee5ce8ec4e43cd3366dfefbc934b9b9a36f0ecd323a5f4cf631de",
+    "tools/squall_sample_play_reference_test.cpp": "02c8c6f839daf5579124c0b52e695bbbed5bb605350329123e96d565b0740dac",
+    "tools/squall_sample_probe/CMakeLists.txt": "6e1daa33ff0a979623687671ad1b7cc3feff80895e01a5c4fc44827388611dde",
+    "tools/squall_sample_selection_probe/CMakeLists.txt": "f1cb40a6b85a5f68741e5e5b4717f53e8ebe40df4802b821b2c5956f5a50dc9b",
+    "tools/squall_sample_selection_reference_test.cpp": "67f637165b06e72aedf93b3cba04c9f6391d97a3459093a981fe58f3f77e0bde",
+    "tools/squall_signature_evidence.py": "a248d0aea05b2562b3b6d09c486f98fa9bb5cbfb856a1d819aa4b5ffef72094b",
+    "tools/squall_tracker_active_mix_probe.cpp": "f4123780f3b71b96b502d7952e63812904659cb47b98bf5aabaea474506da44b",
+    "tools/squall_tracker_agc_probe.cpp": "15e348f9b4c31bcd577ac2f14bfda1acb143c104abb0e69e0853027ecf404ec3",
+    "tools/squall_tracker_crash_trace/CMakeLists.txt": "bcd65f8a395ceb9ee7bd67fb1a4afa43d8689094d02d08d1f3e0d6f1d59e5945",
+    "tools/squall_tracker_crash_trace/trace.cpp": "74e4606385c49695130baeb9323bd15b2494ce8eb2c4c6c3f344a1021da3b22a",
+    "tools/squall_tracker_ctor_probe.cpp": "9d4ad4a18751234e15f2a93e83122a8ba14e1593df11a437e66c853ea3d5dcce",
+    "tools/squall_tracker_effects_probe.cpp": "c44b4cbe4add779ce7f84f2a895702f777c970c69752234e18335be2725bd153",
+    "tools/squall_tracker_effects_probe/CMakeLists.txt": "23039b4cc13f4fbbe9da2c42d55be782501c6e4f307605f85f16fb75befe0237",
+    "tools/squall_tracker_fixtures.py": "fa5945da3d92802eecd90c2b0af3d495ca1ca2fe3e25e80a73126f38923dff47",
+    "tools/squall_tracker_format_fixtures.py": "77e46439ede132df58a61c7bec85c8d2c96e0d7a1721b9622932ddf355d8a219",
+    "tools/squall_tracker_layout.cpp": "6674c1edf4f3924f6cbd80175a7b5e4a0d9762d10cf412996de49d6444e9e71f",
+    "tools/squall_tracker_loader_data_probe.cpp": "21f5a6c7ae0061accec5649106f45ed954846a69e846e38cf2774aa5730dc6e4",
+    "tools/squall_tracker_loader_data_probe/CMakeLists.txt": "7090fe2b3d416785909959bc3ad16b69e181b9046f8a3feef5db0c835c78a443",
+    "tools/squall_tracker_more_fixtures.py": "d3e9c280192e1cf8e39b2bff3f4f7e88e0cb4cb143e3a12138bd550a6010b542",
+    "tools/squall_tracker_probe.cpp": "1bdfb7aaf97f84d8e52fafaddfe3a693abc10552f4a7752d5cad969da00fa2c2",
+    "tools/squall_tracker_probe/CMakeLists.txt": "10d5f74f40631a32de822a3e17bc3bcc7273821d2ecf9024d5e7b4dd0d251237",
+    "tools/squall_tracker_remaining_fixtures.py": "131224f200d88e11dc4070e73bf091d45375f6c497b4ee8fa90d12ad2f422f9d",
+    "tools/squall_tracker_stage_probe.cpp": "cf7a41ec92f9fddbe0c03d0b00101bd8d0953520c3db45bced4241fe80dae3fb",
+    "tools/squall_tracker_stream_probe.cpp": "d042f177b0df684f6d22ade0d98cbbe6fec587b6ffbe6e90c1b455f3270c8fd3",
+    "tools/squall_tracker_tail_probe.cpp": "ffb01c1351856d17172719c83801b711ab47a9d617d9afab645fd9d41943b32c",
+    "tools/squall_tracker_voice_probe.cpp": "67af38e844a39c0e4fc589a833d5d7fba829cd2f131b3eee192fcd771d832350",
+    "tools/squall_tracker_wrappers_probe.cpp": "4c482dfcdc5d6a425b3b482b4922c3b9729d80a4caa4072b1282956d601da899",
+    "tools/squall_vectors_probe/CMakeLists.txt": "da2b7ffe745bade5f33cae812b271a9d474917fe3f58f52cb2cb526938d3e866",
+    "tools/squall_vorbis_reference_test.cpp": "1ae3eb34012c5beb386c48600bf62402f44235433d84f04987d5d2d730182b87",
+    "tools/squall_wave_fixtures.py": "729288611bf2540255c168a823d6fd3298f7009f8a318e8058c5da71e10caefb",
+    "tools/squall_wave_formats_probe/CMakeLists.txt": "e8a8de7a123550567d1f51b2d9d0160a0b7f21c5417a56e2e9e66251798ef842",
+    "tools/squall_wave_formats_reference_test.cpp": "871eead40bb1dff37b5aa4b5d026d4a17893acf40f9dd2159fdd5beff032683b",
+    "tools/squall_wma_buffers_probe.cpp": "f6e3d3ff0cb03abf323d7ff0b77f631f6bb5ff66b07fefadd0e69029b7548dad",
+    "tools/squall_wma_buffers_probe/CMakeLists.txt": "d8c3f620485e90df0159dcafd1ae477e9043f1743f80d04938f92881fe76f05d",
+    "tools/squall_wma_crash_trace/CMakeLists.txt": "8281c557b5c8ac5fab10b069a3b60b1df5d566affe5fa7e6af159d3b900b90e9",
+    "tools/squall_wma_crash_trace/trace.cpp": "ba8d4bc10171325fabc972bc59a1cf119a33500115631f49ba361464b58b17eb",
+    "tools/squall_wma_fixtures.py": "449fba2a1e67489acb69705dc0b7ecdc39b0e1595685cf76d85bbaf3b42f05f1",
+    "tools/squall_wma_probe.cpp": "afa5bbaaee268ae7bb617c3db35df6620bdd88a0d348639dd6ae0f3e5994454e",
+    "tools/squall_wma_probe/CMakeLists.txt": "56f70653e834ec2a2bdafaba485a651dda5568d447a032f3424a90a5bca9fea3",
+    "tools/squall_worker_probe/CMakeLists.txt": "1fa75333a7066fbe4de5e46f99003dcb6bf3821e5069ddab7d557c9c59c91e16",
+    "tools/stable_live_scene.py": "c2f16b9a9787a4493cf609ffe169d590b6f7eb5ba600878c4f81dd9e924bd678",
+    "tools/stage_production_source.py": "a9bcbbcd8a89f3d5b2211a7cd5fcbc4d3edd476497388b66b6b40a0a745ac81c",
+    "tools/startup_oracle_cases.inc": "b2206befb3391edf0982085375b6b73e1dec84860f8ee6b50db3bb2a92fc6cf7",
+    "tools/state_view_oracle_cases.inc": "2a6c31a23612511edb0e3a6d98037ee52ff051e051b96f64544109455380f9de",
+    "tools/string_manager_oracle_fixups.inc": "28a407350664fd551f1251c1edd37585fadb343b1ca8d2ea833092be0d716fbd",
+    "tools/string_manager_reference_test.cpp": "de984495a21d30d67d715008324ac7fdff0949150bcf91acf656a1227f292ec8",
+    "tools/string_reference_test.cpp": "36e6c61a7e58792cea62ab3e7425e7abbc5dd55852b0402e02d29554972bc2a5",
+    "tools/summarize_analysis.py": "eda5ec9bca300fa4bb8ea0aa8b71fc152d2adccf7af9edbba304911c5d8034bb",
+    "tools/text_buttons_oracle_fixups.inc": "af62deb8bcb686b9ab5b2937bd2d2b97072be7ba451e066d22d667b50e685cee",
+    "tools/text_buttons_reference_test.cpp": "c2285ed615614f29ca71a357a72aabed0e5b66832620d80bd3d36516c4e3e780",
+    "tools/text_control_reference_test.cpp": "b19cfc6a2dcc175e91653b298013d5c43c41647393c9ef7fdb250f5e0da65150",
+    "tools/text_layout_oracle_fixups.inc": "1434c5d3819afb13e22a970a85a0b8b8363b171f366ae7357cd7504bf6a5b8bf",
+    "tools/text_layout_reference_test.cpp": "880a1601b8f7f1fb3ea7f693a5c059dc5ed58e12d292850450821236482122b5",
+    "tools/text_state_oracle_fixups.inc": "12af6973655b286f6c912dc3cae78fa0a20458ba85789940c364c33dec5df3ac",
+    "tools/texture_test.cpp": "e7d5ef4bac129a2165971f47b4bd253ba7c814b6a61f03a767768085dafc48b4",
+    "tools/timer_oracle_fixups.inc": "3e66876f4367b3369216d6eadce4c50a3ef9614d3b90b201ac0b8ac35fc8e741",
+    "tools/timer_reference_test.cpp": "8ba4875aba4777f778d7e826c6c86b2cfc1b89b417e360165e55b492a4eaebfd",
+    "tools/tooltip_oracle_cases.inc": "28de03121e943cc4cadb52e0334ea374deb78b3390c363b1f83775610087c478",
+    "tools/trace_squall_tracker_failures.py": "d8621ec049151fea26650702b6549e83e1520540a47e78a9de29d94d06a01a16",
+    "tools/tutorial_manager_oracle_cases.inc": "cf349ed57ac9f3f0d0495fac6348050225d4bd5670ddd1961deab15b81d1b6f0",
+    "tools/tutorial_manager_oracle_services.h": "c867a9b3615bc13a82db35871bea00eb7889b55b27cfbddf89b084b5a70c2d56",
+    "tools/tutorial_tips_oracle_cases.inc": "24d7d2265940a1d30844cfa1682e204e144ff1499e7c22a4b03d68f483c5700a",
+    "tools/tutorial_tips_oracle_services.h": "53466603dbb3c528c3f02cd47948b4a3d11171be71c055a28dafe335de666b0f",
+    "tools/ui_constructor_failure_cases.inc": "d833bb93ad93a503b90ce8e2d829a57613572e06271adf0e360de3b2b6f7fa99",
+    "tools/ui_frame_oracle_fixups.inc": "94cdceb3cbf45ca8c99a25a96c359d043facd76b766826d42423ed654ebe1666",
+    "tools/ui_frame_reference_test.cpp": "f6c81316bbbbbb37f9f0ae8e09bed25e54eacf09ad9ef921178d7a7c903e1acd",
+    "tools/uninstall_sandbox/CMakeLists.txt": "26075358264ee7338e7663c629790647a53c70b667b0819dfd670bff7964e338",
+    "tools/uninstall_sandbox/application_guard.cpp": "904d92c9e6993de5c4bfd575c42f22be30137e325bf8e278879073ac6f77b4d5",
+    "tools/uninstall_sandbox/application_guard.def": "0036450229030d53789789bc588bb80ca1c45da4fa5017ad4fefb1520b2dbd5c",
+    "tools/uninstall_sandbox/bootstrap_broker.cpp": "310a24ceebcf164b810500aae89f34eb86ff1c6c1626677c1af16fc9a2a2c10d",
+    "tools/uninstall_sandbox/bootstrap_broker.h": "87e23a1252b36d4c1695ad459193e55cba6a7915b29445a202c6e0beabe6c3ba",
+    "tools/uninstall_sandbox/bootstrap_client.cpp": "b930579242ac9bf5c180eeae250b36887e71460f1c8c8425b63f59fddf25cb91",
+    "tools/uninstall_sandbox/containment_probe.cpp": "770ceaa000b2bbe410cd17fdeaa1733ae04cf3cbc0534129c36f79beae33c59e",
+    "tools/uninstall_sandbox/entry_injection.cpp": "887d39506fd0054b6585c41332cd7b2e5a7f1a1d6f72e67751294d38c0df25fb",
+    "tools/uninstall_sandbox/entry_injection.h": "90143dc26653987f06e8f24c33d248e40f603dd5272368c95d91f52ee50bfcae",
+    "tools/uninstall_sandbox/guard_client.cpp": "2e57e4e019903e93126031482e7635b92208a9a9bf3faae030508c4467139900",
+    "tools/uninstall_sandbox/guard_protocol.h": "40bf96c95a87265de363a3f9280118bdee0988ac1f6601a7f9aa8b4d652da43a",
+    "tools/uninstall_sandbox/ui_driver.cpp": "8c030313f3ddae5cc83f4f5e55fe3c15fc759aee380652e33b0f462e5ec95d6c",
+    "tools/uninstall_sandbox/ui_driver.h": "d1c6ca15ae5b9d01c41265ff6baedb193058e9dca5cf47cc1504ea1d894c25fd",
+    "tools/uninstall_sandbox/uninstall_fixtures.cpp": "d2f9456e66cc60beca63500b5ed98ab27b313f580bcedfd7651c40e06918caee",
+    "tools/uninstall_sandbox/uninstall_fixtures.h": "32dd575bb16c12da443a98e60b389bbe0f3dfd50eefff8a0a8d4e376522ca0fe",
+    "tools/upgrade_oracle_cases.inc": "61f6a3212c072b17611c48055cc4cf5983d92579b69dfbf30f5a38b8ba9e2c19",
+    "tools/upgrade_oracle_services.h": "22e269d9de867d36ab67bf7e0c1a05da77ebef03f48693b1d49f4913858d1f95",
+    "tools/validate_action_area.py": "fe39a34b6e8415c140cd31b9d0d96aa0221aa7f13d40190b1568c159eb363ed2",
+    "tools/validate_application_runtime.py": "820d4e90b89726cd87b3768dbb221ba805d58246ca58a108ebb2f22e3775ce5c",
+    "tools/validate_award_effect.py": "74517706653f27f2d504a4c27c8acfda192fde5bfb7544d5f16d864f8f0e7465",
+    "tools/validate_award_panel.py": "74a04b0a0cd4a5615182c23c386af1aa5a7d334259f5b5badd80a0b084e046a5",
+    "tools/validate_awards.py": "09d0d4a9244ae665ce547be6595396556ea8533e9e52b1930468cd5cbcff0a4d",
+    "tools/validate_button_text.py": "0265664d2aa5bd98a45641e36faa2691b4b04bb7770b0ff9a8f8625834a84576",
+    "tools/validate_buttons.py": "d7b141c20838c8701963d27f20ddaf42ee80dae7e522f0f42437b314b35f2b9d",
+    "tools/validate_buy_building.py": "619f07a2100d5e7eef913650d1d737041e7c5e44f5d058d58743d4413e3d3643",
+    "tools/validate_buy_seeds.py": "55e23376b18699bd8899913fb8ac68f34db9d543cb7f1e9f80d49d44603f9287",
+    "tools/validate_campaign_loop_state.py": "8b9732bcc6a08d489d91c0308d8256f53042c28606a604b7b7cbc4c9ef8d0cab",
+    "tools/validate_click_masks.py": "29135fec943831de7a2c908053ebef0b557bf078a519b2c75e12e2999814b443",
+    "tools/validate_color.py": "62fc0454063a9be24ff335aa84eccba4ecfc2027a1f21369b266eb28f9e33c56",
+    "tools/validate_contract_delay_acceptance_state.py": "e66fce4dd973eaba3d1057cf7b910781bdcbe921937aa25cf5113f9a21ddf8cf",
+    "tools/validate_contract_dialogs.py": "9ef0337b4b2921d03aad6e6fdc047c25698baefd811cfb923fb7a22ca124c130",
+    "tools/validate_contract_expiry_state.py": "de1a7aab14b6422276baa261bcc222f983d9c1ef493fa8900aa506987e6ffd28",
+    "tools/validate_contract_letter.py": "d2d0270d7c52da27202fb72704b1510acd3590ec3f9deb78d817f77d03be0ac6",
+    "tools/validate_contract_provide.py": "f610a6bf07e304eeb0b5412fa4d76ea66bfa11da8fa6bcca391773a48341f2c2",
+    "tools/validate_contract_status.py": "c2251a835624f39cbe7ce3ba8e76e2a759c6a4f6bf43c928e3e862ab85db80c8",
+    "tools/validate_control_sprites.py": "836fd30717b12473cf69a8be6db9b592ebf9324853fc1cb243aeb6c5b534eaf6",
+    "tools/validate_controls.py": "c3b53224f55cdcb338a7d942688f18867662578d4dd238efb6cb93219e9bdf77",
+    "tools/validate_counter_quiescence_state.py": "02e9032c95487b71e3f34958992ef9289974e2c5feb3953f54c8c2cca4764043",
+    "tools/validate_counter_supply_state.py": "6db06431a47627cec43c5e97a1971b631a1693b2e991c9faa8ac77da8961395c",
+    "tools/validate_cowshed_capacities_state.py": "40ee7778467423250d176cb67565bfa1afee34af702e8f65032056cbdb867ef8",
+    "tools/validate_cucumber_harvest_state.py": "0cc11b65d8605dd298f60d431cea52811fcfef8f95b9deef541413d1c3ef8b3a",
+    "tools/validate_cucumber_sowing_state.py": "488ad4f6b1be237c62c988ed85315afa4039a1255fd0e80ac0c9b07099694049",
+    "tools/validate_cursor.py": "e78cada0c27d4ebd0175c72f180323d37020ca58e388f6f45d844b010dfa606d",
+    "tools/validate_demolition_award_state.py": "28c363ed76a4d164e00dac17247e418cdc5dcb9d8c5276d646a766e14810675a",
+    "tools/validate_dig_building.py": "450ef9b5723cd1ea42652f051fd243424ea4e00e16950a988a800235476f8d60",
+    "tools/validate_elastic_animation.py": "ac504911198dad1a5ea87f28aec0d18bb2df9277ccfa50056117d332a86ee1e9",
+    "tools/validate_exports.py": "2b63ba75876c549a4574245a60fb64558747947e2ce3110dec79d8d2ed928a9f",
+    "tools/validate_extended_buttons.py": "23aff325ae8b9647f4c27dff9717df8230e43490a8e7995fb062bb3150908bb9",
+    "tools/validate_factory_catalog_state.py": "f85ea3b30bb215c00c13ec81a56f194113a500500e88753dcb9902e076f33b9f",
+    "tools/validate_factory_history_state.py": "991acc9114027f3580d3e99bb598be08171843408c7263c106e33ef91be0c334",
+    "tools/validate_factory_levels_state.py": "57330dcd77200b3c7b8d4c8802ab6cfacd6f9024d32269893b21ec4ff867192c",
+    "tools/validate_farm_expansion_state.py": "a4c7736b88b7258ff3f98c8ed33b9e57eb7fac5798ec49e251457a60454d139a",
+    "tools/validate_farm_expansions_state.py": "1c1a1ed10cb74d4e6257a4d13cf765685d49621c5559e91dcfcfc8c1c173e210",
+    "tools/validate_farm_field.py": "d2e76f3cdda57929e1a9b5db32f6918d186ce27c34501af1af147bf54d68ca04",
+    "tools/validate_farm_scene.py": "b0146583176d745d72d86b08e0f5e3ad1f8af85e5839376a24fec0e7ac8b5e7b",
+    "tools/validate_field_disasters_state.py": "4653a74edb631e44e833d9d27df1292d7beefb2ae2efac13daa2e148162f3ee4",
+    "tools/validate_field_object.py": "596d1ab0384fbd9caffefc380ccf57a4a547fadb618a9eb156923fde4b0a01a1",
+    "tools/validate_file_system_bootstrap.py": "fd77f86e007160feeb89c2c82220bbdba43dfc59674400b9843fccb456324443",
+    "tools/validate_flying_text.py": "8053477b38ac829fc736dba3325494f87d6edca6ca5894a8689c1f838d07736e",
+    "tools/validate_fonts.py": "b197595b28ac536665e9e8b192c94bc356d9ee57d29beacecca48b526d288732",
+    "tools/validate_full_warehouse_state.py": "4e70cce93ed17f6cafb7e7e9fb38f14ba81a2d81dc550e6531f8693746b6e542",
+    "tools/validate_game_audio.py": "a4c01c10d1ff9814e6baf66a9844115d23d3a7160a8c1c91cffd3c26eac6fdcb",
+    "tools/validate_game_award_manager.py": "545322b8d0c559e106b42a2be619c8ea31a851c73e719c46f15e5eeab810282b",
+    "tools/validate_game_awards_runtime.py": "1d73af27b74208cbc6f0d9d5d7f276571f0e04eb173c1f70cff3870617fd22cb",
+    "tools/validate_game_campaign_loop.py": "7144324e670f629e0b0d19b9af9052e407ac7fa2991515087bf372e73de8088a",
+    "tools/validate_game_campaign_loop_interop.py": "684d35fd3a7a6d79587c11524bf8f1046040e618697c90e2485a9e3f63e70359",
+    "tools/validate_game_configuration.py": "d61011e869551b8b38bc90fdc7b46bf9b361fe1aaa8abacc1ce75cfcafbabb64",
+    "tools/validate_game_contract_completion.py": "49c72f0bbd4c6cb8c94500143081def41e2bb559113f841ccb783a7930e909a7",
+    "tools/validate_game_contract_delay_acceptance.py": "28fcb33e316df4c2706d40ffec840fe4071f5024179dd8f7c349bbeec16c3de6",
+    "tools/validate_game_contract_expiry.py": "e1636093f11ae79fb607d3de26a534d2b1bd7da7286c9052e676df4b205c057e",
+    "tools/validate_game_contract_expiry_interop.py": "a6f65321a9e962dfa77a9e328e9d1b07bbf8fe0aa97d2c61be260470e404fa57",
+    "tools/validate_game_contract_runtime.py": "91889ac7a6d90feb795c5fd6e354ff46299369d66352f2065f1ca0e01f65bad1",
+    "tools/validate_game_contract_streak.py": "96ba5966eb4337e2c096ead60e49ae08323643956448bb187fd6b29682dc5e0f",
+    "tools/validate_game_contract_streak_interop.py": "d7cff88a2ad63ad7c2def5ee99b44c8761ac071276fd8473333bab4c6638cc28",
+    "tools/validate_game_counter_quiescence.py": "5f57a2d15857709c38efd7a20403d881c427452e458109a83b19cd573a72dea5",
+    "tools/validate_game_counter_supply_cycle.py": "745de27692280674476729c986a06c720d4aa1b4b01c873324c96185d236a748",
+    "tools/validate_game_counter_supply_interop.py": "4e35ecd89c9751eab95d854ea6c4db0dd6afe5fe49c1e7e3c19b4d23be6f6995",
+    "tools/validate_game_cowshed_capacities.py": "3fdf91107d8c793eba90586d8491a5c045f4b5fb7a3d8dd9a86e57a6c905e51c",
+    "tools/validate_game_cowshed_capacities_interop.py": "29d8ebadcfc8ee386ba88902c2e800ceca8b7251dbb915ce937be142028e5e22",
+    "tools/validate_game_crop_history_interop.py": "b834aa69724ed551c8e37836713383e992c3c71e97b80f6d39a62d00031c9377",
+    "tools/validate_game_crop_interop.py": "d049eaebd87b508a5c00b4645af08bd51c5b037aa2100eb0bc2be28cbace5785",
+    "tools/validate_game_cucumber_harvest.py": "ed24c59a7453f0cc59594f1dd534382b146b5b9e070b4e4f9f4e68bbff14d77b",
+    "tools/validate_game_cucumber_interop.py": "02b00b54ab11d1c5b646edf292d2dc61ecea90442d344e38c6cf873d07ae13b4",
+    "tools/validate_game_cucumber_sowing.py": "f3913fea0e316bde5b524e3f82393113510ec8d06add6f9a5cc09d57f2b7895f",
+    "tools/validate_game_demolition_award.py": "af88ebbcfdf5f321ac321a0e7ee7ecf164653aaccfe6e3a9154070bb0fe64e1a",
+    "tools/validate_game_demolition_award_interop.py": "8647755c4d4b20f34592daeaf4a836f204abc9602fc3c9e26121bcf9e11b75fb",
+    "tools/validate_game_empty_seed_interop.py": "e02371e91c13517ef301c53778708918e89512f8381623fd2bc54b65735338f7",
+    "tools/validate_game_factory_catalog.py": "8e4c9b0c346f75521880d574576fccdd800fe9d0a9601f1911f20385cca4bcbd",
+    "tools/validate_game_factory_history.py": "9610d2e623c405eb7763b030a74498f04443554a2e3cec65764f179c2b8e7432",
+    "tools/validate_game_factory_history_interop.py": "3a632702086ffcb767464ea8062cbe9e662ff62d4c8ce07756c554c190657e63",
+    "tools/validate_game_factory_levels.py": "8738ecc9bc5931ed3e4a9ee4d39b8fd403fa8860ad6b03fb00469aabfe43cbb6",
+    "tools/validate_game_farm_expansion.py": "68cedb722523bab573ef5620de4fbcd6b846f2adc7b6249abb1d0885ff0ba8e0",
+    "tools/validate_game_farm_expansions.py": "99b77c5544f511525cddedd703bae87316ca21ddce9236b5bf728ce98b093d76",
+    "tools/validate_game_farm_expansions_interop.py": "4a9ee6cc27b0fbc6835474ddd4e530b7eabaf8b06e42e9a51434498a580bc345",
+    "tools/validate_game_field_disasters.py": "9b32045872cf46b25dd4e857321c12bacc82fc1f142d2f00e8f1536dc1ab2310",
+    "tools/validate_game_field_disasters_interop.py": "3e4c4e47cfdbb04c5cb17b50e5c9d2fd4fdd70acdaf05b1c3d79f8fdb426b3a0",
+    "tools/validate_game_full_warehouse.py": "1096a6106b1db0de6a1593367b8ed95c97283a409bae66d305379a03ae14c41e",
+    "tools/validate_game_full_warehouse_interop.py": "f4b6ae5a0d379ee4a0b66fed0fa191ac41247cd8b24f72e1788d6296b509d7d8",
+    "tools/validate_game_harvest_hundred.py": "684b2486686a993f3c96ec98d9752e63f3da18a285c5553cbee01a04b6b604e0",
+    "tools/validate_game_harvest_hundred_interop.py": "10bba086cdc72aad018d9ab480c862d5112390dcc6165ea42bcf503da2a165e6",
+    "tools/validate_game_high_price_sale.py": "b89e6a8dd30531c73d68244c3f7ddfd68e89f49c1514141523480a435c0ba382",
+    "tools/validate_game_high_price_sale_interop.py": "7d26d234868b10e5ea3426b85b2a62fbe2852f67b7bb8c365a881bcb2c6d53e1",
+    "tools/validate_game_inflight_interop.py": "6edd2cfcf1984c9f427571ba45eb295dc289d47462d6d52de25190d7c5b91f5d",
+    "tools/validate_game_inflight_production.py": "91c9331d54a695ab4a2d11b7932c7e41211c8a1dea34ede1d8fd82e53c42ab94",
+    "tools/validate_game_input.py": "d6f86670c0489f2a55e46da0e1dbd9ddbb6d59eb842ef7478947ed8b6176d599",
+    "tools/validate_game_input_runtime.py": "5f1253b11ee2cd81260dc6ac01f3a4ed6f746c095ddf4db52a4744bca59ca84e",
+    "tools/validate_game_irrigation.py": "3fb906e65aa048e041c2efcbfe2973cbad0fdacaf468c89a63fad973918c8f5a",
+    "tools/validate_game_irrigation_interop.py": "25a033de598473790a75098676015ccd19d992a2623a5e690498d522fd5f9efb",
+    "tools/validate_game_late_timeline.py": "0e95621d3116c667f6d2f4073a407dbc8f89bcaed4cf1679c97cb9704b3b3281",
+    "tools/validate_game_late_timeline_interop.py": "1fe4288841a476a2c32232fb22048a26958487ab3ebe0f06d58d96dee3f508f3",
+    "tools/validate_game_manufacture_tutorial.py": "112bc1b84ce7a53a5365b3f93b74fd180d55f7cef9a7496d3822a057636f10e5",
+    "tools/validate_game_market_assortment.py": "fc0d34b5febc3732fdae2b02c93148605d06de918697ddef1ee91a30950dcd31",
+    "tools/validate_game_market_assortment_interop.py": "29f319cc5f6756e68e92be88afed830adc1ffcfb1759bf56d5748b68f618a8cc",
+    "tools/validate_game_menu.py": "e857899fcf55fd03a4cd62374382abd083414ea384269a3d25b54bd804e1f5c7",
+    "tools/validate_game_no_dry_award.py": "a2840b60bea7cc93b77bfed97b53af6c91ea3aa97c20123b89676206e1809a1a",
+    "tools/validate_game_no_dry_award_interop.py": "1536693b1f3684ed4472f3c12f9f6852a03b6eded0cdaa35f0f01c5c268f66b4",
+    "tools/validate_game_paid_production.py": "285b659b330f2bb2fe8a1de896a3c52e06d1124f604a48bfe90987b9b350ff39",
+    "tools/validate_game_pause.py": "4bcdce2fe60116d1075ac4c43a65e93343543500b3d828bc48a93449bb3fa7ec",
+    "tools/validate_game_paused_deep_click.py": "ef631e10b1ac62090903eac69afcee63cff6fe8ecd3220fbd92133690108d2f3",
+    "tools/validate_game_paused_production_input.py": "77efa6e4ca98b1e5fe9f3a1efaaf9bebf7afe4b025e9190e1864f73937b2afe9",
+    "tools/validate_game_planning_queue.py": "fe7addfcc7206c238abfc8832a8b5b02aec3f8f2a0eb490cbd23d71a37ca8422",
+    "tools/validate_game_planning_queue_interop.py": "240199ebe726901b69a07cebfeaa9a63f99bae6c7634cc534b2f885d11c4b3a8",
+    "tools/validate_game_production_interop.py": "e2cdd644d0d253abded28167f0f7081f55f30b6f7723c000b8175996737006a6",
+    "tools/validate_game_remaining_crops_growth.py": "545127dcb0e025faa922c301298c82469cb4cc0b8d23b8344cf28cbb3b6ca643",
+    "tools/validate_game_remaining_crops_harvest.py": "0eb353feb9af55452abb366d29106203ddedca9646d16aaf0fbd2b2c64a6d58d",
+    "tools/validate_game_remaining_crops_interop.py": "6c0727a87a60a53cf8b9a7bc614aa86d338f05116318cd4d00cfd43202a8fae8",
+    "tools/validate_game_remaining_crops_sowing.py": "9866cae4a876d96284ed7b4366a5b928b3c81239e1fad970b6cbdf3a8775b707",
+    "tools/validate_game_seed_exhaustion.py": "e190d99834fe99b1408e3a067da268c5c5d103aa7ab5830bb057a95ed6e04fb1",
+    "tools/validate_game_seed_interop.py": "4ed3627f6300c47cdac3a5c7721e9482a4a566c9d2004ba84bfc29864a1d7aa8",
+    "tools/validate_game_seed_sowing.py": "6415babe562cb95a487026086806198de6bb24c5e55362eee858e0e4d5055d70",
+    "tools/validate_game_seed_transition.py": "0b393e7437df88e91911aa4bb75dbb4a922c2a80b22c5b0e7d0886ddf3dbc892",
+    "tools/validate_game_seed_unlock.py": "68c6a5dc3fa9ddf68ae34b1fdbc89fa4d84cf5ac86e051dad68af25866066407",
+    "tools/validate_game_seven_factories.py": "a3292892824d190a3fa16cacc1e63529e6fcaa85c578e500ff6a696e68e316f6",
+    "tools/validate_game_seven_factories_interop.py": "ecd525aa4d215256fa062a2b7a1c8695d66aa5fb6bc807ef8e7a1d9eea3654fb",
+    "tools/validate_game_seven_inflight.py": "b93949412294f6db1c7f82d5e5c1fa4738b81b24861140e72f83080c06c85cfa",
+    "tools/validate_game_seven_inflight_interop.py": "c14f7a5556baa7256496f1edf417e3066cf20fdd71c76d6b67d8928fb566d6b3",
+    "tools/validate_game_source_world.py": "e2341a13768b1310d1afc32eddf213f5f7b461e28aada5f12844b19228a7ba9b",
+    "tools/validate_game_tomato_batch.py": "bd1960975d069f004a6e4322eb5efa83d8c5dc2c6891527af55865c21d8b1d03",
+    "tools/validate_game_tomato_contract.py": "34769e08cdbf6dcc46b0cc18887e6b4cbcf48166a9f5361846d73e56cafe0164",
+    "tools/validate_game_tomato_contract_interop.py": "e08232f7ad05be9d71496e5dbb91270367f9f445353bba6c8690e5079bb42857",
+    "tools/validate_game_tomato_harvest.py": "4b1fc6da4eeec2361740762b6a8c8bfca9c4b1462058bce72d3236eedebeb0fc",
+    "tools/validate_game_tool_upgrades.py": "fdac6f768ee27f83a93baab57fbfa0a8665a94409913a391dc172de4667787ef",
+    "tools/validate_game_tutorial_runtime.py": "1a18621743deb6a349c6fa834e8cb8de307c25b7ca7551533bd76a6e0d0297f4",
+    "tools/validate_gameplay.py": "1cb8a35890530cf8965188a2f921fc50d323ce9da993394a6b8c6b97b1c83b64",
+    "tools/validate_gameplay_runtime.py": "aa2d6e74703a4648077db61bc6cf7973eea4bf072dbcbdda9ae1ba5119f4d019",
+    "tools/validate_graphics_presentation.py": "9f31364da0ebdeba2ef80dcf5a5c3038579f3624d78fb6dd177198b0b7bb0326",
+    "tools/validate_harvest_hundred_state.py": "16dcfb0050cc12ed7210860e2bf0e33c701c8cb777544caac279a91051512a7f",
+    "tools/validate_help_view.py": "7b89b5635da261580066f6357fb26e4a892ccd9d72f609f33243705e3b2fde79",
+    "tools/validate_high_price_sale_state.py": "10c1c3b6a649ece313aa6ce6ea00e101832014b8c52d57768465ed5a20a78ff4",
+    "tools/validate_histogram.py": "406a11e063f64b7f09501e2e516c9cc2f63fb0aff7df0ff9d6ba44aa7fbe035d",
+    "tools/validate_inflight_production_state.py": "54be78f5278f8509b8e4ca7d6621d07b08b109005142a13293aec1cb429274a6",
+    "tools/validate_input_bindings.py": "e8c353c65488b3815cc43a12503543b6956f3f5d7f148377bf984948c891bf99",
+    "tools/validate_irrigation_state.py": "440fcf8fa00ec37d1f2cb10cd504ecd600a6479919dfa93048126771dbbd8d2c",
+    "tools/validate_jng.py": "78b4ea11519a705b6252dc0fcb10ce45e9379e8c9264419d6c7b265a6e5de112",
+    "tools/validate_jng_error_abi.py": "6a1032809fe705dc5f4447698d1f19952b70e445c1b36a0c4acf11a2b88bcd6b",
+    "tools/validate_jng_load_fpu.py": "0e5ffcc727f7b53e8f00debb86cc568c48e83b40d6f088814bedd87e0fab0b4b",
+    "tools/validate_journal.py": "07eea6005cbf90e540b0eaf6baafe2b6995e4f3e73191581c9da6a1d29a4615b",
+    "tools/validate_jpeg.py": "6f197eeac35be7b030edbfa9e4361d24e9d01f83b88f3feec18aa6edba018ef3",
+    "tools/validate_late_timeline_state.py": "e2e00ad8d99cb71c8a742fe49464bebf59fc58530fa5e417c8974c642ea1e002",
+    "tools/validate_loading.py": "817ffef02bf54a1aee2d9e4b8508adf49de6c79153ada8d686350f0fd977ee88",
+    "tools/validate_logic_shortcuts.py": "aeb4dbc43a763ad26a88dc5de47c6eefb5c68ea02a1b25b05100f36791c1dbd4",
+    "tools/validate_main_menu.py": "aedc165096feb0aa407a3ec4ab3693484d028ccf617a710f4ceaf4e3e145080c",
+    "tools/validate_manufacture.py": "6769eb9a9fceea03d24453bc980eb41c67c45c6d722c7ae207df4bd8305e3f0b",
+    "tools/validate_manufacture_tutorial_state.py": "12dd60b8d2cd277042373816faf5976894e5ff41585fb0df0528bec7a46a5eca",
+    "tools/validate_market.py": "b0ced847a809eeada019f214d9f4761a6bf945ed344f074dd97e642e8fcdda01",
+    "tools/validate_market_assortment_state.py": "87ae33989e41165bece01fd27a24245043c0fa28a829ef69cdd6ff338400e264",
+    "tools/validate_matrix.py": "0178951fc97e60354b9e23e3158f8dd45e604ccb73272df1a6bc1f89d2a82eef",
+    "tools/validate_movable_union.py": "e5f062f20029acf3f1a3ae90c1643e0c813b0444ce5ef33d7b298aab18aa3a1c",
+    "tools/validate_mow_building.py": "10302e36e19ace304319f642c392a14153d16300e6e7e87aa53d9320916fdbd0",
+    "tools/validate_native_application_interop.py": "cfd844038c752b8490c50868bc109cef7903f02ec0fc24b718deacf4d4d9a11b",
+    "tools/validate_native_images.py": "bceeb9a45407d102f298c32be4ccb9dd98df0288be55b0eabeda89d7a63ea027",
+    "tools/validate_new_user.py": "0ae572e04170e95bdb357c14d2e55744e7e142802a6cad8a80a6a07b918b20b7",
+    "tools/validate_no_dry_award_state.py": "28c8c305cd7acf9e6a46e4dc17ae47c0b18b7311f7b8966db7087b2c1723201e",
+    "tools/validate_paid_production_state.py": "7efa93579c04115b242256828932ea164bfb244e60cb1a3c238fc668d9d39180",
+    "tools/validate_paused_production_input_state.py": "9c3640925c921b851c022be9377b26bacd5a74326a14017d30386b7e1ee96a6e",
+    "tools/validate_person_controller.py": "4ddb26ac34f3b649a6bf4a77b9eb9abefba36ad830f67d63eb86e8b7be15c00a",
+    "tools/validate_person_flows.py": "86c6aebcb6931371710d5d575d5e7a6fd010a9f46dea8d3987b902056eb27953",
+    "tools/validate_person_sounds.py": "1e66ee8db567192b2742e5ff5781cd2ebf29d375c854f5e7c0d0f786fa2a0a5e",
+    "tools/validate_person_tasks.py": "bfec6f573c2b399ce7ded591653614b425740a4e34d5ef7142b5b84bb63cce67",
+    "tools/validate_person_vehicle.py": "2dcfba34139041df918822a9ffc5161798c2e882563f2cca1a19fa65c1532273",
+    "tools/validate_person_visuals.py": "39597357d516265ad92c907aa703b45c16932718093e7c83bee0ca16d6abc48e",
+    "tools/validate_person_walk.py": "6da00d05a2cc2eac6c01ceab2ad1afa3db1b4827f71616cd18bfc227931f737b",
+    "tools/validate_planning_queue_state.py": "6c835b75c10ace2613a08fb73edae4d79fb8842e2a5eec5b499da6ca2e539747",
+    "tools/validate_price_text.py": "57c5fa9b553e7e0ae7e047ffd65f23cdfccc3becbc3d18b714ab8dfc72ca630f",
+    "tools/validate_production_houses.py": "1ac978cb9fb185167d0a61632865df02df4ea4f99501ca1672317a4df3abbc02",
+    "tools/validate_profile_floating.py": "5f9c10ea966286d795869153a477b7df81e7b064f5d80b51de338a57b83d70ec",
+    "tools/validate_profile_headers.py": "252439fd83fa6656159dd2f2c31ae0ba9dea8b03909a5fb8640b898d01d13d86",
+    "tools/validate_profile_lifecycle.py": "3089d7d5c304bb7c47dbb17837b5b9c3f716a7ee78ecb15b94e0bb06cfa15a1f",
+    "tools/validate_profile_properties.py": "c67b9caa4cefd43b52f4d527f9ed5e4f6af320836a9b54a8b1b28a14bf4a1a9b",
+    "tools/validate_progress.py": "5f1eb1d725632bfdec3feb5d471fbf73e424a27e65a6e53d77baaee42d6cdbcb",
+    "tools/validate_remaining_crops_growth_state.py": "e574d7fc4cd85dbb4775de0ea6d53c467e1f7d00572500b3f34d7de5a7e22244",
+    "tools/validate_remaining_crops_harvest_state.py": "36901df63349d2e2919b18c53f492c8947b6e1c70e6863be8449673acbc5d3da",
+    "tools/validate_remaining_crops_sowing_state.py": "6e54af35387290bfbcb49288760190d4a759b9c0ac43268a7c00cc201af41c74",
+    "tools/validate_resource_log.py": "5da1f928fd690e05fd37b5396913368655a25bec26747293f98d24987b1d9729",
+    "tools/validate_resource_manager.py": "95e9c9d6785d1c9be51b36f64a4cc52719945a5a91ece0e27e480bf75ee42900",
+    "tools/validate_resources.py": "4f47293d16ffe88c5b47d808c54d1f252cb2c21d9834396543a97b271b786df8",
+    "tools/validate_rich_save_interop.py": "2db72cb5cbfb18fd54ca68af9eb428efd1aca1d8bd4034b2e71aabb538d12674",
+    "tools/validate_runtime_shortcuts.py": "54402e2c02617d403a4fb975d0a54463e58233170c2c7c888158cb34e6d4b3a4",
+    "tools/validate_sales_history.py": "960f1ec6ca8fe1f10e25b26bdd7e945a3b48f378795ddb3ad549bad6192f5868",
+    "tools/validate_seed_exhaustion_state.py": "dce04cce8f0c35c36fc30c4a848bce6e87a4f3c3855242da0876f8b216b2cdec",
+    "tools/validate_seed_package.py": "1b180a56c2dfdfad585f018f36e5e03e71fb45ebaaebb0c722a360bb5b93dea3",
+    "tools/validate_seed_sowing_state.py": "ab09cd48bbbf222408dc2cb5367bbf6c6af61c5d412cbdbc4836bcb5d9215705",
+    "tools/validate_seed_transition_state.py": "072b132b037643001a5b8f3e6d2c7911ec568e8a44dcbb78d4c99bd96934451d",
+    "tools/validate_seed_unlock_state.py": "1729aaa7ddeb2ab4d7ec21bf4727bf1be52b142cd0eb21bc73730dece966e6f8",
+    "tools/validate_settings.py": "322fb36ddf9fd0ba68f4b67ea6f397702021d52a184bc5091765184f365f71d3",
+    "tools/validate_seven_factories_state.py": "19e5959d538d4981b3faa999ac4754c093627510e2186071f9bdad2edb121806",
+    "tools/validate_seven_inflight_interop_state.py": "26c867329b13183e08e5adab6cbaecb95829e74fdedfcac008adf9830857b6f3",
+    "tools/validate_seven_inflight_state.py": "3a4e9e5484d1ed964c031261ca196a8226e016378a5e2d4500a4eee0d63ff3f9",
+    "tools/validate_sound_manager.py": "71c784d1b73edd12c80cc98ac3ee2fb1d16c9322aeca5e15d8c7a08f42ffb2c1",
+    "tools/validate_sprinkle.py": "609759b446ae69e600886365564465ba31a6319f0db19cac108ecf3ef025ff8a",
+    "tools/validate_sprite_draw.py": "1228d94123d899bd06006ec83f30c7b24b00bf13b7a76aa2e244b8d954d332c1",
+    "tools/validate_sprite_geometry.py": "4889cb6eeaa699b89477cb9002f0524928ce6b25c6b2fb39c6ac4ebad4ccf11f",
+    "tools/validate_squall_channel_ranges.py": "c9e6246bc694a8b46b90d7e2a2483fbfcd3c4eaaeacab8dfb6ec7359f35eecd5",
+    "tools/validate_squall_channel_vectors.py": "076bcc5513d5de28c65118cdbbf5cbdf5a4cff55ef38e10577b8657f03bcbd1c",
+    "tools/validate_squall_channel_worker.py": "20251291516679a5811d86edec9b98398ff23cef7002596ee2f80d432b2901c6",
+    "tools/validate_squall_config.py": "05b029384575ae91cd53a687a68885be012eeb87e2ad5eaa58852f087cf1eaab",
+    "tools/validate_squall_dll.py": "c48c07d59076676159f1a2fe57f9aa05e88c1419fe0b50e1d3eda205704c0ab9",
+    "tools/validate_squall_export_stack.py": "57a0de0266cf05235a6e3956095a29e53ee0aad25963ae7558f750e3ed7fe5a4",
+    "tools/validate_squall_extension_boundary.py": "1c1f77d21a3e4731094e74d3b979abc732c7e134a9a95fcee1fddc731357af9c",
+    "tools/validate_squall_extensions.py": "b4519cab62f0d779b21ee0064f77aca4dde37c9c88766d72004d8ee78d53f0bf",
+    "tools/validate_squall_file_callbacks.py": "40dd7f4023390431f025331e06ce53cc8d3e84afa9b0419581d9e350e471850d",
+    "tools/validate_squall_groups.py": "0405ee08b5884ad5c5ece6e6ee959534a36306eb7193fb19fc8eeab9996423c2",
+    "tools/validate_squall_layout.py": "6bfd6b96a43f825e6cf6e8544f68c26f6e5217ea8d88497865a3b4da9f199a68",
+    "tools/validate_squall_listener_factors.py": "8bbfefca21db5dbd74e28cd1fedda3a0162a4fda53cf034697a9fba1a45adac3",
+    "tools/validate_squall_listener_vectors.py": "f7669d5880de60a1915e07910bc6eb34949a04507515e46058f64b588a3105ec",
+    "tools/validate_squall_listener_worker.py": "56d0870939ef62b0e462727dc399d6567ceb77dcc51782d2a6b505d6aea3e688",
+    "tools/validate_squall_load_fpu.py": "6e09a982a93a3084241e8ed7b70701f25609ea367d9d54d32d5054c387e5519d",
+    "tools/validate_squall_memory.py": "304697ece8e132d1d1ee3c3618158c3049ac824605fdab80c66b90d0316d97a4",
+    "tools/validate_squall_mpeg_formats.py": "2cb0e8b29ac8a59c0a1db49b788d5b370b2545bd2006e0c880474cc08e12227a",
+    "tools/validate_squall_mpeg_kernels.py": "7af125e513736e8d8ed169ea41a46d1228eb389b255aa2694bde2369dcff661d",
+    "tools/validate_squall_ogg_rejection.py": "f1d09db06350bed359c92129bc3e61a53119159561064935b62657aef6ca3136",
+    "tools/validate_squall_parameters.py": "0fabde6f060546377afabd9c905f0370843f618d7356245cec55b5fdf6fda5b5",
+    "tools/validate_squall_pcm_eof.py": "9917f42428ddd8b959df9c70dda07aa2f98199f0028e185cda0c07d4577f7f7e",
+    "tools/validate_squall_pointer_faults.py": "2a63eb8ff3f55d7c9f080b70d6044ce0614cbb8ee1cd8b700a698b9eed7d1d07",
+    "tools/validate_squall_preemption.py": "8b0b6d66f6917b6de3b22937ab527f5637f38edb1e3914810b65aabaa2418b0f",
+    "tools/validate_squall_runtime.py": "5929f1b27f4dac9b1ff54bf8f3943763a5fab4f45cec44b7b1bc8d0cd5b588fd",
+    "tools/validate_squall_sample_defaults.py": "5b437d9d2178ff1accaa1995d4b2fd9a7b0ed4e5681614685f83fed2d3a52440",
+    "tools/validate_squall_sample_play.py": "91ef6cd2359f062e302d951a2aa35398eca6e3e0d10b0bd2cba76572df53f500",
+    "tools/validate_squall_sample_selection.py": "01d6a7ac4221566c400f38556c2501ae08e7e6f0d7ee19f02eb88836d903c9e4",
+    "tools/validate_squall_tracker_active_mix.py": "dea69ea681b0827a71163041de610abd50e112886d76878635615a7ab4c063f7",
+    "tools/validate_squall_tracker_agc.py": "af00dfbef0795a406bad4806103c810089e32735db4c4e22845bf1b2cc3f2f7b",
+    "tools/validate_squall_tracker_effects.py": "475aa9376ad5ca2ca6fb2ffceb32276b4915a891d26986a70917c0b709f8e2a1",
+    "tools/validate_squall_tracker_formats.py": "e1b706b883794b4093691f10466da4ff0eaf109d1bf04f4aa9eabd8072a44773",
+    "tools/validate_squall_tracker_loader_data.py": "65b79586a1197991b43050881866bdfcfb1ed58efa9fa36c53c5e7bd4f546a1d",
+    "tools/validate_squall_tracker_more_formats.py": "cd031715043799db158fd3811e5f641b07a35019556b6efe7fd4342b6f363f44",
+    "tools/validate_squall_tracker_remaining_loaders.py": "9292813bb83e965f379da158475c03078364ce79ef8e2ca8b0136a305a35068b",
+    "tools/validate_squall_tracker_runtime.py": "0529940162a0ce7203d4a56a4bda5edbf548d7591623fda3f677351cdc7956a7",
+    "tools/validate_squall_tracker_stages.py": "d26d77e3a5c56acc8affa202d5ddb6e064bc0e589706ca7c56ea940e6fa66737",
+    "tools/validate_squall_tracker_stream.py": "5c97e2c7f0c4012516f88a25fadefdc6bb5b325987d16ce6b99211cf89abf9f4",
+    "tools/validate_squall_tracker_tail.py": "2f296e40b9e0669660bcfbd5a47300442fa72eb3ea120a3622abf571c01fe87b",
+    "tools/validate_squall_tracker_voices.py": "6aab6dc960c369703e72dbbad1f6c4e7090ce975e5b5a16f5a692e8675384e7e",
+    "tools/validate_squall_tracker_wrappers.py": "16502022147e395e86b4b0ab92af9e1d99a96db060bd101915caddab126060c4",
+    "tools/validate_squall_wave_formats.py": "e6d76b3bb3efabf57dbb85fd0f854e78488746fecd0cfcb06dcc05d21d04c443",
+    "tools/validate_squall_wma.py": "816de5e94d998e93701329a19477d21385ac0e078d7ae76d9a645b474eb2afbc",
+    "tools/validate_squall_wma_buffers.py": "2e368f3e97408c677ef5e03e1b15cc54d40b23f821b5824c14a20d8548b220c1",
+    "tools/validate_squall_wma_sequences.py": "96736ef4fda2d211fa5f879f0da962dec1f25d7f42d50900915a7fe63a192679",
+    "tools/validate_startup.py": "93e2b9858664ec463310941d531970e2d3e5ca1b82512e106d89a4692226efe3",
+    "tools/validate_state_view.py": "4f8d519e35dbd6e267c7f9cfff90d9c4cee2a6524f07b44261ef3a9c65e22997",
+    "tools/validate_string.py": "9aead9337a0404655adb33479405d6574cce6367a848864e9aacdef57839b2e5",
+    "tools/validate_string_manager.py": "374daaa4f74abba4e8910f28649411805b921a61739f759bbdae0a1e31be9df6",
+    "tools/validate_text_buttons.py": "d676f8a4d2e1d447f4dd9a5ad5c9e6dd1c120d3065eb0a0b0d8a186c458ea583",
+    "tools/validate_text_controls.py": "fe820ddc79c7ff06f0290d417344910f2af562c248bf57f25c435908bf3e1f32",
+    "tools/validate_text_layout.py": "495560259808c5321f056124a74255dd90b3236013ab784f9f4f8be5391cb2a2",
+    "tools/validate_textures.py": "2496cd0857aacc1e13cec68e1acdfddf21bbaf172fc03e8695aed54c380633ef",
+    "tools/validate_timer.py": "f91be4f95e479822e2e1805795fa3c274685025e75e11efeecbb23c72696e1e5",
+    "tools/validate_tomato_batch_state.py": "0165cb169e5a19714f10128917e78da429bbb165be745e20d11649f44827cbf8",
+    "tools/validate_tomato_contract_state.py": "23a9c58510f1f11320e3eb6a38119e0d2ec11d55af805475c1880b80d9198463",
+    "tools/validate_tomato_harvest_state.py": "bc50fb2e1092388c4a0015a9b042d1f0af829d2894c6aebebca27db87b3bad18",
+    "tools/validate_tool_upgrades_state.py": "1c0d9b30a048f5fc6916a41a668e27f598fde478081077bad83c6d7c5898beb5",
+    "tools/validate_tooltip.py": "282becb650de67041a8e0f748ffe05e2f88b05c63b871aefe37ecd4532d694cd",
+    "tools/validate_tutorial_manager.py": "28b3e5d38c0cf861a4b0cb015c0e9c52a9a57447bfa386421ac90aafd76f4be6",
+    "tools/validate_tutorial_tips.py": "4b6f33e82a5897b0ff524b43b394e608174594cd7d44490270cdbb19a795d106",
+    "tools/validate_uninstall_containment.py": "7233a2c18166f91c54a0926bf570f8bc200b154310e4a61cb7d2077ba127f036",
+    "tools/validate_uninstaller_bootstrap.py": "607d74735cf1314b4d877cc9703a7e8ba383372be02817d1a4e10da184095d70",
+    "tools/validate_uninstaller_build.py": "85a91efdcc60d54277aaee1fb328c46161dd998170b6ae7bda90537bc70c9940",
+    "tools/validate_uninstaller_runtime.py": "5b792f360f05746facff4780775a869ac1b8fd495bf69d527b65d35973084667",
+    "tools/validate_uninstaller_ui.py": "7ecc55372ddc1415fdf62bd9e73fc09a34c39b6ec41767df6581a6fd30f9b786",
+    "tools/validate_upgrade.py": "44392da58b8e121d191f0cfc28d93febe8e1af76317f7e82530fa32447f62c7e",
+    "tools/validate_views.py": "e8c88c56e17be122d24bb1c07edb11d144db260f63e2bf3d1bddaed683cc277e",
+    "tools/validate_warehouse.py": "4062aaead84db52e5a8dea46c541398691d6a4050e99331b03eb6a5a9c5cb220",
+    "tools/validate_warehouse_tip.py": "2563232d03dc134853a7e8423ac0d5d7c2847d6588b2749359381700568f3b63",
+    "tools/validate_water_effects.py": "287798c0150e5c00dddcf1b204ac853b59cef1bdc6d0fcc00461581408288376",
+    "tools/validate_water_source.py": "ad7b928a2cd5225446569c284072b0beefed649445600fa05d88ae1b826803da",
+    "tools/validate_window.py": "3fb7fb45a8809ed1dc9b03349486e89ce01f501a896e5d158437be7cceea3443",
+    "tools/view_oracle_fixups.inc": "5ac906747fcb2b88387dcf505374af2e7e79cc1411038f3d8b7cb1adc063df24",
+    "tools/view_reference_test.cpp": "3b9b1dedaea0fbd38b30b625847fa5f180b57c14739f7248994ac6f9945fd4ef",
+    "tools/warehouse_oracle_cases.inc": "9d05b8b73f37b54bb3117a6320f8f55cb3b69054f09d5d11a41c1e318d301305",
+    "tools/warehouse_oracle_services.h": "9a430688377dec1eaf411ba5c48b2cb3e7799d30414b6c8433d077d94b853aa6",
+    "tools/warehouse_tip_oracle_cases.inc": "83d48027dec998ba08359f35964dbecdf668701ddacbbae1f8478c1476a37892",
+    "tools/warehouse_tip_oracle_setup.inc": "e20dd0d44389c38a5abed483b125453f65939227417cb0f7160489491b5f6559",
+    "tools/water_emitters_oracle_cases.inc": "944c76724e26190d3272086d9ad178cef2fb23676a52ce323a0124fe55ae4edf",
+    "tools/water_particles_oracle_cases.inc": "13228ab9235b3b7bdf753a20f19233f78aa470161b8e2585a39cb4256e5688e7",
+    "tools/water_source_oracle_cases.inc": "07b17a238973a7aca55d4b9a3c4a654da0d0c677bb4ecf37c0a3d9b352f7e504",
+    "tools/water_source_oracle_services.h": "066fcb86a841bb440b30b8dd12eef3409bb5328c1e838cf90a653be44eee9092",
+    "tools/widgets_oracle_cases.inc": "6f57e29b6222be232802dba5a593d7eae8269e83b6146298ccd606cc6db378c7",
+    "tools/window_test.cpp": "fb0a58cba6139f6efcd0cf5eca5a59c4d4d4ea94c2eb53df311fc1044de912cf",
+    "tools/windows_game_gui.py": "38463528df79e075f52587c11e4fc82ac76a2f51932fc1472732271522852ea1",
+    "tools/windows_game_memory.py": "b070d71944f55b0e21c4119a89924be0b42e9788494a6b3973598e33af31ffae",
+    "tools/wstring_reference_test.cpp": "4eb78e95c964dda65834bd11b28e41a825449c2d4cfb7efabfe28393e0e5826d",
+    "tools/xml_reference_test.cpp": "853446b2686110d46d1eae0675ae362f0764b6546c80bca317730581ececed97",
+    "analysis/codecs.lock.json": "77dec48b5655128855aaa4a9d7a9b0f5d2e6f08399f8186ae6cb83d78397990d",
+    "analysis/direct3d8-headers.lock.json": "6baa833859d09d69c1c6054d83781160ac7425a30e02c481bd97caa3b715f710",
+    "analysis/expat-source.lock.json": "9e170b5449334ec1426dc05e1a3c13d587b42e7a91ccba3fcff4947a8b5b606f",
+    "analysis/libmng-source.lock.json": "d627cea44266999f8f1d6e84239a5cc1ed6f1dc8fe4fb096346aac5d0374ab2f",
+    "analysis/minizip-source.lock.json": "19ec4e01131283a35ce78151e876ebe8c51264b519104a4c52245f44894c1ff9",
+    "analysis/nsis-source.lock.json": "6758ccb93111d2d4d2228319b5fef3b7309c9a7164479a7d2cf3361211d87847",
+    "analysis/squall-codecs.lock.json": "b945c44656da1ff85df167b77f16024dd3a69724076ca18f3dc10ddd97c2ce6a",
+    "analysis/squall-source.lock.json": "05f6c51c4320ab35385c28371d94995d249147fa70371c088b9975990f1f82c8",
+    "analysis/inventory.json": "db72f222e0b1bdda49134e1f530d876f2742441b3f85b74495da24f865440cdb",
+    "analysis/nsis-build-config.json": "86992aca125847550fae2d33631c37b285454a359fed77ca40c48cf2fbd09cc8",
+    ".local/game-artwork/game.ico": "9f3f2e1c71b769297cb9b70a9052af66f463b6739fa843e48072d88595bbe3e2"
+  },
+  "probe_sha256": "ed2ec46e0fc8c97faf9ca6268a6b5e7cd0b6352882d34bf28d9f97e99d902253",
+  "dll_sha256": {
+    "Squall.dll": "ff76bc2c4714445f94ff9947d93b1ab3883e681c4291bf5c8c3754a3d0786273",
+    "JNGLoad.dll": "eb2fd0454eec5b407a340746b7e58aca1880a36f146e56311cc556a27e2670fb"
+  },
+  "cases": [
+    {
+      "dll": "Squall.dll",
+      "control": 127,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 127,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 127,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 127,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 127,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 127,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1151,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1151,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1151,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1151,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1151,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1151,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2175,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2175,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2175,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2175,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2175,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2175,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3199,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3199,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3199,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3199,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3199,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3199,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 639,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 639,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 639,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 639,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 639,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 639,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1663,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1663,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1663,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1663,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1663,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1663,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2687,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2687,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2687,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2687,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2687,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2687,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3711,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3711,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3711,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3711,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3711,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3711,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 895,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 895,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 895,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 895,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 895,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 895,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 288,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1919,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1919,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 1919,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1919,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1919,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1919,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 288,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2943,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2943,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 2943,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2943,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2943,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2943,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 288,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3967,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3967,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "Squall.dll",
+      "control": 3967,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3967,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3967,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3967,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 288,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 127,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 127,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 127,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 127,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 127,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 127,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 127,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1151,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1151,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1151,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1151,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1151,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1151,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1151,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2175,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2175,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2175,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2175,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2175,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2175,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2175,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3199,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3199,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3199,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3199,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3199,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3199,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3199,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 639,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 639,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 639,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 639,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 639,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 639,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 639,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1663,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1663,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1663,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1663,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1663,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1663,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1663,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2687,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2687,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2687,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2687,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2687,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2687,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2687,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3711,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3711,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3711,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3711,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3711,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3711,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3711,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 895,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 895,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 895,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 895,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 895,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          },
+          {
+            "before": {
+              "control": 895,
+              "status": 4,
+              "mxcsr": 8064
+            },
+            "loaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            },
+            "unloaded": {
+              "control": 895,
+              "status": 0,
+              "mxcsr": 8064
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1919,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1919,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 1919,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 1919,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 1919,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          },
+          {
+            "before": {
+              "control": 1919,
+              "status": 4,
+              "mxcsr": 16256
+            },
+            "loaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            },
+            "unloaded": {
+              "control": 1919,
+              "status": 0,
+              "mxcsr": 16256
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2943,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2943,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 2943,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 2943,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 2943,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          },
+          {
+            "before": {
+              "control": 2943,
+              "status": 4,
+              "mxcsr": 24448
+            },
+            "loaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            },
+            "unloaded": {
+              "control": 2943,
+              "status": 0,
+              "mxcsr": 24448
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3967,
+      "sticky": 0,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3967,
+        "sticky": 0,
+        "cycles": [
+          {
+            "before": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dll": "JNGLoad.dll",
+      "control": 3967,
+      "sticky": 1,
+      "exit_code": 0,
+      "outcome": {
+        "requested_control": 3967,
+        "sticky": 1,
+        "cycles": [
+          {
+            "before": {
+              "control": 3967,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          },
+          {
+            "before": {
+              "control": 3967,
+              "status": 4,
+              "mxcsr": 32640
+            },
+            "loaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            },
+            "unloaded": {
+              "control": 3967,
+              "status": 0,
+              "mxcsr": 32640
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "isolated_processes": 48,
+  "actual_load_unload_cycles": 96,
+  "native_reference_reports": {
+    "analysis/squall-loader-fpu-validation.json": "86a62899df8ffec4ef97082becb09dac8d1a581987f15bdeb4b14f36d1955144",
+    "analysis/jng-loader-fpu-validation.json": "0232d5bc3fbed8eb08f4db1f105e7d1ff5889d145f4a6d01c76de7cca7628e1e"
+  },
+  "whole_game_complete": false,
+  "logs": {
+    "JNGLoad.dll-007f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-007f-0.stdout.json": "7e70305fe14fb0da07ce357836c006f6f7f1ff6efe040f86d1bced9824541c94",
+    "JNGLoad.dll-007f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-007f-1.stdout.json": "21c698321e186ae58c6cfa71b6205591fed363d6216a6b5d4ac521438eed3a37",
+    "JNGLoad.dll-027f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-027f-0.stdout.json": "4ff5499636dda1e9a4e3f13dc1c677acc2a34d3729864eecc3ad87d707b5e1d7",
+    "JNGLoad.dll-027f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-027f-1.stdout.json": "3a5ff0ec7a481c8f22efc84f2e87344ece72da318c2e2b7d1b5d491bc1d0c69e",
+    "JNGLoad.dll-037f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-037f-0.stdout.json": "646c075d3caabff1ca182a4ce309d65406ec4fffc3dd594f7c51ecdea7d05362",
+    "JNGLoad.dll-037f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-037f-1.stdout.json": "e8bc4475d645b95999197f14772daabf1078d7803e7fbf9a9952e257c28590e5",
+    "JNGLoad.dll-047f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-047f-0.stdout.json": "32e52ed6e16686461c89f45e8a8634aa1d1e2c71ff53b01e2d9031e50c4da49b",
+    "JNGLoad.dll-047f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-047f-1.stdout.json": "117b8a2ba12d2a6dbb27cb8373546987fdc0dc0771d3fd9c26073a2865e84706",
+    "JNGLoad.dll-067f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-067f-0.stdout.json": "36fb5551e34e40c5c0ffd24acf9e763211cf80fae4d1e4ada2846c6654327c44",
+    "JNGLoad.dll-067f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-067f-1.stdout.json": "9046942fd2ae88a171e3b835241c5b4b6eb9621d0e6866f52ce0d7bbfffcc386",
+    "JNGLoad.dll-077f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-077f-0.stdout.json": "d8ddc112e2264ef1ae637db3975546b5a0dd213a918cbaa836b3b15f4b3412c3",
+    "JNGLoad.dll-077f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-077f-1.stdout.json": "4949941b46635b8251d813994a96d251739909f2d5d20e07a52ff869e69bc759",
+    "JNGLoad.dll-087f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-087f-0.stdout.json": "df030648e759a85f269069249672586ce3419421332d1ed88d731bca9b114ed8",
+    "JNGLoad.dll-087f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-087f-1.stdout.json": "d54a3b0c9e6dceb40eeb7d99d5767cb0adbea7fe1c74add47beacae371970bf0",
+    "JNGLoad.dll-0a7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0a7f-0.stdout.json": "82e33cf122f9387265ebcd9628569ac0b194c46de37a163c0ebfabe3ed995b8f",
+    "JNGLoad.dll-0a7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0a7f-1.stdout.json": "4fc13a281af4d6fd60d3217dc44992ec30fcfcaba899e1d0943b8baf5157f220",
+    "JNGLoad.dll-0b7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0b7f-0.stdout.json": "39019814254c7396882b786bd7b4313dad5d1da2838c9873c57b9f7115351c64",
+    "JNGLoad.dll-0b7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0b7f-1.stdout.json": "c22bc178680f67ea91b303961898b84e4853d538112dacb7f98210e26295d2ab",
+    "JNGLoad.dll-0c7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0c7f-0.stdout.json": "8e8fdb5528438b6735a41a56befe5d85de0f0171a15be16808ab24b3138f73fd",
+    "JNGLoad.dll-0c7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0c7f-1.stdout.json": "f35e6129b1047980ebfa8f651a0d650581d0c91159ea352694986e64b92c3f24",
+    "JNGLoad.dll-0e7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0e7f-0.stdout.json": "18c2bbbe6e24f4764a0bad62f3ce4ad5ea34ddd10a79353cfdc96228b94619f2",
+    "JNGLoad.dll-0e7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0e7f-1.stdout.json": "5bdff321745f3125c9cf75ffecc8882d12c3e37a13080d79abd8d8cb6caab872",
+    "JNGLoad.dll-0f7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0f7f-0.stdout.json": "a8f9a9dea425dd38eb1e8ad765ae5dd7b98573b63afcb55a79fc3cdd613c6f6d",
+    "JNGLoad.dll-0f7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "JNGLoad.dll-0f7f-1.stdout.json": "824bf4151af8e0c6fb9253ba667ebed02a088b080f66dfaa4f727ec0905357d7",
+    "Squall.dll-007f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-007f-0.stdout.json": "03893a670ea92cb499d53810b8a0c11d2ae96cdc92fd4925798257127ca51f51",
+    "Squall.dll-007f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-007f-1.stdout.json": "15e60b4dc331aef47ff8ce86c98d4598529ef6e45129d62985d62938d5076f9f",
+    "Squall.dll-027f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-027f-0.stdout.json": "bd917593c4f4f7644ed04b8bffbee253c94e3796046859d513009e810a9bf46d",
+    "Squall.dll-027f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-027f-1.stdout.json": "ad48c407a79356d8c681f1569387316458789836643ed77f1d11b8e676d119e2",
+    "Squall.dll-037f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-037f-0.stdout.json": "23443a12c12776e4a7285adc6a2e195c19b2e9d4a066e907e0469e62e9582f07",
+    "Squall.dll-037f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-037f-1.stdout.json": "8fc83ef80fb68cb7396c1c1300f81d2536f80de8164300b01379eb563aea94c3",
+    "Squall.dll-047f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-047f-0.stdout.json": "a635bb3efd965c9dc560210f11c90f81d826b0cd4098194defca9e7a9f4c83e5",
+    "Squall.dll-047f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-047f-1.stdout.json": "f0a2c845e1243c777b572880a281c66bba9a3a4e6a710d60cd419d082c13a45e",
+    "Squall.dll-067f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-067f-0.stdout.json": "7f88e5e25548b24aa1ca7afc3a414ae414dabdeda52d66a303df7550e4940274",
+    "Squall.dll-067f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-067f-1.stdout.json": "55e470b85ccb73661b0ff6fe0b626a3da1125bf9751d7516f89d97ad1a1e179f",
+    "Squall.dll-077f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-077f-0.stdout.json": "a4bdc9b713d6f8152463782aa812dcd297a5a328abfdf5bff028f1ec5321a263",
+    "Squall.dll-077f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-077f-1.stdout.json": "3e9534339c3406d36adcb540b694f48ed575bf2935422534df157d734dcf92ea",
+    "Squall.dll-087f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-087f-0.stdout.json": "e577ae05222aa3ae183478ce190d823f4ede00a29b5128deb6c6d9622afcd3d5",
+    "Squall.dll-087f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-087f-1.stdout.json": "4f2e0393514eed71cf8b05633ed515ee60afe64ae8d82e53ea62fd2a910d0fb7",
+    "Squall.dll-0a7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0a7f-0.stdout.json": "abd1e29c741703aafcabe9fa19c4968d3e9a7db28955d5a6a74e5aa62c47cf5f",
+    "Squall.dll-0a7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0a7f-1.stdout.json": "f3be9d85c4ad67c174966ea80a538758c8fa7f3a185bfebec5c8958d766e54a2",
+    "Squall.dll-0b7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0b7f-0.stdout.json": "745bcfb18d55e9f6b637cc397ca417edf9af8d2091e56bb048323bc3a27a8ba0",
+    "Squall.dll-0b7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0b7f-1.stdout.json": "e5642293a5c913e78daa762f18f4c6e4e9b62038a10f5a35f5d4a274800a2c24",
+    "Squall.dll-0c7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0c7f-0.stdout.json": "e6b78323853a84330616666d4e217251b61f7822d4f5b3fe0c29f7d151f1e6db",
+    "Squall.dll-0c7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0c7f-1.stdout.json": "4b345f5beeefcd933c45bd8c20cff013f469fdd1962cb8404b157b8035b056d6",
+    "Squall.dll-0e7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0e7f-0.stdout.json": "9f433fb162a946e268d1ea54fbad384dffd3ec835429e62e45e7ebcd6b381719",
+    "Squall.dll-0e7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0e7f-1.stdout.json": "69bdbff8463b7468401f9f2efcedabccd24252ae458038cd7c547c9442f946d7",
+    "Squall.dll-0f7f-0.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0f7f-0.stdout.json": "f85c4a050630c6eaec6bc53226acb68fff35cfd8e96ba37e17d5a0ccdcb6d52d",
+    "Squall.dll-0f7f-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Squall.dll-0f7f-1.stdout.json": "6c53660c9f40a2dfa4052b978859cfd1b586eae5b6d2c04157edb43dcab54103"
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "status": "passed_for_source_uninstaller_build_pages_assets_and_exact_removal_ir",
+  "recorded_at_utc": "2026-11-07T09:11:26.628442+00:00",
+  "source_files": {
+    "analysis/nsis-build-config.json": "86992aca125847550fae2d33631c37b285454a359fed77ca40c48cf2fbd09cc8",
+    "analysis/nsis-source.lock.json": "6758ccb93111d2d4d2228319b5fef3b7309c9a7164479a7d2cf3361211d87847",
+    "CMakeLists.txt": "e401538b8c0ed830b6aa1e9a7516eaf6eebb617c46fe60017739ef25eaebc27e",
+    "src/uninstall/NSIS-COPYING": "998499f0ae40d6a70277194e0eedf3f12cd56eb6d86c96670a202c17e1923459",
+    "src/uninstall/original_removal.nsh": "eaa055d436a43bffe394506326d15604741813587fcd46b84ef9e9e281e22b25",
+    "src/uninstall/reconstructed_uninstall.nsi": "025d6d511893b3270b2954986756dd6e329254f0622544cd78f0307b1e95ca45",
+    "src/uninstall/special_offer_page.ini": "6fee6605b9f65ae442205315b9fd48d96e9e8f7df86d88b162ca8a7cbfdf0430",
+    "src/uninstall/uninstall.ico": "a8b69799a78626652da8f5e6ce377e113754b825ee59adfa35b3f591d7928801",
+    "tools/cmake/Nsis228.cmake": "d59b0f3d5f035d95bba1ab6b5512c464b31120ed7adc9f8de1ef28e6cc9d8d72",
+    "tools/emit_nsis_uninstaller.py": "bef06d2f4772c6018d5ca33f727f4349d180ce2bcadb840142b71941430d6e82",
+    "tools/fetch_nsis.py": "6dce596d608422c4d1c03c7cf504eaeaae65bf7b538f0cdc3d7c5c59160e9b0e",
+    "tools/nsis_extract.py": "aaae5772e84c1ebea59901dbe2be41fac6ff0f62fc176c484729017c625441c5",
+    "tools/nsis_solid.py": "54fda7782fb291b1df7b963802eaabbf4bfda4a5fd5efb6b66a22c5d6e507275",
+    "tools/prepare_nsis_toolchain.py": "d326842454b0b5b201f2be11b98d2aebd3b3c398d7dc07ccb6bbdb1c27586598",
+    "tools/validate_uninstaller_build.py": "85a91efdcc60d54277aaee1fb328c46161dd998170b6ae7bda90537bc70c9940"
+  },
+  "candidate_path": "build/production-source-standalone-v4/Release/Uninstall.exe",
+  "candidate_sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
+  "candidate_bytes": 65748,
+  "bits": 32,
+  "exact_runtime_pe_platform": {
+    "source": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    },
+    "reference": {
+      "os_version": [
+        4,
+        0
+      ],
+      "subsystem_version": [
+        4,
+        0
+      ],
+      "dll_characteristics": 0
+    }
+  },
+  "system_imports": [
+    "advapi32.dll",
+    "comctl32.dll",
+    "gdi32.dll",
+    "kernel32.dll",
+    "ole32.dll",
+    "shell32.dll",
+    "user32.dll",
+    "version.dll"
+  ],
+  "nsis_version": "2.28",
+  "nsis_commit": "2473ff63ba8dce55dfc14c48e1fe68112c30a05d",
+  "nsis_source_files_verified": 734,
+  "original_reference_sha256": "1bbc35b149e067306b98d5e4f42167557800e46384580f6aa6a93423d4b4bcd9",
+  "reference_files_unchanged": 17,
+  "original_program_code_used_in_implementation": false,
+  "icon_artwork_only_from_original": true,
+  "source_removal_ir": [
+    {
+      "operation": "RMDIR",
+      "arguments": [
+        "$INSTDIR",
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "READREGSTR",
+      "arguments": [
+        "v0",
+        -2147483647,
+        "Software\\Alawar\\VirtualFarm",
+        "Start Menu Folder",
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "STRCMP",
+      "arguments": [
+        "$v0",
+        "",
+        "label5",
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        "v1",
+        "$v0",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "NOP",
+      "arguments": [
+        "label6",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        "v1",
+        "Dobrý farmář",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$SMPROGRAMS\\$v1\\*.lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$DESKTOP\\Dobrý farmář.lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$DESKTOP\\Špidla Data Processing, s.r.o..lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$DESKTOP\\Hry zdarma ke stažení.lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$DESKTOP\\Pohádky zdarma ke stažení.lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "ASSIGNVAR",
+      "arguments": [
+        "v1",
+        "$SMPROGRAMS\\$v1",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        "0",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "RMDIR",
+      "arguments": [
+        "$v1",
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "GETFULLPATHNAME",
+      "arguments": [
+        "$v1\\..",
+        "v1",
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "IFFLAG",
+      "arguments": [
+        "label17",
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "STRCMP",
+      "arguments": [
+        "$v1",
+        "$SMPROGRAMS",
+        "label17",
+        "label12",
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        "0",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "READREGSTR",
+      "arguments": [
+        "v2",
+        -2147483647,
+        "Software\\Alawar\\VirtualFarm",
+        "PlayerName",
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "IFFLAG",
+      "arguments": [
+        "label25",
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "READREGSTR",
+      "arguments": [
+        "v3",
+        -2147483647,
+        "Software\\Alawar\\$v2",
+        "Start Menu Folder",
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "IFFLAG",
+      "arguments": [
+        "label25",
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELETEFILE",
+      "arguments": [
+        "$SMPROGRAMS\\$v3\\Games\\Dobrý farmář.lnk",
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "RMDIR",
+      "arguments": [
+        "$SMPROGRAMS\\$v3\\Games",
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "SETFLAG",
+      "arguments": [
+        2,
+        "0",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "operation": "DELREG",
+      "arguments": [
+        0,
+        -2147483647,
+        "Software\\Alawar\\VirtualFarm",
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "operation": "DELREG",
+      "arguments": [
+        0,
+        -2147483646,
+        "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Dobrý farmář",
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "exact_removal_instructions": 27,
+  "exact_reachable_callback_graphs": [
+    "onInit",
+    "onUserAbort",
+    "onGUIInit",
+    "page0.pre_code",
+    "page0.show_code",
+    "page0.leave_code",
+    "page1.pre_code",
+    "page1.show_code",
+    "page1.leave_code"
+  ],
+  "source_instruction_count": 126,
+  "original_instruction_count": 137,
+  "page_count": 3,
+  "pages": [
+    {
+      "dialog_id": 107,
+      "window_proc": 4,
+      "pre_code": 0,
+      "show_code": 5,
+      "leave_code": 7,
+      "flags": 6,
+      "caption": " ",
+      "back": "",
+      "next": "&Odinstalovat",
+      "click_next": "Klikněte na 'Odinstalovat' pro zahájení odinstalace.",
+      "cancel": "Storno",
+      "parameters": [
+        -51,
+        -52,
+        0,
+        0,
+        21
+      ],
+      "parameter_text": {
+        "0": "Tento průvodce z Vašeho počítače odinstaluje Dobrý farmář. $var30",
+        "1": "Odinstalovat z:"
+      }
+    },
+    {
+      "dialog_id": 106,
+      "window_proc": 3,
+      "pre_code": 8,
+      "show_code": 13,
+      "leave_code": 14,
+      "flags": 8,
+      "caption": " ",
+      "back": "< &Zpět",
+      "next": "&Zavřít",
+      "click_next": "Pro pokračování klikněte na 'Další'.",
+      "cancel": "Storno",
+      "parameters": [
+        0,
+        -56,
+        -57,
+        0,
+        0
+      ],
+      "parameter_text": {
+        "1": "Zobrazit &detaily",
+        "2": "Dokončeno"
+      }
+    },
+    {
+      "dialog_id": -1,
+      "window_proc": 5,
+      "pre_code": -1,
+      "show_code": -1,
+      "leave_code": -1,
+      "flags": 10,
+      "caption": " ",
+      "back": "< &Zpět",
+      "next": "&Zavřít",
+      "click_next": "",
+      "cancel": "Storno",
+      "parameters": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameter_text": {}
+    }
+  ],
+  "runtime_header": {
+    "flags": 128,
+    "callbacks": {
+      "onInit": 77,
+      "onInstSuccess": -1,
+      "onInstFailed": -1,
+      "onUserAbort": 45,
+      "onGUIInit": 25,
+      "onGUIEnd": -1,
+      "onMouseOverSection": -1,
+      "onVerifyInstDir": -1,
+      "onSelChange": -1,
+      "onRebootFailed": -1
+    }
+  },
+  "exact_embedded_assets": {
+    "modern-header.bmp": {
+      "bytes": 9744,
+      "sha256": "8e58b3e6e3896a4bae05fa2f6adc238d391aa80bc51c138f851f373c6c23e518"
+    },
+    "special_offer_page.ini": {
+      "bytes": 679,
+      "sha256": "8a0ced0d74bacc3e3fb85389a39935f590577048e8dd787b41d42c321a7ea84e"
+    }
+  },
+  "langdll_own_source_build_sha256": "ff1be33dced1fed4349dbd55cea76c43747f822211712d96eebcd187dc62bab4",
+  "independent_reproducible_binaries": [],
+  "uninstaller_effects_verified": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Native source/reference filesystem/registry/shortcut effects under verified restricted process/private desktop/hive isolation",
+    "Native UI confirmations/cancellation/completion and bootstrap self-copy/reboot scheduling boundaries",
+    "Whole original game, remaining engine/Squall97 and expanded gameplay/save verification"
+  ]
+}

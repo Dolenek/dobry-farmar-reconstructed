@@ -7,9 +7,11 @@ import argparse,hashlib,datetime,shutil,zipfile,sys
 r=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description='Opt-in real source application smoke: foreground physical input, isolated profile, restart and real menu/help/journal. Requires Windows desktop and Pillow.')
 parser.add_argument('--build',type=Path,default=r/'build/windows/Release')
+parser.add_argument('--startup-only',action='store_true',help='Check actual fresh/restarted farm without racing tutorial-gated HUD menus')
 parser.add_argument('--output',type=Path,default=r/'.local/application-runtime-validation.json')
 args=parser.parse_args();build=args.build.resolve(strict=True);data=r.parent/'farmář/Dobrý farmář/Data';dataRoot=data
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/application-runtime'/stamp;work.mkdir(parents=True)
+shutil.copyfile(__file__,work/'executed-driver.py')
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 inventory=json.loads((r/'analysis/inventory.json').read_text(encoding='utf-8'))
 def originals_unchanged():
@@ -35,7 +37,7 @@ windows=probe.windows
 # Only graphics window mode is changed; all game data is read in place.
 settings=resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0')
 common=work/'common';(common/'sys').mkdir(parents=True);ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
-report=dict(status='running',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),work_directory=work.relative_to(r).as_posix(),original_program_code_used=False,original_comparison=False,source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(work/n) for n in ['FarmarSourceRuntime.exe','JNGLoad.dll','Squall.dll']},sessions=[])
+report=dict(startup_only=args.startup_only,status='running',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),work_directory=work.relative_to(r).as_posix(),original_program_code_used=False,original_comparison=False,source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(work/n) for n in ['FarmarSourceRuntime.exe','JNGLoad.dll','Squall.dll']},sessions=[])
 for name in ['tools/validate_application_runtime.py','tools/windows_game_gui.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake']:
  report['source_files'][name]=digest(r/name)
 try:
@@ -77,20 +79,21 @@ try:
     assert len(set(expected_hud))>10,'Blank game HUD'
    else:frame=wait_match(f'{cycle}-04-game.png',(10,8,55,28),expected_hud)
    session['loading_seconds']=time.monotonic()-start;session['actions'].append('Actual Start created/restored cGame and binary save')
-   # Journal is checked on the fresh farm. A restored fresh profile can
-   # activate tutorial1 after six seconds; it intentionally gates HUD input.
-   if not cycle:
-    click(hwnd,*button('ui/gameui/gamemenu.xml','JournalButton'));journal=settle(f'{cycle}-09-journal.png');journal_roi=(180,90,620,435)
-    assert roi(journal,journal_roi)!=roi(frame,journal_roi),'Journal did not open'
-    click(hwnd,*button('ui/gameui/journal.xml','OkButton'));returned=settle(f'{cycle}-10-journal-return.png');assert roi(returned,journal_roi)!=roi(journal,journal_roi) and roi(returned,(10,8,55,28))==expected_hud,'Journal did not return to game'
-    session['actions'].append('Journal opened and returned through actual mouse input; exact game HUD pixels matched')
-   else:session['actions'].append('Restored-profile journal deferred to tutorial runtime probe; no animation-difference assertion substitutes for an open panel')
-   click(hwnd,*button('ui/gameui/gamemenu.xml','MainMenuButton'));pause=settle(f'{cycle}-05-pause.png');pause_roi=(285,150,515,455)
-   assert roi(pause,pause_roi)!=roi(frame,pause_roi),'Pause screen did not open'
-   click(hwnd,*button('ui/menu.xml','HelpButton'));help=settle(f'{cycle}-06-help.png');assert roi(help,pause_roi)!=roi(pause,pause_roi),'Help screen did not open'
-   click(hwnd,*button('ui/helpview.xml','OkButton'));wait_match(f'{cycle}-07-help-return.png',pause_roi,roi(pause,pause_roi));session['actions'].append('Help actually returned to identical pause-menu pixels')
-   click(hwnd,*button('ui/menu.xml','ContinueButton'));continued=wait_match(f'{cycle}-08-continued.png',(10,8,55,28),expected_hud)
-   assert roi(continued,pause_roi)!=roi(pause,pause_roi),'Continue retained pause screen'
+   if not args.startup_only:
+    # Journal is checked on the fresh farm. A restored fresh profile can
+    # activate tutorial1 after six seconds; it intentionally gates HUD input.
+    if not cycle:
+     click(hwnd,*button('ui/gameui/gamemenu.xml','JournalButton'));journal=settle(f'{cycle}-09-journal.png');journal_roi=(180,90,620,435)
+     assert roi(journal,journal_roi)!=roi(frame,journal_roi),'Journal did not open'
+     click(hwnd,*button('ui/gameui/journal.xml','OkButton'));returned=settle(f'{cycle}-10-journal-return.png');assert roi(returned,journal_roi)!=roi(journal,journal_roi) and roi(returned,(10,8,55,28))==expected_hud,'Journal did not return to game'
+     session['actions'].append('Journal opened and returned through actual mouse input; exact game HUD pixels matched')
+    else:session['actions'].append('Restored-profile journal deferred to tutorial runtime probe; no animation-difference assertion substitutes for an open panel')
+    click(hwnd,*button('ui/gameui/gamemenu.xml','MainMenuButton'));pause=settle(f'{cycle}-05-pause.png');pause_roi=(285,150,515,455)
+    assert roi(pause,pause_roi)!=roi(frame,pause_roi),'Pause screen did not open'
+    click(hwnd,*button('ui/menu.xml','HelpButton'));help=settle(f'{cycle}-06-help.png');assert roi(help,pause_roi)!=roi(pause,pause_roi),'Help screen did not open'
+    click(hwnd,*button('ui/helpview.xml','OkButton'));wait_match(f'{cycle}-07-help-return.png',pause_roi,roi(pause,pause_roi));session['actions'].append('Help actually returned to identical pause-menu pixels')
+    click(hwnd,*button('ui/menu.xml','ContinueButton'));continued=wait_match(f'{cycle}-08-continued.png',(10,8,55,28),expected_hud)
+    assert roi(continued,pause_roi)!=roi(pause,pause_roi),'Continue retained pause screen'
    u.PostMessageW(hwnd,0x10,0,0);p.wait(timeout=20);assert p.returncode==0,('Application exit',p.returncode)
    session['status']='passed';session['save_files']={x.relative_to(work).as_posix():dict(bytes=x.stat().st_size,sha256=digest(x)) for x in common.rglob('*.save')}
    saved_props={node.get('Name'):node.get('Val') for node in ET.parse(common/'Profiles/00000001.xml').getroot()}
@@ -102,7 +105,7 @@ try:
     except subprocess.TimeoutExpired:p.terminate();p.wait(timeout=5);session['forced_termination']=True
    out,err=p.communicate();session['exit_code']=p.returncode;(work/f'{cycle}-stdout.log').write_bytes(out);(work/f'{cycle}-stderr.log').write_bytes(err)
   originals_unchanged()
- report['status']='passed_for_source_application_fresh_profile_restart_save_restore_pause_help_and_journal'
+ report['status']=('passed_for_source_application_fresh_profile_restart_and_actual_farm_only' if args.startup_only else 'passed_for_source_application_fresh_profile_restart_save_restore_pause_help_and_journal')
 except Exception as error:report['status']='failed';report['error']=str(error)
 finally:
  originals_unchanged();report['reference_files_unchanged']=len(inventory['files']);report['screenshots']={p.name:digest(p) for p in work.glob('*.png')};report['pending']=['Full original-process comparison and bidirectional whole-game saves','Complete tutorial/all gameplay systems/audio behavior and frame/reset fidelity','All97 Squall behaviors and isolated source uninstaller']
