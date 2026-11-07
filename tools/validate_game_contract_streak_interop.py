@@ -60,10 +60,19 @@ class Child:
 report=dict(status='running',work_directory=work.relative_to(r).as_posix(),sessions=[],reference_executable_sha256=digest(data.parent/'Dobrý farmář.exe'),os_boundary_only=True,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),launcher_path=launcher_path.relative_to(r).as_posix(),launcher_sha256=digest(launcher_path),source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(runtime/n) for n in ['FarmarSourceInterop.exe','JNGLoad.dll','Squall.dll']})
 for n in ['tools/validate_game_contract_streak_interop.py','tools/windows_game_memory.py','tools/game_runtime_layout.cpp','CMakeLists.txt','tools/cmake/SquallCandidate.cmake','tools/windows_game_gui.py','tools/native_process/launcher.cpp','tools/native_process/CMakeLists.txt']:report['source_files'][n]=digest(r/n)
 # Restore only unmodified checkpoint profiles produced by actual contract gameplay.
-fixture=json.loads((args.fixture_report).read_text(encoding='utf-8'));assert fixture['status'] in ['explored_actual_contract_streak_with_original_supply_command_only','passed_actual_paired_contract_receipts_and_complete_ledgers_only']
-assert fixture['requested_target']==args.expected_streak
+fixture=json.loads((args.fixture_report).read_text(encoding='utf-8'));assert fixture['status'] in ['explored_actual_contract_streak_with_original_supply_command_only','passed_actual_paired_contract_receipts_and_complete_ledgers_only','verified_actual_contract_streak_checkpoint_profiles']
+if fixture.get('profile_sets'):
+ assert len(fixture['profile_sets'])==2 and all(row['streak']==args.expected_streak for row in fixture['profile_sets'])
+else:assert fixture['requested_target']==args.expected_streak
 report['fixture_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report));report['expected_streak']=args.expected_streak
 fixture_work=r/fixture['work_directory'];active_fields=list(range(60))
+def location(index):
+ if index<2 and fixture.get('profile_sets'):
+  row=next(s for s in fixture['profile_sets'] if s['kind']==['native','source'][index])
+  assert digest(r/row['source_report'])==row['source_report_sha256']
+  directory=r/row['profile_directory'];assert {p.name:digest(p) for p in directory.iterdir() if p.is_file()}==row['files']
+  return directory
+ return (fixture_work if index<2 else work)/f'{index}-persisted/Profiles'
 layout_path=r/'analysis/no-dry-award-state-validation.json';layout_source=json.loads(layout_path.read_text(encoding='utf-8'))
 report['layout_metadata_report']=dict(path=layout_path.relative_to(r).as_posix(),sha256=digest(layout_path))
 from live_farm_fields import read_live_farm_fields
@@ -81,7 +90,7 @@ u.GetWindowRect.argtypes=[W.HWND,C.POINTER(W.RECT)]
 try:
  for cycle,(kind,variant,seed_from) in enumerate([('source','restore',0),('native','restore',1),('native','restore',2),('source','restore',4)],start=2):
   name=None;shared=work/f'{cycle}-shared';common=shared/'VirtualFarm';common.mkdir(parents=True)
-  seed_profiles=(fixture_work if seed_from<2 else work)/f'{seed_from}-persisted/Profiles'
+  seed_profiles=location(seed_from)
   shutil.copytree(seed_profiles,common/'Profiles')
   settings=resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0');(common/'sys').mkdir();ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
   session=dict(kind=kind,variant=variant,seed_from=seed_from,common_directory=common.relative_to(r).as_posix(),actions=[],input_profile_files={p.name:digest(p) for p in seed_profiles.iterdir() if p.is_file()});report['sessions'].append(session);launcher=None
@@ -163,7 +172,6 @@ try:
    if trace is not None:
     assert trace.wait(timeout=10)==0
     trace_reader.join(timeout=5);assert not trace_reader.is_alive();trace_file.close()
- def location(index):return (fixture_work if index<2 else work)/f'{index}-persisted/Profiles'
  def props(index):return {x.get('Name'):(x.get('Type'),x.get('Val')) for x in ET.parse(location(index)/'00000001.xml').getroot()}
  varying={'awNoDryTime','GameTime','RunTime','letTime0','letTime1','letTime2'}|{f'{prefix}{n}' for prefix in ['FFP','FFF','FFW'] for n in range(60)}
  from counter_save_audit import exact_restored_binary
