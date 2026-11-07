@@ -217,6 +217,7 @@ class GameGui:
         self.progress('before-owned-window-focus')
         if self._slow_input_call:
             raise RuntimeError(('Stopping after slow input API;no further interaction',self._slow_input_call))
+        self._check_owned_window_health()
         self.adopt_window_dpi()
         if u.GetForegroundWindow() != self.hwnd.value:
             u.SetForegroundWindow(self.hwnd)
@@ -279,7 +280,34 @@ class GameGui:
         finally:
             k.CloseHandle(handle)
 
+    def _check_owned_window_health(self):
+        # A live driver heartbeat does not prove a responsive game window.
+        # Query only this process's window; do not probe unrelated applications.
+        context=getattr(self,'_runtime_watchdog',None)
+        process=getattr(self,'process',None);window=getattr(self,'hwnd',None)
+        if not context or process is None or window is None:return
+        now=time.monotonic()
+        if now-getattr(self,'_last_window_health_time',-100)<.5:return
+        self._last_window_health_time=now
+        owner=W.DWORD();u.GetWindowThreadProcessId(window,C.byref(owner))
+        if owner.value!=process.pid:
+            raise RuntimeError('Owned window disappeared or changed process;no health message sent')
+        self.progress('before-bounded-owned-window-health')
+        result=C.c_size_t();started=time.monotonic()
+        responsive=bool(u.SendMessageTimeoutW(window,0,0,0,2|32,250,C.byref(result)))
+        seconds=time.monotonic()-started
+        misses=0 if responsive else getattr(self,'_window_health_misses',0)+1
+        self._window_health_misses=misses
+        with (context['directory']/'owned-window-health.jsonl').open('a',encoding='utf-8') as output:
+            output.write(json.dumps(dict(monotonic=now,pid=process.pid,hwnd=window.value,
+                responsive=responsive,timeout_ms=250,seconds=seconds,consecutive_misses=misses))+'\n')
+        self.progress('after-bounded-owned-window-health',responsive=responsive,consecutive_misses=misses)
+        if misses>=3:
+            raise RuntimeError('Owned game window missed three consecutive bounded health probes;stopping the test')
+
     def check_process(self):
+        self.progress('checking-owned-process')
+        self._check_owned_window_health()
         problem = self.errors(self.process.pid)
         if problem:
             raise RuntimeError(str(problem))

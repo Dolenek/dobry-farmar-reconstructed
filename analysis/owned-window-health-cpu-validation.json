@@ -1,0 +1,40 @@
+{
+  "status": "passed_seven_CPU_only_mocked_owned_window_health_and_input_telemetry_checks",
+  "recorded_at_utc": "2026-11-07T22:52:48.973827+00:00",
+  "source_files": {
+    "tools/windows_game_gui.py": "afd1e541d516dbcb5d681055cf8e3faae239cc44e15539855768ac66512dc1c2",
+    "tests/test_owned_window_health.py": "6ae5116b484084402581c67999d2bbe9d84a80b2dfb2620d90100a0bcba07fde",
+    "tests/test_watchdog_input_telemetry.py": "7eeaee7e7de8ba24f0af0c9054280d1ca92bb14234a6b1752db3e10785b9e2f0"
+  },
+  "actual_executions": [
+    {
+      "command": "py -3 tests/test_owned_window_health.py",
+      "exit_code": 0,
+      "tests_passed": 3,
+      "tests_failed": 0,
+      "tool_output_chunk_id": "4b0cdc",
+      "seconds": 0.056
+    },
+    {
+      "command": "py -3 tests/test_watchdog_input_telemetry.py",
+      "exit_code": 0,
+      "tests_passed": 4,
+      "tests_failed": 0,
+      "tool_output_chunk_id": "3639d8",
+      "seconds": 0.062
+    }
+  ],
+  "checks": [
+    "Responsive owned window is probed at most every0.5s using bounded250ms WM_NULL and logged",
+    "A single missed startup probe is tolerated;successful response resets consecutive miss count;three consecutive misses stop the test",
+    "A changed window owner rejects the probe before any message is sent",
+    "Slow input down logged;paired up may finish;next interaction refused",
+    "Foreground acknowledgement bounded;denial not bypassed;explicit real user activation wait"
+  ],
+  "all_window_and_input_APIs_replaced_by_mocks": true,
+  "actual_graphics_or_input_APIs_invoked": false,
+  "games_started": false,
+  "physical_input_injected": false,
+  "new_actual_window_health_runtime_verified": false,
+  "whole_game_complete": false
+}

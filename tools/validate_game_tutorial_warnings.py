@@ -13,16 +13,24 @@ from PIL import Image,ImageChops
 from record_live_production_verification import ROOT,digest,read,write
 from tutorial_warning_session import WarningSuite
 from live_farm_fields import read_live_farm_fields
+from desktop_runtime_hold import require_desktop_runtime_available
 
 
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--cases',nargs='+',choices=['full_carry','poor_contract','full_warehouse','mixed_products'],default=['full_carry','poor_contract'])
 parser.add_argument('--backends',nargs='+',choices=['native','source'],default=['native','source'])
 parser.add_argument('--completed-prefix-report',type=Path,help='Reuse only completed native sessions from an immutable earlier raw report')
+parser.add_argument('--manual-focus-wait',action='store_true',help='Allow20s for real user activation after a refused foreground request,only under the independent watchdog')
 parser.add_argument('--output',type=Path,default=ROOT/'.local/tutorial-warning-runtime-validation.json')
 args=parser.parse_args();assert len(args.cases)==len(set(args.cases)) and len(args.backends)==len(set(args.backends))
+context=require_desktop_runtime_available()
+if args.manual_focus_wait:
+    import os
+    assert context,'Manual activation wait requires an independently supervised runtime lease'
+    write(context['directory']/'manual-focus-request.json',dict(driver_pid=os.getpid(),seconds=20))
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
 suite=WarningSuite(ROOT/'.local/tutorial-warning-runtime'/stamp)
+if context:suite.report['watchdog_lease']=context['lease']
 shutil.copyfile(__file__,suite.work/'driver.py')
 suite.report['source_files']['tools/validate_game_tutorial_warnings.py']=digest(__file__)
 suite.report['source_file_snapshots']['tools/validate_game_tutorial_warnings.py']=(suite.work/'driver.py').relative_to(ROOT).as_posix()

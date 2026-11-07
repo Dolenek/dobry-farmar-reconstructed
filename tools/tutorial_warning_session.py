@@ -78,7 +78,8 @@ class WarningSuite:
             mouse_hold_seconds=1,original_program_code_used_in_implementation=False,
             original_profile_fields_or_memory_written=False,whole_game_complete=False)
         self.report['source_file_snapshots']={}
-        for name in ['tutorial_warning_session.py','windows_game_nonzero_mouse.py','windows_game_gui.py','windows_game_memory.py']:
+        for name in ['tutorial_warning_session.py','windows_game_nonzero_mouse.py','windows_game_gui.py',
+                     'windows_game_memory.py','read_only_scene_tree.py','desktop_runtime_hold.py']:
             source=ROOT/'tools'/name;target=self.work/name;shutil.copyfile(source,target)
             key=source.relative_to(ROOT).as_posix();self.report['source_files'][key]=digest(source)
             self.report['source_file_snapshots'][key]=target.relative_to(ROOT).as_posix()
