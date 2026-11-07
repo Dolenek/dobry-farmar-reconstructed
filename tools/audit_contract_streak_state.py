@@ -188,10 +188,14 @@ def audit(report_path, allow_retained_failure=False):
         retained_active = None
         reconciled_timeout_transfer = None
         if retained:
-            # The failed operation asserted before sending its mouse button.
-            # The immediately preceding successful transfer is fully recorded;
-            # compare its complete state with the actual normal-close profile.
-            final = json.loads(json.dumps(session['market_transfers'][-1]['after']))
+            # Pointer misses precede the button. A post-click timeout can
+            # follow either a recorded grant or a recorded transfer. Market
+            # quantities monotonically increase in this price99 fixture;
+            # a grant at the same market total has the larger warehouse total.
+            candidates=[('last_recorded_market_transfer',session['market_transfers'][-1]['after'])]
+            if session['supply_commands']:candidates.append(('last_recorded_supply_command',session['supply_commands'][-1]['after']))
+            tail_source,tail=max(candidates,key=lambda item:(sum(item[1]['market']),sum(item[1]['stock'])))
+            final = json.loads(json.dumps(tail))
             if timeout_after_transfer:
                 # A post-click timeout prevented appending the final transfer.
                 # Reconcile exactly one full-stock move against both actual
@@ -203,7 +207,7 @@ def audit(report_path, allow_retained_failure=False):
                 product=changed[0];quantity=final['stock'][product]
                 assert quantity>0 and stock[product]==0 and market[product]==final['market'][product]+quantity
                 assert values['Money']==('Int',str(final['money'])) and values['awQTask']==('UInt',str(final['streak']))
-                reconciled_timeout_transfer=dict(product=product,quantity=quantity,
+                reconciled_timeout_transfer=dict(product=product,quantity=quantity,preceding_recorded_state=tail_source,
                     evidence='Exact saved warehouse/market ledgers and preserved post-click timeout site;not an appended runtime event')
                 transfers[product]+=quantity;final['stock']=stock;final['market']=market
             active = final['tasks'][0]
