@@ -1,0 +1,838 @@
+{
+  "status": "current_source_build_and_existing_evidence_rechecked_original_goal_incomplete",
+  "recorded_at_utc": "2026-11-07T22:48:38.653332+00:00",
+  "recorder_sha256": "76ee7902c3cac4548a34da092ceeaf18def8ce58bacc92d5d4fa7e25f0b94f27",
+  "runtime_programs_or_devices_opened": false,
+  "new_build_or_full_ctest_run": false,
+  "current_source_files_matching_staged_production": 408,
+  "staged_files_rehashed": 1134,
+  "artifacts": {
+    "Dobrý farmář.exe": {
+      "path": "build/production-source-standalone-v4/Release/Dobrý farmář.exe",
+      "sha256": "bd4fc58875e9819131a8e7156a89f07218623bad279c60bd2918de8a7cd0752c",
+      "bytes": 1055232
+    },
+    "JNGLoad.dll": {
+      "path": "build/production-source-standalone-v4/Release/JNGLoad.dll",
+      "sha256": "eb2fd0454eec5b407a340746b7e58aca1880a36f146e56311cc556a27e2670fb",
+      "bytes": 274944
+    },
+    "Squall.dll": {
+      "path": "build/production-source-standalone-v4/Release/Squall.dll",
+      "sha256": "ff76bc2c4714445f94ff9947d93b1ab3883e681c4291bf5c8c3754a3d0786273",
+      "bytes": 399360
+    },
+    "Uninstall.exe": {
+      "path": "build/production-source-standalone-v4/Release/Uninstall.exe",
+      "sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
+      "bytes": 65748
+    }
+  },
+  "dll_exports": {
+    "JNGLoad.dll": {
+      "count": 2,
+      "exact_original_contract": true,
+      "forwarded_exports": 0,
+      "sha256": "eb2fd0454eec5b407a340746b7e58aca1880a36f146e56311cc556a27e2670fb"
+    },
+    "Squall.dll": {
+      "count": 97,
+      "exact_original_contract": true,
+      "forwarded_exports": 0,
+      "sha256": "ff76bc2c4714445f94ff9947d93b1ab3883e681c4291bf5c8c3754a3d0786273"
+    }
+  },
+  "squall_source_export_definitions": {
+    "SQUALL_Init": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 164,
+      "body_sha256": "8d6c179a143d9226132692439345c1989089aa532add522afe116b4c34dd9bab",
+      "native_signature_report": "analysis/squall-init-sample-control-signatures.json",
+      "native_address": "10003280"
+    },
+    "SQUALL_Free": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 349,
+      "body_sha256": "7bbdc782020c2dcfb53947bc341749014568e48e3abe84ca24d79fcf59d9508b",
+      "native_signature_report": "analysis/squall-void-signatures.json",
+      "native_address": "10003520"
+    },
+    "SQUALL_Pause": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 445,
+      "body_sha256": "0831ec9e3976223e9a03393052917a7d6051bef458b9e02f882940ba40946445",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "10003610"
+    },
+    "SQUALL_Stop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 499,
+      "body_sha256": "594e2f48b33c1607e87b4ea0dbf8793a74cfb46b037d559ab1bc5214f851f5a9",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003690"
+    },
+    "SQUALL_SetDevice": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 564,
+      "body_sha256": "191ce39736264301d8bac88d1636d402814a3ae8f888454224a0e8bb33b62d71",
+      "native_signature_report": "analysis/squall-scalar-config-signatures.json",
+      "native_address": "10003700"
+    },
+    "SQUALL_GetDevice": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 625,
+      "body_sha256": "35f05187074638b963161638a41e334957bd44d01af9e9cbe6390471bc2632eb",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003770"
+    },
+    "SQUALL_SetHardwareAcceleration": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 688,
+      "body_sha256": "c728d42095c69639a08477fcab109b5e3c9228457247e5cca1f9396d38d618f5",
+      "native_signature_report": "analysis/squall-hardware-signatures.json",
+      "native_address": "100037b0"
+    },
+    "SQUALL_GetHardwareAcceleration": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 749,
+      "body_sha256": "b55337ffada97e7983ba64c2f132be578bdd82b7fee6e1586998140119127ca6",
+      "native_signature_report": "analysis/squall-hardware-signatures.json",
+      "native_address": "10003810"
+    },
+    "SQUALL_SetSpeakerMode": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 832,
+      "body_sha256": "635f69165dd37adae80e6ab1fa04ffc3490efc8897aaf452a2de44fe791e9b43",
+      "native_signature_report": "analysis/squall-scalar-config-signatures.json",
+      "native_address": "100038b0"
+    },
+    "SQUALL_GetSpeakerMode": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 923,
+      "body_sha256": "b267c76dd6c67ae6f7be0d6c4384180cfcabd1e8e93060a9dac6491c85d49d52",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003970"
+    },
+    "SQUALL_Set3DAlgorithm": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1013,
+      "body_sha256": "6a7344f5f1ff1dc4759f7f79fd9d06cffec5c493ec682556a7d1289c56534a35",
+      "native_signature_report": "analysis/squall-scalar-config-signatures.json",
+      "native_address": "10003a70"
+    },
+    "SQUALL_Get3DAlgorithm": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1081,
+      "body_sha256": "5a314c0bcab518597e03d11b61225355ac533c8791000c672ffb45422c4350ed",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003af0"
+    },
+    "SQUALL_SetBufferSize": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1137,
+      "body_sha256": "0c8cdbf4b9d67fab220f18bc9ada040e9bee928ba8baab4cd10ab2c22844535a",
+      "native_signature_report": "analysis/squall-scalar-config-signatures.json",
+      "native_address": "10003b30"
+    },
+    "SQUALL_GetBufferSize": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1196,
+      "body_sha256": "2ca4128c404487026a12baf820fce9fbb0ceec8ead155607665ca17fdc2d5f27",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003b90"
+    },
+    "SQUALL_SetMemoryCallbacks": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1252,
+      "body_sha256": "394a678d69f853458b3f423c5dadfed9b64833551e3732e5a0a1e6e2ab8bfda5",
+      "native_signature_report": "analysis/squall-callback-signatures.json",
+      "native_address": "10003bd0"
+    },
+    "SQUALL_SetFileCallbacks": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1296,
+      "body_sha256": "357cf74d8db4144d1746f7db56cd145d95c41af613abdbff98c1fb2e8556d5c2",
+      "native_signature_report": "analysis/squall-callback-signatures.json",
+      "native_address": "10003c10"
+    },
+    "SQUALL_GetNumDevice": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1349,
+      "body_sha256": "f6e271ee4e622bcbcfb872ede9aeabb6ca105e3750fc1c60571c5041fba5d01d",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003c70"
+    },
+    "SQUALL_GetDeviceName": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1390,
+      "body_sha256": "fc9bd0155a64c6650e1c0ad305bb602ab765cfc7b8e456b6d998673e8e985ad3",
+      "native_signature_report": "analysis/squall-device-info-signatures.json",
+      "native_address": "10003c80"
+    },
+    "SQUALL_GetDeviceCaps": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1457,
+      "body_sha256": "abdd16b349c19aab4a30eca1d20d9a870cdc2184e7b24e8e195329ced05f2df7",
+      "native_signature_report": "analysis/squall-device-info-signatures.json",
+      "native_address": "10003d30"
+    },
+    "SQUALL_GetEAXVersion": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1544,
+      "body_sha256": "a6502623ca078494cf6fa7ed777cfbf2f1ca03885d414910383d37387371453d",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "10003e00"
+    },
+    "SQUALL_GetChannelsInfo": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1599,
+      "body_sha256": "ddf5250f56e53a21d78b12d161b32e76ee5501bf3b5b7e36cccdd92b634c3a69",
+      "native_signature_report": "analysis/squall-device-info-signatures.json",
+      "native_address": "10003e40"
+    },
+    "SQUALL_Listener_SetParameters": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1714,
+      "body_sha256": "2499493146f31b4ab1fda23d19bc55a5911c45c4327aa6da6d0174d8dfbe1aaa",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "10003f80"
+    },
+    "SQUALL_Listener_GetParameters": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 1882,
+      "body_sha256": "a7a6d5e8e795123c25174f7cadab3177b37d2250f88db0c9c6f55d0d74be2fe9",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "100041a0"
+    },
+    "SQUALL_Listener_SetVelocity": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2005,
+      "body_sha256": "8916b0f0eee338942f373402feb1deeda5eaaefaf1f1933c60767af5fc91da20",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "100042d0"
+    },
+    "SQUALL_Listener_GetVelocity": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2094,
+      "body_sha256": "4a20e954306e79c70ddfc03e820b00a8223c1a16607be606cc27afaf40f87a6a",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "100043d0"
+    },
+    "SQUALL_Listener_SetPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2167,
+      "body_sha256": "d4575faf0d50daffb9d272b0c6747b10dc76e6211948e8c9987484c3fd1752fc",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "10004470"
+    },
+    "SQUALL_Listener_GetPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2255,
+      "body_sha256": "7bbc69b46ad8b81f8f7cb6d32d9dd745d2c939047d56172c3374ee663020a849",
+      "native_signature_report": "analysis/squall-listener-vector-signatures.json",
+      "native_address": "10004560"
+    },
+    "SQUALL_Listener_SetDistanceFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2327,
+      "body_sha256": "0c3d223dfb1f4697167e8c3aa14ac6304e04ba55040f412cce0bc3ebea94dc7f",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "10004600"
+    },
+    "SQUALL_Listener_GetDistanceFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2399,
+      "body_sha256": "94549737d66320fe6c76ab932b527a61f765fe059fbfc348b6a359947ff46845",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "100046c0"
+    },
+    "SQUALL_Listener_SetRolloffFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2465,
+      "body_sha256": "002f26342ca940d48da0885067743bdc4a4af2ed6195cf53ccc2bec622eb466e",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "10004750"
+    },
+    "SQUALL_Listener_GetRolloffFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2536,
+      "body_sha256": "9405d4b27ef709c92ce13162ccf51df580472118541cdece762dbf5544dbf3ff",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "10004810"
+    },
+    "SQUALL_Listener_SetDopplerFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2603,
+      "body_sha256": "e67a59c43313c7f7beb11c4324143cd57cf59bc9816e267ca9bf44fc4e632ddc",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "100048a0"
+    },
+    "SQUALL_Listener_GetDopplerFactor": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2675,
+      "body_sha256": "492bc465b207d908531522b1101072e21c8185fe22a255a2536e8f92de4e95ed",
+      "native_signature_report": "analysis/squall-listener-factor-signatures.json",
+      "native_address": "10004960"
+    },
+    "SQUALL_Listener_Update": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2744,
+      "body_sha256": "ccd78012d6a36bcf428ffb42d339e6538cb78d47cb7c92aa40dd797f99c54a90",
+      "native_signature_report": "analysis/squall-noarg-signatures.json",
+      "native_address": "100049f0"
+    },
+    "SQUALL_Listener_EAX_SetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 2829,
+      "body_sha256": "a5386b3be910ce99dbc4af308d3217b64d84607b1e4b73f074d1793d28611802",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10004a40"
+    },
+    "SQUALL_Listener_EAX_GetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3027,
+      "body_sha256": "e780e9d9417bfb357c3add9d893d7b9423ca30c56734fc17aedbe989ae22d626",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10004b30"
+    },
+    "SQUALL_Listener_EAX_SetPreset": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3220,
+      "body_sha256": "bb6914aaa9277ec7e0871c44eab8cbab7ee23e85fbdf573f6415dd0d1db11f99",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "10004c30"
+    },
+    "SQUALL_Listener_SetWorker": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3304,
+      "body_sha256": "64f1eadd5da673e6e8ba9627a9f0339dee92c63a4d67df0ee9e6d5e219380e1e",
+      "native_signature_report": "analysis/squall-worker-signatures.json",
+      "native_address": "10004cf0"
+    },
+    "SQUALL_Channel_Start": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3657,
+      "body_sha256": "e256ee26e70a30efc662837a499e68ff386bec7ccccd38a02558c2e44ec86fac",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10005310"
+    },
+    "SQUALL_Channel_Pause": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3725,
+      "body_sha256": "e9c37a2e914c605759e16db1b2503254b578dfa6c19378941fd29409ab15f986",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "100053a0"
+    },
+    "SQUALL_Channel_Stop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3788,
+      "body_sha256": "a61000b7053a438b684588aba791ec58e67f714b8e184c7c3cc711d756bfb72f",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10005430"
+    },
+    "SQUALL_Channel_Status": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3861,
+      "body_sha256": "a1561554cb8cdcb5b63904cb002f998b0b88f82df55fbae2f772776588fa37fa",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "100054b0"
+    },
+    "SQUALL_Channel_SetVolume": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 3932,
+      "body_sha256": "2b47c891bc5e8467f8c8d0c7002910fb4a55ec1a79e964c8345227490e3f3ade",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "10005570"
+    },
+    "SQUALL_Channel_GetVolume": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4002,
+      "body_sha256": "04670a1f91c18c4658de52b0551a935902e7ab11650b85c6f7f6d592c8f04365",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10005620"
+    },
+    "SQUALL_Channel_SetFrequency": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4072,
+      "body_sha256": "6dce9b6aef320b9386dc8bb845f3ffce4bf57c44a33cb6b905c3794a36c7ef0b",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "100056f0"
+    },
+    "SQUALL_Channel_GetFrequency": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4142,
+      "body_sha256": "a3e9b24c4d7bf4ec13380780d3a953a2c0b13aa60ebeb867bc7b39bc9cb3796e",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "100057a0"
+    },
+    "SQUALL_Channel_SetPlayPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4208,
+      "body_sha256": "2a534a5b75c79750a9f8cb433c773b02bfda9c2fedff25b2bbcf4f1b6420b98b",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "10005840"
+    },
+    "SQUALL_Channel_GetPlayPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4274,
+      "body_sha256": "412a36dfacae463c1411f69ab0323fe051e23bf646fccd2b42f964cbaaf582a8",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "100058d0"
+    },
+    "SQUALL_Channel_SetPlayPositionMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4340,
+      "body_sha256": "715e0aa845ebfe6bd5bbef48b3f81434395ecce16c457fb9855a0814c93fc761",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "10005970"
+    },
+    "SQUALL_Channel_GetPlayPositionMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4420,
+      "body_sha256": "2d0951e96194588fac015eee7f946623e1861772141ad2994895fed3a0e067aa",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10005a30"
+    },
+    "SQUALL_Channel_SetWorker": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4498,
+      "body_sha256": "f5ae6518d206845f5e5cecbc051049debad420568789a468dc5f727490a518bd",
+      "native_signature_report": "analysis/squall-worker-signatures.json",
+      "native_address": "10005b10"
+    },
+    "SQUALL_Channel_SetFragment": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4588,
+      "body_sha256": "f537f62a0bf9e74b7f108adc0100f3ed5f7c1b116b1010663f8aaeeb73a6ac8d",
+      "native_signature_report": "analysis/squall-fragment-signatures.json",
+      "native_address": "10005c30"
+    },
+    "SQUALL_Channel_GetFragment": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4665,
+      "body_sha256": "cb781bad5c58df09c34aa1e5c1d0993a2e879f6afde583d907466542bea49bf4",
+      "native_signature_report": "analysis/squall-fragment-signatures.json",
+      "native_address": "10005cf0"
+    },
+    "SQUALL_Channel_SetFragmentMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4755,
+      "body_sha256": "7f0461f02ed9d75f974ede45823426c0e97d1aeee2a40d54765854d89c0b021a",
+      "native_signature_report": "analysis/squall-fragment-signatures.json",
+      "native_address": "10005dd0"
+    },
+    "SQUALL_Channel_GetFragmentMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4845,
+      "body_sha256": "e6098347b05b974135827082e432ecef9b4f9a48e10e7b83a59a67d7478a5775",
+      "native_signature_report": "analysis/squall-fragment-signatures.json",
+      "native_address": "10005ef0"
+    },
+    "SQUALL_Channel_GetLength": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 4941,
+      "body_sha256": "d0c011e3d17862ee30ec36882de0f54d1e44e487eec05f0ec496debfc88d0dec",
+      "native_signature_report": "analysis/squall-length-signatures.json",
+      "native_address": "10006020"
+    },
+    "SQUALL_Channel_GetLengthMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5013,
+      "body_sha256": "b43e57f987cda04e8a78b05de1556e53f58b0ccfa3acdc42cae3365d6aecfea6",
+      "native_signature_report": "analysis/squall-length-signatures.json",
+      "native_address": "100060a0"
+    },
+    "SQUALL_Channel_SetPriority": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5090,
+      "body_sha256": "10b42a6f27d404744c0ddcead98ac4eb286a680a030645ef3f2a3eace10cbd67",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "10006170"
+    },
+    "SQUALL_Channel_GetPriority": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5154,
+      "body_sha256": "708179a71df9923251d2c355721301330eb20dbf1fda00077f465958a396eba1",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10006210"
+    },
+    "SQUALL_Channel_SetLoop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5222,
+      "body_sha256": "cd4df227e23c8d5249a6cbdb730220a0a125fdb74d65282008442bc098d4e835",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "10006280"
+    },
+    "SQUALL_Channel_GetLoop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5295,
+      "body_sha256": "57daae88ddddd6dcfd49cb682d567578ad0fe0cfe9860155941469d5b9824dfc",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "10006350"
+    },
+    "SQUALL_Channel_SetPan": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5367,
+      "body_sha256": "544f40bc5ecad5b149e410d38b910f2203aea42d653abea10a26f09aa423c5e6",
+      "native_signature_report": "analysis/squall-channel-setter-signatures.json",
+      "native_address": "100063d0"
+    },
+    "SQUALL_Channel_GetPan": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5443,
+      "body_sha256": "5fc0c30634912ce68e59055158c5270e245b8ae161a6ba59efea1c5c8a9721b4",
+      "native_signature_report": "analysis/squall-scalar-handle-signatures.json",
+      "native_address": "100064a0"
+    },
+    "SQUALL_Channel_Set3DPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5521,
+      "body_sha256": "2298c66078ae52cec42e330b91899674b967ad1933db3c81d8de89e62b5cf035",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "10006570"
+    },
+    "SQUALL_Channel_Get3DPosition": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5624,
+      "body_sha256": "a117aa442bdbc73dd1656ea48e8ba55b8bf68e479555b3599d08ae547cdbfa6e",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "10006660"
+    },
+    "SQUALL_Channel_SetVelocity": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5716,
+      "body_sha256": "10db39ed8bbbcb29bb3cb08cb7833dad5b69caf7b17f3e8c72e93a1e32430c8c",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "10006740"
+    },
+    "SQUALL_Channel_GetVelocity": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5816,
+      "body_sha256": "c0cd4c10e95bc0e1e5340491b2009ece122a9242934b3b0a8fd25b786a73f97a",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "10006830"
+    },
+    "SQUALL_Channel_SetMinMaxDistance": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5911,
+      "body_sha256": "4bf56b804cb276ac7fdba652fdcbf6214333b95d672c6e3aa2543619ea7c1773",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "10006910"
+    },
+    "SQUALL_Channel_GetMinMaxDistance": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 5991,
+      "body_sha256": "61aca4e82c99f759065d83aa95e8a497815da03f7c0dae5c2faa41ece80dbd6c",
+      "native_signature_report": "analysis/squall-channel-geometry-signatures.json",
+      "native_address": "100069b0"
+    },
+    "SQUALL_Channel_SetConeParameters": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6102,
+      "body_sha256": "799194b29b5694d5ceca86e999167ed282fa0ead41be6538a3bfc2989235b231",
+      "native_signature_report": "analysis/squall-cone-signatures.json",
+      "native_address": "10006aa0"
+    },
+    "SQUALL_Channel_GetConeParameters": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6225,
+      "body_sha256": "d3b0bcf7996f6adc525815b7041fc85fef5cf8ef3833b70d1908da44c3042e4d",
+      "native_signature_report": "analysis/squall-cone-signatures.json",
+      "native_address": "10006ba0"
+    },
+    "SQUALL_Channel_EAX_SetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6333,
+      "body_sha256": "05bf17a8c963d96166e8f65a84998bab3cea02966964fc3181ae5d1d76830fe7",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10006cc0"
+    },
+    "SQUALL_Channel_EAX_GetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6511,
+      "body_sha256": "422c1739ccabafb0cf0d73543b9e7acdd3df848b82a54542b1d0dc6f0c83c290",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10006dd0"
+    },
+    "SQUALL_Channel_ZOOMFX_SetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6679,
+      "body_sha256": "ebd3c176a79013fa729e4ae5e76abeebb8435a22536b148519349832bd9ca91f",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10006ef0"
+    },
+    "SQUALL_Channel_ZOOMFX_GetProperties": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6791,
+      "body_sha256": "4b8f9773fcc741242f9ef49f284479d1757ca63a5a56026330524818da3c2c73",
+      "native_signature_report": "analysis/squall-effect-property-signatures.json",
+      "native_address": "10006ff0"
+    },
+    "SQUALL_ChannelGroup_Pause": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6900,
+      "body_sha256": "4aa8171a24fec885bbae6a7011059fe6aa30c4669f20f85647de08be61874263",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "10007100"
+    },
+    "SQUALL_ChannelGroup_Stop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 6957,
+      "body_sha256": "bcaccc9d8f6efad01cce653d36c9e23b9fca5751d8793aa105dbec0a2b396820",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "10007190"
+    },
+    "SQUALL_ChannelGroup_SetVolume": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7016,
+      "body_sha256": "1f541e2a5ef195240cf12cf25473f541c8b562d6acc8a6c3a098e98ee2e95890",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "10007220"
+    },
+    "SQUALL_ChannelGroup_SetFrequency": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7076,
+      "body_sha256": "d54ede06d8f0a3bae41ffeaa270b75f3a264d65155f5d8c58e64e9b3b010a9b9",
+      "native_signature_report": "analysis/squall-control-signatures.json",
+      "native_address": "100072c0"
+    },
+    "SQUALL_Sample_LoadFile": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7163,
+      "body_sha256": "323781ce260d64b8e5200e08698599db59165f404a5df5cf348b0108e8dd9f3a",
+      "native_signature_report": "analysis/squall-sample-load-default-signatures.json",
+      "native_address": "10007370"
+    },
+    "SQUALL_Sample_UnloadAll": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7254,
+      "body_sha256": "a121712c4460d9e557e34246d00c8745cc3f4264819d0428594a2de6c4e4b6e5",
+      "native_signature_report": "analysis/squall-void-signatures.json",
+      "native_address": "100073c0"
+    },
+    "SQUALL_Sample_Unload": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7274,
+      "body_sha256": "000ce8d59c4038b0059d469ef2554b18eb7ec1e1907e027abc336a990dcf2fc2",
+      "native_signature_report": "analysis/squall-void-signatures.json",
+      "native_address": "100073d0"
+    },
+    "SQUALL_Sample_GetFileLength": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7297,
+      "body_sha256": "b99f503910817b7103ca6a577f2b89d87615eafe8684370bf1c0fa687a340bb1",
+      "native_signature_report": "analysis/squall-length-signatures.json",
+      "native_address": "100073e0"
+    },
+    "SQUALL_Sample_GetFileLengthMs": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7344,
+      "body_sha256": "2ecc6892e7f0190b6bfaf9a9ad577fb68b4557a684a684ee5ddcad4eccad4d6c",
+      "native_signature_report": "analysis/squall-length-signatures.json",
+      "native_address": "10007410"
+    },
+    "SQUALL_Sample_GetFileFrequency": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7395,
+      "body_sha256": "4fde7503f8ae3fbc9c8957a2f7ae0b18b9eb46534f2241dfc1ea38941ceb31b8",
+      "native_signature_report": "analysis/squall-length-signatures.json",
+      "native_address": "10007470"
+    },
+    "SQUALL_Sample_SetDefault": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7441,
+      "body_sha256": "4196a21890e2ad27450168d9a05d07295444030ee154d0805a10f3d5ba8d83e5",
+      "native_signature_report": "analysis/squall-sample-load-default-signatures.json",
+      "native_address": "100074a0"
+    },
+    "SQUALL_Sample_GetDefault": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7499,
+      "body_sha256": "e11115f723766a883a1029e0698e613016bdea3394265fe5ce9c965b03f970fc",
+      "native_signature_report": "analysis/squall-sample-load-default-signatures.json",
+      "native_address": "100074e0"
+    },
+    "SQUALL_Sample_Play": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7561,
+      "body_sha256": "2be8abf0e43226e5f07b9f4786bb10fbc17631cc3e67a8254b0664aa88e220d4",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007520"
+    },
+    "SQUALL_Sample_PlayEx": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7657,
+      "body_sha256": "42af267f010b40a8606b17191227b6344b122d36e9f86f85bd73e101fb47e1e6",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "100075a0"
+    },
+    "SQUALL_Sample_Play3D": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7750,
+      "body_sha256": "123938816dca053ea67a6e7f1340a7da748bbab5e064b64697920977d938b57d",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007600"
+    },
+    "SQUALL_Sample_Play3DEx": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7883,
+      "body_sha256": "c2f370c3eb70e51c3948a9ab330d3649836cb314ba82c8d065da4c8fcfeea834",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "100076c0"
+    },
+    "SQUALL_Sample_Pause": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 7993,
+      "body_sha256": "cc7df31a30b4f16d67d3dcc5aa54eeaa8d9e4c4f078f19728938f08f32986cbe",
+      "native_signature_report": "analysis/squall-init-sample-control-signatures.json",
+      "native_address": "10007750"
+    },
+    "SQUALL_Sample_Stop": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 8049,
+      "body_sha256": "3bc43d370c7bf7f048c3e32b720e69bd281f19671334b8728568765898d54a25",
+      "native_signature_report": "analysis/squall-init-sample-control-signatures.json",
+      "native_address": "100077e0"
+    },
+    "SQUALL_SampleGroup_Play": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 8126,
+      "body_sha256": "0aa02dd919bf2521a2feb84b84efadc73a18ce519fe3513da024c3cd2e1cfccb",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007870"
+    },
+    "SQUALL_SampleGroup_PlayEx": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 8231,
+      "body_sha256": "8882d26c41c42a42069f33009d83695afe3d8dd2623f6b6a802f2827eec21b65",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007910"
+    },
+    "SQUALL_SampleGroup_Play3D": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 8333,
+      "body_sha256": "c503fb11198b8536a44631478013cc2ade981ce5189c0eb5d7978676e3c524fb",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007990"
+    },
+    "SQUALL_SampleGroup_Play3DEx": {
+      "source": "src/squall/runtime/SoundEngine/Squall.cpp",
+      "line": 8495,
+      "body_sha256": "29d1e318a1efcc334feb0b9e72b658d7778b1d4ad785eb591ad1a69c682a637a",
+      "native_signature_report": "analysis/squall-play-signatures.json",
+      "native_address": "10007a60"
+    }
+  },
+  "source_index_scope": "Nonempty source bodies,exact exported names and native signature evidence only;no generic body completeness or all-path behavior claim.",
+  "existing_full_regression": {
+    "report": "analysis/squall-loader-regression.json",
+    "passed": 102,
+    "failed": 0,
+    "current_production_source_files": 395
+  },
+  "isolated_uninstaller_processes": {
+    "silent": 20,
+    "ui": 16,
+    "bootstrap": 32,
+    "exact_current_source_artifact": true,
+    "actual_host_reboot": false,
+    "pixel_identity_claimed": false
+  },
+  "remaining_actual_gates": [
+    "Complete the short independently monitored actual farm/physical-input/new observer probe after real user activation;foreground refusal is not bypassed.",
+    "Complete source warning41 against retained completed native evidence and actual warning44 in both programs,including pixels,ledgers and normal exits.",
+    "Verify nonzero process-only Windows audio output from the actual source game;native-only capture and exact decoded PCM are separate evidence.",
+    "Assess host incident after bounded actual runtime;software DWM counters alone do not prove the physical display is healthy.",
+    "Finish the six-criterion requirement audit and update documentation after those actual gates pass;do not equate97 implemented exports with all-path equivalence."
+  ],
+  "supporting_reports": {
+    "analysis/inventory.json": "db72f222e0b1bdda49134e1f530d876f2742441b3f85b74495da24f865440cdb",
+    "analysis/production-source-only-build-v4.json": "9631078c34850a2b89b2ac2cc100197c164907732081f22238d2b37f451fa149",
+    "analysis/squall-loader-regression.json": "7c30a1f6ff1d076617ac46d444c16d64802de203628efdda34269da983efde9a",
+    "analysis/jng-loader-regression.json": "13be09822f980bf83d56d60e7daeeef919045d35f21c83e0228c1ad2c798511a",
+    "analysis/squall-export-audit.json": "c1aa349a46736373b8915885add3a82ee8c37b332192a668a385a4996bbe9c6b",
+    "analysis/squall-control-signatures.json": "6d1ebdb82482e571ced21857b84980a5bf60984f9992ac04b0d40135d8a98a3e",
+    "analysis/squall-effect-property-signatures.json": "b5333cacfbf332d6b9ec57195ed502d420a2d91034cbc2b93db795f7719702a7",
+    "analysis/squall-channel-geometry-signatures.json": "084406fc97fb6860fab8fc351d6994242c985a52e5702333b57f7d2dfae65a28",
+    "analysis/squall-cone-signatures.json": "688515a9877014c8b8dc4572e9179ecaca93e16d69181d9923ce6bc377b578a9",
+    "analysis/squall-fragment-signatures.json": "9d348e4b6004eda605986bce662580c35f233f42a6a6e57c4509d75cc17491e1",
+    "analysis/squall-scalar-handle-signatures.json": "4e3d13ad0664c1ad98e330deca9ebd307f9519d653e11b2ec77f8f6a20404e37",
+    "analysis/squall-length-signatures.json": "f52276a668a67347be477076d730be6cff00433d53d1795f232205da2d937aa3",
+    "analysis/squall-channel-setter-signatures.json": "e5c623516e9ee55bd89314ca40cd8c90f8116e9c5613989086d40ddd27721d28",
+    "analysis/squall-worker-signatures.json": "72a28a580510a9e63a12a1dca2b404bfc0af812e40b8df450ef399692a9a2245",
+    "analysis/squall-void-signatures.json": "25e581efcd969ae2b59db4f0db3e3633e66f2d749abcf5de4f439422f36855c7",
+    "analysis/squall-noarg-signatures.json": "70fd9403d3a3ea38c10a9eb81baf04cac195bd1ab83d701faba51b1f37742263",
+    "analysis/squall-device-info-signatures.json": "fb20d2e44c20105e4b16c31596313be4e857cb9da4e4007b5f503dd0ca8a35b9",
+    "analysis/squall-hardware-signatures.json": "2bd75a2b4d3df9f030c6b6f918dfe5cca2016d4fa0e16d61a8a30426219d5c52",
+    "analysis/squall-init-sample-control-signatures.json": "658745ccfcb89d6feadc369e67b9dcc39b0d44f3234bf41d5e23f324d5d77d5b",
+    "analysis/squall-listener-factor-signatures.json": "2e347f5276aa26eb6db09ac2f6dde3f67320134bc3eae896037f911b79203acc",
+    "analysis/squall-listener-vector-signatures.json": "40450b1dc3aa3085f8244ff250f8b763af8a538839e02664c2204091cdc57374",
+    "analysis/squall-play-signatures.json": "110dfce1fed49adb64af371b90e6b6547cd02d6db0bde185dc9caff0cbcf6dda",
+    "analysis/squall-sample-load-default-signatures.json": "d4f54820f726492b623f10c6cb2d38e212b1b69ffb1074c4e0a0312d6782a65b",
+    "analysis/squall-scalar-config-signatures.json": "f7441916d0fbf12b81510b8629da4dda767b65a23004d855ae153d4107cc5c89",
+    "analysis/squall-callback-signatures.json": "378c899677ba8aa0a26b125a0a869061001893695ddc228fe76440e6be1a4836",
+    "analysis/uninstaller-runtime-validation.json": "e903f630c83787bca379adc5bec7460dcdf3cf55b1a2123e938de5799a628afc",
+    "analysis/uninstaller-ui-validation.json": "e0358007864eebad3478c7c8a561f5ee09004194f479b556452306d480ff8646",
+    "analysis/uninstaller-bootstrap-validation.json": "ea537467c6f0f0ac56bfc3704efc0d929bbdbdc095922909908163ba928355a8",
+    "analysis/contract-streak-forty-regression.json": "425484027a0f506b7b2bf24c38dace90e2a57a9c48793f241a3c2339f39dcf37",
+    "analysis/current-awards-runtime-regression.json": "5d3cb618276b3e8bb8ed84517c46458b114f71e73a4f2fb8b325f38e5ec0f46b",
+    "analysis/tutorial-warning-first-pair-regression.json": "19dac1f2dacdd65311da43a27fcbb72ba045c9aefd863d77a3a4c69d4495f6f3",
+    "analysis/tutorial-native-callers-audit.json": "fff69b31faecbe4fddf394bcabbc38cf20b46783490b3acc37ed0ca68f81a71b",
+    "analysis/current-tutorial-runtime-coverage.json": "19831a626fb607bcc3f02653fafca56222252dd02913d0c891bb21dd9a3304dd",
+    "analysis/tutorial-warning-native-warehouse-observation.json": "5e0b2b2de4d667e70b8c18be05c0f744a6746ee740947fb8a10cb07c4da79522",
+    "analysis/native-game-loopback-audio-observation.json": "4d688d9879eb01e991304a946a5b23134a838e484b2e4a4e3c97321f056401d7",
+    "analysis/monitored-source-startup-validation.json": "55b77168e337f265230069e687ec8198def7782cc4bc237b80b42d3cbde0fc8a",
+    "analysis/host-runtime-monitoring-authorization.json": "c0587c02f23195795643d4d6dcbb5fea2e67875f225fe18c0f91a0bd64ac7e64",
+    "analysis/native-tracker-fidelity-decision.json": "424ad0fba022cd572f8eb8d5e23666fda9701a369aef02c32e7abf8fd140a292",
+    "analysis/verification.json": "490f821e2659bc4eac938a90b37c849eea85493b50a20aa8c9bc9fafae1ed3b0"
+  },
+  "criteria": [
+    {
+      "index": 1,
+      "scope": "Four real source-only Win32 production targets",
+      "evidence_rechecked": true
+    },
+    {
+      "index": 2,
+      "scope": "Actual complete game systems,graphics,input and Windows audio",
+      "evidence_rechecked": true,
+      "remaining_actual_gates": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "index": 3,
+      "scope": "Original comparison,whole bidirectional saves and documented deviations",
+      "evidence_rechecked": true,
+      "remaining_actual_gates": [
+        1,
+        3
+      ]
+    },
+    {
+      "index": 4,
+      "scope": "Both DLL interfaces and all exported source bodies",
+      "evidence_rechecked": true,
+      "all_path_equivalence_claimed": false
+    },
+    {
+      "index": 5,
+      "scope": "Buildable uninstaller and bounded isolated effects",
+      "evidence_rechecked": true
+    },
+    {
+      "index": 6,
+      "scope": "Editable source,reproducible build and final current documentation",
+      "evidence_rechecked": true,
+      "remaining_actual_gates": [
+        4
+      ]
+    }
+  ],
+  "original_files_unchanged": 17,
+  "production_changed": false,
+  "whole_game_complete": false
+}

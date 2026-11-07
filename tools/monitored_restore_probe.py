@@ -13,6 +13,7 @@ from read_only_scene_tree import SceneSnapshotChanged
 from record_live_production_verification import ROOT,digest,read,write
 from tutorial_warning_session import WarningSuite
 from windows_game_gui import u
+from live_farm_fields import read_live_farm_fields
 
 
 def main():
@@ -24,10 +25,13 @@ def main():
     if args.manual_focus_wait:
         write(work/'manual-focus-request.json',dict(driver_pid=os.getpid(),seconds=20))
     suite=WarningSuite(work/'source-restore')
-    for name in ['tools/monitored_restore_probe.py','tools/read_only_scene_tree.py','tools/desktop_runtime_hold.py']:
+    for name in ['tools/monitored_restore_probe.py','tools/read_only_scene_tree.py','tools/desktop_runtime_hold.py','tools/live_farm_fields.py']:
         target=suite.work/name.replace('/','_');shutil.copyfile(ROOT/name,target)
         suite.report['source_files'][name]=digest(ROOT/name)
         suite.report['source_file_snapshots'][name]=target.relative_to(ROOT).as_posix()
+    layout_path=ROOT/'analysis/no-dry-award-state-validation.json'
+    field_layout=read(layout_path)['field_layout']['metadata']
+    suite.report['field_layout_report']=dict(path=layout_path.relative_to(ROOT).as_posix(),sha256=digest(layout_path))
     u.SendMessageTimeoutW.argtypes=[W.HWND,W.UINT,W.WPARAM,W.LPARAM,W.UINT,W.UINT,C.POINTER(C.c_size_t)]
     u.SendMessageTimeoutW.restype=W.LPARAM
     checkpoints=read(ROOT/'analysis/contract-streak-forty-checkpoints.json')
@@ -41,7 +45,10 @@ def main():
             active.capture('monitored-restored-farm')
             try:
                 scene=active.observer.visible_scene(active.hwnd)
-                active.session['scene_observation']=dict(stable_topology_observed=True,controls=len(scene),atomic_frame_claimed=False)
+                fields=read_live_farm_fields(active.observer,ROOT,field_layout,scene)
+                assert len(scene)>100 and len(fields)==60 and all(field['active'] for field in fields)
+                active.session['scene_observation']=dict(stable_topology_observed=True,controls=len(scene),
+                    all60_actual_field_identities_and_active_flags_observed=True,fields=fields,atomic_frame_claimed=False)
             except SceneSnapshotChanged as error:
                 active.session['scene_observation']=dict(stable_topology_observed=False,error=str(error),atomic_frame_claimed=False)
             audio=ROOT/'build/process-audio-capture/Release/process-audio-capture.exe'

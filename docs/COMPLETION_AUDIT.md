@@ -4,6 +4,8 @@ Po hlášeném zamrznutí Windows zůstává otevřený [incident hosta](HOST_FR
 
 Tento přehled není prohlášení o dokončení. Jednotlivé reporty dokazují svůj uvedený rozsah; starší historické seznamy „zbývá“ nejsou automaticky seznamem současných chyb.
 
+Nová kontrola bez spuštění programů je v `analysis/original-goal-readiness-audit.json`. Znovu ověřuje1134 souborů odděleného source stromu,408 současných produkčních/build souborů,čtyři skutečné PE32 artifacts,přesné2+97 exportní kontrakty a návaznost odinstalátoru na68 izolovaných procesů. U97 Squall položek propojuje neprázdné zdrojové tělo s konkrétním nezávislým nativním důkazem signatury. Nezaměňuje tento index za ověření všech větví a výslovně zachovává zbývající skutečné runtime brány. Nevytváří konečný completion certifikát ani neopakuje dřívější CTest.
+
 | Původní požadavek | Autoritativní současné důkazy | Stav |
 | --- | --- | --- |
 | Ze zdrojů sestavit hlavní EXE, JNGLoad, celou Squall a odinstalátor | `analysis/production-source-only-build-v4.json`: všechny4 skutečné PE32 cíle, testy vypnuté, oddělený zdrojový strom, připnuté zdrojové závislosti, bez herních referenčních binárek; skutečný nový profil a restart | Sestavení doložené. Samotné sestavení není důkaz všech herních cest. |

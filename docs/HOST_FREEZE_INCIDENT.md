@@ -1,6 +1,6 @@
 # Zamrznutí obrazu při herním testování
 
-Současný stav: uživatel následně výslovně schválil pokračování na tomto počítači s průběžným sledováním. Přesná odpověď je v `analysis/host-runtime-monitoring-authorization.json`. Níže popsané původní zastavení bylo nahrazené výhradně hlídanými krátkými pokusy; incident se nadále nepovažuje za vyřešený.
+Současný stav: uživatel následně výslovně schválil pokračování na tomto počítači s průběžným sledováním. Přesná odpověď je v `analysis/host-runtime-monitoring-authorization.json`. Níže popsané původní zastavení a návrh izolovaného hosta byly nahrazené výhradně hlídanými krátkými pokusy; incident se nadále nepovažuje za vyřešený. Odstavec „Nezávislý dohled po souhlasu uživatele“ zachycuje aktuální postup.
 
 Uživatel7.11.2026 oznámil zamrznutí celých Windows vyžadující restart; následně
 upřesnil, že mohl zamrznout obraz, zatímco session pokračovala. Další interaktivní
@@ -44,8 +44,9 @@ dokladem jejího stavu. Nic se neinstalovalo, nezapínalo a nebyl vyžádaný re
 
 Původní cíl zůstává aktivní. Analýza instrukcí, zdroje, sestavení a kontroly bez
 grafického zařízení pokračují. Celý CTest se na hostu neopakuje, protože zahrnuje
-grafické testy. Případný další experiment na běžném desktopu vyžaduje výslovný
-souhlas uživatele s konkrétním předem popsaným experimentem.
+grafické testy. Pozdější souhlas uživatele již umožňuje další hlídané experimenty;
+není třeba jej znovu vyžadovat pro každý takový pokus. Potřeba skutečné ruční
+aktivace okna při odmítnutém fokusu je praktická součinnost, nikoli nové povolení.
 
 ## Nezávislý dohled po souhlasu uživatele
 
