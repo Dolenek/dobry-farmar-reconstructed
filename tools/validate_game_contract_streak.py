@@ -10,11 +10,13 @@ parser.add_argument('--launcher',type=Path,default=r/'build/native-process/Relea
 parser.add_argument('--output',type=Path,default=r/'.local/contract-streak-validation.json')
 parser.add_argument('--backends',nargs='+',choices=['native','source'],default=['native','source'])
 parser.add_argument('--fixture-report',type=Path,default=r/'analysis/no-dry-award-state-validation.json')
+parser.add_argument('--max-product-requirement',type=int,default=100,help='Choose original offered orders with at most this per-product requirement; no game data is changed')
 parser.add_argument('--target',type=int,default=1)
 parser.add_argument('--resume-retained',action='store_true',help='Use a normally closed failure checkpoint, including its real active task')
 parser.add_argument('--seed-backend',choices=['native','source'],help='Restore the other real executable checkpoint for a controlled save comparison')
 parser.add_argument('--phase-seconds',type=int,default=1700,help='Bounded actual process phase;native watchdog allows100s more')
-args=parser.parse_args();assert 0<args.target<=40 and 60<=args.phase_seconds<=7200
+args=parser.parse_args();assert 1<=args.max_product_requirement<=100
+assert 0<args.target<=40 and 60<=args.phase_seconds<=7200
 assert 'native' not in args.backends or args.phase_seconds<=1700,'Native launcher watchdog maximum1800s includes100s cleanup allowance'
 launcher_path=args.launcher.resolve(strict=True)
 args.fixture_report=args.fixture_report.resolve(strict=True)
@@ -84,10 +86,11 @@ else:
 fixture_work=r/fixture['work_directory']
 report['baseline_report']=dict(path=args.fixture_report.relative_to(r).as_posix(),sha256=digest(args.fixture_report))
 report['requested_target']=args.target
+report['fixture_max_product_requirement']=args.max_product_requirement
 report['requested_phase_seconds']=args.phase_seconds
 report['source_file_snapshots']={'tools/validate_game_contract_streak.py':(work/'driver.py').relative_to(r).as_posix()}
 report['physical_mouse_relative_events_per_move']=2
-for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py','tools/windows_game_precise_mouse.py']:
+for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py','tools/windows_game_precise_mouse.py','tools/contract_supply_plan.py']:
  path=r/name;archived=work/path.name;shutil.copyfile(path,archived);report['source_files'][name]=digest(path);report['source_file_snapshots'][name]=archived.relative_to(r).as_posix()
 for name in ['tools/gameplay_runtime_layout.cpp','tools/gameplay_layout/CMakeLists.txt']:
  report['source_files'][name]=digest(r/name)
@@ -167,13 +170,18 @@ try:
    capture(f'{cycle}-01-logo.png')
    for _ in range(4):scan(0x3c)
    time.sleep(2);capture(f'{cycle}-02-startup.png')
-   settle(f'{cycle}-03-menu.png');start=time.monotonic()
+   menu=settle(f'{cycle}-03-menu.png');start=time.monotonic();last_start_click=-100
+   menu_marker=roi(menu,(5,5,70,70))
    # Native menu can already be visible while its input transition finishes.
    # Retry only until the actual game manager is constructed; never click a
    # farm coordinate merely because a previous fixed delay elapsed.
    while not observer.manager():
-    assert time.monotonic()-start<20,'Main menu Start did not construct game'
-    click(hwnd,*button('ui/mainmenu.xml','StartButton'));time.sleep(.5)
+    assert time.monotonic()-start<90,'Main menu Start did not construct game'
+    frame=capture(f'{cycle}-03a-loading-progress.png')
+    if roi(frame,(5,5,70,70))==menu_marker and time.monotonic()-last_start_click>=3:
+     if observer.manager():break
+     click(hwnd,*button('ui/mainmenu.xml','StartButton'));last_start_click=time.monotonic()
+    else:time.sleep(.1)
    if expected_hud is None:
     deadline=start+60
     while time.monotonic()<deadline and not list(common.rglob('*.save')):check_process();time.sleep(.2)

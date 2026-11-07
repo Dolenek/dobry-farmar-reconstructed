@@ -8,6 +8,7 @@ from windows_game_gui import u, INPUT, KEY, MOUSE
 from live_gameplay_state import LiveGameplayState
 from gameplay_coefficient_audit import f32
 from game_save_state import load_save
+from contract_supply_plan import another_product_command_can_help
 
 
 def run_streak(env):
@@ -243,7 +244,7 @@ def run_streak(env):
                     if offer < 0:
                         continue
                     model = models[offer]
-                    if sum(req['count'] for req in model['requirements']) <= 100 and model['penalty'] <= val('ints','Money'):
+                    if sum(req['count'] for req in model['requirements']) <= 100 and all(req['count']<=env['args'].max_product_requirement for req in model['requirements']) and model['penalty'] <= val('ints','Money'):
                         options.append((slot,offer))
                 if options:
                     break
@@ -282,23 +283,27 @@ def run_streak(env):
             if complete(accepted):
                 done=True;break
             pause(True)
-            for product,(x,y) in enumerate(places):
-                if product in keep or not val('uints',f'WGoodCount{product}'):
-                    continue
-                if complete(accepted):
-                    done=True;break
-                before_transfer=snapshot();quantity=before_transfer['stock'][product]
-                # GameGui.click already performs the closed-loop pointer move.
-                probe.click(hwnd,round(x+transfer[0]),round(y+transfer[1]))
-                limit=time.monotonic()+5
-                while val('uints',f'WGoodCount{product}'):
-                    focus();clock();assert time.monotonic()<limit,('Actual market transfer did not clear product',product);time.sleep(.05)
-                after_transfer=snapshot()
-                expected=before_transfer['stock'].copy();expected[product]=0
-                expected_market=before_transfer['market'].copy();expected_market[product]+=quantity
-                assert after_transfer['stock']==expected and after_transfer['market']==expected_market and after_transfer['money']==before_transfer['money']
-                session['market_transfers'].append(dict(product=product,quantity=quantity,before=before_transfer,after=after_transfer))
-                drain()
+            stock_for_plan=snapshot()['stock']
+            can_batch=another_product_command_can_help(stock_for_plan,model['requirements'])
+            if can_batch:session.setdefault('supply_clear_batches_avoided',[]).append(dict(pass_number=supply_pass,stock=stock_for_plan))
+            if not can_batch:
+                for product,(x,y) in enumerate(places):
+                    if product in keep or not val('uints',f'WGoodCount{product}'):
+                        continue
+                    if complete(accepted):
+                        done=True;break
+                    before_transfer=snapshot();quantity=before_transfer['stock'][product]
+                    # GameGui.click already performs the closed-loop pointer move.
+                    probe.click(hwnd,round(x+transfer[0]),round(y+transfer[1]))
+                    limit=time.monotonic()+5
+                    while val('uints',f'WGoodCount{product}'):
+                        focus();clock();assert time.monotonic()<limit,('Actual market transfer did not clear product',product);time.sleep(.05)
+                    after_transfer=snapshot()
+                    expected=before_transfer['stock'].copy();expected[product]=0
+                    expected_market=before_transfer['market'].copy();expected_market[product]+=quantity
+                    assert after_transfer['stock']==expected and after_transfer['market']==expected_market and after_transfer['money']==before_transfer['money']
+                    session['market_transfers'].append(dict(product=product,quantity=quantity,before=before_transfer,after=after_transfer))
+                    drain()
             if done:
                 break
             before_supply=snapshot()
