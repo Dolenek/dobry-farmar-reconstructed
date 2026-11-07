@@ -707,7 +707,16 @@
     "analysis/production-source-standalone-v3-runtime-validation.json",
     "analysis/production-source-only-build.json",
     "analysis/squall-loader-contract-interop-validation.json",
-    "analysis/squall-loader-game-regression.json"
+    "analysis/squall-loader-game-regression.json",
+    "analysis/jng-loader-fpu-before.json",
+    "analysis/jng-loader-fpu-validation.json",
+    "analysis/jng-loader-abi-validation.json",
+    "analysis/jng-loader-pixels-validation.json",
+    "analysis/jng-loader-errors-validation.json",
+    "analysis/jng-loader-abi-fresh-validation.json",
+    "analysis/jng-loader-pixels-fresh-validation.json",
+    "analysis/jng-loader-errors-fresh-validation.json",
+    "analysis/jng-loader-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108628,8 +108637,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/squall-loader-game-regression.json",
-    "recorded_at_utc": "2026-11-07T08:49:38.416197+00:00",
+    "report": "analysis/jng-loader-regression.json",
+    "recorded_at_utc": "2026-11-07T08:54:40.532089+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108685,5 +108694,12 @@
     "report": "analysis/production-source-only-build.json",
     "all_four_targets": true,
     "testing_disabled": true
+  },
+  "jng_loader_fpu": {
+    "report": "analysis/jng-loader-regression.json",
+    "resolved": true,
+    "processes": 72,
+    "load_unload_cycles": 144,
+    "remaining_environment_differences": 0
   }
 }

@@ -1,0 +1,194 @@
+{
+  "status": "passed_JNG_native_FNCLEX_startup_both_builds_all416_assets_and40_API_pairs_per_build_only",
+  "recorded_at_utc": "2026-11-07T08:54:40.532089+00:00",
+  "recorder_sha256": "d1076c85b82e317ed1ea2687fc41dd80fbfe377ce860d64b585f67de891da724",
+  "pipeline": {
+    "status": "passed_JNG_loader72_all416_pixels_two_builds_and40_API_pairs_per_build_only",
+    "started_at_utc": "2026-11-07T08:52:51.233589+00:00",
+    "driver_sha256": "e597212bc935187e8468709a4126f3703e4334e50824a2d457da5a86e71cd4bb",
+    "artifacts": {
+      "build/windows/Release/JNGLoad.dll": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+      "build/windows/Release/jng-decode.exe": "dd612eb80c331efa0735ca8c75f9f1ec09a8135c2b3a276196ce880c7bf6441d",
+      "build/windows/Release/jng-error-probe.exe": "47f3db8e77d020da400fae26c65c0b87b393d1014ee43803c59cbb06e53bab52",
+      "build/squall-source-repro-vs20261010/Release/JNGLoad.dll": "6a9a35e9ed293bca287e373dac97cc42865d3e40680523eb2df2d5e04e3ddcc1",
+      "build/squall-source-repro-vs20261010/Release/jng-decode.exe": "9afb54f73995984a14c2972627f35cdff9f45cc69a53de21ddd6adff8e1d2bbb",
+      "build/squall-source-repro-vs20261010/Release/jng-error-probe.exe": "0a4910230cad164fc3ccf91a2efbad8a063329892f8d0cec9ea46bb597753fa8"
+    },
+    "steps": [
+      {
+        "name": "fpu",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_jng_load_fpu.py",
+          "--output",
+          ".local/jng-loader-fpu-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-fpu.log",
+        "log_sha256": "95e05e75d04f122d32562084d1e8808cb06cc42c3d36a195e92e6da6d618d46a"
+      },
+      {
+        "name": "abi",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_exports.py",
+          "--binary",
+          "build/windows/Release/JNGLoad.dll",
+          "--original-name",
+          "JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-abi-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-abi.log",
+        "log_sha256": "c13bc72857afd9d5d3c5332e687f4da4bf4f0a99c64ec1fe53760479961fe370"
+      },
+      {
+        "name": "pixels",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_jng.py",
+          "--decoder",
+          "build/windows/Release/jng-decode.exe",
+          "--reference-decoder",
+          "build/windows/Release/jng-reference-decode.exe",
+          "--reference-dll",
+          "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\farmář\\Dobrý farmář\\JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-pixels-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-pixels.log",
+        "log_sha256": "ee64a23befdf68d8545be72c6f5e30e2917ad298ff0303dad76dfdc75e2ea899"
+      },
+      {
+        "name": "errors",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_jng_error_abi.py",
+          "--probe",
+          "build/windows/Release/jng-error-probe.exe",
+          "--source-dll",
+          "build/windows/Release/JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-errors-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-errors.log",
+        "log_sha256": "8d52b66ded3d357fb7252a73c3251ccf115229566c79da09744efea9ce0afa0c"
+      },
+      {
+        "name": "abi-fresh",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_exports.py",
+          "--binary",
+          "build/squall-source-repro-vs20261010/Release/JNGLoad.dll",
+          "--original-name",
+          "JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-abi-fresh-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-abi-fresh.log",
+        "log_sha256": "c13bc72857afd9d5d3c5332e687f4da4bf4f0a99c64ec1fe53760479961fe370"
+      },
+      {
+        "name": "pixels-fresh",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_jng.py",
+          "--decoder",
+          "build/squall-source-repro-vs20261010/Release/jng-decode.exe",
+          "--reference-decoder",
+          "build/windows/Release/jng-reference-decode.exe",
+          "--reference-dll",
+          "C:\\Users\\thesa\\Desktop\\farmář\\farmář - decompile\\farmář\\Dobrý farmář\\JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-pixels-fresh-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-pixels-fresh.log",
+        "log_sha256": "ee64a23befdf68d8545be72c6f5e30e2917ad298ff0303dad76dfdc75e2ea899"
+      },
+      {
+        "name": "errors-fresh",
+        "command": [
+          "C:\\Users\\thesa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/validate_jng_error_abi.py",
+          "--probe",
+          "build/squall-source-repro-vs20261010/Release/jng-error-probe.exe",
+          "--source-dll",
+          "build/squall-source-repro-vs20261010/Release/JNGLoad.dll",
+          "--output",
+          ".local/jng-loader-errors-fresh-validation.json"
+        ],
+        "return_code": 0,
+        "log": ".local/jng-loader-regression-errors-fresh.log",
+        "log_sha256": "5dd465b6971cd01df87e3eaaf9cf21cf0ba8dcf6cd773f5ba64a49fd3f97f004"
+      }
+    ],
+    "new_full_ctest_run": false,
+    "whole_game_complete": false,
+    "finished_at_utc": "2026-11-07T08:53:54.157096+00:00"
+  },
+  "pipeline_sha256": "002d0e0da133f9361c4451d674089be94316fb63e52e628eb690d0c48ee6c871",
+  "source_files": {
+    "src/jngload/JNGLoad.cpp": "81558ad85e2e1f4941f478fbdf7d7de7aa4acff2daf42aa57f39d8a19c3c2de8",
+    "src/jngload/JNGLoad.h": "da3b8c584240135122794cb4cac93f2e27c00cc3e5a92467935fa34942edc2c4",
+    "src/jngload/Initialization.cpp": "d1c7fe3c136ae4c9c3e1e6ec69021948ef9087fe7f9001eb50edfcba99c9d6c7",
+    "CMakeLists.txt": "e401538b8c0ed830b6aa1e9a7516eaf6eebb617c46fe60017739ef25eaebc27e"
+  },
+  "native_entry": "1003ae44",
+  "native_instruction_witnesses": [
+    {
+      "address": "1003ad90",
+      "bytes_hex": "6a00e81e020000"
+    },
+    {
+      "address": "1003afb5",
+      "bytes_hex": "a13842051085c07407ff742404ffd059"
+    },
+    {
+      "address": "1003a8a2",
+      "bytes_hex": "e8c3ffffffe823420000837c240400a3ec5305107405e8c0410000dbe2c3"
+    },
+    {
+      "address": "10054238",
+      "bytes_hex": "a2a80310"
+    }
+  ],
+  "candidate_sha256": [
+    "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+    "6a9a35e9ed293bca287e373dac97cc42865d3e40680523eb2df2d5e04e3ddcc1"
+  ],
+  "reports": {
+    "analysis/jng-loader-fpu-before.json": "3880f5342bdbb45945622d460ebe36512c1f62c64dcf8891d3b7911b1551a2e2",
+    "analysis/jng-loader-fpu-validation.json": "0232d5bc3fbed8eb08f4db1f105e7d1ff5889d145f4a6d01c76de7cca7628e1e",
+    "analysis/jng-loader-abi-validation.json": "e605ff880512f5b80853c10a044409fa3a63b5622e30bd456b3a604ec7641eba",
+    "analysis/jng-loader-pixels-validation.json": "8b00bae120ec860ec8653093fb6d2c50581781ee5bc424e7d385c55c36f5eac2",
+    "analysis/jng-loader-errors-validation.json": "2b93ff695cf7e455add2adebc60626172689b7d942f0c0904366f41fc28f2cee",
+    "analysis/jng-loader-abi-fresh-validation.json": "7fe693b1f82ce9ad20870141aa4ba0f7c86858a6bc9db3ea4cfbbaff2a381c32",
+    "analysis/jng-loader-pixels-fresh-validation.json": "8b00bae120ec860ec8653093fb6d2c50581781ee5bc424e7d385c55c36f5eac2",
+    "analysis/jng-loader-errors-fresh-validation.json": "9d72d8c4f1fcd776ebc2535af47e1847fd4b3c76dbc0eb7a7effae70809bbf1e"
+  },
+  "resolved_loader_case_pairs": 24,
+  "actual_loader_processes": 72,
+  "actual_load_unload_cycles": 144,
+  "game_images_per_build": 416,
+  "actual_error_API_process_pairs_per_build": 40,
+  "wrapper_decode_body_unchanged": true,
+  "new_full_ctest_run": false,
+  "unchanged_game_and_squall_full102_report": "analysis/squall-loader-regression.json",
+  "build_logs": {
+    "jng-loader-main-final-build.log": "b6770d7902972dee01f3674791a4dcbc780acf6b1b7a7cdf2c5c35b93d4f77b2",
+    "jng-loader-fresh-final-build.log": "64b283f07d66e73ff38655c84d42a168ce507c6f53982ffaf608f667d4a8749c"
+  },
+  "original_files_unchanged": 17,
+  "original_program_code_used_in_implementation": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Current integrated contract40 and whole-game restores",
+    "General malformed inputs,allocation failure,concurrency and unmasked FP input scopes remain explicitly unverified"
+  ]
+}

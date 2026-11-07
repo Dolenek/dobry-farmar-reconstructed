@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[JNGLoad startup](JNGLOAD.md) nyní obnovuje původní FNCLEX bez změny přesnosti. Native instrukce i zachované předopravové24 rozdíly jsou doložené.72 procesů/144 cyklů přesně souhlasí; v obou sestaveních nově prošly416/416 bajtově shodné obrázky a40 API/chybových dvojic. Wrapper je zachovaný. Skutečný pár celých her pokračuje35→40 s oběma opravenými DLL; projekt zůstává aktivní.
+
 [Squall loader a samostatná produkce](SOURCE_BUILD.md): obnovená předkonstruktorová inicializace x87 PC53 a FNCLEX, zachovaný SSE stav,72 přesných loader procesů/144 cyklů,528 preempčních a270 pointer případů; nová celá regrese102/102. Všech97 ABI/223 návratů je navázaných na aktuální DLL. Čtyři skutečné obousměrné obnovy zachovaly celé17166/17200/17166/17166bajtové saves; obě source stopy končí0 bez AV. V odděleném zdrojovém stromu prošly všechny4 produkční cíle s BUILD_TESTING=OFF i skutečný nový profil/restart/UI. Chybné diagnostické pokusy jsou doložené. Následuje naměřený JNGLoad FNCLEX rozdíl a skutečná fáze40. Celý cíl pokračuje.
 
 [Skutečná série35](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení,56/47 zásobovacích příkazů,977/816 převodů, přesné19produktové bilance, Money22834/21534 a celé17166/17200bajtové saves. Oba procesy běžně skončily0 a aktuální produkce odpovídá nové102/102 pointer regresi. Další kontrola prokázala samostatnou Squall loader FPU odchylku a čistá konfigurace bez testů odhalila nesprávně umístěnou přípravu RC; tyto konkrétní opravy následují před skutečnou fází40. Celý původní cíl pokračuje.

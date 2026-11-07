@@ -89,3 +89,9 @@ python tools/validate_exports.py --binary build/windows/Release/JNGLoad.dll --or
 ```
 
 Referenční nástroj dynamicky načte původní DLL a její dva exporty. Nástroj kontroluje hash původní DLL, porovná rozměry i každý bajt BGRA všech obrázků a zaznamená výsledek do `.local/jng-validation-windows.json`. Každý dekodér běží v samostatném procesu; původní DLL není součástí obnoveného sestavení. Jakákoli chyba nebo odchylka skončí nenulovým návratovým kódem. Přenositelný souhrn posledního ověření je v `analysis/jngload-windows-validation.json`.
+## Inicializace x87 při načtení DLL
+
+`analysis/jng-loader-regression.json` dokládá další samostatnou produkční opravu: native entry1003ae44 vede k1003ad90/1003ad92, které volají inicializaci1003afb5 s argumentem0. Callback1003a8a2 proto přeskočí změnu přesnosti a pouze provede FNCLEX na1003a8bd před C/C++ konstruktory. Nový `Initialization.cpp` obnovuje tento krok v `.CRT$XIB`. Zdrojový dekódovací wrapper se nezměnil; nevkládá se nastavení PC53 ze Squallu.
+
+Před opravou24 dvojic source/native ponechávalo x87 příznak dělení nulou. Obě opravené DLL nyní přesně souhlasí v72 procesech/144 load-unload cyklech:3 přesnosti,4 zaokrouhlení, čistý i nenulový příznak; zachovaný control word a MXCSR. V každém ze dvou sestavení se nově porovnalo všech416 herních obrázků bajtově proti originálu a40 API/chybových dvojic včetně vybraných PNG/MNG, výjimek a opakovaných volání. Oba exporty a ordinály souhlasí. Celá102testová regrese se pro tuto úzkou změnu neopakovala; její nezměněné herní/Squall zdroje se zkontrolovaly a nové JNG komponentové porovnání je zaznamenané samostatně. Obecné neplatné vstupy, alokační chyby, souběh a nemaskované FP výjimky se neprohlašují za ověřené.
+
