@@ -1,9 +1,9 @@
 {
-  "status": "passed_six_native_listener_factor_argument_and_return_abi_semantics_only",
-  "recorded_at_utc": "2026-11-05T14:15:59.301992+00:00",
-  "auditor_sha256": "2856b6ec8a9d2d0ac4ae8c44ccd46bb147e30a94e68ba268c9a304dd876ce13b",
+  "status": "passed_listed_native_argument_and_return_abi_semantics_only",
+  "recorded_at_utc": "2026-11-07T07:29:29.658078+00:00",
+  "auditor_sha256": "361b6756f431401ff0378a5c59ff068c98f2eed62bd9781fcf19c73504a9b4d7",
+  "publisher_sha256": "a248d0aea05b2562b3b6d09c486f98fa9bb5cbfb856a1d819aa4b5ffef72094b",
   "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
-  "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
   "exports": [
     {
       "name": "SQUALL_Listener_SetDistanceFactor",
@@ -1050,32 +1050,31 @@
       "whole_behavior_fully_verified": false
     }
   ],
-  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
-  "dependency_source_hashes": {
-    "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb",
-    "tools/audit_squall_native_arguments.py": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a",
-    "tools/record_live_production_verification.py": "f9fbf205bcb0775681eef2324613e5a845e841eae60b23fa13d98af806377b97"
-  },
   "current_candidate_sha256": [
-    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
-    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+    "4436cfbb6beb3beaaaf002985b08e3b7c9662f51ddf9f994b0f407c3e6893c93",
+    "f23dec42531aaa4218060ba0f64e1f946a40f26c75c73689b806a7eb02ae6f4f"
   ],
-  "prior_behavioral_evidence": [
-    "analysis/squall-listener-factors-validation.json",
-    "analysis/squall-listener-factors-fresh-validation.json"
-  ],
-  "prior_behavioral_report_sha256": [
-    "8e742a3cbffdee5ee33dabca9c9c9a8d7b95edad046444a2cc351f8f1287bc91",
-    "4c13d72ee67107313c877b5b9c2ee72021e3cc7b342a4ad761a9353e89cff8e2"
-  ],
+  "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
   "new_runtime_audio_test_claimed": false,
-  "all97_native_signatures_verified": false,
   "production_changed": false,
   "original_files_unchanged": 17,
   "whole_squall_complete": false,
   "whole_game_complete": false,
-  "pending": [
-    "Remaining91 native signature semantic proofs",
-    "Broader runtime behavior and remaining original goal scopes"
-  ]
+  "current_full_ctest_report": "analysis/squall-pointer-regression.json",
+  "details": {
+    "disassembly_sha256": "6e2f7d618eb4f21a0d6637b4e9c00c391ced97422f65ef9b632e05a5e95ad855",
+    "dependency_source_hashes": {
+      "tools/pe.py": "eb81721317e15e2436dc31e964c16216b7f8637e9b217fd59d2b987c01ba2bcb",
+      "tools/audit_squall_native_arguments.py": "1de5e1f8308d3f7595ba877385767f3807d2f0efb24f3932b52679f2a5b6967a"
+    },
+    "prior_behavioral_evidence": [
+      "analysis/squall-listener-factors-validation.json",
+      "analysis/squall-listener-factors-fresh-validation.json"
+    ],
+    "prior_behavioral_report_sha256": [
+      "8e742a3cbffdee5ee33dabca9c9c9a8d7b95edad046444a2cc351f8f1287bc91",
+      "4c13d72ee67107313c877b5b9c2ee72021e3cc7b342a4ad761a9353e89cff8e2"
+    ],
+    "new_runtime_audio_test_claimed": false
+  }
 }

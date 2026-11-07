@@ -1,5 +1,7 @@
 # Ověření shody s originálem
 
+[Opravené původní3D pořadí Squallu](SQUALL.md): nový úplný CTest102/102 za518,83s, oba buildy a270 přesných izolovaných pointer procesů. Každá DLL má774 skutečných play případů,12240 porovnaných výsledků,122527752 přesných PCM bajtů45 herních zvuků a game-audio/PersonSounds regresi. Všech97 fyzických ABI/223 původních veřejných návratů je znovu ověřených proti aktuálním DLL. Čtyři skutečné obousměrné herní obnovy mají17149/17000/17149/17149 celých přesných bajtů; oba source procesy mají exit0 bez AV. Celkový behaviorální rozsah DLL i původního projektu zůstává částečný. Předopravové odchylky i konkrétní chybná CRT konstanta v Python auditu jsou zachované odděleně.
+
 [Další trackerové loadery](SQUALL.md): každé sestavení88 procesů,44 loader-order párů,197524 skutečných alokovaných bajtů a3751968 inicializovaných objektových bajtů.71742 adresních slotů má samostatné null/relative kontroly;632bajtový DBM header i109bajtový669 komentář jsou podložené původními alokacemi. Aktuální FPU hranice jsou skutečně měřené.
 
 [Aktivní trackerový mixer](SQUALL.md): obě sestavení po17856 call párech,8303616 guarded výstupních bajtech a28449792 skalárních bajtech kanálů. Všechny128 tabulkové položky a celý1/2/33kanálový dispatch se smyčkami a rampami souhlasí. Konkrétní DirectToDisk scénář prokazuje skutečnou výjimku z32kanálového limitu; adresní pole jsou ověřená odděleně, nikoli normalizací PCM.

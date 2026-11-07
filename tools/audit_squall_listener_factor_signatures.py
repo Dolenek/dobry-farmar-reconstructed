@@ -68,37 +68,13 @@ def main():
                 instruction_evidence=evidence,native_signature_fully_verified=True,whole_behavior_fully_verified=False))
     old=read(ROOT/'analysis/squall-listener-factors-validation.json');assert old['result_comparisons']==24962 and old['initialized_getter_checks']==6240
     fresh=read(ROOT/'analysis/squall-listener-factors-fresh-validation.json');assert fresh['result_comparisons']==24962
-    abi=[read(ROOT/'analysis'/name) for name in ['squall-tracker-loaders-abi.json','squall-tracker-loaders-fresh-abi.json']]
-    assert all(v['status']=='matches_export_contract' for v in abi)
-    full=read(ROOT/'analysis/squall-tracker-loaders-regression.json');assert [v['rebuilt_sha256'] for v in abi]==full['candidate_sha256']
-    assert all(digest(ROOT/name)==sha for name,sha in full['production_source_files'].items())
-    for row in read(ROOT/'analysis/inventory.json')['files']:assert digest(native.parent/row['path'])==row['sha256']
-    result=dict(status='passed_six_native_listener_factor_argument_and_return_abi_semantics_only',recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        auditor_sha256=digest(__file__),original_sha256=digest(native),disassembly_sha256=digest(disassembly),exports=rows,
-        current_source_header_sha256=digest(ROOT/'src/squall/runtime/Squall.h'),
-        dependency_source_hashes={name:digest(ROOT/name) for name in ['tools/pe.py','tools/audit_squall_native_arguments.py','tools/record_live_production_verification.py']},
-        current_candidate_sha256=full['candidate_sha256'],prior_behavioral_evidence=['analysis/squall-listener-factors-validation.json','analysis/squall-listener-factors-fresh-validation.json'],
+    from squall_signature_evidence import publish
+    count=publish('squall-listener-factor-signatures.json',rows,__file__,dict(
+        disassembly_sha256=digest(disassembly),
+        dependency_source_hashes={name:digest(ROOT/name) for name in ['tools/pe.py','tools/audit_squall_native_arguments.py']},
+        prior_behavioral_evidence=['analysis/squall-listener-factors-validation.json','analysis/squall-listener-factors-fresh-validation.json'],
         prior_behavioral_report_sha256=[digest(ROOT/'analysis'/n) for n in ['squall-listener-factors-validation.json','squall-listener-factors-fresh-validation.json']],
-        new_runtime_audio_test_claimed=False,all97_native_signatures_verified=False,production_changed=False,original_files_unchanged=17,whole_squall_complete=False,whole_game_complete=False,
-        pending=['Remaining91 native signature semantic proofs','Broader runtime behavior and remaining original goal scopes'])
-    write(ROOT/'analysis/squall-listener-factor-signatures.json',result)
-    exports=read(ROOT/'analysis/squall-export-audit.json');names={r['name']:r for r in rows}
-    for row in exports['exports']:
-        if row['name'] in names:
-            row['native_signature_fully_verified']=True
-            row['native_signature_semantic_evidence']=dict(report='analysis/squall-listener-factor-signatures.json',argument=names[row['name']]['argument_role'],return_role=names[row['name']]['return_role'],whole_behavior_verified=False)
-    exports['rebuilt_sha256']=abi[0]['rebuilt_sha256'];exports['current_contract_reports']=['analysis/squall-tracker-loaders-abi.json','analysis/squall-tracker-loaders-fresh-abi.json']
-    exports['native_signature_semantics_verified_count']=sum(bool(row.get('native_signature_fully_verified')) for row in exports['exports'])
-    assert exports['native_signature_semantics_verified_count']>=6
-    write(ROOT/'analysis/squall-export-audit.json',exports)
-    verification=read(ROOT/'analysis/verification.json');report_name='analysis/squall-listener-factor-signatures.json'
-    if report_name not in verification['reports']:verification['reports'].append(report_name)
-    verification['native_squall_signature_semantics']=dict(report=report_name,verified_export_count=exports['native_signature_semantics_verified_count'],remaining_export_count=97-exports['native_signature_semantics_verified_count'],whole_behavior_verified=False)
-    verification['latest_scoped_regression']=dict(report=report_name,recorded_at_utc=result['recorded_at_utc'],whole_game_complete=False)
-    paths=[ROOT/'CMakeLists.txt']+[p for folder in ['src','tools','tests'] for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
-    hashes=[p.relative_to(ROOT).as_posix()+'\0'+digest(p)+'\n' for p in sorted(paths,key=lambda p:p.relative_to(ROOT).as_posix())]
-    verification['source_tree_sha256']=hashlib.sha256(''.join(hashes).encode('utf-8')).hexdigest();verification['source_tree_hash_as_of_report']=report_name
-    write(ROOT/'analysis/verification.json',verification)
-    print('Proved6 native ABI signatures and18 complete EAX/caller-cleanup returns;91 semantic signatures remain open.')
+        new_runtime_audio_test_claimed=False))
+    print(f'Proved6 native ABI signatures and18 complete EAX/caller-cleanup returns;{count}/97 physical ABI signatures verified.')
 
 if __name__=='__main__':main()

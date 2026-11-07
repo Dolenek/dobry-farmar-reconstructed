@@ -967,6 +967,18 @@
       "source_difference": "Restore old field addresses for remaining loader translation units, original AGC call and limiter/recovery, negative preclip bias/full VU limits and decayed offset levels with explicit Win32 wrapping.",
       "current_sha256": "d4fc2796e73c5aa9767c7e1e5486ab85fb7bd3677de2c3769d1f0b970ff97d5a",
       "verification_report": "analysis/squall-tracker-loaders-regression.json"
+    },
+    {
+      "path": "SoundEngine/Squall.cpp",
+      "method": "Preserve original observable Position read order in CreateChannel3D",
+      "original_addresses": [
+        "10005021",
+        "10005039",
+        "10005053"
+      ],
+      "source_difference": "Three ordered volatile binary32 input reads Z/Y/X;subsequent distance arithmetic retained",
+      "current_sha256": "2852671b248f0d7275c1b30d1f2c9eedc30fbbd2fc860b0112c60365bb1970f9",
+      "verification_report": "analysis/squall-pointer-regression.json"
     }
   ],
   "file_callback_behavior_verification": {

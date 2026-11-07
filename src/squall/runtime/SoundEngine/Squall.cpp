@@ -3529,9 +3529,16 @@ int CreateChannel3D(context_t* context, int SampleID, int Loop,
 
 
     // вычисление растояния до источника звука
-    float dx = context->_listenerParameters.vPosition.x - Position[0];
-    float dy = context->_listenerParameters.vPosition.y - Position[1];
-    float dz = context->_listenerParameters.vPosition.z - Position[2];
+    // Native 10005021/10005039/10005053 reads Position in Z/Y/X order.
+    // This is observable after the public wrapper nulls an invalid pointer.
+    // Keep the input loads ordered without changing the distance arithmetic.
+    const volatile float* orderedPosition = Position;
+    const float positionZ = orderedPosition[2];
+    const float positionY = orderedPosition[1];
+    const float positionX = orderedPosition[0];
+    float dx = context->_listenerParameters.vPosition.x - positionX;
+    float dy = context->_listenerParameters.vPosition.y - positionY;
+    float dz = context->_listenerParameters.vPosition.z - positionZ;
 
     float direct = sqrtf(dx * dx + dy * dy + dz * dz);
 

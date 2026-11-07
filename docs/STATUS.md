@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Produkční oprava3D čtení Squallu](SQUALL.md) odstranila64 přesných odchylek. Obě sestavení mají270 nových izolovaných pointer procesů bez rozdílu, novou celou regresi102/102 za518,83s,774 play případů a122527752 PCM bajtů45 zvuků na sestavení. Všech97 ABI důkazů/223 návratů je znovu navázaných. Čtyři skutečné herní obnovy zachovaly celé17149/17000/17149/17149bajtové saves a oba source procesy jsou bez AV. Chybný předpoklad Python auditu o CRT konstantách je zachovaný odděleně.17 originálů se nemění; skutečný pár navazuje30→35 před40 a celý původní cíl pokračuje.
+
 [Skutečná série30 zakázek](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení na větev, přesné19produktové bilance, Money19824/18874 a celé17149/17000bajtové saves. Oba procesy běžně skončily0. Jejich předopravové produkční hashe se ověřily ještě před plánovanou Squall read-order úpravou. Na další fáze navážou vlastní neměnné checkpointy; celý původní cíl pokračuje.
 
 [Nová pointer sonda Squallu](SQUALL.md) skutečně porovnala270 izolovaných procesů a zjistila64 odchylek stejného3D read pořadí: native Z/adresa8, oba source Y/adresa4. Ostatní sledovaná exception/output slova souhlasí; cone null write je přímo potvrzený. Předopravový stav i všechny zdrojové/binární vstupy jsou zachované. Produkční oprava a regrese následují po aktuálním živém herním průchodu. ABI97/97 tím není behaviorální úplností a celý projekt pokračuje.

@@ -1,8 +1,8 @@
 {
   "status": "passed_listed_native_argument_and_return_abi_semantics_only",
-  "recorded_at_utc": "2026-11-06T19:26:19.873495+00:00",
+  "recorded_at_utc": "2026-11-07T07:30:08.372470+00:00",
   "auditor_sha256": "055bb48cda53f14193be57ef19a190ea0597ec7bc6e6906acf89bfec1530713d",
-  "publisher_sha256": "b0c76ef2dc798e67c4db1f667cd1265e529a79a6b7966b7adb766f88cfca700e",
+  "publisher_sha256": "a248d0aea05b2562b3b6d09c486f98fa9bb5cbfb856a1d819aa4b5ffef72094b",
   "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -60,8 +60,8 @@
     }
   ],
   "current_candidate_sha256": [
-    "33c22f83f24d6e7f3ba1cf34ba6cf3c1de28472d62b17a6c07801eb1fa1e9977",
-    "1ee98c84fe85733754b54063656d3a94bd2a2b2546672c7453ea140cfa6462fb"
+    "4436cfbb6beb3beaaaf002985b08e3b7c9662f51ddf9f994b0f407c3e6893c93",
+    "f23dec42531aaa4218060ba0f64e1f946a40f26c75c73689b806a7eb02ae6f4f"
   ],
   "current_source_header_sha256": "ae76d784af013c12b2667f395938d6805aa91207bf2175c0acc965858a600234",
   "new_runtime_audio_test_claimed": false,
@@ -69,6 +69,7 @@
   "original_files_unchanged": 17,
   "whole_squall_complete": false,
   "whole_game_complete": false,
+  "current_full_ctest_report": "analysis/squall-pointer-regression.json",
   "details": {
     "disassembly_sha256": "bd4cb0e82fc647991fb9c7145f5919875571a877c9a4eefe82fb73ae73146f71",
     "instruction_evidence": [
@@ -1832,7 +1833,7 @@
       }
     },
     "compiled_layout_report": "analysis/squall-device-info-signatures.json",
-    "compiled_layout_report_sha256": "a0ece91f92a81db74f2851061c0c83caf3ed9cd128fab95412bf5fef9dcb30df",
+    "compiled_layout_report_sha256": "220d7d64009d83763654503cef0cb041ff6f33659555706ad0cbda033baa2e77",
     "backend_integer_return_proof": {
       "all_native_return_sites": [
         "100080f7",

@@ -74,15 +74,18 @@ int wmain(int argc,wchar_t** argv) {
     squall_parameters_t parameters{};parameters.Window=window;parameters.SampleRate=44100;parameters.BitPerSample=16;parameters.Channels=4;parameters.UseAlg=1;parameters.BufferSize=200;parameters.DistanceFactor=1;parameters.RolloffFactor=.001f;parameters.DopplerFactor=1;
     auto initialized=api.SQUALL_Init(&parameters);if(initialized<0)return 12;
     int channel=-1;if(method==4){channel=api.SQUALL_Sample_Play3DEx(sample,1,17,0,position,velocity,7,1,16000,1,1000);if(channel<0)return 13;}
+    const auto requestedPrecision=precision==24?_PC_24:_PC_53;
+    const auto beforePrecision=_control87(0,0)&_MCW_PC;if(beforePrecision!=requestedPrecision)return 15;
     Outcome out{};invoke(&api,method,sample,pos,vel,channel,outside,&out);
+    const auto afterPrecision=_control87(0,0)&_MCW_PC;if(afterPrecision!=requestedPrecision)return 16;
     std::uint32_t cachedPos[3]{},cachedVel[3]{};int positionResult=-999,velocityResult=-999;
     if(!out.code&&method<4&&out.result>=0){positionResult=api.SQUALL_Channel_Get3DPosition(out.result,reinterpret_cast<float*>(cachedPos));velocityResult=api.SQUALL_Channel_GetVelocity(out.result,reinterpret_cast<float*>(cachedVel));}
     const bool fault=out.code!=0;
     std::uint32_t direction[3]{};std::memcpy(direction,out.direction,12);
-    std::printf("{\"method\":%d,\"case\":%d,\"precision\":%d,\"sample\":%d,\"initialized\":%d,\"exception\":%lu,\"access\":%lu,\"fault_address\":%llu,\"instruction_rva\":%llu,\"result\":%d,\"outside\":%d,\"position_result\":%d,\"velocity_result\":%d,\"position_words\":[%u,%u,%u],\"velocity_words\":[%u,%u,%u],\"direction_words\":[%u,%u,%u],\"inside_angle\":%d,\"outside_angle\":%d,\"lead_guard\":%u,\"tail_guard\":%u,\"explicit_fault_process_termination\":%s}\n",
+    std::printf("{\"method\":%d,\"case\":%d,\"precision\":%d,\"sample\":%d,\"initialized\":%d,\"exception\":%lu,\"access\":%lu,\"fault_address\":%llu,\"instruction_rva\":%llu,\"result\":%d,\"outside\":%d,\"position_result\":%d,\"velocity_result\":%d,\"position_words\":[%u,%u,%u],\"velocity_words\":[%u,%u,%u],\"direction_words\":[%u,%u,%u],\"inside_angle\":%d,\"outside_angle\":%d,\"lead_guard\":%u,\"tail_guard\":%u,\"before_precision_bits\":%u,\"after_precision_bits\":%u,\"explicit_fault_process_termination\":%s}\n",
         method,test,precision,sample,initialized,out.code,out.access,static_cast<unsigned long long>(out.address),
         static_cast<unsigned long long>(fault?out.instruction-reinterpret_cast<std::uintptr_t>(module):0),out.result,outsideValue,
-        positionResult,velocityResult,cachedPos[0],cachedPos[1],cachedPos[2],cachedVel[0],cachedVel[1],cachedVel[2],direction[0],direction[1],direction[2],out.inside,out.angle,out.lead,out.tail,fault?"true":"false");
+        positionResult,velocityResult,cachedPos[0],cachedPos[1],cachedPos[2],cachedVel[0],cachedVel[1],cachedVel[2],direction[0],direction[1],direction[2],out.inside,out.angle,out.lead,out.tail,beforePrecision,afterPrecision,fault?"true":"false");
     std::fflush(stdout);
     if(fault){TerminateProcess(GetCurrentProcess(),0);return 14;}
     api.SQUALL_Free();api.SQUALL_Sample_UnloadAll();DestroyWindow(window);VirtualFree(region,0,MEM_RELEASE);FreeLibrary(module);return 0;

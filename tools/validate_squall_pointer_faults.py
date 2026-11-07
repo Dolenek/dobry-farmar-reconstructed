@@ -55,6 +55,7 @@ def main():
                         out=json.loads(p.stdout);assert (out['method'],out['case'],out['precision'])==(method,case,precision)
                         assert out['lead_guard']==0x5a5a5a5a and out['tail_guard']==0xa5a5a5a5
                         assert out['initialized']==1 and out['sample']>0
+                        assert out['before_precision_bits']==out['after_precision_bits']==(0x20000 if precision==24 else 0x10000)
                         fault=(method<4 and case<4) or (method==4 and case<4)
                         assert bool(out['exception'])==fault and out['explicit_fault_process_termination']==fault,(tag,out)
                         if fault:

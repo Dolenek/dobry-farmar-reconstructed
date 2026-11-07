@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Build both current trees and run the regression needed by ordered3D reads."""
 import datetime
+import argparse
 import subprocess
 import sys
-from record_live_production_verification import ROOT,digest,write
+from record_live_production_verification import ROOT,digest,write,read
 
 
 def main():
-    commands=[]
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--resume-pipeline',type=str)
+    args=parser.parse_args()
+    commands=[('build-probe',['cmake','--build','build/squall-pointer-fault-probe-vs','--config','Release'])]
     builds=[('', 'build/windows'),('-fresh','build/squall-source-repro-vs20261010')]
     for suffix,build in builds:
         commands.append(('build'+suffix,['cmake','--build',build,'--config','Release','--parallel','4']))
@@ -26,6 +30,20 @@ def main():
             commands.append((name+suffix,[sys.executable,*command,'--output',f'.local/squall-pointer-{name}{suffix}-validation.json']))
     report=dict(status='running',started_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
         driver_sha256=digest(__file__),steps=[],whole_game_complete=False)
+    if args.resume_pipeline:
+        prior_path=ROOT/args.resume_pipeline;prior=read(prior_path)
+        assert prior['status']=='failed' and prior['steps'][-1]['name']=='faults'
+        assert prior['steps'][-1]['return_code']==1
+        reused=prior['steps'][:-1]
+        assert len(reused)==4
+        for step,(name,command) in zip(reused,commands):
+            assert step['name']==name and step['command']==command and step['return_code']==0
+            assert digest(ROOT/step['log'])==step['log_sha256']
+        failed=read(ROOT/'.local/squall-pointer-faults/20261106T201034530041Z/report.json')
+        for value in failed['binaries'].values():assert digest(ROOT/value['path'])==value['sha256']
+        report.update(resumed_from=dict(path=args.resume_pipeline,sha256=digest(prior_path),
+            reason='Python auditor used incorrect CRT precision constants;production binaries unchanged'),steps=reused)
+        commands=commands[len(reused):]
     try:
         for name,command in commands:
             log=ROOT/'.local'/f'squall-pointer-regression-{name}.log'

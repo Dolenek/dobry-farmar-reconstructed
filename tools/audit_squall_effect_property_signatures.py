@@ -42,7 +42,8 @@ def main():
     assert sizes == [0] + [layouts[f'eax_listener_eax{n}']['size'] for n in [1, 2, 3]] + [0] + [layouts[f'eax_channel_eax{n}']['size'] for n in [1, 2, 3]]
     specifications = [('EAX_StructSize', 0x1004b040, 32), ('EAX_Param', 0x1004b060, 32),
                       ('EAX_Guid', 0x1004b080, 128), ('ZOOMFX_Guid', 0x1004c468, 16)]
-    full = read(ROOT / 'analysis/squall-tracker-loaders-regression.json')
+    from current_production_regression import current_regression
+    _, full = current_regression()
     tables = []
     for index, folder in enumerate(['build/windows', 'build/squall-source-repro-vs20261010']):
         library = ROOT / folder / 'squall-candidate/Release/Squall.dll'

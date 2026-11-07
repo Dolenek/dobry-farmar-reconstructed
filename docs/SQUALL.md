@@ -1,5 +1,13 @@
 # Rekonstrukce Squall
 
+## Opravené pořadí3D čtení a nová celá regrese
+
+CreateChannel3D nyní skutečně čte Position v původním pořadí Z/Y/X podle10005021/10005039/10005053. Tři explicitní volatile binary32 input čtení zachovávají následnou distance aritmetiku. Po wrapper nulování neplatného vstupu tak obě sestavení skutečně faultují na8 stejně jako originál. V nových270 izolovaných procesech souhlasí všechny sledované exception/access/fault byte hodnoty, výstupy, cache words i guardy;64 předchozích odchylek zmizelo. Vstupní i výstupní FPU precision je nyní přímo měřená jako CRT PC24=0x20000 / PC53=0x10000.
+
+Obě úplná sestavení prošla. Nový CTest má102/102 za518,83s; každé DLL sestavení navíc prošlo774 skutečnými sample/group play případy,836 guarded channel snapshoty,12240 výsledky, všemi97 stack/export voláními v obou přesnostech, všemi45 herními zvuky/122527752 PCM bajty a game-audio/PersonSounds regresí. Aktuální fyzické ABI důkazy všech97 exportů a223 veřejných návratů byly znovu provedené proti novým DLL. `analysis/squall-pointer-regression.json` propojuje skutečné pipeline výsledky a zachované předopravové neshody. První pokus navazujícího Python auditu používal chybné číselné CRT precision konstanty; původní měření bylo správné a selhání se uchovává odděleně. Pro tuto chybu auditu se produkce neměnila a úspěšný CTest se znovu nevydává za další běh.
+
+Následné čtyři skutečné herní obnovy native30→source, source30→native, první source→native a tento native→source mají celé17149/17000/17149/17149bajtové saves přesně stejné. Zachovaly sérii30, vlastní peníze,19 skladových/tržních položek,383 koeficientů a získané ocenění4; všechny procesy skončily0 a oba zdrojové exception traces jsou bez AV. `analysis/squall-pointer-game-regression.json` spojuje tyto důkazy s novou regresí. Behaviorální úplnost Squallu ani celého původního cíle se tím netvrdí; skutečné série35→40 a další mezery pokračují.
+
 ## Zjištěná odchylka pořadí neplatných3D čtení
 
 Nová skutečná public API sonda provedla270 izolovaných procesů:90 případů přes originál a obě zdrojové DLL, nastavení PC53/PC24, čtyři3D play exporty a cone getter. Position zahrnuje null, adresu1, NOACCESS,11bajtovou hranici, readonly a přesnou12bajtovou hranici; Velocity má také null/bad/NOACCESS a běžný kontrolní vstup. Cone OutsideVolume zahrnuje null/bad/NOACCESS/readonly i writable kontrolu. Všech120 očekávaných fault procesů po zachycení skutečného SEH explicitně ukončí pouze vlastní sondu;150 běžných kontrol provede cleanup. Tyto fault procesy se nevydávají za běžně ukončenou hru.
