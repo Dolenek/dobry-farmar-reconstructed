@@ -1,5 +1,9 @@
 # Rekonstrukce Squall
 
+Aktuální rozhraní má97 zdrojových implementací,97 nezávislých fyzických ABI důkazů a223 veřejných návratů. Poslední produkční opravou je předkonstruktorové x87/SSE prostředí a explicitní původní fallback kanálu: `analysis/squall-loader-regression.json`, nová celá regrese102/102,72 loader procesů,528 preempčních a270 pointer případů v obou sestaveních. Následovaly celé křížové herní obnovy série35. Starší odstavce „oprava následuje“ níže jsou historické předopravové záznamy.
+
+Další skutečná porovnání doplňují MT2/AMS2 ignorované efekty a MPEG Layer-I nenulové384sample prefixes. Konkrétní původní nedefinované trackerové chyby popisuje [samostatný záznam](NATIVE_TRACKER_FAILURES.md). Všech97 exportů není samo o sobě důkazem všech codec/provider/error cest; tyto hranice se dále evidují v jednotlivých reportech a [kontrole celého cíle](COMPLETION_AUDIT.md).
+
 ## Skutečné loader FP rozdíly a zaplněné kanály
 
 `validate_squall_preemption.py` provedl528 oddělených procesů:176 skutečných případů přes všechny8 play exportů a oba buildy v PC53/PC24. Čtyři skutečné připravené kanály mají různé priority, shodná minima i minimum ve dvou slotech. Nízké příchozí priority0..3 bez přijatelného minima původně přímo určují fallback index; při shodném minimu se vybere poslední slot. Veškeré handle generace, původní/zbylé kanály, priority a stavy souhlasí.176 zaznamenaných odchylek se týká pouze FP precision po samotném LoadLibrary, nikoli chování vytvořených kanálů po nastavení měřené přesnosti. Zjevná neinicializovaná C++ proměnná v dostupném zdroji se v aktuálním MSVC náhodně chová stejně jako původní explicitně zachovaný argument; zdrojové vyjádření tohoto fallbacku zůstává k doplnění.
