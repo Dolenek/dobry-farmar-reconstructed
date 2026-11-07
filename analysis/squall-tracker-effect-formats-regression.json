@@ -1,0 +1,30 @@
+{
+  "status": "passed_native_extended_effect_absence_MT2_and_AMS2_both_builds_only",
+  "recorded_at_utc": "2026-11-07T09:06:37.409094+00:00",
+  "recorder_sha256": "8e7c9a6b2fb32d6a5904795c0c28353cc32e5a3a04880a2e251fb07a0f6f39ea",
+  "report": "analysis/squall-tracker-effect-formats-validation.json",
+  "report_sha256": "59a4a79fa35bbe107368999c93bec04a646bb6131c53c9990ff761383f58717b",
+  "native_MT2_fxcmd_values": 256,
+  "native_AMS2_effect_values": 64,
+  "candidate_builds": 2,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "isolated_processes": 12,
+  "exact_allocated_pattern_bytes_per_candidate": 27648,
+  "MT2_nonzero_fxcmd_native_behavior": "255 values leave command and parameter zero;fxcmd0 actual MOD-effect conversion is exercised as control",
+  "AMS2_native_behavior": "Effect codes16..63 are ignored;0..15 MOD conversion and12 volume-column branch are exercised in the same actual pattern",
+  "rejected_zero_sample_fixture": {
+    "report": ".local/squall-tracker-effect-formats/20261107T090444971681Z/report.json",
+    "sha256": "555ff6c24f30cfcb5bbd6eb523cda43bc95d19ddb514a5fa6f35300397e7afa7",
+    "error": "AssertionError(('AMS2', 53, 'native', 1, 'Actual Create rejected fixture\\r\\n'))"
+  },
+  "source_TODO_comments_are_not_reconstruction_stubs": true,
+  "production_implementation_changed": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Broader compressed sample,envelope,packed pattern and malformed file cases",
+    "Current integrated game and original whole-project requirements"
+  ]
+}

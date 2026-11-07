@@ -718,7 +718,9 @@
     "analysis/jng-loader-errors-fresh-validation.json",
     "analysis/jng-loader-regression.json",
     "analysis/squall-tracker-stream-validation.json",
-    "analysis/squall-tracker-stream-observations.json"
+    "analysis/squall-tracker-stream-observations.json",
+    "analysis/squall-tracker-effect-formats-validation.json",
+    "analysis/squall-tracker-effect-formats-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108707,5 +108709,11 @@
   "squall_tracker_sequential_observations": {
     "report": "analysis/squall-tracker-stream-observations.json",
     "active_playback_proved": false
+  },
+  "squall_tracker_extended_effects": {
+    "report": "analysis/squall-tracker-effect-formats-regression.json",
+    "native_absence_confirmed": true,
+    "MT2_commands": 256,
+    "AMS2_effects": 64
   }
 }
