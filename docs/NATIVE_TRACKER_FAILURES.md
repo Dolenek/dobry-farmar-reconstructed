@@ -1,5 +1,7 @@
 # Rozhodnutí o původních nedefinovaných trackerových chybách
 
+Uživatel výslovně schválil: „Ano, zachovat dostatečnou alokaci a doložit tuto výjimku.“ Záznam je v `analysis/native-tracker-fidelity-decision.json`. Platí pro20 dodatečných bajtů potřebných pro skutečný trackerový objekt oproti poddimenzované původní factory. Zdrojová implementace se tímto rozhodnutím nemění; původní heap-failure důkazy zůstávají zachované. Ostatní behaviorální rozdíly se tím automaticky neschvalují.
+
 Původní `Squall.dll` není jen jiná veřejná verze knihovny. Má prokazatelné vlastní chyby paměti. Nejde o chybějící rekonstrukci efektů ani o chybějící implementaci exportů.
 
 * Native1002dd9a obsahuje `68 f8 ee 00 00`: factory požaduje0xEEF8 (61176) bajtů. Native konstruktor1002bdb0 mimo jiné na1002bed2 vykoná `89 86 08 ef 00 00`, tedy čtyřbajtový zápis do objektu+0xEF08. Rozsah objektu sahá nejméně do0xEF0C (61196); původní požadavek je o20 bajtů menší. Zdrojová třída má skutečně0xEF0C a standardní C++ new jí dává dostatečný prostor.

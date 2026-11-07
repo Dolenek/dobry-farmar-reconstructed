@@ -1,0 +1,28 @@
+{
+  "status": "user_accepted_documented_sufficient_tracker_allocation_exception",
+  "recorded_at_utc": "2026-11-07 20:12:39 UTC",
+  "authorization": {
+    "source": "explicit_user_reply",
+    "question_item_id": "[\"request_user_input_async\",\"call_ef4841238c734353b7fa673a39bc5ada\",0]",
+    "answer": "Ano, zachovat dostatečnou alokaci a doložit tuto výjimku."
+  },
+  "scope": {
+    "component": "Squall tracker factory allocation only",
+    "native_requested_bytes": 61176,
+    "source_required_object_bytes": 61196,
+    "additional_bytes": 20,
+    "native_allocation_instruction": "1002dd9a",
+    "native_constructor_store_instruction": "1002bed2",
+    "native_store_offset": "0xEF08",
+    "native_store_bytes": 4,
+    "decision": "Keep sufficient C++ object allocation and explicitly retain the observed difference from original undefined heap behavior"
+  },
+  "evidence_reports": [
+    "analysis/squall-tracker-scoped-reconstruction.json",
+    "docs/NATIVE_TRACKER_FAILURES.md"
+  ],
+  "production_code_changed": false,
+  "original_heap_failure_observations_preserved": true,
+  "other_native_behavior_differences_waived": false,
+  "whole_game_complete": false
+}

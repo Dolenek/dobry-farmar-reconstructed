@@ -41,6 +41,15 @@ def main():
     v=read(ROOT/'analysis/verification.json')
     contracts=verified_gate(v,'current_contract_streak40_gate','passed_real40_award5_full_pixels_and_four_whole_cross_restores_only')
     awards=verified_gate(v,'current_award_runtime_gate','passed_current21_requested_panels_effects_returns_saved_flags_and_automatic_final_award_only')
+    warnings=False
+    warning_gate=v.get('current_tutorial_warning_gate',{})
+    if warning_gate.get('complete'):
+        warning_report=read(ROOT/warning_gate['report'])
+        assert warning_report['status']=='passed_actual_full_carry_storage_capacity_mixed_products_and_contract_warning_paths_only'
+        assert set(warning_report['verified_steps'])>={40,41,42,44}
+        assert warning_report['original_files_unchanged']==17 and not warning_report['production_changed']
+        for path,sha in warning_report['reports'].items():assert digest(ROOT/path)==sha,path
+        current_implementation(warning_report['implementation_files']);warnings=True
     decision_path=ROOT/'analysis/native-tracker-fidelity-decision.json'
     accepted=(decision_path.exists() and read(decision_path).get('status')==
         'user_accepted_documented_sufficient_tracker_allocation_exception')
@@ -49,13 +58,14 @@ def main():
         pending.extend(['Finish actual40-contract award in both complete executable processes from genuine retained checkpoints',
             'Verify four complete checkpoint40 cross-restores with both current source DLLs'])
     if not awards:pending.append('Finish current final collect-all award lifecycle comparison,keeping requested-panel diagnostics distinct from natural attainment')
+    if not warnings:pending.append('Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10')
     if not accepted:pending.append('Resolve explicit native tracker allocation fidelity decision;retain material codec/device/uninitialized-input verification limits')
     audit_path=ROOT/'analysis/original-goal-completion-audit.json'
     final_audit=False
     if audit_path.exists():
         audit=read(audit_path)
         if audit.get('status')=='passed_all_six_original_completion_criteria':
-            assert contracts and awards and accepted
+            assert contracts and awards and accepted and warnings
             assert len(audit['criteria'])==6 and all(row['completed'] for row in audit['criteria'])
             assert audit['supporting_reports']
             for path,sha in audit['supporting_reports'].items():assert digest(ROOT/path)==sha,path
@@ -71,8 +81,12 @@ def main():
         full_reconstruction_pending=pending)
     v['goal_status_reconciliation']=dict(recorder_sha256=digest(__file__),source_build_proved=True,
         contract40_and_four_restores_proved=contracts,current_final_awards_proved=awards,
+        complete_game_tutorial_warning_paths_proved=warnings,
         tracker_allocation_exception_explicitly_accepted=bool(accepted),six_criteria_final_audit_proved=final_audit,
         whole_goal_claimed_complete=complete)
+    if not warnings:v['current_tutorial_warning_gate']=dict(report='analysis/current-tutorial-runtime-coverage.json',complete=False,required_actual_steps=[40,41,42,44])
+    for name in ['analysis/current-tutorial-runtime-coverage.json','analysis/native-tracker-fidelity-decision.json']:
+        if (ROOT/name).exists() and name not in v['reports']:v['reports'].append(name)
     paths=[ROOT/'CMakeLists.txt']+[p for folder in ['src','tools','tests'] for p in (ROOT/folder).rglob('*')
         if p.is_file() and '__pycache__' not in p.parts]
     rows=[p.relative_to(ROOT).as_posix()+'\0'+digest(p)+'\n' for p in sorted(paths,key=lambda p:p.relative_to(ROOT).as_posix())]

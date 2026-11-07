@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-07T19:49:20.337199+00:00",
+  "recorded_at_utc": "2026-11-07T20:21:28.946463+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "active_integrated_source_reconstruction_remaining_original_goal_checks",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "e3e61a0d7543c3add815589f26fcd52e25b087a6a8284a3a6d61657d7e9957de",
+  "source_tree_sha256": "002d2e2c0bca73cb46205bc28b6f0acea12d80764fdbb2b8e6b75065351ac674",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -750,11 +750,13 @@
     "analysis/contract-streak-forty-source-regression.json",
     "analysis/contract-streak-forty-state-validation.json",
     "analysis/contract-streak-forty-interop-validation.json",
-    "analysis/contract-streak-forty-regression.json"
+    "analysis/contract-streak-forty-regression.json",
+    "analysis/current-tutorial-runtime-coverage.json",
+    "analysis/native-tracker-fidelity-decision.json"
   ],
   "full_reconstruction_pending": [
     "Finish current final collect-all award lifecycle comparison,keeping requested-panel diagnostics distinct from natural attainment",
-    "Resolve explicit native tracker allocation fidelity decision;retain material codec/device/uninitialized-input verification limits",
+    "Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10",
     "Final requirement-by-requirement current-state audit and documentation"
   ],
   "previous_linux_validation": {
@@ -108755,11 +108757,12 @@
   "completion_audit_document": "docs/COMPLETION_AUDIT.md",
   "build_availability_report": "analysis/production-source-only-build-v4.json",
   "goal_status_reconciliation": {
-    "recorder_sha256": "e1c7d5d5af5275a0571cebff63583a700961d8dbc7cbebdee2742290c0a72b85",
+    "recorder_sha256": "fbf23976e6933748d6dc897f39861428d5032d037bfb1f8aa735f427dcf0610c",
     "source_build_proved": true,
     "contract40_and_four_restores_proved": true,
     "current_final_awards_proved": false,
-    "tracker_allocation_exception_explicitly_accepted": false,
+    "complete_game_tutorial_warning_paths_proved": false,
+    "tracker_allocation_exception_explicitly_accepted": true,
     "six_criteria_final_audit_proved": false,
     "whole_goal_claimed_complete": false
   },
@@ -108773,5 +108776,15 @@
     "complete": true,
     "exact_award_rgb_pixels": 480000,
     "whole_cross_restores": 4
+  },
+  "current_tutorial_warning_gate": {
+    "report": "analysis/current-tutorial-runtime-coverage.json",
+    "complete": false,
+    "required_actual_steps": [
+      40,
+      41,
+      42,
+      44
+    ]
   }
 }

@@ -1,0 +1,724 @@
+{
+  "status": "audited_existing_actual_tutorial_stage_coverage_remaining_warning_paths_not_yet_verified",
+  "recorded_at_utc": "2026-11-07T20:12:42.173594+00:00",
+  "recorder_sha256": "4b4ee6714263fbbd05ba987d0f3d72b310b4c1d532f47f40bf9f31332e546bba",
+  "reports": {
+    "analysis/contract-runtime-validation.json": "5c4318f5b467c396db689eca84cd8d26dec7d7103ee819db170d11d1985e75da",
+    "analysis/factory-catalog-group0-state-validation.json": "98acdfaf4db6e51889f69e58b6e8b218018e85d05d2ab2f064df3ff1799a7c69",
+    "analysis/factory-catalog-group1-state-validation.json": "98a0c41a1c57c5996b97aed6dcfbf814bc2032617248dc12cbfd09f2ef98fa50",
+    "analysis/factory-catalog-group2-state-validation.json": "61bc63069edd1608ce6645cfb6394ae9575083771b9b3919479a2b9bace73b27",
+    "analysis/factory-levels-group0-state-validation.json": "815fd79c10fa2600665eb736438181890fd928854f2cd1b3fa1b17c4fba71436",
+    "analysis/factory-levels-group1-state-validation.json": "5bcd928c31b44a5008bbf6ea2a49d7c9f5c997ea4c5c2cd4edc3297946e9ee54",
+    "analysis/factory-levels-group2-state-validation.json": "bb6022a4765add7f8bf1b4019fda2b387929bef9fe0a0091bb2f28932a514379",
+    "analysis/manufacture-tutorial-state-validation.json": "2efd82a421892d2f9c714462c44b647a6f562cc5a08aa3182e723b85d7196a8f",
+    "analysis/paid-production-state-validation.json": "c34ccbd505cb8ffff7a35e7b4fa9b1f6cfe4f2a6c059a530820bdba3644080b5",
+    "analysis/remaining-crops-growth-state-validation.json": "6baf148d52a03d3261e3986fc7f700e44292e5d91108614f7f8e67ba4ef59fe2",
+    "analysis/remaining-crops-harvest-state-validation.json": "60a4b575ae307d6870ab00076a993ca68ac4deb9314b198f38003e9a1dfc8d96",
+    "analysis/seed-sowing-state-validation.json": "c1906618a3fb1c80d95e3e410f4206bedef3d164717bc169ccfac87afe6ae68e",
+    "analysis/seed-transition-state-validation.json": "1695ac5793205bcdb83a50226677a0c90ec137c03a779318ac8818c0ad6ef5cf",
+    "analysis/seed-unlock-state-validation.json": "09da09b5e1348a3abd6a59276d47d48672c69761dd148dbbd2399eb6e5a7aad3",
+    "analysis/tomato-batch-state-validation.json": "7be48331ef0ec65b5e4c796b41a597bad13b3c422530479bceb7094ad95896ff",
+    "analysis/tomato-contract-state-validation.json": "83226d969199368a3885199d19163560a668c72b5c742c64108fdf75e3ccbb02",
+    "analysis/tomato-harvest-state-validation.json": "aa2168143122a3318ae1883d2432f01d7fa004588db20b90974f2f4155fd7e89",
+    "analysis/tool-upgrades-state-validation.json": "ad805ab6e0cc8e46a21b9f82dd00af7651aa570cf2bb4a080978b419314a5081",
+    "analysis/tutorial-runtime-validation.json": "30588e73405d5653b09fbf43f6d9b8d55af23d7453a31859f268bb55a5f73b99"
+  },
+  "actual_observed_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    43,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "actual_observations": {
+    "17": [
+      {
+        "report": "analysis/contract-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-first-letter.png"
+      },
+      {
+        "report": "analysis/contract-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-10-first-letter.png"
+      }
+    ],
+    "18": [
+      {
+        "report": "analysis/contract-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-contract-goal.png"
+      },
+      {
+        "report": "analysis/contract-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-contract-goal.png"
+      }
+    ],
+    "25": [
+      {
+        "report": "analysis/factory-catalog-group0-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-catalog-group0-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-catalog-group1-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-catalog-group1-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-catalog-group2-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-catalog-group2-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group0-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group0-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group1-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group1-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group2-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-25.png"
+      },
+      {
+        "report": "analysis/factory-levels-group2-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-25.png"
+      }
+    ],
+    "30": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-manufacture-navigation.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-10-manufacture-navigation.png"
+      }
+    ],
+    "31": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-11-manufacture-introduction.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-11-manufacture-introduction.png"
+      }
+    ],
+    "32": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-build-button.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-build-button.png"
+      }
+    ],
+    "35": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-13-building-choice-explanation.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-13-building-choice-explanation.png"
+      }
+    ],
+    "36": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-14-choose-first-building.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-14-choose-first-building.png"
+      }
+    ],
+    "37": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-15-place-first-building.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-15-place-first-building.png"
+      }
+    ],
+    "38": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-16-building-slider-explanation.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-16-building-slider-explanation.png"
+      }
+    ],
+    "48": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-17-feed-first-building.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-17-feed-first-building.png"
+      }
+    ],
+    "34": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-18-free-building-upgrade.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-18-free-building-upgrade.png"
+      }
+    ],
+    "33": [
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-19-demolish-first-building.png"
+      },
+      {
+        "report": "analysis/manufacture-tutorial-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-19-demolish-first-building.png"
+      }
+    ],
+    "26": [
+      {
+        "report": "analysis/paid-production-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-26.png"
+      },
+      {
+        "report": "analysis/paid-production-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-26.png"
+      }
+    ],
+    "43": [
+      {
+        "report": "analysis/paid-production-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-first-real-production-complete.png"
+      },
+      {
+        "report": "analysis/paid-production-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-first-real-production-complete.png"
+      }
+    ],
+    "49": [
+      {
+        "report": "analysis/remaining-crops-growth-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-49.png"
+      },
+      {
+        "report": "analysis/remaining-crops-harvest-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-49.png"
+      }
+    ],
+    "20": [
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-take-spade.png"
+      },
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-10-take-spade.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-14-take-spade.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-14-take-spade.png"
+      }
+    ],
+    "21": [
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-11-dig-field.png"
+      },
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-11-dig-field.png"
+      }
+    ],
+    "22": [
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-take-package.png"
+      },
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-take-package.png"
+      }
+    ],
+    "23": [
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-13-sow.png"
+      },
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-13-sow.png"
+      }
+    ],
+    "24": [
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-14-water-planted-crop.png"
+      },
+      {
+        "report": "analysis/seed-sowing-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-14-water-planted-crop.png"
+      }
+    ],
+    "12": [
+      {
+        "report": "analysis/seed-transition-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-market-forecast.png"
+      },
+      {
+        "report": "analysis/seed-transition-state-validation.json",
+        "kind": "native",
+        "screenshot": "1-10-market-forecast.png"
+      },
+      {
+        "report": "analysis/seed-transition-state-validation.json",
+        "kind": "native",
+        "screenshot": "2-10-market-forecast.png"
+      },
+      {
+        "report": "analysis/seed-transition-state-validation.json",
+        "kind": "source",
+        "screenshot": "3-10-market-forecast.png"
+      },
+      {
+        "report": "analysis/seed-transition-state-validation.json",
+        "kind": "source",
+        "screenshot": "4-10-market-forecast.png"
+      },
+      {
+        "report": "analysis/tomato-harvest-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-20-market-forecast.png"
+      },
+      {
+        "report": "analysis/tomato-harvest-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-20-market-forecast.png"
+      }
+    ],
+    "11": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-11.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-11.png"
+      }
+    ],
+    "19": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-19.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-19.png"
+      }
+    ],
+    "39": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-journal.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-journal.png"
+      }
+    ],
+    "13": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-buy-seeds-button.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-10-buy-seeds-button.png"
+      }
+    ],
+    "14": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-11-seed-explanation.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-11-seed-explanation.png"
+      }
+    ],
+    "15": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-choose-tomatoes.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-choose-tomatoes.png"
+      }
+    ],
+    "16": [
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-13-place-package.png"
+      },
+      {
+        "report": "analysis/seed-unlock-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-13-place-package.png"
+      }
+    ],
+    "28": [
+      {
+        "report": "analysis/tomato-batch-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-28.png"
+      },
+      {
+        "report": "analysis/tomato-batch-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-28.png"
+      }
+    ],
+    "27": [
+      {
+        "report": "analysis/tomato-contract-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-27.png"
+      },
+      {
+        "report": "analysis/tomato-contract-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-27.png"
+      }
+    ],
+    "47": [
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-47.png"
+      },
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-47.png"
+      }
+    ],
+    "46": [
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-46.png"
+      },
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-46.png"
+      }
+    ],
+    "29": [
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "native",
+        "screenshot": "0-auto-29.png"
+      },
+      {
+        "report": "analysis/tool-upgrades-state-validation.json",
+        "kind": "source",
+        "screenshot": "1-auto-29.png"
+      }
+    ],
+    "1": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-10-well.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-10-well.png"
+      }
+    ],
+    "2": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-11-water.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-11-water.png"
+      }
+    ],
+    "3": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-12-mow-tool.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-12-mow-tool.png"
+      }
+    ],
+    "4": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-13-mow-field.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-13-mow-field.png"
+      }
+    ],
+    "5": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-14-store.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-14-store.png"
+      }
+    ],
+    "6": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-15-market-button.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-15-market-button.png"
+      }
+    ],
+    "8": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-16-market-intro.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-16-market-intro.png"
+      }
+    ],
+    "9": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-17-market-goods.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-17-market-goods.png"
+      }
+    ],
+    "45": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-18-market-sell.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-18-market-sell.png"
+      }
+    ],
+    "7": [
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "native",
+        "screenshot": "0-19-return-button.png"
+      },
+      {
+        "report": "analysis/tutorial-runtime-validation.json",
+        "kind": "source",
+        "screenshot": "1-19-return-button.png"
+      }
+    ]
+  },
+  "missing_indices": [
+    0,
+    10,
+    40,
+    41,
+    42,
+    44
+  ],
+  "non_json_registry_entries": [
+    "analysis/squall-channel-vectors-native-instructions.txt",
+    "analysis/squall-channel-worker-native-instructions.txt",
+    "analysis/squall-exports-native-instructions.txt",
+    "analysis/squall-extensions-native-channel-instructions.txt",
+    "analysis/squall-extensions-native-listener-instructions.txt",
+    "analysis/squall-memory-native-instructions.txt",
+    "analysis/squall-pcm-eof-native-instructions.txt",
+    "analysis/squall-sample-selection-native-instructions.txt"
+  ],
+  "unreadable_registry_entries": [],
+  "source_warning_paths_to_verify_in_complete_game": [
+    40,
+    41,
+    42,
+    44
+  ],
+  "source_indices_without_direct_literal_show_call_not_claimed_native_unreachable": [
+    0,
+    10
+  ],
+  "source_hexadecimal_step42_call": "ContractProvide::enabledStep tutorialCanShow(0x2a) and Game::World::showTutorial",
+  "original_repeated_capacity_entry": "00451420",
+  "original_repeated_mixed_entry": "00451490",
+  "original_person_arrive_entry": "0045a730",
+  "source_initial_valueC14": 100,
+  "source_repeated_mixed_comparison_uses_C14_not_C1c": true,
+  "source_code_or_game_properties_changed": false,
+  "whole_game_complete": false
+}
