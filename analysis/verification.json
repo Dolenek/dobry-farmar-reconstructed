@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-07T20:21:28.946463+00:00",
+  "recorded_at_utc": "2026-11-07T20:56:58.216454+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "active_integrated_source_reconstruction_remaining_original_goal_checks",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "002d2e2c0bca73cb46205bc28b6f0acea12d80764fdbb2b8e6b75065351ac674",
+  "source_tree_sha256": "0138a1e539dd8629a464a2f61a805b71f91cbb6610f14f4206da3cbf10354db3",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -752,10 +752,10 @@
     "analysis/contract-streak-forty-interop-validation.json",
     "analysis/contract-streak-forty-regression.json",
     "analysis/current-tutorial-runtime-coverage.json",
-    "analysis/native-tracker-fidelity-decision.json"
+    "analysis/native-tracker-fidelity-decision.json",
+    "analysis/current-awards-runtime-regression.json"
   ],
   "full_reconstruction_pending": [
-    "Finish current final collect-all award lifecycle comparison,keeping requested-panel diagnostics distinct from natural attainment",
     "Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10",
     "Final requirement-by-requirement current-state audit and documentation"
   ],
@@ -108672,8 +108672,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Actual Win32 main source EXE is buildable and runs;this is not a whole-goal completion flag",
   "latest_scoped_regression": {
-    "report": "analysis/contract-streak-forty-regression.json",
-    "recorded_at_utc": "2026-11-07T19:45:08.244852+00:00",
+    "report": "analysis/current-awards-runtime-regression.json",
+    "recorded_at_utc": "2026-11-07T20:41:48.416418+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108698,7 +108698,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/contract-streak-forty-regression.json",
+  "source_tree_hash_as_of_report": "analysis/current-awards-runtime-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
@@ -108760,16 +108760,17 @@
     "recorder_sha256": "fbf23976e6933748d6dc897f39861428d5032d037bfb1f8aa735f427dcf0610c",
     "source_build_proved": true,
     "contract40_and_four_restores_proved": true,
-    "current_final_awards_proved": false,
+    "current_final_awards_proved": true,
     "complete_game_tutorial_warning_paths_proved": false,
     "tracker_allocation_exception_explicitly_accepted": true,
     "six_criteria_final_audit_proved": false,
     "whole_goal_claimed_complete": false
   },
   "current_award_runtime_gate": {
-    "report": "analysis/current-awards-input-observations.json",
-    "complete": false,
-    "reusable_native_panels": 18
+    "report": "analysis/current-awards-runtime-regression.json",
+    "complete": true,
+    "diagnostic_requested_conditions": 20,
+    "automatic_final_condition": true
   },
   "current_contract_streak40_gate": {
     "report": "analysis/contract-streak-forty-regression.json",

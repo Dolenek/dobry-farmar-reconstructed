@@ -18,12 +18,27 @@ stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');
 shutil.copyfile(__file__,work/'executed-driver.py')
 from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
 from windows_game_memory import TutorialMemory
-class AwardGui(GameGui):
+from windows_game_nonzero_mouse import NonzeroMouseGui
+class AwardGui(NonzeroMouseGui):
  def click(self,hwnd,x,y):
   self.move(hwnd,x,y)
+  before=W.POINT();assert u.GetCursorPos(C.byref(before))
+  diagnostic=dict(target_client=[x,y],os_cursor_before=[before.x,before.y],foreground_before=int(u.GetForegroundWindow() or 0))
+  if observer.kind=='native':
+   logic=observer.read(0x65ff60,'<I')[0];selected=observer.read(0x6604dc,'<I')[0]
+   diagnostic['native_before']=dict(cursor=observer.read(logic+16,'<ff'),selected=selected,
+       pending=observer.read(0x6604e0,'<I')[0],button_state=observer.read(selected+0x238,'<I')[0] if selected else None)
   item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,2,0,0)
   assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
-  try:time.sleep(args.mouse_hold_seconds)
+  try:
+   time.sleep(args.mouse_hold_seconds)
+   after=W.POINT();assert u.GetCursorPos(C.byref(after))
+   diagnostic.update(os_cursor_after=[after.x,after.y],foreground_after=int(u.GetForegroundWindow() or 0))
+   if observer.kind=='native':
+    logic=observer.read(0x65ff60,'<I')[0];selected=observer.read(0x6604dc,'<I')[0]
+    diagnostic['native_held']=dict(cursor=observer.read(logic+16,'<ff'),selected=selected,
+        pending=observer.read(0x6604e0,'<I')[0],button_state=observer.read(selected+0x238,'<I')[0] if selected else None)
+   session.setdefault('actual_click_observations',[]).append(diagnostic)
   finally:
    item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,4,0,0)
    assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
@@ -64,7 +79,8 @@ class Child:
 report=dict(status='running',work_directory=work.relative_to(r).as_posix(),sessions=[],reference_executable_sha256=digest(data.parent/'Dobrý farmář.exe'),os_boundary_only=True,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),launcher_path=launcher_path.relative_to(r).as_posix(),launcher_sha256=digest(launcher_path),source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(runtime/n) for n in ['FarmarSourceInterop.exe','JNGLoad.dll','Squall.dll']})
 for n in ['tools/validate_game_awards_runtime.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake','tools/windows_game_gui.py','tools/windows_game_memory.py','tools/game_runtime_layout.cpp','tools/native_process/launcher.cpp','tools/native_process/CMakeLists.txt']:report['source_files'][n]=digest(r/n)
 report['source_file_snapshots']={'tools/validate_game_awards_runtime.py':(work/'executed-driver.py').relative_to(r).as_posix()}
-report['physical_mouse_mode']='legacy_six_relative'
+report['physical_mouse_mode']='two_positive_relative_events_with_OS_cursor_restore'
+path=r/'tools/windows_game_nonzero_mouse.py';shutil.copyfile(path,work/path.name);report['source_files'][path.relative_to(r).as_posix()]=digest(path);report['source_file_snapshots'][path.relative_to(r).as_posix()]=(work/path.name).relative_to(r).as_posix()
 report['mouse_hold_seconds_after_SendInput_return']=args.mouse_hold_seconds
 if args.input_api_timings:
  from windows_game_input_timings import record_input_api_timings
@@ -180,23 +196,38 @@ try:
     if kind=='native':award_regions[index]=roi(panel,region)
     else:wait_match(name,region,award_regions[index],timeout=15)
     click(hwnd,*button('ui/awardpanel.xml','OkButton'));deadline=time.monotonic()+45;retry_at=time.monotonic()+1
-    while not observer.property('booleans','awardShow'+str(index)):
-     focus();check_process();assert time.monotonic()<deadline,('Award effect did not finish',index)
-     if time.monotonic()>=retry_at and not observer.property('booleans',award_keys[index]):
+    committed=False;attempts=1
+    while True:
+     focus();check_process()
+     if observer.property('booleans','awardShow'+str(index)):break
+     owned=observer.property('booleans',award_keys[index])
+     if owned and not committed:
+      committed=True;deadline=time.monotonic()+45
+      session.setdefault('effect_commit_observations',[]).append(dict(index=index,owned=True,shown=False,
+          reason='Actual owned flag committed;start separate effect completion deadline'))
+     if time.monotonic()>=retry_at and not owned:
       scene=observer.visible_scene(hwnd)
       if any((row['texture'] or '').lower()=='ui/gameui/avard_new.jng' for row in scene):
+       assert attempts<6,('Actual award panel did not accept six physical clicks',index)
        session.setdefault('confirmation_input_retries',[]).append(dict(index=index,owned=False,shown=False,reason='Actual panel remains open and owned flag is still false'))
-       click(hwnd,*button('ui/awardpanel.xml','OkButton'))
+       click(hwnd,*button('ui/awardpanel.xml','OkButton'));attempts+=1
+       deadline=time.monotonic()+45
       retry_at=time.monotonic()+1
+      continue
+     assert time.monotonic()<deadline,('Award effect did not finish',index,dict(owned=owned,attempts=attempts))
      time.sleep(.1)
     capture(f'{cycle}-award{index:02d}-accepted.png')
     if index!=19:
-     deadline=time.monotonic()+30
+     deadline=time.monotonic()+30;return_attempts=0
      while True:
       returned=capture(f'{cycle}-award{index:02d}-returned.png')
       if roi(returned,(10,8,55,28))==expected_hud:break
       assert time.monotonic()<deadline,('Award screen did not return',index)
-      click(hwnd,*button('ui/awards.xml','ReturnButton'));time.sleep(.5)
+      assert return_attempts<6,('Award screen did not accept six physical Return clicks',index)
+      session.setdefault('return_input_observations',[]).append(dict(index=index,attempt=return_attempts+1,
+          reason='Actual Menu HUD not yet visible;physical Return input'))
+      click(hwnd,*button('ui/awards.xml','ReturnButton'));return_attempts+=1
+      deadline=time.monotonic()+30;time.sleep(.5)
     session['actions'].append((command if index<20 else 'automatic collect-all predicate')+' -> actual effect, Awards panel and OK'+(' -> Return to Game' if index!=19 else ' -> automatic last award'))
    u.PostMessageW(hwnd,0x10,0,0);code=p.wait(timeout=20) if kind=='native' else (p.wait(timeout=20) or p.returncode);assert code==0,code
    session['exit_code']=code;session['status']='passed';session['persisted_files']={x.relative_to(common).as_posix():dict(bytes=x.stat().st_size,sha256=digest(x)) for x in common.rglob('*') if x.is_file()};shutil.copytree(common,work/f'{cycle}-persisted')
@@ -212,6 +243,7 @@ try:
     except Exception:session['shutdown_failed']=True
    if launcher and 'launcher_exit' not in session:
     launcher.wait(timeout=20);out,err=launcher.communicate();session['launcher_exit']=out.strip();session['launcher_return_code']=launcher.returncode;session['launcher_stderr']=err
+   session['observed_process_exit_code_after_cleanup']=p.poll()
    if kind=='native':k.CloseHandle(p.handle)
   unchanged();(work/'report-progress.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  comparisons=[]
