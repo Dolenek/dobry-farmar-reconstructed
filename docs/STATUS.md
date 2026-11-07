@@ -2,6 +2,8 @@
 
 Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
 
+[Skutečná série35](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení,56/47 zásobovacích příkazů,977/816 převodů, přesné19produktové bilance, Money22834/21534 a celé17166/17200bajtové saves. Oba procesy běžně skončily0 a aktuální produkce odpovídá nové102/102 pointer regresi. Další kontrola prokázala samostatnou Squall loader FPU odchylku a čistá konfigurace bez testů odhalila nesprávně umístěnou přípravu RC; tyto konkrétní opravy následují před skutečnou fází40. Celý původní cíl pokračuje.
+
 [Produkční oprava3D čtení Squallu](SQUALL.md) odstranila64 přesných odchylek. Obě sestavení mají270 nových izolovaných pointer procesů bez rozdílu, novou celou regresi102/102 za518,83s,774 play případů a122527752 PCM bajtů45 zvuků na sestavení. Všech97 ABI důkazů/223 návratů je znovu navázaných. Čtyři skutečné herní obnovy zachovaly celé17149/17000/17149/17149bajtové saves a oba source procesy jsou bez AV. Chybný předpoklad Python auditu o CRT konstantách je zachovaný odděleně.17 originálů se nemění; skutečný pár navazuje30→35 před40 a celý původní cíl pokračuje.
 
 [Skutečná série30 zakázek](CONTRACT_STREAK.md) prošla v obou EXE:5 dalších potvrzení na větev, přesné19produktové bilance, Money19824/18874 a celé17149/17000bajtové saves. Oba procesy běžně skončily0. Jejich předopravové produkční hashe se ověřily ještě před plánovanou Squall read-order úpravou. Na další fáze navážou vlastní neměnné checkpointy; celý původní cíl pokračuje.
