@@ -562,3 +562,9 @@ python tools/validate_squall_channel_ranges.py --candidate build/squall-source-r
 ```
 
 Zbývají prostorové/listener operace, callbacks a souběh, ostatní dekodéry/zařízení, úplné podpisy/chování97 exportů i další herní systémy. Tento audit není úplnou náhradou veřejné verze ani dokončením rekonstrukce.
+## Inicializace původního FP prostředí a nová celá regrese
+
+Native1003e814 volá1003cf10 před C/C++ poli:1003eacb nastaví pouze x87 přesnost53 a1003cf24 provede FNCLEX. Zaokrouhlování, masky a SSE prostředí se zachovají. Zdrojová `.CRT$XIB` inicializace běží před zvukovými tabulkami; DllMain obnoví vstupní MXCSR, který moderní CRT matematika jinak změní. Neprovádí se FNINIT ani pozdní vymazání příznaků po konstruktorech. `GetFreeChannel` výslovně inicializuje fallback index vstupní Priority podle100024dc/10002504; předchozí kompilátor již toto pozorované chování vytvářel.
+
+`analysis/squall-loader-regression.json` dokládá obě DLL, novou celou regresi102/102,72 loader procesů/144 load-unload cyklů (3 přesnosti,4 zaokrouhlení,příznak dělení nulou),528 skutečných preempčních procesů a270 pointer procesů bez odchylek. Zachované jsou45 celé PCM vzorky/122527752 bajtů a774 play případů na sestavení. `analysis/squall-loader-game-regression.json` doplňuje4 celé křížové herní obnovy při sérii35 a97 aktuálních fyzických ABI/223 návratů. Předopravové42 loader a176 loader-precision rozdíly jsou uložené samostatně. Nejde o důkaz všech zařízení nebo všech neplatných vstupů.
+
