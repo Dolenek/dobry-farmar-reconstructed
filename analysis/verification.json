@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-07T22:25:53.174374+00:00",
+  "recorded_at_utc": "2026-11-07T22:39:39.499208+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "active_integrated_source_reconstruction_remaining_original_goal_checks",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "32b65fc148afa474f82a96db3cf1a5d90dcb3f9e16d4d1f0275ccc5683f64361",
+  "source_tree_sha256": "8b8c71e884950df424c78e6cc566dcb497d26682bad758634212fdef07258fce",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -767,7 +767,8 @@
     "analysis/host-watchdog-cpu-validation.json",
     "analysis/monitored-source-startup-validation.json",
     "analysis/host-input-monitoring-cpu-validation.json",
-    "analysis/monitored-probe-initial-observations.json"
+    "analysis/monitored-probe-initial-observations.json",
+    "analysis/tutorial-warning-property-role-correction.json"
   ],
   "full_reconstruction_pending": [
     "Resolve reported host Windows/display freeze and validate revised observer/runtime paths under the independently monitored host authorization;unmonitored host interactive tests are held",

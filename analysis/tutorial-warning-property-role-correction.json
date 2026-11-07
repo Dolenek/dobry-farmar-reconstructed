@@ -1,0 +1,208 @@
+{
+  "status": "corrected_warning_observer_warehouse32_well33_auxiliary_label_only",
+  "recorded_at_utc": "2026-11-07T22:36:32.996697+00:00",
+  "recorder_sha256": "866cdb490c51a58551a45f765dd02684ab0e0b623159c94e3f5d0452a5dd3a0c",
+  "reference_sha256": "9815152da86429e1fb5f818ea8465229a0e66f50776e7e66c08d60049e41984a",
+  "instruction_witnesses": [
+    {
+      "role": "warehouse",
+      "property_id": 32,
+      "item_type": 12,
+      "property_push": {
+        "address": "00468045",
+        "bytes": "6a20"
+      },
+      "item_push": {
+        "address": "0046804d",
+        "bytes": "6a0c"
+      },
+      "upgrade_constructor_call": {
+        "address": "00468056",
+        "bytes": "e865e9faff",
+        "target": "004169c0"
+      }
+    },
+    {
+      "role": "well",
+      "property_id": 33,
+      "item_type": 13,
+      "property_push": {
+        "address": "0046b394",
+        "bytes": "6a21"
+      },
+      "item_push": {
+        "address": "0046b39c",
+        "bytes": "6a0d"
+      },
+      "upgrade_constructor_call": {
+        "address": "0046b3a5",
+        "bytes": "e816b6faff",
+        "target": "004169c0"
+      }
+    }
+  ],
+  "raw_reports": {
+    ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json": "1dcba729e6a6721f9c24998864b388c1ac87f84f61f99071e8aa9dee1f85f0ff",
+    ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json": "516804c54076c2e55f0f49734435f0803285799ec71e55ccdfdb847a96c6e1f0"
+  },
+  "observations": [
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "native",
+      "case": "full_carry",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 2,
+      "actual_warehouse_level": 3,
+      "actual_well_level": 2,
+      "profile_directory": ".local/contract-streak/20261107T153240356025Z/0-failure-persisted/Profiles",
+      "profile_xml_sha256": "60d02cc2fc31abccf014847cc9e5e293ddb78134a979456e2b9930f6168f698a",
+      "auxiliary_label_was_wrong": true
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "native",
+      "case": "full_carry",
+      "state": "final_state",
+      "captured_auxiliary_warehouse_label": 2,
+      "actual_warehouse_level": 3,
+      "actual_well_level": 2,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T205553498473Z/0-persisted/Profiles",
+      "profile_xml_sha256": "fc8f28c0807f3f83ecccd120cef392d41f32a51a201f320ba8b011b54e8cdbef",
+      "auxiliary_label_was_wrong": true
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "native",
+      "case": "poor_contract",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/contract-runtime/20261029T113047831605Z/0-persisted/Profiles",
+      "profile_xml_sha256": "d24dd3d3f0ee8a142ab416d2cade69f3cbdb08f5b1b99a7681ed23dec97c8dd5",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "native",
+      "case": "poor_contract",
+      "state": "final_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T205553498473Z/1-persisted/Profiles",
+      "profile_xml_sha256": "5e2a4967a6b2af8d6c59a437f0fa14d7a5a977fe43ce4e690c982ddf6b076690",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "source",
+      "case": "full_carry",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 2,
+      "actual_warehouse_level": 3,
+      "actual_well_level": 2,
+      "profile_directory": ".local/contract-streak/20261107T153240356025Z/0-failure-persisted/Profiles",
+      "profile_xml_sha256": "60d02cc2fc31abccf014847cc9e5e293ddb78134a979456e2b9930f6168f698a",
+      "auxiliary_label_was_wrong": true
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "source",
+      "case": "full_carry",
+      "state": "final_state",
+      "captured_auxiliary_warehouse_label": 2,
+      "actual_warehouse_level": 3,
+      "actual_well_level": 2,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T210415175462Z/2-persisted/Profiles",
+      "profile_xml_sha256": "ac03058e51f71418af341b7babebff0a879525e8903498f6d0b20e56528925df",
+      "auxiliary_label_was_wrong": true
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "source",
+      "case": "poor_contract",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/contract-runtime/20261029T113047831605Z/0-persisted/Profiles",
+      "profile_xml_sha256": "d24dd3d3f0ee8a142ab416d2cade69f3cbdb08f5b1b99a7681ed23dec97c8dd5",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json",
+      "kind": "source",
+      "case": "poor_contract",
+      "state": "final_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T210415175462Z/3-persisted/Profiles",
+      "profile_xml_sha256": "3333a5488d9bc4547fb49be8c470fd4e6eaf86035ffdeba84cbab37e01e14f15",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+      "kind": "native",
+      "case": "full_warehouse",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/full-warehouse-production/20261030T172745690509Z/0-persisted/Profiles",
+      "profile_xml_sha256": "6cff8a601b3f9b4d6c48800673b959f24b2c106d4fbda452b667dc63c497061c",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+      "kind": "native",
+      "case": "full_warehouse",
+      "state": "final_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T210917905903Z/0-persisted/Profiles",
+      "profile_xml_sha256": "a56f9bc8d09ef321b70a96307f8e3193b7d697498bfaf53c950718d786c518e7",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+      "kind": "native",
+      "case": "mixed_products",
+      "state": "initial_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/cucumber-sowing/20261029T180721717655Z/0-persisted/Profiles",
+      "profile_xml_sha256": "d57cb5994977ea9641b84bdbf4719e5611171accf1438ceb3a257711e161b9d1",
+      "auxiliary_label_was_wrong": false
+    },
+    {
+      "report": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+      "kind": "native",
+      "case": "mixed_products",
+      "state": "failure_live_state",
+      "captured_auxiliary_warehouse_label": 0,
+      "actual_warehouse_level": 0,
+      "actual_well_level": 0,
+      "profile_directory": ".local/tutorial-warning-runtime/20261107T210917905903Z/1-failure-persisted/Profiles",
+      "profile_xml_sha256": "7153769978db256484d274c74edde02029850ea32178c75d915f66699f209113",
+      "auxiliary_label_was_wrong": false
+    }
+  ],
+  "corrected_actual_getter_distinguishes_fixture_levels": {
+    "warehouse": 3,
+    "well": 2
+  },
+  "source_files": {
+    "tools/tutorial_warning_session.py": "b1ede4a5e41a65692ede3d92865ee1fe88fda54a29406a8e784b7e6c8f4bd0d2",
+    "src/game/ui/Warehouse.cpp": "da0e6f0e6e8b5f665cbfc4bde45cf9937cc0d27cc65d88c5949a864aaad24bea",
+    "src/game/ui/WaterSource.cpp": "31e7d8e0062937d75f96af0e7f4ec7f22d8bc07015e04f099caccfbbf6bceccb"
+  },
+  "impact": "Full-carry auxiliary label was well level2 instead of warehouse3. Mower capacity16,actual transfers,pixels and ledgers remain independently verified. Other reviewed fixtures have both levels0;their capacity decisions are unchanged.",
+  "original_raw_reports_rewritten": false,
+  "production_changed": false,
+  "games_or_input_started": false,
+  "whole_game_complete": false
+}

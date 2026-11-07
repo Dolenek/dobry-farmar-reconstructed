@@ -106,7 +106,8 @@ class WarningSuite:
         return dict(game_time=val('floats','GameTime'),money=val('ints','Money'),held=val('uints','PCarry'),
             carried=[val('uints',f'PCC{n}') for n in range(8)],stock=[val('uints',f'WGoodCount{n}') for n in range(19)],
             market=[val('uints',f'MGoodCount{n}') for n in range(19)],collected=val('uints','awQCollect'),
-            mower_level=val('ints','Upgrade31'),warehouse_level=val('ints','Upgrade33'),tutorial=self.observer.step(),
+            mower_level=val('ints','Upgrade31'),warehouse_level=val('ints','Upgrade32'),
+            well_level=val('ints','Upgrade33'),tutorial=self.observer.step(),
             processed={n:val('booleans',f'tip{n}') for n in [40,41,42,44]},counters=self.counters())
 
     def wait(self,label,predicate,timeout=60):
