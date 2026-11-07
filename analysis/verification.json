@@ -716,7 +716,9 @@
     "analysis/jng-loader-abi-fresh-validation.json",
     "analysis/jng-loader-pixels-fresh-validation.json",
     "analysis/jng-loader-errors-fresh-validation.json",
-    "analysis/jng-loader-regression.json"
+    "analysis/jng-loader-regression.json",
+    "analysis/squall-tracker-stream-validation.json",
+    "analysis/squall-tracker-stream-observations.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108701,5 +108703,9 @@
     "processes": 72,
     "load_unload_cycles": 144,
     "remaining_environment_differences": 0
+  },
+  "squall_tracker_sequential_observations": {
+    "report": "analysis/squall-tracker-stream-observations.json",
+    "active_playback_proved": false
   }
 }

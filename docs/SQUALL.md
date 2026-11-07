@@ -568,3 +568,7 @@ Native1003e814 volá1003cf10 před C/C++ poli:1003eacb nastaví pouze x87 přesn
 
 `analysis/squall-loader-regression.json` dokládá obě DLL, novou celou regresi102/102,72 loader procesů/144 load-unload cyklů (3 přesnosti,4 zaokrouhlení,příznak dělení nulou),528 skutečných preempčních procesů a270 pointer procesů bez odchylek. Zachované jsou45 celé PCM vzorky/122527752 bajtů a774 play případů na sestavení. `analysis/squall-loader-game-regression.json` doplňuje4 celé křížové herní obnovy při sérii35 a97 aktuálních fyzických ABI/223 návratů. Předopravové42 loader a176 loader-precision rozdíly jsou uložené samostatně. Nejde o důkaz všech zařízení nebo všech neplatných vstupů.
 
+## Sekvenční trackerová pozorování
+
+`analysis/squall-tracker-stream-observations.json` zachovává36 dalších normálně ukončených procesů:3 vlastní MOD varianty, PC53/PC24, mono/stereo,128 skutečných následných dekódovacích volání na proces, obě zdrojová sestavení a native. Záměrně se používá dostatečně velká vlastní konstruktorová paměť a skutečný reader; nejde o test původní poddimenzované factory. Pětiorderový native konstruktor oznámí7056000 samples, ale všech128 čtení vrátí0 a tiché PCM. Obě zdrojové DLL souhlasí přesně. Předchozí pokus s jedním orderem oznámil0 total samples, přesto nejprve vracel4096 rámců ticha; jeho chybný předpoklad nenulového PCM je uložený. Tyto výsledky nejsou vydávané za aktivní trackerové přehrávání. Dřívější samostatné128kernelové a úplné active-mixer důkazy zůstávají samostatně platné.
+
