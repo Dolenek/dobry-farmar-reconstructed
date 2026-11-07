@@ -21,8 +21,9 @@ args.fixture_report=args.fixture_report.resolve(strict=True)
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/contract-streak'/stamp;work.mkdir(parents=True)
 shutil.copyfile(__file__,work/'driver.py')
 from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
+from windows_game_precise_mouse import PreciseGameGui
 from windows_game_memory import TutorialMemory
-class ContractGui(GameGui):
+class ContractGui(PreciseGameGui):
  def move(self,hwnd,x,y):
   for attempt in range(3):
    try:return super().move(hwnd,x,y)
@@ -74,7 +75,10 @@ for n in ['tools/validate_game_contract_streak.py','tools/windows_game_memory.py
 # Use an already native-created first-farm baseline, independently for each run.
 fixture=json.loads(args.fixture_report.read_text(encoding='utf-8'))
 if args.resume_retained:
- assert fixture['status']=='failed' and 'Injected pointer missed owned window target' in fixture['error']
+ assert fixture['status']=='failed'
+ assert ('Injected pointer missed owned window target' in fixture['error'] or
+     ('Bounded contract phase exceeded' in fixture['error'] and 'after_transfer=snapshot()' in fixture.get('traceback','')))
+ assert all(row.get('exit_code',row.get('failure_cleanup_exit_code'))==0 for row in fixture['sessions'])
 else:
  assert fixture['status'] in ['passed_actual_all60_fields_maintained_and_natural_no_dry_award_only','explored_actual_contract_streak_with_original_supply_command_only','passed_for_actual_contract_streak_receipts_with_original_supply_fixture_only','passed_actual_paired_contract_receipts_and_complete_ledgers_only','verified_actual_contract_streak_checkpoint_profiles']
 fixture_work=r/fixture['work_directory']
@@ -82,7 +86,8 @@ report['baseline_report']=dict(path=args.fixture_report.relative_to(r).as_posix(
 report['requested_target']=args.target
 report['requested_phase_seconds']=args.phase_seconds
 report['source_file_snapshots']={'tools/validate_game_contract_streak.py':(work/'driver.py').relative_to(r).as_posix()}
-for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py']:
+report['physical_mouse_relative_events_per_move']=2
+for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py','tools/windows_game_precise_mouse.py']:
  path=r/name;archived=work/path.name;shutil.copyfile(path,archived);report['source_files'][name]=digest(path);report['source_file_snapshots'][name]=archived.relative_to(r).as_posix()
 for name in ['tools/gameplay_runtime_layout.cpp','tools/gameplay_layout/CMakeLists.txt']:
  report['source_files'][name]=digest(r/name)

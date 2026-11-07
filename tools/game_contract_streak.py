@@ -106,11 +106,24 @@ def run_streak(env):
         if paused == value:
             return
         key(0x38,True);key(0xc5,True);key(0xc5,False);key(0x38,False)
-        paused = value
         if value:
-            paused_state = dict(game_time=val('floats','GameTime'),remaining=val('floats','taskTime0'))
+            # Input can set pause during an already dispatched game step.
+            # Observe its final commit before starting the strict interval;
+            # never permit clock drift during any stock/input operations.
+            limit=time.monotonic()+5;stable_since=time.monotonic();observations=[];previous=None
+            while True:
+                check();now=time.monotonic()
+                current=dict(game_time=val('floats','GameTime'),remaining=val('floats','taskTime0'))
+                observations.append(current.copy())
+                if current!=previous:previous=current;stable_since=now
+                if now-stable_since>=.35:break
+                assert now<limit,('Original pause did not settle',observations)
+                time.sleep(.05)
+            session.setdefault('actual_pause_settle_observations',[]).append(observations)
+            paused_state=current;paused=True
             session.setdefault('actual_supply_pause_intervals',[]).append(dict(start=paused_state.copy()))
         else:
+            paused=False
             session['actual_supply_pause_intervals'][-1]['end'] = dict(game_time=val('floats','GameTime'),remaining=val('floats','taskTime0'))
         clock()
 
