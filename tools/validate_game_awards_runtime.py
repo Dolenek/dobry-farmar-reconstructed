@@ -9,6 +9,7 @@ parser=argparse.ArgumentParser(description='Opt-in21 actual native/source award 
 parser.add_argument('--launcher',type=Path,default=r/'build/native-process/Release/native-process-launcher.exe')
 parser.add_argument('--validate-prefix-only',action='store_true',help='Check immutable native panels and saved ownership without launching a game')
 parser.add_argument('--native-prefix-report',type=Path,help='Reuse normally closed native prefix with stable panels and persisted owned flags')
+parser.add_argument('--input-api-timings',action='store_true',help='Measure this driver Windows API latency without changing arguments')
 parser.add_argument('--output',type=Path,default=r/'.local/game-awards-runtime-validation.json')
 args=parser.parse_args();launcher_path=args.launcher.resolve(strict=True)
 stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');work=r/'.local/game-awards-runtime'/stamp;work.mkdir(parents=True)
@@ -51,6 +52,11 @@ class Child:
 report=dict(status='running',work_directory=work.relative_to(r).as_posix(),sessions=[],reference_executable_sha256=digest(data.parent/'Dobrý farmář.exe'),os_boundary_only=True,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),launcher_path=launcher_path.relative_to(r).as_posix(),launcher_sha256=digest(launcher_path),source_files={p.relative_to(r).as_posix():digest(p) for p in sorted((r/'src/game').rglob('*')) if p.is_file()},implementation_files={n:digest(runtime/n) for n in ['FarmarSourceInterop.exe','JNGLoad.dll','Squall.dll']})
 for n in ['tools/validate_game_awards_runtime.py','CMakeLists.txt','tools/cmake/SquallCandidate.cmake','tools/windows_game_gui.py','tools/windows_game_memory.py','tools/game_runtime_layout.cpp','tools/native_process/launcher.cpp','tools/native_process/CMakeLists.txt']:report['source_files'][n]=digest(r/n)
 report['source_file_snapshots']={'tools/validate_game_awards_runtime.py':(work/'executed-driver.py').relative_to(r).as_posix()}
+report['physical_mouse_mode']='legacy_six_relative'
+if args.input_api_timings:
+ from windows_game_input_timings import record_input_api_timings
+ report['input_api_timings']=[];record_input_api_timings(report['input_api_timings'])
+ path=r/'tools/windows_game_input_timings.py';shutil.copyfile(path,work/path.name);report['source_files'][path.relative_to(r).as_posix()]=digest(path);report['source_file_snapshots'][path.relative_to(r).as_posix()]=(work/path.name).relative_to(r).as_posix()
 report['observer_layout_executable']=dict(path='build/windows/Release/game-runtime-layout.exe',sha256=digest(r/'build/windows/Release/game-runtime-layout.exe'))
 # Use an already native-created first-farm baseline, independently for each run.
 fixture=json.loads((r/'.local/native-application-interop-validation.json').read_text(encoding='utf-8'))

@@ -11,11 +11,14 @@ parser.add_argument('--output',type=Path,default=r/'.local/contract-streak-valid
 parser.add_argument('--backends',nargs='+',choices=['native','source'],default=['native','source'])
 parser.add_argument('--fixture-report',type=Path,default=r/'analysis/no-dry-award-state-validation.json')
 parser.add_argument('--max-product-requirement',type=int,default=100,help='Choose original offered orders with at most this per-product requirement; no game data is changed')
+parser.add_argument('--input-api-timings',action='store_true',help='Measure this driver Windows API calls without changing arguments')
+parser.add_argument('--mouse-hold-seconds',type=float,default=.1,help='Physical button-down interval after SendInput returns;nondefault intervals retain pressed screenshots')
 parser.add_argument('--target',type=int,default=1)
 parser.add_argument('--resume-retained',action='store_true',help='Use a normally closed failure checkpoint, including its real active task')
 parser.add_argument('--seed-backend',choices=['native','source'],help='Restore the other real executable checkpoint for a controlled save comparison')
 parser.add_argument('--phase-seconds',type=int,default=1700,help='Bounded actual process phase;native watchdog allows100s more')
 args=parser.parse_args();assert 1<=args.max_product_requirement<=100
+assert .1<=args.mouse_hold_seconds<=5
 assert 0<args.target<=40 and 60<=args.phase_seconds<=7200
 assert 'native' not in args.backends or args.phase_seconds<=1700,'Native launcher watchdog maximum1800s includes100s cleanup allowance'
 launcher_path=args.launcher.resolve(strict=True)
@@ -26,6 +29,22 @@ from windows_game_gui import GameGui,u,k,INPUT,KEY,MOUSE
 from windows_game_precise_mouse import PreciseGameGui
 from windows_game_memory import TutorialMemory
 class ContractGui(PreciseGameGui):
+ def click(self,hwnd,x,y):
+  self.move(hwnd,x,y)
+  item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,2,0,0)
+  assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+  try:
+   time.sleep(args.mouse_hold_seconds)
+   if args.mouse_hold_seconds!=.1:
+    rows=session.setdefault('held_mouse_observations',[])
+    filename=f'{cycle}-input-{len(rows)}-held.png'
+    self.capture(filename)
+    rows.append(dict(target=[x,y],hold_seconds=args.mouse_hold_seconds,screenshot=filename,
+        scene=observer.visible_scene(hwnd) if observer.manager() else None))
+  finally:
+   item=INPUT();item.type=0;item.mouse=MOUSE(0,0,0,4,0,0)
+   assert u.SendInput(1,C.byref(item),C.sizeof(item))==1
+   time.sleep(.1)
  def move(self,hwnd,x,y):
   for attempt in range(3):
    try:return super().move(hwnd,x,y)
@@ -90,6 +109,11 @@ report['fixture_max_product_requirement']=args.max_product_requirement
 report['requested_phase_seconds']=args.phase_seconds
 report['source_file_snapshots']={'tools/validate_game_contract_streak.py':(work/'driver.py').relative_to(r).as_posix()}
 report['physical_mouse_relative_events_per_move']=2
+report['mouse_hold_seconds_after_SendInput_return']=args.mouse_hold_seconds
+if args.input_api_timings:
+ from windows_game_input_timings import record_input_api_timings
+ report['input_api_timings']=[];record_input_api_timings(report['input_api_timings'])
+ path=r/'tools/windows_game_input_timings.py';shutil.copyfile(path,work/path.name);report['source_files'][path.relative_to(r).as_posix()]=digest(path);report['source_file_snapshots'][path.relative_to(r).as_posix()]=(work/path.name).relative_to(r).as_posix()
 for name in ['tools/game_contract_streak.py','tools/live_gameplay_state.py','tools/windows_game_precise_mouse.py','tools/contract_supply_plan.py']:
  path=r/name;archived=work/path.name;shutil.copyfile(path,archived);report['source_files'][name]=digest(path);report['source_file_snapshots'][name]=archived.relative_to(r).as_posix()
 for name in ['tools/gameplay_runtime_layout.cpp','tools/gameplay_layout/CMakeLists.txt']:

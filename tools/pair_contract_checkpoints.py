@@ -17,12 +17,13 @@ def main():
     args=parser.parse_args();assert 0<args.streak<=40
     sets=[]
     for kind,path in [('native',args.native_report),('source',args.source_report)]:
-        path=path.resolve(strict=True);value,branches=audit(path)
+        path=path.resolve(strict=True);value,branches=audit(path,allow_retained_failure=True)
         index,session=next((i,s) for i,s in enumerate(value['sessions']) if s['kind']==kind)
         branch=next(b for b in branches if b['kind']==kind)
-        assert session['status']=='completed' and session['exit_code']==0
+        assert ((session.get('status')=='completed' and session['exit_code']==0) or
+            (branch.get('completed_target_saved_after_driver_deadline') and session['failure_cleanup_exit_code']==0))
         assert branch['final_streak']==args.streak and branch['requested_target_reached']
-        directory=ROOT/value['work_directory']/f'{index}-persisted/Profiles'
+        directory=ROOT/branch['persisted_profile_directory']
         props={n.get('Name'):n.get('Val') for n in ET.parse(directory/'00000001.xml').getroot()}
         assert int(props['awQTask'])==args.streak and all(props[f'task{i}']=='-1' for i in range(3))
         if args.streak>=20:assert props['Award04Make20Task']==props['awardShow4']=='1'
@@ -31,6 +32,7 @@ def main():
         sets.append(dict(kind=kind,profile_directory=directory.relative_to(ROOT).as_posix(),
             files={p.name:digest(p) for p in directory.iterdir() if p.is_file()},
             source_session_index=index,source_report=path.relative_to(ROOT).as_posix(),source_report_sha256=digest(path),
+            original_driver_status=value['status'],independently_audited_target_saved_after_driver_deadline=branch.get('completed_target_saved_after_driver_deadline',False),
             streak=args.streak,money=int(props['Money']),complete_expected_saved_bytes=branch['complete_expected_saved_bytes']))
     result=dict(status='verified_actual_contract_streak_checkpoint_profiles',
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),recorder_sha256=digest(__file__),

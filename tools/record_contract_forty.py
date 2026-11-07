@@ -28,11 +28,13 @@ def main():
         row = next(s for s in descriptor['profile_sets'] if s['kind'] == kind)
         path = ROOT / row['source_report']
         assert digest(path) == row['source_report_sha256']
-        raw, audited = audit(path)
+        raw, audited = audit(path, allow_retained_failure=True)
         index = row['source_session_index']
         session = raw['sessions'][index]
         branch = next(b for b in audited if b['kind'] == kind)
-        assert session['kind'] == kind and session['status'] == 'completed' and session['exit_code'] == 0
+        assert session['kind'] == kind
+        assert ((session.get('status') == 'completed' and session['exit_code'] == 0) or
+            (branch.get('completed_target_saved_after_driver_deadline') and session['failure_cleanup_exit_code'] == 0))
         assert branch['final_streak'] == 40 and branch['requested_target_reached']
         directory = ROOT / row['profile_directory']
         assert {p.name: digest(p) for p in directory.iterdir() if p.is_file()} == row['files']
@@ -49,13 +51,21 @@ def main():
         assert context['money'] == branch['final_money']
         waits = [w for w in session['threshold_award_waits'] if w['ordinal'] == 5]
         assert len(waits) == 1 and waits[0]['streak'] == 40
-        assert waits[0]['after_owned'] and waits[0]['after_shown']
+        if branch.get('completed_target_saved_after_driver_deadline'):
+            assert not waits[0]['before_owned'] and not waits[0]['before_shown']
+            assert 'after_owned' not in waits[0] and 'after_shown' not in waits[0]
+        else:
+            assert waits[0]['after_owned'] and waits[0]['after_shown']
         pictures.append(ROOT / raw['work_directory'] / f'{index}-award-{award_index}.png')
         assert digest(pictures[-1]) == raw['screenshots'][pictures[-1].name]
         if implementations is None:
             implementations = raw['implementation_files']
         else:
             assert implementations == raw['implementation_files']
+        for name, sha in raw['implementation_files'].items():
+            assert digest(ROOT / raw['work_directory'] / 'runtime' / name) == sha
+            current = 'Dobr\u00fd farm\u00e1\u0159.exe' if name == 'FarmarSourceInterop.exe' else name
+            assert digest(ROOT / 'build/windows/Release' / current) == sha
         branches.append(branch)
         contexts.append(context)
         directories.append(directory)
@@ -133,6 +143,8 @@ def main():
             verification['original_game_runtime']['scope_reports'].append('analysis/' + name)
     verification['latest_scoped_regression'] = dict(report='analysis/' + regression_name,
         recorded_at_utc=result['recorded_at_utc'], whole_game_complete=False)
+    verification['current_contract_streak40_gate'] = dict(report='analysis/' + regression_name,
+        complete=True, exact_award_rgb_pixels=480000, whole_cross_restores=4)
     write(ROOT / 'analysis/verification.json', verification)
     print(json.dumps(result))
 

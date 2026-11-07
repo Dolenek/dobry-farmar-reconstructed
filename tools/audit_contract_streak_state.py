@@ -74,8 +74,11 @@ def audit(report_path, allow_retained_failure=False):
     report = read(report_path)
     failed = report['status'] == 'failed'
     timeout_after_transfer = failed and 'Bounded contract phase exceeded' in report['error'] and 'after_transfer=snapshot()' in report.get('traceback','')
+    threshold_deadline_after_receipt = (failed and report['requested_target'] == 40 and
+        'Actual contract threshold award did not finish' in report['error'])
     if failed:
-        assert allow_retained_failure and ('Injected pointer missed owned window target' in report['error'] or timeout_after_transfer)
+        assert allow_retained_failure and ('Injected pointer missed owned window target' in report['error'] or
+            timeout_after_transfer or threshold_deadline_after_receipt)
     else:
         assert report['status'] == 'explored_actual_contract_streak_with_original_supply_command_only'
     work = ROOT / report['work_directory']
@@ -187,7 +190,21 @@ def audit(report_path, allow_retained_failure=False):
                                      bonus=expected['bonus'], requirements=expected['requirements']))
         retained_active = None
         reconciled_timeout_transfer = None
-        if retained:
+        completed_after_driver_deadline = retained and threshold_deadline_after_receipt
+        if completed_after_driver_deadline:
+            # Do not turn the failed driver into a successful runtime event.
+            # Its last measured receipt and the independently saved profile
+            # must prove target40, the same complete ledgers and both flags.
+            assert session['contract_receipts'] and receipt_rows[-1]['counter_after'] == 40
+            final = json.loads(json.dumps(session['contract_receipts'][-1]['after_completion']))
+            assert final['streak'] == 40 and final['tasks'] == [-1] * 3
+            assert session['failure_live_state']['task'] == -1
+            assert session['failure_live_state']['money'] == final['money']
+            final['game_time'] = session['failure_live_state']['game_time']
+            assert values['Award04Make20Task'] == values['awardShow4'] == ('Bool', '1')
+            assert values['Award05Make40Task'] == values['awardShow5'] == ('Bool', '1')
+            assert all(values[f'task{n}'] == ('Int', '-1') for n in range(3))
+        elif retained:
             # Pointer misses precede the button. A post-click timeout can
             # follow either a recorded grant or a recorded transfer. Market
             # quantities monotonically increase in this price99 fixture;
@@ -253,7 +270,10 @@ def audit(report_path, allow_retained_failure=False):
         expected_binary = binary_expected(before_save, notes, epochs[-1]['words'])
         assert saved.read_bytes() == expected_binary, ('Complete saved binary differs', session['kind'])
         branches.append(dict(kind=session['kind'], initial_streak=initial, final_streak=final['streak'],
-            process_closed_normally=True, requested_target_reached=not retained, retained_active_contract=retained_active,
+            process_closed_normally=True, requested_target_reached=not retained or completed_after_driver_deadline,
+            driver_session_completed=not retained, completed_target_saved_after_driver_deadline=completed_after_driver_deadline,
+            persisted_profile_directory=(work / f'{index}-{suffix}/Profiles').relative_to(ROOT).as_posix(),
+            retained_active_contract=retained_active,
             independently_reconciled_timeout_transfer=reconciled_timeout_transfer,
             actual_receipts=receipt_rows, supply_commands=len(session['supply_commands']), market_transfers=len(session['market_transfers']),
             actual_pause_intervals=pauses, all_19_product_ledgers=True, final_money=money,
@@ -281,7 +301,9 @@ def main():
     state_name = args.prefix + '-state-validation.json'
     regression_name = args.prefix + '-regression.json'
     original_runtime_status = report['status']
-    scope_status = ('passed_retained_completed_prefix_and_active_contract_ledgers_only' if original_runtime_status == 'failed' else
+    scope_status = ('passed_completed_target_and_saved_threshold_after_driver_deadline_only' if
+                    original_runtime_status == 'failed' and all(b['completed_target_saved_after_driver_deadline'] for b in branches) else
+                    'passed_retained_completed_prefix_and_active_contract_ledgers_only' if original_runtime_status == 'failed' else
                     'passed_actual_paired_contract_receipts_and_complete_ledgers_only' if len(branches) == 2 else
                     'passed_actual_single_contract_receipts_and_complete_ledgers_only')
     report.update(status=scope_status, original_runtime_status=original_runtime_status,

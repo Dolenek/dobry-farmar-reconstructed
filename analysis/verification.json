@@ -97,7 +97,8 @@
       "analysis/squall-loader-contract-interop-validation.json",
       "analysis/contract-streak-forty-native-retained-state-validation.json",
       "analysis/contract-streak-thirty-eight-native-retained-state-validation.json",
-      "analysis/contract-streak-thirty-nine-native-retained-state-validation.json"
+      "analysis/contract-streak-thirty-nine-native-retained-state-validation.json",
+      "analysis/contract-streak-forty-native-state-validation.json"
     ]
   },
   "build": {
@@ -206,7 +207,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "6a47c3577ef8e458a5875b3964c4131779e2c8594bd8435b16d22749beabd228",
+  "source_tree_sha256": "76a422058d7443868efcdd6805b0fcc76ea802bace4a736d4f44eb287d573512",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -739,7 +740,9 @@
     "analysis/current-awards-native-prefix-preflight.json",
     "analysis/current-awards-input-observations.json",
     "analysis/contract-streak-thirty-nine-native-retained-state-validation.json",
-    "analysis/contract-streak-thirty-nine-native-retained-regression.json"
+    "analysis/contract-streak-thirty-nine-native-retained-regression.json",
+    "analysis/contract-streak-forty-native-state-validation.json",
+    "analysis/contract-streak-forty-native-regression.json"
   ],
   "full_reconstruction_pending": [
     "Finish actual40-contract award in both complete executable processes from genuine retained checkpoints",
@@ -108661,8 +108664,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Actual Win32 main source EXE is buildable and runs;this is not a whole-goal completion flag",
   "latest_scoped_regression": {
-    "report": "analysis/contract-streak-thirty-nine-native-retained-regression.json",
-    "recorded_at_utc": "2026-11-07T15:32:26.172765+00:00",
+    "report": "analysis/contract-streak-forty-native-regression.json",
+    "recorded_at_utc": "2026-11-07T15:50:14.265958+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108687,7 +108690,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/contract-streak-thirty-nine-native-retained-regression.json",
+  "source_tree_hash_as_of_report": "analysis/contract-streak-forty-native-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",

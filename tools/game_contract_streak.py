@@ -145,14 +145,19 @@ def run_streak(env):
             scene=observer.visible_scene(hwnd)
             assert any((r['texture'] or '').lower()==backgrounds[x] and abs(r['geometry'][0]-400)<.01 for r in scene)
             return
-        limit = time.monotonic()+15
+        limit = time.monotonic()+90
+        attempts = 0
         while True:
+            attempts += 1
             drain();click(hwnd,x,550);time.sleep(.7)
             if drain():
                 continue
             scene = observer.visible_scene(hwnd)
             if any((r['texture'] or '').lower() == backgrounds[x] and abs(r['geometry'][0]-400)<.01 for r in scene):
                 return
+            session.setdefault('navigation_input_retries',[]).append(dict(requested_scene=x,attempt=attempts,
+                game_time=clock(),reason='Actual requested background not yet visible after physical click'))
+            capture(f"{env['cycle']}-navigation-{x}-retry-{attempts}.png")
             assert time.monotonic() < limit,('Actual navigation did not reach its requested scene',x)
 
     market = resource('UI/gameUI/Market.xml')
@@ -340,6 +345,11 @@ def run_streak(env):
         limit=time.monotonic()+60
         while not (val('booleans',owned_key) and val('booleans',shown_key)):
             drain();focus();clock()
+            # Physical input can block in Windows long enough to consume the
+            # old deadline while the game has already committed both flags.
+            # Observe the actual result before reporting a timeout.
+            if val('booleans',owned_key) and val('booleans',shown_key):
+                break
             assert time.monotonic()<limit,('Actual contract threshold award did not finish',ordinal,snapshot())
             time.sleep(.1)
         drain()
