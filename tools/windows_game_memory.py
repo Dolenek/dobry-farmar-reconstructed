@@ -3,9 +3,11 @@ import ctypes as C
 import json
 import struct
 import subprocess
+import time
 from pathlib import Path
 from ctypes import wintypes as W
 from windows_game_gui import k,u
+from read_only_scene_tree import read_scene_tree,SceneSnapshotChanged
 
 class TutorialMemory:
     def __init__(self, pid, kind, root):
@@ -108,23 +110,18 @@ class TutorialMemory:
         return result
 
     def visible_scene(self, hwnd):
-        # The arrow erases/reinserts depth-tree nodes every frame. Hold only
-        # the owned window thread while reading its tree, then always resume.
-        # No game bytes or callbacks are modified or invoked.
+        # Never suspend a rendering/UI thread: it may own graphics/USER locks.
+        # Concurrent topology changes cause a bounded retry or an explicit
+        # incomplete observation, rather than synchronization of the target.
         owner=W.DWORD();thread_id=u.GetWindowThreadProcessId(hwnd,C.byref(owner))
         assert thread_id and owner.value==self.pid,'Snapshot window does not belong to observed game process'
-        k.OpenThread.argtypes=[W.DWORD,W.BOOL,W.DWORD];k.OpenThread.restype=W.HANDLE
-        k.SuspendThread.argtypes=[W.HANDLE];k.ResumeThread.argtypes=[W.HANDLE]
-        thread=k.OpenThread(2,False,thread_id);assert thread
-        suspended=False
-        try:
-            assert k.SuspendThread(thread)!=0xffffffff;suspended=True
-            return self._visible_scene()
-        finally:
-            if suspended:assert k.ResumeThread(thread)!=0xffffffff
-            k.CloseHandle(thread)
+        last=None
+        for _ in range(3):
+            try:return self._visible_scene(time.monotonic()+.5)
+            except SceneSnapshotChanged as error:last=error;time.sleep(.02)
+        raise SceneSnapshotChanged('Could not observe a stable scene without stopping its thread') from last
 
-    def _visible_scene(self):
+    def _visible_scene(self,deadline):
         if self.kind == 'native':
             head = self.read(0x660500,'<I')[0]; nil_offset=17; value_offset=12
             geometry_offset=0x5c; deep_offset=0x228; texture_offset=0x30; sprite_offset=0x70; flags_offset=0x6c
@@ -133,21 +130,16 @@ class TutorialMemory:
             registry=self.read(image+self.layout['registry'],'<I')[0]
             head=self.read(registry,'<I')[0];nil_offset=13;value_offset=16
             geometry_offset=self.layout['geometry'];deep_offset=self.layout['deep'];texture_offset=self.layout['texture'];sprite_offset=self.layout['sprite'];flags_offset=self.layout['flags']
-        visited=set();controls=[]
-        def walk(node):
-            if self.read(node+nil_offset,'<B')[0]:return
-            assert node not in visited and len(visited)<10000;visited.add(node)
-            left,parent,right=self.read(node,'<3I');walk(left)
-            control=self.read(node+value_offset,'<I')[0];texture=self.read(control+texture_offset,'<I')[0]
+        def decode(control):
+            texture=self.read(control+texture_offset,'<I')[0]
             name=None
             if texture:
                 size,capacity=self.read(texture+8+20,'<II')
                 assert size<1024
                 address=self.read(texture+12,'<I')[0] if capacity>=16 else texture+12
                 name=bytes(self.read(address,'<'+str(size)+'B')).decode('latin1') if size else ''
-            controls.append(dict(address=control,geometry=self.read(control+geometry_offset,'<ffff'),deep=self.read(control+deep_offset,'<f')[0],texture=name,sprite=self.read(control+sprite_offset,'<19I'),flags=self.read(control+flags_offset,'<I')[0]))
-            walk(right)
-        walk(self.read(head+4,'<I')[0]);return controls
+            return dict(address=control,geometry=self.read(control+geometry_offset,'<ffff'),deep=self.read(control+deep_offset,'<f')[0],texture=name,sprite=self.read(control+sprite_offset,'<19I'),flags=self.read(control+flags_offset,'<I')[0])
+        return read_scene_tree(self.read,head,nil_offset,value_offset,decode,deadline)
 
     def property(self, store, name):
         # Bounded get-only lookup of the four scalar profile maps. No original

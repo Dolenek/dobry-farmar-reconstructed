@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-07T21:10:46.364556+00:00",
+  "recorded_at_utc": "2026-11-07T21:46:31.605360+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "active_integrated_source_reconstruction_remaining_original_goal_checks",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "f82b7b8d1d772ee9905b50c5a49e2af054fda92b4c76306b02c50077d5cd2d81",
+  "source_tree_sha256": "f5c2e2de88e8051bd1134104c23f5df4c1295d5cb634e7a0cecc3f33a75d24f9",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -758,10 +758,16 @@
     "analysis/original-resource-scope-audit.json",
     "analysis/tutorial-warning-capacity-observations.json",
     "analysis/tutorial-warning-observer-observations.json",
-    "analysis/tutorial-warning-first-pair-regression.json"
+    "analysis/tutorial-warning-first-pair-regression.json",
+    "analysis/host-freeze-incident.json",
+    "analysis/tutorial-warning-native-warehouse-observation.json",
+    "analysis/tutorial-warning-growth-observations.json",
+    "analysis/native-game-loopback-audio-observation.json"
   ],
   "full_reconstruction_pending": [
+    "Resolve reported host Windows/display freeze and validate revised observer/runtime paths in an isolated guest;host interactive tests are held",
     "Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10",
+    "Verify nonzero Windows audio output from actual native and source game processes;keep exact decoded PCM and audible-output scopes distinct",
     "Final requirement-by-requirement current-state audit and documentation"
   ],
   "previous_linux_validation": {
@@ -108762,11 +108768,12 @@
   "completion_audit_document": "docs/COMPLETION_AUDIT.md",
   "build_availability_report": "analysis/production-source-only-build-v4.json",
   "goal_status_reconciliation": {
-    "recorder_sha256": "fbf23976e6933748d6dc897f39861428d5032d037bfb1f8aa735f427dcf0610c",
+    "recorder_sha256": "d201f1f799c7537d2cbbdc2dd8086e66241ee37694e6e55031c504853c07f9cb",
     "source_build_proved": true,
     "contract40_and_four_restores_proved": true,
     "current_final_awards_proved": true,
     "complete_game_tutorial_warning_paths_proved": false,
+    "actual_game_Windows_audio_output_proved": false,
     "tracker_allocation_exception_explicitly_accepted": true,
     "six_criteria_final_audit_proved": false,
     "whole_goal_claimed_complete": false
@@ -108792,5 +108799,11 @@
       42,
       44
     ]
+  },
+  "host_runtime_incident": {
+    "report": "analysis/host-freeze-incident.json",
+    "resolved": false,
+    "host_interactive_runtime_tests_held": true,
+    "completed_runtime_report_missing": true
   }
 }

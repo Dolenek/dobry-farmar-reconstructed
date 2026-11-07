@@ -9,7 +9,7 @@ from pe import PE
 
 def current_implementation(files):
     for name,sha in files.items():
-        actual='Dobr\u00fd farm\u00e1\u0159.exe' if name=='FarmarSourceInterop.exe' else name
+        actual='Dobr\u00fd farm\u00e1\u0159.exe' if name in ['FarmarSourceInterop.exe','FarmarTutorialWarnings.exe'] else name
         assert digest(ROOT/'build/windows/Release'/actual)==sha,name
 
 
@@ -50,22 +50,40 @@ def main():
         assert warning_report['original_files_unchanged']==17 and not warning_report['production_changed']
         for path,sha in warning_report['reports'].items():assert digest(ROOT/path)==sha,path
         current_implementation(warning_report['implementation_files']);warnings=True
+    audio=False
+    audio_gate=v.get('current_game_audio_output_gate',{})
+    if audio_gate.get('complete'):
+        audio_report=read(ROOT/audio_gate['report'])
+        assert audio_report['status']=='passed_nonzero_Windows_process_loopback_from_actual_native_and_source_game_only'
+        assert audio_report['original_files_unchanged']==17 and not audio_report['production_changed']
+        assert audio_report['current_full_ctest_source_hashes_match']
+        current_implementation(audio_report['implementation_files'])
+        assert len(audio_report['captures'])==2
+        for row in audio_report['captures']:
+            for key in ['runtime_report','capture_log','captured_pcm']:
+                assert digest(ROOT/row[key]['path'])==row[key]['sha256']
+            assert row['nonzero_samples']>44100 and row['actual_game_normal_exit']==0
+        audio=True
     decision_path=ROOT/'analysis/native-tracker-fidelity-decision.json'
     accepted=(decision_path.exists() and read(decision_path).get('status')==
         'user_accepted_documented_sufficient_tracker_allocation_exception')
     pending=[]
+    host_hold=ROOT/'.local/desktop-runtime-hold.json'
+    if host_hold.exists() and read(host_hold).get('active',True):
+        pending.append('Resolve reported host Windows/display freeze and validate revised observer/runtime paths in an isolated guest;host interactive tests are held')
     if not contracts:
         pending.extend(['Finish actual40-contract award in both complete executable processes from genuine retained checkpoints',
             'Verify four complete checkpoint40 cross-restores with both current source DLLs'])
     if not awards:pending.append('Finish current final collect-all award lifecycle comparison,keeping requested-panel diagnostics distinct from natural attainment')
     if not warnings:pending.append('Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10')
+    if not audio:pending.append('Verify nonzero Windows audio output from actual native and source game processes;keep exact decoded PCM and audible-output scopes distinct')
     if not accepted:pending.append('Resolve explicit native tracker allocation fidelity decision;retain material codec/device/uninitialized-input verification limits')
     audit_path=ROOT/'analysis/original-goal-completion-audit.json'
     final_audit=False
     if audit_path.exists():
         audit=read(audit_path)
         if audit.get('status')=='passed_all_six_original_completion_criteria':
-            assert contracts and awards and accepted and warnings
+            assert contracts and awards and accepted and warnings and audio
             assert len(audit['criteria'])==6 and all(row['completed'] for row in audit['criteria'])
             assert audit['supporting_reports']
             for path,sha in audit['supporting_reports'].items():assert digest(ROOT/path)==sha,path
@@ -82,6 +100,7 @@ def main():
     v['goal_status_reconciliation']=dict(recorder_sha256=digest(__file__),source_build_proved=True,
         contract40_and_four_restores_proved=contracts,current_final_awards_proved=awards,
         complete_game_tutorial_warning_paths_proved=warnings,
+        actual_game_Windows_audio_output_proved=audio,
         tracker_allocation_exception_explicitly_accepted=bool(accepted),six_criteria_final_audit_proved=final_audit,
         whole_goal_claimed_complete=complete)
     if not warnings:v['current_tutorial_warning_gate']=dict(report='analysis/current-tutorial-runtime-coverage.json',complete=False,required_actual_steps=[40,41,42,44])

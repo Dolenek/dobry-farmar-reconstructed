@@ -1,0 +1,80 @@
+{
+  "status": "recorded_host_freeze_restart_interrupted_run_and_CPU_only_mitigation_not_runtime_resolution",
+  "recorded_at_utc": "2026-11-07T21:46:30.929658+00:00",
+  "recorder_sha256": "bbaff1e73b9b38f61624e8871a44fade4052dfe3f43c627d4d1673d3cd72fc6a",
+  "user_report": "Full Windows/display freeze requiring restart;session may continue behind frozen image",
+  "system_events": {
+    "path": ".local/host-freeze-20261107-system.json",
+    "sha256": "c96cc0c9418ddd9f462af93e2425a8e82f90f70738605d88b75a99fa27fa288c",
+    "events": [
+      {
+        "TimeCreated": "2026-11-07T22:27:51.5660962+01:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 41,
+        "Message": "Systém se znovu restartoval, aniž by se předtím zcela vypnul. Tato chyba mohla být způsobena tím, že systém přestal reagovat, selhal nebo že došlo k neočekávané ztrátě napájení."
+      },
+      {
+        "TimeCreated": "2026-11-07T22:28:08.6655258+01:00",
+        "ProviderName": "EventLog",
+        "Id": 6005,
+        "Message": "Služba Event Log byla spuštěna."
+      },
+      {
+        "TimeCreated": "2026-11-07T22:28:08.6654382+01:00",
+        "ProviderName": "EventLog",
+        "Id": 6009,
+        "Message": "Microsoft (R) Windows (R) 10.00. 26200  Multiprocessor Free."
+      },
+      {
+        "TimeCreated": "2026-11-07T22:28:08.6637424+01:00",
+        "ProviderName": "EventLog",
+        "Id": 6008,
+        "Message": "Předchozí vypnutí systému (21:59:56, ‎07.‎11.‎2026) bylo neočekávané."
+      }
+    ]
+  },
+  "incident_hold": {
+    "path": ".local/desktop-runtime-hold.json",
+    "sha256": "f13d4904554aa300166d011273b8e7c560c912d8dded1e4348d5ef8f36f3f8b9",
+    "active": true
+  },
+  "interrupted_run": {
+    "path": ".local/tutorial-warning-runtime/20261107T211631362554Z",
+    "completed_report_present": false,
+    "screenshots": {
+      "0-full_warehouse-warning-41.png": "01e11d97f4d38e7e8c138771c4dbcc1b6bb441e11adb42e050d99728f75bdb1b",
+      "1-farm.png": "154b785fa3d5414ab6fe2bcf780b8086b2d7a4ca96408952f446c52e2e7ad5ef",
+      "1-logo.png": "d9f4f687dbe843f7b08712626ddfe3045d5fd77d9539087f30a3fd0ea6560a3e",
+      "1-startup-progress.png": "3dd5f768a2bcd97f28611d48562ca94a49ef1fa3dc0109a8e514ff86ae330fb2"
+    },
+    "claimed_pass": false
+  },
+  "root_cause_proven": false,
+  "render_UI_thread_suspension_removed": true,
+  "foreground_input_queue_attachment_removed": true,
+  "optimistic_snapshot_claimed_atomic": false,
+  "actual_GameGui_constructor_refused_before_launch": true,
+  "CPU_only_tests": {
+    "count": 10,
+    "failed": 0,
+    "log": ".local/host-freeze-observer-safety-tests.log",
+    "sha256": "8aa825a7fdc78fca20b74f6d945a2e3a48ddfc9f6ab8c0a82eebaa4ab074e1fd"
+  },
+  "mitigation_source_files": {
+    "tools/windows_game_memory.py": "10a67226e6bbe0ad880718f1f4e9e8cd5968f7f73da3557d362e614887792fc4",
+    "tools/read_only_scene_tree.py": "09d088ad1936960d027e797159921a1a559fb0471c036f2ba8e1f8dad75521ca",
+    "tools/windows_game_gui.py": "7a6dc181107bed7d02198084b9ec43f51a98580964c68cd35d4b6308ad96e458",
+    "tools/desktop_runtime_hold.py": "f9cfadccafa020a60e4df51b61f858287103c42186ca8e5281eddf8dcaf52155",
+    "tests/test_read_only_scene_tree.py": "2c6cba92776f9717f3f13478be735e1340e2bf99cdb2ad25a2b1bc93f601dd7b",
+    "AGENTS.md": "767f510050cce0622141ed7bfb941394d91b56c893fc1c514d1b004650cd5ad4",
+    "docs/HOST_FREEZE_INCIDENT.md": "697c739f2cd5f1866a1e5b93f94a708b0319c811092716a8281ee15ba8e9e61d"
+  },
+  "host_GPU_input_runtime_tests_restarted": false,
+  "revised_observer_actual_game_runtime_validated": false,
+  "original_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run": false,
+  "whole_game_complete": false
+}

@@ -2,6 +2,7 @@
 import ctypes as C,time,xml.etree.ElementTree as ET
 from ctypes import wintypes as W
 from pathlib import Path
+from desktop_runtime_hold import require_desktop_runtime_available
 u = C.WinDLL('user32', use_last_error=True)
 k = C.WinDLL('kernel32', use_last_error=True)
 g = C.WinDLL('gdi32', use_last_error=True)
@@ -14,9 +15,6 @@ u.PostMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.argtypes = [W.HWND, W.UINT, W.WPARAM, W.LPARAM]
 u.SendMessageW.restype = W.LPARAM
 u.SetForegroundWindow.argtypes = [W.HWND]
-u.AttachThreadInput.argtypes = [W.DWORD, W.DWORD, W.BOOL]
-u.BringWindowToTop.argtypes = [W.HWND]
-k.GetCurrentThreadId.restype = W.DWORD
 u.GetClientRect.argtypes = [W.HWND, C.POINTER(W.RECT)]
 u.ClientToScreen.argtypes = [W.HWND, C.POINTER(W.POINT)]
 u.GetDC.argtypes = [W.HWND]
@@ -56,6 +54,7 @@ u.SetThreadDpiAwarenessContext.restype=C.c_void_p
 class GameGui:
 
     def __init__(self, work, data_root):
+        require_desktop_runtime_available()
         self.work = Path(work)
         self.data_root = Path(data_root)
         self.process = None
@@ -182,23 +181,8 @@ class GameGui:
         if u.GetForegroundWindow() != self.hwnd.value:
             u.SetForegroundWindow(self.hwnd)
             time.sleep(0.1)
-        if u.GetForegroundWindow() != self.hwnd.value:
-            # Windows can deny a background caller SetForegroundWindow after
-            # another app receives input. Briefly join the foreground queue;
-            # always detach before any mouse/key event is sent.
-            foreground = u.GetForegroundWindow()
-            owner = W.DWORD()
-            thread = u.GetWindowThreadProcessId(foreground, C.byref(owner)) if foreground else 0
-            current = k.GetCurrentThreadId()
-            attached = bool(thread and thread != current and u.AttachThreadInput(current, thread, True))
-            try:
-                if attached:
-                    u.BringWindowToTop(self.hwnd)
-                    u.SetForegroundWindow(self.hwnd)
-            finally:
-                if attached:
-                    assert u.AttachThreadInput(current, thread, False)
-            time.sleep(0.1)
+        # Never join another application's UI input queue to force focus.
+        # A denied foreground request stops the test before sending input.
         assert u.GetForegroundWindow() == self.hwnd.value, 'Source application lost foreground; no global input was injected'
 
     def resource(self, name):

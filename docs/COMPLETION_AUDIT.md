@@ -1,5 +1,7 @@
 # Kontrola původních podmínek dokončení
 
+Po hlášeném zamrznutí Windows je nově otevřený také [incident hosta](HOST_FREEZE_INCIDENT.md). Poslední běh211631362554Z nemá konečný report. Hostitelské GPU/input testy jsou zablokované; odstranění SuspendThread a AttachThreadInput má10 CPU kontrol, nikoli nové skutečné runtime ověření. Nativní41 je samostatně doložené, zdrojové41 a obě44 zůstávají neověřené.
+
 Tento přehled není prohlášení o dokončení. Jednotlivé reporty dokazují svůj uvedený rozsah; starší historické seznamy „zbývá“ nejsou automaticky seznamem současných chyb.
 
 | Původní požadavek | Autoritativní současné důkazy | Stav |
