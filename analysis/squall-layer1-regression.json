@@ -1,0 +1,375 @@
+{
+  "status": "passed_LayerI_defined384_frame_prefixes_both_builds_preserving_native_metadata_only",
+  "recorded_at_utc": "2026-11-07T13:58:34.636343+00:00",
+  "recorder_sha256": "ccb69f7285a5b756f021d376e1ad27aaed6c1bd4307de6b7c787ad905b3e10a6",
+  "report": "analysis/squall-layer1-validation.json",
+  "report_sha256": "aa36069f4662b21fb3c8d549b67b55230b5d63dde2a6c765523be780a80b9d4b",
+  "candidate_sha256": [
+    "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9",
+    "5dc86b974ce381e6c0d7e0e8539ce8cbc4889e623a9b1e8c807beeda3aa161de"
+  ],
+  "independent_valid_inputs": 8,
+  "precision_contexts": [
+    "PC53",
+    "PC24"
+  ],
+  "isolated_pair_processes": 32,
+  "guarded_PCM_reads": 1280,
+  "per_build": {
+    "source": {
+      "pcm_bytes": 490560,
+      "nonzero_pcm_bytes": 395452,
+      "guarded_reads": 640
+    },
+    "fresh": {
+      "pcm_bytes": 490560,
+      "nonzero_pcm_bytes": 395452,
+      "guarded_reads": 640
+    }
+  },
+  "actual_frame_prefix_samples": 384,
+  "native_header_samples": [
+    1152,
+    576
+  ],
+  "native_instruction_witnesses": [
+    {
+      "address": "10011f90",
+      "bytes_hex": "b880040000d3f833c983ff010f95c141"
+    },
+    {
+      "address": "10012ac2",
+      "bytes_hex": "89854ca70000"
+    },
+    {
+      "address": "10012bca",
+      "bytes_hex": "89853ca700000fafc8"
+    }
+  ],
+  "whole_declared_native_packets_claimed_defined": false,
+  "native_state_evidence": {
+    "path": ".local/squall-layer1-state/stdout.json",
+    "sha256": "38bdf2b38cc84ef48d09588340f09d3b6439b712f415b7577925799d639ab97b",
+    "value": {
+      "decoder_bytes": 47744,
+      "source_decoder": 12161000,
+      "native_decoder": 49283144,
+      "fields": [
+        {
+          "field": "m_sf_table",
+          "offset": 16,
+          "words": 64,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_look_c_valueL2",
+          "offset": 272,
+          "words": 18,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_c_value",
+          "offset": 7760,
+          "words": 64,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_cs_factor",
+          "offset": 8280,
+          "words": 192,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "csa",
+          "offset": 9052,
+          "words": 16,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "lr",
+          "offset": 9116,
+          "words": 32,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "lr2",
+          "offset": 9244,
+          "words": 512,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "win",
+          "offset": 22348,
+          "words": 144,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "look_global",
+          "offset": 22924,
+          "words": 262,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "look_scale",
+          "offset": 23972,
+          "words": 256,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "look_pow",
+          "offset": 24996,
+          "words": 64,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "look_subblock",
+          "offset": 25252,
+          "words": 8,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "w",
+          "offset": 42336,
+          "words": 18,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "w2",
+          "offset": 42408,
+          "words": 9,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "coef",
+          "offset": 42444,
+          "words": 36,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "v",
+          "offset": 42588,
+          "words": 6,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "v2",
+          "offset": 42612,
+          "words": 3,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "coef87",
+          "offset": 42624,
+          "words": 1,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "coef32",
+          "offset": 42628,
+          "words": 31,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "vbuf",
+          "offset": 38240,
+          "words": 512,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "vbuf2",
+          "offset": 40288,
+          "words": 512,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_sample",
+          "offset": 11292,
+          "words": 2304,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_yout",
+          "offset": 35812,
+          "words": 576,
+          "different": 0,
+          "first_differences": []
+        },
+        {
+          "field": "m_sbt_wrk",
+          "offset": 38228,
+          "words": 1,
+          "different": 0,
+          "first_differences": []
+        }
+      ],
+      "mpeg_metadata": {
+        "_frames": {
+          "offset": 42812,
+          "source": 24,
+          "native": 24
+        },
+        "_samplesInFrame": {
+          "offset": 42828,
+          "source": 1152,
+          "native": 1152
+        },
+        "_samplesInFile": {
+          "offset": 42832,
+          "source": 8064,
+          "native": 8064
+        },
+        "_curFrame": {
+          "offset": 42848,
+          "source": 0,
+          "native": 0
+        },
+        "_vbr": {
+          "offset": 42804,
+          "source": 1,
+          "native": 1
+        },
+        "_bitPerFrame": {
+          "offset": 42840,
+          "source": 5015.51,
+          "native": 5015.51
+        },
+        "frame_offsets": [
+          [
+            0,
+            0
+          ],
+          [
+            208,
+            208
+          ],
+          [
+            416,
+            416
+          ],
+          [
+            624,
+            624
+          ],
+          [
+            832,
+            832
+          ],
+          [
+            1040,
+            1040
+          ],
+          [
+            1248,
+            1248
+          ],
+          [
+            1456,
+            1456
+          ],
+          [
+            1664,
+            1664
+          ],
+          [
+            1872,
+            1872
+          ],
+          [
+            2080,
+            2080
+          ],
+          [
+            2288,
+            2288
+          ],
+          [
+            2496,
+            2496
+          ],
+          [
+            2704,
+            2704
+          ],
+          [
+            2912,
+            2912
+          ],
+          [
+            3120,
+            3120
+          ],
+          [
+            3328,
+            3328
+          ],
+          [
+            3536,
+            3536
+          ],
+          [
+            3744,
+            3744
+          ],
+          [
+            3952,
+            3952
+          ],
+          [
+            4160,
+            4160
+          ],
+          [
+            4368,
+            4368
+          ],
+          [
+            4576,
+            4576
+          ],
+          [
+            4784,
+            4784
+          ]
+        ]
+      }
+    }
+  },
+  "initial_failed_broad_seek_assumption": {
+    "path": ".local/squall-layer1/20261107T134719145765Z/report.json",
+    "sha256": "d7c07661809dbb1e8a92cdd0648543eef1f118b2ee824daf6d5c590144d049db",
+    "error": "AssertionError(('source', 53, 0, 1, 'MPEG defined seek range file=owned-layer1-0-v1-44100-mode3-silent.mp1 memory=0 channels=0 start=0 count=0 loop=0\\r\\n'))"
+  },
+  "production_implementation_changed": false,
+  "unchanged_full102_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run": false,
+  "original_files_unchanged": 17,
+  "original_program_code_used_in_implementation": false,
+  "whole_squall_complete": false,
+  "whole_game_complete": false,
+  "pending": [
+    "Native HeaderInfo1152/576 versus actual384 samples per LayerI frame;unwritten gaps and original public length retained,not claimed valid general playback",
+    "Physical buffers,end-wrap,CRC,padding,free-format and malformed variants"
+  ]
+}

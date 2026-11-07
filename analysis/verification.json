@@ -729,7 +729,9 @@
     "analysis/production-source-standalone-v4-uninstall-validation.json",
     "analysis/production-source-standalone-v4-startup-validation.json",
     "analysis/production-source-standalone-v4-loader-validation.json",
-    "analysis/production-source-only-build-v4.json"
+    "analysis/production-source-only-build-v4.json",
+    "analysis/squall-layer1-validation.json",
+    "analysis/squall-layer1-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108724,5 +108726,11 @@
     "native_absence_confirmed": true,
     "MT2_commands": 256,
     "AMS2_effects": 64
+  },
+  "squall_layer1": {
+    "report": "analysis/squall-layer1-regression.json",
+    "defined_prefix_samples": 384,
+    "guarded_reads": 1280,
+    "general_playback_claimed": false
   }
 }
