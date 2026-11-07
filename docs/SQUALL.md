@@ -1,5 +1,11 @@
 # Rekonstrukce Squall
 
+## Skutečné loader FP rozdíly a zaplněné kanály
+
+`validate_squall_preemption.py` provedl528 oddělených procesů:176 skutečných případů přes všechny8 play exportů a oba buildy v PC53/PC24. Čtyři skutečné připravené kanály mají různé priority, shodná minima i minimum ve dvou slotech. Nízké příchozí priority0..3 bez přijatelného minima původně přímo určují fallback index; při shodném minimu se vybere poslední slot. Veškeré handle generace, původní/zbylé kanály, priority a stavy souhlasí.176 zaznamenaných odchylek se týká pouze FP precision po samotném LoadLibrary, nikoli chování vytvořených kanálů po nastavení měřené přesnosti. Zjevná neinicializovaná C++ proměnná v dostupném zdroji se v aktuálním MSVC náhodně chová stejně jako původní explicitně zachovaný argument; zdrojové vyjádření tohoto fallbacku zůstává k doplnění.
+
+`validate_squall_load_fpu.py` navíc měří72 procesů/144 skutečných load/unload cyklů přes3 x87 přesnosti,4 zaokrouhlení a sticky zero-divide.42 dvojic se odlišuje v control/status/SSE slovech. Původní process-attach větev1003df6e volá1003e814; tato rutina přes pointer10072fe4 nejprve provede1003cf10 a teprve pak C/C++ initializers.1003eacb mění pouze PC masku30000 na hodnotu10000 a1003cf24 čistí x87 exception flags přes FNCLEX. FNINIT originál v této cestě nepoužívá. Běžný DllMain hook až po C++ konstruktorech by tedy nebyl přesnou opravou. Původní instrukce a všechny neměnné předopravové source/binary snapshots propojuje `analysis/squall-loader-fpu-observations.json`; oprava teprve následuje.
+
 ## Opravené pořadí3D čtení a nová celá regrese
 
 CreateChannel3D nyní skutečně čte Position v původním pořadí Z/Y/X podle10005021/10005039/10005053. Tři explicitní volatile binary32 input čtení zachovávají následnou distance aritmetiku. Po wrapper nulování neplatného vstupu tak obě sestavení skutečně faultují na8 stejně jako originál. V nových270 izolovaných procesech souhlasí všechny sledované exception/access/fault byte hodnoty, výstupy, cache words i guardy;64 předchozích odchylek zmizelo. Vstupní i výstupní FPU precision je nyní přímo měřená jako CRT PC24=0x20000 / PC53=0x10000.
