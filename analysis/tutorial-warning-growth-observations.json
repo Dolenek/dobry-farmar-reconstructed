@@ -1,0 +1,18 @@
+{
+  "status": "recorded_premature_readiness_assertion_not_original_game_failure",
+  "raw_report": {
+    "path": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+    "sha256": "516804c54076c2e55f0f49734435f0803285799ec71e55ccdfdb847a96c6e1f0",
+    "original_status": "failed"
+  },
+  "normal_native_exit": 0,
+  "actual_four_tomato_harvests": true,
+  "stored_tomatoes": 3,
+  "carried_tomatoes": 1,
+  "observed_warning44": false,
+  "correction": "Wait for actual FFS cucumber readiness;never infer readiness from duration of tomato UI inputs",
+  "corrected_retry_completed": false,
+  "interrupted_retry": ".local/tutorial-warning-runtime/20261107T211631362554Z",
+  "production_changed": false,
+  "whole_game_complete": false
+}

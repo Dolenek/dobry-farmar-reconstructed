@@ -28,6 +28,9 @@ suite.report['source_files']['tools/validate_game_tutorial_warnings.py']=digest(
 suite.report['source_file_snapshots']['tools/validate_game_tutorial_warnings.py']=(suite.work/'driver.py').relative_to(ROOT).as_posix()
 for name in ['tools/live_farm_fields.py','tools/tutorial_warning_layout.cpp','tools/tutorial_warning_layout/CMakeLists.txt','tools/tutorial_warning_scenarios.py']:
     suite.report['source_files'][name]=digest(ROOT/name)
+    snapshot=suite.work/(name.replace('/','_'))
+    shutil.copyfile(ROOT/name,snapshot)
+    suite.report['source_file_snapshots'][name]=snapshot.relative_to(ROOT).as_posix()
 layout_report=ROOT/'analysis/no-dry-award-state-validation.json';field_layout=read(layout_report)['field_layout']['metadata']
 suite.report['field_layout_report']=dict(path=layout_report.relative_to(ROOT).as_posix(),sha256=digest(layout_report))
 suite.report['requested_cases']=args.cases;suite.report['fixtures']={}
@@ -77,6 +80,12 @@ def await_condition(t,label,predicate,timeout=90,expected_active=()):
     return t.state()
 
 
+def glyph_bounds(signature):
+    bounds=[max(0,math.floor(min(r[0][axis]-abs(r[0][axis+2])/2 for r in signature))-2) for axis in range(2)]
+    bounds += [min(limit,math.ceil(max(r[0][axis]+abs(r[0][axis+2])/2 for r in signature))+2) for axis,limit in [(0,800),(1,600)]]
+    return bounds
+
+
 def observe_warning(t,case,index):
     deadline=time.monotonic()+90
     while t.observer.step()!=index:
@@ -99,8 +108,7 @@ def observe_warning(t,case,index):
             if signature==sorted([[r['geometry'],r['sprite']] for r in again]):break
         assert time.monotonic()<deadline,('Actual warning text did not finish',index)
         time.sleep(.05)
-    bounds=[max(0,math.floor(min(r['geometry'][axis]-r['geometry'][axis+2]/2 for r in glyphs))-2) for axis in range(2)]
-    bounds += [min(limit,math.ceil(max(r['geometry'][axis]+r['geometry'][axis+2]/2 for r in glyphs))+2) for axis,limit in [(0,800),(1,600)]]
+    bounds=glyph_bounds(signature)
     image=t.capture(f'{case}-warning-{index}')
     stage=dict(step=index,case=case,controls=controls,glyph_geometry_and_sprites=signature,
         text_bounds=bounds,screenshot=f'{t.index}-{case}-warning-{index}.png',state=t.state())
@@ -110,6 +118,7 @@ def observe_warning(t,case,index):
         native=templates[key];assert stage['glyph_geometry_and_sprites']==native['glyph_geometry_and_sprites']
         left=Image.open(suite.work/native['screenshot']).convert('RGB').crop(tuple(native['text_bounds']))
         right=image.convert('RGB').crop(tuple(native['text_bounds']))
+        assert left.width>0 and left.height>0
         delta=ImageChops.difference(left,right)
         stage['text_composite_pixel_comparison']=dict(rect=native['text_bounds'],pixels=left.width*left.height,
             identical=left.tobytes()==right.tobytes(),difference_bounds=delta.getbbox(),
@@ -201,6 +210,7 @@ try:
             assert json.loads(session['launcher_completion'])==dict(event='exit',exit_code=0,watchdog_triggered=False)
             for stage in session['stages']:
                 stage=copy.deepcopy(stage);stage['glyph_geometry_and_sprites'].sort()
+                stage['text_bounds']=glyph_bounds(stage['glyph_geometry_and_sprites'])
                 templates[(stage['case'],stage['step'])]=stage
                 source=ROOT/prior['work_directory']/stage['screenshot']
                 assert digest(source)==prior['screenshots'][source.name]

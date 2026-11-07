@@ -1,0 +1,54 @@
+{
+  "status": "observed_nonzero_Windows_output_from_actual_native_game_only_source_capture_unverified",
+  "capture_program": {
+    "path": "build/process-audio-capture/Release/process-audio-capture.exe",
+    "sha256": "289694d3e0789dbe4ee452a847078abbc175322a93200852ce054068ab234eaa"
+  },
+  "capture_source_files": {
+    "tools/process_audio_capture.cpp": "b6f353e227fd116f3765d7d194570a7265186448cb5d8326ae6416f945c6479a",
+    "tools/process_audio_capture/CMakeLists.txt": "fca5ec37ee8ac684cbfd49b4fc3a794d8f943bf47fdc19fad83dbb7846783606"
+  },
+  "API_provenance": "https://learn.microsoft.com/en-us/samples/microsoft/windows-classic-samples/applicationloopbackaudio-sample/",
+  "raw_runtime_report": {
+    "path": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+    "sha256": "516804c54076c2e55f0f49734435f0803285799ec71e55ccdfdb847a96c6e1f0",
+    "original_status": "failed"
+  },
+  "native_session_index": 1,
+  "native_exit_code": 0,
+  "capture_log": {
+    "path": ".local/native-game-live-loopback.log",
+    "sha256": "9b40d6205173f107e035b9cfb62d97a178606e1b69b81b82e0e66b19c633442a"
+  },
+  "captured_pcm": {
+    "path": ".local/native-game-live-loopback.pcm",
+    "sha256": "939c648fd7668199f6200144145819f0c0332064c61408bb0f19d4dea679e347",
+    "bytes": 690728
+  },
+  "capture_events": [
+    {
+      "event": "capturing",
+      "pid": 18024,
+      "process_tree_only": true,
+      "microphone": false,
+      "rate": 44100,
+      "channels": 2,
+      "bits": 16
+    },
+    {
+      "event": "completed",
+      "pid": 18024,
+      "frames": 172682,
+      "packets": 370,
+      "silent_packets": 0,
+      "discontinuities": 0,
+      "nonzero_samples": 279950,
+      "peak": 11953,
+      "rms": 1087.19,
+      "elapsed_ms": 4000
+    }
+  ],
+  "source_output_verified": false,
+  "physical_speaker_or_subjective_listening_compared": false,
+  "whole_game_complete": false
+}

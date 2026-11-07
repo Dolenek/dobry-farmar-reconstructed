@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(ProcessAudioCapture LANGUAGES CXX)
+add_executable(process-audio-capture ../process_audio_capture.cpp)
+target_compile_features(process-audio-capture PRIVATE cxx_std_17)
+target_compile_options(process-audio-capture PRIVATE /utf-8)
+target_link_libraries(process-audio-capture PRIVATE mmdevapi ole32)

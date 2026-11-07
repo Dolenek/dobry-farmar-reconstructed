@@ -102,8 +102,16 @@ def mixed_products(t,await_condition,observe_warning,layout):
     carried=await_condition(t,'fourth-tomato-harvested',lambda:t.observer.property('uints','PCC1')==1)
     assert carried['collected']==initial['collected']+4
     t.pause(True)
+    planted=[r for r in fields(t,layout) if r['active'] and r['culture']==3]
+    assert planted,'Genuine cucumber checkpoint has no actual planted cucumber'
+    t.session['cucumber_before_natural_readiness_wait']=planted
+    if not any(r['status']==1 for r in planted):
+        t.pause(False)
+        await_condition(t,'natural-cucumber-readiness',lambda:any(
+            t.observer.property('uints',f"FFS{r['id']}")==1 for r in planted),timeout=180)
+        t.pause(True)
     cucumbers=[r for r in fields(t,layout) if r['active'] and r['status']==1 and r['culture']==3]
-    assert cucumbers,'Original watered cucumber has not naturally ripened before mixed attempt'
+    assert cucumbers,'Actual readiness did not remain present while paused'
     target=cucumbers[0];t.session['actual_mixed_cucumber_target']=target
     queue_fields(t,[target,target]);t.pause(False)
     warning=observe_warning(t,'mixed_products',44)['state']
