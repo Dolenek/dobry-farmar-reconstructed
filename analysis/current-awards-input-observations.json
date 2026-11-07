@@ -1,0 +1,64 @@
+{
+  "status": "verified_native_input_failures_and18_reusable_committed_panels_only",
+  "recorded_at_utc": "2026-11-07T15:11:31.966326+00:00",
+  "recorder_sha256": "4dd1349c4d24df83f6e26f5ddc9d09c4f95860996319517874d20facaa66b4b2",
+  "failures": [
+    {
+      "report": ".local/game-awards-runtime/20261107T092743166864Z/report.json",
+      "sha256": "36453b89cb98d1dcfd434de02bd9602685ccc238ab51f5b99002c1eb4dbab952",
+      "error": "RuntimeError('Application exited unexpectedly: 0')",
+      "source_processes_started": 0,
+      "configured_native_watchdog_ms": 180000,
+      "watchdog_cause_is_inference_not_captured_completion_event": true
+    },
+    {
+      "report": ".local/game-awards-runtime/20261107T134104987319Z/report.json",
+      "sha256": "dc5b9ea1e85293964c32377da2ce28968f87b1fe69fa5a59f1c0e2c2a4cef33a",
+      "error": "RuntimeError('Expected screen region did not return: 0-award07-returned.png')",
+      "source_processes_started": 0,
+      "normal_native_cleanup": {
+        "event": "exit",
+        "exit_code": 0,
+        "watchdog_triggered": false
+      }
+    },
+    {
+      "report": ".local/game-awards-runtime/20261107T135023948573Z/report.json",
+      "sha256": "ba8a4a889f4ae10514210b656824022ccd79773ca0a524b30ee9fcd17697e87e",
+      "error": "AssertionError(('Award effect did not finish', 18))",
+      "source_processes_started": 0,
+      "normal_native_cleanup": {
+        "event": "exit",
+        "exit_code": 0,
+        "watchdog_triggered": false
+      }
+    }
+  ],
+  "preflight_report": "analysis/current-awards-native-prefix-preflight.json",
+  "preflight_sha256": "65fd5d56184e5006a81c45bbaf3f26e81c947456c4a81ab44b277b81b279868a",
+  "reusable_native_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "last_unaccepted_index": 18,
+  "classification": "Old fixed delays could click disabled Return;last OK did not set ownership. Current driver waits actual stable panels/ownership and retries only while unowned panel remains open.",
+  "current_full_native_source21_comparison_complete": false,
+  "production_implementation_changed": false,
+  "whole_game_complete": false
+}

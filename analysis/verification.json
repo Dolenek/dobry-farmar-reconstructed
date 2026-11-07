@@ -734,7 +734,9 @@
     "analysis/squall-layer1-validation.json",
     "analysis/squall-layer1-regression.json",
     "analysis/contract-streak-thirty-eight-native-retained-state-validation.json",
-    "analysis/contract-streak-thirty-eight-native-retained-regression.json"
+    "analysis/contract-streak-thirty-eight-native-retained-regression.json",
+    "analysis/current-awards-native-prefix-preflight.json",
+    "analysis/current-awards-input-observations.json"
   ],
   "full_reconstruction_pending": [
     "Finish actual40-contract award in both complete executable processes from genuine retained checkpoints",
@@ -108744,5 +108746,10 @@
     "recorder_sha256": "33ac54c3f588a324e65381b1d91e2208abb8b0486d928ec7a937c88efd36d676",
     "source_build_proved": true,
     "whole_goal_claimed_complete": false
+  },
+  "current_award_runtime_gate": {
+    "report": "analysis/current-awards-input-observations.json",
+    "complete": false,
+    "reusable_native_panels": 18
   }
 }
