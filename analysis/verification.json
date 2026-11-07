@@ -93,7 +93,8 @@
       "analysis/contract-streak-twenty-five-state-validation.json",
       "analysis/contract-streak-thirty-state-validation.json",
       "analysis/squall-pointer-contract-interop-validation.json",
-      "analysis/contract-streak-thirty-five-state-validation.json"
+      "analysis/contract-streak-thirty-five-state-validation.json",
+      "analysis/squall-loader-contract-interop-validation.json"
     ]
   },
   "build": {
@@ -187,11 +188,12 @@
     "resource_write_checks": 12,
     "ctest_current_checks_covered_across_full_and_retry": 102,
     "ctest_focused_retry_repetitions": 0,
-    "last_full_ctest_report": "analysis/squall-pointer-regression.json",
+    "last_full_ctest_report": "analysis/squall-loader-regression.json",
     "full_ctest_repeated_for_latest_vector_fix": false,
     "full_ctest_repeated_for_latest_game_alias_fix": true,
     "full_ctest_repeated_for_latest_sample_fix": true,
-    "full_ctest_repeated_for_ordered3d_reads": true
+    "full_ctest_repeated_for_ordered3d_reads": true,
+    "full_ctest_repeated_for_native_DLL_FP_startup": true
   },
   "images": {
     "decoded": 416,
@@ -201,7 +203,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "83377b1ecc478a1e070974aa77356ac6b1242ef87f7d92f0abd25399279591d5",
+  "source_tree_sha256": "30eb22cd5aa452b70feddf12f2eb7821f2501a98a10ed8db34b09abf42a086c2",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -682,7 +684,30 @@
     "analysis/squall-pointer-contract-interop-validation.json",
     "analysis/squall-pointer-game-regression.json",
     "analysis/contract-streak-thirty-five-state-validation.json",
-    "analysis/contract-streak-thirty-five-regression.json"
+    "analysis/contract-streak-thirty-five-regression.json",
+    "analysis/squall-loader-fpu-validation.json",
+    "analysis/squall-loader-preemption-validation.json",
+    "analysis/squall-loader-pointers-validation.json",
+    "analysis/squall-loader-abi-validation.json",
+    "analysis/squall-loader-play-validation.json",
+    "analysis/squall-loader-stack-validation.json",
+    "analysis/squall-loader-dll-validation.json",
+    "analysis/squall-loader-game-audio-validation.json",
+    "analysis/squall-loader-person-sounds-validation.json",
+    "analysis/squall-loader-abi-fresh-validation.json",
+    "analysis/squall-loader-play-fresh-validation.json",
+    "analysis/squall-loader-stack-fresh-validation.json",
+    "analysis/squall-loader-dll-fresh-validation.json",
+    "analysis/squall-loader-game-audio-fresh-validation.json",
+    "analysis/squall-loader-person-sounds-fresh-validation.json",
+    "analysis/squall-loader-regression.json",
+    "analysis/production-source-standalone-v3-jng-abi.json",
+    "analysis/production-source-standalone-v3-squall-abi.json",
+    "analysis/production-source-standalone-v3-uninstall-validation.json",
+    "analysis/production-source-standalone-v3-runtime-validation.json",
+    "analysis/production-source-only-build.json",
+    "analysis/squall-loader-contract-interop-validation.json",
+    "analysis/squall-loader-game-regression.json"
   ],
   "full_reconstruction_pending": [
     "Remaining full-game systems and later natural progression; main source EXE already builds",
@@ -108603,8 +108628,8 @@
   "main_game_source_build_available": true,
   "full_game_build_available_scope": "Completion flag for all required behavior, every Squall export and all game systems; not the availability of the already buildable main source EXE",
   "latest_scoped_regression": {
-    "report": "analysis/contract-streak-thirty-five-regression.json",
-    "recorded_at_utc": "2026-11-07T07:53:46.809867+00:00",
+    "report": "analysis/squall-loader-game-regression.json",
+    "recorded_at_utc": "2026-11-07T08:49:38.416197+00:00",
     "whole_game_complete": false
   },
   "historical_embedded_sections_note": "Older embedded stage objects retain their own recorded_at_utc and hashes; latest_scoped_regression and its report manifests identify the current verified binaries",
@@ -108629,7 +108654,7 @@
     "actual_tracker_loader_and_nonzero_mixer_scopes_passed": true,
     "unsafe_factory_open": true
   },
-  "source_tree_hash_as_of_report": "analysis/contract-streak-thirty-five-regression.json",
+  "source_tree_hash_as_of_report": "analysis/squall-loader-game-regression.json",
   "current_report_serialization": {
     "encoding": "UTF-8",
     "newlines": "LF",
@@ -108648,5 +108673,17 @@
     "actual_processes": 270,
     "observed_deviations": 0,
     "whole_behavior_complete": false
+  },
+  "squall_loader_fpu": {
+    "report": "analysis/squall-loader-regression.json",
+    "resolved": true,
+    "processes": 72,
+    "load_unload_cycles": 144,
+    "remaining_environment_differences": 0
+  },
+  "production_source_only_build": {
+    "report": "analysis/production-source-only-build.json",
+    "all_four_targets": true,
+    "testing_disabled": true
   }
 }

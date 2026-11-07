@@ -1,0 +1,51 @@
+{
+  "status": "passed_native_loader_FP_startup_new_full102_four_current_whole_game_restores_and97_physical_abi_only",
+  "recorded_at_utc": "2026-11-07T08:49:38.416197+00:00",
+  "recorder_sha256": "22338cad52902cb8f5bcc5533a7132710a113ddd2057ecdf461338f12726df56",
+  "reports": {
+    "analysis/squall-loader-regression.json": "7c30a1f6ff1d076617ac46d444c16d64802de203628efdda34269da983efde9a",
+    "analysis/squall-loader-contract-interop-validation.json": "6ea3fa82dd23721595e4b928630a9b066749821e81099055c4e58a3d6bd5726d",
+    "analysis/squall-control-signatures.json": "6d1ebdb82482e571ced21857b84980a5bf60984f9992ac04b0d40135d8a98a3e",
+    "analysis/squall-effect-property-signatures.json": "b5333cacfbf332d6b9ec57195ed502d420a2d91034cbc2b93db795f7719702a7",
+    "analysis/squall-channel-geometry-signatures.json": "084406fc97fb6860fab8fc351d6994242c985a52e5702333b57f7d2dfae65a28",
+    "analysis/squall-cone-signatures.json": "688515a9877014c8b8dc4572e9179ecaca93e16d69181d9923ce6bc377b578a9",
+    "analysis/squall-fragment-signatures.json": "9d348e4b6004eda605986bce662580c35f233f42a6a6e57c4509d75cc17491e1",
+    "analysis/squall-scalar-handle-signatures.json": "4e3d13ad0664c1ad98e330deca9ebd307f9519d653e11b2ec77f8f6a20404e37",
+    "analysis/squall-length-signatures.json": "f52276a668a67347be477076d730be6cff00433d53d1795f232205da2d937aa3",
+    "analysis/squall-channel-setter-signatures.json": "e5c623516e9ee55bd89314ca40cd8c90f8116e9c5613989086d40ddd27721d28",
+    "analysis/squall-worker-signatures.json": "72a28a580510a9e63a12a1dca2b404bfc0af812e40b8df450ef399692a9a2245",
+    "analysis/squall-void-signatures.json": "25e581efcd969ae2b59db4f0db3e3633e66f2d749abcf5de4f439422f36855c7",
+    "analysis/squall-noarg-signatures.json": "70fd9403d3a3ea38c10a9eb81baf04cac195bd1ab83d701faba51b1f37742263",
+    "analysis/squall-device-info-signatures.json": "fb20d2e44c20105e4b16c31596313be4e857cb9da4e4007b5f503dd0ca8a35b9",
+    "analysis/squall-hardware-signatures.json": "2bd75a2b4d3df9f030c6b6f918dfe5cca2016d4fa0e16d61a8a30426219d5c52",
+    "analysis/squall-init-sample-control-signatures.json": "658745ccfcb89d6feadc369e67b9dcc39b0d44f3234bf41d5e23f324d5d77d5b",
+    "analysis/squall-listener-factor-signatures.json": "2e347f5276aa26eb6db09ac2f6dde3f67320134bc3eae896037f911b79203acc",
+    "analysis/squall-listener-vector-signatures.json": "40450b1dc3aa3085f8244ff250f8b763af8a538839e02664c2204091cdc57374",
+    "analysis/squall-play-signatures.json": "110dfce1fed49adb64af371b90e6b6547cd02d6db0bde185dc9caff0cbcf6dda",
+    "analysis/squall-sample-load-default-signatures.json": "d4f54820f726492b623f10c6cb2d38e212b1b69ffb1074c4e0a0312d6782a65b",
+    "analysis/squall-scalar-config-signatures.json": "f7441916d0fbf12b81510b8629da4dda767b65a23004d855ae153d4107cc5c89",
+    "analysis/squall-callback-signatures.json": "378c899677ba8aa0a26b125a0a869061001893695ddc228fe76440e6be1a4836"
+  },
+  "abi_exports": 97,
+  "native_public_return_sites": 223,
+  "whole_bidirectional_save_bytes": [
+    17166,
+    17200,
+    17166,
+    17166
+  ],
+  "source_restore_processes_without_access_violation": 2,
+  "current_candidate_sha256": [
+    "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9",
+    "5dc86b974ce381e6c0d7e0e8539ce8cbc4889e623a9b1e8c807beeda3aa161de"
+  ],
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run_for_this_record": false,
+  "original_files_unchanged": 17,
+  "whole_game_complete": false,
+  "whole_squall_complete": false,
+  "pending": [
+    "Continue actual40 contract thresholds and final all-awards condition",
+    "Wider DLL,JNG and uninstall scopes of original goal"
+  ]
+}

@@ -77,18 +77,24 @@ try:
     assert len(set(expected_hud))>10,'Blank game HUD'
    else:frame=wait_match(f'{cycle}-04-game.png',(10,8,55,28),expected_hud)
    session['loading_seconds']=time.monotonic()-start;session['actions'].append('Actual Start created/restored cGame and binary save')
+   # Journal is checked on the fresh farm. A restored fresh profile can
+   # activate tutorial1 after six seconds; it intentionally gates HUD input.
+   if not cycle:
+    click(hwnd,*button('ui/gameui/gamemenu.xml','JournalButton'));journal=settle(f'{cycle}-09-journal.png');journal_roi=(180,90,620,435)
+    assert roi(journal,journal_roi)!=roi(frame,journal_roi),'Journal did not open'
+    click(hwnd,*button('ui/gameui/journal.xml','OkButton'));returned=settle(f'{cycle}-10-journal-return.png');assert roi(returned,journal_roi)!=roi(journal,journal_roi) and roi(returned,(10,8,55,28))==expected_hud,'Journal did not return to game'
+    session['actions'].append('Journal opened and returned through actual mouse input; exact game HUD pixels matched')
+   else:session['actions'].append('Restored-profile journal deferred to tutorial runtime probe; no animation-difference assertion substitutes for an open panel')
    click(hwnd,*button('ui/gameui/gamemenu.xml','MainMenuButton'));pause=settle(f'{cycle}-05-pause.png');pause_roi=(285,150,515,455)
    assert roi(pause,pause_roi)!=roi(frame,pause_roi),'Pause screen did not open'
    click(hwnd,*button('ui/menu.xml','HelpButton'));help=settle(f'{cycle}-06-help.png');assert roi(help,pause_roi)!=roi(pause,pause_roi),'Help screen did not open'
    click(hwnd,*button('ui/helpview.xml','OkButton'));wait_match(f'{cycle}-07-help-return.png',pause_roi,roi(pause,pause_roi));session['actions'].append('Help actually returned to identical pause-menu pixels')
    click(hwnd,*button('ui/menu.xml','ContinueButton'));continued=wait_match(f'{cycle}-08-continued.png',(10,8,55,28),expected_hud)
    assert roi(continued,pause_roi)!=roi(pause,pause_roi),'Continue retained pause screen'
-   click(hwnd,*button('ui/gameui/gamemenu.xml','JournalButton'));journal=settle(f'{cycle}-09-journal.png');journal_roi=(180,90,620,435)
-   assert roi(journal,journal_roi)!=roi(continued,journal_roi),'Journal did not open'
-   click(hwnd,*button('ui/gameui/journal.xml','OkButton'));returned=settle(f'{cycle}-10-journal-return.png');assert roi(returned,journal_roi)!=roi(journal,journal_roi) and roi(returned,(10,8,55,28))==expected_hud,'Journal did not return to game'
-   session['actions'].append('Journal opened and returned through actual mouse input; exact game HUD pixels matched')
    u.PostMessageW(hwnd,0x10,0,0);p.wait(timeout=20);assert p.returncode==0,('Application exit',p.returncode)
    session['status']='passed';session['save_files']={x.relative_to(work).as_posix():dict(bytes=x.stat().st_size,sha256=digest(x)) for x in common.rglob('*.save')}
+   saved_props={node.get('Name'):node.get('Val') for node in ET.parse(common/'Profiles/00000001.xml').getroot()}
+   session['saved_game_time']=float(saved_props['GameTime'])
   finally:
    if p.poll() is None:
     for window,_,_ in windows(p.pid):u.PostMessageW(W.HWND(window),0x10,0,0)

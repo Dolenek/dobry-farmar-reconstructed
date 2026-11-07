@@ -43,7 +43,7 @@ target_compile_definitions(squall_runtime_candidate PUBLIC _USRDLL PRIVATE _WIND
 # without the algorithm GUID field used by the actual source and native DLL.
 target_include_directories(squall_runtime_candidate PUBLIC "${SQUALL_RUNTIME_DIR}" PRIVATE "${SQUALL_RUNTIME_DIR}/SoundFile")
 target_link_libraries(squall_runtime_candidate PUBLIC recovered_squall_utilities squall_vorbis_candidate PRIVATE dsound dxguid winmm ole32 user32 strmiids)
-add_library(SquallCandidate SHARED EXCLUDE_FROM_ALL "${SQUALL_RUNTIME_DIR}/Abi.cpp" "${SQUALL_RUNTIME_DIR}/Squall.def")
+add_library(SquallCandidate SHARED EXCLUDE_FROM_ALL "${SQUALL_RUNTIME_DIR}/Abi.cpp" "${SQUALL_RUNTIME_DIR}/Initialization.cpp" "${SQUALL_RUNTIME_DIR}/Squall.def")
 # Visual Studio skips Link with no object inputs. Compile the actual ABI proof
 # into the DLL too, so changes in the static runtime reliably relink the DLL.
 target_compile_options(SquallCandidate PRIVATE /utf-8)

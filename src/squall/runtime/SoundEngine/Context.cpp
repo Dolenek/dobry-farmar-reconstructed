@@ -125,7 +125,9 @@ int context_s::GetChannelIndex(int ChannelID)
 int context_s::GetFreeChannel(int Priority)
 {
     // переменные
-    int index;
+    // Original100024dc/10002504 preserves the incoming priority as fallback
+    // index when no occupied channel has a small enough priority.
+    int index = Priority;
     float Dist = 0.0f;
     float direct = 0.0f;
 

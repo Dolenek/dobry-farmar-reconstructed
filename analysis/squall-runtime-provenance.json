@@ -979,6 +979,28 @@
       "source_difference": "Three ordered volatile binary32 input reads Z/Y/X;subsequent distance arithmetic retained",
       "current_sha256": "2852671b248f0d7275c1b30d1f2c9eedc30fbbd2fc860b0112c60365bb1970f9",
       "verification_report": "analysis/squall-pointer-regression.json"
+    },
+    {
+      "path": "Initialization.cpp",
+      "method": "Restore native pre-CPP x87 initialization and preserve SSE loader environment",
+      "original_addresses": [
+        "1003e814",
+        "1003cf10",
+        "1003eacb",
+        "1003cf24"
+      ],
+      "current_sha256": "0119db6f8b7d37f7a6f0ab3ed67b5a9adb199225daab5cd9544a7aee02bd5716",
+      "verification_report": "analysis/squall-loader-regression.json"
+    },
+    {
+      "path": "SoundEngine/Context.cpp",
+      "method": "Define original incoming-priority fallback index",
+      "original_addresses": [
+        "100024dc",
+        "10002504"
+      ],
+      "current_sha256": "8260b5fc606371d67294d52a9d03c8f83586933a77cf06756c1ae9e31aeb321a",
+      "verification_report": "analysis/squall-loader-regression.json"
     }
   ],
   "file_callback_behavior_verification": {

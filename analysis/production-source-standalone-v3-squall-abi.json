@@ -1,0 +1,789 @@
+{
+  "recorded_at_utc": "2026-11-07T08:33:26.128250+00:00",
+  "status": "matches_export_contract",
+  "original_name": "Squall.dll",
+  "original_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
+  "rebuilt_sha256": "84d47890048cce660b163677320781f891648157dd860106d9cea9e7b339b0d5",
+  "bits": 32,
+  "machine": "014c",
+  "exports": [
+    {
+      "ordinal": 1,
+      "names": [
+        "SQUALL_ChannelGroup_Pause"
+      ],
+      "rva": 9984,
+      "address": "10002700"
+    },
+    {
+      "ordinal": 2,
+      "names": [
+        "SQUALL_ChannelGroup_SetFrequency"
+      ],
+      "rva": 10160,
+      "address": "100027b0"
+    },
+    {
+      "ordinal": 3,
+      "names": [
+        "SQUALL_ChannelGroup_SetVolume"
+      ],
+      "rva": 10368,
+      "address": "10002880"
+    },
+    {
+      "ordinal": 4,
+      "names": [
+        "SQUALL_ChannelGroup_Stop"
+      ],
+      "rva": 10544,
+      "address": "10002930"
+    },
+    {
+      "ordinal": 5,
+      "names": [
+        "SQUALL_Channel_EAX_GetProperties"
+      ],
+      "rva": 10720,
+      "address": "100029e0"
+    },
+    {
+      "ordinal": 6,
+      "names": [
+        "SQUALL_Channel_EAX_SetProperties"
+      ],
+      "rva": 10976,
+      "address": "10002ae0"
+    },
+    {
+      "ordinal": 7,
+      "names": [
+        "SQUALL_Channel_Get3DPosition"
+      ],
+      "rva": 11248,
+      "address": "10002bf0"
+    },
+    {
+      "ordinal": 8,
+      "names": [
+        "SQUALL_Channel_GetConeParameters"
+      ],
+      "rva": 11456,
+      "address": "10002cc0"
+    },
+    {
+      "ordinal": 9,
+      "names": [
+        "SQUALL_Channel_GetFragment"
+      ],
+      "rva": 11744,
+      "address": "10002de0"
+    },
+    {
+      "ordinal": 10,
+      "names": [
+        "SQUALL_Channel_GetFragmentMs"
+      ],
+      "rva": 11984,
+      "address": "10002ed0"
+    },
+    {
+      "ordinal": 11,
+      "names": [
+        "SQUALL_Channel_GetFrequency"
+      ],
+      "rva": 12288,
+      "address": "10003000"
+    },
+    {
+      "ordinal": 12,
+      "names": [
+        "SQUALL_Channel_GetLength"
+      ],
+      "rva": 12464,
+      "address": "100030b0"
+    },
+    {
+      "ordinal": 13,
+      "names": [
+        "SQUALL_Channel_GetLengthMs"
+      ],
+      "rva": 12624,
+      "address": "10003150"
+    },
+    {
+      "ordinal": 14,
+      "names": [
+        "SQUALL_Channel_GetLoop"
+      ],
+      "rva": 12832,
+      "address": "10003220"
+    },
+    {
+      "ordinal": 15,
+      "names": [
+        "SQUALL_Channel_GetMinMaxDistance"
+      ],
+      "rva": 12976,
+      "address": "100032b0"
+    },
+    {
+      "ordinal": 16,
+      "names": [
+        "SQUALL_Channel_GetPan"
+      ],
+      "rva": 13216,
+      "address": "100033a0"
+    },
+    {
+      "ordinal": 17,
+      "names": [
+        "SQUALL_Channel_GetPlayPosition"
+      ],
+      "rva": 13408,
+      "address": "10003460"
+    },
+    {
+      "ordinal": 18,
+      "names": [
+        "SQUALL_Channel_GetPlayPositionMs"
+      ],
+      "rva": 13584,
+      "address": "10003510"
+    },
+    {
+      "ordinal": 19,
+      "names": [
+        "SQUALL_Channel_GetPriority"
+      ],
+      "rva": 13792,
+      "address": "100035e0"
+    },
+    {
+      "ordinal": 20,
+      "names": [
+        "SQUALL_Channel_GetVelocity"
+      ],
+      "rva": 13936,
+      "address": "10003670"
+    },
+    {
+      "ordinal": 21,
+      "names": [
+        "SQUALL_Channel_GetVolume"
+      ],
+      "rva": 14144,
+      "address": "10003740"
+    },
+    {
+      "ordinal": 22,
+      "names": [
+        "SQUALL_Channel_Pause"
+      ],
+      "rva": 14336,
+      "address": "10003800"
+    },
+    {
+      "ordinal": 23,
+      "names": [
+        "SQUALL_Channel_Set3DPosition"
+      ],
+      "rva": 14496,
+      "address": "100038a0"
+    },
+    {
+      "ordinal": 24,
+      "names": [
+        "SQUALL_Channel_SetConeParameters"
+      ],
+      "rva": 14736,
+      "address": "10003990"
+    },
+    {
+      "ordinal": 25,
+      "names": [
+        "SQUALL_Channel_SetFragment"
+      ],
+      "rva": 14992,
+      "address": "10003a90"
+    },
+    {
+      "ordinal": 26,
+      "names": [
+        "SQUALL_Channel_SetFragmentMs"
+      ],
+      "rva": 15184,
+      "address": "10003b50"
+    },
+    {
+      "ordinal": 27,
+      "names": [
+        "SQUALL_Channel_SetFrequency"
+      ],
+      "rva": 15408,
+      "address": "10003c30"
+    },
+    {
+      "ordinal": 28,
+      "names": [
+        "SQUALL_Channel_SetLoop"
+      ],
+      "rva": 15584,
+      "address": "10003ce0"
+    },
+    {
+      "ordinal": 29,
+      "names": [
+        "SQUALL_Channel_SetMinMaxDistance"
+      ],
+      "rva": 15808,
+      "address": "10003dc0"
+    },
+    {
+      "ordinal": 30,
+      "names": [
+        "SQUALL_Channel_SetPan"
+      ],
+      "rva": 16000,
+      "address": "10003e80"
+    },
+    {
+      "ordinal": 31,
+      "names": [
+        "SQUALL_Channel_SetPlayPosition"
+      ],
+      "rva": 16192,
+      "address": "10003f40"
+    },
+    {
+      "ordinal": 32,
+      "names": [
+        "SQUALL_Channel_SetPlayPositionMs"
+      ],
+      "rva": 16352,
+      "address": "10003fe0"
+    },
+    {
+      "ordinal": 33,
+      "names": [
+        "SQUALL_Channel_SetPriority"
+      ],
+      "rva": 16544,
+      "address": "100040a0"
+    },
+    {
+      "ordinal": 34,
+      "names": [
+        "SQUALL_Channel_SetVelocity"
+      ],
+      "rva": 16656,
+      "address": "10004110"
+    },
+    {
+      "ordinal": 35,
+      "names": [
+        "SQUALL_Channel_SetVolume"
+      ],
+      "rva": 16896,
+      "address": "10004200"
+    },
+    {
+      "ordinal": 36,
+      "names": [
+        "SQUALL_Channel_SetWorker"
+      ],
+      "rva": 17072,
+      "address": "100042b0"
+    },
+    {
+      "ordinal": 37,
+      "names": [
+        "SQUALL_Channel_Start"
+      ],
+      "rva": 17344,
+      "address": "100043c0"
+    },
+    {
+      "ordinal": 38,
+      "names": [
+        "SQUALL_Channel_Status"
+      ],
+      "rva": 17520,
+      "address": "10004470"
+    },
+    {
+      "ordinal": 39,
+      "names": [
+        "SQUALL_Channel_Stop"
+      ],
+      "rva": 17696,
+      "address": "10004520"
+    },
+    {
+      "ordinal": 40,
+      "names": [
+        "SQUALL_Channel_ZOOMFX_GetProperties"
+      ],
+      "rva": 17856,
+      "address": "100045c0"
+    },
+    {
+      "ordinal": 41,
+      "names": [
+        "SQUALL_Channel_ZOOMFX_SetProperties"
+      ],
+      "rva": 18096,
+      "address": "100046b0"
+    },
+    {
+      "ordinal": 42,
+      "names": [
+        "SQUALL_Free"
+      ],
+      "rva": 18336,
+      "address": "100047a0"
+    },
+    {
+      "ordinal": 43,
+      "names": [
+        "SQUALL_Get3DAlgorithm"
+      ],
+      "rva": 18624,
+      "address": "100048c0"
+    },
+    {
+      "ordinal": 44,
+      "names": [
+        "SQUALL_GetBufferSize"
+      ],
+      "rva": 18736,
+      "address": "10004930"
+    },
+    {
+      "ordinal": 45,
+      "names": [
+        "SQUALL_GetChannelsInfo"
+      ],
+      "rva": 18848,
+      "address": "100049a0"
+    },
+    {
+      "ordinal": 46,
+      "names": [
+        "SQUALL_GetDevice"
+      ],
+      "rva": 19168,
+      "address": "10004ae0"
+    },
+    {
+      "ordinal": 47,
+      "names": [
+        "SQUALL_GetDeviceCaps"
+      ],
+      "rva": 19280,
+      "address": "10004b50"
+    },
+    {
+      "ordinal": 48,
+      "names": [
+        "SQUALL_GetDeviceName"
+      ],
+      "rva": 19472,
+      "address": "10004c10"
+    },
+    {
+      "ordinal": 49,
+      "names": [
+        "SQUALL_GetEAXVersion"
+      ],
+      "rva": 19632,
+      "address": "10004cb0"
+    },
+    {
+      "ordinal": 50,
+      "names": [
+        "SQUALL_GetHardwareAcceleration"
+      ],
+      "rva": 19744,
+      "address": "10004d20"
+    },
+    {
+      "ordinal": 51,
+      "names": [
+        "SQUALL_GetNumDevice"
+      ],
+      "rva": 19936,
+      "address": "10004de0"
+    },
+    {
+      "ordinal": 52,
+      "names": [
+        "SQUALL_GetSpeakerMode"
+      ],
+      "rva": 19952,
+      "address": "10004df0"
+    },
+    {
+      "ordinal": 53,
+      "names": [
+        "SQUALL_Init"
+      ],
+      "rva": 20192,
+      "address": "10004ee0"
+    },
+    {
+      "ordinal": 54,
+      "names": [
+        "SQUALL_Listener_EAX_GetProperties"
+      ],
+      "rva": 20816,
+      "address": "10005150"
+    },
+    {
+      "ordinal": 55,
+      "names": [
+        "SQUALL_Listener_EAX_SetPreset"
+      ],
+      "rva": 21040,
+      "address": "10005230"
+    },
+    {
+      "ordinal": 56,
+      "names": [
+        "SQUALL_Listener_EAX_SetProperties"
+      ],
+      "rva": 21248,
+      "address": "10005300"
+    },
+    {
+      "ordinal": 57,
+      "names": [
+        "SQUALL_Listener_GetDistanceFactor"
+      ],
+      "rva": 21472,
+      "address": "100053e0"
+    },
+    {
+      "ordinal": 58,
+      "names": [
+        "SQUALL_Listener_GetDopplerFactor"
+      ],
+      "rva": 21632,
+      "address": "10005480"
+    },
+    {
+      "ordinal": 59,
+      "names": [
+        "SQUALL_Listener_GetParameters"
+      ],
+      "rva": 21792,
+      "address": "10005520"
+    },
+    {
+      "ordinal": 60,
+      "names": [
+        "SQUALL_Listener_GetPosition"
+      ],
+      "rva": 22144,
+      "address": "10005680"
+    },
+    {
+      "ordinal": 61,
+      "names": [
+        "SQUALL_Listener_GetRolloffFactor"
+      ],
+      "rva": 22320,
+      "address": "10005730"
+    },
+    {
+      "ordinal": 62,
+      "names": [
+        "SQUALL_Listener_GetVelocity"
+      ],
+      "rva": 22480,
+      "address": "100057d0"
+    },
+    {
+      "ordinal": 63,
+      "names": [
+        "SQUALL_Listener_SetDistanceFactor"
+      ],
+      "rva": 22656,
+      "address": "10005880"
+    },
+    {
+      "ordinal": 64,
+      "names": [
+        "SQUALL_Listener_SetDopplerFactor"
+      ],
+      "rva": 22864,
+      "address": "10005950"
+    },
+    {
+      "ordinal": 65,
+      "names": [
+        "SQUALL_Listener_SetParameters"
+      ],
+      "rva": 23072,
+      "address": "10005a20"
+    },
+    {
+      "ordinal": 66,
+      "names": [
+        "SQUALL_Listener_SetPosition"
+      ],
+      "rva": 23568,
+      "address": "10005c10"
+    },
+    {
+      "ordinal": 67,
+      "names": [
+        "SQUALL_Listener_SetRolloffFactor"
+      ],
+      "rva": 23808,
+      "address": "10005d00"
+    },
+    {
+      "ordinal": 68,
+      "names": [
+        "SQUALL_Listener_SetVelocity"
+      ],
+      "rva": 24016,
+      "address": "10005dd0"
+    },
+    {
+      "ordinal": 69,
+      "names": [
+        "SQUALL_Listener_SetWorker"
+      ],
+      "rva": 24272,
+      "address": "10005ed0"
+    },
+    {
+      "ordinal": 70,
+      "names": [
+        "SQUALL_Listener_Update"
+      ],
+      "rva": 24448,
+      "address": "10005f80"
+    },
+    {
+      "ordinal": 71,
+      "names": [
+        "SQUALL_Pause"
+      ],
+      "rva": 24576,
+      "address": "10006000"
+    },
+    {
+      "ordinal": 72,
+      "names": [
+        "SQUALL_SampleGroup_Play"
+      ],
+      "rva": 24736,
+      "address": "100060a0"
+    },
+    {
+      "ordinal": 73,
+      "names": [
+        "SQUALL_SampleGroup_Play3D"
+      ],
+      "rva": 24928,
+      "address": "10006160"
+    },
+    {
+      "ordinal": 74,
+      "names": [
+        "SQUALL_SampleGroup_Play3DEx"
+      ],
+      "rva": 25184,
+      "address": "10006260"
+    },
+    {
+      "ordinal": 75,
+      "names": [
+        "SQUALL_SampleGroup_PlayEx"
+      ],
+      "rva": 25392,
+      "address": "10006330"
+    },
+    {
+      "ordinal": 76,
+      "names": [
+        "SQUALL_Sample_GetDefault"
+      ],
+      "rva": 25536,
+      "address": "100063c0"
+    },
+    {
+      "ordinal": 77,
+      "names": [
+        "SQUALL_Sample_GetFileFrequency"
+      ],
+      "rva": 25600,
+      "address": "10006400"
+    },
+    {
+      "ordinal": 78,
+      "names": [
+        "SQUALL_Sample_GetFileLength"
+      ],
+      "rva": 25648,
+      "address": "10006430"
+    },
+    {
+      "ordinal": 79,
+      "names": [
+        "SQUALL_Sample_GetFileLengthMs"
+      ],
+      "rva": 25696,
+      "address": "10006460"
+    },
+    {
+      "ordinal": 80,
+      "names": [
+        "SQUALL_Sample_LoadFile"
+      ],
+      "rva": 25792,
+      "address": "100064c0"
+    },
+    {
+      "ordinal": 81,
+      "names": [
+        "SQUALL_Sample_Pause"
+      ],
+      "rva": 25872,
+      "address": "10006510"
+    },
+    {
+      "ordinal": 82,
+      "names": [
+        "SQUALL_Sample_Play"
+      ],
+      "rva": 26048,
+      "address": "100065c0"
+    },
+    {
+      "ordinal": 83,
+      "names": [
+        "SQUALL_Sample_Play3D"
+      ],
+      "rva": 26208,
+      "address": "10006660"
+    },
+    {
+      "ordinal": 84,
+      "names": [
+        "SQUALL_Sample_Play3DEx"
+      ],
+      "rva": 26448,
+      "address": "10006750"
+    },
+    {
+      "ordinal": 85,
+      "names": [
+        "SQUALL_Sample_PlayEx"
+      ],
+      "rva": 26624,
+      "address": "10006800"
+    },
+    {
+      "ordinal": 86,
+      "names": [
+        "SQUALL_Sample_SetDefault"
+      ],
+      "rva": 26752,
+      "address": "10006880"
+    },
+    {
+      "ordinal": 87,
+      "names": [
+        "SQUALL_Sample_Stop"
+      ],
+      "rva": 26816,
+      "address": "100068c0"
+    },
+    {
+      "ordinal": 88,
+      "names": [
+        "SQUALL_Sample_Unload"
+      ],
+      "rva": 26992,
+      "address": "10006970"
+    },
+    {
+      "ordinal": 89,
+      "names": [
+        "SQUALL_Sample_UnloadAll"
+      ],
+      "rva": 27008,
+      "address": "10006980"
+    },
+    {
+      "ordinal": 90,
+      "names": [
+        "SQUALL_Set3DAlgorithm"
+      ],
+      "rva": 27024,
+      "address": "10006990"
+    },
+    {
+      "ordinal": 91,
+      "names": [
+        "SQUALL_SetBufferSize"
+      ],
+      "rva": 27168,
+      "address": "10006a20"
+    },
+    {
+      "ordinal": 92,
+      "names": [
+        "SQUALL_SetDevice"
+      ],
+      "rva": 27296,
+      "address": "10006aa0"
+    },
+    {
+      "ordinal": 93,
+      "names": [
+        "SQUALL_SetFileCallbacks"
+      ],
+      "rva": 27440,
+      "address": "10006b30"
+    },
+    {
+      "ordinal": 94,
+      "names": [
+        "SQUALL_SetHardwareAcceleration"
+      ],
+      "rva": 27536,
+      "address": "10006b90"
+    },
+    {
+      "ordinal": 95,
+      "names": [
+        "SQUALL_SetMemoryCallbacks"
+      ],
+      "rva": 27680,
+      "address": "10006c20"
+    },
+    {
+      "ordinal": 96,
+      "names": [
+        "SQUALL_SetSpeakerMode"
+      ],
+      "rva": 27744,
+      "address": "10006c60"
+    },
+    {
+      "ordinal": 97,
+      "names": [
+        "SQUALL_Stop"
+      ],
+      "rva": 27968,
+      "address": "10006d40"
+    }
+  ],
+  "failures": [],
+  "note": "Checks the PE export contract, not runtime behavior or exception ABI"
+}

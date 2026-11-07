@@ -1,6 +1,6 @@
 {
   "status": "all_97_export_contracts_present_whole_behavior_audit_incomplete",
-  "rebuilt_sha256": "4436cfbb6beb3beaaaf002985b08e3b7c9662f51ddf9f994b0f407c3e6893c93",
+  "rebuilt_sha256": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9",
   "reference_sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021",
   "exports": [
     {
@@ -3117,7 +3117,8 @@
         },
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
-      }
+      },
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_SampleGroup_Play3D",
@@ -3377,7 +3378,8 @@
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
       },
-      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated"
+      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated",
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_SampleGroup_Play3DEx",
@@ -3584,7 +3586,8 @@
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
       },
-      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated"
+      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated",
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_SampleGroup_PlayEx",
@@ -3673,7 +3676,8 @@
         },
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
-      }
+      },
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_Sample_GetDefault",
@@ -3971,7 +3975,8 @@
         },
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
-      }
+      },
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_Sample_Play3D",
@@ -4162,7 +4167,8 @@
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
       },
-      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated"
+      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated",
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_Sample_Play3DEx",
@@ -4300,7 +4306,8 @@
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
       },
-      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated"
+      "loaded_DLL_pointer_fault_scope": "Both builds,PC53/PC24;actual null/bad/guard/extent/readonly3D inputs and cone outputs;exact fault byte,access,exception and remaining output words;owned fault probes explicitly terminated",
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_Sample_PlayEx",
@@ -4376,7 +4383,8 @@
         },
         "return_role": "Integer32 encoded channel ID or negative error in EAX on balanced C3 return",
         "whole_behavior_verified": false
-      }
+      },
+      "loaded_DLL_preemption_scope": "Both builds,PC53/PC24;four prepared occupied channels,ascending and tied priorities;all8 public play methods;incoming-priority fallback and last-minimum selection;528 exact isolated processes"
     },
     {
       "name": "SQUALL_Sample_SetDefault",
@@ -4894,8 +4902,11 @@
     "analysis/squall-sample-selection-fresh-validation.json"
   ],
   "current_contract_reports": [
-    "analysis/squall-pointer-abi-validation.json",
-    "analysis/squall-pointer-abi-fresh-validation.json"
+    "analysis/squall-loader-abi-validation.json",
+    "analysis/squall-loader-abi-fresh-validation.json"
   ],
-  "native_signature_semantics_verified_count": 97
+  "native_signature_semantics_verified_count": 97,
+  "loader_environment_reports": [
+    "analysis/squall-loader-fpu-validation.json"
+  ]
 }
