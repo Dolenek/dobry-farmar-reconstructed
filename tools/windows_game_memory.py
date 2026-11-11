@@ -119,7 +119,7 @@ class TutorialMemory:
         for _ in range(3):
             try:return self._visible_scene(time.monotonic()+.5)
             except SceneSnapshotChanged as error:last=error;time.sleep(.02)
-        raise SceneSnapshotChanged('Could not observe a stable scene without stopping its thread') from last
+        raise SceneSnapshotChanged('Could not observe a stable scene without stopping its thread: '+str(last)) from last
 
     def _visible_scene(self,deadline):
         if self.kind == 'native':

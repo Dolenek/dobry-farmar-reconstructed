@@ -69,13 +69,30 @@ def main():
         'user_accepted_documented_sufficient_tracker_allocation_exception')
     pending=[]
     host_hold=ROOT/'.local/desktop-runtime-hold.json'
+    monitored_restore = False
     if host_hold.exists() and read(host_hold).get('active',True):
-        pending.append('Resolve reported host Windows/display freeze and validate revised observer/runtime paths under the independently monitored host authorization;unmonitored host interactive tests are held')
+        restore_path = ROOT / 'analysis/monitored-source-restore-validation.json'
+        if restore_path.exists():
+            restore = read(restore_path)
+            assert restore['status'] == 'passed_monitored_actual_restore_and_paused_read_only_scene'
+            for trial in restore['trials']:
+                for key in ['raw_report', 'watchdog_log', 'window_log', 'input_log']:
+                    ref = trial[key]
+                    assert digest(ROOT / ref['path']) == ref['sha256'], ref['path']
+            monitored_restore = any(trial['restored_farm'] and trial['observed_fields'] == 60 and
+                trial['game_exit'] == trial['watchdog_exit'] == 0 and trial['live_owned_processes_at_end'] == 0
+                for trial in restore['trials'])
+        if not monitored_restore:
+            pending.append('Validate actual farm restore, input and revised observer under the independently monitored host authorization')
     if not contracts:
         pending.extend(['Finish actual40-contract award in both complete executable processes from genuine retained checkpoints',
             'Verify four complete checkpoint40 cross-restores with both current source DLLs'])
     if not awards:pending.append('Finish current final collect-all award lifecycle comparison,keeping requested-panel diagnostics distinct from natural attainment')
-    if not warnings:pending.append('Verify complete-game tutorial warning paths40,41,42,44 and document native reachability of unused data indices0/10')
+    if not warnings:
+        partial = warning_gate.get('report')
+        completed_steps = set(read(ROOT / partial).get('verified_steps', [])) if partial else set()
+        remaining_steps = sorted({40, 41, 42, 44} - completed_steps)
+        pending.append(f'Verify remaining complete-game tutorial warning paths {remaining_steps} and audit all four paired reports')
     if not audio:pending.append('Verify nonzero Windows audio output from actual native and source game processes;keep exact decoded PCM and audible-output scopes distinct')
     if not accepted:pending.append('Resolve explicit native tracker allocation fidelity decision;retain material codec/device/uninitialized-input verification limits')
     audit_path=ROOT/'analysis/original-goal-completion-audit.json'
@@ -99,11 +116,12 @@ def main():
         full_reconstruction_pending=pending)
     v['goal_status_reconciliation']=dict(recorder_sha256=digest(__file__),source_build_proved=True,
         contract40_and_four_restores_proved=contracts,current_final_awards_proved=awards,
+        independently_monitored_farm_restore_and_observer_proved=monitored_restore,
         complete_game_tutorial_warning_paths_proved=warnings,
         actual_game_Windows_audio_output_proved=audio,
         tracker_allocation_exception_explicitly_accepted=bool(accepted),six_criteria_final_audit_proved=final_audit,
         whole_goal_claimed_complete=complete)
-    if not warnings:v['current_tutorial_warning_gate']=dict(report='analysis/current-tutorial-runtime-coverage.json',complete=False,required_actual_steps=[40,41,42,44])
+    if not warnings:v.setdefault('current_tutorial_warning_gate',dict(report='analysis/current-tutorial-runtime-coverage.json',complete=False,required_actual_steps=[40,41,42,44]))
     for name in ['analysis/current-tutorial-runtime-coverage.json','analysis/native-tracker-fidelity-decision.json']:
         if (ROOT/name).exists() and name not in v['reports']:v['reports'].append(name)
     paths=[ROOT/'CMakeLists.txt']+[p for folder in ['src','tools','tests'] for p in (ROOT/folder).rglob('*')

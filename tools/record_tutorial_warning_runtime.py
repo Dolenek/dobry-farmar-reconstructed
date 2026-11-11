@@ -109,6 +109,7 @@ def main():
             difference_bounds=delta.getbbox(),raw_driver_empty_area_comparison_not_used=
                 sstage.get('text_composite_pixel_comparison',{}).get('pixels')==0,
             whole_timed_world_frame_equality_claimed=False)
+        assert pixels['identical'], (case, pixels)
         comparisons.append(dict(case=case,step=CASES[case],normal_process_exits=[0,0],
             text_glyphs_exact=len(nstage['glyph_geometry_and_sprites']),bubble_geometry_sprite_alpha_flags_exact=True,
             text_composite_pixel_comparison=pixels,

@@ -43,14 +43,18 @@ def main():
         with suite.open('source','monitored_restore_audio',directory) as active:
             initial=active.state();active.session['initial_state']=initial
             active.capture('monitored-restored-farm')
+            active.pause(True)
             try:
                 scene=active.observer.visible_scene(active.hwnd)
                 fields=read_live_farm_fields(active.observer,ROOT,field_layout,scene)
                 assert len(scene)>100 and len(fields)==60 and all(field['active'] for field in fields)
                 active.session['scene_observation']=dict(stable_topology_observed=True,controls=len(scene),
-                    all60_actual_field_identities_and_active_flags_observed=True,fields=fields,atomic_frame_claimed=False)
+                    all60_actual_field_identities_and_active_flags_observed=True,fields=fields,atomic_frame_claimed=False,
+                    ordinary_game_pause_used=True,render_or_UI_thread_suspended=False)
             except SceneSnapshotChanged as error:
                 active.session['scene_observation']=dict(stable_topology_observed=False,error=str(error),atomic_frame_claimed=False)
+            finally:
+                active.pause(False)
             audio=ROOT/'build/process-audio-capture/Release/process-audio-capture.exe'
             active.probe.progress('before-owned-process-audio-capture')
             with (work/'source-audio.log').open('wb') as output,(work/'source-audio-stderr.log').open('wb') as errors:

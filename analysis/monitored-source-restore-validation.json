@@ -1,0 +1,131 @@
+{
+  "status": "passed_monitored_actual_restore_and_paused_read_only_scene",
+  "recorded_at_utc": "2026-11-11T15:10:49.544571+00:00",
+  "recorder_sha256": "5869e9c834e4d67a686fa4bed1dffe69d2f15c6b6db160666e9f8f7e3a73c54a",
+  "trials": [
+    {
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0733513780171Z/source-restore/report.json",
+        "sha256": "23a7076d40d5a6478481a5e5dcace5b18ad372f70304dc52de20dd5dafbd2b7d"
+      },
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0733513780171Z/watchdog.jsonl",
+        "sha256": "6d1795c9728466a48749aaf492e8798df398328ada580adaca8c62c1a4eaef23"
+      },
+      "window_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0733513780171Z/owned-window-health.jsonl",
+        "sha256": "55e159f3be3fa9ed7968a755b819676ae4b6150914e5ad73e40268f140b37cff"
+      },
+      "input_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0733513780171Z/input-api-timings.jsonl",
+        "sha256": "e1263081fb89cfe4bf2494daf7d6c668fdd8e6b3b0ead6d413c649da4e859cf0"
+      },
+      "driver_exit": 1,
+      "game_exit": 0,
+      "watchdog_exit": 0,
+      "live_owned_processes_at_end": 0,
+      "window_responses": 11,
+      "window_observations": 13,
+      "host_cpu_percent_range": [
+        7.33772,
+        19.0257
+      ],
+      "minimum_host_available_physical_bytes": 5464195072,
+      "mouse_press_release_pairs": 1,
+      "maximum_input_api_seconds": 0.0,
+      "restored_farm": false,
+      "scene": {},
+      "observed_fields": 0,
+      "error": "AssertionError(('Injected pointer missed owned window target', (392, 369), (400, 365)))"
+    },
+    {
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-restore/report.json",
+        "sha256": "94c58a2faa0903380371beb8c6627ffbc8a75b8c610281103302c3e7560a36dc"
+      },
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/watchdog.jsonl",
+        "sha256": "0084045a21aa83ae222f714b4b223ab5ea2ffe5fb980bb5e8aa0ed3b538c5419"
+      },
+      "window_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/owned-window-health.jsonl",
+        "sha256": "488fa53ae50cb9481c48663579b5fa78481c1c3146344d2156afa3e189b7bb6c"
+      },
+      "input_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/input-api-timings.jsonl",
+        "sha256": "7d2fe64b6c988ddeb717522995aace294f2da74a1ba7ec6c061e9641e5d3008c"
+      },
+      "driver_exit": 0,
+      "game_exit": 0,
+      "watchdog_exit": 0,
+      "live_owned_processes_at_end": 0,
+      "window_responses": 18,
+      "window_observations": 20,
+      "host_cpu_percent_range": [
+        9.28309,
+        37.5906
+      ],
+      "minimum_host_available_physical_bytes": 5077766144,
+      "mouse_press_release_pairs": 1,
+      "maximum_input_api_seconds": 0.014999999999417923,
+      "restored_farm": true,
+      "scene": {
+        "stable_topology_observed": false,
+        "error": "Could not observe a stable scene without stopping its thread",
+        "atomic_frame_claimed": false
+      },
+      "observed_fields": 0,
+      "error": null
+    },
+    {
+      "raw_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0736581422413Z/source-restore/report.json",
+        "sha256": "452840697f7ea7099b366be5eb92532b29740c7408e495dd3cbc2e9c39159a3d"
+      },
+      "watchdog_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0736581422413Z/watchdog.jsonl",
+        "sha256": "53e4ed73d5f7a0617dd80a4cc1bce6b986b09c534e5c1b797cb50821e9d85528"
+      },
+      "window_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0736581422413Z/owned-window-health.jsonl",
+        "sha256": "63b0a4d9052461f36c5041bcd1d8c924aeb7ecadc8de8bd47307b876972206da"
+      },
+      "input_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0736581422413Z/input-api-timings.jsonl",
+        "sha256": "a66172a2f9400014dd26d55dc08b1ea390d2bb7164ec2157046fac972fae55f1"
+      },
+      "driver_exit": 0,
+      "game_exit": 0,
+      "watchdog_exit": 0,
+      "live_owned_processes_at_end": 0,
+      "window_responses": 18,
+      "window_observations": 20,
+      "host_cpu_percent_range": [
+        6.11872,
+        18.4448
+      ],
+      "minimum_host_available_physical_bytes": 5111992320,
+      "mouse_press_release_pairs": 1,
+      "maximum_input_api_seconds": 0.01599999999598367,
+      "restored_farm": true,
+      "scene": {
+        "stable_topology_observed": true,
+        "controls": 446,
+        "all60_actual_field_identities_and_active_flags_observed": true,
+        "atomic_frame_claimed": false,
+        "ordinary_game_pause_used": true,
+        "render_or_UI_thread_suspended": false
+      },
+      "observed_fields": 60,
+      "error": null
+    }
+  ],
+  "revised_scene_tree_runtime_validated": true,
+  "physical_display_proven_by_counter_alone": false,
+  "host_freeze_root_cause_proven": false,
+  "incident_resolved": false,
+  "original_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "whole_game_complete": false
+}

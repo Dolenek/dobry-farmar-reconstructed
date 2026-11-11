@@ -1,0 +1,127 @@
+{
+  "status": "passed_nonzero_Windows_process_loopback_from_actual_native_and_source_game_only",
+  "recorded_at_utc": "2026-11-08T07:35:59.477507+00:00",
+  "recorder_sha256": "3c4cefe99f42fa6af26a6f5632cc7eb68adfdd24000e49c0e857eaa130c9b388",
+  "capture_program": {
+    "path": "build/process-audio-capture/Release/process-audio-capture.exe",
+    "sha256": "289694d3e0789dbe4ee452a847078abbc175322a93200852ce054068ab234eaa"
+  },
+  "source_files": {
+    "tools/process_audio_capture.cpp": "b6f353e227fd116f3765d7d194570a7265186448cb5d8326ae6416f945c6479a",
+    "tools/process_audio_capture/CMakeLists.txt": "fca5ec37ee8ac684cbfd49b4fc3a794d8f943bf47fdc19fad83dbb7846783606"
+  },
+  "API_provenance": "https://learn.microsoft.com/en-us/samples/microsoft/windows-classic-samples/applicationloopbackaudio-sample/",
+  "captures": [
+    {
+      "kind": "native",
+      "runtime_report": {
+        "path": ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json",
+        "sha256": "516804c54076c2e55f0f49734435f0803285799ec71e55ccdfdb847a96c6e1f0"
+      },
+      "runtime_driver_status": "failed",
+      "session_index": 1,
+      "pid": 18024,
+      "actual_game_normal_exit": 0,
+      "loaded_game_dlls": {
+        "jngload.dll": {
+          "path": "farmář/Dobrý farmář/JNGLoad.dll",
+          "sha256": "8fd28e08e7f5325a6b3d738d1b51a2d99659f8c84d623285bc670134bbabb687"
+        },
+        "squall.dll": {
+          "path": "farmář/Dobrý farmář/Squall.dll",
+          "sha256": "712eab657dd5b2b50014a4fb678f69ab1ef461215d68f7fe621f048ec5da5021"
+        }
+      },
+      "capture_log": {
+        "path": ".local/native-game-live-loopback.log",
+        "sha256": "9b40d6205173f107e035b9cfb62d97a178606e1b69b81b82e0e66b19c633442a"
+      },
+      "captured_pcm": {
+        "path": ".local/native-game-live-loopback.pcm",
+        "sha256": "939c648fd7668199f6200144145819f0c0332064c61408bb0f19d4dea679e347",
+        "bytes": 690728
+      },
+      "nonzero_samples": 279950,
+      "peak": 11953,
+      "rms": 1087.1867561491927,
+      "actual_capture_statistics": {
+        "event": "completed",
+        "pid": 18024,
+        "frames": 172682,
+        "packets": 370,
+        "silent_packets": 0,
+        "discontinuities": 0,
+        "nonzero_samples": 279950,
+        "peak": 11953,
+        "rms": 1087.19,
+        "elapsed_ms": 4000
+      }
+    },
+    {
+      "kind": "source",
+      "runtime_report": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-restore/report.json",
+        "sha256": "94c58a2faa0903380371beb8c6627ffbc8a75b8c610281103302c3e7560a36dc"
+      },
+      "runtime_driver_status": "passed_actual_source_restored_checkpoint_and_process_audio_capture_only",
+      "session_index": 0,
+      "pid": 10112,
+      "actual_game_normal_exit": 0,
+      "loaded_game_dlls": {
+        "jngload.dll": {
+          "path": "dobry-farmar-reconstructed/.local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-restore/runtime/JNGLoad.dll",
+          "sha256": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7"
+        },
+        "squall.dll": {
+          "path": "dobry-farmar-reconstructed/.local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-restore/runtime/Squall.dll",
+          "sha256": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9"
+        }
+      },
+      "capture_log": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-audio.log",
+        "sha256": "2f8aacbd917a95c9d7d4f465ab58da34004cdfca4974b86e3e203b0ccca5ed61"
+      },
+      "captured_pcm": {
+        "path": ".local/monitored-host-runtime/source-restore-20261108T0735144268386Z/source-audio.pcm",
+        "sha256": "55d0dd1b87c7bf294f9e757099a74680f7967bffdcc983e252d8d59fd7f38594",
+        "bytes": 697480
+      },
+      "nonzero_samples": 345868,
+      "peak": 3502,
+      "rms": 468.1641692508137,
+      "actual_capture_statistics": {
+        "event": "completed",
+        "pid": 10112,
+        "frames": 174370,
+        "packets": 371,
+        "silent_packets": 0,
+        "discontinuities": 0,
+        "nonzero_samples": 345868,
+        "peak": 3502,
+        "rms": 468.164,
+        "elapsed_ms": 4000
+      }
+    }
+  ],
+  "implementation_files": {
+    "FarmarTutorialWarnings.exe": "c498b41195808851f4f2560030796096eaf74ef8a45517c4929d8bd7080d0393",
+    "JNGLoad.dll": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+    "Squall.dll": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9"
+  },
+  "related_exact_PCM_and_API_reports": {
+    "analysis/squall-loader-regression.json": "7c30a1f6ff1d076617ac46d444c16d64802de203628efdda34269da983efde9a",
+    "analysis/squall-loader-game-audio-validation.json": "7e496bafbb0651f85ef77730b56f08619514740ed3c2e1c56e05256d05704798",
+    "analysis/squall-loader-person-sounds-validation.json": "876872700f0233f5d8d5fa7530e49e855c4be740c97ec414e65a9110c69ca3a4",
+    "analysis/squall-loader-play-validation.json": "6320ee967ee6c147dec577944ec08e415ab80f5ba8306e8f60c3021ce036050a"
+  },
+  "process_tree_only": true,
+  "microphone_or_other_application_audio_captured": false,
+  "independently_timed_Windows_mix_waveforms_claimed_bit_identical": false,
+  "physical_speaker_DAC_or_subjective_listening_compared": false,
+  "original_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run": false,
+  "whole_game_complete": false
+}

@@ -10,6 +10,7 @@ def fields(t,layout):
 
 def queue_fields(t,targets):
     assert t.paused
+    t.pause(True)
     initial=t.state();baseline=sum((r['texture'] or '').lower()=='person/mark.jng'
         for r in t.observer.visible_scene(t.hwnd))
     observations=[]

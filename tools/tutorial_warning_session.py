@@ -54,12 +54,14 @@ class WarningSuite:
     def __init__(self,work):
         self.work=Path(work).resolve();self.work.mkdir(parents=True,exist_ok=False)
         self.data=ROOT.parent/'farm\u00e1\u0159/Dobr\u00fd farm\u00e1\u0159/Data'
+        self.probe=WarningGui(self.work,self.data)
         self.runtime=self.work/'runtime';self.runtime.mkdir()
         self.inventory=read(ROOT/'analysis/inventory.json');self.unchanged()
+        self.probe.progress('copying-original-data-to-owned-runtime')
         shutil.copytree(self.data,self.runtime/'Data')
         files={'FarmarTutorialWarnings.exe':'Dobr\u00fd farm\u00e1\u0159.exe','JNGLoad.dll':'JNGLoad.dll','Squall.dll':'Squall.dll'}
         for output,source in files.items():shutil.copy2(ROOT/'build/windows/Release'/source,self.runtime/output)
-        self.probe=WarningGui(self.work,self.data)
+        self.probe.progress('reading-startup-templates-and-layout')
         prior=read(ROOT/'.local/application-runtime-validation.json')
         self.menu_file=ROOT/prior['work_directory']/'0-03-menu.png'
         self.hud_file=ROOT/prior['work_directory']/'0-04-game.png'
@@ -85,7 +87,9 @@ class WarningSuite:
             self.report['source_file_snapshots'][key]=target.relative_to(ROOT).as_posix()
 
     def unchanged(self):
-        for row in self.inventory['files']:assert digest(self.data.parent/row['path'])==row['sha256'],row['path']
+        for row in self.inventory['files']:
+            self.probe.progress('checking-original-file-digests')
+            assert digest(self.data.parent/row['path'])==row['sha256'],row['path']
 
     def shortcut(self,code):
         for scan,down in [(0x38,True),(code,True),(code,False),(0x38,False)]:
@@ -93,7 +97,10 @@ class WarningSuite:
             event.keyboard=KEY(0,scan&0x7f,8|(1 if scan&0x80 else 0)|(0 if down else 2),0,0)
             assert u.SendInput(1,C.byref(event),C.sizeof(event))==1;time.sleep(.1)
 
-    def click(self,x,y):self.probe.click(self.hwnd,x,y)
+    def click(self,x,y):
+        if self.paused:
+            self.pause(True)
+        self.probe.click(self.hwnd,x,y)
     def capture(self,label):return self.probe.capture(f'{self.index}-{label}.png')
 
     def counters(self):
@@ -119,21 +126,38 @@ class WarningSuite:
             time.sleep(.05)
         return self.capture(label)
 
-    def pause(self,value):
-        if self.paused==value:return
-        self.shortcut(0xc5)
-        if value:
-            deadline=time.monotonic()+5;previous=None;stable=time.monotonic()
-            while True:
-                current=(self.observer.property('floats','GameTime'),self.counters()['elapsed'])
-                if current!=previous:previous=current;stable=time.monotonic()
-                if time.monotonic()-stable>=.35:break
-                assert time.monotonic()<deadline,'Original pause did not settle';time.sleep(.05)
-        self.paused=value
-        self.session.setdefault('actual_pause_changes',[]).append(dict(paused=value,game_time=self.observer.property('floats','GameTime')))
+    def _clock(self):
+        return self.observer.property('floats','GameTime'), self.counters()['elapsed']
+
+    def _clock_matches_pause(self, paused):
+        start = time.monotonic()
+        initial = self._clock()
+        while time.monotonic() - start < .35:
+            self.probe.check_process()
+            time.sleep(.05)
+            if self._clock() != initial:
+                return not paused
+        return paused
+
+    def pause(self, value):
+        # WM_ACTIVATEAPP can reset the game pause independently of the shortcut
+        # toggle. Check the game clock after taking foreground, before input.
+        self.probe.focus()
+        if self.paused == value and self._clock_matches_pause(value):
+            return
+        for attempt in range(1, 3):
+            self.shortcut(0xc5)
+            if self._clock_matches_pause(value):
+                self.paused = value
+                self.session.setdefault('actual_pause_changes', []).append(dict(
+                    paused=value, game_time=self._clock()[0], shortcut_attempts=attempt))
+                return
+        raise AssertionError(('Game clock did not confirm requested pause state', value, self._clock()))
 
     @contextmanager
     def open(self,kind,case,profiles):
+        self.probe.hwnd = None
+        self.probe.progress('preparing-owned-game-session', kind=kind, case=case)
         self.index=len(self.report['sessions']);shared=self.work/f'{self.index}-shared';common=shared/'VirtualFarm'
         common.mkdir(parents=True);profiles=Path(profiles).resolve(strict=True)
         shutil.copytree(profiles,common/'Profiles')

@@ -91,7 +91,18 @@ class GameGui:
         if label==self._last_progress and now-self._last_progress_time<.2:return
         directory=self._runtime_watchdog['directory'];path=directory/'progress.json'
         event=dict(driver_pid=os.getpid(),monotonic=now,label=label,**values)
-        temporary=path.with_suffix('.tmp');temporary.write_bytes((json.dumps(event)+'\n').encode('utf-8'));temporary.replace(path)
+        temporary = path.with_suffix('.tmp')
+        temporary.write_bytes((json.dumps(event) + '\n').encode('utf-8'))
+        deadline = now + .25
+        while True:
+            try:
+                temporary.replace(path)
+                break
+            except PermissionError as error:
+                # A concurrent reader on Windows can briefly deny replacement.
+                if getattr(error, 'winerror', None) not in (5, 32) or time.monotonic() >= deadline:
+                    raise
+                time.sleep(.01)
         if label!=self._last_progress or now-self._last_progress_time>=1:
             with (directory/'driver-events.jsonl').open('a',encoding='utf-8') as output:output.write(json.dumps(event)+'\n')
         self._last_progress=label;self._last_progress_time=now

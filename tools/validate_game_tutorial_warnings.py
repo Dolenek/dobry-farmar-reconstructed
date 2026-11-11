@@ -14,6 +14,7 @@ from record_live_production_verification import ROOT,digest,read,write
 from tutorial_warning_session import WarningSuite
 from live_farm_fields import read_live_farm_fields
 from desktop_runtime_hold import require_desktop_runtime_available
+from read_only_scene_tree import SceneSnapshotChanged
 
 
 parser=argparse.ArgumentParser(description=__doc__)
@@ -96,30 +97,53 @@ def glyph_bounds(signature):
 
 def observe_warning(t,case,index):
     deadline=time.monotonic()+90
+    def try_scene():
+        try:return t.observer.visible_scene(t.hwnd)
+        except SceneSnapshotChanged as error:
+            t.session.setdefault('rejected_concurrent_scene_observations',[]).append(dict(step=index,error=str(error)))
+            t.probe.check_process()
+            assert time.monotonic()<deadline,('No stable warning scene before deadline',index)
+            time.sleep(.05)
+            return None
     while t.observer.step()!=index:
         t.probe.focus();t.probe.check_process()
         if t.observer.step()!=-1:service_incidental(t)
         assert time.monotonic()<deadline,('Actual warning did not open',index,t.state())
         time.sleep(.05)
+    # MultilineText loads this depth into its TextLine prototype. Its own
+    # Control depth is not the rendered letters' depth (004f5e70/004dd350).
+    definition = t.probe.resource('Tutorial/ActionTip.xml').find('Text')
+    depth = float(definition.get('deep'))
+    font = definition.get('Texture').lower()
+    previous_signature = None
     while True:
-        controls=t.observer.snapshot('Action')
-        # MultilineText loads this depth into its TextLine prototype. Its own
-        # Control depth is not the rendered letters' depth (004f5e70/004dd350).
-        definition=t.probe.resource('Tutorial/ActionTip.xml').find('Text')
-        depth=float(definition.get('deep'));font=definition.get('Texture').lower()
-        scene=t.observer.visible_scene(t.hwnd)
-        glyphs=[row for row in scene if (row['texture'] or '').lower()==font and 0<=row['deep']-depth<1]
-        if controls['image']['alpha']>=.999 and controls['image']['state'][2]==0 and glyphs:
-            signature=sorted([[r['geometry'],r['sprite']] for r in glyphs]);time.sleep(.25)
-            late=t.observer.visible_scene(t.hwnd)
-            again=[r for r in late if (r['texture'] or '').lower()==font and 0<=r['deep']-depth<1]
-            if signature==sorted([[r['geometry'],r['sprite']] for r in again]):break
+        t.probe.check_process()
         assert time.monotonic()<deadline,('Actual warning text did not finish',index)
-        time.sleep(.05)
+        controls = t.observer.snapshot('Action')
+        if controls['image']['alpha'] < .999 or controls['image']['state'][2] != 0:
+            time.sleep(.05)
+            continue
+        t.pause(True)
+        try:
+            controls = t.observer.snapshot('Action')
+            scene = try_scene()
+            if scene is not None:
+                signature = sorted([row['geometry'], row['sprite']] for row in scene
+                    if (row['texture'] or '').lower() == font and 0 <= row['deep'] - depth < 1)
+                if signature and signature == previous_signature:
+                    image = t.capture(f'{case}-warning-{index}')
+                    state = t.state()
+                    assert state['tutorial'] == index
+                    break
+                previous_signature = signature
+        finally:
+            t.pause(False)
+        # Compare separate observations with the actual animation running in between.
+        time.sleep(.25)
     bounds=glyph_bounds(signature)
-    image=t.capture(f'{case}-warning-{index}')
     stage=dict(step=index,case=case,controls=controls,glyph_geometry_and_sprites=signature,
-        text_bounds=bounds,screenshot=f'{t.index}-{case}-warning-{index}.png',state=t.state())
+        text_bounds=bounds,screenshot=f'{t.index}-{case}-warning-{index}.png',state=state,
+        scene_observed_during_ordinary_game_pause=True)
     key=(case,index)
     if t.observer.kind=='native':templates[key]=stage
     elif key in templates:

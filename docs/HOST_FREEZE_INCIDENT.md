@@ -60,4 +60,8 @@ Osmisekundový source startup bez vstupu skončil0 pod20s limitem. Má24 pozorov
 
 Dva navazující pokusy o obnovu skončily před vstupem kvůli fokusu. Poslední přesně zaznamenal SetForegroundWindow=0, žádné SendInput se neprovedlo, oba herní procesy skončily0 a nezůstal živý vlastní proces. Asynchronní aktivace se nově potvrzuje omezeným WM_NULL; odmítnutí Windows se neobchází. Připravený je nanejvýš20s interval pro skutečnou aktivaci okna uživatelem, pouze na výslovnou volbu konkrétního hlídaného pokusu. Viz `analysis/monitored-probe-initial-observations.json`.
 
-Tyto výsledky neuzavírají příčinu původního zamrznutí, skutečné nové čtení farmářské scény ani další herní výstrahy. Hlídač nezaručuje obnovu po tvrdém pádu grafického ovladače nebo jádra Windows.
+Uživatel následně uvedl, že běžné testy fungují a sekání začalo při testování achievementů. Příčina zamrznutí zůstává otevřená.
+
+Dvě další sondy úspěšně obnovily farmu z původního profilu. Oba procesy hry i hlídač skončily s kódem 0. První obnovu doprovázelo odmítnuté čtení měnícího se stromu grafických prvků. Druhá sonda použila běžnou herní pauzu a přečetla 446 prvků včetně všech 60 aktivních polí. Časové značky DWM při obou obnovách postupovaly. Podrobnosti i dřívější selhání na odchylce kurzoru jsou v `analysis/monitored-source-restore-validation.json`.
+
+Čtyřsekundové záznamy výstupu Windows pro konkrétní herní proces obsahovaly 279 950 nenulových vzorků u originálu a 345 868 u rekonstrukce. Běžely z různých herních okamžiků. Porovnání dekódovaných vzorků z totožných zvukových dat je doložené v samostatných testech Squallu. Oba výstupy procesu váže k jejich skutečným běhům `analysis/current-game-loopback-audio-validation.json`.
