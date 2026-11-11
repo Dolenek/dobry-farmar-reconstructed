@@ -1,0 +1,188 @@
+{
+  "status": "passed_all_six_original_completion_criteria",
+  "recorded_at_utc": "2026-11-11T15:35:18.017241+00:00",
+  "recorder_sha256": "d3169d2f4a442bf8772cf1ba1c8613b80c442e40cf56f47f5e03857918218ee7",
+  "criteria": [
+    {
+      "index": 1,
+      "completed": true,
+      "proof": "Four independently staged and built Win32 executables and DLLs",
+      "artifacts": {
+        "Dobrý farmář.exe": {
+          "path": "build/production-source-standalone-v4/Release/Dobrý farmář.exe",
+          "sha256": "bd4fc58875e9819131a8e7156a89f07218623bad279c60bd2918de8a7cd0752c",
+          "bytes": 1055232
+        },
+        "JNGLoad.dll": {
+          "path": "build/production-source-standalone-v4/Release/JNGLoad.dll",
+          "sha256": "eb2fd0454eec5b407a340746b7e58aca1880a36f146e56311cc556a27e2670fb",
+          "bytes": 274944
+        },
+        "Squall.dll": {
+          "path": "build/production-source-standalone-v4/Release/Squall.dll",
+          "sha256": "ff76bc2c4714445f94ff9947d93b1ab3883e681c4291bf5c8c3754a3d0786273",
+          "bytes": 399360
+        },
+        "Uninstall.exe": {
+          "path": "build/production-source-standalone-v4/Release/Uninstall.exe",
+          "sha256": "2deed97623f957fd07dba370d67c07ee6d5889f69f5f91c9eaf931f6c64308d1",
+          "bytes": 65748
+        }
+      }
+    },
+    {
+      "index": 2,
+      "completed": true,
+      "proof": "Actual gameplay with shipped data in both programs",
+      "compiled_tutorial_steps_per_program": 48,
+      "settings_sessions": 6,
+      "market_rows": 19,
+      "factory_kinds": 11,
+      "running_game_audio_captures": 2,
+      "verified_original_data_xml_files": 66
+    },
+    {
+      "index": 3,
+      "completed": true,
+      "proof": "Native comparisons and whole bidirectional save restores",
+      "current_rich_save_bytes": [
+        17369,
+        17369,
+        17369,
+        17369
+      ],
+      "exact_warning_text_rgb_pixels": 65520,
+      "exact_fertility_text_rgb_pixels": 28600,
+      "limits_document": "docs/VERIFICATION_LIMITS.md"
+    },
+    {
+      "index": 4,
+      "completed": true,
+      "proof": "All original DLL export contracts and editable implementations",
+      "exports": {
+        "JNGLoad.dll": {
+          "count": 2,
+          "exact_original_contract": true,
+          "forwarded_exports": 0,
+          "sha256": "eb2fd0454eec5b407a340746b7e58aca1880a36f146e56311cc556a27e2670fb"
+        },
+        "Squall.dll": {
+          "count": 97,
+          "exact_original_contract": true,
+          "forwarded_exports": 0,
+          "sha256": "ff76bc2c4714445f94ff9947d93b1ab3883e681c4291bf5c8c3754a3d0786273"
+        }
+      },
+      "squall_abi_exports": 97,
+      "native_public_return_sites": 223,
+      "exact_jng_images_per_build": 416,
+      "whole_DLL_behavior_claimed_equal": false
+    },
+    {
+      "index": 5,
+      "completed": true,
+      "proof": "Source-built uninstaller with verified isolated removal effects",
+      "test_processes": {
+        "silent": 20,
+        "ui": 16,
+        "bootstrap": 32,
+        "exact_current_source_artifact": true,
+        "actual_host_reboot": false,
+        "pixel_identity_claimed": false
+      }
+    },
+    {
+      "index": 6,
+      "completed": true,
+      "proof": "Editable source, documented reproducible build and retained originals",
+      "staged_source_files": 1134,
+      "current_production_and_build_files": 408,
+      "original_data_and_program_files_verified": 17,
+      "original_ghidra_reference_file_digests": {
+        "Dobrý Farmář.gpr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Dobrý Farmář.rep/idata/00/00000000.prp": "f702963f5f7bad65ac117cac4326a41eaf2cec01effe8dca64f1b6acaf52c45a",
+        "Dobrý Farmář.rep/idata/00/~00000000.db/db.1.gbf": "563e8bd3a358384bd4635474bdd94e7ffa958bd0ab639df5908c1431c53e361d",
+        "Dobrý Farmář.rep/idata/00/~00000000.db/db.2.gbf": "01d33812ce1bc77a1a9ed8c57080fb287b0257d54231059af347b0b40987d309",
+        "Dobrý Farmář.rep/idata/~index.bak": "afed071b228a87fbbb18d8bf39667792d6912c1d1ad2ea2f4f41dac320db8b2f",
+        "Dobrý Farmář.rep/idata/~index.dat": "fa200b1bcf926f3446b9a4d4054ab9a9dd72cacdb9e4e99e53836939bd1badab",
+        "Dobrý Farmář.rep/idata/~journal.bak": "3e8e6439ecbd4947369c14f42a748d68cc87659abbe0d08c9ccad94f1643bf72",
+        "Dobrý Farmář.rep/project.prp": "6ecf60e77093ad99ef7437bda0779e6756e00896fab12583657fda8dd92803a9",
+        "Dobrý Farmář.rep/projectState": "37a940457a3683dd948309d6210be2f4fda41a1fa92edd85bdc87a7f87f1ec0d",
+        "Dobrý Farmář.rep/user/00/00000000.prp": "05af3b745c4df1b199505c35a4ae956b85b3ed9324aa7e4720cf6edddfcb8e26",
+        "Dobrý Farmář.rep/user/00/~00000000.db/db.1.gbf": "44e7bb4f7e4370fca18537e024ba65b631e76b783e7e35126a5633ee7bb50e9b",
+        "Dobrý Farmář.rep/user/~index.dat": "afed071b228a87fbbb18d8bf39667792d6912c1d1ad2ea2f4f41dac320db8b2f",
+        "Dobrý Farmář.rep/user/~journal.dat": "c33b70a61970bba3dde6a1ae47e5c03e0614783c176f595640b3332a65643b5b",
+        "Dobrý Farmář.rep/versioned/~index.bak": "afed071b228a87fbbb18d8bf39667792d6912c1d1ad2ea2f4f41dac320db8b2f",
+        "Dobrý Farmář.rep/versioned/~index.dat": "afed071b228a87fbbb18d8bf39667792d6912c1d1ad2ea2f4f41dac320db8b2f"
+      },
+      "tracked_original_programs_or_ghidra_projects": 0
+    }
+  ],
+  "supporting_reports": {
+    "analysis/inventory.json": "db72f222e0b1bdda49134e1f530d876f2742441b3f85b74495da24f865440cdb",
+    "analysis/production-source-only-build-v4.json": "9631078c34850a2b89b2ac2cc100197c164907732081f22238d2b37f451fa149",
+    "analysis/squall-loader-regression.json": "7c30a1f6ff1d076617ac46d444c16d64802de203628efdda34269da983efde9a",
+    "analysis/jng-loader-regression.json": "13be09822f980bf83d56d60e7daeeef919045d35f21c83e0228c1ad2c798511a",
+    "analysis/squall-export-audit.json": "c1aa349a46736373b8915885add3a82ee8c37b332192a668a385a4996bbe9c6b",
+    "analysis/squall-control-signatures.json": "6d1ebdb82482e571ced21857b84980a5bf60984f9992ac04b0d40135d8a98a3e",
+    "analysis/squall-effect-property-signatures.json": "b5333cacfbf332d6b9ec57195ed502d420a2d91034cbc2b93db795f7719702a7",
+    "analysis/squall-channel-geometry-signatures.json": "084406fc97fb6860fab8fc351d6994242c985a52e5702333b57f7d2dfae65a28",
+    "analysis/squall-cone-signatures.json": "688515a9877014c8b8dc4572e9179ecaca93e16d69181d9923ce6bc377b578a9",
+    "analysis/squall-fragment-signatures.json": "9d348e4b6004eda605986bce662580c35f233f42a6a6e57c4509d75cc17491e1",
+    "analysis/squall-scalar-handle-signatures.json": "4e3d13ad0664c1ad98e330deca9ebd307f9519d653e11b2ec77f8f6a20404e37",
+    "analysis/squall-length-signatures.json": "f52276a668a67347be477076d730be6cff00433d53d1795f232205da2d937aa3",
+    "analysis/squall-channel-setter-signatures.json": "e5c623516e9ee55bd89314ca40cd8c90f8116e9c5613989086d40ddd27721d28",
+    "analysis/squall-worker-signatures.json": "72a28a580510a9e63a12a1dca2b404bfc0af812e40b8df450ef399692a9a2245",
+    "analysis/squall-void-signatures.json": "25e581efcd969ae2b59db4f0db3e3633e66f2d749abcf5de4f439422f36855c7",
+    "analysis/squall-noarg-signatures.json": "70fd9403d3a3ea38c10a9eb81baf04cac195bd1ab83d701faba51b1f37742263",
+    "analysis/squall-device-info-signatures.json": "fb20d2e44c20105e4b16c31596313be4e857cb9da4e4007b5f503dd0ca8a35b9",
+    "analysis/squall-hardware-signatures.json": "2bd75a2b4d3df9f030c6b6f918dfe5cca2016d4fa0e16d61a8a30426219d5c52",
+    "analysis/squall-init-sample-control-signatures.json": "658745ccfcb89d6feadc369e67b9dcc39b0d44f3234bf41d5e23f324d5d77d5b",
+    "analysis/squall-listener-factor-signatures.json": "2e347f5276aa26eb6db09ac2f6dde3f67320134bc3eae896037f911b79203acc",
+    "analysis/squall-listener-vector-signatures.json": "40450b1dc3aa3085f8244ff250f8b763af8a538839e02664c2204091cdc57374",
+    "analysis/squall-play-signatures.json": "110dfce1fed49adb64af371b90e6b6547cd02d6db0bde185dc9caff0cbcf6dda",
+    "analysis/squall-sample-load-default-signatures.json": "d4f54820f726492b623f10c6cb2d38e212b1b69ffb1074c4e0a0312d6782a65b",
+    "analysis/squall-scalar-config-signatures.json": "f7441916d0fbf12b81510b8629da4dda767b65a23004d855ae153d4107cc5c89",
+    "analysis/squall-callback-signatures.json": "378c899677ba8aa0a26b125a0a869061001893695ddc228fe76440e6be1a4836",
+    "analysis/uninstaller-runtime-validation.json": "e903f630c83787bca379adc5bec7460dcdf3cf55b1a2123e938de5799a628afc",
+    "analysis/uninstaller-ui-validation.json": "e0358007864eebad3478c7c8a561f5ee09004194f479b556452306d480ff8646",
+    "analysis/uninstaller-bootstrap-validation.json": "ea537467c6f0f0ac56bfc3704efc0d929bbdbdc095922909908163ba928355a8",
+    "analysis/contract-streak-forty-regression.json": "425484027a0f506b7b2bf24c38dace90e2a57a9c48793f241a3c2339f39dcf37",
+    "analysis/current-awards-runtime-regression.json": "5d3cb618276b3e8bb8ed84517c46458b114f71e73a4f2fb8b325f38e5ec0f46b",
+    "analysis/tutorial-warning-first-pair-regression.json": "19dac1f2dacdd65311da43a27fcbb72ba045c9aefd863d77a3a4c69d4495f6f3",
+    "analysis/tutorial-native-callers-audit.json": "fff69b31faecbe4fddf394bcabbc38cf20b46783490b3acc37ed0ca68f81a71b",
+    "analysis/current-tutorial-runtime-coverage.json": "f4dc4c88eae02381af62bf10a8afe63a5b0f2196eb82ad59c6f9ef4bdb720d2d",
+    "analysis/tutorial-warning-native-warehouse-observation.json": "5e0b2b2de4d667e70b8c18be05c0f744a6746ee740947fb8a10cb07c4da79522",
+    "analysis/native-game-loopback-audio-observation.json": "4d688d9879eb01e991304a946a5b23134a838e484b2e4a4e3c97321f056401d7",
+    "analysis/monitored-source-startup-validation.json": "55b77168e337f265230069e687ec8198def7782cc4bc237b80b42d3cbde0fc8a",
+    "analysis/host-runtime-monitoring-authorization.json": "c0587c02f23195795643d4d6dcbb5fea2e67875f225fe18c0f91a0bd64ac7e64",
+    "analysis/native-tracker-fidelity-decision.json": "424ad0fba022cd572f8eb8d5e23666fda9701a369aef02c32e7abf8fd140a292",
+    "analysis/native-application-interop-validation.json": "9dd90e2ce333c9fef129d86bbe3294a8e367a651368d6cba6abb2d022684967d",
+    "analysis/runtime-shortcut-gui-validation.json": "35f61d72691e4ebedc870a7e8fccf2f55b4ed789306227ace65162b1c18692e3",
+    "analysis/game-options-runtime-regression.json": "5f65e4f07103b7bb5584426531d8aa22908ee0e49224051c14ae735da51a65f0",
+    "analysis/tutorial-warning-runtime-regression.json": "11dbb619aa875e00c13c679ea384265c788cd3a54a8c76bd5c755aea52623f1e",
+    "analysis/tutorial-fertility49-runtime-regression.json": "808f0ab0a434f7e616241e76ecd53d8d8b41752110426f1002f3b191633b837e",
+    "analysis/counter-supply-regression.json": "4eccebd6f0b402b4e2a8d3b3640c86aa108da32e0d9de11b653c2a0882d8f51b",
+    "analysis/factory-catalog-regression.json": "241a20ea6eb589fbb8fba55e6c3472dc339ab653df5e169ba3e5d2e1e0f2c3d1",
+    "analysis/factory-levels-regression.json": "3eba687635e90aed2cc506e22d5c277b4d205c0647b55c50eb9da17330da730a",
+    "analysis/factory-history-regression.json": "16555d4088591e7f50c886d8b75c7eec0cddaa366bcd2d2f107e0a5d017c0ffa",
+    "analysis/farm-expansions-regression.json": "8d3876a8817e417e319de5a3426e8aea546c5ebc5674ddce334ae8c68238cf24",
+    "analysis/market-assortment-regression.json": "bc669d08f4c37a31ed70ae5a49ef4ce703e9015c691b772f086b6e96cb81cb88",
+    "analysis/field-disasters-regression.json": "3952fcc2505551bb5a42d82e2c3096f05e203a35da2b0f84a4f8fe3ec9c5fab8",
+    "analysis/late-timeline-regression.json": "7d73c0c1760689133d64928e0b49751ac3140e392ddc7fe5ba2dc20db07945c6",
+    "analysis/campaign-loop-regression.json": "07c6ac4be4b0cc2b9f0bc63a65919add35f9c90ee773a800a4ddce831bc6f88b",
+    "analysis/original-resource-scope-audit.json": "66753dcfbc8ca28beaf23b7bd85b341c5e4d032a104414a620372e23c7d00999",
+    "analysis/current-game-loopback-audio-validation.json": "57b0fc2d5b705be44769f11e4d68ede185ecbf0ce5906d0d726f5e92b1c76200",
+    "analysis/monitored-source-restore-validation.json": "3650d3d06b246bed67f7e6581153d16eca02aee4a1c21041f76342b08e5ba238",
+    "analysis/contract-streak-forty-interop-validation.json": "98972101246f0f86307d455bde13272a92dbeefcc7c8f68e5c72ccf5be819fcd",
+    "analysis/squall-loader-game-regression.json": "dd28a5e1c967c97f0cae7c1793d155658721adaa8d03d7042010b10ebf9ec39c",
+    "README.md": "3a464c55efb550b6e6214e749891ec741cc393ec9ee56a4148dda207109a0010",
+    "docs/SOURCE_BUILD.md": "3f0049a30430a35713a7f51fd5571d4933d8ee3c43bc6fc8b942825310ad5e74",
+    "docs/VERIFICATION_LIMITS.md": "d3d67b2d41c12b71c6baa256283e6872f5bd04c80be3c892939b56a64de43079",
+    "docs/COMPLETION_AUDIT.md": "cc39bd1e8516ec899df04a4b27bcd2c51d851433d47b57ec7e798a77e26876d0"
+  },
+  "accepted_tracker_exception": "analysis/native-tracker-fidelity-decision.json",
+  "host_incident_resolved": false,
+  "host_runtime_validated_with_independent_monitoring": true,
+  "scope": "Shipped game data, the original public DLL interfaces, editable implementations and documented verification limits"
+}

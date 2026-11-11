@@ -64,6 +64,7 @@ class GameGui:
         self.process = None
         self.hwnd = None
         self._slow_input_call=None
+        self.loading_deadline = 0
         if self._runtime_watchdog:self._install_input_monitoring()
 
     def _install_input_monitoring(self):
@@ -309,11 +310,13 @@ class GameGui:
         seconds=time.monotonic()-started
         misses=0 if responsive else getattr(self,'_window_health_misses',0)+1
         self._window_health_misses=misses
+        loading = now < getattr(self, 'loading_deadline', 0)
         with (context['directory']/'owned-window-health.jsonl').open('a',encoding='utf-8') as output:
             output.write(json.dumps(dict(monotonic=now,pid=process.pid,hwnd=window.value,
-                responsive=responsive,timeout_ms=250,seconds=seconds,consecutive_misses=misses))+'\n')
+                responsive=responsive,timeout_ms=250,seconds=seconds,consecutive_misses=misses,
+                within_initial_game_loading_window=loading))+'\n')
         self.progress('after-bounded-owned-window-health',responsive=responsive,consecutive_misses=misses)
-        if misses>=3:
+        if misses>=3 and not loading:
             raise RuntimeError('Owned game window missed three consecutive bounded health probes;stopping the test')
 
     def check_process(self):

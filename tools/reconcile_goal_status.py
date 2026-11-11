@@ -105,6 +105,10 @@ def main():
             assert audit['supporting_reports']
             for path,sha in audit['supporting_reports'].items():assert digest(ROOT/path)==sha,path
             final_audit=True
+            audit_name = audit_path.relative_to(ROOT).as_posix()
+            if audit_name not in v['reports']:
+                v['reports'].append(audit_name)
+            v['original_goal_completion_audit'] = audit_name
     if not final_audit:pending.append('Final requirement-by-requirement current-state audit and documentation')
     complete=not pending
     v.update(recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

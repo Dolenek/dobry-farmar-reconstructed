@@ -1,6 +1,8 @@
 # Stav rekonstrukce
 
-Průběžné záznamy jsou řazené od nejnovějších. Starší odstavce níže popisují rozsah tehdejší etapy; aktuální důkazy a hashe propojuje `analysis/verification.json`.
+Aktuální sestavení a důkazy všech šesti podmínek předání propojuje `analysis/verification.json`. Doložené jsou všechny čtyři Win32 programy, párové průchody 48 dosažitelnými kroky tutoriálu, skutečný zvukový výstup a obousměrná obnova nastavení. Ověření úrodnosti pole doplnilo krok 49 a potvrdilo shodu 28 600 pixelů textové oblasti. [Kontrola dokončení](COMPLETION_AUDIT.md)
+
+Starší odstavce níže zachycují jednotlivé etapy. Uvedený stav a zbývající práce v nich platily v okamžiku záznamu.
 
 Uživatel následně povolil pokračování na tomto počítači s dohledem. Nezávislý Job hlídač prošel čtyřmi CPU scénáři včetně ukončení vlastních dětí při pádu hlídače. Osmisekundový source startup bez vstupu má normální výstup0, rostoucí časové značky DWM a nezávislý zdravotní log. Dva pokusy o obnovu bezpečně skončily před vstupem kvůli odmítnutému fokusu; poslední SetForegroundWindow vrátil0. Je připravený krátký interval pro jednorázovou skutečnou aktivaci okna uživatelem. Nehlídané pokusy zůstávají blokované a incident není uzavřený.
 

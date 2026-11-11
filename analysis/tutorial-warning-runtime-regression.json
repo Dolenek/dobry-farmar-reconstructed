@@ -1,0 +1,248 @@
+{
+  "status": "passed_actual_full_carry_storage_capacity_mixed_products_and_contract_warning_paths_only",
+  "recorded_at_utc": "2026-11-11T15:21:24.810777+00:00",
+  "recorder_sha256": "356ee632910c2f6a1f487882685c2eeaa2e98563559786b516b927cbaf988c1b",
+  "reports": {
+    ".local/tutorial-warning-runtime/20261107T210415175462Z/report.json": "1dcba729e6a6721f9c24998864b388c1ac87f84f61f99071e8aa9dee1f85f0ff",
+    ".local/tutorial-warning-runtime/20261107T205553498473Z/report.json": "5742970814e13f0d626948439fbce49e226f3ddde49d6571696af21d844b6981",
+    ".local/tutorial-warning-runtime/20261111T151248507431Z/report.json": "7b43a6846e1ee86b3c3e753aa7c4ff1892a7ff516a999734050e6433ef6e22f7",
+    ".local/tutorial-warning-runtime/20261107T210917905903Z/report.json": "516804c54076c2e55f0f49734435f0803285799ec71e55ccdfdb847a96c6e1f0",
+    ".local/tutorial-warning-runtime/20261111T151821878511Z/report.json": "3c523ce60cefb4a396ed50ce1acc1cef3862dc298496cc61326bc7ec2251236c",
+    ".local/tutorial-warning-runtime/20261111T151348759405Z/report.json": "361d22532fd799feff3c2f54eb2a85b30d042c4fe8e00fef9bc4e1ca6fb79c7f",
+    "analysis/tutorial-native-callers-audit.json": "fff69b31faecbe4fddf394bcabbc38cf20b46783490b3acc37ed0ca68f81a71b"
+  },
+  "implementation_files": {
+    "FarmarTutorialWarnings.exe": "c498b41195808851f4f2560030796096eaf74ef8a45517c4929d8bd7080d0393",
+    "JNGLoad.dll": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+    "Squall.dll": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9"
+  },
+  "verified_steps": [
+    40,
+    41,
+    42,
+    44
+  ],
+  "comparisons": [
+    {
+      "case": "full_carry",
+      "step": 40,
+      "normal_process_exits": [
+        0,
+        0
+      ],
+      "text_glyphs_exact": 41,
+      "bubble_geometry_sprite_alpha_flags_exact": true,
+      "text_composite_pixel_comparison": {
+        "rect": [
+          131,
+          235,
+          405,
+          295
+        ],
+        "pixels": 16440,
+        "identical": true,
+        "difference_bounds": null,
+        "raw_driver_empty_area_comparison_not_used": true,
+        "whole_timed_world_frame_equality_claimed": false
+      },
+      "all19_stock_and_market_words_checked": true,
+      "input_profile_files": {
+        "00000001.save": "9effb5e51519e700f9a1f28b39a32703fc8a88d5c93bf24ee93999fa2d9c55ae",
+        "00000001.xml": "60d02cc2fc31abccf014847cc9e5e293ddb78134a979456e2b9930f6168f698a",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      }
+    },
+    {
+      "case": "full_warehouse",
+      "step": 41,
+      "normal_process_exits": [
+        0,
+        0
+      ],
+      "text_glyphs_exact": 35,
+      "bubble_geometry_sprite_alpha_flags_exact": true,
+      "text_composite_pixel_comparison": {
+        "rect": [
+          131,
+          235,
+          405,
+          295
+        ],
+        "pixels": 16440,
+        "identical": true,
+        "difference_bounds": null,
+        "raw_driver_empty_area_comparison_not_used": false,
+        "whole_timed_world_frame_equality_claimed": false
+      },
+      "all19_stock_and_market_words_checked": true,
+      "input_profile_files": {
+        "00000001.save": "ece40f3977056c84675fa47eb55e351851089efde223e3ce37f4f70b86c1b107",
+        "00000001.xml": "6cff8a601b3f9b4d6c48800673b959f24b2c106d4fbda452b667dc63c497061c",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      }
+    },
+    {
+      "case": "mixed_products",
+      "step": 44,
+      "normal_process_exits": [
+        0,
+        0
+      ],
+      "text_glyphs_exact": 40,
+      "bubble_geometry_sprite_alpha_flags_exact": true,
+      "text_composite_pixel_comparison": {
+        "rect": [
+          261,
+          343,
+          530,
+          403
+        ],
+        "pixels": 16140,
+        "identical": true,
+        "difference_bounds": null,
+        "raw_driver_empty_area_comparison_not_used": false,
+        "whole_timed_world_frame_equality_claimed": false
+      },
+      "all19_stock_and_market_words_checked": true,
+      "input_profile_files": {
+        "00000001.save": "aeb78f620e81039958c3194b377a9f71ed13bdf40d1f31f49fa2f31970a0965b",
+        "00000001.xml": "d57cb5994977ea9641b84bdbf4719e5611171accf1438ceb3a257711e161b9d1",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      }
+    },
+    {
+      "case": "poor_contract",
+      "step": 42,
+      "normal_process_exits": [
+        0,
+        0
+      ],
+      "text_glyphs_exact": 39,
+      "bubble_geometry_sprite_alpha_flags_exact": true,
+      "text_composite_pixel_comparison": {
+        "rect": [
+          351,
+          280,
+          626,
+          340
+        ],
+        "pixels": 16500,
+        "identical": true,
+        "difference_bounds": null,
+        "raw_driver_empty_area_comparison_not_used": true,
+        "whole_timed_world_frame_equality_claimed": false
+      },
+      "all19_stock_and_market_words_checked": true,
+      "input_profile_files": {
+        "00000001.save": "63025d3499d2fe63d869f651ae1a32d681f07187a765085a8e7538490aff65bf",
+        "00000001.xml": "d24dd3d3f0ee8a142ab416d2cade69f3cbdb08f5b1b99a7681ed23dec97c8dd5",
+        "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "kind": "native",
+      "case": "full_carry",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 40,
+          "screenshot": "0-full_carry-warning-40.png"
+        }
+      ]
+    },
+    {
+      "kind": "native",
+      "case": "poor_contract",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 42,
+          "screenshot": "1-poor_contract-warning-42.png"
+        }
+      ]
+    },
+    {
+      "kind": "source",
+      "case": "full_carry",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 40,
+          "screenshot": "2-full_carry-warning-40.png"
+        }
+      ]
+    },
+    {
+      "kind": "source",
+      "case": "poor_contract",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 42,
+          "screenshot": "3-poor_contract-warning-42.png"
+        }
+      ]
+    },
+    {
+      "kind": "native",
+      "case": "full_warehouse",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 41,
+          "screenshot": "0-full_warehouse-warning-41.png"
+        }
+      ]
+    },
+    {
+      "kind": "source",
+      "case": "full_warehouse",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 41,
+          "screenshot": "1-full_warehouse-warning-41.png"
+        }
+      ]
+    },
+    {
+      "kind": "native",
+      "case": "mixed_products",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 40,
+          "screenshot": "0-mixed_precondition-warning-40.png"
+        },
+        {
+          "step": 44,
+          "screenshot": "0-mixed_products-warning-44.png"
+        }
+      ]
+    },
+    {
+      "kind": "source",
+      "case": "mixed_products",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 40,
+          "screenshot": "1-mixed_precondition-warning-40.png"
+        },
+        {
+          "step": 44,
+          "screenshot": "1-mixed_products-warning-44.png"
+        }
+      ]
+    }
+  ],
+  "original_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_source_hashes_match": true,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "new_full_ctest_run": false,
+  "whole_timed_world_frame_equality_claimed": false,
+  "whole_game_complete": false
+}

@@ -1,0 +1,70 @@
+{
+  "recorded_at_utc": "2026-11-11T15:30:15.742216+00:00",
+  "recorder_sha256": "50dde760ec3e6d7a8c066e4045f36cc19567da8046e0feeaad340a6a33f2d064",
+  "implementation_files": {
+    "FarmarTutorialWarnings.exe": "c498b41195808851f4f2560030796096eaf74ef8a45517c4929d8bd7080d0393",
+    "JNGLoad.dll": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+    "Squall.dll": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9"
+  },
+  "reference_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "whole_game_complete": false,
+  "status": "passed_actual_natural_field34_tip49_in_both_programs",
+  "work_directory": ".local/monitored-host-runtime/fertility49-pair-20261111T1527478803429Z/fertility",
+  "runtime": {
+    "raw_report": {
+      "path": ".local/monitored-host-runtime/fertility49-pair-20261111T1527478803429Z/fertility/report.json",
+      "sha256": "34c10c431e75aa4f87e52303896bcdfffc8b45049fde7fc209639a75f18c2e40"
+    },
+    "watchdog": {
+      "path": ".local/monitored-host-runtime/fertility49-pair-20261111T1527478803429Z/watchdog.jsonl",
+      "sha256": "b094808a67e49213f0f0423bcf45622917b9747fad6645c7e8e0256da0f221d1"
+    }
+  },
+  "fixture": {
+    "report": "analysis/remaining-crops-growth-state-validation.json",
+    "sha256": "6baf148d52a03d3261e3986fc7f700e44292e5d91108614f7f8e67ba4ef59fe2",
+    "profiles": ".local/remaining-crops-growth/20261031T145911013166Z/1-persisted/Profiles",
+    "files": {
+      "00000001.save": "7278eadcab90dbbe24976b9adfc87292833b08d6a7c445411f37d0b488bba709",
+      "00000001.xml": "266e8673dee1f7dd7a2fe8cbfcaded286886d8594fb82309d8a0c4459b9f6635",
+      "profiles.xml": "066be1c48ccb7a781136a1c5199c4c4a7cc59cc533e03f395ac8b062057856b1"
+    },
+    "field34_initial_fertility": 0.113073,
+    "initial_game_time": 1491.62
+  },
+  "sessions": [
+    {
+      "kind": "native",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 49,
+          "screenshot": "0-fertility-tip49.png"
+        }
+      ],
+      "persisted_profile": {
+        "path": ".local/monitored-host-runtime/fertility49-pair-20261111T1527478803429Z/fertility/0-persisted/Profiles/00000001.xml",
+        "sha256": "77e7153bcac89bfb7e6d6ec0a27acd290f05f31faf8f058c28c1fdf1635a86e2"
+      }
+    },
+    {
+      "kind": "source",
+      "exit_code": 0,
+      "stages": [
+        {
+          "step": 49,
+          "screenshot": "1-fertility-tip49.png"
+        }
+      ],
+      "persisted_profile": {
+        "path": ".local/monitored-host-runtime/fertility49-pair-20261111T1527478803429Z/fertility/1-persisted/Profiles/00000001.xml",
+        "sha256": "b29693d99832ba9739ecf19431bdc10918fbe02b16049e9489d8108cbe340cbc"
+      }
+    }
+  ],
+  "exact_text_rgb_pixels": 28600,
+  "exact_controls": true,
+  "natural_depletion_and_persisted_tip_verified": true
+}

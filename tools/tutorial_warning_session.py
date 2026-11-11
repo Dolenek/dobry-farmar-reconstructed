@@ -155,14 +155,20 @@ class WarningSuite:
         raise AssertionError(('Game clock did not confirm requested pause state', value, self._clock()))
 
     @contextmanager
-    def open(self,kind,case,profiles):
+    def open(self,kind,case,profiles,*,enter_farm=True,settings_seed=None):
         self.probe.hwnd = None
+        self.probe.loading_deadline = 0
         self.probe.progress('preparing-owned-game-session', kind=kind, case=case)
         self.index=len(self.report['sessions']);shared=self.work/f'{self.index}-shared';common=shared/'VirtualFarm'
         common.mkdir(parents=True);profiles=Path(profiles).resolve(strict=True)
         shutil.copytree(profiles,common/'Profiles')
-        settings=self.probe.resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0')
-        (common/'sys').mkdir();ET.ElementTree(settings).write(common/'sys/settings.xml',encoding='utf-16',xml_declaration=True)
+        (common/'sys').mkdir()
+        settings_path = common/'sys/settings.xml'
+        if settings_seed is None:
+            settings=self.probe.resource('sys/settings.xml');settings.find('graphics').set('fullscreen','0')
+            ET.ElementTree(settings).write(settings_path,encoding='utf-16',xml_declaration=True)
+        else:
+            shutil.copy2(settings_seed, settings_path)
         self.session=dict(kind=kind,case=case,seed_profile_directory=profiles.relative_to(ROOT).as_posix(),
             input_profile_files={p.name:digest(p) for p in profiles.iterdir() if p.is_file()},
             common_directory=common.relative_to(ROOT).as_posix(),actions=[])
@@ -202,19 +208,32 @@ class WarningSuite:
                 frame=self.capture('startup-progress');self.probe.focus()
                 assert time.monotonic()<deadline,'Actual main menu did not start game'
                 if self.probe.roi(frame,(5,5,70,70))==self.menu_marker and time.monotonic()-last>=3:
+                    if not enter_farm:
+                        break
                     if observer.manager():break
                     assert attempts<6,'Six actual Start inputs did not construct game'
+                    if not attempts:
+                        # Loading a farm can block the native window thread. The
+                        # watchdog keeps its existing heartbeat and resource limits.
+                        self.probe.loading_deadline = time.monotonic() + 5
                     self.click(*self.probe.button('ui/mainmenu.xml','StartButton'));attempts+=1;last=time.monotonic()
                 else:time.sleep(.1)
-            self.probe.wait_match(f'{self.index}-farm.png',(10,8,55,28),self.hud_marker)
-            self.session['actions'].append('Actual Start restored the unmodified checkpoint and matched Menu HUD')
+            if enter_farm:
+                self.probe.wait_match(f'{self.index}-farm.png',(10,8,55,28),self.hud_marker)
+                self.probe.loading_deadline = 0
+                self.session['actions'].append('Actual Start restored the unmodified checkpoint and matched Menu HUD')
+            else:
+                assert not observer.manager()
+                self.session['actions'].append('Actual main menu matched the reference region')
             yield self
             body_ok=True
         finally:
             if not body_ok and observer and process.poll() is None:
                 try:
-                    self.capture('failure');self.session['failure_live_state']=self.state()
-                    self.session['failure_scene']=observer.visible_scene(hwnd) if hwnd and observer.manager() else None
+                    self.capture('failure')
+                    if observer.manager():
+                        self.session['failure_live_state']=self.state()
+                        self.session['failure_scene']=observer.visible_scene(hwnd) if hwnd else None
                 except Exception as error:self.session['failure_snapshot_error']=repr(error)
             if observer:observer.close()
             if process.poll() is None:

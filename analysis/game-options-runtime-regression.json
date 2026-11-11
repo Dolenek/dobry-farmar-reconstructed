@@ -1,0 +1,111 @@
+{
+  "recorded_at_utc": "2026-11-11T15:30:15.742216+00:00",
+  "recorder_sha256": "50dde760ec3e6d7a8c066e4045f36cc19567da8046e0feeaad340a6a33f2d064",
+  "implementation_files": {
+    "FarmarTutorialWarnings.exe": "c498b41195808851f4f2560030796096eaf74ef8a45517c4929d8bd7080d0393",
+    "JNGLoad.dll": "982a6cb60a651192218d93f6a290dc321b62942ec0db27ead7947a313bdd07c7",
+    "Squall.dll": "1419d9bd39f2cee282aaf4cebf4af92dbb64a53b4e1514de6b37e89c905923a9"
+  },
+  "reference_files_unchanged": 17,
+  "production_changed": false,
+  "current_full_ctest_report": "analysis/squall-loader-regression.json",
+  "whole_game_complete": false,
+  "status": "passed_actual_options_volume_restart_and_cross_restore",
+  "change_and_restart": {
+    "raw_report": {
+      "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/options/report.json",
+      "sha256": "23dd57d751f0f152f9295fe49600985248714cd95e01f950868bd5d7850c1886"
+    },
+    "watchdog": {
+      "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/watchdog.jsonl",
+      "sha256": "83b7d8d48a77c098627f4f425f7f6d32da866fdd540c6626e58636ece38726ed"
+    }
+  },
+  "cross_restart": {
+    "raw_report": {
+      "path": ".local/monitored-host-runtime/options-cross-20261111T1529111738883Z/options/report.json",
+      "sha256": "71d258e555a5642c7856f7dbbb4fc22f32b9b00b7ae617cb24f34e0576b2e7af"
+    },
+    "watchdog": {
+      "path": ".local/monitored-host-runtime/options-cross-20261111T1529111738883Z/watchdog.jsonl",
+      "sha256": "e948a0300d9f7f8c4fb430b7ccdb4985d5e5fac3d72378d12dfe4880b2edbe7a"
+    }
+  },
+  "sessions": [
+    {
+      "kind": "native",
+      "case": "change",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/options/0-persisted/sys/settings.xml",
+        "sha256": "5e7486a5502eea13eb9fe293afea3464b5f00a676b8ebf5dad88d6676e7cd598"
+      }
+    },
+    {
+      "kind": "native",
+      "case": "restart",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/options/1-persisted/sys/settings.xml",
+        "sha256": "5e7486a5502eea13eb9fe293afea3464b5f00a676b8ebf5dad88d6676e7cd598"
+      }
+    },
+    {
+      "kind": "source",
+      "case": "change",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/options/2-persisted/sys/settings.xml",
+        "sha256": "20eb904d9a769e9acc0e0ff5e33a2476ba84ed77202131053b07c5d6cf822130"
+      }
+    },
+    {
+      "kind": "source",
+      "case": "restart",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-pair-20261111T1521382437193Z/options/3-persisted/sys/settings.xml",
+        "sha256": "20eb904d9a769e9acc0e0ff5e33a2476ba84ed77202131053b07c5d6cf822130"
+      }
+    },
+    {
+      "kind": "native",
+      "case": "cross-restart",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-cross-20261111T1529111738883Z/options/0-persisted/sys/settings.xml",
+        "sha256": "5e7486a5502eea13eb9fe293afea3464b5f00a676b8ebf5dad88d6676e7cd598"
+      }
+    },
+    {
+      "kind": "source",
+      "case": "cross-restart",
+      "exit_code": 0,
+      "settings": {
+        "path": ".local/monitored-host-runtime/options-cross-20261111T1529111738883Z/options/1-persisted/sys/settings.xml",
+        "sha256": "5e7486a5502eea13eb9fe293afea3464b5f00a676b8ebf5dad88d6676e7cd598"
+      }
+    }
+  ],
+  "persisted_volumes": {
+    "Sound": "50",
+    "Music": "80"
+  },
+  "exact_slider_rgb_pixels": 19488,
+  "exact_slider_comparison_processes": 6,
+  "differing_unrelated_xml_properties_native_then_source": {
+    "graphics.back_color": [
+      "0x0",
+      "0x00000000"
+    ],
+    "graphics.show_cursor_pos": [
+      "0",
+      ""
+    ],
+    "lightConfig.count": [
+      "0",
+      null
+    ]
+  },
+  "entire_settings_xml_byte_equality_claimed": false
+}
