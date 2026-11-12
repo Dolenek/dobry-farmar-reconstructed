@@ -37,6 +37,8 @@ The game, the image loader, the audio library, and the uninstaller all build fro
 
 ## How to play
 
+<sub>To launch the game, you need your own legally obtained copy of Dobrý farmář. The public release intentionally relies on you supplying the original game data. Copy Data.pack and cz.pack into the Data folder next to Hrat.cmd. Both files are required to launch the game.</sub>
+
 **1. [Download Dobrý farmář for Windows.](https://github.com/Dolenek/dobry-farmar-reconstructed/releases/latest/download/Dobry-farmar-Windows.zip)** The ZIP includes the compiled reconstruction. You need your own Czech copy of the original game to play.
 
 **2. Extract the entire ZIP** to a folder you can write to, such as Documents.

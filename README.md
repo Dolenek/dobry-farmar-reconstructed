@@ -37,6 +37,8 @@ Ze zdrojů se sestavuje hra, knihovna pro čtení obrázků, zvuková knihovna a
 
 ## Jak si zahrát
 
+<sub>Ke spuštění potřebujete vlastní, legálně získanou kopii hry Dobrý farmář. Veřejné vydání záměrně počítá s tím, že si původní herní data dodáte sami. Zkopírujte Data.pack a cz.pack do složky Data vedle Hrat.cmd. Spuštění vyžaduje oba soubory.</sub>
+
 **1. [Stáhněte Dobrého farmáře pro Windows.](https://github.com/Dolenek/dobry-farmar-reconstructed/releases/latest/download/Dobry-farmar-Windows.zip)** ZIP obsahuje sestavenou rekonstrukci. Ke hraní potřebujete vlastní českou kopii původní hry.
 
 **2. Rozbalte celý ZIP** do složky, kam můžete zapisovat, například do Dokumentů.
