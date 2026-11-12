@@ -1,7 +1,7 @@
 {
   "status": "passed_all_six_original_completion_criteria",
-  "recorded_at_utc": "2026-11-11T15:35:18.017241+00:00",
-  "recorder_sha256": "d3169d2f4a442bf8772cf1ba1c8613b80c442e40cf56f47f5e03857918218ee7",
+  "recorded_at_utc": "2026-11-12T14:49:06.450465+00:00",
+  "recorder_sha256": "40f4e3963d7a978540125c821506827583c5514d0f4199f77c5ed5b6bb2ade96",
   "criteria": [
     {
       "index": 1,
@@ -154,9 +154,8 @@
     "analysis/current-tutorial-runtime-coverage.json": "f4dc4c88eae02381af62bf10a8afe63a5b0f2196eb82ad59c6f9ef4bdb720d2d",
     "analysis/tutorial-warning-native-warehouse-observation.json": "5e0b2b2de4d667e70b8c18be05c0f744a6746ee740947fb8a10cb07c4da79522",
     "analysis/native-game-loopback-audio-observation.json": "4d688d9879eb01e991304a946a5b23134a838e484b2e4a4e3c97321f056401d7",
-    "analysis/monitored-source-startup-validation.json": "55b77168e337f265230069e687ec8198def7782cc4bc237b80b42d3cbde0fc8a",
-    "analysis/host-runtime-monitoring-authorization.json": "c0587c02f23195795643d4d6dcbb5fea2e67875f225fe18c0f91a0bd64ac7e64",
-    "analysis/native-tracker-fidelity-decision.json": "424ad0fba022cd572f8eb8d5e23666fda9701a369aef02c32e7abf8fd140a292",
+    "analysis/monitored-source-startup-validation.json": "d2bbf14ea7374128ee7de3bd3af9bd7065381dbfdd692c653bc37202c4009218",
+    "analysis/native-tracker-fidelity-decision.json": "2b431ede004e4fb68afb4eaa00dcc4a151b0acc71d040a213e67ac669e3263e1",
     "analysis/native-application-interop-validation.json": "9dd90e2ce333c9fef129d86bbe3294a8e367a651368d6cba6abb2d022684967d",
     "analysis/runtime-shortcut-gui-validation.json": "35f61d72691e4ebedc870a7e8fccf2f55b4ed789306227ace65162b1c18692e3",
     "analysis/game-options-runtime-regression.json": "5f65e4f07103b7bb5584426531d8aa22908ee0e49224051c14ae735da51a65f0",
@@ -176,13 +175,16 @@
     "analysis/monitored-source-restore-validation.json": "3650d3d06b246bed67f7e6581153d16eca02aee4a1c21041f76342b08e5ba238",
     "analysis/contract-streak-forty-interop-validation.json": "98972101246f0f86307d455bde13272a92dbeefcc7c8f68e5c72ccf5be819fcd",
     "analysis/squall-loader-game-regression.json": "dd28a5e1c967c97f0cae7c1793d155658721adaa8d03d7042010b10ebf9ec39c",
-    "README.md": "3a464c55efb550b6e6214e749891ec741cc393ec9ee56a4148dda207109a0010",
-    "docs/SOURCE_BUILD.md": "3f0049a30430a35713a7f51fd5571d4933d8ee3c43bc6fc8b942825310ad5e74",
-    "docs/VERIFICATION_LIMITS.md": "d3d67b2d41c12b71c6baa256283e6872f5bd04c80be3c892939b56a64de43079",
-    "docs/COMPLETION_AUDIT.md": "cc39bd1e8516ec899df04a4b27bcd2c51d851433d47b57ec7e798a77e26876d0"
+    "README.md": "4a21a4105c106fc0482885263e3ac3280ccf8be29791bd475897d6902e723945",
+    "README.en.md": "31df3fc33c1434995f7f98ae40484f98b420e0dd31afb98cd63b4d0a46633cb6",
+    "README.agent.md": "81ba29e16f4b2510730934db5c8b8c802584762dc3bf39b245e0467292e9ac5b",
+    "docs/SOURCE_BUILD.md": "a895639604134fdb43ecec588c962ce08a244ff344284351a1044a6da85c185d",
+    "docs/VERIFICATION_LIMITS.md": "78a938e54d148c7e71ae493330f6d2bd85e3220b1f8e04afd21a8d8209c5583f",
+    "docs/COMPLETION_AUDIT.md": "06e655893b8529cc274de56a69d9b31b7fe0e6eb8465daa7781d002bebcb256c",
+    "docs/RUNTIME_TESTING.md": "8b806f0258959c600c6e7e9bef690300c54899696354a6f171736236f8af211a",
+    "docs/media/game-icon.png": "aa371edced5e2a424021a2229652549254356998a443a580a18902ea06a9ad4f"
   },
   "accepted_tracker_exception": "analysis/native-tracker-fidelity-decision.json",
-  "host_incident_resolved": false,
   "host_runtime_validated_with_independent_monitoring": true,
   "scope": "Shipped game data, the original public DLL interfaces, editable implementations and documented verification limits"
 }

@@ -99,8 +99,6 @@ def main():
     verification = read(verification_path)
     if name not in verification['reports']:
         verification['reports'].append(name)
-    verification['host_runtime_incident'].update(latest_monitored_report=name,
-        revised_scene_tree_runtime_validated=True)
     write(verification_path, verification)
     print('Audited two genuine restores, 60 observed active fields, and the retained pointer failure.')
 

@@ -1,6 +1,6 @@
 # Rozhodnutí o původních nedefinovaných trackerových chybách
 
-Uživatel výslovně schválil: „Ano, zachovat dostatečnou alokaci a doložit tuto výjimku.“ Záznam je v `analysis/native-tracker-fidelity-decision.json`. Platí pro20 dodatečných bajtů potřebných pro skutečný trackerový objekt oproti poddimenzované původní factory. Zdrojová implementace se tímto rozhodnutím nemění; původní heap-failure důkazy zůstávají zachované. Ostatní behaviorální rozdíly se tím automaticky neschvalují.
+Rekonstrukce alokuje pro objekt trackeru plných 61 196 bajtů. Původní továrna požaduje 61 176 bajtů a konstruktor zapisuje i za konec této alokace. Tato výjimka z věrnosti se týká pouze velikosti alokace. Rozhodnutí a důkazy popisuje `analysis/native-tracker-fidelity-decision.json`.
 
 Původní `Squall.dll` není jen jiná veřejná verze knihovny. Má prokazatelné vlastní chyby paměti. Nejde o chybějící rekonstrukci efektů ani o chybějící implementaci exportů.
 

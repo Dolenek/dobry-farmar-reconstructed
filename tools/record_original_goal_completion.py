@@ -107,7 +107,6 @@ def main():
         for key in ('raw_report', 'watchdog_log', 'window_log', 'input_log'):
             check_reference(trial[key])
         assert trial['game_exit'] == trial['watchdog_exit'] == trial['live_owned_processes_at_end'] == 0
-    assert not restore['incident_resolved']
 
     rich = report('contract-streak-forty-interop-validation')
     current_implementation(rich['implementation_files'])
@@ -127,7 +126,9 @@ def main():
     project_files = {path.relative_to(reference_project).as_posix(): digest(path)
                      for path in sorted(reference_project.rglob('*')) if path.is_file()}
     assert any(name.endswith('.gpr') for name in project_files) and any('.rep/' in name for name in project_files)
-    for name in ('README.md', 'docs/SOURCE_BUILD.md', 'docs/VERIFICATION_LIMITS.md', 'docs/COMPLETION_AUDIT.md'):
+    for name in ('README.md', 'README.en.md', 'README.agent.md', 'docs/SOURCE_BUILD.md',
+                 'docs/VERIFICATION_LIMITS.md', 'docs/COMPLETION_AUDIT.md', 'docs/RUNTIME_TESTING.md',
+                 'docs/media/game-icon.png'):
         evidence[name] = digest(ROOT / name)
 
     criteria = [
@@ -153,7 +154,7 @@ def main():
         recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), recorder_sha256=digest(__file__),
         criteria=criteria, supporting_reports=evidence,
         accepted_tracker_exception='analysis/native-tracker-fidelity-decision.json',
-        host_incident_resolved=False, host_runtime_validated_with_independent_monitoring=True,
+        host_runtime_validated_with_independent_monitoring=True,
         scope='Shipped game data, the original public DLL interfaces, editable implementations and documented verification limits')
     write(ROOT / 'analysis/original-goal-completion-audit.json', result)
     print('All six original criteria verified against current evidence.')

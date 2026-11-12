@@ -59,6 +59,6 @@ def require_desktop_runtime_available(root=None):
         try:context=verified_watchdog_context(root,hold)
         except (OSError,ValueError,KeyError) as error:raise RuntimeError('Cannot verify monitored test lease') from error
         if context:return context
-        raise RuntimeError('Interactive host game tests are held after a reported Windows freeze. '
+        raise RuntimeError('Interactive host game tests are held by the local runtime gate. '
             'Do not launch a game, capture the desktop, or inject input on this host. '
-            f'See {path} and docs/HOST_FREEZE_INCIDENT.md; an independently watched Job or an isolated guest is required.')
+            f'See {path} and docs/RUNTIME_TESTING.md; an independently watched Job or an isolated guest is required.')

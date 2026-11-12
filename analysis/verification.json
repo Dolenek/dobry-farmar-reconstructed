@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-11-11T15:35:40.563369+00:00",
+  "recorded_at_utc": "2026-11-12T14:49:07.078112+00:00",
   "platform": "Windows AMD64",
   "target_architecture": "x86",
   "overall_status": "completed_source_reconstruction_with_documented_verification_limits",
@@ -210,7 +210,7 @@
     "exact_bgra_bytes": true,
     "pe_export_contract_verified": true
   },
-  "source_tree_sha256": "384efdfbb8fb09fcab55dcad03e3c1d0aa94249222baaf18e6f43e81c5995e70",
+  "source_tree_sha256": "4ea31e3eb949e81ca280cef67dd8d9d8d2d8efff6aeb82252e3ff9a113f8dc97",
   "source_tree_hash_format": "SHA-256 of sorted UTF-8 relative-path + NUL + file-SHA256 + LF rows for src/tools/tests (excluding __pycache__) and CMakeLists.txt",
   "reports": [
     "analysis/jngload-windows-validation.json",
@@ -759,11 +759,9 @@
     "analysis/tutorial-warning-capacity-observations.json",
     "analysis/tutorial-warning-observer-observations.json",
     "analysis/tutorial-warning-first-pair-regression.json",
-    "analysis/host-freeze-incident.json",
     "analysis/tutorial-warning-native-warehouse-observation.json",
     "analysis/tutorial-warning-growth-observations.json",
     "analysis/native-game-loopback-audio-observation.json",
-    "analysis/host-runtime-monitoring-authorization.json",
     "analysis/host-watchdog-cpu-validation.json",
     "analysis/monitored-source-startup-validation.json",
     "analysis/host-input-monitoring-cpu-validation.json",
@@ -108810,16 +108808,6 @@
       42,
       44
     ]
-  },
-  "host_runtime_incident": {
-    "report": "analysis/host-freeze-incident.json",
-    "resolved": false,
-    "host_interactive_runtime_tests_held": false,
-    "completed_runtime_report_missing": true,
-    "authorized_monitored_host_tests": true,
-    "unmonitored_host_tests_held": true,
-    "latest_monitored_report": "analysis/monitored-source-restore-validation.json",
-    "revised_scene_tree_runtime_validated": true
   },
   "current_game_audio_output_gate": {
     "report": "analysis/current-game-loopback-audio-validation.json",

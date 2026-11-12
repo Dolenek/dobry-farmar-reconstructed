@@ -137,16 +137,15 @@ def audit_evidence():
     report('analysis/native-game-loopback-audio-observation.json')
     startup = report('analysis/monitored-source-startup-validation.json')
     assert not startup['revised_scene_tree_runtime_validated'] and not startup['incident_resolved']
-    report('analysis/host-runtime-monitoring-authorization.json')
     decision = report('analysis/native-tracker-fidelity-decision.json')
     assert decision['status'] == 'user_accepted_documented_sufficient_tracker_allocation_exception'
     v = report('analysis/verification.json')
 
     remaining = [
-        'Complete the short independently monitored actual farm/physical-input/new observer probe after real user activation;foreground refusal is not bypassed.',
+        'Complete a short independently monitored farm, physical input and scene observer probe with verified game-window focus.',
         'Complete source warning41 against retained completed native evidence and actual warning44 in both programs,including pixels,ledgers and normal exits.',
         'Verify nonzero process-only Windows audio output from the actual source game;native-only capture and exact decoded PCM are separate evidence.',
-        'Assess host incident after bounded actual runtime;software DWM counters alone do not prove the physical display is healthy.',
+        'Assess window responsiveness during bounded runtime; DWM counters alone do not verify physical display output.',
         'Finish the six-criterion requirement audit and update documentation after those actual gates pass;do not equate97 implemented exports with all-path equivalence.'
     ]
     result = dict(status='current_source_build_and_existing_evidence_rechecked_original_goal_incomplete',

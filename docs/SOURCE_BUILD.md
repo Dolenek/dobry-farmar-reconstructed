@@ -4,7 +4,9 @@ Nejnovější zdrojový strom po opravě JNGLoad je `work/production-source-2026
 
 Opakovaný v4 test deníku narazil na tutoriál1 již v první relaci: deník se ve skutečnosti neotevřel, přesto animace splnila starou slabou podmínku rozdílných pixelů. Neúspěšný report a oba snímky zůstávají zachované. Úspěšná v4 kontrola je proto označená `startup-only` a neprohlašuje nové ověření deníku; předchozí v3 skutečný panel/menu/help důkaz má přesně stejné herní zdroje, což recorder ověřuje. Tutoriál a celá herní integrace mají další samostatné skutečné native/source scénáře. Tento rozdíl rozsahu se nezakrývá změnou produkce ani úpravou profilových tip flagů.
 
-Potřebné jsou Windows, Python3, CMake3.20+, Visual Studio2022 s C++ Win32 nástroji a Windows SDK. Ověřeno: MSVC19.43.34810, SDK10.0.26100.0. Před konfigurací připravte zdrojové závislosti ověřované připnutými hashi:
+Potřebné jsou Windows, Python 3, CMake 3.20+, Visual Studio 2022 s C++ Win32 nástroji a Windows SDK. Ověřený build používal MSVC 19.43.34810 a SDK 10.0.26100.0. Příkazy spusťte z kořene repozitáře. Skript pro vytažení ikony očekává původní soubor na relativní cestě `../farmář/Dobrý farmář/Dobrý farmář.exe`. Pokud už máte vytaženou ikonu na `.local/game-artwork/game.ico`, příkaz `python tools/extract_game_icon.py` přeskočte. Cestu k původním datům zvolíte při spuštění hry.
+
+Před konfigurací stáhněte zdrojové závislosti. Skripty je ověří pomocí uložených kontrolních součtů.
 
 ```powershell
 python tools/fetch_libmng.py
