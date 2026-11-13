@@ -128,7 +128,8 @@ def main():
     assert any(name.endswith('.gpr') for name in project_files) and any('.rep/' in name for name in project_files)
     for name in ('README.md', 'README.en.md', 'README.agent.md', 'docs/SOURCE_BUILD.md',
                  'docs/VERIFICATION_LIMITS.md', 'docs/COMPLETION_AUDIT.md', 'docs/RUNTIME_TESTING.md',
-                 'docs/media/game-icon.png'):
+                 'docs/media/menu-logo.png', 'docs/media/in-game.webp',
+                 'docs/media/loading.webp', 'docs/media/menu-clean.webp'):
         evidence[name] = digest(ROOT / name)
 
     criteria = [

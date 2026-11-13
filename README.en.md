@@ -2,9 +2,9 @@
 
 [Česky](README.md) · **English**
 
-# Dobrý farmář
+<img src="docs/media/menu-logo.png" alt="Dobrý farmář game logo" width="420">
 
-<img src="docs/media/game-icon.png" alt="Original Dobrý farmář application icon" width="48" height="48">
+# Dobrý farmář
 
 **A Czech farming game for Windows that can be built from source again.**
 
@@ -24,6 +24,8 @@ The result is editable C++ code. The game uses the original graphics, sounds, an
 
 [Working main menu](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/8c6f98e1e6d6450d5bedf8531633165a691e2a45) · [Saved-game transfers](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/4928fab169d28c065f876ddaffd508f57220bf85) · [Final audit](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/eb0345bfb19ef7f14974e84dd4020cfadfa659a1)
 
+<img src="docs/media/in-game.webp" alt="The farmer in a field during gameplay" width="720">
+
 ## How we checked it against the original
 
 | Result | What we compared |
@@ -34,6 +36,8 @@ The result is editable C++ code. The game uses the original graphics, sounds, an
 | **4 save transfers** | After completing 40 orders, we transferred the save between versions in both directions. All 17,369 bytes matched on every restore. [Save transfer verification](docs/CONTRACT_STREAK.md) |
 
 The game, the image loader, the audio library, and the uninstaller all build from source. All four components use the 32-bit Windows interface. We verified the uninstaller's effects in an isolated environment. [Verification summary](docs/COMPLETION_AUDIT.md) · [Known differences and verification limits](docs/VERIFICATION_LIMITS.md)
+
+<img src="docs/media/loading.webp" alt="Loading screen with the farmer on a tractor" width="320">
 
 ## How to play
 
@@ -52,5 +56,7 @@ The game, the image loader, the audio library, and the uninstaller all build fro
 ## Explore the source code
 
 [Game code overview](docs/GAME.md) · [Technical development notes](README.agent.md)
+
+<img src="docs/media/menu-clean.webp" alt="Main menu background with the game logo and a view of the farm" width="720">
 
 </div>

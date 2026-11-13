@@ -2,9 +2,9 @@
 
 **Česky** · [English](README.en.md)
 
-# Dobrý farmář
+<img src="docs/media/menu-logo.png" alt="Logo hry Dobrý farmář" width="420">
 
-<img src="docs/media/game-icon.png" alt="Původní ikona hry Dobrý farmář" width="48" height="48">
+# Dobrý farmář
 
 **Česká farmářská hra pro Windows, znovu sestavitelná ze zdrojového kódu.**
 
@@ -24,6 +24,8 @@ Výsledkem je upravitelný kód v C++. Hra používá původní grafiku, zvuky a
 
 [Funkční hlavní menu](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/8c6f98e1e6d6450d5bedf8531633165a691e2a45) · [Přenos uložených her](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/4928fab169d28c065f876ddaffd508f57220bf85) · [Závěrečný audit](https://github.com/Dolenek/dobry-farmar-reconstructed/commit/eb0345bfb19ef7f14974e84dd4020cfadfa659a1)
 
+<img src="docs/media/in-game.webp" alt="Farmář na poli v běžící hře" width="720">
+
 ## Jak jsme ověřovali shodu
 
 | Výsledek | Co jsme porovnali |
@@ -34,6 +36,8 @@ Výsledkem je upravitelný kód v C++. Hra používá původní grafiku, zvuky a
 | **4 přenosy uložené hry** | Po dokončení 40 zakázek jsme přenesli uloženou hru mezi verzemi v obou směrech. Při každé obnově se shodovalo všech 17 369 bajtů. [Ověření přenosu](docs/CONTRACT_STREAK.md) |
 
 Ze zdrojů se sestavuje hra, knihovna pro čtení obrázků, zvuková knihovna a odinstalátor. Všechny čtyři součásti používají 32bitové rozhraní Windows. Účinky odinstalátoru jsme ověřili v izolovaném prostředí. [Souhrn ověření](docs/COMPLETION_AUDIT.md) · [Známé odchylky a hranice ověření](docs/VERIFICATION_LIMITS.md)
+
+<img src="docs/media/loading.webp" alt="Načítací obrazovka s farmářem na traktoru" width="320">
 
 ## Jak si zahrát
 
@@ -52,5 +56,7 @@ Ze zdrojů se sestavuje hra, knihovna pro čtení obrázků, zvuková knihovna a
 ## Pro zájemce o zdrojový kód
 
 [Přehled kódu hry](docs/GAME.md) · [Technické poznámky z vývoje](README.agent.md)
+
+<img src="docs/media/menu-clean.webp" alt="Pozadí hlavního menu s logem hry a pohledem na farmu" width="720">
 
 </div>
